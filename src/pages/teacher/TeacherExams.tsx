@@ -1268,6 +1268,7 @@ export default function TeacherExams({ embedded = false }) {
           </div>
         </div>
       </div>
+    </div>
 
       {/* Toast Notification */}
       {toastMessage && (
