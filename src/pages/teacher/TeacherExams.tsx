@@ -994,31 +994,37 @@ export default function TeacherExams({ embedded = false }) {
   });
 
   return (
-    <div className={cn("space-y-4", embedded ? "" : "p-6")}>
+    <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
       
-      {/* Unified Table Card Module (Styled exactly like assignments / projects) */}
-      <div className="bg-white rounded border border-neutral-border text-left">
-        {/* Toolbar */}
-        <div className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-border/50">
-          <div className="relative w-full sm:w-auto">
+      {/* Top Actions - Spacing and alignment matching TeacherDatasets */}
+      <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center gap-4">
+          <div className="relative">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
             <input 
               type="text" 
-              placeholder="搜索考试名称" 
-              className="pl-9 pr-4 py-2 w-full sm:w-60 bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
+              placeholder="搜索考试名称..." 
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
             />
           </div>
-          <Button 
-            onClick={() => setIsCreateDrawerOpen(true)}
-            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 shadow-sm font-bold flex-shrink-0 cursor-pointer border-0 h-9 flex items-center gap-1.5 transition-colors text-[13px]"
-          >
-            <Plus className="w-4 h-4" /> 新建考试
-          </Button>
         </div>
 
-        {/* Main Table without vertical borders */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse whitespace-nowrap">
+        <div className="flex items-center gap-4">
+          <Button 
+            onClick={() => setIsCreateDrawerOpen(true)}
+            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+          >
+            <Plus className="w-4 h-4 mr-1" /> 新建考试
+          </Button>
+        </div>
+      </div>
+
+      {/* Content Area - Table Card Container Module & Standalone Pagination */}
+      <div className="flex-1 flex flex-col justify-between overflow-hidden gap-3">
+        {/* Table Card Container */}
+        <div className="bg-white border border-neutral-200/80 rounded-[8px] overflow-hidden flex-1 flex flex-col">
+          <div className="overflow-x-auto flex-1">
+            <table className="w-full text-left border-collapse whitespace-nowrap text-[13px]">
             <thead>
               <tr className="border-b border-neutral-100 bg-neutral-50/50 text-[13px] text-neutral-600 font-medium">
                 <th className="p-4 font-medium w-12 text-center"></th>

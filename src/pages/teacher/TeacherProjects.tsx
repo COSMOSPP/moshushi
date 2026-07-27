@@ -854,18 +854,18 @@ export default function TeacherProjects({
   });
 
   return (
-    <div className="relative w-full border-t border-neutral-100">
+    <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-[100] bg-neutral-900/95 text-white border border-neutral-800 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 animate-slide-up text-xs font-semibold backdrop-blur-md">
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-lg shadow-lg animate-in slide-in-from-top-4">
           <span className="w-2 h-2 rounded-full bg-[#fa541c] animate-pulse"></span>
-          <span>{toastMessage}</span>
+          <span className="text-[14px] font-medium text-neutral-800">{toastMessage}</span>
         </div>
       )}
 
       {/* Associated Course Banner */}
       {incomingCourseId && incomingCourseName && (
-        <div className="mx-5 mt-4 p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-between animate-in fade-in duration-300">
+        <div className="mb-5 p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-between animate-in fade-in duration-300">
           <div className="flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-[4px] bg-orange-100 text-[#fa541c] shrink-0">
               <BookOpen className="w-4 h-4" />
@@ -891,276 +891,304 @@ export default function TeacherProjects({
         </div>
       )}
 
-      {/* TOP CONTROLLER - Styled exactly like Course Search & Filter Controls */}
-      <div className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        {/* Search Input on the left */}
-        <div className="relative w-full sm:w-auto">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
-          <input 
-            type="text" 
-            placeholder="搜索项目名称/技能..." 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9 pr-4 py-2 text-sm border border-neutral-border rounded-full focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] w-full sm:w-60 transition-all text-neutral-855 bg-white h-9"
-          />
+      {/* TOP CONTROLLER - Styled exactly like Dataset Search & Filter Controls */}
+      <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+            <input 
+              type="text" 
+              placeholder="搜索项目名称/技能..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+            />
+          </div>
         </div>
 
-        <Button 
-          onClick={handleCreateNew}
-          className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 shadow-sm font-bold flex-shrink-0 cursor-pointer border-0 h-9 flex items-center gap-1"
-        >
-          <Plus className="w-4 h-4" /> 新建项目
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button 
+            onClick={handleCreateNew}
+            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+          >
+            <Plus className="w-4 h-4 mr-1" /> 新建项目
+          </Button>
+        </div>
       </div>
 
-      {/* TABLE VIEW - Styled exactly like Course management Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse whitespace-nowrap text-[13px]">
-          <thead>
-            <tr className="border-b border-neutral-100 bg-neutral-50/50 text-[13px] text-neutral-600 font-medium">
-              <th className="p-4 font-medium w-[35%]">项目信息</th>
-              <th className="p-4 font-medium">创建人</th>
-              <th className="p-4 font-medium">环境类型</th>
-              <th className="p-4 font-medium">是否可用</th>
-              <th className="p-4 font-medium">课程范围</th>
-              <th className="p-4 font-medium">审核状态</th>
-              <th className="p-4 font-medium">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProjects.map((proj, index) => (
-              <tr key={proj.id} className={cn("border-b border-neutral-100 hover:bg-neutral-50/30 transition-colors group text-[13px]", index === filteredProjects.length - 1 && "border-b-0")}>
-                {/* 1. 项目信息 (封面 + 名称) */}
-                <td className="p-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-20 h-14 rounded-[4px] overflow-hidden flex-shrink-0 border border-neutral-border/50 shadow-sm relative bg-neutral-100">
-                      <img 
-                        src={proj.image} 
-                        alt={proj.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                        referrerPolicy="no-referrer" 
-                      />
-                    </div>
-                    <div>
-                      <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer" onClick={() => handleViewDetails(proj)}>
-                        {proj.name}
-                      </div>
-                    </div>
-                  </div>
-                </td>
-
-                {/* 2. 创建人 */}
-                <td className="p-4 text-neutral-655 font-medium">
-                  <div className="text-neutral-800 font-medium">{proj.creator || '张老师'}</div>
-                </td>
-
-                {/* 3. 环境类型 */}
-                <td className="p-4">
-                  <span className={cn(
-                    "px-2 py-0.5 rounded text-[12px] font-medium border",
-                    (proj.environments?.[0]?.type || '容器') === '容器' 
-                      ? "bg-blue-50 text-blue-600 border-blue-200" 
-                      : "bg-purple-50 text-purple-600 border-purple-200"
-                  )}>
-                    {proj.environments?.[0]?.type || '容器'}
-                  </span>
-                </td>
-
-                {/* 4. 是否可用 */}
-                <td className="p-4">
-                  <span className={cn(
-                    "px-2 py-0.5 text-[12px] rounded border font-medium",
-                    proj.isAvailable 
-                      ? "bg-emerald-50 text-emerald-600 border-emerald-200" 
-                      : "bg-neutral-50 text-neutral-500 border-neutral-200"
-                  )}>
-                    {proj.isAvailable ? '可用' : '不可用'}
-                  </span>
-                </td>
-
-                {/* 5. 课程范围 */}
-                <td className="p-4">
-                  {proj.range === '平台' ? (
-                    <span className="px-2 py-0.5 bg-orange-50 text-orange-600 rounded text-[12px] border border-orange-200 font-medium">{proj.range}</span>
-                  ) : proj.range === '租户' ? (
-                    <span className="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded text-[12px] border border-indigo-200 font-medium">{proj.range}</span>
-                  ) : (
-                    <span className="px-2 py-0.5 bg-neutral-50 text-neutral-500 rounded text-[12px] border border-neutral-200 font-medium">{proj.range || '私有'}</span>
-                  )}
-                </td>
-
-                {/* 6. 审核状态 */}
-                <td className="p-4">
-                  {proj.auditStatus === '已审核' || proj.auditStatus === '已通过' ? (
-                    <span className="text-emerald-600 font-medium">已通过</span>
-                  ) : proj.auditStatus === '已驳回' ? (
-                    <span className="text-rose-600 font-medium">已驳回</span>
-                  ) : (
-                    <span className="text-[#fa541c] font-medium">待审核</span>
-                  )}
-                </td>
-
-                {/* 7. 操作 */}
-                <td className="p-4">
-                  <div className="flex items-center gap-3">
-                    <button 
-                      onClick={() => handleViewDetails(proj)} 
-                      className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
-                    >
-                      详情
-                    </button>
-                    <button 
-                      onClick={() => handleEditProject(proj)} 
-                      className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
-                    >
-                      编辑
-                    </button>
-                    
-                    {/* Secondary actions dropdown */}
-                    {(() => {
-                      const secondaryActions = [];
-                      
-                      const showPublic = proj.range === '私有' && proj.isAvailable && (proj.auditStatus !== '已审核' && proj.auditStatus !== '已通过');
-                      if (showPublic) {
-                        secondaryActions.push({
-                          label: '公开',
-                          onClick: () => handleApplyPublic(proj)
-                        });
-                      }
-
-                      if (proj.status === '已下架') {
-                        secondaryActions.push({
-                          label: '重新上架',
-                          onClick: () => {
-                            setConfirmDialog({
-                              show: true,
-                              title: '确认重新上架项目',
-                              message: `确定要重新上架项目 "${proj.name}" 吗？重新上架后选课学生将恢复可见。`,
-                              onConfirm: () => handleReShelfProject(proj)
-                            });
-                          }
-                        });
-                      } else {
-                        secondaryActions.push({
-                          label: '下架',
-                          onClick: () => {
-                            setProjectToOffShelf(proj);
-                            setOffShelfReason('');
-                            setIsOffShelfModalOpen(true);
-                          }
-                        });
-                      }
-
-                      secondaryActions.push({
-                        label: '复制',
-                        onClick: () => {
-                          setConfirmDialog({
-                            show: true,
-                            title: '确认复制项目',
-                            message: `确定要复制项目 "${proj.name}" 吗？`,
-                            onConfirm: () => handleCopy(proj)
-                          });
-                        }
-                      });
-
-                      const showToggle = (proj.auditStatus !== '已审核' && proj.auditStatus !== '已通过');
-                      if (showToggle) {
-                        if (proj.isAvailable) {
-                          secondaryActions.push({
-                            label: '禁用',
-                            onClick: () => {
-                              setConfirmDialog({
-                                show: true,
-                                title: '确认禁用项目',
-                                message: `确定要禁用项目 "${proj.name}" 吗？禁用后该项目将暂停服务。`,
-                                onConfirm: () => handleToggleAvailable(proj.id, false)
-                              });
-                            }
-                          });
-                        } else {
-                          secondaryActions.push({
-                            label: '启用',
-                            onClick: () => {
-                              setConfirmDialog({
-                                show: true,
-                                title: '确认启用项目',
-                                message: `确定要启用项目 "${proj.name}" 吗？启用后项目将恢复正常使用。`,
-                                onConfirm: () => handleToggleAvailable(proj.id, true)
-                              });
-                            }
-                          });
-                        }
-                      }
-
-                      const showDelete = (proj.auditStatus !== '已审核' && proj.auditStatus !== '已通过');
-                      if (showDelete) {
-                        secondaryActions.push({
-                          label: '删除',
-                          onClick: () => {
-                            setConfirmDialog({
-                              show: true,
-                              title: '确认删除项目',
-                              message: `确定要删除项目 "${proj.name}" 吗？该操作不可撤销。`,
-                              onConfirm: () => handleDelete(proj.id)
-                            });
-                          },
-                          isDanger: true
-                        });
-                      }
-
-                      if (secondaryActions.length === 0) return null;
-
-                      return (
-                        <div className="relative">
-                          <button 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setActiveDropdownId(activeDropdownId === proj.id ? null : proj.id);
-                            }}
-                            className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px] flex items-center gap-0.5"
-                          >
-                            更多 <ChevronDown className="w-3 h-3" />
-                          </button>
-                           {activeDropdownId === proj.id && (
-                            <div className="absolute right-0 top-full mt-1.5 bg-white border border-neutral-200 rounded shadow-lg py-1 z-40 min-w-[120px] text-left animate-in fade-in slide-in-from-top-1 duration-150">
-                              {secondaryActions.map((act, actIdx) => (
-                                <button 
-                                  key={actIdx}
-                                  onClick={() => {
-                                    setActiveDropdownId(null);
-                                    act.onClick();
-                                  }}
-                                  className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50"
-                                >
-                                  {act.label}
-                                </button>
-                              ))}
-                            </div>
-                          )}
+      {/* Content Area - Table Card Container Module & Standalone Pagination */}
+      <div className="flex-1 flex flex-col justify-between overflow-hidden gap-3">
+        {/* Table Card Container */}
+        <div className="bg-white border border-neutral-200/80 rounded-[8px] overflow-hidden flex-1 flex flex-col">
+          <div className="overflow-x-auto flex-1">
+            <table className="w-full text-left border-collapse whitespace-nowrap text-[13px]">
+              <thead>
+                <tr className="border-b border-neutral-100 bg-neutral-50/50 text-[13px] text-neutral-600 font-medium">
+                  <th className="p-4 font-medium w-[35%]">项目信息</th>
+                  <th className="p-4 font-medium">创建人</th>
+                  <th className="p-4 font-medium">环境类型</th>
+                  <th className="p-4 font-medium">是否可用</th>
+                  <th className="p-4 font-medium">课程范围</th>
+                  <th className="p-4 font-medium">审核状态</th>
+                  <th className="p-4 font-medium">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredProjects.map((proj, index) => (
+                  <tr key={proj.id} className={cn("border-b border-neutral-100 hover:bg-neutral-50/30 transition-colors group text-[13px]", index === filteredProjects.length - 1 && "border-b-0")}>
+                    {/* 1. 项目信息 (封面 + 名称) */}
+                    <td className="p-4">
+                      <div className="flex items-center gap-4">
+                        <div className="w-20 h-14 rounded-md overflow-hidden flex-shrink-0 border border-neutral-200/60 shadow-xs relative bg-neutral-100">
+                          <img 
+                            src={proj.image} 
+                            alt={proj.name} 
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                            referrerPolicy="no-referrer" 
+                          />
                         </div>
-                      );
-                    })()}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        
-        {filteredProjects.length === 0 && (
-          <div className="p-16 text-center text-neutral-400 font-semibold text-xs flex flex-col items-center justify-center gap-2 bg-neutral-50/10">
-            <FolderOpen className="w-8 h-8 text-neutral-300" />
-            <span>暂无符合条件的实战项目</span>
-          </div>
-        )}
+                        <div>
+                          <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer" onClick={() => handleViewDetails(proj)}>
+                            {proj.name}
+                          </div>
+                        </div>
+                      </div>
+                    </td>
 
-        {/* PAGINATION - Styled exactly like Course Table Pagination */}
-        <div className="flex items-center justify-end p-4 gap-4 mt-2 border-t border-neutral-100">
+                    {/* 2. 创建人 */}
+                    <td className="p-4 text-neutral-600 font-medium">
+                      <div className="text-neutral-800 font-medium">{proj.creator || '张老师'}</div>
+                    </td>
+
+                    {/* 3. 环境类型 */}
+                    <td className="p-4">
+                      <span className={cn(
+                        "px-2 py-0.5 rounded text-[12px] font-medium border",
+                        (proj.environments?.[0]?.type || '容器') === '容器' 
+                          ? "bg-blue-50 text-blue-600 border-blue-200" 
+                          : "bg-purple-50 text-purple-600 border-purple-200"
+                      )}>
+                        {proj.environments?.[0]?.type || '容器'}
+                      </span>
+                    </td>
+
+                    {/* 4. 是否可用 */}
+                    <td className="p-4">
+                      <span className={cn(
+                        "px-2 py-0.5 text-[12px] rounded border font-medium",
+                        proj.isAvailable 
+                          ? "bg-emerald-50 text-emerald-600 border-emerald-200" 
+                          : "bg-neutral-50 text-neutral-500 border-neutral-200"
+                      )}>
+                        {proj.isAvailable ? '可用' : '不可用'}
+                      </span>
+                    </td>
+
+                    {/* 5. 课程范围 */}
+                    <td className="p-4">
+                      <span className={cn(
+                        "px-2 py-0.5 text-[12px] rounded border font-medium",
+                        proj.range === '平台' ? "bg-orange-50 text-orange-600 border-orange-200" :
+                        proj.range === '租户' ? "bg-indigo-50 text-indigo-600 border-indigo-200" :
+                        "bg-neutral-50 text-neutral-500 border-neutral-200"
+                      )}>
+                        {proj.range || '私有'}
+                      </span>
+                    </td>
+
+                    {/* 6. 审核状态 */}
+                    <td className="p-4">
+                      {proj.auditStatus === '待审核' ? (
+                        <span className="text-[#fa541c] font-medium">待审核</span>
+                      ) : proj.auditStatus === '已审核' || proj.auditStatus === '已通过' ? (
+                        <span className="text-emerald-600 font-medium">已通过</span>
+                      ) : proj.auditStatus === '已驳回' ? (
+                        <span className="text-rose-600 font-medium">已驳回</span>
+                      ) : (
+                        <span className="text-neutral-400 font-normal">--</span>
+                      )}
+                    </td>
+
+                    {/* 7. 操作 */}
+                    <td className="p-4">
+                      <div className="flex items-center gap-3">
+                        <button 
+                          onClick={() => handleViewDetails(proj)} 
+                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
+                        >
+                          编辑
+                        </button>
+                        <button 
+                          onClick={() => handleApplyPublic(proj)} 
+                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
+                        >
+                          公开
+                        </button>
+
+                        {/* Secondary actions dropdown */}
+                        {(() => {
+                          const secondaryActions: Array<{ label: string; onClick: () => void; isDanger?: boolean }> = [];
+                          
+                          if (proj.status === '草稿') {
+                            secondaryActions.push({
+                              label: '发布',
+                              onClick: () => {
+                                setConfirmDialog({
+                                  show: true,
+                                  title: '确认发布项目',
+                                  message: `确定要发布项目 "${proj.name}" 吗？发布后选课学生将可见该项目。`,
+                                  onConfirm: () => handlePublish(proj.id)
+                                });
+                              }
+                            });
+                          } else if (proj.status === '已发布') {
+                            secondaryActions.push({
+                              label: '取消发布',
+                              onClick: () => {
+                                setConfirmDialog({
+                                  show: true,
+                                  title: '确认取消发布',
+                                  message: `确定要取消发布项目 "${proj.name}" 吗？取消发布后学生将无法访问该项目。`,
+                                  onConfirm: () => handleCancelPublish(proj.id)
+                                });
+                              }
+                            });
+                          }
+
+                          if (proj.status === '已下架') {
+                            secondaryActions.push({
+                              label: '重新上架',
+                              onClick: () => {
+                                setConfirmDialog({
+                                  show: true,
+                                  title: '确认重新上架项目',
+                                  message: `确定要重新上架项目 "${proj.name}" 吗？重新上架后选课学生将恢复可见。`,
+                                  onConfirm: () => handleReShelfProject(proj)
+                                });
+                              }
+                            });
+                          } else {
+                            secondaryActions.push({
+                              label: '下架',
+                              onClick: () => {
+                                setProjectToOffShelf(proj);
+                                setOffShelfReason('');
+                                setIsOffShelfModalOpen(true);
+                              }
+                            });
+                          }
+
+                          secondaryActions.push({
+                            label: '复制',
+                            onClick: () => {
+                              setConfirmDialog({
+                                show: true,
+                                title: '确认复制项目',
+                                message: `确定要复制项目 "${proj.name}" 吗？`,
+                                onConfirm: () => handleCopy(proj)
+                              });
+                            }
+                          });
+
+                          const showToggle = (proj.auditStatus !== '已审核' && proj.auditStatus !== '已通过');
+                          if (showToggle) {
+                            if (proj.isAvailable) {
+                              secondaryActions.push({
+                                label: '禁用',
+                                onClick: () => {
+                                  setConfirmDialog({
+                                    show: true,
+                                    title: '确认禁用项目',
+                                    message: `确定要禁用项目 "${proj.name}" 吗？禁用后该项目将暂停服务。`,
+                                    onConfirm: () => handleToggleAvailable(proj.id, false)
+                                  });
+                                }
+                              });
+                            } else {
+                              secondaryActions.push({
+                                label: '启用',
+                                onClick: () => {
+                                  setConfirmDialog({
+                                    show: true,
+                                    title: '确认启用项目',
+                                    message: `确定要启用项目 "${proj.name}" 吗？`,
+                                    onConfirm: () => handleToggleAvailable(proj.id, true)
+                                  });
+                                }
+                              });
+                            }
+                          }
+
+                          if (proj.range !== '租户' && proj.range !== '平台') {
+                            secondaryActions.push({
+                              label: '删除',
+                              onClick: () => {
+                                setConfirmDialog({
+                                  show: true,
+                                  title: '确认删除项目',
+                                  message: `确定要删除项目 "${proj.name}" 吗？该操作不可撤销。`,
+                                  onConfirm: () => handleDelete(proj.id)
+                                });
+                              },
+                              isDanger: true
+                            });
+                          }
+
+                          if (secondaryActions.length === 0) return null;
+
+                          return (
+                            <div className="relative">
+                              <button 
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveDropdownId(activeDropdownId === proj.id ? null : proj.id);
+                                }}
+                                className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px] flex items-center gap-0.5"
+                              >
+                                更多 <ChevronDown className="w-3 h-3" />
+                              </button>
+                              {activeDropdownId === proj.id && (
+                                <div className="absolute right-0 top-full mt-1.5 bg-white border border-neutral-200 rounded shadow-lg py-1 z-40 min-w-[120px] text-left animate-in fade-in slide-in-from-top-1 duration-150">
+                                  {secondaryActions.map((act, actIdx) => (
+                                    <button 
+                                      key={actIdx}
+                                      onClick={() => {
+                                        setActiveDropdownId(null);
+                                        act.onClick();
+                                      }}
+                                      className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                    >
+                                      {act.label}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            
+            {filteredProjects.length === 0 && (
+              <div className="p-16 text-center text-neutral-400 font-semibold text-xs flex flex-col items-center justify-center gap-2 bg-neutral-50/10">
+                <FolderOpen className="w-8 h-8 text-neutral-300" />
+                <span>暂无符合条件的实战项目</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Pagination */}
+        <div className="flex items-center justify-end p-4 gap-4 border-t border-neutral-100 bg-white border border-neutral-200/80 rounded-[8px]">
           <span className="text-[13px] text-neutral-500">共 {filteredProjects.length} 条</span>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]" disabled>&lt;</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#fa541c] text-white border-[#fa541c]">1</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">&gt;</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm">&gt;</Button>
           </div>
           <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white">
             <option>10 条/页</option>

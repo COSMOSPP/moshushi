@@ -203,13 +203,13 @@ export default function TeacherCenter() {
 
   // --- Notification State ---
   const [notifications, setNotifications] = useState<NotificationItem[]>(mockNotifications);
-  const [notiFilter, setNotiFilter] = useState('所有');
+  const [notiFilter, setNotiFilter] = useState<'全部' | '未读' | '已读'>('全部');
   const [notiSearchQuery, setNotiSearchQuery] = useState('');
   const [selectedNotiId, setSelectedNotiId] = useState<number | null>(null);
 
   const filteredNotis = notifications.filter(n => {
     if (notiFilter === '未读' && n.read) return false;
-    if (notiFilter !== '所有' && notiFilter !== '未读' && n.type !== notiFilter) return false;
+    if (notiFilter === '已读' && !n.read) return false;
     if (notiSearchQuery && !n.title.toLowerCase().includes(notiSearchQuery.toLowerCase()) && !n.content.toLowerCase().includes(notiSearchQuery.toLowerCase()) && !n.sender.toLowerCase().includes(notiSearchQuery.toLowerCase())) return false;
     return true;
   });
@@ -772,7 +772,7 @@ export default function TeacherCenter() {
               <Button 
                 onClick={(e) => handleDeleteNoti(selectedNoti.id, e)}
                 variant="outline" 
-                className="h-8 px-3 text-xs border-red-200 text-red-600 hover:bg-red-50 rounded-[4px] cursor-pointer"
+                className="h-8 px-3 text-xs border-orange-200 text-[#fa541c] hover:bg-orange-50 rounded-[4px] cursor-pointer"
               >
                 <Trash2 className="w-3.5 h-3.5 mr-1" /> 删除
               </Button>
@@ -783,23 +783,6 @@ export default function TeacherCenter() {
           <div className="bg-white rounded-xl border border-neutral-200/80 shadow-xs overflow-hidden">
             {/* Header Banner & Metadata */}
             <div className="p-6 md:p-8 border-b border-neutral-100 bg-gradient-to-b from-neutral-50/60 to-white">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-orange-50 text-[#fa541c] border border-orange-100">
-                  {selectedNoti.type}
-                </span>
-                <span className={cn(
-                  "px-2.5 py-0.5 rounded text-xs font-bold",
-                  selectedNoti.level === '重要' || selectedNoti.level === '紧急' ? "bg-red-50 text-red-600 border border-red-100" :
-                  selectedNoti.level === '警告' ? "bg-amber-50 text-amber-700 border border-amber-100" :
-                  "bg-blue-50 text-blue-600 border border-blue-100"
-                )}>
-                  {selectedNoti.level}级别
-                </span>
-                <span className="px-2.5 py-0.5 rounded text-xs font-medium bg-neutral-100 text-neutral-600">
-                  {selectedNoti.read ? '已读消息' : '未读消息'}
-                </span>
-              </div>
-
               <h1 className="text-xl md:text-2xl font-bold text-neutral-900 leading-snug tracking-tight mb-4">
                 {selectedNoti.title}
               </h1>
@@ -906,20 +889,29 @@ export default function TeacherCenter() {
               </div>
             </div>
 
-            {/* Right: Action Buttons */}
-            <div className="flex items-center gap-3 shrink-0">
-              {unreadCount > 0 && (
-                <Button 
-                  onClick={() => {
-                    setNotifications(notifications.map(n => ({...n, read: true})));
-                    showToast('已全部标记为已读');
-                  }}
-                  variant="outline" 
-                  className="h-8 rounded-[4px] px-3.5 text-xs font-semibold border-neutral-200 text-neutral-700 hover:bg-neutral-50 bg-white cursor-pointer"
-                >
-                  <Check className="w-3.5 h-3.5 mr-1" /> 全部已读
-                </Button>
-              )}
+            {/* Right: Status Pill Selectors matching AdminAudit style */}
+            <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-end">
+              <div className="flex bg-neutral-100 rounded-full p-1 border border-neutral-200/50">
+                {(["全部", "未读", "已读"] as const).map(f => (
+                  <button
+                    key={f}
+                    onClick={() => setNotiFilter(f)}
+                    className={cn(
+                      "px-4 py-1.5 text-[12px] font-medium rounded-full transition-all duration-200 cursor-pointer border-0 bg-transparent flex items-center gap-1",
+                      notiFilter === f 
+                        ? "bg-white text-[#fa541c] font-bold shadow-sm" 
+                        : "text-neutral-600 hover:text-neutral-900"
+                    )}
+                  >
+                    {f}
+                    {f === '未读' && unreadCount > 0 && (
+                      <span className="ml-1 px-1.5 py-0.2 bg-[#fa541c] text-white rounded-full text-[10px] font-bold">
+                        {unreadCount}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -932,7 +924,7 @@ export default function TeacherCenter() {
                   <th className="p-4 font-medium w-[15%]">消息分类</th>
                   <th className="p-4 font-medium w-[15%]">发送方</th>
                   <th className="p-4 font-medium w-[15%]">消息时间</th>
-                  <th className="p-4 font-medium w-[10%] text-right">操作</th>
+                  <th className="p-4 font-medium w-[10%] text-left">操作</th>
                 </tr>
               </thead>
               <tbody>
@@ -963,14 +955,6 @@ export default function TeacherCenter() {
                               )}>
                                 {noti.title}
                               </span>
-                              <span className={cn(
-                                "px-1.5 py-0.2 rounded text-[10px] font-bold shrink-0",
-                                noti.level === '重要' || noti.level === '紧急' ? "bg-red-50 text-red-600" :
-                                noti.level === '警告' ? "bg-amber-50 text-amber-700" :
-                                "bg-neutral-100 text-neutral-600"
-                              )}>
-                                {noti.level}
-                              </span>
                             </div>
                             <div className="text-xs text-neutral-500 leading-relaxed font-normal line-clamp-1">
                               {noti.content}
@@ -997,15 +981,15 @@ export default function TeacherCenter() {
                       </td>
 
                       {/* 操作 */}
-                      <td className="p-4 text-right">
+                      <td className="p-4 text-left">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleSelectNotification(noti.id);
                           }}
-                          className="text-xs text-[#fa541c] hover:underline font-medium inline-flex items-center gap-0.5 cursor-pointer bg-transparent border-0"
+                          className="text-xs text-[#fa541c] hover:underline font-medium inline-flex items-center cursor-pointer bg-transparent border-0"
                         >
-                          查看详情 <ChevronRight className="w-3.5 h-3.5" />
+                          查看详情
                         </button>
                       </td>
                     </tr>
