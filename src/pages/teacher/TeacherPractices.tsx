@@ -529,79 +529,112 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
 
       {/* Drawer for Create / Edit */}
       {isDrawerOpen && (
-        <div className="fixed inset-0 z-[150] bg-black/45 backdrop-blur-[2px] flex justify-end animate-fade-in" onClick={() => setIsDrawerOpen(false)}>
-          <div className="bg-white w-full max-w-[640px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300" onClick={(e) => e.stopPropagation()}>
-            <div className="px-8 py-5 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
-              <h2 className="text-[18px] font-bold text-neutral-900">
+        <div 
+          className="fixed inset-0 z-[150] bg-black/45 backdrop-blur-[2px] flex justify-end animate-fade-in text-left" 
+          onClick={() => setIsDrawerOpen(false)}
+        >
+          <div 
+            className="bg-white w-full max-w-[680px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300 relative" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Drawer Header */}
+            <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 z-10 shrink-0">
+              <h2 className="text-[15px] font-bold text-neutral-850">
                 {isEditMode ? '编辑最佳实践' : '创建教师私有实践'}
               </h2>
-              <button onClick={() => setIsDrawerOpen(false)} className="text-neutral-400 hover:text-[#fa541c] p-2 hover:bg-orange-50 rounded-full transition-colors">
-                <X className="w-5 h-5" />
+              <button 
+                onClick={() => setIsDrawerOpen(false)} 
+                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+              >
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-8 space-y-7 custom-scrollbar">
-              <div className="space-y-2.5">
-                <label className="text-[13px] font-bold text-neutral-700">实践名称 <span className="text-[#fa541c]">*</span></label>
+            {/* Drawer Body */}
+            <div className="p-6 overflow-y-auto space-y-5 custom-scrollbar flex-1 bg-white relative">
+              {/* 实践名称 */}
+              <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right">
+                  <span className="text-[#fa541c]">*</span>实践名称
+                </label>
                 <input
                   type="text"
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
                   placeholder="如：项目汇报 PPT 生成..."
-                  className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
                 />
               </div>
 
-              <div className="space-y-2.5">
-                <label className="text-[13px] font-bold text-neutral-700">核心摘要</label>
+              {/* 核心摘要 */}
+              <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right">
+                  核心摘要
+                </label>
                 <input
                   type="text"
                   value={formSummary}
                   onChange={(e) => setFormSummary(e.target.value)}
                   placeholder="一句话总结该实践的核心亮点与价值..."
-                  className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
                 />
               </div>
 
-              <div className="space-y-2.5">
-                <label className="text-[13px] font-bold text-neutral-700">详细描述</label>
+              {/* 详细描述 */}
+              <div className="grid grid-cols-[100px_1fr] items-start gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
+                  详细描述
+                </label>
                 <textarea
                   value={formDesc}
                   onChange={(e) => setFormDesc(e.target.value)}
                   placeholder="描述适用的业务场景、背景痛点以及解决思路..."
-                  className="w-full h-32 border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] resize-none transition-all"
+                  className="w-full h-28 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 resize-none transition-all text-[#262626]"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="space-y-2.5">
-                  <label className="text-[13px] font-bold text-neutral-700">技术标签</label>
-                  <input
-                    type="text"
-                    value={formTechTags}
-                    onChange={(e) => setFormTechTags(e.target.value)}
-                    placeholder="如：对话交互, 数据处理"
-                    className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all"
-                  />
-                </div>
-                <div className="space-y-2.5">
-                  <label className="text-[13px] font-bold text-neutral-700">业务场景标签</label>
-                  <input
-                    type="text"
-                    value={formScenarioTags}
-                    onChange={(e) => setFormScenarioTags(e.target.value)}
-                    placeholder="如：课程辅助, 日常办公"
-                    className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all"
-                  />
-                </div>
+              {/* 技术标签 */}
+              <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right">
+                  技术标签
+                </label>
+                <input
+                  type="text"
+                  value={formTechTags}
+                  onChange={(e) => setFormTechTags(e.target.value)}
+                  placeholder="如：对话交互, 数据处理"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                />
+              </div>
+
+              {/* 业务场景标签 */}
+              <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right">
+                  业务场景标签
+                </label>
+                <input
+                  type="text"
+                  value={formScenarioTags}
+                  onChange={(e) => setFormScenarioTags(e.target.value)}
+                  placeholder="如：课程辅助, 日常办公"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                />
               </div>
             </div>
 
-            <div className="px-8 py-5 border-t border-neutral-100 bg-neutral-50/80 flex justify-end gap-3 shrink-0">
-              <Button onClick={() => setIsDrawerOpen(false)} variant="outline" className="border-neutral-200 text-neutral-600 h-10 px-6 rounded-full font-bold text-[13px]">
+            {/* Drawer Footer */}
+            <div className="px-6 py-4 border-t border-neutral-100 flex justify-end gap-3 bg-neutral-50/50 z-10 shrink-0">
+              <Button 
+                onClick={() => setIsDrawerOpen(false)} 
+                variant="outline" 
+                className="border-neutral-200 text-neutral-600 font-bold h-9 px-5 text-xs hover:bg-neutral-100 transition-all rounded-[4px] cursor-pointer bg-white"
+              >
                 取消
               </Button>
-              <Button onClick={handleSave} className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-10 px-10 rounded-full shadow-sm font-bold text-[13px]">
+              <Button 
+                onClick={handleSave} 
+                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+              >
                 保存配置
               </Button>
             </div>

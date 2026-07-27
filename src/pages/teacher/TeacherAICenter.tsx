@@ -205,57 +205,110 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
 
       {/* 2. Assistant Creation Drawer */}
       {isAssModalOpen && (
-        <div className="fixed inset-0 z-[150] flex justify-end bg-black/45 backdrop-blur-[2px] animate-fade-in" onClick={() => setIsAssModalOpen(false)}>
-          <div className="bg-white w-full max-w-[640px] h-screen shadow-2xl border-l border-neutral-100 flex flex-col animate-in slide-in-from-right duration-300" onClick={e => e.stopPropagation()}>
-             <div className="px-8 py-5 border-b border-neutral-100 flex justify-between items-center shrink-0 bg-neutral-50/50">
-                <h2 className="text-[18px] font-bold text-neutral-900">配置私有智能助手</h2>
-                <button onClick={() => setIsAssModalOpen(false)} className="text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 p-2 rounded-full transition-colors"><X className="w-5 h-5" /></button>
-             </div>
-             <div className="flex-1 p-8 overflow-y-auto space-y-7 custom-scrollbar">
-                <div className="flex flex-col items-center justify-center gap-3 mb-6 border-b border-neutral-100 pb-8">
-                  <div className="w-24 h-24 rounded-[20px] bg-neutral-50 border-2 border-neutral-200 border-dashed flex items-center justify-center overflow-hidden cursor-pointer hover:bg-neutral-100 hover:border-[#fa541c]/50 transition-all group shadow-sm">
-                     <UploadCloud className="w-8 h-8 text-neutral-400 group-hover:text-[#fa541c]" />
-                  </div>
-                  <div className="text-[13px] font-bold text-neutral-500">点击上传助手头像</div>
+        <div 
+          className="fixed inset-0 z-[150] flex justify-end bg-black/45 backdrop-blur-[2px] animate-fade-in text-left text-[13px]" 
+          onClick={() => setIsAssModalOpen(false)}
+        >
+          <div 
+            className="bg-white w-full max-w-[680px] h-screen shadow-2xl border-l border-neutral-100 flex flex-col animate-in slide-in-from-right duration-300 relative" 
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Drawer Header */}
+            <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 z-10 shrink-0">
+              <h2 className="text-[15px] font-bold text-neutral-850">配置私有智能助手</h2>
+              <button 
+                onClick={() => setIsAssModalOpen(false)} 
+                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Drawer Body */}
+            <div className="p-6 overflow-y-auto space-y-5 custom-scrollbar flex-1 bg-white relative">
+              {/* 头像上传 */}
+              <div className="flex flex-col items-center justify-center gap-2 border-b border-neutral-100 pb-5">
+                <div className="w-20 h-20 rounded-[16px] bg-neutral-50 border-2 border-neutral-200 border-dashed flex items-center justify-center overflow-hidden cursor-pointer hover:bg-neutral-100 hover:border-[#fa541c]/50 transition-all group shadow-xs">
+                  <UploadCloud className="w-7 h-7 text-neutral-400 group-hover:text-[#fa541c]" />
                 </div>
-                
-                <div className="space-y-2.5">
-                  <label className="text-[13px] font-bold block text-neutral-700">助手名称 <span className="text-[#fa541c]">*</span></label>
-                  <input value={assForm.name} onChange={e => setAssForm({...assForm, name: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all" placeholder="例如：操作系统答疑机器人" />
+                <div className="text-xs font-bold text-neutral-500">点击上传助手头像</div>
+              </div>
+              
+              {/* 助手名称 */}
+              <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right">
+                  <span className="text-[#fa541c]">*</span>助手名称
+                </label>
+                <input 
+                  value={assForm.name} 
+                  onChange={e => setAssForm({...assForm, name: e.target.value})} 
+                  placeholder="例如：操作系统答疑机器人"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]" 
+                />
+              </div>
+              
+              {/* 助手分类 */}
+              <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right">
+                  助手分类
+                </label>
+                <select 
+                  value={assForm.type} 
+                  onChange={e => setAssForm({...assForm, type: e.target.value as any})} 
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all cursor-pointer text-[#262626]"
+                >
+                  <option>课程助手</option>
+                  <option>实验助手</option>
+                  <option>答疑助手</option>
+                </select>
+              </div>
+              
+              {/* 默认欢迎语 */}
+              <div className="grid grid-cols-[100px_1fr] items-start gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
+                  默认欢迎语
+                </label>
+                <textarea 
+                  value={assForm.welcome} 
+                  onChange={e => setAssForm({...assForm, welcome: e.target.value})} 
+                  placeholder="设置学生进入聊天室时看到的开场白..." 
+                  className="w-full h-24 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 resize-none transition-all text-[#262626]" 
+                />
+              </div>
+              
+              {/* 关联知识库 */}
+              <div className="grid grid-cols-[100px_1fr] items-start gap-4">
+                <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
+                  关联知识库
+                </label>
+                <div className="w-full border-2 border-dashed border-neutral-200 rounded-xl p-5 flex flex-col items-center justify-center text-neutral-500 bg-neutral-50 cursor-pointer hover:bg-orange-50/40 hover:border-[#fa541c]/50 transition-all">
+                  <Database className="w-5 h-5 mb-2 text-neutral-400" />
+                  <span className="text-[13px] font-bold text-neutral-700 mb-0.5">挂载专属知识边界</span>
+                  <span className="text-xs text-neutral-400 max-w-[240px] text-center leading-relaxed">点击选取实训平台内的课程文档或个人题库作为知识来源</span>
                 </div>
-                
-                <div className="space-y-2.5">
-                  <label className="text-[13px] font-bold block text-neutral-700">助手分类</label>
-                  <select value={assForm.type} onChange={e => setAssForm({...assForm, type: e.target.value as any})} className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all appearance-none cursor-pointer">
-                    <option>课程助手</option>
-                    <option>实验助手</option>
-                    <option>答疑助手</option>
-                  </select>
-                </div>
-                
-                <div className="space-y-2.5">
-                  <label className="text-[13px] font-bold block text-neutral-700">默认欢迎语</label>
-                  <textarea value={assForm.welcome} onChange={e => setAssForm({...assForm, welcome: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] h-24 resize-none focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all" placeholder="设置学生进入聊天室时看到的开场白..." />
-                </div>
-                
-                <div className="space-y-2.5">
-                  <label className="text-[13px] font-bold block text-neutral-700">关联课程 / 知识库</label>
-                  <div className="w-full border-2 border-dashed border-neutral-200 rounded-2xl p-6 flex flex-col items-center justify-center text-neutral-500 bg-neutral-50 cursor-pointer hover:bg-orange-50/50 hover:border-[#fa541c]/50 transition-all">
-                     <Database className="w-6 h-6 mb-3 text-neutral-400" />
-                     <span className="text-[13px] font-bold text-neutral-600 mb-1">挂载专属知识边界</span>
-                     <span className="text-[12px] text-neutral-400 max-w-[200px] text-center leading-relaxed">点击选取实训平台内的课程文档或个人题库作为知识来源</span>
-                  </div>
-                </div>
-             </div>
-             
-             <div className="px-8 py-5 border-t border-neutral-100 flex justify-end gap-3 shrink-0 bg-neutral-50/80">
-                <Button onClick={() => setIsAssModalOpen(false)} variant="outline" className="rounded-full px-8 h-10 font-bold text-neutral-600 border-neutral-200 text-[13px]">取消</Button>
-                <Button onClick={() => {
+              </div>
+            </div>
+            
+            {/* Drawer Footer */}
+            <div className="px-6 py-4 border-t border-neutral-100 flex justify-end gap-3 bg-neutral-50/50 z-10 shrink-0">
+              <Button 
+                onClick={() => setIsAssModalOpen(false)} 
+                variant="outline" 
+                className="border-neutral-200 text-neutral-600 font-bold h-9 px-5 text-xs hover:bg-neutral-100 transition-all rounded-[4px] cursor-pointer bg-white"
+              >
+                取消
+              </Button>
+              <Button 
+                onClick={() => {
                   setAssistants([{ id: Date.now(), name: assForm.name || '未命名智能助手', type: assForm.type as any, welcomeMsg: assForm.welcome || '你好，我是智能助手。', avatar: `https://picsum.photos/seed/${Date.now()+1}/100/100`, authorized: 0 }, ...assistants]);
                   showToast('智能助手创建成功');
                   setIsAssModalOpen(false);
-                }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-10 h-10 shadow-sm font-bold text-[13px]">保存并生效</Button>
-             </div>
+                }} 
+                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+              >
+                保存并生效
+              </Button>
+            </div>
           </div>
         </div>
       )}
