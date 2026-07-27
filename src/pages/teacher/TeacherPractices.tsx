@@ -231,35 +231,12 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
   const renderListView = () => (
     <div className={cn("flex flex-col relative h-full", embedded ? "p-5" : "p-6")}>
       
-      {/* Top Actions & Filters - Styled matching TeacherDatasets */}
-      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-5">
+      {/* Top Actions & Filters - Search first, dropdown tab, create button */}
+      <div className="flex items-center justify-between gap-4 mb-5">
         
-        {/* Tab */}
-        <div className="flex items-center gap-5">
-          <div className="flex bg-neutral-100/80 rounded-full p-1 border border-neutral-200/60 shadow-sm">
-            <button 
-              className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200", tabFilter === 'all' ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
-              onClick={() => setTabFilter('all')}
-            >
-              全部实践
-            </button>
-            <button 
-              className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200", tabFilter === 'public' ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
-              onClick={() => setTabFilter('public')}
-            >
-              平台公共
-            </button>
-            <button 
-              className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200", tabFilter === 'my' ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
-              onClick={() => setTabFilter('my')}
-            >
-              我的实践
-            </button>
-          </div>
-        </div>
-
-        {/* Search & Create Button - Matching Dataset Controls */}
-        <div className="flex items-center gap-4 w-full xl:w-auto justify-end">
+        {/* Left Side: Search Box (First) + Dropdown Select */}
+        <div className="flex items-center gap-3">
+          {/* Search Box */}
           <div className="relative">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
             <input 
@@ -269,13 +246,29 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <Button 
-            onClick={handleOpenCreate} 
-            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
-          >
-            <Plus className="w-4 h-4 mr-1" /> 创建最佳实践
-          </Button>
+
+          {/* Dropdown Select Tab */}
+          <div className="relative">
+            <select 
+              value={tabFilter} 
+              onChange={(e) => setTabFilter(e.target.value as 'all' | 'public' | 'my')}
+              className="appearance-none pl-4 pr-9 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] h-9 bg-white text-neutral-700 font-medium cursor-pointer transition-all min-w-[110px]"
+            >
+              <option value="all">全部实践</option>
+              <option value="public">平台公开</option>
+              <option value="my">我的实践</option>
+            </select>
+            <ChevronDown className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 pointer-events-none" />
+          </div>
         </div>
+
+        {/* Right Side: Create Button */}
+        <Button 
+          onClick={handleOpenCreate} 
+          className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+        >
+          <Plus className="w-4 h-4 mr-1" /> 创建最佳实践
+        </Button>
       </div>
 
       {/* Sub Filters */}
