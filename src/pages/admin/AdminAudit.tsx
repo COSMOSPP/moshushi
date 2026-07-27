@@ -736,7 +736,6 @@ export default function AdminAudit() {
                       <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer truncate max-w-[340px]" title={item.name}>
                         {item.name}
                       </div>
-                      <div className="text-xs text-neutral-400 font-mono mt-0.5">{item.id}</div>
                     </td>
                     <td className="px-3 py-3 text-left">
                       <span className={cn(
@@ -750,7 +749,6 @@ export default function AdminAudit() {
                     </td>
                     <td className="px-3 py-3 text-left text-neutral-600">
                       <div className="text-neutral-800 font-medium">{item.creator}</div>
-                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.tenant}</div>
                     </td>
                     <td className="px-3 py-3 text-left text-neutral-500 font-mono">{item.submitTime}</td>
                     <td className="px-3 py-3 text-left">
