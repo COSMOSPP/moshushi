@@ -994,7 +994,7 @@ export default function TeacherExams({ embedded = false }) {
   });
 
   return (
-    <div className={cn("flex flex-col h-full text-left", embedded ? "pt-4" : "p-6")}>
+    <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
       
       {/* Top Actions - Spacing and alignment matching TeacherDatasets */}
       <div className="flex items-center justify-between mb-5">
@@ -1247,27 +1247,27 @@ export default function TeacherExams({ embedded = false }) {
             </tbody>
           </table>
         </div>
+      </div>
 
-        {/* Standalone Bottom Pagination Bar - Matching Dataset Module */}
-        <div className="py-2 px-1 flex items-center justify-end gap-3 text-xs text-neutral-500 shrink-0 select-none">
-          <span>共 {exams.length} 条</span>
-          <div className="flex items-center gap-1">
-            <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
-              &lt;
-            </button>
-            <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
-              1
-            </button>
-            <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
-              &gt;
-            </button>
-          </div>
-          <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
-            <option value="10">10 条/页</option>
-            <option value="20">20 条/页</option>
-            <option value="50">50 条/页</option>
-          </select>
+      {/* Standalone Bottom Pagination Bar - Matching Dataset Module */}
+      <div className="py-2 px-1 flex items-center justify-end gap-3 text-xs text-neutral-500 shrink-0 select-none">
+        <span>共 {exams.length} 条</span>
+        <div className="flex items-center gap-1">
+          <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
+            &lt;
+          </button>
+          <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
+            1
+          </button>
+          <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
+            &gt;
+          </button>
         </div>
+        <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
+          <option value="10">10 条/页</option>
+          <option value="20">20 条/页</option>
+          <option value="50">50 条/页</option>
+        </select>
       </div>
     </div>
 

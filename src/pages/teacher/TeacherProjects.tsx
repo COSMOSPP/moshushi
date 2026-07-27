@@ -854,7 +854,7 @@ export default function TeacherProjects({
   });
 
   return (
-    <div className={cn("flex flex-col h-full text-left", embedded ? "pt-4" : "p-6")}>
+    <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-lg shadow-lg animate-in slide-in-from-top-4">

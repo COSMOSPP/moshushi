@@ -350,7 +350,7 @@ export default function TeacherDatasets({
   });
 
   return (
-    <div className={cn("flex flex-col h-full text-left", embedded ? "pt-4" : "p-6")}>
+    <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
       
       {/* Toast */}
       {toast && (

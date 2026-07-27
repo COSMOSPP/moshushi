@@ -484,7 +484,7 @@ export default function TeacherHome() {
           </button>
         </div>
         {activeSubTab === 'course' ? (
-          <div className="flex flex-col h-full text-left pt-4">
+          <div className="flex flex-col h-full text-left">
             {/* Top Actions - Spacing and alignment matching TeacherDatasets */}
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-4">
