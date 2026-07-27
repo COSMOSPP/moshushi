@@ -994,7 +994,7 @@ export default function TeacherExams({ embedded = false }) {
   });
 
   return (
-    <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
+    <div className={cn("flex flex-col h-full text-left", embedded ? "pt-4" : "p-6")}>
       
       {/* Top Actions - Spacing and alignment matching TeacherDatasets */}
       <div className="flex items-center justify-between mb-5">
@@ -1248,24 +1248,25 @@ export default function TeacherExams({ embedded = false }) {
           </table>
         </div>
 
-        {/* Pagination Footer */}
-        <div className="flex items-center justify-end p-4 border-t border-neutral-100 gap-4 bg-white">
-          <span className="text-[13px] text-neutral-500">共 {exams.length} 条</span>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&gt;</Button>
+        {/* Standalone Bottom Pagination Bar - Matching Dataset Module */}
+        <div className="py-2 px-1 flex items-center justify-end gap-3 text-xs text-neutral-500 shrink-0 select-none">
+          <span>共 {exams.length} 条</span>
+          <div className="flex items-center gap-1">
+            <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
+              &lt;
+            </button>
+            <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
+              1
+            </button>
+            <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
+              &gt;
+            </button>
           </div>
-          <div className="relative bg-white rounded-[6px]">
-            <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
-              <option className="bg-white">10 条/页</option>
-              <option className="bg-white">20 条/页</option>
-              <option className="bg-white">50 条/页</option>
-            </select>
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-400">
-              <ChevronDown className="w-3 h-3" />
-            </div>
-          </div>
+          <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
+            <option value="10">10 条/页</option>
+            <option value="20">20 条/页</option>
+            <option value="50">50 条/页</option>
+          </select>
         </div>
       </div>
     </div>
