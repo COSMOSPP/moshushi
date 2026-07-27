@@ -779,7 +779,7 @@ export default function TeacherHome() {
         ) : activeSubTab === 'practice' ? (
           <TeacherPractices embedded={true} />
         ) : activeSubTab === 'aicenter' ? (
-          <TeacherAICenter />
+          <TeacherAICenter embedded={true} />
         ) : (
           <TeacherExams embedded={true} />
         )}

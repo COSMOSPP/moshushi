@@ -112,7 +112,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
   }
 
   return (
-    <div className={cn("flex flex-col relative h-full", embedded ? "p-4" : "p-8 bg-neutral-50/30 min-h-screen")}>
+    <div className={cn("flex flex-col relative h-full text-left", embedded ? "p-5" : "p-6 bg-neutral-50/30 min-h-screen")}>
       
       {/* Toast */}
       {toast && (
@@ -126,14 +126,14 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
         </div>
       )}
 
-      {/* Top Actions & Filters */}
-      <div className="flex items-center justify-between gap-6 mb-8">
+      {/* Top Actions & Filters - Styled matching TeacherDatasets */}
+      <div className="flex items-center justify-between mb-5">
         {/* Search Input */}
-        <div className="relative flex-1 max-w-[280px]">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 transition-colors" />
+        <div className="relative">
+          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
           <input 
             placeholder="搜索名称或描述..." 
-            className="pl-10 pr-4 py-2 text-[13px] w-full rounded-full border border-neutral-200 bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] shadow-sm transition-all"
+            className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -144,10 +144,9 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
           onClick={() => {
             setAssForm({ name: '', type: '课程助手', welcome: '', kbs: '' }); setIsAssModalOpen(true);
           }} 
-          className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 h-9 text-[13px] shadow-sm font-bold shrink-0"
+          className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
         >
-          <Plus className="w-4 h-4 mr-1.5" /> 
-          新建助手
+          <Plus className="w-4 h-4 mr-1" /> 新建助手
         </Button>
       </div>
 

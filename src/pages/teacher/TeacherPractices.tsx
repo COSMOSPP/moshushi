@@ -229,10 +229,10 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
     });
 
   const renderListView = () => (
-    <div className={cn("flex flex-col relative h-full", embedded ? "p-4" : "p-8")}>
+    <div className={cn("flex flex-col relative h-full", embedded ? "p-5" : "p-6")}>
       
-      {/* Top Actions & Filters */}
-      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8">
+      {/* Top Actions & Filters - Styled matching TeacherDatasets */}
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-5">
         
         {/* Tab */}
         <div className="flex items-center gap-5">
@@ -258,22 +258,22 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
           </div>
         </div>
 
-        {/* Search & Create Button */}
-        <div className="flex items-center gap-4 w-full xl:w-auto">
-          <div className="relative flex-1 xl:flex-none">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption transition-colors" />
+        {/* Search & Create Button - Matching Dataset Controls */}
+        <div className="flex items-center gap-4 w-full xl:w-auto justify-end">
+          <div className="relative">
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
             <input 
               placeholder="按名称或描述搜索..." 
-              className="pl-10 pr-4 py-2 text-[13px] w-full xl:w-64 rounded-full border border-neutral-200 bg-white focus:outline-none focus:border-[#fa541c] shadow-sm transition-all"
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
           <Button 
             onClick={handleOpenCreate} 
-            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 h-9 text-[13px] shadow-sm font-bold shrink-0"
+            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
           >
-            <Plus className="w-4 h-4 mr-1.5" /> 创建最佳实践
+            <Plus className="w-4 h-4 mr-1" /> 创建最佳实践
           </Button>
         </div>
       </div>
