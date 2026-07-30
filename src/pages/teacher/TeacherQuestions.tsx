@@ -4181,14 +4181,14 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96] rounded text-[11px] font-bold">
+                <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96] rounded-[4px] text-[11px] font-bold">
                   {viewingQuestion.type}
                 </span>
                 <h2 className="text-[15px] font-bold text-neutral-800">查看试题详情</h2>
               </div>
               <button 
                 onClick={() => setViewingQuestion(null)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-full transition-colors cursor-pointer"
+                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4199,7 +4199,7 @@ export default function TeacherQuestions() {
               {/* Question Name / Title */}
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-400">试题标题：</label>
-                <div className="text-sm font-bold text-neutral-800 border border-neutral-100 bg-neutral-50/30 rounded-xl p-3.5 leading-relaxed">
+                <div className="text-sm font-bold text-neutral-800 border border-neutral-100 bg-neutral-50/30 rounded-[4px] p-3.5 leading-relaxed">
                   {viewingQuestion.name}
                 </div>
               </div>
@@ -4208,11 +4208,11 @@ export default function TeacherQuestions() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold text-neutral-400">所属题库</label>
-                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-lg font-medium">{viewingQuestion.bank}</p>
+                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-medium">{viewingQuestion.bank}</p>
                 </div>
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold text-neutral-400">难度级别</label>
-                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-lg font-medium">{viewingQuestion.difficulty}</p>
+                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-medium">{viewingQuestion.difficulty}</p>
                 </div>
               </div>
 
@@ -4222,7 +4222,7 @@ export default function TeacherQuestions() {
                 <div className="flex flex-wrap gap-2">
                   {viewingQuestion.tags ? (
                     viewingQuestion.tags.split(', ').map((tag: string) => (
-                      <span key={tag} className="px-2.5 py-1 bg-[#fff2e8] border border-[#ffbb96] rounded text-xs text-[#fa541c] font-medium shadow-sm">
+                      <span key={tag} className="px-2.5 py-1 bg-[#fff2e8] border border-[#ffbb96] rounded-[4px] text-xs text-[#fa541c] font-medium shadow-sm">
                         {tag}
                       </span>
                     ))
@@ -4243,8 +4243,8 @@ export default function TeacherQuestions() {
                       { key: 'C', text: '增加多模态数据输入通道' },
                       { key: 'D', text: '使用深度网络加速推理速度' },
                     ].map((opt) => (
-                      <div key={opt.key} className="flex items-start gap-3 p-3 bg-neutral-50/50 border border-neutral-100 rounded-xl">
-                        <span className="font-bold text-neutral-500 bg-white border border-neutral-200 rounded w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs shadow-sm">
+                      <div key={opt.key} className="flex items-start gap-3 p-3 bg-neutral-50/50 border border-neutral-100 rounded-[4px]">
+                        <span className="font-bold text-neutral-500 bg-white border border-neutral-200 rounded-[4px] w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs shadow-sm">
                           {opt.key}
                         </span>
                         <span className="text-xs text-neutral-700 pt-0.5 leading-relaxed">{opt.text}</span>
@@ -4260,14 +4260,14 @@ export default function TeacherQuestions() {
                   {viewingQuestion.type === '简答题' ? '检查脚本：' : '正确参考答案：'}
                 </label>
                 {viewingQuestion.type === '简答题' ? (
-                  <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-4 font-mono text-xs text-neutral-700 whitespace-pre-wrap">
+                  <div className="bg-neutral-50 border border-neutral-200 rounded-[4px] p-4 font-mono text-xs text-neutral-700 whitespace-pre-wrap">
                     {viewingQuestion.correctAnswer || '无检查脚本'}
                   </div>
                 ) : (
-                  <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/40 rounded-xl p-4 flex items-center gap-2">
+                  <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/40 rounded-[4px] p-4 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#fa541c]"></span>
                     <span className="text-xs font-bold text-neutral-600">答案为：</span>
-                    <span className="px-3 py-1 bg-[#fa541c] text-white rounded-lg text-xs font-bold shadow-sm">
+                    <span className="px-3 py-1 bg-[#fa541c] text-white rounded-[4px] text-xs font-bold shadow-sm">
                       {viewingQuestion.type === '单选题' ? 'B' : viewingQuestion.type === '多选题' ? 'A, B, C' : '正确'}
                     </span>
                   </div>
@@ -4277,7 +4277,7 @@ export default function TeacherQuestions() {
               {/* Answer Analysis */}
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-400">答案深度解析：</label>
-                <div className="p-4 bg-neutral-50/80 border border-neutral-100 rounded-xl text-xs text-neutral-700 leading-relaxed whitespace-pre-wrap">
+                <div className="p-4 bg-neutral-50/80 border border-neutral-100 rounded-[4px] text-xs text-neutral-700 leading-relaxed whitespace-pre-wrap">
                   该题的关键考点在于大模型主流应用的结合点。通过结合结构化或非结构化外部知识库，利用事实注入和二次检索召回，能够从根本上缓解或避免大模型输出的“幻觉”现象，提升特定业务场景的准确性。
                 </div>
               </div>

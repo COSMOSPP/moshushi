@@ -30,19 +30,12 @@ const mockNotifications: NotificationItem[] = [
     time: '2026-05-25 10:00:00',
     read: false,
     content: '平台将于本周五晚22:00进行例行升级维护，期间部分服务可能会出现短暂波动。',
-    detail: `尊敬的教师用户：
-
-为进一步提升平台的高并发处理能力与大模型推理集群性能，平台运维团队计划于 2026年5月29日（周五）22:00 至 24:00 进行例行系统升级与数据库架构维护。
+    detail: `为进一步提升平台的高并发处理能力与大模型推理集群性能，平台运维团队计划于 2026年5月29日（周五）22:00 至 24:00 进行例行系统升级与数据库架构维护。
 
 【维护期间影响说明】
 1. 教师端与学生端控制台将有约 15-20 分钟的瞬时网络中断或闪断现象；
 2. 正在运行的 Jupyter / VS Code 容器实训环境不受影响，但新建容器与保存镜像功能临时暂停；
-3. 自动批改系统与 AI 数字员工问答引擎在此期间可能响应延迟。
-
-请您合理安排教学与测试计划，避免在此时间段内组织大规模线上考试或实训作业提交。如有紧急需求，请及时联系系统管理员（Ext: 8088）。
-
-企业级实训平台运维团队
-2026年5月25日`,
+3. 自动批改系统与 AI 数字员工问答引擎在此期间可能响应延迟。`,
     actionText: '查看平台规则',
     actionUrl: '/teacher/examrules'
   },
@@ -55,17 +48,13 @@ const mockNotifications: NotificationItem[] = [
     time: '2026-05-25 09:30:00',
     read: false,
     content: '您负责的《人工智能基础》期中考试将在30分钟后开始，请提前进入考场监控面板。',
-    detail: `尊敬的张大伟老师：
-
-您主讲的《人工智能基础（2026春季班）》期中线上考试将于 30 分钟后（10:00）正式开始。
+    detail: `您主讲的《人工智能基础（2026春季班）》期中线上考试将于 30 分钟后（10:00）正式开始。
 
 【本次考试基本信息】
 - 考试名称：2026春《人工智能基础》期中综合能力测评
 - 参考人数：320 人（已准备 320 台独立沙箱隔离考场）
 - 考试时长：120 分钟（10:00 - 12:00）
-- 防作弊策略：已开启双摄像头监考、切屏监控与 AI 自动代码防抄袭查重
-
-请您提前登录考场监考大屏，核对监考教师权限，确认切屏阈值与异常告警广播设置。若考试过程中学生出现卡顿或机器异常，可直接在监考面板进行“延迟补时”或“一键重置沙箱”。`,
+- 防作弊策略：已开启双摄像头监考、切屏监控与 AI 自动代码防抄袭查重`,
     actionText: '进入考场监控',
     actionUrl: '/teacher/anticheat'
   },
@@ -78,9 +67,7 @@ const mockNotifications: NotificationItem[] = [
     time: '2026-05-24 16:45:00',
     read: true,
     content: '您提交的《基于深度学习的图像分类》教学项目申请已通过管理员审核，现已上架至公共库。',
-    detail: `尊敬的张大伟老师：
-
-您于 2026-05-22 提交的新增实训案例《基于深度学习的图像分类与目标检测实战》已顺利通过平台教学委员会及技术专家组的二次审核！
+    detail: `您于 2026-05-22 提交的新增实训案例《基于深度学习的图像分类与目标检测实战》已顺利通过平台教学委员会及技术专家组的二次审核！
 
 【审核评语】
 “案例结构清晰，内置 PyTorch 2.3 / CUDA 12 镜像环境配置完整，包含自动评分测试集与 RAG 助手微调数据集，质量优秀，同意上架公有资源库。”
@@ -88,9 +75,7 @@ const mockNotifications: NotificationItem[] = [
 【项目当前状态】
 - 上架状态：已上架至【公共实训案例库】
 - 配套资源：分配 GPU 镜像空间 25GB，默认提供 ResNet50 与 YOLOv8 预训练权重；
-- 权限状态：全校教师可引用，学生可自主克隆练习。
-
-您可以随时在“资源管理 - 我的项目”中调整案例的公开范围或更新实验文档。`,
+- 权限状态：全校教师可引用，学生可自主克隆练习。`,
     actionText: '查看教学资源库',
     actionUrl: '/teacher/resources'
   },
@@ -103,19 +88,12 @@ const mockNotifications: NotificationItem[] = [
     time: '2026-05-23 11:20:00',
     read: true,
     content: '您的课程《Python数据分析》剩余GPU资源配额不足20%，请及时申请扩容或清理无效容器。',
-    detail: `尊敬的张大伟老师：
-
-系统检测到您的实训课程《Python数据分析与大模型应用》绑定的 GPU 算力资源池即将耗尽，请注意关注！
+    detail: `系统检测到您的实训课程《Python数据分析与大模型应用》绑定的 GPU 算力资源池即将耗尽，请注意关注！
 
 【算力资源监控详情】
 - 初始分配卡时：500.0 小时 (NVIDIA A10G 算力单元)
 - 已消耗卡时：415.8 小时 (占 83.16%)
-- 剩余可用卡时：84.2 小时 (预估仅够支撑 2 次全班集中实验)
-
-【建议处理措施】
-1. 申请扩容：进入“个人中心 - 资源配额”提交临时扩容申请，填写教研需求说明；
-2. 清理闲置：在课程容器管理中强制停止并回收超过 48 小时未活动的学生开发环境；
-3. 模式切换：引导学生使用 CPU 轻量级沙箱进行数据清洗与特征工程作业。`,
+- 剩余可用卡时：84.2 小时 (预估仅够支撑 2 次全班集中实验)`,
     actionText: '申请资源扩容',
     actionUrl: 'quota'
   },
@@ -128,16 +106,12 @@ const mockNotifications: NotificationItem[] = [
     time: '2026-05-21 14:10:00',
     read: true,
     content: '李明教授在《大模型应用开发》课程中向您发起了“协同备课”与“试题库共建”邀请。',
-    detail: `尊敬的张大伟老师：
-
-计算机学院李明教授已在平台向您发送课程协同建设计划邀请。
+    detail: `计算机学院李明教授已在平台向您发送课程协同建设计划邀请。
 
 【协作详情】
 - 目标课程：《大模型应用开发与 Agent 实战》
 - 合作角色：联合主讲 / 实验大纲审核组组长
-- 共享权限：试题库管理、实验沙箱镜像模板修改、智能批改规则设置
-
-您可以点击“前往题库共建”进入相关后台查看共同建设计划，或在团队协作中心与李明教授直接交流。`,
+- 共享权限：试题库管理、实验沙箱镜像模板修改、智能批改规则设置`,
     actionText: '前往题库共建',
     actionUrl: '/teacher/questions'
   }
@@ -620,7 +594,7 @@ export default function TeacherCenter() {
             </div>
             
             <div className="p-6 space-y-4 max-h-[70vh] overflow-y-auto custom-scrollbar text-xs">
-<div>
+              <div>
                 <label className="block text-xs font-bold text-[#262626] mb-1.5">姓名 <span className="text-[#fa541c]">*</span></label>
                 <input 
                   type="text" 
@@ -712,14 +686,10 @@ export default function TeacherCenter() {
     const selectedNoti = notifications.find(n => n.id === selectedNotiId);
 
     if (selectedNotiId !== null && selectedNoti) {
-      const currentIdx = filteredNotis.findIndex(n => n.id === selectedNotiId);
-      const hasPrev = currentIdx > 0;
-      const hasNext = currentIdx !== -1 && currentIdx < filteredNotis.length - 1;
-
       return (
         <div className="animate-fade-in space-y-5 text-left w-full pb-10">
           {/* Top Bar Navigation & Breadcrumbs */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs">
+          <div className="flex items-center justify-between gap-4 bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs">
             <div className="flex items-center gap-3">
               <Button 
                 onClick={() => setSelectedNotiId(null)}
@@ -737,46 +707,6 @@ export default function TeacherCenter() {
                 <span className="text-neutral-900 font-bold max-w-[200px] truncate">{selectedNoti.title}</span>
               </div>
             </div>
-
-            {/* Quick Actions */}
-            <div className="flex items-center gap-2">
-              <Button 
-                disabled={!hasPrev}
-                onClick={() => {
-                  if (hasPrev) handleSelectNotification(filteredNotis[currentIdx - 1].id);
-                }}
-                variant="outline" 
-                className="h-8 px-2.5 text-xs border-neutral-200 text-neutral-600 hover:bg-neutral-50 disabled:opacity-40 rounded-[4px] cursor-pointer"
-                title="上一条消息"
-              >
-                <ChevronLeft className="w-4 h-4 mr-1" /> 上一条
-              </Button>
-              <Button 
-                disabled={!hasNext}
-                onClick={() => {
-                  if (hasNext) handleSelectNotification(filteredNotis[currentIdx + 1].id);
-                }}
-                variant="outline" 
-                className="h-8 px-2.5 text-xs border-neutral-200 text-neutral-600 hover:bg-neutral-50 disabled:opacity-40 rounded-[4px] cursor-pointer"
-                title="下一条消息"
-              >
-                下一条 <ChevronRight className="w-4 h-4 ml-1" />
-              </Button>
-              <Button 
-                onClick={(e) => handleToggleReadStatus(selectedNoti.id, e)}
-                variant="outline" 
-                className="h-8 px-3 text-xs border-neutral-200 text-neutral-700 hover:bg-neutral-50 rounded-[4px] cursor-pointer"
-              >
-                {selectedNoti.read ? '标记未读' : '标记已读'}
-              </Button>
-              <Button 
-                onClick={(e) => handleDeleteNoti(selectedNoti.id, e)}
-                variant="outline" 
-                className="h-8 px-3 text-xs border-orange-200 text-[#fa541c] hover:bg-orange-50 rounded-[4px] cursor-pointer"
-              >
-                <Trash2 className="w-3.5 h-3.5 mr-1" /> 删除
-              </Button>
-            </div>
           </div>
 
           {/* Main Detail Content Card */}
@@ -789,57 +719,17 @@ export default function TeacherCenter() {
 
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-neutral-500 font-medium">
                 <div className="flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-neutral-400" />
-                  <span>发送方: <strong className="text-neutral-800">{selectedNoti.sender}</strong></span>
-                </div>
-                <div className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-neutral-400" />
                   <span>通知时间: <span className="font-mono text-neutral-700">{selectedNoti.time}</span></span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Tag className="w-3.5 h-3.5 text-neutral-400" />
-                  <span>消息编号: <span className="font-mono text-neutral-700">MSG-202605-{selectedNoti.id.toString().padStart(4, '0')}</span></span>
                 </div>
               </div>
             </div>
 
             {/* Notification Body Content */}
             <div className="p-6 md:p-8 space-y-6">
-              <div className="bg-neutral-50/70 p-5 rounded-lg border border-neutral-100 text-xs text-neutral-600 leading-relaxed font-medium">
-                <span className="font-bold text-neutral-800">摘要提示：</span> {selectedNoti.content}
-              </div>
-
               <div className="text-xs md:text-sm text-neutral-800 leading-relaxed space-y-4 font-normal whitespace-pre-wrap">
                 {selectedNoti.detail}
               </div>
-
-              {/* Quick Action Button Box if action text & url present */}
-              {selectedNoti.actionText && (
-                <div className="mt-8 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-orange-50/30 p-4 rounded-xl border border-orange-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-orange-100 text-[#fa541c] flex items-center justify-center shrink-0">
-                      <Sparkles className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-neutral-900">关联快捷操作处理</div>
-                      <div className="text-[11px] text-neutral-500">点击下方按钮可直接跳转至对应业务页面或执行关联处理</div>
-                    </div>
-                  </div>
-                  <Button 
-                    onClick={() => {
-                      if (selectedNoti.actionUrl === 'quota') {
-                        setActiveTab('quota');
-                        setSelectedNotiId(null);
-                      } else if (selectedNoti.actionUrl) {
-                        navigate(selectedNoti.actionUrl);
-                      }
-                    }}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-4 h-9 text-xs font-bold shadow-xs cursor-pointer border-0 flex items-center gap-1.5 shrink-0"
-                  >
-                    {selectedNoti.actionText} <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                  </Button>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -881,7 +771,7 @@ export default function TeacherCenter() {
                 <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
                 <input 
                   type="text"
-                  placeholder="搜索消息标题、内容或发送方..."
+                  placeholder="搜索消息标题或内容..."
                   value={notiSearchQuery}
                   onChange={(e) => setNotiSearchQuery(e.target.value)}
                   className="pl-9 pr-4 py-1.5 w-full bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
@@ -920,9 +810,8 @@ export default function TeacherCenter() {
             <table className="w-full text-left border-collapse whitespace-nowrap text-[13px]">
               <thead>
                 <tr className="border-b border-neutral-100 bg-neutral-50/50 text-[13px] text-neutral-600 font-medium">
-                  <th className="p-4 font-medium w-[45%]">消息详情</th>
+                  <th className="p-4 font-medium w-[60%]">消息详情</th>
                   <th className="p-4 font-medium w-[15%]">消息分类</th>
-                  <th className="p-4 font-medium w-[15%]">发送方</th>
                   <th className="p-4 font-medium w-[15%]">消息时间</th>
                   <th className="p-4 font-medium w-[10%] text-left">操作</th>
                 </tr>
@@ -970,11 +859,6 @@ export default function TeacherCenter() {
                         </span>
                       </td>
 
-                      {/* 发送方 */}
-                      <td className="p-4 text-neutral-600 font-normal text-[12px]">
-                        {noti.sender}
-                      </td>
-
                       {/* 消息时间 */}
                       <td className="p-4 text-neutral-500 font-mono text-[12px]">
                         {noti.time}
@@ -996,7 +880,7 @@ export default function TeacherCenter() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={5} className="py-16 text-center text-neutral-400 text-xs">
+                    <td colSpan={4} className="py-16 text-center text-neutral-400 text-xs">
                       <Inbox className="w-8 h-8 mx-auto mb-2 text-neutral-300" />
                       暂无相关通知记录
                     </td>

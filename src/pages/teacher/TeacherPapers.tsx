@@ -113,6 +113,31 @@ export default function TeacherPapers() {
     };
   }, []);
   const [drawRules, setDrawRules] = useState<DrawRule[]>([]);
+  const [detailDrawRules, setDetailDrawRules] = useState<DrawRule[]>([
+    { id: 'detail-1', type: '单选题', tag: '标签1', difficulty: '容易', count: 5, maxAvailable: 7, score: 10 },
+    { id: 'detail-2', type: '多选题', tag: '标签1', difficulty: '容易', count: 5, maxAvailable: 7, score: 10 }
+  ]);
+
+  useEffect(() => {
+    if (viewingPaper) {
+      if (viewingPaper.drawRules && viewingPaper.drawRules.length > 0) {
+        setDetailDrawRules(viewingPaper.drawRules);
+      } else {
+        setDetailDrawRules([
+          { id: 'detail-1', type: '单选题', tag: '标签1', difficulty: '容易', count: 5, maxAvailable: 7, score: 10 },
+          { id: 'detail-2', type: '多选题', tag: '标签1', difficulty: '容易', count: 5, maxAvailable: 7, score: 10 }
+        ]);
+      }
+    }
+  }, [viewingPaper]);
+
+  const handleUpdateDetailRule = (id: string, key: 'count' | 'score', val: any) => {
+    setDetailDrawRules(prev => prev.map(r => r.id === id ? { ...r, [key]: val } : r));
+  };
+
+  const handleRemoveDetailRule = (id: string) => {
+    setDetailDrawRules(prev => prev.filter(r => r.id !== id));
+  };
 
   // Question Config selections and scores
   const [mcCount, setMcCount] = useState(0);
@@ -287,7 +312,7 @@ export default function TeacherPapers() {
       questionCount: 25,
       types: '单选题, 多选题, 判断题',
       type: '考试',
-      selectionMethod: '随机抽题',
+      selectionMethod: '千人千卷',
       status: '停用',
       creator: '李老师',
       updateTime: '2026/05/16 11:20',
@@ -2239,7 +2264,7 @@ export default function TeacherPapers() {
               {/* Paper Name */}
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-400">试卷名称：</label>
-                <div className="text-sm font-bold text-neutral-800 border border-neutral-100 bg-neutral-50/30 rounded-xl p-3.5 leading-relaxed shadow-sm">
+                <div className="text-sm font-bold text-neutral-800 border border-neutral-100 bg-neutral-50/30 rounded-[4px] p-3.5 leading-relaxed">
                   {viewingPaper.name}
                 </div>
               </div>
@@ -2247,45 +2272,219 @@ export default function TeacherPapers() {
               {/* Paper Description */}
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-400">试卷说明：</label>
-                <div className="text-xs text-neutral-700 bg-neutral-50/30 border border-neutral-100 rounded-xl p-3.5 leading-relaxed shadow-sm">
+                <div className="text-xs text-neutral-700 bg-neutral-50/30 border border-neutral-100 rounded-[4px] p-3.5 leading-relaxed">
                   {viewingPaper.description}
                 </div>
               </div>
 
               {/* Grid Metrics */}
-              <div className="grid grid-cols-3 gap-4 pt-1">
+              <div className={cn(
+                "grid gap-3 pt-1",
+                (viewingPaper.selectionMethod || '随机抽题') === '手动抽题' ? "grid-cols-3" : "grid-cols-4"
+              )}>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-neutral-400">题目总数</label>
-                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-lg font-bold shadow-sm">{viewingPaper.questionCount} 道题</p>
+                  <label className="text-[11px] font-bold text-neutral-400">试卷类型</label>
+                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold">{viewingPaper.type || '期末试卷'}</p>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-neutral-400">包含题型</label>
-                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-lg font-bold truncate shadow-sm" title={viewingPaper.types}>{viewingPaper.types}</p>
+                  <label className="text-[11px] font-bold text-neutral-400">试题配置</label>
+                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold truncate" title={viewingPaper.selectionMethod || '随机抽题'}>
+                    {viewingPaper.selectionMethod || '随机抽题'}
+                  </p>
                 </div>
+                {(viewingPaper.selectionMethod || '随机抽题') !== '手动抽题' && (
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-bold text-neutral-400">所属试题库</label>
+                    <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold truncate" title={viewingPaper.bankName || '人工智能通识D-uni'}>
+                      {viewingPaper.bankName || '人工智能通识D-uni'}
+                    </p>
+                  </div>
+                )}
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-neutral-400">试卷状态</label>
-                  <p className="text-xs text-green-600 bg-green-50/50 border border-green-100 px-3 py-1.5 rounded-lg font-bold shadow-sm text-center">{viewingPaper.status}</p>
+                  <label className="text-[11px] font-bold text-neutral-400">总分</label>
+                  <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold">100 分</p>
                 </div>
               </div>
 
-              {/* Objective Question Detail Card */}
-              <div className="bg-[#fff2e8]/20 border border-[#ffbb96]/40 rounded-xl p-5 space-y-4 shadow-sm">
+              {/* Question Configuration Detail Card */}
+              <div className="bg-[#fff2e8]/10 border border-[#ffbb96]/30 rounded-[4px] p-5 space-y-4">
                 <h4 className="text-xs font-bold text-[#fa541c] flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c]"></span>
-                  <span>客观题配置详情</span>
+                  <span>配置详情</span>
                 </h4>
-                <div className="space-y-3.5 text-xs text-neutral-600 leading-relaxed bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-                  <p className="font-semibold text-neutral-800">1. 客观题配置：{viewingPaper.selectionMethod || '固定选题'}</p>
-                  <p>2. 客观题题量：<span className="font-bold text-[#fa541c]">{viewingPaper.questionCount}</span> 道，满分 <span className="font-bold text-[#fa541c]">100</span> 分</p>
-                  <p>3. 答题限制时间：<span className="font-bold text-neutral-800">120</span> 分钟</p>
-                  <p className="text-[11px] text-neutral-400 font-semibold">（客观题提交即评分，不支持二次更改或暂停时间）</p>
-                </div>
-              </div>
 
-              {/* Creator details */}
-              <div className="border-t border-neutral-100 pt-4 grid grid-cols-2 gap-4 text-xs text-neutral-400">
-                <p className="flex items-center gap-1"><User className="w-3.5 h-3.5" /> 创建人：<span className="text-neutral-700 font-bold">{viewingPaper.creator}</span></p>
-                <p className="flex items-center gap-1"><Settings className="w-3.5 h-3.5" /> 更新时间：<span className="text-neutral-700 font-bold">{viewingPaper.updateTime}</span></p>
+                {(viewingPaper.selectionMethod || '随机抽题') === '手动抽题' ? (
+                  /* Figure 2: 手动抽题模式配置详情 (无操作列、不可编辑表单) */
+                  <div className="space-y-4 animate-fade-in">
+                    {/* 单选题 */}
+                    <div className="bg-white rounded-[4px] border border-neutral-200 p-4 space-y-3 shadow-sm">
+                      <h5 className="text-xs font-bold text-neutral-800">单选题</h5>
+                      <div className="border border-neutral-200 rounded-[4px] overflow-hidden bg-white">
+                        <table className="w-full text-left border-collapse text-xs whitespace-nowrap">
+                          <thead>
+                            <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
+                              <th className="px-3.5 py-2.5 font-bold">试题名称</th>
+                              <th className="px-3.5 py-2.5 font-bold">所属试题库</th>
+                              <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-neutral-100 text-neutral-700">
+                            <tr className="hover:bg-neutral-50/30 transition-colors">
+                              <td className="px-3.5 py-3 font-medium text-neutral-800">
+                                <span className="truncate max-w-[280px] block" title="智能体与传统程序最本质的区别是什么？">
+                                  智能体与传统程序最本质的区别是什么？
+                                </span>
+                              </td>
+                              <td className="px-3.5 py-3 text-neutral-600">人工智能通识D-uni</td>
+                              <td className="px-3.5 py-3 text-center">
+                                <span className="inline-block w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-neutral-50 font-semibold text-neutral-700 leading-7">3</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    {/* 多选题 */}
+                    <div className="bg-white rounded-[4px] border border-neutral-200 p-4 space-y-3 shadow-sm">
+                      <h5 className="text-xs font-bold text-neutral-800">多选题</h5>
+                      <div className="border border-neutral-200 rounded-[4px] overflow-hidden bg-white">
+                        <table className="w-full text-left border-collapse text-xs whitespace-nowrap">
+                          <thead>
+                            <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
+                              <th className="px-3.5 py-2.5 font-bold">试题名称</th>
+                              <th className="px-3.5 py-2.5 font-bold">所属试题库</th>
+                              <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-neutral-100 text-neutral-700">
+                            <tr className="hover:bg-neutral-50/30 transition-colors">
+                              <td className="px-3.5 py-3 font-medium text-neutral-800">
+                                <span className="truncate max-w-[280px] block" title="智能体的四个基本组成部分包含哪些...">
+                                  智能体的四个基本组成部分包含哪些...
+                                </span>
+                              </td>
+                              <td className="px-3.5 py-3 text-neutral-600">人工智能通识D-uni</td>
+                              <td className="px-3.5 py-3 text-center">
+                                <span className="inline-block w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-neutral-50 font-semibold text-neutral-700 leading-7">3</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    {/* 填空题 */}
+                    <div className="bg-white rounded-[4px] border border-neutral-200 p-4 space-y-3 shadow-sm">
+                      <h5 className="text-xs font-bold text-neutral-800">填空题</h5>
+                      <div className="border border-neutral-200 rounded-[4px] overflow-hidden bg-white">
+                        <table className="w-full text-left border-collapse text-xs whitespace-nowrap">
+                          <thead>
+                            <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
+                              <th className="px-3.5 py-2.5 font-bold">试题名称</th>
+                              <th className="px-3.5 py-2.5 font-bold">所属试题库</th>
+                              <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-neutral-100 text-neutral-700">
+                            <tr className="hover:bg-neutral-50/30 transition-colors">
+                              <td className="px-3.5 py-3 font-medium text-neutral-800">
+                                <span className="truncate max-w-[280px] block" title="大语言模型是___________的核心基础...">
+                                  大语言模型是___________的核心基础...
+                                </span>
+                              </td>
+                              <td className="px-3.5 py-3 text-neutral-600">人工智能通识D-uni</td>
+                              <td className="px-3.5 py-3 text-center">
+                                <span className="inline-block w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-neutral-50 font-semibold text-neutral-700 leading-7">3</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Figure 1: 随机抽题 / 千人千卷模式配置详情 */
+                  <div className="space-y-4 animate-fade-in">
+                    {['单选题', '多选题', '判断题', '填空题', '简答题', '思考题', '编程题', '实训题'].filter(type => detailDrawRules.some(r => r.type === type)).map((type) => {
+                      const rulesOfType = detailDrawRules.filter(r => r.type === type);
+                      return (
+                        <div key={type} className="bg-white rounded-[4px] border border-neutral-200 p-4 space-y-3 shadow-sm">
+                          <h5 className="text-sm font-bold text-neutral-800">{type}</h5>
+                          <div className="border border-neutral-200 rounded-[4px] overflow-hidden bg-white">
+                            <table className="w-full text-left border-collapse text-xs whitespace-nowrap">
+                              <thead>
+                                <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
+                                  <th className="px-3.5 py-2.5 font-bold">抽取标签</th>
+                                  <th className="px-3.5 py-2.5 font-bold">难易程度</th>
+                                  <th className="px-3.5 py-2.5 text-center font-bold">抽取数量</th>
+                                  <th className="px-3.5 py-2.5 text-center font-bold">最多可抽</th>
+                                  <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
+                                  <th className="px-3.5 py-2.5 text-center font-bold">总分</th>
+                                  <th className="px-3.5 py-2.5 text-center font-bold">操作</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-neutral-100 text-neutral-700">
+                                {rulesOfType.map((rule) => (
+                                  <tr key={rule.id} className="hover:bg-neutral-50/30 transition-colors">
+                                    <td className="px-3.5 py-3 font-medium text-neutral-800">{rule.tag}</td>
+                                    <td className="px-3.5 py-3 text-neutral-600">{rule.difficulty}</td>
+                                    <td className="px-3.5 py-3 text-center">
+                                      <input 
+                                        type="text"
+                                        inputMode="numeric"
+                                        value={rule.count === '' ? '' : rule.count}
+                                        onChange={(e) => {
+                                          const val = e.target.value;
+                                          if (val === '' || /^\d*$/.test(val)) {
+                                            handleUpdateDetailRule(rule.id, 'count', val === '' ? '' : Number(val));
+                                          }
+                                        }}
+                                        className="w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-white font-medium text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-xs transition-all"
+                                      />
+                                    </td>
+                                    <td className="px-3.5 py-3 text-center font-bold text-neutral-800">{rule.maxAvailable}</td>
+                                    <td className="px-3.5 py-3 text-center">
+                                      <input 
+                                        type="text"
+                                        inputMode="numeric"
+                                        value={rule.score === '' ? '' : rule.score}
+                                        onChange={(e) => {
+                                          const val = e.target.value;
+                                          if (val === '' || /^\d*\.?\d*$/.test(val)) {
+                                            handleUpdateDetailRule(rule.id, 'score', val === '' ? '' : Number(val));
+                                          }
+                                        }}
+                                        className="w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-white font-medium text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-xs transition-all"
+                                      />
+                                    </td>
+                                    <td className="px-3.5 py-3 text-center font-extrabold text-neutral-900">
+                                      {(Number(rule.count) || 0) * (Number(rule.score) || 0)}
+                                    </td>
+                                    <td className="px-3.5 py-3 text-center">
+                                      <button 
+                                        type="button" 
+                                        onClick={() => handleRemoveDetailRule(rule.id)}
+                                        className="text-[#fa541c] hover:text-[#e84a15] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs transition-colors"
+                                      >
+                                        移除
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      );
+                    })}
+                    {detailDrawRules.length === 0 && (
+                      <div className="p-6 text-center text-xs text-neutral-400 bg-white rounded-[4px] border border-neutral-200">
+                        暂无配置规则
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -2293,7 +2492,7 @@ export default function TeacherPapers() {
             <div className="px-6 py-4 border-t border-neutral-100 flex justify-end bg-neutral-50/50 shrink-0">
               <Button 
                 onClick={() => setViewingPaper(null)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] border-0 cursor-pointer"
               >
                 关闭
               </Button>
