@@ -86,7 +86,7 @@ interface AuditResource {
   tenant: string;
   submitTime: string;
   status: "待审核" | "审核中" | "已通过" | "已驳回";
-  auditType?: "公开" | "下架";
+  auditType?: "租户公开" | "平台公开" | "下架" | "公开";
   rejectionReason?: string;
   details: {
     meta: string; // e.g. "32课时 | 2学分"
@@ -241,7 +241,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "北京大学信息学院",
       submitTime: "2026-05-26 11:30",
       status: "待审核",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "32 课时 | 2.0 学分 | RAG 与 LoRA 核心方向",
         content: "本课程专注大模型应用落地，涵盖 Prompt Engineering 最佳编写规范、语义向量数据库融合、RAG 混合召回系统搭建，以及利用 LoRA 算法针对垂直行业私有数据集进行高效微调部署。",
@@ -260,7 +260,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "复旦大学软件学院",
       submitTime: "2026-05-25 10:15",
       status: "审核中",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "48 课时 | 3.0 学分 | 数据分析与建模方向",
         content: "实战向数据科学基石课，针对高校学生定制，主攻 Numpy 多维数值计算、Pandas 多维表格数据操作清洗、Matplotlib & Seaborn 数据智能分析呈现以及 Scikit-learn 基本经典算法训练。",
@@ -296,7 +296,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "上海交通大学电子信息学院",
       submitTime: "2026-05-24 16:45",
       status: "已通过",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "64 课时 | 4.0 学分 | 深度学习算法方向",
         content: "从神经网络感知机模型推导开始，涵盖 CNN、RNN、LSTM 及 Attention 机制原理，并在 PyTorch 框架下完成图像分类与自动文本生成项目搭建。",
@@ -315,7 +315,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "南京大学管理学院",
       submitTime: "2026-05-27 11:20",
       status: "待审核",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "32 课时 | 2.0 学分 | 大数据处理方向",
         content: "讲解 Spark 核心数据结构 RDD、DataFrame 及 Spark SQL 查询优化器原理，配套千亿级电商日志离线清洗与实时流计算实训任务。",
@@ -351,7 +351,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "东南大学软件学院",
       submitTime: "2026-05-26 17:30",
       status: "待审核",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "48 课时 | 3.0 学分 | 云原生方向",
         content: "覆盖 Docker 容器化构建、Spring Cloud 微服务组件拆分、Istio 服务网格与 Kubernetes Horizontal Pod Autoscaler 弹性扩缩容部署。",
@@ -370,7 +370,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "华中科技大学电信学院",
       submitTime: "2026-05-22 08:30",
       status: "已驳回",
-      auditType: "公开",
+      auditType: "租户公开",
       rejectionReason: "实验数据集中缺少脱敏处理说明，且第二章算法推理细则缺少配套练习答案。",
       details: {
         meta: "32 课时 | 2.0 学分 | 推荐算法方向",
@@ -390,7 +390,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "西安交通大学微电子学院",
       submitTime: "2026-05-27 13:50",
       status: "待审核",
-      auditType: "公开",
+      auditType: "平台公开",
       details: {
         meta: "24 课时 | 1.5 学分 | 边缘计算方向",
         content: "结合 STM32F4 / ESP32 硬件板卡，讲授轻量化神经网络剪枝、8-bit 定点量化，并在 MCU 资源受限微控制器上运行 TinyML 实时姿态识别。",
@@ -425,7 +425,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "中山大学计算机学院",
       submitTime: "2026-05-21 15:20",
       status: "已通过",
-      auditType: "公开",
+      auditType: "平台公开",
       details: {
         meta: "40 课时 | 2.5 学分 | NLP 方向",
         content: "从 Word2Vec 词向量表征、Seq2Seq 语法树解析，到 Transformer Encoder-Decoder 结构，系统剖析 BERT 预训练语言模型与 GPT 自回归生成模型原理。",
@@ -443,7 +443,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "天津大学智能与计算学部",
       submitTime: "2026-05-27 15:00",
       status: "待审核",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "36 课时 | 2.5 学分 | 知识图谱方向",
         content: "围绕企业私有知识库问答痛点，融合 Neo4j 图数据库实体关系检索与 Milvus 向量数据库相似度召回，实现 GraphRAG 混合增强系统。",
@@ -479,7 +479,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "电子科技大学信息与通信工程学院",
       submitTime: "2026-05-27 16:30",
       status: "待审核",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "24 课时 | 1.5 学分 | 语音处理方向",
         content: "介绍梅尔倒谱系数 (MFCC) 提取、CTC 损失函数原理，并基于 OpenAI Whisper 开展长音频字幕时间戳自动对齐实训。",
@@ -497,7 +497,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "中国科学技术大学计算机学院",
       submitTime: "2026-05-19 10:00",
       status: "已通过",
-      auditType: "公开",
+      auditType: "平台公开",
       details: {
         meta: "48 课时 | 3.0 学分 | 算法设计方向",
         content: "主攻高阶数据结构与动态规划，包含线段树、并查集、单调栈、Dijkstra 最短路径及背包问题推导解析。",
@@ -517,6 +517,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "清华大学计算机系",
       submitTime: "2026-05-26 14:00",
       status: "待审核",
+      auditType: "租户公开",
       details: {
         meta: "大型分布式实训项目 | 建议耗时 2-3 周",
         content: "本实训模拟企业级超高并发电商结算场景，要求学生使用 Spring Cloud Alibaba 进行微服务治理，整合 Kubernetes 自动化容器调度、Sentinel 限流熔断防护，以及 Redis 哨兵多级缓存及秒杀库存一致性问题解决。",
@@ -535,6 +536,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "上海交通大学医学院",
       submitTime: "2026-05-24 09:00",
       status: "已通过",
+      auditType: "平台公开",
       details: {
         meta: "深度学习医学影像实训 | 建议耗时 1-2 周",
         content: "跨学科前沿 AI 实验。学生需要使用 PyTorch 加载预训练 ResNet50/UNet 模型，针对脱敏公开的肺部 CT/脑部 MRI 影像进行边缘检测与图像分割处理，使用 Dice 相似系数评估病灶捕捉效果。",
@@ -555,6 +557,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "浙江大学控制系",
       submitTime: "2026-05-26 15:30",
       status: "待审核",
+      auditType: "平台公开",
       details: {
         meta: "大模型理论主观思考题 | 标签: 深度学习, Transformer",
         content: "简答题：请写出 Transformer 核心架构中 Self-Attention (自注意力机制) 的数学计算公式，并分别详细阐述公式中查询矩阵 (Q)、键矩阵 (K)、值矩阵 (V) 的物理含义。最后说明为什么在计算内积后需要除以根号下 dk 缩放因子？",
@@ -573,6 +576,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "武汉大学软件学院",
       submitTime: "2026-05-25 16:00",
       status: "已通过",
+      auditType: "租户公开",
       details: {
         meta: "云原生容器单选题 | 标签: K8s, 运维监控",
         content: "单选题：在 Kubernetes 的 Pod 生命周期管理中，如果希望评估容器内服务是否已经初始化完成，能正常承接外部网关 Service 流量，应该优选配置哪种机制？\n选项：\nA. Liveness Probe (存活探针)\nB. Readiness Probe (就绪探针)\nC. Startup Probe (启动探针)\nD. PostStart Hook (后置启动钩子)",
@@ -591,7 +595,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "清华大学计算机系",
       submitTime: "2026-05-27 11:30",
       status: "待审核",
-      auditType: "公开",
+      auditType: "平台公开",
       details: {
         meta: "期末考试试卷 | 总分: 100分 | 包含单选、多选、简答与代码实战题",
         content: "本试卷涵盖 Transformer 架构、Self-Attention、DeepSpeed 分布式训练、LoRA 微调及云原生部署等核心知识点。考试时长 120 分钟，适用于计算机专业本科生及研究生期末考核。",
@@ -610,7 +614,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "北京大学软件学院",
       submitTime: "2026-05-25 14:20",
       status: "已通过",
-      auditType: "公开",
+      auditType: "租户公开",
       details: {
         meta: "期中测试卷 | 总分: 100分 | 包含基础概念与实战部署题",
         content: "试卷侧重考察 Pod 生命周期、Ingress 控制器、StatefulSet 状态节点编排及 Prometheus 告警配置等实践能力。",
@@ -630,6 +634,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "南京大学外国语学院",
       submitTime: "2026-05-26 17:00",
       status: "待审核",
+      auditType: "租户公开",
       details: {
         meta: "音频评测 API 能力 | 平均响应 SLA 150ms",
         content: "提供一键式流式音频口语发音评估 API。支持录入 mp3/wav 音频与标准文本对比，智能识别学生读音中的音素错漏、重音偏移、语流卡顿及流畅度得分，完美贴合英语人机口语实训教学。",
@@ -649,6 +654,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "复旦大学计算机学院",
       submitTime: "2026-05-27 10:20",
       status: "待审核",
+      auditType: "租户公开",
       details: {
         meta: "分布式微调实践 | 推荐星级 5 星",
         content: "本实践介绍如何使用 DeepSpeed 和 Megatron-LM 在多机多卡 GPU 环境下进行 70B 参数规模 LLM 的 3D 并行（张量并行、流水线并行、数据并行）的高效分布式微调与优化。",
@@ -669,6 +675,7 @@ const initialResources: Record<"course" | "project" | "question" | "ai_capacity"
       tenant: "浙江大学医学院",
       submitTime: "2026-05-26 09:40",
       status: "待审核",
+      auditType: "平台公开",
       details: {
         meta: "医疗问答数据集 | 100万条高质量对话",
         content: "本数据集专为医疗行业多模态大模型定制，包含100万条经过医学专家脱敏与多轮校验的高质量中文医疗问答对与对应诊断 CT 图片，数据格式完全契合 JSON-L 及 WebDataset 规范。",
@@ -1067,12 +1074,14 @@ export default function AdminAudit() {
                     </td>
                     <td className="px-3 py-3 text-left">
                       <span className={cn(
-                        "inline-flex items-center px-2 py-0.5 text-[12px] rounded font-medium border",
-                        (item.auditType || "公开") === "公开" 
-                          ? "bg-blue-50 text-blue-600 border-blue-200" 
-                          : "bg-orange-50 text-[#fa541c] border-[#ffbb96]"
+                        "inline-flex items-center px-2 py-0.5 text-[12px] rounded-[4px] font-medium border",
+                        (item.auditType || "平台公开") === "下架" 
+                          ? "bg-[#fafafa] text-[#8c8c8c] border-[#d9d9d9]" 
+                          : (item.auditType || "平台公开") === "租户公开"
+                          ? "bg-[#f9f0ff] text-[#722ed1] border-[#d3adf7]"
+                          : "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]"
                       )}>
-                        {item.auditType || "公开"}
+                        {item.auditType === "公开" ? "平台公开" : (item.auditType || "平台公开")}
                       </span>
                     </td>
                     <td className="px-3 py-3 text-left text-neutral-600">
@@ -1264,7 +1273,7 @@ export default function AdminAudit() {
                     </div>
                     <div className="p-4 space-y-3 select-none text-[13px]">
                       <div className="text-[14px] font-bold text-neutral-900 leading-snug">{reviewingItem.name}</div>
-                      <div className="grid grid-cols-2 gap-3.5 pt-2 border-t border-neutral-100 text-neutral-700">
+                      <div className="grid grid-cols-3 gap-3.5 pt-2 border-t border-neutral-100 text-neutral-700">
                         <div className="flex flex-col gap-1">
                           <span className="text-[11px] text-neutral-400 font-medium">提请教师</span>
                           <span className="text-neutral-800 font-semibold">{reviewingItem.creator}</span>
@@ -1272,6 +1281,21 @@ export default function AdminAudit() {
                         <div className="flex flex-col gap-1">
                           <span className="text-[11px] text-neutral-400 font-medium">提交时间</span>
                           <span className="text-neutral-800 font-semibold">{reviewingItem.submitTime}</span>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          <span className="text-[11px] text-neutral-400 font-medium">类型</span>
+                          <span className="text-neutral-800 font-semibold">
+                            <span className={cn(
+                              "inline-flex items-center px-2 py-0.5 rounded-[4px] text-[11px] font-bold border",
+                              (reviewingItem.auditType || "平台公开") === "下架"
+                                ? "bg-[#fafafa] text-[#8c8c8c] border-[#d9d9d9]"
+                                : (reviewingItem.auditType || "平台公开") === "租户公开"
+                                ? "bg-[#f9f0ff] text-[#722ed1] border-[#d3adf7]"
+                                : "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]"
+                            )}>
+                              {reviewingItem.auditType === "公开" ? "平台公开" : (reviewingItem.auditType || "平台公开")}
+                            </span>
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1385,8 +1409,9 @@ export default function AdminAudit() {
                         <input 
                           type="text"
                           readOnly
+                          disabled
                           value={reviewingItem.name}
-                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                         />
                       </div>
 
@@ -1395,7 +1420,7 @@ export default function AdminAudit() {
                         <label className="text-[13px] font-bold text-[#262626] text-right">
                           标签
                         </label>
-                        <div className="min-h-[38px] w-full border border-neutral-200/80 rounded px-3 py-1.5 flex flex-wrap items-center gap-2 bg-neutral-50/80">
+                        <div className="min-h-[38px] w-full border border-neutral-200/80 rounded px-3 py-1.5 flex flex-wrap items-center gap-2 bg-neutral-50/80 cursor-not-allowed select-none">
                           {["容器", "AI"].map((tag) => (
                             <span 
                               key={tag} 
@@ -1416,8 +1441,9 @@ export default function AdminAudit() {
                         <input 
                           type="text"
                           readOnly
+                          disabled
                           value={reviewingItem.details?.summary || "基于 DeepSpeed 与 Megatron-LM 的大语言模型分布式微调与工程应用实践。"}
-                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80"
+                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 cursor-not-allowed select-none"
                         />
                       </div>
 
@@ -1486,8 +1512,9 @@ export default function AdminAudit() {
                         <input 
                           type="text"
                           readOnly
+                          disabled
                           value="上海园区资源池"
-                          className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                          className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                         />
                       </div>
 
@@ -1498,7 +1525,7 @@ export default function AdminAudit() {
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           <label className="flex items-center gap-2 select-none text-neutral-700 font-medium cursor-not-allowed">
-                            <input type="radio" checked readOnly className="w-4 h-4 accent-[#fa541c]" />
+                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#fa541c]" />
                             <span>容器</span>
                           </label>
                           <label className="flex items-center gap-2 select-none text-neutral-400 font-medium cursor-not-allowed">
@@ -1515,7 +1542,7 @@ export default function AdminAudit() {
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           <label className="flex items-center gap-2 select-none text-neutral-700 font-medium cursor-not-allowed">
-                            <input type="radio" checked readOnly className="w-4 h-4 accent-[#fa541c]" />
+                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#fa541c]" />
                             <span>手动添加</span>
                           </label>
                           <label className="flex items-center gap-2 select-none text-neutral-400 font-medium cursor-not-allowed">
@@ -1531,8 +1558,9 @@ export default function AdminAudit() {
                         <input
                           type="text"
                           readOnly
+                          disabled
                           value="https://github.com/opencv/opencv.git"
-                          className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-mono"
+                          className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-mono cursor-not-allowed select-none"
                         />
                       </div>
 
@@ -1543,7 +1571,7 @@ export default function AdminAudit() {
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           <label className="flex items-center gap-2 select-none text-neutral-700 font-medium cursor-not-allowed">
-                            <input type="radio" checked readOnly className="w-4 h-4 accent-[#fa541c]" />
+                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#fa541c]" />
                             <span>模板创建</span>
                           </label>
                           <label className="flex items-center gap-2 select-none text-neutral-400 font-medium cursor-not-allowed">
@@ -1559,8 +1587,9 @@ export default function AdminAudit() {
                         <input
                           type="text"
                           readOnly
+                          disabled
                           value="通用模板"
-                          className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                          className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                         />
                       </div>
 
@@ -1581,8 +1610,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value={reviewingItem.name || "Python 数据清洗与可视化教学案例"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1594,8 +1624,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value={reviewingItem.details?.summary || "专为学生入门数据分析打造的全自动清洗工作流实践，包含真实业务数据集。"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1606,9 +1637,10 @@ export default function AdminAudit() {
                     </label>
                     <textarea 
                       readOnly
+                      disabled
                       rows={4}
                       value={reviewingItem.details?.content || "提供一套完整的Python数据清洗模板代码，包含缺失值处理、异常值检测、数据标准化等功能，专为数据分析课程设计。"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] p-3.5 text-[13px] text-[#262626] bg-neutral-50/80 leading-relaxed resize-none h-28"
+                      className="w-full border border-neutral-200/80 rounded-[4px] p-3.5 text-[13px] text-[#262626] bg-neutral-50/80 leading-relaxed resize-none h-28 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1620,8 +1652,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value="数据处理, 代码开发"
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1633,8 +1666,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value="课程辅助, 项目开发"
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1653,8 +1687,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value={reviewingItem.name}
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1665,9 +1700,10 @@ export default function AdminAudit() {
                     </label>
                     <textarea 
                       readOnly
+                      disabled
                       rows={4}
                       value={reviewingItem.details?.content || "本数据集专为医疗行业多模态大模型定制，包含100万条经过医学专家脱敏与多轮校验的高质量中文医疗问答对与对应诊断 CT 图片。"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] p-3.5 text-[13px] text-[#262626] bg-neutral-50/80 leading-relaxed resize-none h-28"
+                      className="w-full border border-neutral-200/80 rounded-[4px] p-3.5 text-[13px] text-[#262626] bg-neutral-50/80 leading-relaxed resize-none h-28 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1680,8 +1716,9 @@ export default function AdminAudit() {
                       <input 
                         type="text"
                         readOnly
+                        disabled
                         value="文本数据集"
-                        className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed pr-10"
+                        className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none pr-10"
                       />
                       <ChevronDown className="w-4 h-4 text-neutral-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -1695,8 +1732,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value="tag-bbb"
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1708,8 +1746,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value="med_qa_multimodal_dataset_v1.0.zip"
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-mono font-medium"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-mono font-medium cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1882,7 +1921,6 @@ export default function AdminAudit() {
                                     <th className="px-3.5 py-2.5 text-center font-bold">最多可抽</th>
                                     <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
                                     <th className="px-3.5 py-2.5 text-center font-bold">总分</th>
-                                    <th className="px-3.5 py-2.5 text-center font-bold">操作</th>
                                   </tr>
                                 </thead>
                                 <tbody className="divide-y divide-neutral-100 text-neutral-700">
@@ -1891,45 +1929,18 @@ export default function AdminAudit() {
                                       <td className="px-3.5 py-3 font-medium text-neutral-800">{rule.tag}</td>
                                       <td className="px-3.5 py-3 text-neutral-600">{rule.difficulty}</td>
                                       <td className="px-3.5 py-3 text-center">
-                                        <input 
-                                          type="text"
-                                          inputMode="numeric"
-                                          value={rule.count === '' ? '' : rule.count}
-                                          onChange={(e) => {
-                                            const val = e.target.value;
-                                            if (val === '' || /^\d*$/.test(val)) {
-                                              handleUpdateAuditPaperRule(rule.id, 'count', val === '' ? '' : Number(val));
-                                            }
-                                          }}
-                                          className="w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-white font-medium text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-xs transition-all"
-                                        />
+                                        <span className="inline-block w-14 h-7 text-center border border-neutral-200/80 rounded-[4px] bg-neutral-50/80 font-semibold text-neutral-800 leading-7 select-none">
+                                          {rule.count}
+                                        </span>
                                       </td>
                                       <td className="px-3.5 py-3 text-center font-bold text-neutral-800">{rule.maxAvailable}</td>
                                       <td className="px-3.5 py-3 text-center">
-                                        <input 
-                                          type="text"
-                                          inputMode="numeric"
-                                          value={rule.score === '' ? '' : rule.score}
-                                          onChange={(e) => {
-                                            const val = e.target.value;
-                                            if (val === '' || /^\d*\.?\d*$/.test(val)) {
-                                              handleUpdateAuditPaperRule(rule.id, 'score', val === '' ? '' : Number(val));
-                                            }
-                                          }}
-                                          className="w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-white font-medium text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-xs transition-all"
-                                        />
+                                        <span className="inline-block w-14 h-7 text-center border border-neutral-200/80 rounded-[4px] bg-neutral-50/80 font-semibold text-neutral-800 leading-7 select-none">
+                                          {rule.score}
+                                        </span>
                                       </td>
                                       <td className="px-3.5 py-3 text-center font-extrabold text-neutral-900">
                                         {(Number(rule.count) || 0) * (Number(rule.score) || 0)}
-                                      </td>
-                                      <td className="px-3.5 py-3 text-center">
-                                        <button 
-                                          type="button" 
-                                          onClick={() => handleRemoveAuditPaperRule(rule.id)}
-                                          className="text-[#fa541c] hover:text-[#e84a15] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs transition-colors"
-                                        >
-                                          移除
-                                        </button>
                                       </td>
                                     </tr>
                                   ))}
@@ -1973,8 +1984,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value={reviewingItem.name || "深度学习答疑"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -1987,8 +1999,9 @@ export default function AdminAudit() {
                       <input 
                         type="text"
                         readOnly
+                        disabled
                         value="答疑助手"
-                        className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed pr-10"
+                        className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none pr-10"
                       />
                       <ChevronDown className="w-4 h-4 text-neutral-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -2001,9 +2014,10 @@ export default function AdminAudit() {
                     </label>
                     <textarea 
                       readOnly
+                      disabled
                       rows={4}
                       value={reviewingItem.details?.content || "遇到报错了？把日志发给我看看。"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] p-3.5 text-[13px] text-[#262626] bg-neutral-50/80 leading-relaxed resize-none h-28"
+                      className="w-full border border-neutral-200/80 rounded-[4px] p-3.5 text-[13px] text-[#262626] bg-neutral-50/80 leading-relaxed resize-none h-28 cursor-not-allowed select-none"
                     />
                   </div>
 
@@ -2015,8 +2029,9 @@ export default function AdminAudit() {
                     <input 
                       type="text"
                       readOnly
+                      disabled
                       value={reviewingItem.details?.meta ? reviewingItem.details.meta.split('|')[0].trim() : "人工智能深度学习知识库 v2.0"}
-                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium"
+                      className="w-full border border-neutral-200/80 rounded-[4px] px-3.5 py-2 text-[13px] text-[#262626] bg-neutral-50/80 font-medium cursor-not-allowed select-none"
                     />
                   </div>
 
