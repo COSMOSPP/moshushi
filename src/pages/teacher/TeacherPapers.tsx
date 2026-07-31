@@ -2278,10 +2278,7 @@ export default function TeacherPapers() {
               </div>
 
               {/* Grid Metrics */}
-              <div className={cn(
-                "grid gap-3 pt-1",
-                (viewingPaper.selectionMethod || '随机抽题') === '手动抽题' ? "grid-cols-3" : "grid-cols-4"
-              )}>
+              <div className="grid grid-cols-3 gap-3 pt-1">
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold text-neutral-400">试卷类型</label>
                   <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold">{viewingPaper.type || '期末试卷'}</p>
@@ -2292,14 +2289,6 @@ export default function TeacherPapers() {
                     {viewingPaper.selectionMethod || '随机抽题'}
                   </p>
                 </div>
-                {(viewingPaper.selectionMethod || '随机抽题') !== '手动抽题' && (
-                  <div className="space-y-1">
-                    <label className="text-[11px] font-bold text-neutral-400">所属试题库</label>
-                    <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold truncate" title={viewingPaper.bankName || '人工智能通识D-uni'}>
-                      {viewingPaper.bankName || '人工智能通识D-uni'}
-                    </p>
-                  </div>
-                )}
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold text-neutral-400">总分</label>
                   <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold">100 分</p>
@@ -2324,7 +2313,6 @@ export default function TeacherPapers() {
                           <thead>
                             <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
                               <th className="px-3.5 py-2.5 font-bold">试题名称</th>
-                              <th className="px-3.5 py-2.5 font-bold">所属试题库</th>
                               <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
                             </tr>
                           </thead>
@@ -2335,7 +2323,6 @@ export default function TeacherPapers() {
                                   智能体与传统程序最本质的区别是什么？
                                 </span>
                               </td>
-                              <td className="px-3.5 py-3 text-neutral-600">人工智能通识D-uni</td>
                               <td className="px-3.5 py-3 text-center">
                                 <span className="inline-block w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-neutral-50 font-semibold text-neutral-700 leading-7">3</span>
                               </td>
@@ -2353,7 +2340,6 @@ export default function TeacherPapers() {
                           <thead>
                             <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
                               <th className="px-3.5 py-2.5 font-bold">试题名称</th>
-                              <th className="px-3.5 py-2.5 font-bold">所属试题库</th>
                               <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
                             </tr>
                           </thead>
@@ -2364,7 +2350,6 @@ export default function TeacherPapers() {
                                   智能体的四个基本组成部分包含哪些...
                                 </span>
                               </td>
-                              <td className="px-3.5 py-3 text-neutral-600">人工智能通识D-uni</td>
                               <td className="px-3.5 py-3 text-center">
                                 <span className="inline-block w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-neutral-50 font-semibold text-neutral-700 leading-7">3</span>
                               </td>
@@ -2382,7 +2367,6 @@ export default function TeacherPapers() {
                           <thead>
                             <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
                               <th className="px-3.5 py-2.5 font-bold">试题名称</th>
-                              <th className="px-3.5 py-2.5 font-bold">所属试题库</th>
                               <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
                             </tr>
                           </thead>
@@ -2393,7 +2377,6 @@ export default function TeacherPapers() {
                                   大语言模型是___________的核心基础...
                                 </span>
                               </td>
-                              <td className="px-3.5 py-3 text-neutral-600">人工智能通识D-uni</td>
                               <td className="px-3.5 py-3 text-center">
                                 <span className="inline-block w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-neutral-50 font-semibold text-neutral-700 leading-7">3</span>
                               </td>
