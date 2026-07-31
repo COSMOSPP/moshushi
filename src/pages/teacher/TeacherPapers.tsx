@@ -2408,7 +2408,6 @@ export default function TeacherPapers() {
                   <div className="space-y-4 animate-fade-in">
                     {['单选题', '多选题', '判断题', '填空题', '简答题', '思考题', '编程题', '实训题'].filter(type => detailDrawRules.some(r => r.type === type)).map((type) => {
                       const rulesOfType = detailDrawRules.filter(r => r.type === type);
-                      const isHomework = (viewingPaper.type || '作业') === '作业' || (viewingPaper.type || '').includes('作业');
                       return (
                         <div key={type} className="bg-white rounded-[4px] border border-neutral-200 p-4 space-y-3 shadow-sm">
                           <h5 className="text-sm font-bold text-neutral-800">{type}</h5>
@@ -2422,7 +2421,6 @@ export default function TeacherPapers() {
                                   <th className="px-3.5 py-2.5 text-center font-bold">最多可抽</th>
                                   <th className="px-3.5 py-2.5 text-center font-bold">分值</th>
                                   <th className="px-3.5 py-2.5 text-center font-bold">总分</th>
-                                  {!isHomework && <th className="px-3.5 py-2.5 text-center font-bold">操作</th>}
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-neutral-100 text-neutral-700">
@@ -2431,68 +2429,27 @@ export default function TeacherPapers() {
                                     <td className="px-3.5 py-3 font-medium text-neutral-800">{rule.tag}</td>
                                     <td className="px-3.5 py-3 text-neutral-600">{rule.difficulty}</td>
                                     <td className="px-3.5 py-3 text-center">
-                                      {isHomework ? (
-                                        <input 
-                                          type="text"
-                                          readOnly
-                                          disabled
-                                          value={rule.count === '' ? '' : rule.count}
-                                          className="w-14 h-7 text-center border border-neutral-200/80 rounded-[4px] bg-neutral-50/80 font-medium text-neutral-700 cursor-not-allowed select-none text-xs"
-                                        />
-                                      ) : (
-                                        <input 
-                                          type="text"
-                                          inputMode="numeric"
-                                          value={rule.count === '' ? '' : rule.count}
-                                          onChange={(e) => {
-                                            const val = e.target.value;
-                                            if (val === '' || /^\d*$/.test(val)) {
-                                              handleUpdateDetailRule(rule.id, 'count', val === '' ? '' : Number(val));
-                                            }
-                                          }}
-                                          className="w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-white font-medium text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-xs transition-all"
-                                        />
-                                      )}
+                                      <input 
+                                        type="text"
+                                        readOnly
+                                        disabled
+                                        value={rule.count === '' ? '' : rule.count}
+                                        className="w-14 h-7 text-center border border-neutral-200/80 rounded-[4px] bg-neutral-50/80 font-medium text-neutral-700 cursor-not-allowed select-none text-xs pointer-events-none"
+                                      />
                                     </td>
                                     <td className="px-3.5 py-3 text-center font-bold text-neutral-800">{rule.maxAvailable}</td>
                                     <td className="px-3.5 py-3 text-center">
-                                      {isHomework ? (
-                                        <input 
-                                          type="text"
-                                          readOnly
-                                          disabled
-                                          value={rule.score === '' ? '' : rule.score}
-                                          className="w-14 h-7 text-center border border-neutral-200/80 rounded-[4px] bg-neutral-50/80 font-medium text-neutral-700 cursor-not-allowed select-none text-xs"
-                                        />
-                                      ) : (
-                                        <input 
-                                          type="text"
-                                          inputMode="numeric"
-                                          value={rule.score === '' ? '' : rule.score}
-                                          onChange={(e) => {
-                                            const val = e.target.value;
-                                            if (val === '' || /^\d*\.?\d*$/.test(val)) {
-                                              handleUpdateDetailRule(rule.id, 'score', val === '' ? '' : Number(val));
-                                            }
-                                          }}
-                                          className="w-14 h-7 text-center border border-neutral-200 rounded-[4px] bg-white font-medium text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-xs transition-all"
-                                        />
-                                      )}
+                                      <input 
+                                        type="text"
+                                        readOnly
+                                        disabled
+                                        value={rule.score === '' ? '' : rule.score}
+                                        className="w-14 h-7 text-center border border-neutral-200/80 rounded-[4px] bg-neutral-50/80 font-medium text-neutral-700 cursor-not-allowed select-none text-xs pointer-events-none"
+                                      />
                                     </td>
                                     <td className="px-3.5 py-3 text-center font-extrabold text-neutral-900">
                                       {(Number(rule.count) || 0) * (Number(rule.score) || 0)}
                                     </td>
-                                    {!isHomework && (
-                                      <td className="px-3.5 py-3 text-center">
-                                        <button 
-                                          type="button" 
-                                          onClick={() => handleRemoveDetailRule(rule.id)}
-                                          className="text-[#fa541c] hover:text-[#e84a15] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs transition-colors"
-                                        >
-                                          移除
-                                        </button>
-                                      </td>
-                                    )}
                                   </tr>
                                 ))}
                               </tbody>

@@ -4254,6 +4254,52 @@ export default function TeacherQuestions() {
                 </div>
               )}
 
+              {/* 得分关键词与规则配置 (填空题 / 简答题 / 实训题) */}
+              {['填空题', '简答题', '实训题', '编程题'].includes(viewingQuestion.type) && (
+                <div className="space-y-2.5">
+                  <label className="text-[13px] font-bold text-neutral-400">得分关键词与规则配置：</label>
+                  <div className="border border-neutral-200 rounded-[4px] overflow-hidden bg-white">
+                    <table className="w-full text-left border-collapse text-xs">
+                      <thead>
+                        <tr className="bg-neutral-50/70 border-b border-neutral-200 text-neutral-600 font-bold">
+                          <th className="px-3.5 py-2.5 font-bold w-1/4">填空名称</th>
+                          <th className="px-3.5 py-2.5 font-bold w-1/2">得分关键词</th>
+                          <th className="px-3.5 py-2.5 text-center font-bold w-1/4">得分比例</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-neutral-100 text-neutral-700">
+                        <tr className="hover:bg-neutral-50/30 transition-colors">
+                          <td className="px-3.5 py-3 font-medium">
+                            <input 
+                              type="text" 
+                              readOnly 
+                              disabled 
+                              value="填空 1" 
+                              className="w-full border border-neutral-200/80 rounded-[4px] px-2.5 py-1 text-xs text-neutral-700 bg-neutral-50/80 cursor-not-allowed select-none font-medium"
+                            />
+                          </td>
+                          <td className="px-3.5 py-3">
+                            <div className="flex flex-wrap gap-1.5 p-1.5 bg-neutral-50/80 border border-neutral-200/80 rounded-[4px] cursor-not-allowed select-none">
+                              <span className="px-2 py-0.5 rounded-[4px] bg-white border border-neutral-200 text-xs text-neutral-700 font-medium">Transformer</span>
+                              <span className="px-2 py-0.5 rounded-[4px] bg-white border border-neutral-200 text-xs text-neutral-700 font-medium">Self-Attention</span>
+                            </div>
+                          </td>
+                          <td className="px-3.5 py-3 text-center">
+                            <input 
+                              type="text" 
+                              readOnly 
+                              disabled 
+                              value="100%" 
+                              className="w-full text-center border border-neutral-200/80 rounded-[4px] px-2.5 py-1 text-xs text-neutral-700 bg-neutral-50/80 cursor-not-allowed select-none font-bold"
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
               {/* Correct Answer */}
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-400">
