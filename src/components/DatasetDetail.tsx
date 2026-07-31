@@ -42,6 +42,7 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
 
   // Drawer step & form states
   const [drawerStep, setDrawerStep] = useState<'select' | 'create'>('select');
+  const [showSuccessConfirmModal, setShowSuccessConfirmModal] = useState(false);
   const [activeFormTab, setActiveFormTab] = useState<'basic' | 'env'>('basic');
   const [formName, setFormName] = useState('');
   const [formTags, setFormTags] = useState<string[]>([]);
@@ -382,7 +383,10 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
                     取消
                   </Button>
                   <Button 
-                    onClick={() => setShowAddToProjectModal(false)} 
+                    onClick={() => {
+                      setShowAddToProjectModal(false);
+                      setShowSuccessConfirmModal(true);
+                    }} 
                     className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
                   >
                     确认
@@ -792,6 +796,51 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
                 </div>
               </>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Confirmation Dialog matching user screenshot with orange theme */}
+      {showSuccessConfirmModal && (
+        <div className="fixed inset-0 z-[250] flex items-center justify-center bg-black/50 backdrop-blur-[2px] animate-fade-in p-4">
+          <div className="w-full max-w-[540px] bg-white rounded-[16px] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 text-left border border-neutral-100">
+            {/* Header */}
+            <div className="px-6 py-3.5 bg-[#f8f9fa] border-b border-neutral-100 flex items-center justify-between">
+              <h3 className="text-[15px] font-bold text-neutral-800 tracking-tight">提示</h3>
+              <button 
+                onClick={() => setShowSuccessConfirmModal(false)} 
+                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-full transition-colors border-0 bg-transparent cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="p-7 space-y-4">
+              <p className="text-[14px] text-neutral-700 leading-relaxed font-normal">
+                此数据集已被成功添加到你的项目{' '}
+                <span className="text-[#fa541c] font-bold hover:underline cursor-pointer">
+                  {selectedProjectId}
+                </span>
+                ，你可以进入相应 Notebook 进行数据分析。
+              </p>
+            </div>
+
+            {/* Footer */}
+            <div className="px-6 pb-6 pt-2 flex items-center justify-end gap-3">
+              <button 
+                onClick={() => setShowSuccessConfirmModal(false)}
+                className="px-6 h-9 rounded-full border border-[#fa541c] text-[#fa541c] bg-white hover:bg-[#fff2e8] transition-colors text-[13px] font-medium cursor-pointer select-none"
+              >
+                稍后查看
+              </button>
+              <button 
+                onClick={() => setShowSuccessConfirmModal(false)}
+                className="px-6 h-9 rounded-full bg-[#fa541c] hover:bg-[#e84a15] text-white transition-colors text-[13px] font-medium cursor-pointer border-0 shadow-sm select-none"
+              >
+                开始分析
+              </button>
+            </div>
           </div>
         </div>
       )}
