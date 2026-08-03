@@ -232,7 +232,7 @@ function getDefaultChapters(course?: AuditResource | null): CourseChapter[] {
   ];
 }
 
-const initialResources: Record<"course" | "project" | "question" | "ai_capacity" | "practice" | "dataset", AuditResource[]> = {
+const initialResources: Record<"course" | "project" | "question" | "paper" | "ai_capacity" | "practice" | "dataset", AuditResource[]> = {
   course: [
     {
       id: "AUD-CRS-001",
@@ -1871,23 +1871,11 @@ export default function AdminAudit() {
                   </div>
 
                   {/* 3. Grid Metrics */}
-                  <div className="grid grid-cols-4 gap-3 pt-1">
-                    <div className="space-y-1">
-                      <label className="text-[11px] font-bold text-neutral-400">试卷类型</label>
-                      <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold">
-                        {reviewingItem.auditType ? `${reviewingItem.auditType}试卷` : '期末试卷'}
-                      </p>
-                    </div>
+                  <div className="grid grid-cols-2 gap-3 pt-1">
                     <div className="space-y-1">
                       <label className="text-[11px] font-bold text-neutral-400">试题配置</label>
                       <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold truncate" title="随机抽题">
                         随机抽题
-                      </p>
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[11px] font-bold text-neutral-400">所属试题库</label>
-                      <p className="text-xs text-neutral-700 bg-neutral-50 px-3 py-2 rounded-[4px] font-bold truncate" title="人工智能通识D-uni">
-                        人工智能通识D-uni
                       </p>
                     </div>
                     <div className="space-y-1">
