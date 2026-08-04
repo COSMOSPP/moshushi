@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Plus, 
   Search, 
@@ -18,7 +19,15 @@ import {
   Layers,
   Info,
   ArrowDownCircle,
-  ChevronDown
+  ChevronDown,
+  Star,
+  Eye,
+  ArrowLeft,
+  Download,
+  Copy,
+  ExternalLink,
+  FileCode,
+  Check
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -37,6 +46,9 @@ interface Dataset {
   size?: string;
   fileCount?: number;
   updateTime: string;
+  starCount?: number;
+  referenceCount?: number;
+  image?: string;
   courseId?: number | null;
   courseName?: string;
 }
@@ -53,20 +65,26 @@ export default function TeacherDatasets({
   defaultCourseName = null,
 }: TeacherDatasetsProps) {
 
+  const navigate = useNavigate();
+
   // Mock data matching exact user screenshot
   const initialDatasets: Dataset[] = [
     {
       id: 1,
-      name: '111',
-      subtitle: '11',
-      desc: '11',
-      creator: 'liuwei01',
-      type: '文本',
-      isAvailable: false,
-      scope: '私有',
-      auditStatus: '--',
-      tags: ['tag-bbb'],
-      updateTime: '2026-07-23'
+      name: 'NPZ格式的MNIST数据',
+      subtitle: 'MNIST data in NPZ format',
+      desc: 'This is classic MNIST dataset and pickled (in npz format).\n\nTo load this dataset in your code use following function:\n\ndef load_data(path):\n    with np.load(path) as f:\n        x_train, y_train = f[\'x_train\'], f[\'y_train\']\n        x_test, y_test = f[\'x_test\'], f[\'y_test\']\n        return (x_train, y_train), (x_test, y_test)\n\n(x_train, y_train), (x_test, y_test) = load_data(\'../input/mnist.npz\')',
+      creator: 'momodel',
+      type: '其他',
+      isAvailable: true,
+      scope: '公共',
+      auditStatus: '审核通过',
+      tags: ['computer science', '图像分类'],
+      updateTime: '2026-07-23',
+      starCount: 128,
+      referenceCount: 214,
+      size: '11 MB',
+      image: '/shixunnew-v2/images/covers/microsoft_tech_data_1779333332856.png'
     },
     {
       id: 2,
@@ -79,7 +97,11 @@ export default function TeacherDatasets({
       scope: '私有',
       auditStatus: '待审核',
       tags: ['公有云', '私有云'],
-      updateTime: '2026-07-15'
+      updateTime: '2026-07-15',
+      starCount: 256,
+      referenceCount: 89,
+      size: '1.25 GB',
+      image: '/shixunnew-v2/images/covers/microsoft_tech_ai_1779333317936.png'
     },
     {
       id: 3,
@@ -92,20 +114,27 @@ export default function TeacherDatasets({
       scope: '私有',
       auditStatus: '待审核',
       tags: ['私有云'],
-      updateTime: '2026-07-14'
+      updateTime: '2026-07-14',
+      starCount: 64,
+      referenceCount: 18,
+      size: '340 MB',
+      image: '/shixunnew-v2/images/covers/microsoft_tech_ml_1779333449102.png'
     }
   ];
 
   const [datasets, setDatasets] = useState<Dataset[]>(initialDatasets);
 
-  // Filters
+  // Search & Filter state
+  const [searchKeyword, setSearchKeyword] = useState('');
   const [tabFilter, setTabFilter] = useState<'all' | 'public' | 'my'>('all');
   const [courseFilter, setCourseFilter] = useState<string>(defaultCourseId ? String(defaultCourseId) : 'all');
-  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Dropdown Action State
+  const [activeDropdownId, setActiveDropdownId] = useState<number | null>(null);
+
+  // Filter dropdown state
   const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
   const filterDropdownRef = React.useRef<HTMLDivElement>(null);
-  
-  const [activeDropdownId, setActiveDropdownId] = useState<number | null>(null);
   const actionDropdownRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -127,6 +156,10 @@ export default function TeacherDatasets({
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [currentId, setCurrentId] = useState<number | null>(null);
+
+  const handleOpenDetail = (ds: Dataset) => {
+    navigate(`/teacher/dataset/${ds.id}`);
+  };
 
   // Off-shelf State
   const [isOffShelfModalOpen, setIsOffShelfModalOpen] = useState(false);
@@ -222,8 +255,7 @@ export default function TeacherDatasets({
   const [formDesc, setFormDesc] = useState('');
   const [formType, setFormType] = useState<Dataset['type']>('文本');
   const [formTags, setFormTags] = useState('');
-  const [formScope, setFormScope] = useState<'平台公共' | '我的私有'>('我的私有');
-  const [formFile, setFormFile] = useState<File | null>(null);
+  const [formScope, setFormScope] = useState<'私有' | '公开'>('私有');
 
   // Toast
   const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
@@ -270,7 +302,6 @@ export default function TeacherDatasets({
     setFormType('文本');
     setFormTags('');
     setFormScope('私有');
-    setFormFile(null);
     setIsDrawerOpen(true);
   };
 
@@ -281,8 +312,7 @@ export default function TeacherDatasets({
     setFormDesc(ds.desc);
     setFormType(ds.type);
     setFormTags(ds.tags.join(', '));
-    setFormScope(ds.scope);
-    setFormFile(null);
+    setFormScope(ds.scope === '公共' || ds.scope === '租户' ? '公开' : '私有');
     setIsDrawerOpen(true);
   };
 
@@ -292,15 +322,16 @@ export default function TeacherDatasets({
       return;
     }
     
-    const tagsArray = formTags.split(/[,，]/).map(t => t.trim()).filter(Boolean);
+    const tagsArray = formScope === '私有' ? [] : formTags.split(/[,，]/).map(t => t.trim()).filter(Boolean);
 
     if (isEditMode && currentId !== null) {
       setDatasets(datasets.map(d => d.id === currentId ? {
         ...d,
         name: formName,
         desc: formDesc,
-        type: formType,
+        type: formScope === '私有' ? '文本' : formType,
         tags: tagsArray,
+        scope: formScope === '公开' ? '公共' : '私有',
         updateTime: new Date().toISOString().split('T')[0]
       } : d));
       showToast('数据集更新成功');
@@ -311,14 +342,17 @@ export default function TeacherDatasets({
         subtitle: formDesc || formName,
         desc: formDesc,
         creator: 'liuwei01',
-        type: formType,
+        type: formScope === '私有' ? '文本' : formType,
         tags: tagsArray,
         isAvailable: true,
-        scope: '私有',
-        auditStatus: '--',
-        size: formFile ? `${(formFile.size / 1024 / 1024).toFixed(2)} MB` : '0 MB',
-        fileCount: formFile ? 1 : 0,
-        updateTime: new Date().toISOString().split('T')[0]
+        scope: formScope === '公开' ? '公共' : '私有',
+        auditStatus: formScope === '公开' ? '待审核' : '--',
+        size: '0 MB',
+        fileCount: 0,
+        updateTime: new Date().toISOString().split('T')[0],
+        starCount: 0,
+        referenceCount: 0,
+        image: '/shixunnew-v2/images/covers/microsoft_tech_data_1779333332856.png'
       };
       setDatasets([newDataset, ...datasets]);
       showToast('数据集创建成功');
@@ -345,9 +379,11 @@ export default function TeacherDatasets({
     // Course filter
     if (courseFilter !== 'all' && d.courseId !== Number(courseFilter)) return false;
     // Search
-    if (searchQuery && !d.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    if (searchKeyword && !d.name.toLowerCase().includes(searchKeyword.toLowerCase())) return false;
     return true;
   });
+
+
 
   return (
     <div className={cn("flex flex-col h-full text-left", embedded ? "p-5" : "p-6")}>
@@ -372,48 +408,10 @@ export default function TeacherDatasets({
             <input 
               type="text" 
               placeholder="搜索数据集名称" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)}
               className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
             />
-          </div>
-          
-          {/* Scope Dropdown */}
-          <div ref={filterDropdownRef} className="relative">
-            <button 
-              onClick={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
-              className="w-[128px] border border-neutral-200 rounded-full px-3.5 h-9 flex items-center justify-between text-[13px] text-neutral-700 bg-white hover:border-[#fa541c] hover:text-[#fa541c] transition-colors cursor-pointer font-medium"
-            >
-              <span className="truncate">
-                {tabFilter === 'all' ? '全部' : tabFilter === 'public' ? '平台公共' : '我的私有'}
-              </span>
-              <ChevronDown className={cn("w-3.5 h-3.5 shrink-0 text-neutral-400 transition-transform duration-200", isFilterDropdownOpen && "rotate-180 text-[#fa541c]")} />
-            </button>
-            {isFilterDropdownOpen && (
-              <div className="absolute left-0 top-full mt-1.5 bg-white border border-neutral-200 rounded shadow-lg py-1 z-40 w-[128px] text-left animate-in fade-in slide-in-from-top-1 duration-150">
-                {[
-                  { key: 'all', label: '全部' },
-                  { key: 'public', label: '平台公共' },
-                  { key: 'my', label: '我的私有' }
-                ].map(opt => (
-                  <button 
-                    key={opt.key}
-                    onClick={() => {
-                      setTabFilter(opt.key as any);
-                      setIsFilterDropdownOpen(false);
-                    }}
-                    className={cn(
-                      "w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all font-medium",
-                      tabFilter === opt.key 
-                        ? "text-[#fa541c] bg-orange-50 font-bold" 
-                        : "text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50"
-                    )}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
         </div>
 
@@ -433,12 +431,11 @@ export default function TeacherDatasets({
               <table className="w-full text-left border-collapse whitespace-nowrap text-[13px]">
                 <thead>
                   <tr className="border-b border-neutral-100 bg-neutral-50/50 text-[13px] text-neutral-600 font-medium">
-                    <th className="p-4 font-medium w-[30%]">数据集信息</th>
+                    <th className="p-4 font-medium w-[28%]">数据集信息</th>
                     <th className="p-4 font-medium">创建人</th>
                     <th className="p-4 font-medium">类型</th>
-                    <th className="p-4 font-medium">是否可用</th>
-                    <th className="p-4 font-medium">范围</th>
-                    <th className="p-4 font-medium">审核状态</th>
+                    <th className="p-4 font-medium">收藏数量</th>
+                    <th className="p-4 font-medium">被引用次数</th>
                     <th className="p-4 font-medium">更新时间</th>
                     <th className="p-4 font-medium">操作</th>
                   </tr>
@@ -448,21 +445,39 @@ export default function TeacherDatasets({
                     <tr key={ds.id} className={cn("border-b border-neutral-100 hover:bg-neutral-50/30 transition-colors group text-[13px]", index === filteredData.length - 1 && "border-b-0")}>
                       {/* 1. 数据集信息 */}
                       <td className="p-4">
-                        <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer">
-                          {ds.name}
-                        </div>
-                        {ds.subtitle && (
-                          <div className="text-xs text-neutral-500 font-mono mt-0.5">{ds.subtitle}</div>
-                        )}
-                        {ds.tags && ds.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1.5 mt-1.5">
-                            {ds.tags.map((t, idx) => (
-                              <span key={idx} className="px-2 py-0.5 bg-neutral-50 text-neutral-500 border border-neutral-200/80 text-[11px] rounded font-mono">
-                                {t}
-                              </span>
-                            ))}
+                        <div className="flex items-center gap-4">
+                          <div 
+                            onClick={() => handleOpenDetail(ds)} 
+                            className="w-20 h-14 rounded-md overflow-hidden flex-shrink-0 border border-neutral-200/60 shadow-xs relative bg-neutral-100 cursor-pointer group/img"
+                          >
+                            <img 
+                              src={ds.image || '/shixunnew-v2/images/covers/microsoft_tech_data_1779333332856.png'} 
+                              alt={ds.name} 
+                              className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" 
+                              referrerPolicy="no-referrer" 
+                            />
                           </div>
-                        )}
+                          <div>
+                            <div 
+                              onClick={() => handleOpenDetail(ds)} 
+                              className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer"
+                            >
+                              {ds.name}
+                            </div>
+                            {ds.subtitle && (
+                              <div className="text-xs text-neutral-500 font-mono mt-0.5">{ds.subtitle}</div>
+                            )}
+                            {ds.tags && ds.tags.length > 0 && (
+                              <div className="flex flex-wrap gap-1.5 mt-1.5">
+                                {ds.tags.map((t, idx) => (
+                                  <span key={idx} className="px-2 py-0.5 bg-neutral-50 text-neutral-500 border border-neutral-200/80 text-[11px] rounded font-mono">
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </td>
 
                       {/* 2. 创建人 */}
@@ -482,106 +497,70 @@ export default function TeacherDatasets({
                         </span>
                       </td>
 
-                      {/* 4. 是否可用 */}
-                      <td className="p-4">
-                        <span className={cn(
-                          "px-2 py-0.5 text-[12px] rounded border font-medium",
-                          ds.isAvailable ? "bg-emerald-50 text-emerald-600 border-emerald-200" : "bg-neutral-50 text-neutral-500 border-neutral-200"
-                        )}>
-                          {ds.isAvailable ? '可用' : '不可用'}
-                        </span>
+                      {/* 4. 收藏数量 */}
+                      <td className="p-4 text-neutral-700 font-medium">
+                        <div className="flex items-center gap-1.5">
+                          <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                          <span>{ds.starCount ?? (ds.id === 1 ? 128 : ds.id === 2 ? 256 : 64)}</span>
+                        </div>
                       </td>
 
-                      {/* 5. 范围 */}
-                      <td className="p-4">
-                        <span className={cn(
-                          "px-2 py-0.5 text-[12px] rounded border font-medium",
-                          ds.scope === '公共' || ds.scope === '平台公共' ? "bg-orange-50 text-orange-600 border-orange-200" : "bg-neutral-50 text-neutral-500 border-neutral-200"
-                        )}>
-                          {ds.scope === '平台公共' ? '公共' : ds.scope}
-                        </span>
+                      {/* 5. 被引用次数 */}
+                      <td className="p-4 text-neutral-700 font-medium">
+                        <div className="flex items-center gap-1.5">
+                          <LinkIcon className="w-3.5 h-3.5 text-neutral-400" />
+                          <span>{ds.referenceCount ?? (ds.id === 1 ? 45 : ds.id === 2 ? 89 : 18)} 次</span>
+                        </div>
                       </td>
 
-                      {/* 6. 审核状态 */}
-                      <td className="p-4">
-                        {ds.auditStatus === '待审核' ? (
-                          <span className="text-[#fa541c] font-medium">待审核</span>
-                        ) : ds.auditStatus === '审核通过' || ds.auditStatus === '已发布' || ds.auditStatus === '已通过' ? (
-                          <span className="text-emerald-600 font-medium">已通过</span>
-                        ) : (
-                          <span className="text-neutral-400 font-normal">--</span>
-                        )}
-                      </td>
-
-                      {/* 7. 更新时间 */}
+                      {/* 6. 更新时间 */}
                       <td className="p-4 text-neutral-500 font-mono text-[12px]">
                         {ds.updateTime}
                       </td>
 
-                      {/* 8. 操作 */}
+                      {/* 7. 操作 */}
                       <td className="p-4">
                         <div className="flex items-center gap-3">
                           <button 
-                            onClick={() => handleOpenEdit(ds)} 
+                            onClick={() => handleOpenDetail(ds)} 
                             className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
                           >
-                            编辑
-                          </button>
-                          <button 
-                            onClick={() => handleOpenApplyPublic(ds)} 
-                            className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
-                          >
-                            公开
+                            查看
                           </button>
 
-                          {/* 下拉菜单: 更多 */}
-                          <div className="relative" ref={activeDropdownId === ds.id ? actionDropdownRef : null}>
+                          {ds.creator === 'liuwei01' ? (
                             <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveDropdownId(activeDropdownId === ds.id ? null : ds.id);
-                              }}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium flex items-center gap-0.5 rounded-[4px]"
+                              onClick={() => handleOpenEdit(ds)} 
+                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
                             >
-                              更多 <ChevronDown className="w-3 h-3" />
+                              编辑
                             </button>
-                            {activeDropdownId === ds.id && (
-                              <div className="absolute right-0 mt-1.5 bg-white border border-neutral-200 rounded-[4px] shadow-lg py-1 z-30 min-w-[100px] text-left animate-in fade-in slide-in-from-top-1 duration-150">
-                                <button 
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleAvailability(ds);
-                                    setActiveDropdownId(null);
-                                  }} 
-                                  className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
-                                >
-                                  {ds.isAvailable ? '禁用' : '启用'}
-                                </button>
-                                <button 
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    setDatasetToOffShelf(ds);
-                                    setOffShelfReason('');
-                                    setIsOffShelfModalOpen(true);
-                                    setActiveDropdownId(null);
-                                  }} 
-                                  className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
-                                >
-                                  下架
-                                </button>
-                                <button 
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleDelete(ds);
-                                    setActiveDropdownId(null);
-                                  }} 
-                                  className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
-                                >
-                                  删除
-                                </button>
-                              </div>
-                            )}
-                          </div>
+                          ) : (
+                            <button 
+                              disabled
+                              className="text-[#ffbb96] bg-transparent border-0 cursor-not-allowed p-0 text-[13px] font-medium rounded-[4px] select-none opacity-80"
+                              title="非本人创建的数据集不可编辑"
+                            >
+                              编辑
+                            </button>
+                          )}
+
+                          {ds.creator === 'liuwei01' ? (
+                            <button 
+                              onClick={() => handleDelete(ds)} 
+                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
+                            >
+                              删除
+                            </button>
+                          ) : (
+                            <button 
+                              disabled
+                              className="text-[#ffbb96] bg-transparent border-0 cursor-not-allowed p-0 text-[13px] font-medium rounded-[4px] select-none opacity-80"
+                              title="非本人创建的数据集不可删除"
+                            >
+                              删除
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>
@@ -679,72 +658,81 @@ export default function TeacherDatasets({
                 />
               </div>
 
-              <div className="grid grid-cols-[80px_1fr] items-center gap-4">
-                <label className="text-[13px] font-bold text-neutral-400 text-right">
-                  类型 <span className="text-[#fa541c]">*</span>
-                </label>
-                <select
-                  value={formType}
-                  onChange={(e) => setFormType(e.target.value as Dataset['type'])}
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800 bg-white"
-                >
-                  <option value="文本">文本数据集</option>
-                  <option value="图像">图像数据集</option>
-                  <option value="视频">视频数据集</option>
-                  <option value="音频">音频数据集</option>
-                  <option value="表格">表格数据集</option>
-                  <option value="混合">混合数据集</option>
-                  <option value="其他">其他数据集</option>
-                </select>
-              </div>
-
-              <div className="grid grid-cols-[80px_1fr] items-center gap-4">
-                <label className="text-[13px] font-bold text-neutral-400 text-right">
-                  标签
-                </label>
-                <input
-                  type="text"
-                  value={formTags}
-                  onChange={(e) => setFormTags(e.target.value)}
-                  placeholder="输入标签，用逗号分隔（如：医疗, CV, 问答）"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800"
-                />
-              </div>
-
-              {/* Upload Area */}
+              {/* 权限 (描述下方) */}
               <div className="grid grid-cols-[80px_1fr] items-start gap-4">
-                <label className="text-[13px] font-bold text-neutral-400 text-right pt-2">
-                  文件上传
+                <label className="text-[13px] font-bold text-neutral-400 text-right pt-1.5">
+                  权限 <span className="text-[#fa541c]">*</span>
                 </label>
-                <div className="border-2 border-dashed border-neutral-200 rounded-xl bg-neutral-50/50 p-6 flex flex-col items-center justify-center text-center group hover:border-[#fa541c] hover:bg-[#fff2e8]/30 transition-all cursor-pointer relative">
-                  <input 
-                    type="file" 
-                    className="absolute inset-0 opacity-0 cursor-pointer"
-                    onChange={(e) => {
-                      if (e.target.files && e.target.files.length > 0) {
-                        setFormFile(e.target.files[0]);
-                      }
-                    }}
-                  />
-                  {formFile ? (
-                    <>
-                      <div className="w-10 h-10 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mb-3">
-                        <CheckCircle className="w-5 h-5" />
-                      </div>
-                      <p className="text-[13px] font-bold text-neutral-800">{formFile.name}</p>
-                      <p className="text-[12px] text-neutral-500 mt-1">{(formFile.size / 1024 / 1024).toFixed(2)} MB • 点击重新上传</p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="w-12 h-12 bg-white shadow-sm border border-neutral-100 text-neutral-400 rounded-full flex items-center justify-center mb-3 group-hover:text-[#fa541c] group-hover:scale-110 transition-all">
-                        <UploadCloud className="w-5 h-5" />
-                      </div>
-                      <p className="text-[13px] font-bold text-neutral-800">点击上传或将文件拖拽到这里</p>
-                      <p className="text-[12px] text-neutral-500 mt-1">支持 zip, tar, csv, json, txt 等格式，单个文件不超过 5GB</p>
-                    </>
+                <div>
+                  <div className="flex items-center gap-6 pt-1">
+                    <label className="inline-flex items-center gap-2 cursor-pointer text-[13px] font-medium text-neutral-800">
+                      <input 
+                        type="radio" 
+                        name="datasetScope" 
+                        value="私有" 
+                        checked={formScope === '私有'} 
+                        onChange={() => setFormScope('私有')}
+                        className="accent-[#fa541c] w-4 h-4 cursor-pointer"
+                      />
+                      <span>私有</span>
+                    </label>
+                    <label className="inline-flex items-center gap-2 cursor-pointer text-[13px] font-medium text-neutral-800">
+                      <input 
+                        type="radio" 
+                        name="datasetScope" 
+                        value="公开" 
+                        checked={formScope === '公开'} 
+                        onChange={() => setFormScope('公开')}
+                        className="accent-[#fa541c] w-4 h-4 cursor-pointer"
+                      />
+                      <span>公开</span>
+                    </label>
+                  </div>
+                  {formScope === '公开' && (
+                    <div className="mt-2.5 text-[12px] text-amber-600 bg-amber-50/70 border border-amber-200/80 rounded px-3 py-1.5 flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>公开数据集被引用后不可改回私有</span>
+                    </div>
                   )}
                 </div>
               </div>
+
+              {/* 当权限为公开时，才显示类型和标签 */}
+              {formScope === '公开' && (
+                <>
+                  <div className="grid grid-cols-[80px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-neutral-400 text-right">
+                      类型 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <select
+                      value={formType}
+                      onChange={(e) => setFormType(e.target.value as Dataset['type'])}
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800 bg-white"
+                    >
+                      <option value="文本">文本数据集</option>
+                      <option value="图像">图像数据集</option>
+                      <option value="视频">视频数据集</option>
+                      <option value="音频">音频数据集</option>
+                      <option value="表格">表格数据集</option>
+                      <option value="混合">混合数据集</option>
+                      <option value="其他">其他数据集</option>
+                    </select>
+                  </div>
+
+                  <div className="grid grid-cols-[80px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-neutral-400 text-right">
+                      标签
+                    </label>
+                    <input
+                      type="text"
+                      value={formTags}
+                      onChange={(e) => setFormTags(e.target.value)}
+                      placeholder="输入标签，用逗号分隔（如：医疗, CV, 问答）"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800"
+                    />
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Footer - matching 新建课程 buttons style */}
@@ -1008,6 +996,8 @@ export default function TeacherDatasets({
           </div>
         </div>
       )}
+
+
 
     </div>
   );

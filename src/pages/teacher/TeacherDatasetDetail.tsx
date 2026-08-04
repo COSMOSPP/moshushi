@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { 
   ChevronLeft, 
   Database, 
@@ -13,12 +14,20 @@ import {
   Check, 
   ExternalLink,
   Copy,
+  Upload,
+  Settings,
+  Folder,
+  ChevronRight,
+  Trash2,
+  Archive,
+  Image as ImageIcon,
+  UploadCloud,
   X,
+  RotateCcw,
+  FolderArchive,
   BookOpen,
   Cpu,
   ChevronDown,
-  Upload,
-  HelpCircle,
   Bold,
   Italic,
   Type,
@@ -32,26 +41,31 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import TeacherExperimentIDE from '@/pages/teacher/TeacherExperimentIDE';
+import TeacherExperimentIDE from './TeacherExperimentIDE';
 
-interface DatasetDetailProps {
-  dataset: any;
-  onBack: () => void;
-}
+export default function TeacherDatasetDetail() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
-export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
   // Toast State
-  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
 
   const showToast = (message: string, type: 'success' | 'error' = 'success') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  // State
-  const [activeDetailTab, setActiveDetailTab] = useState<'overview' | 'file_npz'>('overview');
+  // Tab State
+  const [activeDetailTab, setActiveDetailTab] = useState<string>('overview');
   const [isStarred, setIsStarred] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+
+  // Upload Modal State
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+
+  // Settings / Batch Edit Mode State
+  const [isSettingsMode, setIsSettingsMode] = useState(false);
+  const [selectedFileIds, setSelectedFileIds] = useState<string[]>([]);
 
   // Add to Project Modal & Drawer states
   const [showAddToProjectModal, setShowAddToProjectModal] = useState(false);
@@ -66,7 +80,7 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
   const [formIntroduction, setFormIntroduction] = useState('');
   const [selectedCover, setSelectedCover] = useState('/shixunnew-v2/images/covers/microsoft_tech_ai_1779333317936.png');
   const [isTagDropdownOpen, setIsTagDropdownOpen] = useState(false);
-  const tagDropdownRef = useRef<HTMLDivElement>(null);
+  const tagDropdownRef = React.useRef<HTMLDivElement>(null);
 
   // Env tab state
   const [resourcePool, setResourcePool] = useState('天翼云资源池1');
@@ -74,7 +88,7 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
   const [repoUploadMode, setRepoUploadMode] = useState<'manual' | 'upload'>('manual');
   const [formSourceRepoUrl, setFormSourceRepoUrl] = useState('');
   const [creationMethod, setCreationMethod] = useState<'template' | 'custom'>('template');
-  const [templateValue, setTemplateValue] = useState('通用模板');
+  const [templateValue, setTemplateValue] = useState('通用 Python 3.10 AI 分析环境');
 
   const [projectList, setProjectList] = useState([
      { id: 'IL511785481462', name: 'IL511785481462' },
@@ -115,16 +129,111 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
     }
   };
 
-  // Normalizing dataset properties to match exact layout fields
-  const datasetTitle = dataset?.name || dataset?.title || 'NPZ格式的MNIST数据';
-  const datasetSubtitle = dataset?.subtitle || dataset?.desc || 'MNIST data in NPZ format for machine learning and deep learning benchmarking.';
-  const datasetCreator = dataset?.creator || dataset?.author || 'momodel';
-  const datasetUpdateTime = dataset?.updateTime || dataset?.updated || '2021/03/03';
-  const datasetTags = dataset?.tags || ['computer science', '图像分类'];
-  const datasetReferenceCount = dataset?.referenceCount ?? 214;
-  const datasetStarCount = dataset?.starCount ?? 128;
-  const datasetSize = dataset?.size || '11 MB';
-  const datasetImage = dataset?.image || '/shixunnew-v2/images/covers/microsoft_tech_data_1779333332856.png';
+  // File Items list matching user screenshot
+  const [fileItems, setFileItems] = useState([
+    { id: 'macosx', name: '__MACOSX', isFolder: true, type: 'folder' },
+    { id: 'unnamed_dir', name: '未命名文件夹', isFolder: true, type: 'folder' },
+    { id: 'zip_file', name: '未命名文件夹.zip', isFolder: false, type: 'zip' },
+    { id: 'png_file', name: '2信创私有云.png', isFolder: false, type: 'image' },
+    { id: 'md_file', name: 'design-system.md', isFolder: false, type: 'markdown' },
+    { id: 'npz_file', name: 'mnist.npz', isFolder: false, type: 'code' },
+  ]);
+
+  // Initial Mock Dataset map
+  const mockDatasets: Record<string, any> = {
+    '1': {
+      id: 1,
+      name: 'NPZ格式的MNIST数据',
+      subtitle: 'MNIST data in NPZ format',
+      desc: 'This is classic MNIST dataset and pickled (in npz format).\n\nTo load this dataset in your code use following function:\n\ndef load_data(path):\n    with np.load(path) as f:\n        x_train, y_train = f[\'x_train\'], f[\'y_train\']\n        x_test, y_test = f[\'x_test\'], f[\'y_test\']\n        return (x_train, y_train), (x_test, y_test)\n\n(x_train, y_train), (x_test, y_test) = load_data(\'../input/mnist.npz\')',
+      creator: 'momodel',
+      type: '其他',
+      scope: '公共',
+      tags: ['computer science', '图像分类'],
+      updateTime: '2021/03/03',
+      starCount: 128,
+      referenceCount: 214,
+      size: '8 MB',
+      image: '/shixunnew-v2/images/covers/microsoft_tech_data_1779333332856.png'
+    },
+    '2': {
+      id: 2,
+      name: 'test2',
+      subtitle: '图像分类标注数据集',
+      desc: '涵盖多类型高分辨率图像标注与特征向量。适合进行卷积神经网络 (CNN) 训练与特征提取。',
+      creator: 'liuwei01',
+      type: '图像',
+      scope: '私有',
+      tags: ['公有云', '私有云'],
+      updateTime: '2026-07-15',
+      starCount: 256,
+      referenceCount: 89,
+      size: '1.25 GB',
+      image: '/shixunnew-v2/images/covers/microsoft_tech_ai_1779333317936.png'
+    },
+    '3': {
+      id: 3,
+      name: 'test111',
+      subtitle: '大信息模型私有数据预处理包',
+      desc: '提供底层数据格式转换与预处理工具集，包含文本 Token 标定与 Embedding 提取脚本。',
+      creator: 'liuwei01',
+      type: '其他',
+      scope: '私有',
+      tags: ['私有云'],
+      updateTime: '2026-07-14',
+      starCount: 64,
+      referenceCount: 18,
+      size: '340 MB',
+      image: '/shixunnew-v2/images/covers/microsoft_tech_ml_1779333449102.png'
+    }
+  };
+
+  const dataset = mockDatasets[id || '1'] || mockDatasets['1'];
+
+  const handleBack = () => {
+    navigate('/teacher', { state: { activeSubTab: 'dataset' } });
+  };
+
+  // Batch Select Actions
+  const handleToggleSelectAll = () => {
+    const allIds = ['overview', ...fileItems.map(f => f.id)];
+    if (selectedFileIds.length === allIds.length) {
+      setSelectedFileIds([]);
+    } else {
+      setSelectedFileIds(allIds);
+    }
+  };
+
+  const handleToggleSelectFile = (fileId: string) => {
+    if (selectedFileIds.includes(fileId)) {
+      setSelectedFileIds(selectedFileIds.filter(id => id !== fileId));
+    } else {
+      setSelectedFileIds([...selectedFileIds, fileId]);
+    }
+  };
+
+  const handleBatchDelete = () => {
+    if (selectedFileIds.length === 0) {
+      showToast('请先勾选要删除的文件或文件夹', 'error');
+      return;
+    }
+    setFileItems(prev => prev.filter(f => !selectedFileIds.includes(f.id)));
+    if (selectedFileIds.includes(activeDetailTab)) {
+      setActiveDetailTab('overview');
+    }
+    showToast(`已成功删除选中的 ${selectedFileIds.filter(id => id !== 'overview').length} 个文件/文件夹`, 'success');
+    setSelectedFileIds([]);
+  };
+
+  const handleBatchUnzip = () => {
+    if (selectedFileIds.length === 0) {
+      showToast('请先勾选要解压的文件', 'error');
+      return;
+    }
+    showToast(`已对选中的压缩文件执行解压操作`, 'success');
+  };
+
+  const activeItem = fileItems.find(f => f.id === activeDetailTab);
 
   if (showExperimentIDE) {
     return <TeacherExperimentIDE onBack={() => setShowExperimentIDE(false)} />;
@@ -144,7 +253,7 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
         </div>
       )}
 
-      {/* Hero Header Section - Exact match of Teacher Dataset Detail */}
+      {/* Hero Header Section */}
       <div className="relative pt-6 pb-10 px-6 md:px-14 overflow-hidden border-b border-orange-100">
         {/* Background Image & Soft Orange/Peach Gradient Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -164,7 +273,7 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
           <div className="flex items-center justify-between">
             <div className="flex items-center text-[13px] text-neutral-600">
               <button 
-                onClick={onBack} 
+                onClick={handleBack} 
                 className="hover:text-[#fa541c] flex items-center gap-1 font-medium transition-colors cursor-pointer bg-transparent border-0 p-0"
               >
                 <ChevronLeft className="w-4 h-4" /> 返回数据集列表
@@ -174,7 +283,7 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
               <span className="mx-2 text-neutral-400">/</span>
               <span className="hover:text-[#fa541c] cursor-pointer">数据集中心</span>
               <span className="mx-2 text-neutral-400">/</span>
-              <span className="text-neutral-900 font-bold">{datasetTitle}</span>
+              <span className="text-neutral-900 font-bold">{dataset.name}</span>
             </div>
 
             <div className="flex items-center gap-3">
@@ -202,8 +311,8 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
             <div className="shrink-0 z-10">
               <div className="w-[300px] h-[170px] rounded-xl overflow-hidden border-[5px] border-white shadow-2xl transition-transform duration-300 hover:scale-[1.02] relative bg-neutral-900">
                 <img 
-                  src={datasetImage} 
-                  alt={datasetTitle} 
+                  src={dataset.image || '/shixunnew-v2/images/covers/microsoft_tech_data_1779333332856.png'} 
+                  alt={dataset.name} 
                   className="w-full h-full object-cover opacity-90"
                   referrerPolicy="no-referrer"
                 />
@@ -213,17 +322,17 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
             {/* Right: Info Section */}
             <div className="flex-1 w-full space-y-3">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <h1 className="text-3xl font-bold text-neutral-900 tracking-tight">{datasetTitle}</h1>
+                <h1 className="text-3xl font-bold text-neutral-900 tracking-tight">{dataset.name}</h1>
               </div>
 
               <p className="text-sm text-neutral-600 font-mono leading-relaxed max-w-3xl">
-                {datasetSubtitle}
+                {dataset.subtitle || 'MNIST data in NPZ format for machine learning and deep learning benchmarking.'}
               </p>
 
               {/* Tag Pill Style placed below subtitle */}
-              {datasetTags && datasetTags.length > 0 && (
+              {dataset.tags && dataset.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 pt-0.5">
-                  {datasetTags.map((t: string, idx: number) => (
+                  {dataset.tags.map((t: string, idx: number) => (
                     <span key={idx} className="px-2 py-0.5 bg-neutral-50 text-neutral-500 border border-neutral-200/80 text-[11px] rounded font-mono">
                       {t}
                     </span>
@@ -233,25 +342,25 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
 
               {/* Meta Info Row: 创建人 -> 更新时间 -> 引用次数 -> 收藏数量 */}
               <div className="flex items-center gap-6 text-xs text-neutral-600 pt-1 flex-wrap font-medium">
-                <span>创建人：{datasetCreator}</span>
+                <span>创建人：{dataset.creator || 'momodel'}</span>
                 <span className="text-neutral-300">•</span>
-                <span>更新时间：{datasetUpdateTime}</span>
+                <span>更新时间：{dataset.updateTime || '2021/03/03'}</span>
                 <span className="text-neutral-300">•</span>
                 <div className="flex items-center gap-1">
                   <LinkIcon className="w-3.5 h-3.5 text-neutral-500" />
-                  <span>引用：{datasetReferenceCount} 次</span>
+                  <span>引用：{dataset.referenceCount ?? 214} 次</span>
                 </div>
                 <span className="text-neutral-300">•</span>
                 <div className="flex items-center gap-1">
                   <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                  <span>收藏：{datasetStarCount + (isStarred ? 1 : 0)}</span>
+                  <span>收藏：{(dataset.starCount ?? 128) + (isStarred ? 1 : 0)}</span>
                 </div>
               </div>
 
               {/* Action Buttons Bar */}
               <div className="flex items-center gap-3 pt-2">
                 <Button
-                  onClick={() => showToast(`开始下载数据集「${datasetTitle}」`, 'success')}
+                  onClick={() => showToast(`开始下载数据集「${dataset.name}」`, 'success')}
                   className="bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-200 shadow-2xs h-9 px-4 text-xs font-bold rounded-[4px] flex items-center gap-1.5 cursor-pointer transition-all"
                 >
                   <Download className="w-3.5 h-3.5 text-neutral-600" />
@@ -273,42 +382,182 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
 
       {/* Body Content Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-14 py-8 w-full flex-1">
-        <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 items-stretch">
-          {/* Left Sidebar File Tree (Height aligned with right panel) */}
+        <div className="grid grid-cols-1 md:grid-cols-[270px_1fr] gap-6 items-stretch">
+          
+          {/* Left Sidebar File Card */}
           <div className="bg-white rounded-xl border border-neutral-200/80 overflow-hidden shadow-sm flex flex-col h-full">
-            <div className="px-4 py-3 border-b border-neutral-100 bg-neutral-50/60 font-bold text-neutral-700 text-xs flex items-center justify-between shrink-0">
-              <span className="flex items-center gap-1.5">
-                <Database className="w-3.5 h-3.5 text-neutral-500" />
-                文件目录
-              </span>
+            {/* Header: "文件 8 MB" + Action Icons (No background on hover, icon color changes only) */}
+            <div className="px-4 py-3 border-b border-neutral-100 bg-neutral-50/60 flex items-center justify-between shrink-0">
+              <div className="flex items-baseline">
+                <span className="text-[15px] font-bold text-neutral-900">文件</span>
+                <span className="text-xs text-neutral-400 font-mono font-normal ml-2">
+                  {dataset.size || '8 MB'}
+                </span>
+              </div>
+
+              {/* Header Right Action Icons */}
+              {!isSettingsMode ? (
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => setIsUploadModalOpen(true)}
+                    className="p-1 text-neutral-400 hover:text-[#fa541c] transition-colors border-0 bg-transparent cursor-pointer"
+                    title="上传文件"
+                  >
+                    <Upload className="w-4 h-4" />
+                  </button>
+                  <button 
+                    onClick={() => setIsSettingsMode(true)}
+                    className="p-1 text-neutral-400 hover:text-[#fa541c] transition-colors border-0 bg-transparent cursor-pointer"
+                    title="文件设置"
+                  >
+                    <Settings className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                /* Batch Settings Mode Header Icons (Orange theme) */
+                <div className="flex items-center gap-2.5">
+                  {/* 1. Undo/Return Icon (Curved arrow) */}
+                  <button 
+                    onClick={() => {
+                      setIsSettingsMode(false);
+                      setSelectedFileIds([]);
+                    }}
+                    className="p-1 text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent cursor-pointer"
+                    title="返回文件列表"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                  </button>
+
+                  {/* 2. Unzip Icon (FolderArchive) */}
+                  <button 
+                    onClick={handleBatchUnzip}
+                    className="p-1 text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent cursor-pointer"
+                    title="解压所选文件"
+                  >
+                    <FolderArchive className="w-4 h-4" />
+                  </button>
+
+                  {/* 3. Delete Icon (Trash bin) */}
+                  <button 
+                    onClick={handleBatchDelete}
+                    className="p-1 text-[#fa541c] hover:text-red-500 transition-colors border-0 bg-transparent cursor-pointer"
+                    title="删除所选文件"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
             </div>
 
-            <div className="p-2 space-y-1 text-xs flex-1 bg-white">
-              <button
-                onClick={() => setActiveDetailTab('overview')}
-                className={cn(
-                  "w-full text-left px-3.5 py-2.5 rounded-lg flex items-center gap-2.5 transition-all border-0 cursor-pointer font-medium",
+            {/* File Menu Items matching screenshot */}
+            <div className="p-2 space-y-0.5 text-xs flex-1 bg-white">
+              {/* Select All Row (Shown when in Settings mode) */}
+              {isSettingsMode && (
+                <div className="px-3 py-2 border-b border-neutral-100 flex items-center gap-2.5 text-xs">
+                  <input 
+                    type="checkbox"
+                    checked={selectedFileIds.length === (fileItems.length + 1)}
+                    onChange={handleToggleSelectAll}
+                    className="w-3.5 h-3.5 accent-[#fa541c] rounded cursor-pointer"
+                  />
+                  <span 
+                    onClick={handleToggleSelectAll}
+                    className="text-[#fa541c] font-medium cursor-pointer select-none"
+                  >
+                    全选
+                  </span>
+                </div>
+              )}
+
+              {/* 1. 概览 (Overview Item) */}
+              <div className="group relative">
+                <div className={cn(
+                  "w-full text-left px-3 py-2 rounded-[4px] flex items-center justify-between transition-all font-medium text-[13px]",
                   activeDetailTab === 'overview'
                     ? "bg-[#fff2e8] text-[#fa541c] font-bold shadow-2xs"
-                    : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
-                )}
-              >
-                <FileText className="w-4 h-4 shrink-0 text-[#fa541c]" />
-                <span>概览说明</span>
-              </button>
+                    : "text-neutral-700 hover:bg-[#fff2e8] hover:text-[#fa541c]"
+                )}>
+                  <span className="flex items-center gap-2">
+                    {isSettingsMode && (
+                      <input 
+                        type="checkbox"
+                        checked={selectedFileIds.includes('overview')}
+                        onChange={() => handleToggleSelectFile('overview')}
+                        className="w-3.5 h-3.5 accent-[#fa541c] rounded cursor-pointer mr-0.5 shrink-0"
+                      />
+                    )}
+                    <button 
+                      onClick={() => setActiveDetailTab('overview')}
+                      className="flex items-center gap-2 bg-transparent border-0 cursor-pointer p-0 text-left"
+                    >
+                      <span className="w-4 h-4 rounded bg-purple-100 text-purple-600 text-[10px] font-bold font-mono flex items-center justify-center shrink-0">
+                        M
+                      </span>
+                      <span>概览</span>
+                    </button>
+                  </span>
+                </div>
+              </div>
 
-              <button
-                onClick={() => setActiveDetailTab('file_npz')}
-                className={cn(
-                  "w-full text-left px-3.5 py-2.5 rounded-lg flex items-center gap-2.5 transition-all border-0 cursor-pointer font-medium font-mono text-[12px]",
-                  activeDetailTab === 'file_npz'
-                    ? "bg-[#fff2e8] text-[#fa541c] font-bold shadow-2xs"
-                    : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
-                )}
-              >
-                <FileCode className="w-4 h-4 shrink-0 text-neutral-400" />
-                <span>mnist.npz</span>
-              </button>
+              {/* File list items */}
+              {fileItems.map((item) => (
+                <div key={item.id} className="group relative flex items-center">
+                  <div className={cn(
+                    "w-full text-left px-3 py-2 rounded-[4px] flex items-center justify-between transition-all font-medium text-[12.5px]",
+                    activeDetailTab === item.id
+                      ? "bg-[#fff2e8] text-[#fa541c] font-bold shadow-2xs"
+                      : "text-neutral-700 hover:bg-[#fff2e8] hover:text-[#fa541c]"
+                  )}>
+                    <span className="flex items-center gap-2 truncate pr-6">
+                      {isSettingsMode && (
+                        <input 
+                          type="checkbox"
+                          checked={selectedFileIds.includes(item.id)}
+                          onChange={() => handleToggleSelectFile(item.id)}
+                          className="w-3.5 h-3.5 accent-[#fa541c] rounded cursor-pointer shrink-0"
+                        />
+                      )}
+                      <button 
+                        onClick={() => setActiveDetailTab(item.id)}
+                        className="flex items-center gap-2 bg-transparent border-0 cursor-pointer p-0 text-left truncate"
+                      >
+                        {item.isFolder && (
+                          <ChevronRight className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                        )}
+                        {item.isFolder ? (
+                          <Folder className="w-4 h-4 text-amber-400 fill-amber-300 shrink-0" />
+                        ) : item.type === 'zip' ? (
+                          <Archive className="w-4 h-4 text-orange-500 shrink-0" />
+                        ) : item.type === 'image' ? (
+                          <ImageIcon className="w-4 h-4 text-blue-500 shrink-0" />
+                        ) : item.type === 'markdown' ? (
+                          <span className="w-4 h-4 rounded bg-purple-100 text-purple-600 text-[10px] font-bold font-mono flex items-center justify-center shrink-0">
+                            M
+                          </span>
+                        ) : (
+                          <FileCode className="w-4 h-4 text-neutral-400 shrink-0" />
+                        )}
+                        <span className="truncate">{item.name}</span>
+                      </button>
+                    </span>
+                  </div>
+
+                  {/* Mouse Hover Delete Icon in normal mode */}
+                  {!isSettingsMode && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setFileItems(prev => prev.filter(f => f.id !== item.id));
+                        showToast(`已删除「${item.name}」`, 'success');
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 p-1 text-neutral-400 hover:text-[#fa541c] transition-all border-0 bg-transparent cursor-pointer rounded"
+                      title={`删除 ${item.name}`}
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -373,17 +622,19 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
             ) : (
               <div className="space-y-5 animate-in fade-in duration-150">
                 <div className="flex items-center justify-between border-l-4 border-[#fa541c] pl-3 py-0.5">
-                  <h2 className="text-base font-bold text-neutral-900 font-mono">mnist.npz 文件结构预览</h2>
-                  <span className="text-xs text-neutral-400 font-mono">压缩二进制数据 (NumPy Compressed Archive)</span>
+                  <h2 className="text-base font-bold text-neutral-900 font-mono">
+                    {activeItem?.name || '文件'} 结构预览
+                  </h2>
+                  <span className="text-xs text-neutral-400 font-mono">数据架构 & 存储索引 (Dataset Asset Preview)</span>
                 </div>
 
                 <div className="border border-neutral-200 rounded-lg overflow-hidden">
                   <table className="w-full text-left text-xs font-mono">
                     <thead className="bg-neutral-50 border-b border-neutral-200 text-neutral-600 font-bold">
                       <tr>
-                        <th className="p-3">Array Key</th>
-                        <th className="p-3">Shape</th>
-                        <th className="p-3">Data Type</th>
+                        <th className="p-3">Asset Key</th>
+                        <th className="p-3">Type</th>
+                        <th className="p-3">Data Spec</th>
                         <th className="p-3">Description</th>
                       </tr>
                     </thead>
@@ -421,17 +672,74 @@ export default function DatasetDetail({ dataset, onBack }: DatasetDetailProps) {
         </div>
       </div>
 
-      {/* Add To Project Drawer */}
+      {/* Upload File Modal */}
+      {isUploadModalOpen && (
+        <div 
+          className="fixed inset-0 z-[200] bg-black/45 backdrop-blur-[2px] flex items-center justify-center animate-fade-in p-4 text-left"
+          onClick={() => setIsUploadModalOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-xl shadow-2xl border border-neutral-100 w-full max-w-[500px] overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
+              <h3 className="text-[15px] font-bold text-neutral-900 flex items-center gap-2">
+                <Upload className="w-4 h-4 text-[#fa541c]" /> 上传数据集文件
+              </h3>
+              <button 
+                onClick={() => setIsUploadModalOpen(false)}
+                className="text-neutral-400 hover:text-[#fa541c] p-1 rounded-full transition-colors border-0 bg-transparent cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-4">
+              {/* Upload Zone */}
+              <div className="border-2 border-dashed border-neutral-200 hover:border-[#fa541c] rounded-xl p-8 text-center bg-neutral-50/50 hover:bg-[#fff2e8]/20 transition-all cursor-pointer group">
+                <UploadCloud className="w-10 h-10 text-neutral-400 group-hover:text-[#fa541c] mx-auto mb-3 transition-colors" />
+                <p className="text-xs text-neutral-700 font-medium">
+                  将文件拖拽到此处，或 <span className="text-[#fa541c] font-bold hover:underline">点击浏览文件</span>
+                </p>
+                <p className="text-[11px] text-neutral-400 mt-1.5 font-mono">
+                  支持 .zip, .tar.gz, .npz, .csv, .png, .md 等多种格式 (最大 2GB)
+                </p>
+              </div>
+            </div>
+
+            <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-end gap-3">
+              <Button 
+                onClick={() => setIsUploadModalOpen(false)}
+                variant="outline"
+                className="h-8 px-4 text-xs border-neutral-200 rounded-[4px]"
+              >
+                取消
+              </Button>
+              <Button 
+                onClick={() => {
+                  showToast('文件上传成功', 'success');
+                  setIsUploadModalOpen(false);
+                }}
+                className="h-8 px-5 text-xs bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] border-0"
+              >
+                开始上传
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add to Project Slide-over Drawer Modal matching user screenshot */}
       {showAddToProjectModal && (
         <div 
-          className="fixed inset-0 z-[200] bg-black/45 backdrop-blur-[2px] flex justify-end animate-fade-in text-left"
+          className="fixed inset-0 z-[200] bg-black/50 backdrop-blur-xs flex justify-end animate-fade-in"
           onClick={() => {
             setShowAddToProjectModal(false);
             setDrawerStep('select');
           }}
         >
           <div 
-            className="bg-white w-full max-w-[620px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300"
+            className="bg-white w-full max-w-[620px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300 text-left"
             onClick={(e) => e.stopPropagation()}
           >
             {drawerStep === 'select' ? (

@@ -1078,7 +1078,7 @@ export default function AdminAudit() {
                         (item.auditType || "平台公开") === "下架" 
                           ? "bg-[#fafafa] text-[#8c8c8c] border-[#d9d9d9]" 
                           : (item.auditType || "平台公开") === "租户公开"
-                          ? "bg-[#f9f0ff] text-[#722ed1] border-[#d3adf7]"
+                          ? "bg-blue-50 text-blue-600 border-blue-200"
                           : "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]"
                       )}>
                         {item.auditType === "公开" ? "平台公开" : (item.auditType || "平台公开")}
@@ -1290,7 +1290,7 @@ export default function AdminAudit() {
                               (reviewingItem.auditType || "平台公开") === "下架"
                                 ? "bg-[#fafafa] text-[#8c8c8c] border-[#d9d9d9]"
                                 : (reviewingItem.auditType || "平台公开") === "租户公开"
-                                ? "bg-[#f9f0ff] text-[#722ed1] border-[#d3adf7]"
+                                ? "bg-blue-50 text-blue-600 border-blue-200"
                                 : "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]"
                             )}>
                               {reviewingItem.auditType === "公开" ? "平台公开" : (reviewingItem.auditType || "平台公开")}

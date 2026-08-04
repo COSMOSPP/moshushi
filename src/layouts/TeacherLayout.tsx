@@ -148,7 +148,9 @@ export default function TeacherLayout() {
       <div className="flex flex-1 min-h-0">
         <main className={cn(
           "flex flex-col flex-1 overflow-auto bg-[#f5f6f8]",
-          location.pathname.startsWith("/teacher/center") || location.pathname.includes("/experiment/") ? "p-0" : "p-6"
+          (location.pathname.startsWith("/teacher/center") || 
+           location.pathname.startsWith("/teacher/dataset") || 
+           location.pathname.includes("/experiment/")) ? "p-0" : "p-6"
         )}>
           <Outlet />
         </main>

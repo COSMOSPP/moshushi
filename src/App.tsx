@@ -81,6 +81,7 @@ import TeacherQuestions from "./pages/teacher/TeacherQuestions";
 import TeacherPapers from "./pages/teacher/TeacherPapers";
 import TeacherResources from "./pages/teacher/TeacherResources";
 import TeacherCourseManage from "./pages/teacher/TeacherCourseManage";
+import TeacherDatasetDetail from "./pages/teacher/TeacherDatasetDetail";
 import TeacherExperimentIDE from "./pages/teacher/TeacherExperimentIDE";
 import TeacherStudents from "./pages/teacher/TeacherStudents";
 import TeacherAssignmentPreview from "./pages/teacher/TeacherAssignmentPreview";
@@ -123,6 +124,7 @@ export default function App() {
         <Route path="/teacher" element={<TeacherLayout />}>
           <Route index element={<TeacherHome />} />
           <Route path="course/:id" element={<TeacherCourseManage />} />
+          <Route path="dataset/:id" element={<TeacherDatasetDetail />} />
           <Route path="course/:id/experiment/:experimentId" element={<TeacherExperimentIDE />} />
           <Route path="questions" element={<TeacherQuestions />} />
           <Route path="papers" element={<TeacherPapers />} />
