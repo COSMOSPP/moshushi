@@ -137,7 +137,11 @@ export default function UserDatasets() {
   });
 
   if (selectedDataset) {
-    return <DatasetDetail dataset={selectedDataset} onBack={() => setSelectedDataset(null)} />;
+    return (
+      <div className="-m-6">
+        <DatasetDetail dataset={selectedDataset} onBack={() => setSelectedDataset(null)} />
+      </div>
+    );
   }
 
   return (
