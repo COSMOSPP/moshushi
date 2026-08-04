@@ -69,6 +69,7 @@ export default function TeacherDatasetDetail() {
 
   // Add to Project Modal & Drawer states
   const [showAddToProjectModal, setShowAddToProjectModal] = useState(false);
+  const [showCreateProjectModal, setShowCreateProjectModal] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState('IL511785481462');
   const [drawerStep, setDrawerStep] = useState<'select' | 'create'>('select');
   const [showSuccessConfirmModal, setShowSuccessConfirmModal] = useState(false);
@@ -81,6 +82,26 @@ export default function TeacherDatasetDetail() {
   const [selectedCover, setSelectedCover] = useState('/shixunnew-v2/images/covers/microsoft_tech_ai_1779333317936.png');
   const [isTagDropdownOpen, setIsTagDropdownOpen] = useState(false);
   const tagDropdownRef = React.useRef<HTMLDivElement>(null);
+
+  const handleOpenCreateProjectModal = () => {
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    const cleanBase = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+    const targetUrl = `${cleanBase}#/teacher?tab=project&create=true`;
+    window.open(targetUrl, '_blank');
+  };
+
+  const handleConfirmCreateProject = () => {
+    if (!formName.trim()) {
+      showToast('项目名称不能为空', 'error');
+      return;
+    }
+    const newId = 'IL' + Math.floor(100000000000 + Math.random() * 900000000000);
+    const newProj = { id: newId, name: formName.trim() };
+    setProjectList(prev => [newProj, ...prev]);
+    setSelectedProjectId(newId);
+    setShowCreateProjectModal(false);
+    showToast(`实战项目「${newProj.name}」已成功创建并自动选定`, 'success');
+  };
 
   // Env tab state
   const [resourcePool, setResourcePool] = useState('天翼云资源池1');
@@ -735,530 +756,514 @@ export default function TeacherDatasetDetail() {
           className="fixed inset-0 z-[200] bg-black/50 backdrop-blur-xs flex justify-end animate-fade-in"
           onClick={() => {
             setShowAddToProjectModal(false);
-            setDrawerStep('select');
           }}
         >
           <div 
             className="bg-white w-full max-w-[620px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300 text-left"
             onClick={(e) => e.stopPropagation()}
           >
-            {drawerStep === 'select' ? (
-              <>
-                <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
-                  <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                    <Plus className="w-5 h-5 text-[#fa541c]" /> 添加到项目
-                  </h2>
-                  <button 
-                    onClick={() => setShowAddToProjectModal(false)} 
-                    className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
+            <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
+              <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
+                <Plus className="w-5 h-5 text-[#fa541c]" /> 添加到项目
+              </h2>
+              <button 
+                onClick={() => setShowAddToProjectModal(false)} 
+                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-                <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
-                  <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/60 rounded-[6px] p-4 text-[13px] text-neutral-700">
-                    数据集包含预处理特征向量，选择将此数据集挂载至已有项目或创建新项目。
+            <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
+              <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/60 rounded-[6px] p-4 text-[13px] text-neutral-700">
+                数据集包含预处理特征向量，选择将此数据集挂载至已有项目或创建新项目。
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[13px] font-bold text-[#262626] block">选择现有项目：</label>
+                <div className="space-y-2">
+                  {projectList.map((proj) => (
+                    <div 
+                      key={proj.id}
+                      onClick={() => setSelectedProjectId(proj.id)}
+                      className={cn(
+                        "p-3.5 rounded-[6px] border cursor-pointer flex items-center justify-between transition-all",
+                        selectedProjectId === proj.id 
+                          ? "border-[#fa541c] bg-[#fff2e8]/30 shadow-xs" 
+                          : "border-neutral-200/80 hover:border-neutral-300 bg-white"
+                      )}
+                    >
+                      <div>
+                        <div className="font-bold text-neutral-800">{proj.name}</div>
+                        <div className="text-[12px] text-neutral-400 font-mono mt-0.5">ID: {proj.id}</div>
+                      </div>
+                      {selectedProjectId === proj.id && (
+                        <Check className="w-5 h-5 text-[#fa541c]" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <button 
+                  onClick={handleOpenCreateProjectModal}
+                  className="w-full py-2.5 border border-dashed border-[#fa541c]/60 text-[#fa541c] rounded-[6px] hover:bg-[#fff2e8]/40 font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 bg-transparent text-[13px]"
+                >
+                  <Plus className="w-4 h-4" /> 新建项目
+                </button>
+              </div>
+            </div>
+
+            <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-end gap-3 shrink-0">
+              <Button 
+                onClick={() => setShowAddToProjectModal(false)} 
+                variant="outline"
+                className="border-neutral-200 text-neutral-600 h-9 px-6 rounded-[4px] text-[13px] bg-white cursor-pointer hover:bg-neutral-50 font-semibold"
+              >
+                取消
+              </Button>
+              <Button 
+                onClick={() => {
+                  setShowAddToProjectModal(false);
+                  setShowSuccessConfirmModal(true);
+                }} 
+                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
+              >
+                确定
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Standalone Create Project Popover Modal (matching TeacherProjects Create Project Modal style) */}
+      {showCreateProjectModal && (
+        <div 
+          className="fixed inset-0 z-[300] bg-black/50 backdrop-blur-xs flex justify-end animate-fade-in text-left"
+          onClick={() => setShowCreateProjectModal(false)}
+        >
+          <div 
+            className="bg-white w-full max-w-[680px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
+              <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
+                <Plus className="w-5 h-5 text-[#fa541c]" /> 新建实战项目
+              </h2>
+              <button 
+                onClick={() => setShowCreateProjectModal(false)} 
+                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Tab Headers for configurations */}
+            <div className="flex border-b border-neutral-100 bg-neutral-50/20 text-[11px] font-bold select-none flex-shrink-0">
+              {[
+                { key: 'basic', label: '1. 基础信息', icon: BookOpen },
+                { key: 'env', label: '2. 项目环境', icon: Cpu }
+              ].map(tab => (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveFormTab(tab.key as any)}
+                  className={cn(
+                    "flex-1 py-3 text-center border-b-2 transition-all cursor-pointer flex items-center justify-center gap-1.5 rounded-[4px] border-t-0 border-x-0 bg-transparent",
+                    activeFormTab === tab.key 
+                      ? "border-[#fa541c] text-[#fa541c] bg-white font-extrabold" 
+                      : "border-transparent text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100/40"
+                  )}
+                >
+                  <tab.icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Modal Scrollable Content Forms */}
+            <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
+              
+              {/* TAB 1: BASIC INFORMATION */}
+              {activeFormTab === 'basic' && (
+                <div className="space-y-6 animate-fade-in py-2">
+                  
+                  {/* 1. 项目名称 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      项目名称 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <input 
+                      type="text"
+                      placeholder="请输入"
+                      value={formName}
+                      onChange={(e) => setFormName(e.target.value)}
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                    />
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-[13px] font-bold text-[#262626] block">选择现有项目：</label>
-                    <div className="space-y-2">
-                      {projectList.map((proj) => (
+                  {/* 2. 标签 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      标签
+                    </label>
+                    <div ref={tagDropdownRef} className="relative w-full text-[13px]">
+                      <div
+                        onClick={() => setIsTagDropdownOpen(!isTagDropdownOpen)}
+                        className={cn(
+                          "min-h-[38px] w-full border rounded px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none relative",
+                          isTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
+                        )}
+                      >
+                        {formTags.length === 0 ? (
+                          <span className="text-neutral-400 select-none">请选择项目标签</span>
+                        ) : (
+                          <div className="flex flex-wrap gap-1.5 items-center w-full pr-8">
+                            {formTags.map(tag => {
+                              const style = getTagStyle(tag);
+                              return (
+                                <span
+                                  key={tag}
+                                  className={cn(
+                                    "inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[11px] font-semibold border transition-all animate-fade-in",
+                                    style.bg,
+                                    style.text,
+                                    style.border
+                                  )}
+                                >
+                                  <span className={cn("w-1.5 h-1.5 rounded-full", style.dot)}></span>
+                                  <span>{tag}</span>
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setFormTags(formTags.filter(t => t !== tag));
+                                    }}
+                                    className="hover:bg-black/10 rounded-[4px] p-0.5 transition-colors cursor-pointer text-current flex items-center justify-center border-0 bg-transparent"
+                                  >
+                                    <X className="w-2.5 h-2.5" />
+                                  </button>
+                                </span>
+                              );
+                            })}
+                          </div>
+                        )}
+                        
+                        <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-400">
+                          <ChevronDown 
+                            className={cn("w-4 h-4 transition-transform duration-200 text-neutral-400", isTagDropdownOpen && "rotate-180")} 
+                            strokeWidth={1.5}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Dropdown Menu */}
+                      {isTagDropdownOpen && (
+                        <div className="absolute left-0 right-0 mt-1 bg-white border border-neutral-200 rounded shadow-lg z-[150] overflow-hidden flex flex-col py-1 animate-in fade-in slide-in-from-top-1 duration-150">
+                          <div className="max-h-[220px] overflow-y-auto custom-scrollbar">
+                            {availableTagsList.map(tag => {
+                              const isSelected = formTags.includes(tag);
+                              return (
+                                <div
+                                  key={tag}
+                                  onClick={() => {
+                                    if (isSelected) {
+                                      setFormTags(formTags.filter(t => t !== tag));
+                                    } else {
+                                      setFormTags([...formTags, tag]);
+                                    }
+                                  }}
+                                  className={cn(
+                                    "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
+                                    isSelected 
+                                      ? "bg-orange-50 text-[#fa541c] font-bold"
+                                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  )}
+                                >
+                                  <span className="font-medium">{tag}</span>
+                                  {isSelected && (
+                                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 3. 项目描述 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      项目描述 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <input 
+                      type="text"
+                      placeholder="请输入"
+                      value={formDesc}
+                      onChange={(e) => setFormDesc(e.target.value)}
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                    />
+                  </div>
+
+                  {/* 4. 项目图片 */}
+                  <div className="grid grid-cols-[100px_1fr] items-start gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
+                      项目图片 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <div className="grid grid-cols-3 gap-3">
+                      {defaultCovers.map((cover, idx) => (
                         <div 
-                          key={proj.id}
-                          onClick={() => setSelectedProjectId(proj.id)}
+                          key={idx}
+                          onClick={() => setSelectedCover(cover)}
                           className={cn(
-                            "p-3.5 rounded-[6px] border cursor-pointer flex items-center justify-between transition-all",
-                            selectedProjectId === proj.id 
-                              ? "border-[#fa541c] bg-[#fff2e8]/30 shadow-xs" 
-                              : "border-neutral-200/80 hover:border-neutral-300 bg-white"
+                            "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#fa541c]/50 hover:scale-[1.02]",
+                            selectedCover === cover 
+                              ? "border-[#fa541c] shadow-md shadow-orange-500/10 scale-[1.02]" 
+                              : "border-transparent"
                           )}
                         >
-                          <div>
-                            <div className="font-bold text-neutral-800">{proj.name}</div>
-                            <div className="text-[12px] text-neutral-400 font-mono mt-0.5">ID: {proj.id}</div>
-                          </div>
-                          {selectedProjectId === proj.id && (
-                            <Check className="w-5 h-5 text-[#fa541c]" />
+                          <img src={cover} alt={`cover-${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                          {selectedCover === cover && (
+                            <div className="absolute top-2 right-2 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
+                              <Check className="w-3.5 h-3.5" strokeWidth={3} />
+                            </div>
                           )}
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-2">
-                    <button 
-                      onClick={() => setDrawerStep('create')}
-                      className="w-full py-2.5 border border-dashed border-[#fa541c]/60 text-[#fa541c] rounded-[6px] hover:bg-[#fff2e8]/40 font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 bg-transparent text-[13px]"
-                    >
-                      <Plus className="w-4 h-4" /> 新建项目
-                    </button>
+                  {/* 5. 项目介绍 */}
+                  <div className="grid grid-cols-[100px_1fr] items-start gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
+                      项目介绍 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <div className="border border-neutral-200 rounded overflow-hidden flex flex-col bg-white w-full">
+                      {/* Rich Text Toolbar */}
+                      <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/50 select-none">
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#fa541c] border-0 bg-transparent cursor-pointer" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="字体大小"><span className="text-[10px] font-bold font-serif leading-none relative top-[-0.5px]">Tt</span></button>
+                        <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="无序列表"><List className="w-3.5 h-3.5" /></button>
+                        <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="左对齐"><AlignLeft className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="居中"><AlignCenter className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="右对齐"><AlignRight className="w-3.5 h-3.5" /></button>
+                        <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="撤销"><Undo2 className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="重做"><Redo2 className="w-3.5 h-3.5" /></button>
+                        <div className="w-px h-3.5 bg-neutral-200 mx-1 flex-1"></div>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="全屏"><Maximize2 className="w-3.5 h-3.5" /></button>
+                      </div>
+                      
+                      <textarea 
+                        placeholder="请输入"
+                        value={formIntroduction}
+                        onChange={(e) => setFormIntroduction(e.target.value)}
+                        className="w-full min-h-[140px] p-4 text-[13px] focus:outline-none resize-none leading-relaxed text-[#262626] border-0"
+                      />
+                    </div>
                   </div>
                 </div>
+              )}
 
-                <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-end gap-3 shrink-0">
+              {/* TAB 2: PROJECT ENVIRONMENT */}
+              {activeFormTab === 'env' && (
+                <div className="space-y-6 animate-fade-in py-2">
+                  {/* 1. 选择资源池 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      选择资源池 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <select 
+                      value={resourcePool} 
+                      onChange={(e) => setResourcePool(e.target.value)}
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                    >
+                      <option value="天翼云资源池1">天翼云资源池1</option>
+                      <option value="资源池1">资源池1</option>
+                      <option value="上海园区资源池">上海园区资源池</option>
+                    </select>
+                  </div>
+
+                  {/* 2. 选择环境类型 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      选择环境类型 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <div className="flex items-center gap-6 text-[13px]">
+                      {[
+                        { value: '容器', label: '容器' },
+                        { value: '云主机', label: '云主机' }
+                      ].map(opt => (
+                        <label key={opt.value} className="flex items-center gap-2 select-none cursor-pointer">
+                          <input
+                            type="radio"
+                            name="envType"
+                            value={opt.value}
+                            checked={envType === opt.value}
+                            onChange={() => setEnvType(opt.value as any)}
+                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                          />
+                          <span className="font-medium">{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 3. 源仓库地址 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      源仓库地址 <span className="text-[#fa541c]">*</span>
+                    </label>
+                    <div className="flex items-center gap-6 text-[13px]">
+                      {[
+                        { value: 'manual', label: '手动添加' },
+                        { value: 'upload', label: '本地文件上传' }
+                      ].map(opt => (
+                        <label key={opt.value} className="flex items-center gap-2 select-none cursor-pointer">
+                          <input
+                            type="radio"
+                            name="repoUploadMode"
+                            value={opt.value}
+                            checked={repoUploadMode === opt.value}
+                            onChange={() => {
+                              setRepoUploadMode(opt.value as any);
+                              setFormSourceRepoUrl('');
+                            }}
+                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                          />
+                          <span className="font-medium">{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] gap-4">
+                    <div />
+                    <div className="w-full">
+                      {repoUploadMode === 'manual' ? (
+                        <input
+                          type="text"
+                          placeholder="请输入源仓库地址 (如: git@github.com:... 或 https://...)"
+                          value={formSourceRepoUrl}
+                          onChange={(e) => setFormSourceRepoUrl(e.target.value)}
+                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] font-mono"
+                        />
+                      ) : (
+                        <div className="space-y-2.5 w-full">
+                          <label className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center">
+                            <Upload className="w-6 h-6 text-[#fa541c]" strokeWidth={1.5} />
+                            <span className="text-[13px] text-[#262626] font-bold">点击选择或拖拽源码文件上传</span>
+                            <span className="text-[11px] text-neutral-400">单文件上限 100MB</span>
+                          </label>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 4. 创建方式 */}
+                  <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                    <label className="text-[13px] font-bold text-[#262626] text-right">
+                      创建方式
+                    </label>
+                    <div className="flex items-center gap-6 text-[13px]">
+                      {[
+                        { value: 'template', label: '模板创建' },
+                        { value: 'custom', label: '自定义' }
+                      ].map(opt => (
+                        <label key={opt.value} className="flex items-center gap-2 select-none cursor-pointer">
+                          <input
+                            type="radio"
+                            name="creationMethod"
+                            value={opt.value}
+                            checked={creationMethod === opt.value}
+                            onChange={() => setCreationMethod(opt.value as any)}
+                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                          />
+                          <span className="font-medium">{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Template Details */}
+                  <div className="border border-neutral-200 rounded p-5 bg-white space-y-4">
+                    <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                      <label className="text-[13px] font-bold text-[#262626] text-right">
+                        选择模板 <span className="text-[#fa541c]">*</span>
+                      </label>
+                      <select 
+                        value={templateValue}
+                        onChange={(e) => setTemplateValue(e.target.value)}
+                        className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                      >
+                        <option value="通用 Python 3.10 AI 分析环境">通用 Python 3.10 AI 分析环境</option>
+                        <option value="PyTorch 2.0 + CUDA 11.8 深度学习环境">PyTorch 2.0 + CUDA 11.8 深度学习环境</option>
+                        <option value="TensorFlow 2.12 官方基准镜像">TensorFlow 2.12 官方基准镜像</option>
+                      </select>
+                    </div>
+
+                    <div className="grid grid-cols-[100px_1fr] items-center gap-4">
+                      <label className="text-[13px] font-bold text-[#262626] text-right">
+                        算力配置 <span className="text-[#fa541c]">*</span>
+                      </label>
+                      <div className="flex gap-3 text-[12px]">
+                        <span className="px-3 py-1.5 bg-orange-50 text-[#fa541c] border border-orange-200 rounded font-bold">2核 4G (基础开发)</span>
+                        <span className="px-3 py-1.5 bg-white text-neutral-600 border border-neutral-200 rounded font-medium cursor-pointer hover:border-neutral-300">4核 8G (标准计算)</span>
+                        <span className="px-3 py-1.5 bg-white text-neutral-600 border border-neutral-200 rounded font-medium cursor-pointer hover:border-neutral-300">8核 16G + RTX 4090</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-between shrink-0">
+              <div>
+                {activeFormTab === 'env' && (
                   <Button 
-                    onClick={() => setShowAddToProjectModal(false)} 
-                    variant="outline"
+                    onClick={() => setActiveFormTab('basic')} 
+                    variant="outline" 
                     className="border-neutral-200 text-neutral-600 h-9 px-6 rounded-[4px] text-[13px] bg-white cursor-pointer hover:bg-neutral-50 font-semibold"
                   >
-                    取消
+                    上一步
                   </Button>
+                )}
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Button 
+                  onClick={() => setShowCreateProjectModal(false)} 
+                  variant="outline" 
+                  className="border-neutral-200 text-neutral-600 h-9 px-6 rounded-[4px] text-[13px] bg-white cursor-pointer hover:bg-neutral-50 font-semibold"
+                >
+                  取消
+                </Button>
+                {activeFormTab === 'basic' ? (
                   <Button 
-                    onClick={() => {
-                      setShowAddToProjectModal(false);
-                      setShowSuccessConfirmModal(true);
-                    }} 
+                    onClick={() => setActiveFormTab('env')} 
                     className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
                   >
-                    确定
+                    下一步
                   </Button>
-                </div>
-              </>
-            ) : (
-              /* Create Project step - Exact match of TeacherProjects New Project Modal */
-              <>
-                <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
-                  <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                    <Plus className="w-5 h-5 text-[#fa541c]" /> 新建实战项目
-                  </h2>
-                  <button 
-                    onClick={() => {
-                      setShowAddToProjectModal(false);
-                      setDrawerStep('select');
-                    }} 
-                    className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                ) : (
+                  <Button 
+                    onClick={handleConfirmCreateProject} 
+                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
                   >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Modal Tab Headers for configurations */}
-                <div className="flex border-b border-neutral-100 bg-neutral-50/20 text-[11px] font-bold select-none flex-shrink-0">
-                  {[
-                    { key: 'basic', label: '1. 基础信息', icon: BookOpen },
-                    { key: 'env', label: '2. 项目环境', icon: Cpu }
-                  ].map(tab => (
-                    <button
-                      key={tab.key}
-                      type="button"
-                      onClick={() => setActiveFormTab(tab.key as any)}
-                      className={cn(
-                        "flex-1 py-3 text-center border-b-2 transition-all cursor-pointer flex items-center justify-center gap-1.5 rounded-[4px] border-t-0 border-x-0 bg-transparent",
-                        activeFormTab === tab.key 
-                          ? "border-[#fa541c] text-[#fa541c] bg-white font-extrabold" 
-                          : "border-transparent text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100/40"
-                      )}
-                    >
-                      <tab.icon className="w-3.5 h-3.5" />
-                      <span>{tab.label}</span>
-                    </button>
-                  ))}
-                </div>
-
-                {/* Modal Scrollable Content Forms */}
-                <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
-                  
-                  {/* TAB 1: BASIC INFORMATION */}
-                  {activeFormTab === 'basic' && (
-                    <div className="space-y-6 animate-fade-in py-2">
-                      
-                      {/* 1. 项目名称 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          项目名称 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <input 
-                          type="text"
-                          placeholder="请输入"
-                          value={formName}
-                          onChange={(e) => setFormName(e.target.value)}
-                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
-                        />
-                      </div>
-
-                      {/* 2. 标签 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          标签
-                        </label>
-                        <div ref={tagDropdownRef} className="relative w-full text-[13px]">
-                          <div
-                            onClick={() => setIsTagDropdownOpen(!isTagDropdownOpen)}
-                            className={cn(
-                              "min-h-[38px] w-full border rounded px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none relative",
-                              isTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
-                            )}
-                          >
-                            {formTags.length === 0 ? (
-                              <span className="text-neutral-400 select-none">请选择项目标签</span>
-                            ) : (
-                              <div className="flex flex-wrap gap-1.5 items-center w-full pr-8">
-                                {formTags.map(tag => {
-                                  const style = getTagStyle(tag);
-                                  return (
-                                    <span
-                                      key={tag}
-                                      className={cn(
-                                        "inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[11px] font-semibold border transition-all animate-fade-in",
-                                        style.bg,
-                                        style.text,
-                                        style.border
-                                      )}
-                                    >
-                                      <span className={cn("w-1.5 h-1.5 rounded-full", style.dot)}></span>
-                                      <span>{tag}</span>
-                                      <button
-                                        type="button"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          setFormTags(formTags.filter(t => t !== tag));
-                                        }}
-                                        className="hover:bg-black/10 rounded-[4px] p-0.5 transition-colors cursor-pointer text-current flex items-center justify-center border-0 bg-transparent"
-                                      >
-                                        <X className="w-2.5 h-2.5" />
-                                      </button>
-                                    </span>
-                                  );
-                                })}
-                              </div>
-                            )}
-                            
-                            <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-400">
-                              <ChevronDown 
-                                className={cn("w-4 h-4 transition-transform duration-200 text-neutral-400", isTagDropdownOpen && "rotate-180")} 
-                                strokeWidth={1.5}
-                              />
-                            </div>
-                          </div>
-
-                          {/* Dropdown Menu */}
-                          {isTagDropdownOpen && (
-                            <div className="absolute left-0 right-0 mt-1 bg-white border border-neutral-200 rounded shadow-lg z-[150] overflow-hidden flex flex-col py-1 animate-in fade-in slide-in-from-top-1 duration-150">
-                              <div className="max-h-[220px] overflow-y-auto custom-scrollbar">
-                                {availableTagsList.map(tag => {
-                                  const isSelected = formTags.includes(tag);
-                                  return (
-                                    <div
-                                      key={tag}
-                                      onClick={() => {
-                                        if (isSelected) {
-                                          setFormTags(formTags.filter(t => t !== tag));
-                                        } else {
-                                          setFormTags([...formTags, tag]);
-                                        }
-                                      }}
-                                      className={cn(
-                                        "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
-                                        isSelected 
-                                          ? "bg-orange-50 text-[#fa541c] font-bold"
-                                          : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
-                                      )}
-                                    >
-                                      <span className="font-medium">{tag}</span>
-                                      {isSelected && (
-                                        <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
-                                      )}
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* 3. 项目描述 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          项目描述 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <input 
-                          type="text"
-                          placeholder="请输入"
-                          value={formDesc}
-                          onChange={(e) => setFormDesc(e.target.value)}
-                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
-                        />
-                      </div>
-
-                      {/* 4. 项目图片 */}
-                      <div className="grid grid-cols-[100px_1fr] items-start gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
-                          项目图片 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <div className="grid grid-cols-3 gap-3">
-                          {defaultCovers.map((cover, idx) => (
-                            <div 
-                              key={idx}
-                              onClick={() => setSelectedCover(cover)}
-                              className={cn(
-                                "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#fa541c]/50 hover:scale-[1.02]",
-                                selectedCover === cover 
-                                  ? "border-[#fa541c] shadow-md shadow-orange-500/10 scale-[1.02]" 
-                                  : "border-transparent"
-                              )}
-                            >
-                              <img src={cover} alt={`cover-${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                              {selectedCover === cover && (
-                                <div className="absolute top-2 right-2 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
-                                  <Check className="w-3.5 h-3.5" strokeWidth={3} />
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* 5. 项目介绍 */}
-                      <div className="grid grid-cols-[100px_1fr] items-start gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                          项目介绍 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <div className="border border-neutral-200 rounded overflow-hidden flex flex-col bg-white w-full">
-                          {/* Rich Text Toolbar */}
-                          <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/50 select-none">
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#fa541c] border-0 bg-transparent cursor-pointer" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="字体大小"><span className="text-[10px] font-bold font-serif leading-none relative top-[-0.5px]">Tt</span></button>
-                            <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="无序列表"><List className="w-3.5 h-3.5" /></button>
-                            <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="左对齐"><AlignLeft className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="居中"><AlignCenter className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="右对齐"><AlignRight className="w-3.5 h-3.5" /></button>
-                            <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="撤销"><Undo2 className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="重做"><Redo2 className="w-3.5 h-3.5" /></button>
-                            <div className="w-px h-3.5 bg-neutral-200 mx-1 flex-1"></div>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="全屏"><Maximize2 className="w-3.5 h-3.5" /></button>
-                          </div>
-                          
-                          <textarea 
-                            placeholder="请输入"
-                            value={formIntroduction}
-                            onChange={(e) => setFormIntroduction(e.target.value)}
-                            className="w-full min-h-[140px] p-4 text-[13px] focus:outline-none resize-none leading-relaxed text-[#262626] border-0"
-                          />
-                        </div>
-                      </div>
-
-                    </div>
-                  )}
-
-                  {/* TAB 2: PROJECT ENVIRONMENT */}
-                  {activeFormTab === 'env' && (
-                    <div className="space-y-6 animate-fade-in py-2">
-                      
-                      {/* 1. 选择资源池 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          选择资源池 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <select 
-                          value={resourcePool} 
-                          onChange={(e) => setResourcePool(e.target.value)}
-                          className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
-                        >
-                          <option value="天翼云资源池1">天翼云资源池1</option>
-                          <option value="资源池1">资源池1</option>
-                          <option value="上海园区资源池">上海园区资源池</option>
-                        </select>
-                      </div>
-
-                      {/* 2. 选择环境类型 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          选择环境类型 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <div className="flex items-center gap-6 text-[13px]">
-                          {[
-                            { value: '容器', label: '容器' },
-                            { value: '云主机', label: '云主机' }
-                          ].map(opt => (
-                            <label key={opt.value} className="flex items-center gap-2 select-none cursor-pointer">
-                              <input
-                                type="radio"
-                                name="envType"
-                                value={opt.value}
-                                checked={envType === opt.value}
-                                onChange={() => setEnvType(opt.value as any)}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
-                              />
-                              <span className="font-medium">{opt.label}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* 3. 源仓库地址 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          源仓库地址 <span className="text-[#fa541c]">*</span>
-                        </label>
-                        <div className="flex items-center gap-6 text-[13px]">
-                          {[
-                            { value: 'manual', label: '手动添加' },
-                            { value: 'upload', label: '本地文件上传' }
-                          ].map(opt => (
-                            <label key={opt.value} className="flex items-center gap-2 select-none cursor-pointer">
-                              <input
-                                type="radio"
-                                name="repoUploadMode"
-                                value={opt.value}
-                                checked={repoUploadMode === opt.value}
-                                onChange={() => {
-                                  setRepoUploadMode(opt.value as any);
-                                  setFormSourceRepoUrl('');
-                                }}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
-                              />
-                              <span className="font-medium">{opt.label}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-[100px_1fr] gap-4">
-                        <div />
-                        <div className="w-full">
-                          {repoUploadMode === 'manual' ? (
-                            <input
-                              type="text"
-                              placeholder="请输入源仓库地址 (如: git@github.com:... 或 https://...)"
-                              value={formSourceRepoUrl}
-                              onChange={(e) => setFormSourceRepoUrl(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] font-mono"
-                            />
-                          ) : (
-                            <div className="space-y-2.5 w-full">
-                              <label className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center">
-                                <Upload className="w-6 h-6 text-[#fa541c]" strokeWidth={1.5} />
-                                <span className="text-[13px] text-[#262626] font-bold">点击选择或拖拽源码文件上传</span>
-                                <span className="text-[11px] text-neutral-400">单文件上限 100MB</span>
-                              </label>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* 4. 创建方式 */}
-                      <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                        <label className="text-[13px] font-bold text-[#262626] text-right">
-                          创建方式
-                        </label>
-                        <div className="flex items-center gap-6 text-[13px]">
-                          {[
-                            { value: 'template', label: '模板创建' },
-                            { value: 'custom', label: '自定义' }
-                          ].map(opt => (
-                            <label key={opt.value} className="flex items-center gap-2 select-none cursor-pointer">
-                              <input
-                                type="radio"
-                                name="creationMethod"
-                                value={opt.value}
-                                checked={creationMethod === opt.value}
-                                onChange={() => setCreationMethod(opt.value as any)}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
-                              />
-                              <span className="font-medium">{opt.label}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Template Details */}
-                      <div className="border border-neutral-200 rounded p-5 bg-white space-y-4">
-                        <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                          <label className="text-[13px] font-bold text-[#262626] text-right">
-                            选择模板 <span className="text-[#fa541c]">*</span>
-                          </label>
-                          <select 
-                            value={templateValue}
-                            onChange={(e) => setTemplateValue(e.target.value)}
-                            className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
-                          >
-                            <option value="通用 Python 3.10 AI 分析环境">通用 Python 3.10 AI 分析环境</option>
-                            <option value="PyTorch 2.0 + CUDA 11.8 深度学习环境">PyTorch 2.0 + CUDA 11.8 深度学习环境</option>
-                            <option value="TensorFlow 2.12 官方基准镜像">TensorFlow 2.12 官方基准镜像</option>
-                          </select>
-                        </div>
-
-                        <div className="grid grid-cols-[100px_1fr] items-center gap-4">
-                          <label className="text-[13px] font-bold text-[#262626] text-right">
-                            算力配置 <span className="text-[#fa541c]">*</span>
-                          </label>
-                          <div className="flex gap-3 text-[12px]">
-                            <span className="px-3 py-1.5 bg-orange-50 text-[#fa541c] border border-orange-200 rounded font-bold">2核 4G (基础开发)</span>
-                            <span className="px-3 py-1.5 bg-white text-neutral-600 border border-neutral-200 rounded font-medium cursor-pointer hover:border-neutral-300">4核 8G (标准计算)</span>
-                            <span className="px-3 py-1.5 bg-white text-neutral-600 border border-neutral-200 rounded font-medium cursor-pointer hover:border-neutral-300">8核 16G + RTX 4090</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  )}
-                </div>
-
-                <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-between shrink-0">
-                  <div>
-                    {activeFormTab === 'env' ? (
-                      <Button 
-                        onClick={() => setActiveFormTab('basic')} 
-                        variant="outline" 
-                        className="border-neutral-200 text-neutral-600 h-9 px-6 rounded-[4px] text-[13px] bg-white cursor-pointer hover:bg-neutral-50 font-semibold"
-                      >
-                        上一步
-                      </Button>
-                    ) : (
-                      <Button 
-                        onClick={() => setDrawerStep('select')} 
-                        variant="outline" 
-                        className="border-neutral-200 text-neutral-600 h-9 px-6 rounded-[4px] text-[13px] bg-white cursor-pointer hover:bg-neutral-50 font-semibold"
-                      >
-                        返回关联列表
-                      </Button>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <Button 
-                      onClick={() => {
-                        setShowAddToProjectModal(false);
-                        setDrawerStep('select');
-                      }} 
-                      variant="outline" 
-                      className="border-neutral-200 text-neutral-600 h-9 px-6 rounded-[4px] text-[13px] bg-white cursor-pointer hover:bg-neutral-50 font-semibold"
-                    >
-                      取消
-                    </Button>
-                    {activeFormTab === 'basic' ? (
-                      <Button 
-                        onClick={() => setActiveFormTab('env')} 
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
-                      >
-                        下一步
-                      </Button>
-                    ) : (
-                      <Button 
-                        onClick={() => {
-                          const newId = formName ? `PRJ_${formName}` : `IL51179900223`;
-                          const newProj = { id: newId, name: formName || '新建实战项目' };
-                          setProjectList([newProj, ...projectList]);
-                          setSelectedProjectId(newId);
-                          setDrawerStep('select');
-                        }} 
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
-                      >
-                        保存
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </>
-            )}
+                    创建项目
+                  </Button>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       )}

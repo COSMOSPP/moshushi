@@ -15,8 +15,25 @@ import { Layers, Info, Bold, Italic, Type, List, AlignLeft, AlignCenter, AlignRi
 export default function TeacherHome() {
   const location = useLocation();
   const [activeSubTab, setActiveSubTab] = useState<'course' | 'project' | 'dataset' | 'exam' | 'practice' | 'aicenter'>(() => {
+    const searchStr = location.search || (window.location.hash.includes('?') ? window.location.hash.split('?')[1] : window.location.search);
+    const searchParams = new URLSearchParams(searchStr);
+    const tabParam = searchParams.get('tab');
+    if (tabParam && ['course', 'project', 'dataset', 'exam', 'practice', 'aicenter'].includes(tabParam)) {
+      return tabParam as any;
+    }
     return (location.state as any)?.activeSubTab || 'course';
   });
+
+  useEffect(() => {
+    const searchStr = location.search || (window.location.hash.includes('?') ? window.location.hash.split('?')[1] : window.location.search);
+    const searchParams = new URLSearchParams(searchStr);
+    const tabParam = searchParams.get('tab');
+    if (tabParam && ['course', 'project', 'dataset', 'exam', 'practice', 'aicenter'].includes(tabParam)) {
+      setActiveSubTab(tabParam as any);
+    } else if ((location.state as any)?.activeSubTab) {
+      setActiveSubTab((location.state as any).activeSubTab);
+    }
+  }, [location.search, location.state]);
   const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
   const [selectedCourseName, setSelectedCourseName] = useState<string | null>(null);
 

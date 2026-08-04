@@ -307,7 +307,11 @@ export default function TeacherProjects({
   ];
 
   // View states (List or Modals)
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(() => {
+    const searchStr = location.search || (window.location.hash.includes('?') ? window.location.hash.split('?')[1] : window.location.search);
+    const searchParams = new URLSearchParams(searchStr);
+    return searchParams.get('create') === 'true';
+  });
   const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');
   
   // Search & Filter (Course Module Style)
@@ -627,12 +631,24 @@ export default function TeacherProjects({
     setIsModalOpen(true);
   };
 
+  const hasTriggeredCreate = React.useRef(false);
+
   useEffect(() => {
-    if (location.state?.openCreate) {
+    const searchStr = location.search || (window.location.hash.includes('?') ? window.location.hash.split('?')[1] : window.location.search);
+    const searchParams = new URLSearchParams(searchStr);
+    const shouldOpen = (location.state as any)?.openCreate || searchParams.get('create') === 'true';
+    
+    if (shouldOpen && !hasTriggeredCreate.current) {
+      hasTriggeredCreate.current = true;
       handleCreateNew();
-      window.history.replaceState({}, document.title);
+
+      if (searchParams.get('create') === 'true') {
+        const cleanBase = window.location.pathname + window.location.search;
+        const newUrl = cleanBase + '#/teacher?tab=project';
+        window.history.replaceState({ activeSubTab: 'project' }, document.title, newUrl);
+      }
     }
-  }, [location.state]);
+  }, [location.state, location.search]);
 
   const handleEditProject = (proj: Project) => {
     setCurrentProjectId(proj.id);
