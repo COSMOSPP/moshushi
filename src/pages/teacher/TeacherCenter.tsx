@@ -771,7 +771,7 @@ export default function TeacherCenter() {
                 <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
                 <input 
                   type="text"
-                  placeholder="搜索消息标题或内容..."
+                  placeholder="搜索消息名称..."
                   value={notiSearchQuery}
                   onChange={(e) => setNotiSearchQuery(e.target.value)}
                   className="pl-9 pr-4 py-1.5 w-full bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
@@ -810,7 +810,7 @@ export default function TeacherCenter() {
             <table className="w-full text-left border-collapse whitespace-nowrap text-[13px]">
               <thead>
                 <tr className="border-b border-neutral-100 bg-neutral-50/50 text-[13px] text-neutral-600 font-medium">
-                  <th className="p-4 font-medium w-[60%]">消息详情</th>
+                  <th className="p-4 font-medium w-[60%]">消息名称</th>
                   <th className="p-4 font-medium w-[15%]">消息分类</th>
                   <th className="p-4 font-medium w-[15%]">消息时间</th>
                   <th className="p-4 font-medium w-[10%] text-left">操作</th>
@@ -828,27 +828,20 @@ export default function TeacherCenter() {
                         !noti.read && "bg-orange-50/10 font-medium"
                       )}
                     >
-                      {/* 消息详情 */}
+                      {/* 消息名称 */}
                       <td className="p-4 whitespace-normal">
-                        <div className="flex items-start gap-2.5">
+                        <div className="flex items-center gap-2.5">
                           {!noti.read ? (
-                            <span className="w-2 h-2 rounded-full bg-[#fa541c] shrink-0 mt-1.5" title="未读消息"></span>
+                            <span className="w-2 h-2 rounded-full bg-[#fa541c] shrink-0" title="未读消息"></span>
                           ) : (
-                            <span className="w-2 h-2 rounded-full bg-transparent shrink-0 mt-1.5"></span>
+                            <span className="w-2 h-2 rounded-full bg-transparent shrink-0"></span>
                           )}
-                          <div className="space-y-1 flex-1">
-                            <div className="flex items-center gap-2">
-                              <span className={cn(
-                                "transition-colors group-hover:text-[#fa541c]", 
-                                !noti.read ? "text-neutral-900 font-bold" : "text-neutral-800 font-medium"
-                              )}>
-                                {noti.title}
-                              </span>
-                            </div>
-                            <div className="text-xs text-neutral-500 leading-relaxed font-normal line-clamp-1">
-                              {noti.content}
-                            </div>
-                          </div>
+                          <span className={cn(
+                            "transition-colors group-hover:text-[#fa541c]", 
+                            !noti.read ? "text-neutral-900 font-bold" : "text-neutral-800 font-medium"
+                          )}>
+                            {noti.title}
+                          </span>
                         </div>
                       </td>
 
