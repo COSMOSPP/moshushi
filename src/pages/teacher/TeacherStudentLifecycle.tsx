@@ -43,7 +43,11 @@ import {
   ArrowRight,
   TrendingUp,
   MapPin,
-  DollarSign
+  DollarSign,
+  MessageSquare,
+  Smartphone,
+  Send,
+  UserCheck
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -101,6 +105,7 @@ export interface StudentLifecycleItem {
   gender: '男' | '女';
   age: number;
   phone: string;
+  wechat?: string;
   email: string;
   university: string;
   major: string;
@@ -146,6 +151,222 @@ export interface StudentLifecycleItem {
   auditTrail: AuditRecord[];
 }
 
+export interface RegisteredUserItem {
+  id: string;
+  name: string;
+  avatarText: string;
+  gender: '男' | '女';
+  wechat: string;
+  phone: string;
+  email?: string;
+  registerTime: string;
+  channel: '微信快捷授权' | '手机短信注册' | '班级二维码扫码' | '高校宣讲会' | '官网直达注册';
+  bindStatus: '已绑微信+手机' | '仅手机绑定' | '仅微信绑定';
+  profileStatus: '已提交报名' | '待完善信息' | '已分班学习' | '未填报';
+  intentDirection: string;
+  university?: string;
+  reminded?: boolean;
+  remindCount?: number;
+  notes?: string;
+}
+
+export const INITIAL_REGISTERED_USERS: RegisteredUserItem[] = [
+  {
+    id: 'REG-2026001',
+    name: '林若曦',
+    avatarText: '林',
+    gender: '女',
+    wechat: 'wxid_ruoxi_lin',
+    phone: '13812345601',
+    email: 'lin.rx@edu.cn',
+    registerTime: '2026-03-01 09:15',
+    channel: '微信快捷授权',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '已分班学习',
+    intentDirection: '大模型开发与微调',
+    university: '华中科技大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026002',
+    name: '周逸轩',
+    avatarText: '周',
+    gender: '男',
+    wechat: 'zhou_yx_pku',
+    phone: '13988776602',
+    email: 'zhou.yx@pku.edu',
+    registerTime: '2026-03-02 10:30',
+    channel: '高校宣讲会',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '已分班学习',
+    intentDirection: '大模型开发与微调',
+    university: '北京大学软件与微电子学院',
+    reminded: false
+  },
+  {
+    id: 'REG-2026003',
+    name: '陈梓涵',
+    avatarText: '陈',
+    gender: '女',
+    wechat: 'chen_aigc_99',
+    phone: '13700112203',
+    email: 'chen.zh@sjtu.edu.cn',
+    registerTime: '2026-03-05 08:40',
+    channel: '班级二维码扫码',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '已提交报名',
+    intentDirection: 'AIGC应用工程',
+    university: '上海交通大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026004',
+    name: '赵子墨',
+    avatarText: '赵',
+    gender: '男',
+    wechat: 'zhao_vision_ai',
+    phone: '13655443304',
+    email: 'zhao.zm@zju.edu.cn',
+    registerTime: '2026-03-06 13:20',
+    channel: '微信快捷授权',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '已提交报名',
+    intentDirection: 'AI计算机视觉',
+    university: '浙江大学计算机学院',
+    reminded: false
+  },
+  {
+    id: 'REG-2026005',
+    name: '孙悦',
+    avatarText: '孙',
+    gender: '女',
+    wechat: 'sun_yue_cloud',
+    phone: '13599887705',
+    email: 'sun.yue@buaa.edu.cn',
+    registerTime: '2026-03-07 15:10',
+    channel: '官网直达注册',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '待完善信息',
+    intentDirection: '云计算运维架构',
+    university: '北京航空航天大学',
+    reminded: true,
+    remindCount: 1
+  },
+  {
+    id: 'REG-2026006',
+    name: '钱佳怡',
+    avatarText: '钱',
+    gender: '女',
+    wechat: 'qian_data_mining',
+    phone: '13411223306',
+    email: 'qian.jy@fudan.edu.cn',
+    registerTime: '2026-03-08 09:50',
+    channel: '班级二维码扫码',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '已分班学习',
+    intentDirection: '大数据分析与挖掘',
+    university: '复旦大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026007',
+    name: '杨博涵',
+    avatarText: '杨',
+    gender: '男',
+    wechat: 'yang_iot_edge',
+    phone: '13877665507',
+    email: 'yang.bh@xjtu.edu.cn',
+    registerTime: '2026-03-09 14:00',
+    channel: '高校宣讲会',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '已分班学习',
+    intentDirection: '物联网嵌入式AI',
+    university: '西安交通大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026008',
+    name: '王浩然',
+    avatarText: '王',
+    gender: '男',
+    wechat: 'haoran_wang_2026',
+    phone: '13911223344',
+    email: 'wanghr@163.com',
+    registerTime: '2026-03-10 11:25',
+    channel: '微信快捷授权',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '待完善信息',
+    intentDirection: '大模型开发与微调',
+    university: '南京大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026009',
+    name: '李雅婷',
+    avatarText: '李',
+    gender: '女',
+    wechat: 'yating_prompt_ai',
+    phone: '13855667788',
+    email: 'yating.li@qq.com',
+    registerTime: '2026-03-11 16:40',
+    channel: '班级二维码扫码',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '待完善信息',
+    intentDirection: 'AIGC应用工程',
+    university: '武汉大学',
+    reminded: true,
+    remindCount: 2
+  },
+  {
+    id: 'REG-2026010',
+    name: '张宇翔',
+    avatarText: '张',
+    gender: '男',
+    wechat: 'zyx_cloud_arch',
+    phone: '13766554433',
+    email: 'zyx_dev@outlook.com',
+    registerTime: '2026-03-12 10:15',
+    channel: '手机短信注册',
+    bindStatus: '仅手机绑定',
+    profileStatus: '未填报',
+    intentDirection: '云计算运维架构',
+    university: '电子科技大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026011',
+    name: '刘思齐',
+    avatarText: '刘',
+    gender: '女',
+    wechat: 'siqi_liu_nlp',
+    phone: '13688990011',
+    email: 'siqi_liu@gmail.com',
+    registerTime: '2026-03-12 14:50',
+    channel: '微信快捷授权',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '未填报',
+    intentDirection: '大模型开发与微调',
+    university: '哈尔滨工业大学',
+    reminded: false
+  },
+  {
+    id: 'REG-2026012',
+    name: '何明轩',
+    avatarText: '何',
+    gender: '男',
+    wechat: 'he_mx_security',
+    phone: '13577889922',
+    email: 'he_mingxuan@126.com',
+    registerTime: '2026-03-13 09:30',
+    channel: '手机短信注册',
+    bindStatus: '已绑微信+手机',
+    profileStatus: '待完善信息',
+    intentDirection: 'AI计算机视觉',
+    university: '中山大学',
+    reminded: false
+  }
+];
+
 // ==================== Initial Mock Data ====================
 
 const INITIAL_STUDENTS: StudentLifecycleItem[] = [
@@ -156,6 +377,7 @@ const INITIAL_STUDENTS: StudentLifecycleItem[] = [
     gender: '女',
     age: 22,
     phone: '13812345601',
+    wechat: 'wxid_ruoxi_lin',
     email: 'lin.rx@edu.cn',
     university: '华中科技大学',
     major: '计算机科学与技术',
@@ -247,6 +469,7 @@ const INITIAL_STUDENTS: StudentLifecycleItem[] = [
     gender: '男',
     age: 23,
     phone: '13988776602',
+    wechat: 'zhou_yx_pku',
     email: 'zhou.yx@pku.edu',
     university: '北京交通大学',
     major: '软件工程',
@@ -317,6 +540,7 @@ const INITIAL_STUDENTS: StudentLifecycleItem[] = [
     gender: '男',
     age: 21,
     phone: '13611223303',
+    wechat: 'song_jm_nuaa',
     email: 'song.jm@163.com',
     university: '南京航空航天大学',
     major: '网络空间安全',
@@ -362,6 +586,7 @@ const INITIAL_STUDENTS: StudentLifecycleItem[] = [
     gender: '女',
     age: 22,
     phone: '13799881104',
+    wechat: 'han_yiyi_cv',
     email: 'han.yiyi@seu.edu.cn',
     university: '东南大学',
     major: '电子信息工程',
@@ -403,6 +628,7 @@ const INITIAL_STUDENTS: StudentLifecycleItem[] = [
     gender: '男',
     age: 24,
     phone: '13566778805',
+    wechat: 'chen_zh_stats',
     email: 'chen.zh@zju.edu.cn',
     university: '浙江大学',
     major: '应用统计学',
@@ -581,8 +807,15 @@ export default function TeacherStudentLifecycle() {
   
   // Pipeline Tab
   const [pipelineTab, setPipelineTab] = useState<
-    'all' | 'register' | 'audit' | 'enrolled' | 'graduation' | 'employment'
+    'all' | 'pre_register' | 'register' | 'audit' | 'enrolled' | 'graduation' | 'employment'
   >('all');
+
+  // Registered Users (pre_register tab) State
+  const [registeredUsers, setRegisteredUsers] = useState<RegisteredUserItem[]>(INITIAL_REGISTERED_USERS);
+  const [regSearchKeyword, setRegSearchKeyword] = useState('');
+  const [regSelectedChannel, setRegSelectedChannel] = useState<string>('all');
+  const [regSelectedStatus, setRegSelectedStatus] = useState<string>('all');
+  const [selectedRegIds, setSelectedRegIds] = useState<string[]>([]);
 
   // Filters
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -678,6 +911,102 @@ export default function TeacherStudentLifecycle() {
   };
 
   // ==================== Filtered Data ====================
+
+  const filteredRegisteredUsers = useMemo(() => {
+    return registeredUsers.filter(user => {
+      if (regSearchKeyword.trim()) {
+        const kw = regSearchKeyword.toLowerCase();
+        const matches = 
+          user.name.toLowerCase().includes(kw) ||
+          user.wechat.toLowerCase().includes(kw) ||
+          user.phone.includes(kw) ||
+          (user.email && user.email.toLowerCase().includes(kw)) ||
+          (user.university && user.university.toLowerCase().includes(kw)) ||
+          user.intentDirection.toLowerCase().includes(kw);
+        if (!matches) return false;
+      }
+      if (regSelectedChannel !== 'all' && user.channel !== regSelectedChannel) return false;
+      if (regSelectedStatus !== 'all' && user.profileStatus !== regSelectedStatus) return false;
+      return true;
+    });
+  }, [registeredUsers, regSearchKeyword, regSelectedChannel, regSelectedStatus]);
+
+  const regStats = useMemo(() => {
+    const total = registeredUsers.length;
+    const bindWechat = registeredUsers.filter(u => u.bindStatus.includes('微信')).length;
+    const bindPhone = registeredUsers.filter(u => u.bindStatus.includes('手机')).length;
+    const enrolledCount = registeredUsers.filter(u => u.profileStatus === '已提交报名' || u.profileStatus === '已分班学习').length;
+    const pendingFill = registeredUsers.filter(u => u.profileStatus === '待完善信息' || u.profileStatus === '未填报').length;
+    return {
+      total,
+      bindWechat,
+      bindPhone,
+      enrolledCount,
+      pendingFill
+    };
+  }, [registeredUsers]);
+
+  const handleSelectAllReg = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setSelectedRegIds(filteredRegisteredUsers.map(u => u.id));
+    } else {
+      setSelectedRegIds([]);
+    }
+  };
+
+  const handleToggleSelectReg = (id: string) => {
+    setSelectedRegIds(prev => 
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    );
+  };
+
+  const handleRemindUser = (user: RegisteredUserItem) => {
+    setRegisteredUsers(prev => prev.map(u => {
+      if (u.id === user.id) {
+        return { ...u, reminded: true, remindCount: (u.remindCount || 0) + 1 };
+      }
+      return u;
+    }));
+    showToast(`已向学员【${user.name}】（微信：${user.wechat} / 手机：${user.phone}）发送填报提醒通知！`);
+  };
+
+  const handleBatchRemindReg = () => {
+    if (selectedRegIds.length === 0) return;
+    setRegisteredUsers(prev => prev.map(u => {
+      if (selectedRegIds.includes(u.id)) {
+        return { ...u, reminded: true, remindCount: (u.remindCount || 0) + 1 };
+      }
+      return u;
+    }));
+    showToast(`已成功向选中的 ${selectedRegIds.length} 位学员批量发送微信与短信填报提醒！`);
+    setSelectedRegIds([]);
+  };
+
+  const handleExportRegistered = () => {
+    const csvContent = "data:text/csv;charset=utf-8,\uFEFF"
+      + ["序号,姓名,微信号,手机号,电子邮箱,注册渠道,绑定状态,报名转化状态,意向方向,毕业院校,注册时间"].join(",") + "\n"
+      + filteredRegisteredUsers.map((u, i) => [
+          i + 1,
+          `"${u.name}"`,
+          `"${u.wechat}"`,
+          `"${u.phone}"`,
+          `"${u.email || '-'}"`,
+          `"${u.channel}"`,
+          `"${u.bindStatus}"`,
+          `"${u.profileStatus}"`,
+          `"${u.intentDirection}"`,
+          `"${u.university || '-'}"`,
+          `"${u.registerTime}"`
+        ].join(",")).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `智云实训平台_学员注册名单_${new Date().toISOString().slice(0,10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('注册名单导出成功！');
+  };
 
   const filteredStudents = useMemo(() => {
     return students.filter(item => {
@@ -1126,11 +1455,12 @@ export default function TeacherStudentLifecycle() {
       <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm p-2 flex flex-wrap items-center gap-1.5 overflow-x-auto">
         {[
           { key: 'all', label: '全部生命周期', icon: Layers, count: students.length },
-          { key: 'register', label: '1. 报名与信息采集', icon: QrCode, count: students.filter(s => s.status === '报名待审' || s.status === '审核驳回').length },
-          { key: 'audit', label: '2. 资格审核流水线', icon: ShieldCheck, count: students.filter(s => s.auditStatus === '待审核').length, highlight: stats.pendingAudit > 0 },
-          { key: 'enrolled', label: '3. 班级期次与在读', icon: BookOpen, count: students.filter(s => s.status === '在读学习' || s.status === '待分班').length },
-          { key: 'graduation', label: '4. 成绩与结业证书', icon: Award, count: students.filter(s => s.certificateStatus === '已发放' || s.status === '结业待考').length },
-          { key: 'employment', label: '5. 就业去向跟踪', icon: Briefcase, count: students.filter(s => s.employment.status !== '暂无意向').length },
+          { key: 'pre_register', label: '1. 注册名单', icon: Users, count: registeredUsers.length, highlight: regStats.pendingFill > 0 },
+          { key: 'register', label: '2. 报名与信息采集', icon: QrCode, count: students.filter(s => s.status === '报名待审' || s.status === '审核驳回').length },
+          { key: 'audit', label: '3. 资格审核流水线', icon: ShieldCheck, count: students.filter(s => s.auditStatus === '待审核').length, highlight: stats.pendingAudit > 0 },
+          { key: 'enrolled', label: '4. 班级期次与在读', icon: BookOpen, count: students.filter(s => s.status === '在读学习' || s.status === '待分班').length },
+          { key: 'graduation', label: '5. 成绩与结业证书', icon: Award, count: students.filter(s => s.certificateStatus === '已发放' || s.status === '结业待考').length },
+          { key: 'employment', label: '6. 就业去向跟踪', icon: Briefcase, count: students.filter(s => s.employment.status !== '暂无意向').length },
         ].map(tab => (
           <button
             key={tab.key}
@@ -1155,238 +1485,565 @@ export default function TeacherStudentLifecycle() {
         ))}
       </div>
 
-      {/* ================= Filters & Search Bar ================= */}
-      <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm p-4 space-y-3">
-        <div className="flex flex-wrap items-center gap-3">
-          {/* Keyword Search */}
-          <div className="relative flex-1 min-w-[240px]">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" />
-            <Input
-              value={searchKeyword}
-              onChange={e => setSearchKeyword(e.target.value)}
-              placeholder="搜索姓名、学号、手机号、毕业院校、专业..."
-              className="pl-9 bg-neutral-50/50 border-neutral-200 text-xs h-9 rounded-xl focus:bg-white"
-            />
-            {searchKeyword && (
-              <button onClick={() => setSearchKeyword('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 text-xs">
-                清空
-              </button>
+      {/* ================= Conditional Tab Content ================= */}
+      {pipelineTab === 'pre_register' ? (
+        /* ================= 1. 注册名单专属视图 (含微信号 & 手机号) ================= */
+        <div className="space-y-4">
+          {/* Quick Stats Cards for Registration */}
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+            <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-sm">
+              <div className="text-xs text-neutral-500 font-medium">注册总人数</div>
+              <div className="text-2xl font-black text-neutral-900 mt-1">{regStats.total} <span className="text-xs font-normal text-neutral-400">人</span></div>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-sm">
+              <div className="text-xs text-emerald-600 font-medium flex items-center gap-1">
+                <MessageSquare className="w-3.5 h-3.5" /> 微信已绑定
+              </div>
+              <div className="text-2xl font-black text-emerald-600 mt-1">{regStats.bindWechat} <span className="text-xs font-normal text-neutral-400">人</span></div>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-sm">
+              <div className="text-xs text-blue-600 font-medium flex items-center gap-1">
+                <Phone className="w-3.5 h-3.5" /> 手机已绑定
+              </div>
+              <div className="text-2xl font-black text-blue-600 mt-1">{regStats.bindPhone} <span className="text-xs font-normal text-neutral-400">人</span></div>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-sm">
+              <div className="text-xs text-purple-600 font-medium">已完成报名填报</div>
+              <div className="text-2xl font-black text-purple-600 mt-1">{regStats.enrolledCount} <span className="text-xs font-normal text-neutral-400">人</span></div>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-sm">
+              <div className="text-xs text-amber-600 font-medium">待提醒完善信息</div>
+              <div className="text-2xl font-black text-amber-600 mt-1">{regStats.pendingFill} <span className="text-xs font-normal text-neutral-400">人</span></div>
+            </div>
+          </div>
+
+          {/* Filters Bar for Registration List */}
+          <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm p-4 space-y-3">
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Keyword Search */}
+              <div className="relative flex-1 min-w-[260px]">
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" />
+                <Input
+                  value={regSearchKeyword}
+                  onChange={e => setRegSearchKeyword(e.target.value)}
+                  placeholder="搜索微信号、手机号、学员姓名、毕业院校、意向方向..."
+                  className="pl-9 bg-neutral-50/50 border-neutral-200 text-xs h-9 rounded-xl focus:bg-white"
+                />
+                {regSearchKeyword && (
+                  <button onClick={() => setRegSearchKeyword('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 text-xs">
+                    清空
+                  </button>
+                )}
+              </div>
+
+              {/* Channel Filter */}
+              <div className="w-[160px]">
+                <select
+                  value={regSelectedChannel}
+                  onChange={e => setRegSelectedChannel(e.target.value)}
+                  className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
+                >
+                  <option value="all">注册渠道 (全部)</option>
+                  <option value="微信快捷授权">微信快捷授权</option>
+                  <option value="手机短信注册">手机短信注册</option>
+                  <option value="班级二维码扫码">班级二维码扫码</option>
+                  <option value="高校宣讲会">高校宣讲会</option>
+                  <option value="官网直达注册">官网直达注册</option>
+                </select>
+              </div>
+
+              {/* Status Filter */}
+              <div className="w-[160px]">
+                <select
+                  value={regSelectedStatus}
+                  onChange={e => setRegSelectedStatus(e.target.value)}
+                  className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
+                >
+                  <option value="all">转化状态 (全部)</option>
+                  <option value="已分班学习">已分班学习</option>
+                  <option value="已提交报名">已提交报名</option>
+                  <option value="待完善信息">待完善信息</option>
+                  <option value="未填报">未填报</option>
+                </select>
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setRegSearchKeyword('');
+                  setRegSelectedChannel('all');
+                  setRegSelectedStatus('all');
+                }}
+                className="h-9 px-3 text-xs text-neutral-600 rounded-xl hover:bg-neutral-100"
+              >
+                <RefreshCw className="w-3.5 h-3.5 mr-1" />
+                重置
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleExportRegistered}
+                className="h-9 px-3 text-xs text-neutral-700 border-neutral-200 rounded-xl hover:bg-neutral-50"
+              >
+                <Download className="w-3.5 h-3.5 mr-1 text-neutral-500" />
+                导出注册名单
+              </Button>
+            </div>
+
+            {/* Batch Operations Bar */}
+            {selectedRegIds.length > 0 && (
+              <div className="flex items-center justify-between px-4 py-2.5 bg-emerald-50/80 border border-emerald-200/80 rounded-xl animate-in fade-in duration-200">
+                <div className="flex items-center gap-2 text-xs font-semibold text-emerald-900">
+                  <CheckSquare className="w-4 h-4 text-emerald-600" />
+                  已勾选 <span className="text-emerald-700 text-sm font-black">{selectedRegIds.length}</span> 位注册学员
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    size="sm"
+                    onClick={handleBatchRemindReg}
+                    className="h-7 px-3 text-xs bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg shadow-sm"
+                  >
+                    <Send className="w-3.5 h-3.5 mr-1" />
+                    批量发送微信与短信填报提醒
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => setSelectedRegIds([])}
+                    className="h-7 px-2.5 text-xs text-neutral-600 hover:bg-white"
+                  >
+                    取消勾选
+                  </Button>
+                </div>
+              </div>
             )}
           </div>
 
-          {/* Source Channel Filter */}
-          <div className="w-[150px]">
-            <select
-              value={selectedSource}
-              onChange={e => setSelectedSource(e.target.value)}
-              className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
-            >
-              <option value="all">来源渠道 (全部)</option>
-              {SOURCE_OPTIONS.map(src => (
-                <option key={src} value={src}>{src}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Intent Direction Filter */}
-          <div className="w-[170px]">
-            <select
-              value={selectedIntent}
-              onChange={e => setSelectedIntent(e.target.value)}
-              className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
-            >
-              <option value="all">意向方向 (全部)</option>
-              {INTENT_OPTIONS.map(intent => (
-                <option key={intent} value={intent}>{intent}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Class Cohort Filter */}
-          <div className="w-[160px]">
-            <select
-              value={selectedClass}
-              onChange={e => setSelectedClass(e.target.value)}
-              className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
-            >
-              <option value="all">班级/期次 (全部)</option>
-              <option value="未分班">未分班</option>
-              {AVAILABLE_CLASSES.map(cls => (
-                <option key={cls} value={cls}>{cls}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Lifecycle Status Filter */}
-          <div className="w-[140px]">
-            <select
-              value={selectedStatus}
-              onChange={e => setSelectedStatus(e.target.value)}
-              className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
-            >
-              <option value="all">状态 (全部)</option>
-              <option value="报名待审">报名待审</option>
-              <option value="待分班">待分班</option>
-              <option value="在读学习">在读学习</option>
-              <option value="已获证书">已获证书</option>
-              <option value="已就业">已就业</option>
-              <option value="审核驳回">审核驳回</option>
-              <option value="休学">休学</option>
-            </select>
-          </div>
-
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => {
-              setSearchKeyword('');
-              setSelectedSource('all');
-              setSelectedIntent('all');
-              setSelectedClass('all');
-              setSelectedStatus('all');
-            }}
-            className="h-9 px-3 text-xs text-neutral-600 rounded-xl hover:bg-neutral-100"
-          >
-            <RefreshCw className="w-3.5 h-3.5 mr-1" />
-            重置
-          </Button>
-        </div>
-
-        {/* Batch Operations Bar */}
-        {selectedIds.length > 0 && (
-          <div className="flex items-center justify-between px-4 py-2.5 bg-blue-50/70 border border-blue-200/80 rounded-xl animate-in fade-in duration-200">
-            <div className="flex items-center gap-2 text-xs font-semibold text-blue-900">
-              <CheckSquare className="w-4 h-4 text-[#3b82f6]" />
-              已勾选 <span className="text-[#3b82f6] text-sm font-black">{selectedIds.length}</span> 位学员
-            </div>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                onClick={() => {
-                  const targetList = students.filter(s => selectedIds.includes(s.id));
-                  setAuditTargetStudents(targetList);
-                  setAuditDecision('pass');
-                  setIsAuditModalOpen(true);
-                }}
-                className="h-7 px-3 text-xs bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg shadow-sm"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 mr-1" />
-                批量资格审核
-              </Button>
-              <Button
-                size="sm"
-                onClick={() => {
-                  setTargetClass(AVAILABLE_CLASSES[0]);
-                  setIsClassModalOpen(true);
-                }}
-                className="h-7 px-3 text-xs bg-[#3b82f6] hover:bg-[#2563eb] text-white font-medium rounded-lg shadow-sm"
-              >
-                <BookOpen className="w-3.5 h-3.5 mr-1" />
-                批量分配班级期次
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => setSelectedIds([])}
-                className="h-7 px-2.5 text-xs text-neutral-600 hover:bg-white"
-              >
-                取消勾选
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* ================= Students Table ================= */}
-      <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
-            <thead>
-              <tr className="bg-neutral-50/80 border-b border-neutral-200/80 text-neutral-600 font-bold tracking-wide select-none">
-                <th className="p-3.5 w-10 text-center">
-                  <input
-                    type="checkbox"
-                    checked={filteredStudents.length > 0 && selectedIds.length === filteredStudents.length}
-                    onChange={handleSelectAll}
-                    className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer"
-                  />
-                </th>
-                <th className="p-3.5 min-w-[170px]">学员信息 / 学号</th>
-                <th className="p-3.5 min-w-[140px]">院校 / 专业背景</th>
-                <th className="p-3.5 min-w-[130px]">来源与意向标签</th>
-                <th className="p-3.5 min-w-[130px]">班级 / 期次归属</th>
-                <th className="p-3.5 min-w-[100px]">生命周期状态</th>
-                <th className="p-3.5 min-w-[130px]">实训学情 / 时长</th>
-                <th className="p-3.5 min-w-[120px]">成绩 / 证书</th>
-                <th className="p-3.5 min-w-[140px]">就业去向</th>
-                <th className="p-3.5 min-w-[140px] text-right pr-5">操作与档案</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filteredStudents.length === 0 ? (
-                <tr>
-                  <td colSpan={10} className="py-16 text-center text-neutral-400">
-                    <Users className="w-12 h-12 mx-auto mb-2 stroke-[1.2] text-neutral-300" />
-                    <p className="text-sm font-medium">暂无符合条件的学员档案</p>
-                    <p className="text-xs mt-1 text-neutral-400">您可以尝试清空筛选条件或使用上方功能进行线上采集/批量导入</p>
-                  </td>
-                </tr>
-              ) : (
-                filteredStudents.map(student => {
-                  const isChecked = selectedIds.includes(student.id);
-
-                  return (
-                    <tr 
-                      key={student.id} 
-                      className={cn(
-                        "hover:bg-blue-50/30 transition-colors group",
-                        isChecked && "bg-blue-50/50"
-                      )}
-                    >
-                      {/* Checkbox */}
-                      <td className="p-3.5 text-center">
-                        <input
-                          type="checkbox"
-                          checked={isChecked}
-                          onChange={() => handleToggleSelect(student.id)}
-                          className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer"
-                        />
+          {/* Registration Table */}
+          <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-neutral-50/80 border-b border-neutral-200/80 text-neutral-600 font-bold tracking-wide select-none">
+                    <th className="p-3.5 w-10 text-center">
+                      <input
+                        type="checkbox"
+                        checked={filteredRegisteredUsers.length > 0 && selectedRegIds.length === filteredRegisteredUsers.length}
+                        onChange={handleSelectAllReg}
+                        className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer"
+                      />
+                    </th>
+                    <th className="p-3.5 min-w-[150px]">注册学员</th>
+                    <th className="p-3.5 min-w-[160px]">微信号 (WeChat ID)</th>
+                    <th className="p-3.5 min-w-[150px]">手机号 (Phone)</th>
+                    <th className="p-3.5 min-w-[130px]">注册渠道 / 来源</th>
+                    <th className="p-3.5 min-w-[130px]">账号绑定情况</th>
+                    <th className="p-3.5 min-w-[120px]">报名转化状态</th>
+                    <th className="p-3.5 min-w-[150px]">意向方向 / 院校</th>
+                    <th className="p-3.5 min-w-[130px]">注册时间</th>
+                    <th className="p-3.5 min-w-[140px] text-right pr-5">操作</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  {filteredRegisteredUsers.length === 0 ? (
+                    <tr>
+                      <td colSpan={10} className="py-16 text-center text-neutral-400">
+                        <Users className="w-12 h-12 mx-auto mb-2 stroke-[1.2] text-neutral-300" />
+                        <p className="text-sm font-medium">暂无匹配的注册名单数据</p>
                       </td>
-
-                      {/* Name & Basic Info */}
-                      <td className="p-3.5">
-                        <div className="flex items-center gap-3">
-                          <div className={cn(
-                            "w-9 h-9 rounded-full flex items-center justify-center font-bold text-white shadow-sm shrink-0",
-                            student.gender === '女' ? "bg-gradient-to-tr from-pink-500 to-rose-400" : "bg-gradient-to-tr from-blue-600 to-cyan-500"
-                          )}>
-                            {student.name.slice(0, 1)}
-                          </div>
-                          <div>
-                            <div className="flex items-center gap-2">
-                              <span 
+                    </tr>
+                  ) : (
+                    filteredRegisteredUsers.map(user => {
+                      const isChecked = selectedRegIds.includes(user.id);
+                      return (
+                        <tr
+                          key={user.id}
+                          className={cn(
+                            "hover:bg-blue-50/30 transition-colors group",
+                            isChecked && "bg-blue-50/50"
+                          )}
+                        >
+                          <td className="p-3.5 text-center">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => handleToggleSelectReg(user.id)}
+                              className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer"
+                            />
+                          </td>
+                          <td className="p-3.5">
+                            <div className="flex items-center gap-3">
+                              <div className={cn(
+                                "w-9 h-9 rounded-full flex items-center justify-center font-bold text-white shadow-sm shrink-0",
+                                user.gender === '女' ? "bg-gradient-to-tr from-pink-500 to-rose-400" : "bg-gradient-to-tr from-blue-600 to-cyan-500"
+                              )}>
+                                {user.avatarText || user.name.slice(0, 1)}
+                              </div>
+                              <div>
+                                <div className="font-bold text-neutral-900 text-sm">{user.name}</div>
+                                <div className="text-[10px] text-neutral-400 font-mono mt-0.5">{user.id}</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-3.5">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
+                                <MessageSquare className="w-3 h-3" />
+                              </span>
+                              <span className="font-mono text-emerald-700 font-bold text-xs select-all">{user.wechat}</span>
+                              <button
                                 onClick={() => {
-                                  setDrawerStudent(student);
-                                  setDrawerTab('profile');
+                                  navigator.clipboard.writeText(user.wechat);
+                                  showToast(`微信号【${user.wechat}】已复制！`);
                                 }}
-                                className="font-bold text-neutral-900 text-sm hover:text-[#3b82f6] cursor-pointer transition-colors"
+                                title="复制微信号"
+                                className="text-neutral-400 hover:text-neutral-700 p-0.5 rounded cursor-pointer"
                               >
-                                {student.name}
+                                <Copy className="w-3 h-3" />
+                              </button>
+                            </div>
+                          </td>
+                          <td className="p-3.5">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-5 h-5 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200">
+                                <Phone className="w-3 h-3" />
                               </span>
-                              <span className="text-[10px] px-1.5 py-0.2 bg-neutral-100 rounded text-neutral-600 font-medium">
-                                {student.gender} · {student.age}岁
-                              </span>
+                              <span className="font-mono text-neutral-800 font-semibold text-xs select-all">{user.phone}</span>
+                              <button
+                                onClick={() => {
+                                  navigator.clipboard.writeText(user.phone);
+                                  showToast(`手机号【${user.phone}】已复制！`);
+                                }}
+                                title="复制手机号"
+                                className="text-neutral-400 hover:text-neutral-700 p-0.5 rounded cursor-pointer"
+                              >
+                                <Copy className="w-3 h-3" />
+                              </button>
                             </div>
-                            <div className="text-[11px] text-neutral-400 font-mono mt-0.5">
-                              NO: {student.studentNo}
+                          </td>
+                          <td className="p-3.5">
+                            <span className="inline-block px-2 py-0.5 rounded text-[11px] font-medium bg-neutral-100 text-neutral-700 border border-neutral-200">
+                              {user.channel}
+                            </span>
+                          </td>
+                          <td className="p-3.5">
+                            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-700">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                              {user.bindStatus}
                             </div>
-                            <div className="text-[11px] text-neutral-500 flex items-center gap-1 mt-0.5">
-                              <Phone className="w-3 h-3 text-neutral-400" />
-                              {student.phone}
+                          </td>
+                          <td className="p-3.5">
+                            <span className={cn(
+                              "inline-block px-2 py-0.5 rounded-full text-[10px] font-bold",
+                              user.profileStatus === '已分班学习' && "bg-blue-100 text-blue-700",
+                              user.profileStatus === '已提交报名' && "bg-emerald-100 text-emerald-700",
+                              user.profileStatus === '待完善信息' && "bg-amber-100 text-amber-700",
+                              user.profileStatus === '未填报' && "bg-neutral-100 text-neutral-600"
+                            )}>
+                              {user.profileStatus}
+                            </span>
+                          </td>
+                          <td className="p-3.5">
+                            <div className="font-medium text-neutral-800">{user.intentDirection}</div>
+                            {user.university && (
+                              <div className="text-neutral-400 text-[10px] mt-0.5">{user.university}</div>
+                            )}
+                          </td>
+                          <td className="p-3.5 text-neutral-500 font-mono text-[11px]">
+                            {user.registerTime}
+                          </td>
+                          <td className="p-3.5 text-right pr-5">
+                            <div className="flex items-center justify-end gap-1.5">
+                              {(user.profileStatus === '待完善信息' || user.profileStatus === '未填报') && (
+                                <Button
+                                  size="sm"
+                                  onClick={() => handleRemindUser(user)}
+                                  className={cn(
+                                    "h-6 px-2 text-[11px] font-bold rounded",
+                                    user.reminded
+                                      ? "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
+                                      : "bg-emerald-600 hover:bg-emerald-700 text-white"
+                                  )}
+                                >
+                                  <Send className="w-3 h-3 mr-1" />
+                                  {user.reminded ? `已提醒(${user.remindCount})` : '发送填报提醒'}
+                                </Button>
+                              )}
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => {
+                                  setNewStudentForm({
+                                    name: user.name,
+                                    gender: user.gender,
+                                    phone: user.phone,
+                                    university: user.university || '',
+                                    intentDirection: user.intentDirection as any,
+                                    source: '自主报名'
+                                  });
+                                  setIsAddStudentOpen(true);
+                                }}
+                                className="h-6 px-2 text-[11px] text-[#3b82f6] border-blue-200 hover:bg-blue-50 font-medium"
+                              >
+                                <Edit3 className="w-3 h-3 mr-1" />
+                                补录档案
+                              </Button>
                             </div>
-                          </div>
-                        </div>
+                          </td>
+                        </tr>
+                      );
+                    })
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      ) : (
+        /* ================= 2. 原生命周期管道与学员档案表格 ================= */
+        <div className="space-y-4">
+          {/* ================= Filters & Search Bar ================= */}
+          <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm p-4 space-y-3">
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Keyword Search */}
+              <div className="relative flex-1 min-w-[240px]">
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" />
+                <Input
+                  value={searchKeyword}
+                  onChange={e => setSearchKeyword(e.target.value)}
+                  placeholder="搜索姓名、学号、手机号、微信号、毕业院校、专业..."
+                  className="pl-9 bg-neutral-50/50 border-neutral-200 text-xs h-9 rounded-xl focus:bg-white"
+                />
+                {searchKeyword && (
+                  <button onClick={() => setSearchKeyword('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 text-xs">
+                    清空
+                  </button>
+                )}
+              </div>
+
+              {/* Source Channel Filter */}
+              <div className="w-[150px]">
+                <select
+                  value={selectedSource}
+                  onChange={e => setSelectedSource(e.target.value)}
+                  className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
+                >
+                  <option value="all">来源渠道 (全部)</option>
+                  {SOURCE_OPTIONS.map(src => (
+                    <option key={src} value={src}>{src}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Intent Direction Filter */}
+              <div className="w-[170px]">
+                <select
+                  value={selectedIntent}
+                  onChange={e => setSelectedIntent(e.target.value)}
+                  className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
+                >
+                  <option value="all">意向方向 (全部)</option>
+                  {INTENT_OPTIONS.map(intent => (
+                    <option key={intent} value={intent}>{intent}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Class Cohort Filter */}
+              <div className="w-[160px]">
+                <select
+                  value={selectedClass}
+                  onChange={e => setSelectedClass(e.target.value)}
+                  className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
+                >
+                  <option value="all">班级/期次 (全部)</option>
+                  <option value="未分班">未分班</option>
+                  {AVAILABLE_CLASSES.map(cls => (
+                    <option key={cls} value={cls}>{cls}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Lifecycle Status Filter */}
+              <div className="w-[140px]">
+                <select
+                  value={selectedStatus}
+                  onChange={e => setSelectedStatus(e.target.value)}
+                  className="w-full h-9 px-3 text-xs bg-neutral-50/50 border border-neutral-200 rounded-xl text-neutral-700 focus:outline-none focus:border-[#3b82f6]"
+                >
+                  <option value="all">状态 (全部)</option>
+                  <option value="报名待审">报名待审</option>
+                  <option value="待分班">待分班</option>
+                  <option value="在读学习">在读学习</option>
+                  <option value="已获证书">已获证书</option>
+                  <option value="已就业">已就业</option>
+                  <option value="审核驳回">审核驳回</option>
+                  <option value="休学">休学</option>
+                </select>
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setSearchKeyword('');
+                  setSelectedSource('all');
+                  setSelectedIntent('all');
+                  setSelectedClass('all');
+                  setSelectedStatus('all');
+                }}
+                className="h-9 px-3 text-xs text-neutral-600 rounded-xl hover:bg-neutral-100"
+              >
+                <RefreshCw className="w-3.5 h-3.5 mr-1" />
+                重置
+              </Button>
+            </div>
+
+            {/* Batch Operations Bar */}
+            {selectedIds.length > 0 && (
+              <div className="flex items-center justify-between px-4 py-2.5 bg-blue-50/70 border border-blue-200/80 rounded-xl animate-in fade-in duration-200">
+                <div className="flex items-center gap-2 text-xs font-semibold text-blue-900">
+                  <CheckSquare className="w-4 h-4 text-[#3b82f6]" />
+                  已勾选 <span className="text-[#3b82f6] text-sm font-black">{selectedIds.length}</span> 位学员
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      const targetList = students.filter(s => selectedIds.includes(s.id));
+                      setAuditTargetStudents(targetList);
+                      setAuditDecision('pass');
+                      setIsAuditModalOpen(true);
+                    }}
+                    className="h-7 px-3 text-xs bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg shadow-sm"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5 mr-1" />
+                    批量资格审核
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      setTargetClass(AVAILABLE_CLASSES[0]);
+                      setIsClassModalOpen(true);
+                    }}
+                    className="h-7 px-3 text-xs bg-[#3b82f6] hover:bg-[#2563eb] text-white font-medium rounded-lg shadow-sm"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 mr-1" />
+                    批量分配班级期次
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => setSelectedIds([])}
+                    className="h-7 px-2.5 text-xs text-neutral-600 hover:bg-white"
+                  >
+                    取消勾选
+                  </Button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* ================= Students Table ================= */}
+          <div className="bg-white rounded-2xl border border-neutral-200/80 shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-neutral-50/80 border-b border-neutral-200/80 text-neutral-600 font-bold tracking-wide select-none">
+                    <th className="p-3.5 w-10 text-center">
+                      <input
+                        type="checkbox"
+                        checked={filteredStudents.length > 0 && selectedIds.length === filteredStudents.length}
+                        onChange={handleSelectAll}
+                        className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer"
+                      />
+                    </th>
+                    <th className="p-3.5 min-w-[190px]">学员信息 / 学号</th>
+                    <th className="p-3.5 min-w-[140px]">院校 / 专业背景</th>
+                    <th className="p-3.5 min-w-[130px]">来源与意向标签</th>
+                    <th className="p-3.5 min-w-[130px]">班级 / 期次归属</th>
+                    <th className="p-3.5 min-w-[100px]">生命周期状态</th>
+                    <th className="p-3.5 min-w-[130px]">实训学情 / 时长</th>
+                    <th className="p-3.5 min-w-[120px]">成绩 / 证书</th>
+                    <th className="p-3.5 min-w-[140px]">就业去向</th>
+                    <th className="p-3.5 min-w-[140px] text-right pr-5">操作与档案</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  {filteredStudents.length === 0 ? (
+                    <tr>
+                      <td colSpan={10} className="py-16 text-center text-neutral-400">
+                        <Users className="w-12 h-12 mx-auto mb-2 stroke-[1.2] text-neutral-300" />
+                        <p className="text-sm font-medium">暂无符合条件的学员档案</p>
+                        <p className="text-xs mt-1 text-neutral-400">您可以尝试清空筛选条件或使用上方功能进行线上采集/批量导入</p>
                       </td>
+                    </tr>
+                  ) : (
+                    filteredStudents.map(student => {
+                      const isChecked = selectedIds.includes(student.id);
+
+                      return (
+                        <tr 
+                          key={student.id} 
+                          className={cn(
+                            "hover:bg-blue-50/30 transition-colors group",
+                            isChecked && "bg-blue-50/50"
+                          )}
+                        >
+                          {/* Checkbox */}
+                          <td className="p-3.5 text-center">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => handleToggleSelect(student.id)}
+                              className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer"
+                            />
+                          </td>
+
+                          {/* Name & Basic Info (with Phone & WeChat) */}
+                          <td className="p-3.5">
+                            <div className="flex items-center gap-3">
+                              <div className={cn(
+                                "w-9 h-9 rounded-full flex items-center justify-center font-bold text-white shadow-sm shrink-0",
+                                student.gender === '女' ? "bg-gradient-to-tr from-pink-500 to-rose-400" : "bg-gradient-to-tr from-blue-600 to-cyan-500"
+                              )}>
+                                {student.name.slice(0, 1)}
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <span 
+                                    onClick={() => {
+                                      setDrawerStudent(student);
+                                      setDrawerTab('profile');
+                                    }}
+                                    className="font-bold text-neutral-900 text-sm hover:text-[#3b82f6] cursor-pointer transition-colors"
+                                  >
+                                    {student.name}
+                                  </span>
+                                  <span className="text-[10px] px-1.5 py-0.2 bg-neutral-100 rounded text-neutral-600 font-medium">
+                                    {student.gender} · {student.age}岁
+                                  </span>
+                                </div>
+                                <div className="text-[11px] text-neutral-400 font-mono mt-0.5">
+                                  NO: {student.studentNo}
+                                </div>
+                                <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-neutral-500 mt-0.5">
+                                  <span className="flex items-center gap-0.5">
+                                    <Phone className="w-3 h-3 text-neutral-400" />
+                                    {student.phone}
+                                  </span>
+                                  {student.wechat && (
+                                    <span className="flex items-center gap-0.5 text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded text-[10px] font-mono border border-emerald-200">
+                                      <MessageSquare className="w-2.5 h-2.5 text-emerald-600" />
+                                      {student.wechat}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </td>
 
                       {/* University & Major */}
                       <td className="p-3.5">
@@ -1639,6 +2296,8 @@ export default function TeacherStudentLifecycle() {
           </div>
         </div>
       </div>
+    </div>
+  )}
 
       {/* ========================================================================= */}
       {/* 1. 学员档案多维抽屉 (Student Dossier Drawer) */}
@@ -1726,18 +2385,28 @@ export default function TeacherStudentLifecycle() {
                   {/* Basic Profile Grid */}
                   <div>
                     <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">个人与联络信息</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-neutral-50 p-4 rounded-xl border border-neutral-200/70 text-xs">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-neutral-50 p-4 rounded-xl border border-neutral-200/70 text-xs">
                       <div>
                         <span className="text-neutral-400 block mb-0.5">姓名</span>
                         <span className="font-bold text-neutral-800">{drawerStudent.name} ({drawerStudent.gender})</span>
                       </div>
                       <div>
+                        <span className="text-neutral-400 block mb-0.5">微信号 (WeChat)</span>
+                        <span className="font-bold text-emerald-700 font-mono flex items-center gap-1">
+                          <MessageSquare className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                          {drawerStudent.wechat || '-'}
+                        </span>
+                      </div>
+                      <div>
                         <span className="text-neutral-400 block mb-0.5">联系电话</span>
-                        <span className="font-medium text-neutral-800 font-mono">{drawerStudent.phone}</span>
+                        <span className="font-medium text-neutral-800 font-mono flex items-center gap-1">
+                          <Phone className="w-3 h-3 text-neutral-400 shrink-0" />
+                          {drawerStudent.phone}
+                        </span>
                       </div>
                       <div>
                         <span className="text-neutral-400 block mb-0.5">电子邮箱</span>
-                        <span className="font-medium text-neutral-800">{drawerStudent.email}</span>
+                        <span className="font-medium text-neutral-800 truncate block" title={drawerStudent.email}>{drawerStudent.email}</span>
                       </div>
                       <div>
                         <span className="text-neutral-400 block mb-0.5">毕业院校</span>
