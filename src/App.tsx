@@ -68,9 +68,7 @@ import {
 import SystemTenants from "./pages/admin/SystemTenants";
 import SystemBilling from "./pages/admin/SystemBilling";
 import SystemResources from "./pages/admin/SystemResources";
-import SystemSecurity from "./pages/admin/SystemSecurity";
 import AdminSystemPage from "./pages/admin/AdminSystemPage";
-import AdminCockpitPage from "./pages/admin/AdminCockpitPage";
 
 import LoginUser from "./pages/LoginUser";
 import LoginTeacher from "./pages/LoginTeacher";
@@ -176,7 +174,6 @@ export default function App() {
         {/* Admin Dashboard */}
         <Route path="/admin" element={<DashboardLayout type="admin" />}>
           <Route index element={<Navigate to="/admin/ai" replace />} />
-          <Route path="cockpit" element={<AdminCockpitPage />} />
           <Route path="ai" element={<AdminAILayout />}>
             <Route index element={<Navigate to="/admin/ai/courses" replace />} />
             <Route path="courses" element={<AdminAICourses />} />

@@ -120,7 +120,6 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
   ];
 
   const adminItems: NavItem[] = [
-    { title: "领导驾驶舱", icon: LayoutDashboard, href: "/admin/cockpit" },
     { title: "人工智能", icon: Brain, href: "/admin/ai" },
     { title: "安全运维", icon: Shield, href: "/admin/security" },
     { title: "公有云", icon: Cloud, href: "/admin/public-cloud" },
@@ -153,19 +152,14 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
   );
 
   const items = type === "user" ? userItems : adminItems;
-  const isCockpit = location.pathname.startsWith("/admin/cockpit");
 
   return (
-    <div className={cn(
-      "h-screen w-screen overflow-hidden flex flex-col",
-      isCockpit ? "bg-[#020716]" : "bg-[#f5f6f8]"
-    )}>
+    <div className="h-screen w-screen overflow-hidden flex flex-col bg-[#f5f6f8]">
       {/* Header */}
-      {!isCockpit && (
-        <header className={cn(
-          "h-16 flex items-center justify-between px-8 flex-shrink-0 z-50 transition-colors duration-200",
-          isAnswering ? "bg-white border-b border-neutral-200 border-t-[3px] border-t-purple-600 text-neutral-800" : "bg-[#1f1f1f] text-white"
-        )}>
+      <header className={cn(
+        "h-16 flex items-center justify-between px-8 flex-shrink-0 z-50 transition-colors duration-200",
+        isAnswering ? "bg-white border-b border-neutral-200 border-t-[3px] border-t-purple-600 text-neutral-800" : "bg-[#1f1f1f] text-white"
+      )}>
         {isAnswering ? (
           /* Answering Header (White background) */
           <>
@@ -353,16 +347,13 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
           </>
         )}
       </header>
-      )}
 
       {/* Main Body */}
       <div className="flex flex-1 min-h-0">
         {/* Main Content Area */}
         <main className={cn(
           "flex flex-col min-h-0",
-          isCockpit 
-            ? "flex-1 p-0 overflow-y-auto bg-[#020716]" 
-            : isAnswering 
+          isAnswering 
             ? "flex-1 bg-[#f5f6f8] overflow-hidden p-0" 
             : cn(
                 (location.pathname === "/user/ai/assistant/studio" || location.pathname === "/user/ai/agents/studio" || location.pathname === "/user/ai/agents") ? "flex-1 p-0 bg-[#f5f6f8] overflow-hidden" : "flex-1 bg-[#f5f6f8] overflow-auto",
