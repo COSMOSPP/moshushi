@@ -25,9 +25,9 @@ export const filterOptions = {
 
 export const generateMetrics = (): MetricData[] => {
   return [
-    { id: "enrollment", title: "报名人数", value: "2,356", unit: "人", trend: 12.5, trendIsPercent: true, icon: "users", color: "#06b6d4" },
-    { id: "training", title: "在训人数", value: "1,896", unit: "人", trend: 8.2, trendIsPercent: true, icon: "user-check", color: "#3b82f6" },
-    { id: "classes", title: "班级数", value: "56", unit: "个", trend: 5, trendIsPercent: false, icon: "layout-grid", color: "#8b5cf6" },
+    { id: "enrollment", title: "报名人数", value: "15,745", unit: "人", trend: 12.5, trendIsPercent: true, icon: "users", color: "#06b6d4" },
+    { id: "training", title: "在训人数", value: "12,450", unit: "人", trend: 8.2, trendIsPercent: true, icon: "user-check", color: "#3b82f6" },
+    { id: "classes", title: "班级数", value: "77", unit: "个", trend: 5, trendIsPercent: false, icon: "layout-grid", color: "#8b5cf6" },
     { id: "teachers", title: "师资数", value: "89", unit: "人", trend: 3, trendIsPercent: false, icon: "award", color: "#f59e0b" },
     { id: "courses", title: "课程数", value: "128", unit: "门", trend: 7, trendIsPercent: false, icon: "book-open-check", color: "#6366f1" },
     { id: "attendance", title: "平均出勤率", value: "92.6", unit: "%", trend: 2.6, trendIsPercent: true, icon: "calendar-check-2", color: "#14b8a6" },
@@ -38,12 +38,12 @@ export const generateMetrics = (): MetricData[] => {
 };
 
 export const trendChartData = [
-  { name: '2024秋季第1期', 报名人数: 1500, 在训人数: 1050 },
-  { name: '2024秋季第2期', 报名人数: 1550, 在训人数: 1100 },
-  { name: '2024秋季第3期', 报名人数: 1600, 在训人数: 1120 },
-  { name: '2025春季第1期', 报名人数: 2200, 在训人数: 1380 },
-  { name: '2025春季第2期', 报名人数: 2356, 在训人数: 1450 },
-  { name: '2025春季第3期', 报名人数: 2500, 在训人数: 1896 },
+  { name: '2024秋季第1期', 报名人数: 11500, 在训人数: 9050 },
+  { name: '2024秋季第2期', 报名人数: 12550, 在训人数: 9800 },
+  { name: '2024秋季第3期', 报名人数: 13600, 在训人数: 10500 },
+  { name: '2025春季第1期', 报名人数: 14200, 在训人数: 11200 },
+  { name: '2025春季第2期', 报名人数: 15100, 在训人数: 11800 },
+  { name: '2025春季第3期', 报名人数: 15745, 在训人数: 12450 },
 ];
 
 export const passRateChartData = [
