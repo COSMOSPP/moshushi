@@ -120,7 +120,6 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
   ];
 
   const adminItems: NavItem[] = [
-    { title: "领导驾驶舱", icon: LayoutDashboard, href: "/admin/cockpit" },
     { title: "人工智能", icon: Brain, href: "/admin/ai" },
     { title: "安全运维", icon: Shield, href: "/admin/security" },
     { title: "公有云", icon: Cloud, href: "/admin/public-cloud" },
@@ -315,6 +314,15 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
             </div>
 
             <div className="flex items-center gap-5 text-gray-300">
+              {type === "admin" && (
+                <Link 
+                  to="/admin/cockpit" 
+                  title="进入领导驾驶舱大屏" 
+                  className="relative hover:text-white transition-colors flex items-center gap-1.5 hover:text-[#3b82f6]"
+                >
+                  <MonitorPlay className="w-5 h-5" />
+                </Link>
+              )}
               {isLoggedIn ? (
                 <>
                   <Link to="/user/center/messages" className="relative hover:text-white transition-colors">
