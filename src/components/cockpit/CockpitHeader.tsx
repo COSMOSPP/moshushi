@@ -9,7 +9,6 @@ interface CockpitHeaderProps {
 export function CockpitHeader({ onRefresh }: CockpitHeaderProps) {
   const [time, setTime] = useState(new Date());
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [activeSubTab, setActiveSubTab] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -39,13 +38,11 @@ export function CockpitHeader({ onRefresh }: CockpitHeaderProps) {
     }
   };
 
-  const subTabs = ['综合总览', '资源管理', '教学管理', '实训管理', '就业管理', '运营分析', '系统管理'];
-
   return (
     <header className="relative w-full z-30 bg-[#020716]/95 border-b border-[#1e3a8a]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
       <div className="flex flex-col md:flex-row items-center justify-between px-6 py-3 bg-[#05112c]/80 gap-3">
-        {/* Left Side: Badge & Title & Sub Navigation */}
-        <div className="flex flex-wrap items-center gap-4">
+        {/* Left Side: Badge & Title */}
+        <div className="flex items-center gap-4">
           <div className="flex items-center space-x-2.5">
             <div className="w-6 h-6 bg-cyan-500 rounded-xs transform rotate-45 flex items-center justify-center shadow-[0_0_12px_rgba(6,182,212,0.8)] flex-shrink-0">
               <div className="w-2.5 h-2.5 bg-[#020716] rounded-full" />
@@ -56,22 +53,6 @@ export function CockpitHeader({ onRefresh }: CockpitHeaderProps) {
               <span className="text-xs font-bold text-cyan-400 font-mono tracking-wider">模数师数字平台控制台</span>
             </div>
           </div>
-
-          <nav className="hidden xl:flex items-center space-x-1 pl-4 border-l border-[#1e3a8a]/60">
-            {subTabs.map((item, idx) => (
-              <button
-                key={item}
-                onClick={() => setActiveSubTab(idx)}
-                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-xs relative cursor-pointer ${
-                  activeSubTab === idx
-                    ? 'text-cyan-300 font-bold bg-[#1e3a8a]/60 border border-cyan-500/60 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-[#1e3a8a]/30'
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
         </div>
 
         {/* Right Side: Date, Weather, Controls */}
