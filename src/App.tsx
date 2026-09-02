@@ -67,8 +67,8 @@ import {
 } from "./pages/admin/AdminSubPages";
 import SystemTenants from "./pages/admin/SystemTenants";
 import SystemBilling from "./pages/admin/SystemBilling";
-import SystemResources from "./pages/admin/SystemResources";
 import AdminSystemPage from "./pages/admin/AdminSystemPage";
+import CockpitPage from "./pages/CockpitPage";
 
 import LoginUser from "./pages/LoginUser";
 import LoginTeacher from "./pages/LoginTeacher";
@@ -114,9 +114,10 @@ export default function App() {
         <Route path="/login/teacher" element={<LoginTeacher />} />
         <Route path="/login/admin" element={<LoginAdmin />} />
 
-        {/* Skill Builder & Practice Chat (Full Screen) */}
+        {/* Skill Builder, Practice Chat & Cockpit (Full Screen) */}
         <Route path="/skill-builder" element={<SkillBuilder />} />
         <Route path="/practice-chat" element={<PracticeChat />} />
+        <Route path="/cockpit" element={<CockpitPage />} />
 
         {/* Full-screen teacher assignment preview without top layout header */}
         <Route path="/teacher/course/:id/assignment-preview" element={<TeacherAssignmentPreview />} />
