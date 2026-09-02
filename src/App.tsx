@@ -175,7 +175,7 @@ export default function App() {
 
         {/* Admin Dashboard */}
         <Route path="/admin" element={<DashboardLayout type="admin" />}>
-          <Route index element={<Navigate to="/admin/cockpit" replace />} />
+          <Route index element={<Navigate to="/admin/ai" replace />} />
           <Route path="cockpit" element={<AdminCockpitPage />} />
           <Route path="ai" element={<AdminAILayout />}>
             <Route index element={<Navigate to="/admin/ai/courses" replace />} />

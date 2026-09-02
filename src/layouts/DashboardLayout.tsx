@@ -228,7 +228,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                         )}
                         onClick={() => setIsModuleOpen(!isModuleOpen)}
                       >
-                        <span className="text-[14px]">人工智能</span>
+                        <span className="text-[14px]">{activeModule?.title || "人工智能"}</span>
                         <ChevronDown className={cn("w-4 h-4 text-gray-400 transition-transform duration-200", isModuleOpen ? "rotate-180" : "")} />
                         {isAnyModuleActive && (
                           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#3b82f6]" />

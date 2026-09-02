@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CloudSun, Maximize2, Minimize2, RefreshCw, Home } from 'lucide-react';
+import { CloudSun, Maximize2, Minimize2, RefreshCw, Home, LayoutDashboard } from 'lucide-react';
 
 interface CockpitHeaderProps {
   onRefresh?: () => void;
@@ -104,6 +104,15 @@ export function CockpitHeader({ onRefresh }: CockpitHeaderProps) {
               {isFullscreen ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
               <span className="hidden sm:inline text-[11px] font-medium">{isFullscreen ? "退出全屏" : "全屏"}</span>
             </button>
+
+            <Link
+              to="/admin/ai"
+              title="返回运营管理后台"
+              className="p-1.5 px-2.5 text-slate-300 hover:text-white transition-colors rounded bg-[#09183d] border border-[#1e3a8a] hover:border-cyan-500/60 cursor-pointer flex items-center gap-1 text-[11px] font-medium"
+            >
+              <LayoutDashboard size={13} />
+              <span className="hidden sm:inline">运营后台</span>
+            </Link>
 
             <Link
               to="/"
