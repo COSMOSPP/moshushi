@@ -59,7 +59,7 @@ export default function PublicLayout() {
           </div>
           <div className="flex items-center gap-2 h-16">
             <Link 
-              to="/cockpit" 
+              to="/admin/cockpit" 
               className={cn(buttonVariants({ variant: "ghost" }), "text-neutral-body hover:text-primary")}
             >
               驾驶舱

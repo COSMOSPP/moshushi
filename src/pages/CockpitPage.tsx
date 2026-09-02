@@ -21,7 +21,7 @@ import {
 } from '@/data/cockpitMockData';
 import { FilterState, MetricData } from '@/types/cockpit';
 
-export default function CockpitPage() {
+export default function AdminCockpitPage() {
   const [filter, setFilter] = useState<FilterState>({
     dimension: 'all',
     term: '2025-spring-3',

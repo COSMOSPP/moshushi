@@ -67,8 +67,10 @@ import {
 } from "./pages/admin/AdminSubPages";
 import SystemTenants from "./pages/admin/SystemTenants";
 import SystemBilling from "./pages/admin/SystemBilling";
+import SystemResources from "./pages/admin/SystemResources";
+import SystemSecurity from "./pages/admin/SystemSecurity";
 import AdminSystemPage from "./pages/admin/AdminSystemPage";
-import CockpitPage from "./pages/CockpitPage";
+import AdminCockpitPage from "./pages/CockpitPage";
 
 import LoginUser from "./pages/LoginUser";
 import LoginTeacher from "./pages/LoginTeacher";
@@ -114,10 +116,9 @@ export default function App() {
         <Route path="/login/teacher" element={<LoginTeacher />} />
         <Route path="/login/admin" element={<LoginAdmin />} />
 
-        {/* Skill Builder, Practice Chat & Cockpit (Full Screen) */}
+        {/* Skill Builder & Practice Chat (Full Screen) */}
         <Route path="/skill-builder" element={<SkillBuilder />} />
         <Route path="/practice-chat" element={<PracticeChat />} />
-        <Route path="/cockpit" element={<CockpitPage />} />
 
         {/* Full-screen teacher assignment preview without top layout header */}
         <Route path="/teacher/course/:id/assignment-preview" element={<TeacherAssignmentPreview />} />
@@ -175,6 +176,7 @@ export default function App() {
         {/* Admin Dashboard */}
         <Route path="/admin" element={<DashboardLayout type="admin" />}>
           <Route index element={<Navigate to="/admin/ai" replace />} />
+          <Route path="cockpit" element={<AdminCockpitPage />} />
           <Route path="ai" element={<AdminAILayout />}>
             <Route index element={<Navigate to="/admin/ai/courses" replace />} />
             <Route path="courses" element={<AdminAICourses />} />
