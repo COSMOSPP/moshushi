@@ -19,3 +19,5 @@ View your app in AI Studio: https://ai.studio/apps/76315985-ca19-4904-b421-cf786
 3. Run the app:
    `npm run dev`
 # shixunnew-v2
+
+# moshushi

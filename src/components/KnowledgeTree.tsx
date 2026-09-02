@@ -135,7 +135,7 @@ export default function KnowledgeTree() {
     <div className="w-full bg-gradient-to-br from-slate-50 to-white rounded-[16px] border border-slate-100 shadow-sm overflow-hidden relative">
       <div className="p-6 pb-0 flex items-center justify-between">
         <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-          <span className="w-1.5 h-6 bg-[#fa541c] rounded-full"></span>
+          <span className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></span>
           AI知识树
         </h2>
       </div>
@@ -144,18 +144,18 @@ export default function KnowledgeTree() {
         <div className="min-w-[1350px] h-[480px] relative mt-8">
           
           {/* Main Trunk */}
-          <div className="absolute top-1/2 left-[60px] right-[60px] h-[2px] bg-[#fa541c] -translate-y-1/2 z-10"></div>
+          <div className="absolute top-1/2 left-[60px] right-[60px] h-[2px] bg-[#3b82f6] -translate-y-1/2 z-10"></div>
           
           {/* Left Label */}
           <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center z-20">
-            <div className="bg-[#fa541c] text-white px-2.5 py-5 rounded-full font-bold text-[13px] tracking-[0.2em] shadow-sm flex items-center justify-center min-h-[120px]" style={{ writingMode: 'vertical-lr' }}>
+            <div className="bg-[#3b82f6] text-white px-2.5 py-5 rounded-full font-bold text-[13px] tracking-[0.2em] shadow-sm flex items-center justify-center min-h-[120px]" style={{ writingMode: 'vertical-lr' }}>
               AI知识树
             </div>
           </div>
 
           {/* Right Buttons */}
           <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-3 z-20">
-            <button className="flex flex-col items-center justify-center gap-2 px-2.5 py-5 rounded-full border border-[#fa541c] text-[#fa541c] hover:bg-[#fff2e8] transition-colors bg-white shadow-sm min-h-[120px]">
+            <button className="flex flex-col items-center justify-center gap-2 px-2.5 py-5 rounded-full border border-[#3b82f6] text-[#3b82f6] hover:bg-[#eff6ff] transition-colors bg-white shadow-sm min-h-[120px]">
               <span className="tracking-widest text-[13px] font-medium" style={{ writingMode: 'vertical-lr' }}>所有课程</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -174,17 +174,17 @@ export default function KnowledgeTree() {
                   <div className="absolute bottom-1/2 left-0 flex flex-col justify-end pb-4">
                     {/* Curved line connecting to trunk */}
                     <svg className="absolute bottom-0 left-0 w-8 h-8 -translate-x-full translate-y-[1px]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: 'visible' }}>
-                      <path d="M0 32 Q 32 32 32 0" stroke="#fa541c" strokeWidth="1.5" fill="none" />
+                      <path d="M0 32 Q 32 32 32 0" stroke="#3b82f6" strokeWidth="1.5" fill="none" />
                     </svg>
                     
                     {/* Vertical line */}
-                    <div className="absolute bottom-0 left-0 w-[1.5px] bg-[#fa541c] h-[calc(100%-16px)]"></div>
+                    <div className="absolute bottom-0 left-0 w-[1.5px] bg-[#3b82f6] h-[calc(100%-16px)]"></div>
                     
                     {/* Nodes */}
                     <div className="relative z-10 flex flex-col gap-4 pl-4">
                       {/* Title Node */}
                       <div className="flex items-center gap-2 -ml-[23px]">
-                        <div className="w-4 h-4 rounded-full bg-[#fa541c] flex items-center justify-center border-2 border-white shadow-sm relative z-20">
+                        <div className="w-4 h-4 rounded-full bg-[#3b82f6] flex items-center justify-center border-2 border-white shadow-sm relative z-20">
                           <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
                         </div>
                         <span className="text-[15px] font-bold text-slate-800 whitespace-nowrap">{col.up.title}</span>
@@ -193,8 +193,8 @@ export default function KnowledgeTree() {
                       {/* Course Nodes */}
                       {col.up.courses.map((course, i) => (
                         <div key={i} className="flex items-center gap-2 -ml-[21px] group cursor-pointer relative z-20">
-                          <div className={`w-3 h-3 rounded-full border-2 ${course.status === 'online' ? 'border-[#fa541c] bg-white' : 'border-[#fa541c] bg-[#fa541c]'} group-hover:scale-125 transition-transform`}></div>
-                          <span className="text-[13px] text-slate-600 group-hover:text-[#fa541c] transition-colors whitespace-nowrap">{course.name}</span>
+                          <div className={`w-3 h-3 rounded-full border-2 ${course.status === 'online' ? 'border-[#3b82f6] bg-white' : 'border-[#3b82f6] bg-[#3b82f6]'} group-hover:scale-125 transition-transform`}></div>
+                          <span className="text-[13px] text-slate-600 group-hover:text-[#3b82f6] transition-colors whitespace-nowrap">{course.name}</span>
                         </div>
                       ))}
                     </div>
@@ -204,25 +204,25 @@ export default function KnowledgeTree() {
                   <div className="absolute top-1/2 left-8 flex flex-col pt-4">
                     {/* Curved line connecting to trunk */}
                     <svg className="absolute top-0 left-0 w-8 h-8 -translate-x-full -translate-y-[1px]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: 'visible' }}>
-                      <path d="M0 0 Q 32 0 32 32" stroke="#fa541c" strokeWidth="1.5" fill="none" />
+                      <path d="M0 0 Q 32 0 32 32" stroke="#3b82f6" strokeWidth="1.5" fill="none" />
                     </svg>
                     
                     {/* Vertical line */}
-                    <div className="absolute top-0 left-0 w-[1.5px] bg-[#fa541c] h-[calc(100%-16px)]"></div>
+                    <div className="absolute top-0 left-0 w-[1.5px] bg-[#3b82f6] h-[calc(100%-16px)]"></div>
                     
                     {/* Nodes */}
                     <div className="relative z-10 flex flex-col gap-4 pl-4">
                       {/* Course Nodes */}
                       {col.down.courses.map((course, i) => (
                         <div key={i} className="flex items-center gap-2 -ml-[21px] group cursor-pointer relative z-20">
-                          <div className={`w-3 h-3 rounded-full border-2 ${course.status === 'online' ? 'border-[#fa541c] bg-white' : 'border-[#fa541c] bg-[#fa541c]'} group-hover:scale-125 transition-transform`}></div>
-                          <span className="text-[13px] text-slate-600 group-hover:text-[#fa541c] transition-colors whitespace-nowrap">{course.name}</span>
+                          <div className={`w-3 h-3 rounded-full border-2 ${course.status === 'online' ? 'border-[#3b82f6] bg-white' : 'border-[#3b82f6] bg-[#3b82f6]'} group-hover:scale-125 transition-transform`}></div>
+                          <span className="text-[13px] text-slate-600 group-hover:text-[#3b82f6] transition-colors whitespace-nowrap">{course.name}</span>
                         </div>
                       ))}
                       
                       {/* Title Node */}
                       <div className="flex items-center gap-2 -ml-[23px]">
-                        <div className="w-4 h-4 rounded-full bg-[#fa541c] flex items-center justify-center border-2 border-white shadow-sm relative z-20">
+                        <div className="w-4 h-4 rounded-full bg-[#3b82f6] flex items-center justify-center border-2 border-white shadow-sm relative z-20">
                           <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
                         </div>
                         <span className="text-[15px] font-bold text-slate-800 whitespace-nowrap">{col.down.title}</span>

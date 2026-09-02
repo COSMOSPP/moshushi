@@ -217,9 +217,9 @@ export default function TeacherAssignmentPreview() {
     const isCurrent = currentQuestionIdx === idx;
     let circleColorClass = "";
     if (isCurrent) {
-      circleColorClass = "border-2 border-[#fa541c] text-[#fa541c] bg-white font-bold shadow-xs";
+      circleColorClass = "border-2 border-[#3b82f6] text-[#3b82f6] bg-white font-bold shadow-xs";
     } else {
-      circleColorClass = "border-neutral-300 text-neutral-600 bg-white hover:border-[#fa541c] hover:text-[#fa541c]";
+      circleColorClass = "border-neutral-300 text-neutral-600 bg-white hover:border-[#3b82f6] hover:text-[#3b82f6]";
     }
 
     return (
@@ -318,7 +318,7 @@ export default function TeacherAssignmentPreview() {
                 variant="outline"
                 disabled={currentQuestionIdx === 0}
                 onClick={() => setCurrentQuestionIdx(prev => prev - 1)}
-                className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
               >
                 上一题
               </Button>
@@ -339,7 +339,7 @@ export default function TeacherAssignmentPreview() {
                     onClick={() => {
                       setCurrentQuestionIdx(prev => prev + 1);
                     }}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1 cursor-pointer"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1 cursor-pointer"
                   >
                     下一题
                   </Button>
@@ -352,8 +352,8 @@ export default function TeacherAssignmentPreview() {
           <div className="w-80 border-l border-neutral-200 flex flex-col bg-white px-6 pt-8 pb-6 shrink-0 justify-between h-full text-left">
             <div className="overflow-y-auto flex-1 no-scrollbar space-y-6">
               {/* Teacher Mode Alert */}
-              <div className="bg-orange-50/50 rounded-lg p-4 border border-orange-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#fa541c]/10 flex items-center justify-center text-[#fa541c] font-bold shrink-0">
+              <div className="bg-blue-50/50 rounded-lg p-4 border border-orange-100 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#3b82f6]/10 flex items-center justify-center text-[#3b82f6] font-bold shrink-0">
                   <Eye className="w-5 h-5" />
                 </div>
                 <div>
@@ -413,14 +413,14 @@ export default function TeacherAssignmentPreview() {
                   <span>未看</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
-                  <div className="w-4.5 h-4.5 rounded-full border-2 border-[#fa541c] bg-white ring-2 ring-[#fa541c]/15"></div>
+                  <div className="w-4.5 h-4.5 rounded-full border-2 border-[#3b82f6] bg-white ring-2 ring-[#3b82f6]/15"></div>
                   <span>当前</span>
                 </div>
               </div>
 
               <Button 
                 onClick={handleExitPreview}
-                className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white py-3 font-bold shadow-lg shadow-orange-500/10 rounded-[4px] transition-all text-sm cursor-pointer border-0"
+                className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white py-3 font-bold shadow-lg shadow-blue-500/10 rounded-[4px] transition-all text-sm cursor-pointer border-0"
               >
                 退出预览
               </Button>

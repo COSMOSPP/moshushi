@@ -24,7 +24,7 @@ function Switch({ defaultChecked, className }: { defaultChecked?: boolean, class
       onClick={() => setChecked(!checked)}
       className={cn(
         "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50",
-        checked ? "bg-[#fa541c]" : "bg-neutral-200",
+        checked ? "bg-[#3b82f6]" : "bg-neutral-200",
         className
       )}
     >
@@ -102,8 +102,8 @@ export default function UserAIAssistantStudio() {
             {messages.map((msg, idx) => (
               <div key={idx} className={cn("flex gap-4", msg.role === 'user' ? "justify-end" : "justify-start")}>
                 {msg.role === 'assistant' && (
-                  <div className="w-8 h-8 rounded-full bg-[#fff2e8] flex items-center justify-center shrink-0">
-                    <Bot className="w-4 h-4 text-[#fa541c]" />
+                  <div className="w-8 h-8 rounded-full bg-[#eff6ff] flex items-center justify-center shrink-0">
+                    <Bot className="w-4 h-4 text-[#3b82f6]" />
                   </div>
                 )}
                 
@@ -111,7 +111,7 @@ export default function UserAIAssistantStudio() {
                   className={cn(
                     "px-5 py-3.5 rounded-[16px] max-w-[80%] text-[14px] leading-relaxed shadow-sm",
                     msg.role === 'user' 
-                      ? "bg-[#fa541c] text-white rounded-tr-[4px]" 
+                      ? "bg-[#3b82f6] text-white rounded-tr-[4px]" 
                       : "bg-white border border-neutral-border text-neutral-title rounded-tl-[4px]"
                   )}
                 >
@@ -129,7 +129,7 @@ export default function UserAIAssistantStudio() {
 
           {/* Input Area */}
           <div className="shrink-0 p-4 bg-white border-t border-neutral-border z-10 w-full">
-            <div className="border border-neutral-200 rounded-[12px] p-3 bg-[#fdfdfd] focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c]/20 transition-all shadow-sm flex flex-col gap-2">
+            <div className="border border-neutral-200 rounded-[12px] p-3 bg-[#fdfdfd] focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6]/20 transition-all shadow-sm flex flex-col gap-2">
               <textarea
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -156,7 +156,7 @@ export default function UserAIAssistantStudio() {
                   <button 
                     onClick={handleSendMessage}
                     disabled={!inputValue.trim()}
-                    className="flex items-center justify-center w-8 h-8 bg-[#fa541c] text-white rounded-[8px] hover:bg-[#e64a19] disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+                    className="flex items-center justify-center w-8 h-8 bg-[#3b82f6] text-white rounded-[8px] hover:bg-[#e64a19] disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
                   >
                     <Send className="w-3.5 h-3.5" />
                   </button>
@@ -176,10 +176,10 @@ export default function UserAIAssistantStudio() {
             {/* Knowledge Base Section */}
             <div className="space-y-4">
               <div className="flex items-center justify-between cursor-pointer group">
-                <div className="flex items-center gap-2 text-[14px] font-bold text-neutral-title group-hover:text-[#fa541c] transition-colors">
+                <div className="flex items-center gap-2 text-[14px] font-bold text-neutral-title group-hover:text-[#3b82f6] transition-colors">
                   <Database className="w-4 h-4" /> 检索知识
                 </div>
-                <ChevronDown className="w-4 h-4 text-neutral-caption group-hover:text-[#fa541c] transition-colors" />
+                <ChevronDown className="w-4 h-4 text-neutral-caption group-hover:text-[#3b82f6] transition-colors" />
               </div>
               
               <div className="space-y-3">
@@ -188,16 +188,16 @@ export default function UserAIAssistantStudio() {
                   <span className="font-medium">2 已选</span>
                 </div>
                 
-                <div className="flex items-center justify-between border border-neutral-200 rounded-[8px] px-3 py-2 text-[13px] text-neutral-title hover:border-[#fa541c] cursor-pointer bg-[#fafafa]">
+                <div className="flex items-center justify-between border border-neutral-200 rounded-[8px] px-3 py-2 text-[13px] text-neutral-title hover:border-[#3b82f6] cursor-pointer bg-[#fafafa]">
                   <span>已选择 2 个知识库</span>
                   <ChevronDown className="w-4 h-4 text-neutral-caption" />
                 </div>
                 
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-2.5 py-1 bg-[#fff2e8] text-[#fa541c] rounded-[4px] text-[12px] flex items-center gap-1">
+                  <span className="px-2.5 py-1 bg-[#eff6ff] text-[#3b82f6] rounded-[4px] text-[12px] flex items-center gap-1">
                     前端开发规范 <span className="cursor-pointer font-bold hover:text-red-500">×</span>
                   </span>
-                  <span className="px-2.5 py-1 bg-[#fff2e8] text-[#fa541c] rounded-[4px] text-[12px] flex items-center gap-1">
+                  <span className="px-2.5 py-1 bg-[#eff6ff] text-[#3b82f6] rounded-[4px] text-[12px] flex items-center gap-1">
                     API 接口定义 <span className="cursor-pointer font-bold hover:text-red-500">×</span>
                   </span>
                 </div>
@@ -214,7 +214,7 @@ export default function UserAIAssistantStudio() {
                       className={cn(
                         "flex-1 text-[13px] py-1.5 rounded-[6px] transition-colors font-medium",
                         metadataState === state 
-                          ? (state === 'disabled' ? "bg-white text-neutral-title shadow-sm" : "bg-white text-[#fa541c] shadow-sm") 
+                          ? (state === 'disabled' ? "bg-white text-neutral-title shadow-sm" : "bg-white text-[#3b82f6] shadow-sm") 
                           : "text-neutral-caption hover:text-neutral-title"
                       )}
                     >
@@ -229,8 +229,8 @@ export default function UserAIAssistantStudio() {
 
               <div className="space-y-2 pt-2">
                 <div className="text-[13px] text-neutral-title font-medium">Tavily API Key</div>
-                <Input type="password" placeholder="tvly-..." className="h-9 text-[13px] focus-visible:ring-[#fa541c]" />
-                <div className="text-right text-[12px] text-[#fa541c] cursor-pointer hover:underline">获取 API Key</div>
+                <Input type="password" placeholder="tvly-..." className="h-9 text-[13px] focus-visible:ring-[#3b82f6]" />
+                <div className="text-right text-[12px] text-[#3b82f6] cursor-pointer hover:underline">获取 API Key</div>
               </div>
             </div>
 
@@ -240,15 +240,15 @@ export default function UserAIAssistantStudio() {
             <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <span className="text-[13px] text-neutral-title font-medium">多轮对话优化</span>
-                <Switch defaultChecked className="data-[state=checked]:bg-[#fa541c]" />
+                <Switch defaultChecked className="data-[state=checked]:bg-[#3b82f6]" />
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[13px] text-neutral-title">使用知识图谱</span>
-                <Switch className="data-[state=checked]:bg-[#fa541c]" />
+                <Switch className="data-[state=checked]:bg-[#3b82f6]" />
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[13px] text-neutral-title">推理功能</span>
-                <Switch className="data-[state=checked]:bg-[#fa541c]" />
+                <Switch className="data-[state=checked]:bg-[#3b82f6]" />
               </div>
             </div>
 
@@ -259,42 +259,42 @@ export default function UserAIAssistantStudio() {
               <div className="space-y-3">
                 <div className="flex justify-between text-[13px]">
                   <span className="text-neutral-title font-medium">相似度阈值</span>
-                  <span className="text-[#fa541c] font-mono">{similarity}</span>
+                  <span className="text-[#3b82f6] font-mono">{similarity}</span>
                 </div>
                 <input 
                   type="range" min="0" max="1" step="0.1" 
                   value={similarity} onChange={(e) => setSimilarity(Number(e.target.value))}
-                  className="w-full accent-[#fa541c] h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full accent-[#3b82f6] h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between text-[13px]">
                   <span className="text-neutral-title font-medium">向量权重</span>
-                  <span className="text-[#fa541c] font-mono">{vectorWeight}</span>
+                  <span className="text-[#3b82f6] font-mono">{vectorWeight}</span>
                 </div>
                 <input 
                   type="range" min="0" max="1" step="0.1" 
                   value={vectorWeight} onChange={(e) => setVectorWeight(Number(e.target.value))}
-                  className="w-full accent-[#fa541c] h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full accent-[#3b82f6] h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between text-[13px]">
                   <span className="text-neutral-title font-medium">Top N</span>
-                  <span className="text-[#fa541c] font-mono">{topN}</span>
+                  <span className="text-[#3b82f6] font-mono">{topN}</span>
                 </div>
                 <input 
                   type="range" min="1" max="20" step="1" 
                   value={topN} onChange={(e) => setTopN(Number(e.target.value))}
-                  className="w-full accent-[#fa541c] h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full accent-[#3b82f6] h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
 
               <div className="space-y-2 pt-2">
                 <div className="text-[13px] text-neutral-title font-medium">Rerank 模型</div>
-                <div className="flex items-center justify-between border border-neutral-200 rounded-[8px] px-3 py-2 text-[13px] text-neutral-title hover:border-[#fa541c] cursor-pointer bg-[#fafafa]">
+                <div className="flex items-center justify-between border border-neutral-200 rounded-[8px] px-3 py-2 text-[13px] text-neutral-title hover:border-[#3b82f6] cursor-pointer bg-[#fafafa]">
                   <span className="font-mono">BGE-Reranker-v2-m3</span>
                   <ChevronDown className="w-4 h-4 text-neutral-caption" />
                 </div>
@@ -305,7 +305,7 @@ export default function UserAIAssistantStudio() {
 
           {/* Sticky Save Button */}
           <div className="p-4 bg-white border-t border-neutral-border shrink-0 z-10 w-full bg-white">
-            <Button className="w-full bg-[#fa541c] hover:bg-[#e64a19] text-white flex items-center gap-2">
+            <Button className="w-full bg-[#3b82f6] hover:bg-[#e64a19] text-white flex items-center gap-2">
               <Database className="w-4 h-4" /> 保存配置
             </Button>
           </div>

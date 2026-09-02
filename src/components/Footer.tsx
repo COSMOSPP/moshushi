@@ -9,22 +9,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <ZhiYunLogo className="w-8 h-8 text-[#fa541c]" />
+              <ZhiYunLogo className="w-8 h-8 text-[#3b82f6]" />
               <span className="text-xl font-bold text-slate-900">
-                智云实训平台
+                模数师数字平台
               </span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed mb-6">
-              新一代智云实训平台，致力于培养具备实战能力的AI工程师，助力企业数字化转型。
+              新一代模数师数字平台，致力于培养具备实战能力的AI工程师，助力企业数字化转型。
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#fa541c] hover:text-white transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#3b82f6] hover:text-white transition-colors">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#fa541c] hover:text-white transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#3b82f6] hover:text-white transition-colors">
                 <Github className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#fa541c] hover:text-white transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[#3b82f6] hover:text-white transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -33,20 +33,20 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-slate-900 mb-6">产品服务</h3>
             <ul className="space-y-4">
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">AI 课程体系</Link></li>
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">企业级实战项目</Link></li>
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">在线实验环境</Link></li>
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">能力认证考试</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">AI 课程体系</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">企业级实战项目</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">在线实验环境</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">能力认证考试</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-slate-900 mb-6">支持与帮助</h3>
             <ul className="space-y-4">
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">帮助中心</Link></li>
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">开发者文档</Link></li>
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">社区论坛</Link></li>
-              <li><Link to="#" className="text-slate-500 hover:text-[#fa541c] text-sm transition-colors">联系客服</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">帮助中心</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">开发者文档</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">社区论坛</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-[#3b82f6] text-sm transition-colors">联系客服</Link></li>
             </ul>
           </div>
 
@@ -71,12 +71,12 @@ export default function Footer() {
         
         <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-400 text-sm">
-            © {new Date().getFullYear()} 智云实训平台. All rights reserved.
+            © {new Date().getFullYear()} 模数师数字平台. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="#" className="text-slate-400 hover:text-[#fa541c] text-sm transition-colors">隐私政策</Link>
-            <Link to="#" className="text-slate-400 hover:text-[#fa541c] text-sm transition-colors">服务条款</Link>
-            <Link to="#" className="text-slate-400 hover:text-[#fa541c] text-sm transition-colors">Cookie政策</Link>
+            <Link to="#" className="text-slate-400 hover:text-[#3b82f6] text-sm transition-colors">隐私政策</Link>
+            <Link to="#" className="text-slate-400 hover:text-[#3b82f6] text-sm transition-colors">服务条款</Link>
+            <Link to="#" className="text-slate-400 hover:text-[#3b82f6] text-sm transition-colors">Cookie政策</Link>
           </div>
         </div>
       </div>

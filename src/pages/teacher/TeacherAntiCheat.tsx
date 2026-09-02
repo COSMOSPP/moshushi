@@ -70,7 +70,7 @@ export default function TeacherAntiCheat() {
               <select 
                 value={selectedExam}
                 onChange={(e) => setSelectedExam(Number(e.target.value))}
-                className="appearance-none border border-neutral-200 hover:border-[#fa541c] rounded-xl pl-4 pr-10 py-2 text-xs font-bold text-neutral-800 bg-white focus:outline-none transition-all cursor-pointer shadow-sm min-w-[260px]"
+                className="appearance-none border border-neutral-200 hover:border-[#3b82f6] rounded-xl pl-4 pr-10 py-2 text-xs font-bold text-neutral-800 bg-white focus:outline-none transition-all cursor-pointer shadow-sm min-w-[260px]"
               >
                 {ongoingExams.map(ex => <option key={ex.id} value={ex.id}>{ex.name}</option>)}
               </select>
@@ -103,7 +103,7 @@ export default function TeacherAntiCheat() {
             
             <div className="w-px h-8 bg-neutral-200 hidden sm:block"></div>
             
-            <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-xl px-5 h-9 shadow-md shadow-orange-500/10 font-bold text-xs">
+            <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-xl px-5 h-9 shadow-md shadow-blue-500/10 font-bold text-xs">
               发送群组通知
             </Button>
           </div>
@@ -113,7 +113,7 @@ export default function TeacherAntiCheat() {
           {mockStudents.map(student => (
             <div key={student.id} className={cn(
               "bg-white rounded-2xl overflow-hidden border shadow-sm transition-all relative group",
-              student.alert ? "border-orange-300 ring-2 ring-orange-100" : "border-neutral-200"
+              student.alert ? "border-blue-300 ring-2 ring-orange-100" : "border-neutral-200"
             )}>
               {/* Camera Feed Mock */}
               <div className="aspect-[4/3] bg-neutral-900 relative">
@@ -147,7 +147,7 @@ export default function TeacherAntiCheat() {
 
               {/* Hover Overlay Actions */}
               <div className="absolute inset-0 bg-white/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
-                <Button variant="outline" className="w-32 rounded-full border-[#fa541c] text-[#fa541c] hover:bg-orange-50 font-bold text-[13px]">
+                <Button variant="outline" className="w-32 rounded-full border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 font-bold text-[13px]">
                   <AlertCircle className="w-4 h-4 mr-1.5" /> 发送警告
                 </Button>
                 <Button variant="outline" className="w-32 rounded-full border-neutral-300 text-neutral-600 hover:bg-neutral-50 font-bold text-[13px]">
@@ -167,8 +167,8 @@ export default function TeacherAntiCheat() {
   const renderPolicy = () => {
     return (
       <div className="animate-fade-in max-w-4xl mx-auto space-y-6">
-        <div className="bg-orange-50/80 border border-orange-100 rounded-2xl p-5 flex items-start gap-4">
-          <ShieldAlert className="w-6 h-6 text-[#fa541c] shrink-0 mt-0.5" />
+        <div className="bg-blue-50/80 border border-orange-100 rounded-2xl p-5 flex items-start gap-4">
+          <ShieldAlert className="w-6 h-6 text-[#3b82f6] shrink-0 mt-0.5" />
           <div>
             <h3 className="text-[15px] font-bold text-neutral-900">防作弊策略配置</h3>
             <p className="text-[13px] text-neutral-600 mt-1.5 leading-relaxed">
@@ -194,7 +194,7 @@ export default function TeacherAntiCheat() {
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => setPolicyConfig({...policyConfig, screenSwitch: !policyConfig.screenSwitch})}
-                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.screenSwitch ? "bg-[#fa541c]" : "bg-neutral-200")}
+                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.screenSwitch ? "bg-[#3b82f6]" : "bg-neutral-200")}
                 >
                   <span className={cn("absolute top-1 w-4 h-4 rounded-full bg-white transition-transform shadow-sm", policyConfig.screenSwitch ? "left-7" : "left-1")}></span>
                 </button>
@@ -214,7 +214,7 @@ export default function TeacherAntiCheat() {
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => setPolicyConfig({...policyConfig, copyPaste: !policyConfig.copyPaste})}
-                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.copyPaste ? "bg-[#fa541c]" : "bg-neutral-200")}
+                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.copyPaste ? "bg-[#3b82f6]" : "bg-neutral-200")}
                 >
                   <span className={cn("absolute top-1 w-4 h-4 rounded-full bg-white transition-transform shadow-sm", policyConfig.copyPaste ? "left-7" : "left-1")}></span>
                 </button>
@@ -234,7 +234,7 @@ export default function TeacherAntiCheat() {
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => setPolicyConfig({...policyConfig, multiLogin: !policyConfig.multiLogin})}
-                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.multiLogin ? "bg-[#fa541c]" : "bg-neutral-200")}
+                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.multiLogin ? "bg-[#3b82f6]" : "bg-neutral-200")}
                 >
                   <span className={cn("absolute top-1 w-4 h-4 rounded-full bg-white transition-transform shadow-sm", policyConfig.multiLogin ? "left-7" : "left-1")}></span>
                 </button>
@@ -254,7 +254,7 @@ export default function TeacherAntiCheat() {
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => setPolicyConfig({...policyConfig, ipMonitor: !policyConfig.ipMonitor})}
-                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.ipMonitor ? "bg-[#fa541c]" : "bg-neutral-200")}
+                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.ipMonitor ? "bg-[#3b82f6]" : "bg-neutral-200")}
                 >
                   <span className={cn("absolute top-1 w-4 h-4 rounded-full bg-white transition-transform shadow-sm", policyConfig.ipMonitor ? "left-7" : "left-1")}></span>
                 </button>
@@ -278,14 +278,14 @@ export default function TeacherAntiCheat() {
                           type="number" 
                           value={policyConfig.photoInterval}
                           onChange={(e) => setPolicyConfig({...policyConfig, photoInterval: e.target.value})}
-                          className="w-20 px-3 py-1.5 border border-neutral-200 rounded-lg text-[13px] text-center focus:outline-none focus:border-[#fa541c]"
+                          className="w-20 px-3 py-1.5 border border-neutral-200 rounded-lg text-[13px] text-center focus:outline-none focus:border-[#3b82f6]"
                         />
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-[13px] font-medium text-neutral-700">开启人脸识别比对</span>
                         <button 
                           onClick={() => setPolicyConfig({...policyConfig, faceRec: !policyConfig.faceRec})}
-                          className={cn("relative w-10 h-5 rounded-full transition-colors", policyConfig.faceRec ? "bg-[#fa541c]" : "bg-neutral-200")}
+                          className={cn("relative w-10 h-5 rounded-full transition-colors", policyConfig.faceRec ? "bg-[#3b82f6]" : "bg-neutral-200")}
                         >
                           <span className={cn("absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform shadow-sm", policyConfig.faceRec ? "left-5" : "left-0.5")}></span>
                         </button>
@@ -297,7 +297,7 @@ export default function TeacherAntiCheat() {
               <div className="flex items-center gap-3">
                 <button 
                   onClick={() => setPolicyConfig({...policyConfig, photoMonitor: !policyConfig.photoMonitor})}
-                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.photoMonitor ? "bg-[#fa541c]" : "bg-neutral-200")}
+                  className={cn("relative w-12 h-6 rounded-full transition-colors", policyConfig.photoMonitor ? "bg-[#3b82f6]" : "bg-neutral-200")}
                 >
                   <span className={cn("absolute top-1 w-4 h-4 rounded-full bg-white transition-transform shadow-sm", policyConfig.photoMonitor ? "left-7" : "left-1")}></span>
                 </button>
@@ -308,7 +308,7 @@ export default function TeacherAntiCheat() {
 
           <div className="p-6 bg-neutral-50/50 border-t border-neutral-100 flex justify-end gap-3">
             <Button variant="outline" className="rounded-full px-6 text-[13px] font-bold">恢复默认</Button>
-            <Button onClick={() => showToast('防作弊策略保存成功')} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-8 text-[13px] font-bold shadow-sm">
+            <Button onClick={() => showToast('防作弊策略保存成功')} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-8 text-[13px] font-bold shadow-sm">
               保存策略应用
             </Button>
           </div>
@@ -325,7 +325,7 @@ export default function TeacherAntiCheat() {
             <h3 className="text-[18px] font-bold text-neutral-900">自动处罚规则</h3>
             <p className="text-[13px] text-neutral-500 mt-1">设置触发条件与对应处罚，系统将在满足条件时自动执行。</p>
           </div>
-          <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 h-9 text-[13px] shadow-sm font-bold">
+          <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-6 h-9 text-[13px] shadow-sm font-bold">
             <Plus className="w-4 h-4 mr-1.5" /> 添加新规则
           </Button>
         </div>
@@ -347,12 +347,12 @@ export default function TeacherAntiCheat() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[11px] text-neutral-400 mb-1">执行动作</span>
-                    <span className="text-[14px] font-bold text-orange-600 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">{rule.action}</span>
+                    <span className="text-[14px] font-bold text-orange-600 bg-blue-50 px-3 py-1.5 rounded-lg border border-orange-100">{rule.action}</span>
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="w-8 h-8 rounded-full flex items-center justify-center text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 transition-colors">
+                <button className="w-8 h-8 rounded-full flex items-center justify-center text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50 transition-colors">
                   <Edit3 className="w-4 h-4" />
                 </button>
                 <button onClick={() => {
@@ -376,12 +376,12 @@ export default function TeacherAntiCheat() {
       <div className="animate-fade-in space-y-6">
         <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm">
           <div className="flex items-center gap-4">
-            <select className="border border-neutral-200 rounded-full px-4 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] bg-white w-48">
+            <select className="border border-neutral-200 rounded-full px-4 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] bg-white w-48">
               <option value="all">所有场次</option>
               <option value="1">2026春季人工智能期中考试</option>
               <option value="2">深度学习上机竞赛</option>
             </select>
-            <select className="border border-neutral-200 rounded-full px-4 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] bg-white w-40">
+            <select className="border border-neutral-200 rounded-full px-4 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] bg-white w-40">
               <option value="all">所有异常类型</option>
               <option value="switch">切屏检测</option>
               <option value="multi">多端登录</option>
@@ -392,7 +392,7 @@ export default function TeacherAntiCheat() {
           <div className="flex items-center gap-3">
             <div className="relative">
               <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
-              <input type="text" placeholder="搜索考生姓名或学号" className="pl-9 pr-4 py-2 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64" />
+              <input type="text" placeholder="搜索考生姓名或学号" className="pl-9 pr-4 py-2 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64" />
             </div>
             <Button variant="outline" className="rounded-full px-4 text-[13px] font-bold border-neutral-200 text-neutral-600">
               <Download className="w-4 h-4 mr-1.5" /> 导出报告
@@ -416,7 +416,7 @@ export default function TeacherAntiCheat() {
             </thead>
             <tbody>
               {cheatLogs.map((log, index) => (
-                <tr key={log.id} className={cn("border-b border-neutral-100 hover:bg-orange-50/30 transition-colors", index === cheatLogs.length - 1 && "border-b-0")}>
+                <tr key={log.id} className={cn("border-b border-neutral-100 hover:bg-blue-50/30 transition-colors", index === cheatLogs.length - 1 && "border-b-0")}>
                   <td className="py-4 px-6 text-[13px] text-neutral-500 font-mono">{log.time}</td>
                   <td className="py-4 px-6 text-[13px] font-bold text-neutral-800">{log.student}</td>
                   <td className="py-4 px-6 text-[13px] text-neutral-600">{log.exam}</td>
@@ -426,11 +426,11 @@ export default function TeacherAntiCheat() {
                     </span>
                   </td>
                   <td className="py-4 px-6 text-[13px] text-neutral-600">{log.detail}</td>
-                  <td className="py-4 px-6 text-[13px] text-[#fa541c] font-bold">{log.penalty}</td>
+                  <td className="py-4 px-6 text-[13px] text-[#3b82f6] font-bold">{log.penalty}</td>
                   <td className="py-4 px-6">
                     <span className={cn(
                       "px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1 w-fit",
-                      log.status === '已处理' ? "text-emerald-600 bg-emerald-50" : "text-orange-500 bg-orange-50"
+                      log.status === '已处理' ? "text-emerald-600 bg-emerald-50" : "text-orange-500 bg-blue-50"
                     )}>
                       {log.status === '已处理' ? <CheckCircle className="w-3 h-3" /> : <Clock className="w-3 h-3" />}
                       {log.status}
@@ -469,7 +469,7 @@ export default function TeacherAntiCheat() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 gap-4">
         <div className="flex items-end gap-4">
           <h1 className="text-xl font-bold text-neutral-900 flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             防作弊管理
           </h1>
           <p className="text-sm text-neutral-500 mb-0.5">考试/竞赛期间的防作弊监控与自动化策略执行</p>
@@ -484,7 +484,7 @@ export default function TeacherAntiCheat() {
               className={cn(
                 "px-5 py-1.5 text-xs font-bold rounded-lg transition-all",
                 activeTab === tab 
-                  ? "bg-[#fa541c] text-white shadow-sm" 
+                  ? "bg-[#3b82f6] text-white shadow-sm" 
                   : "text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50"
               )}
             >

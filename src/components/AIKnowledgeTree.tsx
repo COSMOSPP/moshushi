@@ -27,7 +27,7 @@ export default function AIKnowledgeTree({ isLoggedIn = true }: { isLoggedIn?: bo
         </div>
         <Button 
           variant="ghost" 
-          className="text-[#fa541c] hover:bg-[#fa541c]/5 hover:text-[#d4380d] font-medium px-2"
+          className="text-[#3b82f6] hover:bg-[#3b82f6]/5 hover:text-[#1d4ed8] font-medium px-2"
           onClick={() => navigate('/user/courses')}
         >
            探索全部课程 <ArrowRight className="w-4 h-4 ml-1" />
@@ -39,7 +39,7 @@ export default function AIKnowledgeTree({ isLoggedIn = true }: { isLoggedIn?: bo
         <div className="min-w-[900px] flex flex-col items-center mx-auto px-4">
           
           {/* Root Node */}
-          <div className="w-[260px] py-7 bg-gradient-to-br from-[#ff6b35] to-[#e84a15] rounded-[20px] shadow-[0_12px_32px_rgba(250,84,28,0.25)] flex flex-col items-center justify-center text-white relative z-10 transition-transform hover:scale-105 cursor-pointer">
+          <div className="w-[260px] py-7 bg-gradient-to-br from-[#ff6b35] to-[#2563eb] rounded-[20px] shadow-[0_12px_32px_rgba(59, 130, 246,0.25)] flex flex-col items-center justify-center text-white relative z-10 transition-transform hover:scale-105 cursor-pointer">
             <span className="text-3xl mb-3 drop-shadow-md">🧠</span>
             <h3 className="text-xl font-bold mb-1 tracking-wide">人工智能</h3>
             <p className="text-sm text-white/90 font-medium">6大领域·200+课程</p>
@@ -58,10 +58,10 @@ export default function AIKnowledgeTree({ isLoggedIn = true }: { isLoggedIn?: bo
               {children.map((child, i) => (
                 <div key={i} className="flex flex-col items-center relative group cursor-pointer">
                   {/* Short vertical line connecting horizontal line to child */}
-                  <div className="w-px h-6 bg-slate-200 transition-colors group-hover:bg-[#fa541c]/40"></div>
+                  <div className="w-px h-6 bg-slate-200 transition-colors group-hover:bg-[#3b82f6]/40"></div>
                   
                   {/* Child Node */}
-                  <div className="w-full bg-white border border-slate-100 rounded-[20px] py-7 px-2 flex flex-col items-center shadow-sm group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] group-hover:border-[#fa541c]/20 group-hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-full bg-white border border-slate-100 rounded-[20px] py-7 px-2 flex flex-col items-center shadow-sm group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] group-hover:border-[#3b82f6]/20 group-hover:-translate-y-1 transition-all duration-300">
                     <span className="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{child.icon}</span>
                     <h4 className="font-bold text-slate-900 text-[15px] mb-1.5">{child.title}</h4>
                     <p className="text-xs text-slate-500 font-medium">{child.courses}</p>

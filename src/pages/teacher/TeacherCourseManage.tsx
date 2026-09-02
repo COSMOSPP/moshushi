@@ -760,7 +760,7 @@ export default function TeacherCourseManage() {
     <div className="flex flex-col h-[calc(100vh-64px)] bg-[#f5f7fa] -mt-6 -mx-6 md:-mx-8 overflow-hidden">
       {/* Top Header */}
       <div className="h-14 bg-white flex items-center justify-between px-6 shadow-[0_1px_2px_rgba(0,0,0,0.02)] relative z-30">
-        <button onClick={() => navigate(-1)} className="flex items-center gap-3 text-[#262626] font-medium hover:text-[#fa541c] transition-colors rounded-[4px]">
+        <button onClick={() => navigate(-1)} className="flex items-center gap-3 text-[#262626] font-medium hover:text-[#3b82f6] transition-colors rounded-[4px]">
           <ArrowLeft className="w-4 h-4" /> 人工智能基础与实践
         </button>
 
@@ -777,13 +777,13 @@ export default function TeacherCourseManage() {
               className={cn(
                 "h-9 px-3 w-[120px] bg-white border rounded-[4px] flex items-center justify-between transition-all duration-150 text-[14px] text-neutral-700 font-medium select-none",
                 showPerspectiveDropdown 
-                  ? "border-[#fa541c] shadow-[0_0_0_2px_rgba(250,84,28,0.15)] text-[#fa541c]" 
-                  : "border-neutral-300 hover:border-[#fa541c] hover:text-[#fa541c]"
+                  ? "border-[#3b82f6] shadow-[0_0_0_2px_rgba(59, 130, 246,0.15)] text-[#3b82f6]" 
+                  : "border-neutral-300 hover:border-[#3b82f6] hover:text-[#3b82f6]"
               )}
             >
               <span>{perspective === 'teacher' ? '开课老师' : '学生'}</span>
               {showPerspectiveDropdown ? (
-                <ChevronUp className="w-4 h-4 text-[#fa541c]" />
+                <ChevronUp className="w-4 h-4 text-[#3b82f6]" />
               ) : (
                 <ChevronDown className="w-4 h-4 text-neutral-400" />
               )}
@@ -801,8 +801,8 @@ export default function TeacherCourseManage() {
                     className={cn(
                       "px-3 py-2 text-[14px] cursor-pointer transition-colors font-medium text-left",
                       perspective === 'teacher' 
-                        ? "bg-[#fff2e8] text-[#fa541c]" 
-                        : "text-neutral-700 hover:bg-[#fff2e8] hover:text-[#fa541c]"
+                        ? "bg-[#eff6ff] text-[#3b82f6]" 
+                        : "text-neutral-700 hover:bg-[#eff6ff] hover:text-[#3b82f6]"
                     )}
                   >
                     开课老师
@@ -816,8 +816,8 @@ export default function TeacherCourseManage() {
                     className={cn(
                       "px-3 py-2 text-[14px] cursor-pointer transition-colors font-medium text-left",
                       perspective === 'student' 
-                        ? "bg-[#fff2e8] text-[#fa541c]" 
-                        : "text-neutral-700 hover:bg-[#fff2e8] hover:text-[#fa541c]"
+                        ? "bg-[#eff6ff] text-[#3b82f6]" 
+                        : "text-neutral-700 hover:bg-[#eff6ff] hover:text-[#3b82f6]"
                     )}
                   >
                     学生
@@ -830,7 +830,7 @@ export default function TeacherCourseManage() {
       </div>
 
       {perspective === 'student' && (
-        <div className="mx-6 mt-4 bg-orange-50 border border-orange-200 text-[#fa541c] px-4 py-3 rounded-lg flex items-center gap-3 text-[14px] font-medium shadow-sm animate-in fade-in slide-in-from-top-2 duration-200 relative z-20">
+        <div className="mx-6 mt-4 bg-blue-50 border border-blue-200 text-[#3b82f6] px-4 py-3 rounded-lg flex items-center gap-3 text-[14px] font-medium shadow-sm animate-in fade-in slide-in-from-top-2 duration-200 relative z-20">
           <Info className="w-5 h-5 flex-shrink-0" />
           <span>您当前正在以「学生视角」预览此页面。页面中的所有编辑、删除、课件添加及管理操作已自动隐藏。</span>
         </div>
@@ -847,12 +847,12 @@ export default function TeacherCourseManage() {
                 className={cn(
                   "flex flex-col items-center justify-center py-4 w-full transition-colors relative rounded-[4px]",
                   activeTab === tab.id 
-                    ? "text-[#fa541c]" 
+                    ? "text-[#3b82f6]" 
                     : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-title"
                 )}
               >
                 {activeTab === tab.id && (
-                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#fa541c]"></div>
+                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#3b82f6]"></div>
                 )}
                 <tab.icon className="w-6 h-6 mb-2" strokeWidth={1.5} />
                 <span className="text-[13px] font-medium tracking-wide">{tab.label}</span>
@@ -866,7 +866,7 @@ export default function TeacherCourseManage() {
           
           {/* Hero Header Area */}
           {activeTab === 'editor' && (
-            <div className="bg-gradient-to-r from-[#fff2e8] via-[#fff7f2] to-blue-50/50 h-[300px] w-full pt-10 px-6 lg:px-10">
+            <div className="bg-gradient-to-r from-[#eff6ff] via-[#fff7f2] to-blue-50/50 h-[300px] w-full pt-10 px-6 lg:px-10">
               <div className="flex items-center gap-10 w-full">
                 {/* Course Cover Card */}
                 <div className="w-[360px] h-[200px] bg-neutral-900 rounded-xl shadow-lg relative overflow-hidden flex flex-col items-center justify-center group border border-neutral-200/60">
@@ -887,10 +887,10 @@ export default function TeacherCourseManage() {
                   <h1 className="text-3xl font-bold text-neutral-title mb-4">{currentCourse?.name || '人工智能基础与实践'}</h1>
                   <div className="flex items-center gap-3 text-[13px] text-neutral-500 mb-6 font-medium">
                     <span className="flex items-center gap-1.5 bg-white/60 px-3 py-1 rounded-full border border-white/40 shadow-sm text-neutral-600">
-                      <BookOpen className="w-3.5 h-3.5 text-[#fa541c]"/> 4 章节 | 18 课节
+                      <BookOpen className="w-3.5 h-3.5 text-[#3b82f6]"/> 4 章节 | 18 课节
                     </span>
                     <span className="flex items-center gap-1.5 bg-white/60 px-3 py-1 rounded-full border border-white/40 shadow-sm text-neutral-600">
-                      课程编号: {currentCourse?.code || 'AI20261014'} <Copy className="w-3.5 h-3.5 ml-1 cursor-pointer hover:text-[#fa541c] transition-colors"/>
+                      课程编号: {currentCourse?.code || 'AI20261014'} <Copy className="w-3.5 h-3.5 ml-1 cursor-pointer hover:text-[#3b82f6] transition-colors"/>
                     </span>
                   </div>
                 </div>
@@ -908,11 +908,11 @@ export default function TeacherCourseManage() {
                   {/* Top Inner Tabs */}
                   <div className="flex items-center justify-between border-b border-neutral-border px-8 pt-4">
                      <div className="flex gap-8">
-                       <button onClick={() => setEditorSubTab('directory')} className={cn("pb-4 text-[15px] relative bottom-[-1px] rounded-[4px]", editorSubTab === 'directory' ? "font-bold text-[#fa541c] border-b-2 border-[#fa541c]" : "font-medium text-neutral-500 hover:text-neutral-title transition-colors border-b-2 border-transparent")}>课程目录</button>
-                       <button onClick={() => setEditorSubTab('assignments')} className={cn("pb-4 text-[15px] relative bottom-[-1px] rounded-[4px]", editorSubTab === 'assignments' ? "font-bold text-[#fa541c] border-b-2 border-[#fa541c]" : "font-medium text-neutral-500 hover:text-neutral-title transition-colors border-b-2 border-transparent")}>课程作业</button>
+                       <button onClick={() => setEditorSubTab('directory')} className={cn("pb-4 text-[15px] relative bottom-[-1px] rounded-[4px]", editorSubTab === 'directory' ? "font-bold text-[#3b82f6] border-b-2 border-[#3b82f6]" : "font-medium text-neutral-500 hover:text-neutral-title transition-colors border-b-2 border-transparent")}>课程目录</button>
+                       <button onClick={() => setEditorSubTab('assignments')} className={cn("pb-4 text-[15px] relative bottom-[-1px] rounded-[4px]", editorSubTab === 'assignments' ? "font-bold text-[#3b82f6] border-b-2 border-[#3b82f6]" : "font-medium text-neutral-500 hover:text-neutral-title transition-colors border-b-2 border-transparent")}>课程作业</button>
                      </div>
                      <div className="flex items-center gap-4 pb-3">
-                       <Button variant="outline" size="sm" onClick={() => setShowCreateChapterDrawer(true)} className="h-8 text-[#fa541c] border-[#fa541c] bg-transparent hover:bg-[#fa541c] hover:text-white rounded-[4px] flex items-center gap-1.5 transition-colors">
+                       <Button variant="outline" size="sm" onClick={() => setShowCreateChapterDrawer(true)} className="h-8 text-[#3b82f6] border-[#3b82f6] bg-transparent hover:bg-[#3b82f6] hover:text-white rounded-[4px] flex items-center gap-1.5 transition-colors">
                          <PlusCircle className="w-3.5 h-3.5" /> 新建章节
                        </Button>
                         <button 
@@ -925,7 +925,7 @@ export default function TeacherCourseManage() {
                             });
                             setCollapsedChapters(nextCollapsed);
                           }}
-                          className="text-sm text-[#fa541c] flex items-center gap-1 hover:opacity-80 font-bold transition-opacity rounded-[4px]"
+                          className="text-sm text-[#3b82f6] flex items-center gap-1 hover:opacity-80 font-bold transition-opacity rounded-[4px]"
                         >
                           {allExpanded ? '收起' : '展开'}
                           {allExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -960,7 +960,7 @@ export default function TeacherCourseManage() {
                               {perspective === 'teacher' && (
                                 <div className="relative" onClick={(e) => e.stopPropagation()}>
                                   <PlusCircle 
-                                    className="w-5 h-5 cursor-pointer hover:text-[#fa541c] transition-colors" 
+                                    className="w-5 h-5 cursor-pointer hover:text-[#3b82f6] transition-colors" 
                                     onClick={() => setAddMenuOpenIndex(addMenuOpenIndex === i ? null : i)}
                                   />
                                   {addMenuOpenIndex === i && (
@@ -969,7 +969,7 @@ export default function TeacherCourseManage() {
                                       <div className="absolute right-0 top-8 w-64 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-neutral-100 z-50 p-2 animation-slide-up">
                                         {[
                                           { title: '教学课件', desc: '支持图文、PPT 文档、视频等', icon: FileText, color: 'text-emerald-500', bg: 'bg-emerald-50', action: () => {setShowTeachingMaterialModal(true); setAddMenuOpenIndex(null);} },
-                                          { title: '实验课件', desc: '通过 notebook 制作实训课件', icon: Code, color: 'text-orange-500', bg: 'bg-orange-50', action: () => {setShowExperimentMaterialModal(true); setAddMenuOpenIndex(null);} },
+                                          { title: '实验课件', desc: '通过 notebook 制作实训课件', icon: Code, color: 'text-orange-500', bg: 'bg-blue-50', action: () => {setShowExperimentMaterialModal(true); setAddMenuOpenIndex(null);} },
                                           { title: '互动学习课件', desc: '知识点分段讲解视频融合实操', icon: MonitorPlay, color: 'text-blue-500', bg: 'bg-blue-50', action: () => {setShowInteractiveMaterialModal(true); setAddMenuOpenIndex(null);} }
                                         ].map((item, idx) => (
                                           <div key={idx} onClick={item.action} className="flex items-start gap-3 p-2.5 rounded-[4px] hover:bg-neutral-50 cursor-pointer transition-colors group">
@@ -977,7 +977,7 @@ export default function TeacherCourseManage() {
                                               <item.icon className="w-4 h-4" />
                                             </div>
                                             <div>
-                                              <div className="text-[14px] font-bold text-neutral-800 mb-0.5 group-hover:text-[#fa541c] transition-colors text-left">{item.title}</div>
+                                              <div className="text-[14px] font-bold text-neutral-800 mb-0.5 group-hover:text-[#3b82f6] transition-colors text-left">{item.title}</div>
                                               <div className="text-[11px] text-neutral-400 text-left">{item.desc}</div>
                                             </div>
                                           </div>
@@ -1001,7 +1001,7 @@ export default function TeacherCourseManage() {
                                       <div className="fixed inset-0 z-40" onClick={(e) => { e.stopPropagation(); setChapterMenuOpenIndex(null); }}></div>
                                       <div className="absolute right-0 top-8 w-32 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-neutral-100 z-50 p-2 animation-slide-up flex flex-col gap-1">
                                         <div 
-                                          className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] cursor-pointer rounded-[4px] text-center transition-colors"
+                                          className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] cursor-pointer rounded-[4px] text-center transition-colors"
                                           onClick={(e) => {
                                             e.stopPropagation();
                                             setShowEditChapterDrawer(true);
@@ -1009,7 +1009,7 @@ export default function TeacherCourseManage() {
                                           }}
                                         >编辑</div>
                                         <div 
-                                          className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] cursor-pointer rounded-[4px] text-center transition-colors"
+                                          className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] cursor-pointer rounded-[4px] text-center transition-colors"
                                           onClick={(e) => {
                                             e.stopPropagation();
                                             setShowDeleteChapterModal(true);
@@ -1036,7 +1036,7 @@ export default function TeacherCourseManage() {
                                       setShowCourseDetail(true);
                                     }} 
                                     className={cn(
-                                      "cursor-pointer flex items-center justify-between px-6 py-4 border-b border-neutral-100 hover:bg-neutral-50 group border-l-2 border-l-transparent hover:border-l-[#fa541c] transition-colors",
+                                      "cursor-pointer flex items-center justify-between px-6 py-4 border-b border-neutral-100 hover:bg-neutral-50 group border-l-2 border-l-transparent hover:border-l-[#3b82f6] transition-colors",
                                       isLast && "rounded-b-lg border-b-0"
                                     )}
                                   >
@@ -1046,7 +1046,7 @@ export default function TeacherCourseManage() {
                                         <div className={cn(
                                           "w-6 h-6 rounded flex items-center justify-center",
                                           lesson.type === 'split_doc' ? "bg-blue-50 text-blue-500" : 
-                                          lesson.type === 'experiment' ? "bg-orange-50 text-[#fa541c]" :
+                                          lesson.type === 'experiment' ? "bg-blue-50 text-[#3b82f6]" :
                                           lesson.type === 'assignment' ? "bg-rose-50 text-rose-500" :
                                           "bg-emerald-50 text-emerald-500"
                                         )}>
@@ -1056,7 +1056,7 @@ export default function TeacherCourseManage() {
                                            <FileText className="w-3.5 h-3.5" />
                                           }
                                         </div>
-                                        <span className="text-sm font-medium text-neutral-title group-hover:text-[#fa541c] transition-colors">{lesson.title}</span>
+                                        <span className="text-sm font-medium text-neutral-title group-hover:text-[#3b82f6] transition-colors">{lesson.title}</span>
                                       </div>
                                     </div>
                                     <div className="relative" onClick={(e) => e.stopPropagation()}>
@@ -1066,7 +1066,7 @@ export default function TeacherCourseManage() {
                                             className={cn(
                                               "w-4 h-4 cursor-pointer transition-all", 
                                               lessonMenuOpenIndex === `${i}-${idx}` 
-                                                ? "text-[#fa541c] opacity-100 scale-110" 
+                                                ? "text-[#3b82f6] opacity-100 scale-110" 
                                                 : "text-neutral-300 group-hover:text-neutral-500 opacity-0 group-hover:opacity-100"
                                             )}
                                             onClick={(e) => {
@@ -1079,7 +1079,7 @@ export default function TeacherCourseManage() {
                                               <div className="fixed inset-0 z-40" onClick={(e) => { e.stopPropagation(); setLessonMenuOpenIndex(null); }}></div>
                                               <div className="absolute right-0 top-6 w-32 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-neutral-100 z-50 p-2 animation-slide-up flex flex-col gap-1">
                                                 <div 
-                                                  className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] cursor-pointer rounded-[4px] text-center transition-colors"
+                                                  className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] cursor-pointer rounded-[4px] text-center transition-colors"
                                                   onClick={(e) => {
                                                     e.stopPropagation();
                                                     setSelectedEditLesson({ chapterIndex: i, lessonIndex: idx, title: lesson.title, section: lesson.section });
@@ -1088,7 +1088,7 @@ export default function TeacherCourseManage() {
                                                   }}
                                                 >编辑</div>
                                                 <div 
-                                                  className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] cursor-pointer rounded-[4px] text-center transition-colors"
+                                                  className="px-4 py-2 text-[14px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] cursor-pointer rounded-[4px] text-center transition-colors"
                                                   onClick={(e) => {
                                                     e.stopPropagation();
                                                     setSelectedEditLesson({ chapterIndex: i, lessonIndex: idx, title: lesson.title, section: lesson.section });
@@ -1122,7 +1122,7 @@ export default function TeacherCourseManage() {
                       </div>
                       <div className="p-6">
                         <div className="flex items-start gap-3 mb-6">
-                          <FileText className="w-5 h-5 text-[#fa541c] mt-0.5" />
+                          <FileText className="w-5 h-5 text-[#3b82f6] mt-0.5" />
                           <h4 className="text-[15px] font-bold text-neutral-900">客观题</h4>
                         </div>
                         
@@ -1137,7 +1137,7 @@ export default function TeacherCourseManage() {
                             <p className="text-[12px] text-neutral-400">客观题需在 90 分钟内完成答题，过程中无法暂停，仅支持提交一次答案，请提前合理安排时间</p>
                           </div>
                           
-                          <Button onClick={() => navigate(`/teacher/course/${id}/assignment-preview?type=objective`)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] shadow-sm shadow-orange-500/20 px-6 h-9 font-bold mt-2">
+                          <Button onClick={() => navigate(`/teacher/course/${id}/assignment-preview?type=objective`)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] shadow-sm shadow-blue-500/20 px-6 h-9 font-bold mt-2">
                             预览作业
                           </Button>
                         </div>
@@ -1180,7 +1180,7 @@ export default function TeacherCourseManage() {
                           <input 
                             type="text" 
                             placeholder="搜索作业名称或试卷名称..." 
-                            className="pl-9 pr-4 py-2 w-[300px] text-sm border border-neutral-border rounded-full focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-colors bg-white text-[#262626]" 
+                            className="pl-9 pr-4 py-2 w-[300px] text-sm border border-neutral-border rounded-full focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-colors bg-white text-[#262626]" 
                             value={assignmentSearchQuery}
                             onChange={(e) => setAssignmentSearchQuery(e.target.value)}
                           />
@@ -1191,7 +1191,7 @@ export default function TeacherCourseManage() {
                           <Button 
                             onClick={() => navigate('/teacher/questions')} 
                             variant="outline" 
-                            className="h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50 font-bold text-[13px] rounded-[4px] flex items-center gap-1.5 transition-all bg-white"
+                            className="h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50 font-bold text-[13px] rounded-[4px] flex items-center gap-1.5 transition-all bg-white"
                           >
                             题目管理
                           </Button>
@@ -1204,7 +1204,7 @@ export default function TeacherCourseManage() {
                               setTaskDeadline('');
                               setShowCreateTaskModal(true);
                             }} 
-                            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-4 shadow-sm shadow-orange-500/20 font-bold text-[13px] flex items-center gap-1.5 transition-all"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-4 shadow-sm shadow-blue-500/20 font-bold text-[13px] flex items-center gap-1.5 transition-all"
                           >
                             <Plus className="w-4 h-4" /> 新建作业
                           </Button>
@@ -1240,7 +1240,7 @@ export default function TeacherCourseManage() {
                                           setSelectedAssignmentDetail(task);
                                           setShowAssignmentDetailDrawer(true);
                                         }}
-                                        className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
+                                        className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
                                       >
                                         详情
                                       </button>
@@ -1255,7 +1255,7 @@ export default function TeacherCourseManage() {
                                           setSelectedAssignStudentUsernames(task.selectedStudents || []);
                                           setShowEditTaskModal(true);
                                         }}
-                                        className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
+                                        className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
                                       >
                                         编辑
                                       </button>
@@ -1264,7 +1264,7 @@ export default function TeacherCourseManage() {
                                           setSelectedGradingAssignment(task);
                                           setShowGradingDrawer(true);
                                         }}
-                                        className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
+                                        className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
                                       >
                                         完成情况
                                       </button>
@@ -1281,7 +1281,7 @@ export default function TeacherCourseManage() {
                                             }
                                           });
                                         }}
-                                        className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
+                                        className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
                                       >
                                         删除
                                       </button>
@@ -1325,8 +1325,8 @@ export default function TeacherCourseManage() {
                                   className={cn(
                                     "h-7 w-7 p-0 rounded-sm font-semibold transition-colors",
                                     isCurrent 
-                                      ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#e84a15] hover:text-white" 
-                                      : "bg-white text-neutral-600 hover:text-[#fa541c] hover:border-orange-200"
+                                      ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#2563eb] hover:text-white" 
+                                      : "bg-white text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200"
                                   )}
                                   onClick={() => setAssignmentPage(pageNum)}
                                 >
@@ -1348,7 +1348,7 @@ export default function TeacherCourseManage() {
                             <button 
                               type="button"
                               onClick={() => setIsPageSizeDropdownOpen(!isPageSizeDropdownOpen)}
-                              className="appearance-none text-[13px] border border-neutral-200 rounded-[8px] pl-3 pr-8 py-1 bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 text-black cursor-pointer transition-all h-7 flex items-center gap-1.5 select-none text-left min-w-[76px] relative"
+                              className="appearance-none text-[13px] border border-neutral-200 rounded-[8px] pl-3 pr-8 py-1 bg-white focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 text-black cursor-pointer transition-all h-7 flex items-center gap-1.5 select-none text-left min-w-[76px] relative"
                             >
                               <span>{assignmentPageSize} 条/页</span>
                               <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -1369,7 +1369,7 @@ export default function TeacherCourseManage() {
                                       className={cn(
                                         "px-3 py-2 text-[13px] transition-colors cursor-pointer text-left font-medium",
                                         assignmentPageSize === size 
-                                          ? "bg-orange-50 text-[#fa541c] font-bold" 
+                                          ? "bg-blue-50 text-[#3b82f6] font-bold" 
                                           : "bg-white text-black hover:bg-neutral-50"
                                       )}
                                     >
@@ -1387,7 +1387,7 @@ export default function TeacherCourseManage() {
                     <div className="flex flex-col h-full animation-slide-up">
                       <div className="flex items-center justify-between mb-6 pb-5 border-b border-neutral-100">
                         <div className="flex items-center gap-4">
-                          <button onClick={() => setShowGrading(false)} className="w-8 h-8 rounded-[4px] hover:bg-neutral-100 flex items-center justify-center text-neutral-500 hover:text-[#fa541c] transition-colors">
+                          <button onClick={() => setShowGrading(false)} className="w-8 h-8 rounded-[4px] hover:bg-neutral-100 flex items-center justify-center text-neutral-500 hover:text-[#3b82f6] transition-colors">
                             <ArrowLeft className="w-5 h-5" />
                           </button>
                           <div>
@@ -1396,7 +1396,7 @@ export default function TeacherCourseManage() {
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
-                          <Button variant="outline" className="border-orange-200 text-[#fa541c] bg-orange-50 h-9 font-bold text-[13px] rounded-[4px]">
+                          <Button variant="outline" className="border-blue-200 text-[#3b82f6] bg-blue-50 h-9 font-bold text-[13px] rounded-[4px]">
                             处理延期申请 (3)
                           </Button>
                         </div>
@@ -1406,15 +1406,15 @@ export default function TeacherCourseManage() {
                         {/* Left: Student List */}
                         <div className="w-[280px] bg-white rounded-2xl border border-neutral-200 shadow-sm flex flex-col overflow-hidden shrink-0">
                           <div className="flex items-center p-2 border-b border-neutral-100 bg-neutral-50 text-[13px] font-bold text-neutral-500">
-                            <button className="flex-1 py-1.5 text-center bg-white rounded-[4px] shadow-sm text-[#fa541c]">待批改(12)</button>
+                            <button className="flex-1 py-1.5 text-center bg-white rounded-[4px] shadow-sm text-[#3b82f6]">待批改(12)</button>
                             <button className="flex-1 py-1.5 text-center hover:text-neutral-700 transition-colors rounded-[4px]">已批改(31)</button>
                             <button className="flex-1 py-1.5 text-center hover:text-neutral-700 transition-colors rounded-[4px]">已打回(2)</button>
                           </div>
                           <div className="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-1">
                             {['刘晓明', '张伟', '陈静', '王芳'].map((name, i) => (
-                              <div key={i} className={cn("p-3 rounded-xl cursor-pointer transition-colors border", i === 0 ? "bg-orange-50/50 border-[#fa541c]/30" : "border-transparent hover:bg-neutral-50")}>
+                              <div key={i} className={cn("p-3 rounded-xl cursor-pointer transition-colors border", i === 0 ? "bg-blue-50/50 border-[#3b82f6]/30" : "border-transparent hover:bg-neutral-50")}>
                                 <div className="flex justify-between items-center mb-1">
-                                  <span className={cn("text-[14px] font-bold", i === 0 ? "text-[#fa541c]" : "text-neutral-800")}>{name}</span>
+                                  <span className={cn("text-[14px] font-bold", i === 0 ? "text-[#3b82f6]" : "text-neutral-800")}>{name}</span>
                                   <span className="text-[11px] text-neutral-400">10分钟前提交</span>
                                 </div>
                                 <div className="text-[12px] text-neutral-500">学号: 2026{1000+i}</div>
@@ -1442,7 +1442,7 @@ export default function TeacherCourseManage() {
                                     <Code className="w-5 h-5" />
                                   </div>
                                   <div>
-                                    <div className="text-[14px] font-bold text-neutral-800 hover:text-[#fa541c] cursor-pointer">spider_main.py</div>
+                                    <div className="text-[14px] font-bold text-neutral-800 hover:text-[#3b82f6] cursor-pointer">spider_main.py</div>
                                     <div className="text-[12px] text-neutral-400">2.4 KB</div>
                                   </div>
                                 </div>
@@ -1455,7 +1455,7 @@ export default function TeacherCourseManage() {
                                   def parse_page(html):<br/>
                                   &nbsp;&nbsp;&nbsp;&nbsp;soup = BeautifulSoup(html, 'lxml')<br/>
                                   &nbsp;&nbsp;&nbsp;&nbsp;items = soup.find_all('div', class_='item')<br/>
-                                  <span className="bg-orange-100 border-b-2 border-[#fa541c] cursor-pointer" title="点击添加批注">&nbsp;&nbsp;&nbsp;&nbsp;# 老师批注：这里没有考虑反爬虫策略，建议加入随机 User-Agent</span><br/>
+                                  <span className="bg-blue-100 border-b-2 border-[#3b82f6] cursor-pointer" title="点击添加批注">&nbsp;&nbsp;&nbsp;&nbsp;# 老师批注：这里没有考虑反爬虫策略，建议加入随机 User-Agent</span><br/>
                                   &nbsp;&nbsp;&nbsp;&nbsp;...
                                 </div>
                                 <div className="absolute right-6 top-6 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1471,30 +1471,30 @@ export default function TeacherCourseManage() {
                               <div className="flex-1 space-y-4">
                                 <div>
                                   <label className="text-[14px] font-bold text-neutral-800 flex items-center gap-1.5 mb-2">
-                                    <Edit className="w-4 h-4 text-[#fa541c]" /> 教师评语
+                                    <Edit className="w-4 h-4 text-[#3b82f6]" /> 教师评语
                                   </label>
                                   <textarea 
-                                    className="w-full h-20 p-3 text-[14px] rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] resize-none" 
+                                    className="w-full h-20 p-3 text-[14px] rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] resize-none" 
                                     placeholder="请输入评语，指导学生..."
                                     defaultValue="代码结构很清晰，基本逻辑正确。但在解析页面时没有考虑常见的反爬机制，建议在实际项目中加入请求头伪装。继续努力！"
                                   ></textarea>
                                 </div>
                                 <div className="flex items-center gap-4">
                                   <label className="flex items-center gap-2 cursor-pointer group">
-                                    <input type="checkbox" className="w-4 h-4 rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c] cursor-pointer" defaultChecked />
+                                    <input type="checkbox" className="w-4 h-4 rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer" defaultChecked />
                                     <span className="text-[13px] font-bold text-neutral-600 group-hover:text-neutral-900 flex items-center gap-1"><Award className="w-4 h-4 text-amber-500" /> 标记为优秀作业</span>
                                   </label>
                                 </div>
                               </div>
 
                               <div className="w-[300px] flex flex-col justify-between">
-                                <div className="flex items-center justify-between mb-4 bg-orange-50 p-4 rounded-xl border border-orange-100">
+                                <div className="flex items-center justify-between mb-4 bg-blue-50 p-4 rounded-xl border border-orange-100">
                                   <span className="text-[14px] font-bold text-neutral-800">最终评分 (满分 100)</span>
-                                  <input type="number" className="w-20 text-center text-[24px] font-black text-[#fa541c] bg-white border border-neutral-200 rounded-[4px] py-1 focus:outline-none focus:border-[#fa541c]" defaultValue={92} />
+                                  <input type="number" className="w-20 text-center text-[24px] font-black text-[#3b82f6] bg-white border border-neutral-200 rounded-[4px] py-1 focus:outline-none focus:border-[#3b82f6]" defaultValue={92} />
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
                                   <Button variant="outline" className="border-red-200 text-red-500 hover:bg-red-50 font-bold h-10 rounded-[4px]">打回重做</Button>
-                                  <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold h-10 shadow-md shadow-orange-500/20">提交评分并继续</Button>
+                                  <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold h-10 shadow-md shadow-blue-500/20">提交评分并继续</Button>
                                 </div>
                               </div>
                             </div>
@@ -1535,7 +1535,7 @@ export default function TeacherCourseManage() {
                           placeholder="搜索学生姓名或手机号..." 
                           value={studentSearchQuery}
                           onChange={(e) => setStudentSearchQuery(e.target.value)}
-                          className="pl-9 pr-4 py-2 w-[300px] text-sm border border-neutral-border rounded-full focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-colors bg-white text-[#262626]" 
+                          className="pl-9 pr-4 py-2 w-[300px] text-sm border border-neutral-border rounded-full focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-colors bg-white text-[#262626]" 
                         />
                       </div>
 
@@ -1544,13 +1544,13 @@ export default function TeacherCourseManage() {
                           <Button 
                             onClick={handleBatchRevokeAuth}
                             variant="outline"
-                            className="h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50 font-bold text-[13px] rounded-[4px] flex items-center gap-1.5 transition-all bg-white"
+                            className="h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50 font-bold text-[13px] rounded-[4px] flex items-center gap-1.5 transition-all bg-white"
                           >
                             <Trash2 className="w-4 h-4" /> 批量移除
                           </Button>
                           <Button 
                             onClick={handleBatchAuthorize}
-                            className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm shadow-orange-500/10 h-9 px-4 rounded-[4px] text-[13px] font-bold transition-all border-0 cursor-pointer"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm shadow-blue-500/10 h-9 px-4 rounded-[4px] text-[13px] font-bold transition-all border-0 cursor-pointer"
                           >
                             <Plus className="w-4 h-4" /> 批量添加
                           </Button>
@@ -1576,7 +1576,7 @@ export default function TeacherCourseManage() {
                                         setSelectedStudents(prev => Array.from(new Set([...prev, ...filteredUsernames])));
                                       }
                                     }}
-                                    className="w-4 h-4 rounded text-[#fa541c] focus:ring-[#fa541c] border-neutral-300 accent-[#fa541c] cursor-pointer mx-auto"
+                                    className="w-4 h-4 rounded text-[#3b82f6] focus:ring-[#3b82f6] border-neutral-300 accent-[#3b82f6] cursor-pointer mx-auto"
                                   />
                                 </th>
                               )}
@@ -1602,7 +1602,7 @@ export default function TeacherCourseManage() {
                                             : [...prev, student.username]
                                         );
                                       }}
-                                      className="w-4 h-4 rounded text-[#fa541c] focus:ring-[#fa541c] border-neutral-300 accent-[#fa541c] cursor-pointer mx-auto"
+                                      className="w-4 h-4 rounded text-[#3b82f6] focus:ring-[#3b82f6] border-neutral-300 accent-[#3b82f6] cursor-pointer mx-auto"
                                     />
                                   </td>
                                 )}
@@ -1614,7 +1614,7 @@ export default function TeacherCourseManage() {
                                   <td className="p-4 text-center">
                                     <button 
                                       onClick={() => handleRevokeAuth(student.username)}
-                                      className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                                     >
                                       移除
                                     </button>
@@ -1659,8 +1659,8 @@ export default function TeacherCourseManage() {
                                 className={cn(
                                   "h-7 w-7 p-0 rounded-sm font-semibold transition-colors",
                                   isCurrent 
-                                    ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#e84a15] hover:text-white" 
-                                    : "bg-white text-neutral-600 hover:text-[#fa541c] hover:border-orange-200"
+                                    ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#2563eb] hover:text-white" 
+                                    : "bg-white text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200"
                                 )}
                                 onClick={() => setStudentPage(pageNum)}
                               >
@@ -1683,7 +1683,7 @@ export default function TeacherCourseManage() {
                           <button 
                             type="button"
                             onClick={() => setIsStudentPageSizeDropdownOpen(!isStudentPageSizeDropdownOpen)}
-                            className="appearance-none text-[13px] border border-neutral-200 rounded-[8px] pl-3 pr-8 py-1 bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 text-black cursor-pointer transition-all h-7 flex items-center gap-1.5 select-none text-left min-w-[76px] relative"
+                            className="appearance-none text-[13px] border border-neutral-200 rounded-[8px] pl-3 pr-8 py-1 bg-white focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 text-black cursor-pointer transition-all h-7 flex items-center gap-1.5 select-none text-left min-w-[76px] relative"
                           >
                             <span>{studentPageSize} 条/页</span>
                             <ChevronDown className="w-3.5 h-3.5 absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-500" />
@@ -1701,7 +1701,7 @@ export default function TeacherCourseManage() {
                                   }}
                                   className={cn(
                                     "w-full text-left px-3 py-1.5 text-[12px] hover:bg-neutral-50 transition-colors block cursor-pointer border-0",
-                                    studentPageSize === size ? "text-[#fa541c] font-semibold bg-orange-50/20" : "text-neutral-700"
+                                    studentPageSize === size ? "text-[#3b82f6] font-semibold bg-blue-50/20" : "text-neutral-700"
                                   )}
                                 >
                                   {size} 条/页
@@ -1722,7 +1722,7 @@ export default function TeacherCourseManage() {
                   <div className="flex justify-between items-center mb-8 border-b border-neutral-100 pb-5">
                     <div>
                       <h2 className="text-xl font-black text-neutral-900 flex items-center gap-2">
-                        <BarChart2 className="w-6 h-6 text-[#fa541c]" /> 整体学情全景报告
+                        <BarChart2 className="w-6 h-6 text-[#3b82f6]" /> 整体学情全景报告
                       </h2>
                       <p className="text-[13px] text-neutral-500 mt-1">实时统计所有选课学生的学习进度与考核数据，数据每 15 分钟刷新一次。</p>
                     </div>
@@ -1734,7 +1734,7 @@ export default function TeacherCourseManage() {
                           setIsExporting(false);
                           setExportCompleted(false);
                         }}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-10 px-6 shadow-md shadow-orange-500/20 font-bold transition-all"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-10 px-6 shadow-md shadow-blue-500/20 font-bold transition-all"
                       >
                         <Download className="w-4 h-4 mr-2" /> 导出详细数据报告
                       </Button>
@@ -1746,9 +1746,9 @@ export default function TeacherCourseManage() {
                     {[
                       { label: '作业平均提交率', value: '92.0', unit: '%', desc: '本周新增提交 45 份', icon: CheckSquare, color: 'text-emerald-500', bg: 'bg-emerald-50' },
                       { label: '考试及格率', value: '88.3', unit: '%', desc: '', icon: FileText, color: 'text-purple-500', bg: 'bg-purple-50' },
-                      { label: '周活跃学生', value: '1,245', unit: '人', desc: '占总人数 78%', icon: Users, color: 'text-orange-500', bg: 'bg-orange-50' },
+                      { label: '周活跃学生', value: '1,245', unit: '人', desc: '占总人数 78%', icon: Users, color: 'text-orange-500', bg: 'bg-blue-50' },
                     ].map((stat, i) => (
-                      <div key={i} className="p-6 rounded-2xl border border-neutral-200 bg-white shadow-sm hover:shadow-md hover:border-orange-200 transition-all group">
+                      <div key={i} className="p-6 rounded-2xl border border-neutral-200 bg-white shadow-sm hover:shadow-md hover:border-blue-200 transition-all group">
                         <div className="flex justify-between items-start mb-4">
                           <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center", stat.bg, stat.color)}>
                             <stat.icon className="w-5 h-5" />
@@ -1769,7 +1769,7 @@ export default function TeacherCourseManage() {
                     <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm flex flex-col h-[360px]">
                       <div className="flex justify-between items-center mb-6">
                         <h3 className="font-bold text-neutral-900 text-[15px] flex items-center gap-2">
-                           <TrendingUp className="w-4 h-4 text-[#fa541c]" /> 学生活跃度趋势 (近7天)
+                           <TrendingUp className="w-4 h-4 text-[#3b82f6]" /> 学生活跃度趋势 (近7天)
                         </h3>
                       </div>
                       <div className="flex-1 w-full min-h-0">
@@ -1777,15 +1777,15 @@ export default function TeacherCourseManage() {
                             <AreaChart data={activityData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                               <defs>
                                 <linearGradient id="colorActive" x1="0" y1="0" x2="0" y2="1">
-                                  <stop offset="5%" stopColor="#fa541c" stopOpacity={0.3}/>
-                                  <stop offset="95%" stopColor="#fa541c" stopOpacity={0}/>
+                                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
+                                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
                                 </linearGradient>
                               </defs>
                               <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#8c8c8c' }} dy={10} />
                               <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#8c8c8c' }} />
                               <CartesianGrid vertical={false} stroke="#f0f0f0" />
                               <Tooltip contentStyle={{ borderRadius: '12px', border: '1px solid #f0f0f0', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }} />
-                              <Area type="monotone" dataKey="active" stroke="#fa541c" strokeWidth={3} fillOpacity={1} fill="url(#colorActive)" />
+                              <Area type="monotone" dataKey="active" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorActive)" />
                             </AreaChart>
                          </ResponsiveContainer>
                       </div>
@@ -1837,7 +1837,7 @@ export default function TeacherCourseManage() {
                            </div>
                            <div className="w-full h-2.5 bg-neutral-100 rounded-full overflow-hidden shadow-inner">
                              <div 
-                               className={cn("h-full rounded-full transition-all duration-1000", chap.progress > 80 ? "bg-gradient-to-r from-emerald-400 to-emerald-500" : chap.progress > 50 ? "bg-gradient-to-r from-orange-400 to-[#fa541c]" : "bg-gradient-to-r from-neutral-300 to-neutral-400")}
+                               className={cn("h-full rounded-full transition-all duration-1000", chap.progress > 80 ? "bg-gradient-to-r from-emerald-400 to-emerald-500" : chap.progress > 50 ? "bg-gradient-to-r from-blue-400 to-[#3b82f6]" : "bg-gradient-to-r from-neutral-300 to-neutral-400")}
                                style={{ width: `${chap.progress}%` }}
                              />
                            </div>
@@ -1878,7 +1878,7 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0 text-left">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                {editingAssignmentId ? <Edit className="w-5 h-5 text-[#fa541c]" /> : <Plus className="w-5 h-5 text-[#fa541c]" />}
+                {editingAssignmentId ? <Edit className="w-5 h-5 text-[#3b82f6]" /> : <Plus className="w-5 h-5 text-[#3b82f6]" />}
                 {editingAssignmentId ? "编辑作业" : "新建作业"}
               </h2>
               <button 
@@ -1893,7 +1893,7 @@ export default function TeacherCourseManage() {
                   setAssignTarget('all');
                   setSelectedAssignStudentUsernames([]);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1906,11 +1906,11 @@ export default function TeacherCourseManage() {
                 {/* 作业名称 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    作业名称 <span className="text-[#fa541c]">*</span>
+                    作业名称 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] bg-white" 
+                    className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] bg-white" 
                     placeholder="请输入作业名称" 
                     value={taskTitle}
                     onChange={(e) => setTaskTitle(e.target.value)}
@@ -1920,12 +1920,12 @@ export default function TeacherCourseManage() {
                 {/* 选择试卷 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    选择试卷 <span className="text-[#fa541c]">*</span>
+                    选择试卷 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="text-left">
                     <span
                       onClick={() => setShowSelectPaperModal(true)}
-                      className="text-[#fa541c] hover:text-[#e84a15] font-bold text-[13px] cursor-pointer hover:underline transition-colors inline-block"
+                      className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-[13px] cursor-pointer hover:underline transition-colors inline-block"
                     >
                       {selectedPaperName || "选择试卷"}
                     </span>
@@ -1935,7 +1935,7 @@ export default function TeacherCourseManage() {
                 {/* 发布时间 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    发布时间 <span className="text-[#fa541c]">*</span>
+                    发布时间 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <DateTimePicker 
                     value={taskPublishTime}
@@ -1948,7 +1948,7 @@ export default function TeacherCourseManage() {
                 {/* 截止时间 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    截止时间 <span className="text-[#fa541c]">*</span>
+                    截止时间 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <DateTimePicker 
                     value={taskDeadline}
@@ -1961,7 +1961,7 @@ export default function TeacherCourseManage() {
                 {/* 分配人员 */}
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right mt-0.5">
-                    分配人员 <span className="text-[#fa541c]">*</span>
+                    分配人员 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="flex gap-6 items-center w-full text-[13px] text-neutral-700">
                     <label className="flex items-center gap-2 select-none cursor-pointer group">
@@ -1971,9 +1971,9 @@ export default function TeacherCourseManage() {
                         value="all"
                         checked={assignTarget === 'all'}
                         onChange={() => setAssignTarget('all')}
-                        className="w-4 h-4 accent-[#fa541c] cursor-pointer" 
+                        className="w-4 h-4 accent-[#3b82f6] cursor-pointer" 
                       />
-                      <span className="group-hover:text-[#fa541c] transition-colors font-medium">全部学生</span>
+                      <span className="group-hover:text-[#3b82f6] transition-colors font-medium">全部学生</span>
                     </label>
                     <div className="flex items-center gap-4">
                       <label className="flex items-center gap-2 select-none cursor-pointer group">
@@ -1983,13 +1983,13 @@ export default function TeacherCourseManage() {
                           value="partial"
                           checked={assignTarget === 'partial'}
                           onChange={() => setAssignTarget('partial')}
-                          className="w-4 h-4 accent-[#fa541c] cursor-pointer" 
+                          className="w-4 h-4 accent-[#3b82f6] cursor-pointer" 
                         />
-                        <span className="group-hover:text-[#fa541c] transition-colors font-medium">部分学生</span>
+                        <span className="group-hover:text-[#3b82f6] transition-colors font-medium">部分学生</span>
                       </label>
                       {assignTarget === 'partial' ? (
                         <div className="flex items-center gap-2 animate-fade-in">
-                          <span className={cn("text-[12px] font-semibold px-2 py-0.5 rounded bg-orange-50 border border-orange-100 text-[#fa541c]", selectedAssignStudentUsernames.length > 0 ? "" : "opacity-50")}>
+                          <span className={cn("text-[12px] font-semibold px-2 py-0.5 rounded bg-blue-50 border border-orange-100 text-[#3b82f6]", selectedAssignStudentUsernames.length > 0 ? "" : "opacity-50")}>
                             {selectedAssignStudentUsernames.length > 0 ? `已选 ${selectedAssignStudentUsernames.length} 人` : '未选择'}
                           </span>
                           <span 
@@ -1998,7 +1998,7 @@ export default function TeacherCourseManage() {
                               setStudentModalPage(2);
                               setShowSelectStudentModal(true);
                             }} 
-                            className="text-[#fa541c] cursor-pointer hover:text-[#e84a15] font-bold text-xs"
+                            className="text-[#3b82f6] cursor-pointer hover:text-[#2563eb] font-bold text-xs"
                           >
                             {selectedAssignStudentUsernames.length > 0 ? '[ 修改 ]' : '[ 添加 ]'}
                           </span>
@@ -2017,7 +2017,7 @@ export default function TeacherCourseManage() {
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">站内通知</label>
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-5 bg-[#fa541c] rounded-full relative cursor-pointer shadow-inner transition-colors duration-200">
+                    <div className="w-9 h-5 bg-[#3b82f6] rounded-full relative cursor-pointer shadow-inner transition-colors duration-200">
                       <div className="w-4 h-4 bg-white rounded-full absolute top-0.5 right-0.5 shadow-sm transition-all duration-200"></div>
                     </div>
                     <span className="text-xs text-neutral-500 font-medium">推送相关学生与教师</span>
@@ -2097,7 +2097,7 @@ export default function TeacherCourseManage() {
                   setAssignTarget('all');
                   setSelectedAssignStudentUsernames([]);
                 }} 
-                className={cn("text-white h-9 px-8 rounded-[4px] text-[13px] border-0 cursor-pointer transition-colors font-semibold shadow-sm", (selectedPaperName && taskTitle) ? "bg-[#fa541c] hover:bg-[#e84a15]" : "bg-neutral-200 cursor-not-allowed")}
+                className={cn("text-white h-9 px-8 rounded-[4px] text-[13px] border-0 cursor-pointer transition-colors font-semibold shadow-sm", (selectedPaperName && taskTitle) ? "bg-[#3b82f6] hover:bg-[#2563eb]" : "bg-neutral-200 cursor-not-allowed")}
               >
                 {editingAssignmentId ? "保存作业" : "发布作业"}
               </Button>
@@ -2122,7 +2122,7 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#fa541c]" />
+                <FileText className="w-5 h-5 text-[#3b82f6]" />
                 作业详情
               </h2>
               <button 
@@ -2130,7 +2130,7 @@ export default function TeacherCourseManage() {
                   setShowAssignmentDetailDrawer(false); 
                   setSelectedAssignmentDetail(null);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2158,7 +2158,7 @@ export default function TeacherCourseManage() {
                   <div>
                     <span
                       onClick={() => navigate(`/teacher/course/${id}/assignment-preview?type=objective`)}
-                      className="text-[#fa541c] hover:text-[#e84a15] font-medium text-[13px] cursor-pointer hover:underline transition-colors"
+                      className="text-[#3b82f6] hover:text-[#2563eb] font-medium text-[13px] cursor-pointer hover:underline transition-colors"
                     >
                       {selectedAssignmentDetail.paperName}
                     </span>
@@ -2178,7 +2178,7 @@ export default function TeacherCourseManage() {
                               <h4 className="text-[14px] font-bold text-[#262626]">客观题</h4>
                               <button 
                                 onClick={() => navigate(`/teacher/course/${id}/assignment-preview?type=objective`)}
-                                className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-[12px] font-bold px-3 py-1 rounded-[4px] transition-colors shadow-sm shadow-orange-500/10 cursor-pointer border-0"
+                                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[12px] font-bold px-3 py-1 rounded-[4px] transition-colors shadow-sm shadow-blue-500/10 cursor-pointer border-0"
                               >
                                 预览客观题
                               </button>
@@ -2200,7 +2200,7 @@ export default function TeacherCourseManage() {
                               <h4 className="text-[14px] font-bold text-[#262626]">实训题</h4>
                               <button 
                                 onClick={() => navigate(`/teacher/course/${id}/assignment-preview?type=practical`)}
-                                className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-[12px] font-bold px-3 py-1 rounded-[4px] transition-colors shadow-sm shadow-orange-500/10 cursor-pointer border-0"
+                                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[12px] font-bold px-3 py-1 rounded-[4px] transition-colors shadow-sm shadow-blue-500/10 cursor-pointer border-0"
                               >
                                 预览实操题
                               </button>
@@ -2253,8 +2253,8 @@ export default function TeacherCourseManage() {
                         }
                       }}
                       className={cn(
-                        "text-[#fa541c] font-medium text-[13px] transition-colors",
-                        selectedAssignmentDetail.assignTarget === 'partial' ? "hover:text-[#e84a15] hover:underline cursor-pointer" : ""
+                        "text-[#3b82f6] font-medium text-[13px] transition-colors",
+                        selectedAssignmentDetail.assignTarget === 'partial' ? "hover:text-[#2563eb] hover:underline cursor-pointer" : ""
                       )}
                     >
                       {selectedAssignmentDetail.assignTarget === 'all' 
@@ -2317,7 +2317,7 @@ export default function TeacherCourseManage() {
               {/* Header */}
               <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                 <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                  <CheckSquare className="w-5 h-5 text-[#fa541c]" />
+                  <CheckSquare className="w-5 h-5 text-[#3b82f6]" />
                   完成情况 - {selectedGradingAssignment.title}
                 </h2>
                 <button 
@@ -2328,7 +2328,7 @@ export default function TeacherCourseManage() {
                     setGradingSearchQuery('');
                     setGradingPage(1);
                   }} 
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -2348,7 +2348,7 @@ export default function TeacherCourseManage() {
                         setGradingSearchQuery(e.target.value);
                         setGradingPage(1); // reset to page 1 on search
                       }}
-                      className="w-full pl-9 pr-4 h-9 border border-neutral-200 rounded-full text-[13px] bg-white text-[#262626] placeholder-neutral-400 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all"
+                      className="w-full pl-9 pr-4 h-9 border border-neutral-200 rounded-full text-[13px] bg-white text-[#262626] placeholder-neutral-400 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all"
                     />
                   </div>
                   
@@ -2385,7 +2385,7 @@ export default function TeacherCourseManage() {
                           }
                         });
                       }}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-[13px] font-bold px-4 h-9 rounded-[4px] border-0 cursor-pointer transition-colors shadow-sm shadow-orange-500/10"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[13px] font-bold px-4 h-9 rounded-[4px] border-0 cursor-pointer transition-colors shadow-sm shadow-blue-500/10"
                     >
                       智能批改
                     </button>
@@ -2421,7 +2421,7 @@ export default function TeacherCourseManage() {
                           }
                         });
                       }}
-                      className="border border-[#fa541c] text-[#fa541c] bg-white hover:bg-orange-50/30 text-[13px] font-bold px-4 h-9 rounded-[4px] cursor-pointer transition-colors"
+                      className="border border-[#3b82f6] text-[#3b82f6] bg-white hover:bg-blue-50/30 text-[13px] font-bold px-4 h-9 rounded-[4px] cursor-pointer transition-colors"
                     >
                       发布成绩
                     </button>
@@ -2454,7 +2454,7 @@ export default function TeacherCourseManage() {
                           }
                         });
                       }}
-                      className="border border-[#fa541c]/50 text-[#fa541c] bg-white hover:bg-orange-50/30 text-[13px] font-bold px-4 h-9 rounded-[4px] cursor-pointer transition-colors"
+                      className="border border-[#3b82f6]/50 text-[#3b82f6] bg-white hover:bg-blue-50/30 text-[13px] font-bold px-4 h-9 rounded-[4px] cursor-pointer transition-colors"
                     >
                       延期
                     </button>
@@ -2536,7 +2536,7 @@ export default function TeacherCourseManage() {
                                   setSelectedGradingStudentIds(prev => Array.from(new Set([...prev, ...filteredIds])));
                                 }
                               }}
-                              className="w-4 h-4 rounded text-[#fa541c] focus:ring-[#fa541c] border-neutral-300 accent-[#fa541c] cursor-pointer mx-auto"
+                              className="w-4 h-4 rounded text-[#3b82f6] focus:ring-[#3b82f6] border-neutral-300 accent-[#3b82f6] cursor-pointer mx-auto"
                             />
                           </th>
                           <th className="p-4 font-medium text-center bg-neutral-50/50">学生姓名</th>
@@ -2560,7 +2560,7 @@ export default function TeacherCourseManage() {
                                     prev.includes(s.id) ? prev.filter(id => id !== s.id) : [...prev, s.id]
                                   );
                                 }}
-                                className="w-4 h-4 rounded text-[#fa541c] focus:ring-[#fa541c] border-neutral-300 accent-[#fa541c] cursor-pointer mx-auto"
+                                className="w-4 h-4 rounded text-[#3b82f6] focus:ring-[#3b82f6] border-neutral-300 accent-[#3b82f6] cursor-pointer mx-auto"
                               />
                             </td>
                             <td className="p-4 text-center text-neutral-800 font-bold">{s.name}</td>
@@ -2572,7 +2572,7 @@ export default function TeacherCourseManage() {
                                 "px-2 py-0.5 rounded-[4px] border text-[12px] transition-all",
                                 s.status === '已发布' && "bg-green-50 text-green-600 border-green-200",
                                 s.status === '打分中' && "bg-blue-50 text-blue-600 border-blue-200",
-                                s.status === '未发布' && "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]",
+                                s.status === '未发布' && "bg-[#eff6ff] text-[#3b82f6] border-[#bfdbfe]",
                                 s.status === '未提交' && "bg-neutral-50 text-neutral-600 border-neutral-200",
                                 s.status === '更新待发布' && "bg-purple-50 text-purple-600 border-purple-200"
                               )}>
@@ -2597,7 +2597,7 @@ export default function TeacherCourseManage() {
                                       setScoreModalAssignment(selectedGradingAssignment);
                                       setShowScoreModal(true);
                                     }}
-                                    className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                                    className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                                   >
                                     查看成绩
                                   </button>
@@ -2633,7 +2633,7 @@ export default function TeacherCourseManage() {
                                     "font-semibold transition-colors text-[13px] border-0 bg-transparent p-0",
                                     s.status === '未提交'
                                       ? "text-[#ff8d60] cursor-not-allowed"
-                                      : "text-[#fa541c] hover:text-[#e84a15] hover:underline cursor-pointer"
+                                      : "text-[#3b82f6] hover:text-[#2563eb] hover:underline cursor-pointer"
                                   )}
                                   title={s.status === '未提交' ? '未提交状态下无法评审作业' : undefined}
                                 >
@@ -2680,8 +2680,8 @@ export default function TeacherCourseManage() {
                               className={cn(
                                 "h-7 w-7 p-0 rounded-sm font-semibold transition-colors",
                                 isCurrent 
-                                  ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#e84a15] hover:text-white" 
-                                  : "bg-white text-neutral-600 hover:text-[#fa541c] hover:border-orange-200"
+                                  ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#2563eb] hover:text-white" 
+                                  : "bg-white text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200"
                               )}
                               onClick={() => setGradingPage(pageNum)}
                             >
@@ -2740,14 +2740,14 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#fa541c]" /> 选择试卷
+                <FileText className="w-5 h-5 text-[#3b82f6]" /> 选择试卷
               </h2>
               <button 
                 onClick={() => {
                   setSelectedPaperName(tempSelectedPaper);
                   setShowSelectPaperModal(false);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -2760,7 +2760,7 @@ export default function TeacherCourseManage() {
                   onClick={() => {
                     navigate('/teacher/papers', { state: { openCreate: true } });
                   }}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold text-[12px] px-3.5 h-8 transition-colors shrink-0"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold text-[12px] px-3.5 h-8 transition-colors shrink-0"
                 >
                   新建试卷
                 </Button>
@@ -2784,7 +2784,7 @@ export default function TeacherCourseManage() {
                         key={i} 
                         className={cn(
                           "border-b border-neutral-100 hover:bg-neutral-50/30 cursor-pointer transition-colors text-[13px] text-neutral-700",
-                          selectedPaperName === paper.name ? "bg-orange-50/10" : ""
+                          selectedPaperName === paper.name ? "bg-blue-50/10" : ""
                         )}
                         onClick={() => setSelectedPaperName(paper.name)}
                       >
@@ -2794,7 +2794,7 @@ export default function TeacherCourseManage() {
                             name="paperSelect" 
                             checked={selectedPaperName === paper.name} 
                             onChange={() => setSelectedPaperName(paper.name)}
-                            className="w-4 h-4 text-[#fa541c] focus:ring-[#fa541c] border-neutral-300 cursor-pointer accent-[#fa541c] mx-auto" 
+                            className="w-4 h-4 text-[#3b82f6] focus:ring-[#3b82f6] border-neutral-300 cursor-pointer accent-[#3b82f6] mx-auto" 
                           />
                         </td>
                         <td className="p-4 text-left font-medium text-neutral-900">{paper.name}</td>
@@ -2830,7 +2830,7 @@ export default function TeacherCourseManage() {
                       className={cn(
                         "h-7 w-7 p-0 rounded-[4px] font-bold text-[12px]",
                         paperModalPage === pageNum 
-                          ? "bg-[#fa541c] text-white border-[#fa541c]" 
+                          ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
                           : "bg-white hover:bg-neutral-50 text-neutral-700 border-neutral-200"
                       )}
                       onClick={() => setPaperModalPage(pageNum)}
@@ -2848,7 +2848,7 @@ export default function TeacherCourseManage() {
                     &gt;
                   </Button>
                 </div>
-                <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 bg-white focus:outline-none focus:border-[#fa541c] text-neutral-600">
+                <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 bg-white focus:outline-none focus:border-[#3b82f6] text-neutral-600">
                   <option>10 条/页</option>
                   <option>20 条/页</option>
                   <option>50 条/页</option>
@@ -2872,7 +2872,7 @@ export default function TeacherCourseManage() {
                  onClick={() => setShowSelectPaperModal(false)} 
                  className={cn(
                    "text-white font-bold h-9 px-6 rounded-[4px] text-[13px] shadow-sm transition-colors",
-                   selectedPaperName ? "bg-[#fa541c] hover:bg-[#e84a15] shadow-orange-500/10" : "bg-neutral-200 cursor-not-allowed"
+                   selectedPaperName ? "bg-[#3b82f6] hover:bg-[#2563eb] shadow-blue-500/10" : "bg-neutral-200 cursor-not-allowed"
                  )}
                  disabled={!selectedPaperName}
                >
@@ -2899,14 +2899,14 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#fa541c]" /> 选择学生
+                <Users className="w-5 h-5 text-[#3b82f6]" /> 选择学生
               </h2>
               <button 
                 onClick={() => {
                   setSelectedAssignStudentUsernames(tempSelectedStudents);
                   setShowSelectStudentModal(false);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -2938,8 +2938,8 @@ export default function TeacherCourseManage() {
                             "w-4 h-4 rounded-[3px] border flex items-center justify-center transition-all cursor-pointer mx-auto",
                             (MOCK_STUDENTS_PAGED[studentModalPage] || []).length > 0 && 
                             (MOCK_STUDENTS_PAGED[studentModalPage] || []).every(s => selectedAssignStudentUsernames.includes(s.username))
-                              ? "bg-[#fa541c] border-[#fa541c] text-white"
-                              : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                              ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                              : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                           )}
                         >
                           {(MOCK_STUDENTS_PAGED[studentModalPage] || []).length > 0 && 
@@ -2958,7 +2958,7 @@ export default function TeacherCourseManage() {
                         key={i} 
                         className={cn(
                           "border-b border-neutral-100 hover:bg-neutral-50/30 cursor-pointer transition-colors text-[13px] text-neutral-700",
-                          selectedAssignStudentUsernames.includes(student.username) ? "bg-orange-50/10" : ""
+                          selectedAssignStudentUsernames.includes(student.username) ? "bg-blue-50/10" : ""
                         )}
                         onClick={() => {
                           setSelectedAssignStudentUsernames(prev => 
@@ -2981,8 +2981,8 @@ export default function TeacherCourseManage() {
                             className={cn(
                               "w-4 h-4 rounded-[3px] border flex items-center justify-center transition-all cursor-pointer mx-auto",
                               selectedAssignStudentUsernames.includes(student.username)
-                                ? "bg-[#fa541c] border-[#fa541c] text-white"
-                                : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                                ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                                : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                             )}
                           >
                             {selectedAssignStudentUsernames.includes(student.username) && <span className="text-[10px] font-bold">✓</span>}
@@ -3018,7 +3018,7 @@ export default function TeacherCourseManage() {
                       className={cn(
                         "h-7 w-7 p-0 rounded-[4px] font-bold text-[12px]",
                         studentModalPage === pageNum 
-                          ? "bg-[#fa541c] text-white border-[#fa541c]" 
+                          ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
                           : "bg-white hover:bg-neutral-50 text-neutral-700 border-neutral-200"
                       )}
                       onClick={() => setStudentModalPage(pageNum)}
@@ -3036,7 +3036,7 @@ export default function TeacherCourseManage() {
                     &gt;
                   </Button>
                 </div>
-                <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 bg-white focus:outline-none focus:border-[#fa541c] text-neutral-600">
+                <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 bg-white focus:outline-none focus:border-[#3b82f6] text-neutral-600">
                   <option>10 条/页</option>
                   <option>20 条/页</option>
                   <option>50 条/页</option>
@@ -3060,7 +3060,7 @@ export default function TeacherCourseManage() {
                  onClick={() => setShowSelectStudentModal(false)} 
                  className={cn(
                    "text-white font-bold h-9 px-6 rounded-[4px] text-[13px] shadow-sm transition-colors cursor-pointer",
-                   selectedAssignStudentUsernames.length > 0 ? "bg-[#fa541c] hover:bg-[#e84a15] shadow-orange-500/10" : "bg-neutral-200 cursor-not-allowed"
+                   selectedAssignStudentUsernames.length > 0 ? "bg-[#3b82f6] hover:bg-[#2563eb] shadow-blue-500/10" : "bg-neutral-200 cursor-not-allowed"
                  )}
                  disabled={selectedAssignStudentUsernames.length === 0}
                >
@@ -3078,18 +3078,18 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Settings className="w-5 h-5 text-[#fa541c]" /> 配置评分维度
+                <Settings className="w-5 h-5 text-[#3b82f6]" /> 配置评分维度
               </h2>
               <button 
                 onClick={() => setShowScoringRulesModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             
             <div className="p-6 flex-1 space-y-6 bg-white text-[13px]">
-               <div className="bg-orange-50 border border-orange-100 p-3 rounded-[4px] flex items-start gap-2 mb-2">
+               <div className="bg-blue-50 border border-orange-100 p-3 rounded-[4px] flex items-start gap-2 mb-2">
                  <div className="text-orange-600 mt-0.5"><Award className="w-4 h-4" /></div>
                  <p className="text-[12px] text-orange-800 leading-relaxed">设置多个评分维度，方便批阅时打分。各个维度的分值总和应等于该任务的满分（100分）。</p>
                </div>
@@ -3100,13 +3100,13 @@ export default function TeacherCourseManage() {
                    { name: '代码规范与风格', desc: '遵守 PEP8，变量命名清晰', score: 30 },
                    { name: '算法效率优化', desc: '时间与空间复杂度达标', score: 30 },
                  ].map((rule, i) => (
-                   <div key={i} className="flex items-start gap-4 p-4 border border-neutral-200 rounded-xl bg-white group hover:border-[#fa541c] transition-colors relative">
+                   <div key={i} className="flex items-start gap-4 p-4 border border-neutral-200 rounded-xl bg-white group hover:border-[#3b82f6] transition-colors relative">
                      <div className="flex-1">
                        <input type="text" className="font-bold text-[14px] text-neutral-900 bg-transparent outline-none w-full mb-1" defaultValue={rule.name} />
                        <input type="text" className="text-[12px] text-neutral-500 bg-transparent outline-none w-full" defaultValue={rule.desc} />
                      </div>
                      <div className="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 bg-neutral-50">
-                       <input type="number" className="w-10 text-center font-bold text-[#fa541c] bg-transparent outline-none" defaultValue={rule.score} />
+                       <input type="number" className="w-10 text-center font-bold text-[#3b82f6] bg-transparent outline-none" defaultValue={rule.score} />
                        <span className="text-[12px] text-neutral-500 font-bold">分</span>
                      </div>
                      <button className="absolute -right-3 -top-3 w-6 h-6 bg-white border border-neutral-200 rounded-[4px] flex items-center justify-center text-neutral-400 hover:text-red-500 hover:border-red-200 shadow-sm opacity-0 group-hover:opacity-100 transition-all">
@@ -3116,14 +3116,14 @@ export default function TeacherCourseManage() {
                  ))}
                </div>
  
-               <Button variant="outline" className="w-full border-dashed border-neutral-300 text-neutral-600 hover:text-[#fa541c] hover:border-orange-300 bg-neutral-50 hover:bg-orange-50 h-10 rounded-[4px]">
+               <Button variant="outline" className="w-full border-dashed border-neutral-300 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-300 bg-neutral-50 hover:bg-blue-50 h-10 rounded-[4px]">
                  <Plus className="w-4 h-4 mr-2" /> 新增评分维度
                </Button>
             </div>
  
             {/* Footer */}
             <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 shrink-0 flex items-center justify-between gap-3">
-              <span className="text-[13px] font-bold text-neutral-600">当前总分：<span className="text-[#fa541c] text-[16px]">100</span> 分</span>
+              <span className="text-[13px] font-bold text-neutral-600">当前总分：<span className="text-[#3b82f6] text-[16px]">100</span> 分</span>
               <div className="flex gap-3">
                 <Button 
                   onClick={() => setShowScoringRulesModal(false)} 
@@ -3134,7 +3134,7 @@ export default function TeacherCourseManage() {
                 </Button>
                 <Button 
                   onClick={() => setShowScoringRulesModal(false)} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   保存规则
                 </Button>
@@ -3154,11 +3154,11 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <PlusCircle className="w-5 h-5 text-[#fa541c]" /> 新建章节
+                <PlusCircle className="w-5 h-5 text-[#3b82f6]" /> 新建章节
               </h2>
               <button 
                 onClick={() => setShowCreateChapterDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3167,11 +3167,11 @@ export default function TeacherCourseManage() {
             <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                  <span className="text-[#fa541c]">*</span> 章节名称
+                  <span className="text-[#3b82f6]">*</span> 章节名称
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                   placeholder="请输入章节名称" 
                   autoFocus 
                 />
@@ -3188,7 +3188,7 @@ export default function TeacherCourseManage() {
               </Button>
               <Button 
                 onClick={() => setShowCreateChapterDrawer(false)} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 添加
               </Button>
@@ -3211,7 +3211,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setShowTeachingMaterialModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3220,11 +3220,11 @@ export default function TeacherCourseManage() {
             <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                  <span className="text-[#fa541c]">*</span> 课件名称
+                  <span className="text-[#3b82f6]">*</span> 课件名称
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                   placeholder="请输入教学课件名称" 
                   autoFocus 
                 />
@@ -3241,7 +3241,7 @@ export default function TeacherCourseManage() {
               </Button>
               <Button 
                 onClick={() => setShowTeachingMaterialModal(false)} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 添加
               </Button>
@@ -3260,11 +3260,11 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                 <div className="w-1 h-4 bg-[#fa541c] rounded-full"></div> 选择实验课件 <span className="text-[13px] text-blue-500 font-normal cursor-pointer hover:underline ml-2">帮助教程 <Info className="w-3.5 h-3.5 inline mb-0.5" /></span>
+                 <div className="w-1 h-4 bg-[#3b82f6] rounded-full"></div> 选择实验课件 <span className="text-[13px] text-blue-500 font-normal cursor-pointer hover:underline ml-2">帮助教程 <Info className="w-3.5 h-3.5 inline mb-0.5" /></span>
               </h2>
               <button 
                 onClick={() => setShowExperimentMaterialModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3275,11 +3275,11 @@ export default function TeacherCourseManage() {
               {/* 课件名称 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                  <span className="text-[#fa541c]">*</span> 课件名称
+                  <span className="text-[#3b82f6]">*</span> 课件名称
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                   placeholder="请输入课件名称" 
                 />
               </div>
@@ -3290,19 +3290,19 @@ export default function TeacherCourseManage() {
                    <div className="text-[14px] font-bold text-neutral-700">我创建的</div>
                    <div className="flex items-center gap-3">
                      {isSearchingExperiment ? (
-                       <div className="flex items-center border border-[#fa541c] rounded-full px-3 h-8 overflow-hidden bg-white animation-slide-left">
-                         <Search className="w-3.5 h-3.5 text-[#fa541c] mr-2 shrink-0" />
+                       <div className="flex items-center border border-[#3b82f6] rounded-full px-3 h-8 overflow-hidden bg-white animation-slide-left">
+                         <Search className="w-3.5 h-3.5 text-[#3b82f6] mr-2 shrink-0" />
                          <input type="text" className="w-32 text-[13px] outline-none text-neutral-800 placeholder-neutral-400" placeholder="搜索课件..." autoFocus onBlur={() => setIsSearchingExperiment(false)} />
                        </div>
                      ) : (
-                       <div onClick={() => setIsSearchingExperiment(true)} className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer hover:bg-neutral-100 text-neutral-400 hover:text-[#fa541c] transition-colors">
+                       <div onClick={() => setIsSearchingExperiment(true)} className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer hover:bg-neutral-100 text-neutral-400 hover:text-[#3b82f6] transition-colors">
                          <Search className="w-4 h-4" />
                        </div>
                      )}
                      <Button 
                        onClick={() => navigate('/teacher', { state: { activeSubTab: 'project', openCreate: true } })} 
                        variant="outline" 
-                       className="h-8 border-[#fa541c] text-[#fa541c] hover:bg-orange-50 hover:text-[#fa541c] font-bold px-3 transition-colors rounded-[4px]"
+                       className="h-8 border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 hover:text-[#3b82f6] font-bold px-3 transition-colors rounded-[4px]"
                      >
                        <Plus className="w-3.5 h-3.5 mr-1" /> 新建
                      </Button>
@@ -3319,24 +3319,24 @@ export default function TeacherCourseManage() {
                        onClick={() => setSelectedExperimentIndex(idx)}
                        className={cn(
                          "flex items-center justify-between p-4 border border-b cursor-pointer group transition-all rounded-[4px] mb-1",
-                         selectedExperimentIndex === idx ? "bg-orange-50 border-orange-100 shadow-[0_2px_10px_rgba(250,84,28,0.05)]" : "hover:bg-neutral-50 border-neutral-50"
+                         selectedExperimentIndex === idx ? "bg-blue-50 border-orange-100 shadow-[0_2px_10px_rgba(59, 130, 246,0.05)]" : "hover:bg-neutral-50 border-neutral-50"
                        )}
                      >
                        <div className="flex items-center gap-4">
                          <div className={cn(
                            "w-10 h-10 rounded-xl flex items-center justify-center transition-colors",
-                           selectedExperimentIndex === idx ? "bg-[#fa541c] text-white" : "bg-orange-100 text-[#fa541c] group-hover:bg-[#fa541c] group-hover:text-white"
+                           selectedExperimentIndex === idx ? "bg-[#3b82f6] text-white" : "bg-blue-100 text-[#3b82f6] group-hover:bg-[#3b82f6] group-hover:text-white"
                          )}>
                            <Code className="w-5 h-5" />
                          </div>
                          <div>
-                           <div className="text-[15px] font-bold text-neutral-800 mb-1 group-hover:text-[#fa541c] transition-colors">{item.id}</div>
+                           <div className="text-[15px] font-bold text-neutral-800 mb-1 group-hover:text-[#3b82f6] transition-colors">{item.id}</div>
                            <div className="text-[12px] text-neutral-400 flex items-center gap-1"><Paperclip className="w-3 h-3" /> {item.subtitle}</div>
                          </div>
                        </div>
                        <div className={cn(
                          "w-4 h-4 rounded-full border flex items-center justify-center transition-all",
-                         selectedExperimentIndex === idx ? "border-[#fa541c] bg-[#fa541c]" : "border-neutral-300 group-hover:border-[#fa541c]"
+                         selectedExperimentIndex === idx ? "border-[#3b82f6] bg-[#3b82f6]" : "border-neutral-300 group-hover:border-[#3b82f6]"
                        )}>
                          {selectedExperimentIndex === idx && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
                        </div>
@@ -3348,7 +3348,7 @@ export default function TeacherCourseManage() {
 
             {/* Footer */}
             <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-between shrink-0">
-              <div className="text-[13px] text-neutral-505 font-medium">已选 <span className="text-[#fa541c] font-bold">{selectedExperimentIndex !== null ? 1 : 0}</span> 项</div>
+              <div className="text-[13px] text-neutral-505 font-medium">已选 <span className="text-[#3b82f6] font-bold">{selectedExperimentIndex !== null ? 1 : 0}</span> 项</div>
               <div className="flex gap-3">
                 <Button 
                   onClick={() => setShowExperimentMaterialModal(false)} 
@@ -3359,7 +3359,7 @@ export default function TeacherCourseManage() {
                 </Button>
                 <Button 
                   onClick={() => setShowExperimentMaterialModal(false)} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   确认
                 </Button>
@@ -3383,7 +3383,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setShowInteractiveMaterialModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3392,11 +3392,11 @@ export default function TeacherCourseManage() {
             <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                  <span className="text-[#fa541c]">*</span> 课件名称
+                  <span className="text-[#3b82f6]">*</span> 课件名称
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                   placeholder="请输入课件名称" 
                   autoFocus 
                 />
@@ -3413,7 +3413,7 @@ export default function TeacherCourseManage() {
               </Button>
               <Button 
                 onClick={() => setShowInteractiveMaterialModal(false)} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 添加
               </Button>
@@ -3429,11 +3429,11 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                 <div className="w-1 h-4 bg-[#fa541c] rounded-full"></div> 选择随堂作业
+                 <div className="w-1 h-4 bg-[#3b82f6] rounded-full"></div> 选择随堂作业
               </h2>
               <button 
                 onClick={() => setShowAssignmentModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3441,7 +3441,7 @@ export default function TeacherCourseManage() {
             
             <div className="px-6 border-b border-neutral-100 flex items-center justify-between">
                <div className="flex items-center gap-8">
-                 <div className="py-3 text-[14px] font-bold text-[#fa541c] border-b-2 border-[#fa541c] cursor-pointer">个人</div>
+                 <div className="py-3 text-[14px] font-bold text-[#3b82f6] border-b-2 border-[#3b82f6] cursor-pointer">个人</div>
                  <div className="py-3 text-[14px] font-medium text-neutral-500 hover:text-neutral-900 cursor-pointer border-b-2 border-transparent transition-colors">公开</div>
                </div>
                <Search className="w-4 h-4 text-neutral-400 cursor-pointer hover:text-neutral-600 transition-colors" />
@@ -3449,7 +3449,7 @@ export default function TeacherCourseManage() {
 
             <div className="px-6 py-3 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/30">
                <div className="text-[13px] text-neutral-500">列表</div>
-               <Button variant="outline" className="h-8 border-[#fa541c] text-[#fa541c] hover:bg-orange-50 hover:text-[#fa541c] font-bold px-3 transition-colors rounded-[4px]">
+               <Button variant="outline" className="h-8 border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 hover:text-[#3b82f6] font-bold px-3 transition-colors rounded-[4px]">
                  <Plus className="w-3.5 h-3.5 mr-1" /> 新建
                </Button>
             </div>
@@ -3470,16 +3470,16 @@ export default function TeacherCourseManage() {
                        <div className="text-[12px] text-neutral-400">{item.subtitle}</div>
                      </div>
                    </div>
-                   <div className="w-4 h-4 rounded-full border border-neutral-300 group-hover:border-[#fa541c] shrink-0 ml-4 transition-colors"></div>
+                   <div className="w-4 h-4 rounded-full border border-neutral-300 group-hover:border-[#3b82f6] shrink-0 ml-4 transition-colors"></div>
                  </div>
                ))}
             </div>
 
             <div className="p-5 border-t border-neutral-100 bg-white flex items-center justify-between shrink-0">
-              <div className="text-[13px] text-neutral-500">已选 <span className="text-[#fa541c] font-bold">0</span> 项</div>
+              <div className="text-[13px] text-neutral-500">已选 <span className="text-[#3b82f6] font-bold">0</span> 项</div>
               <div className="flex gap-3">
-                <Button onClick={() => setShowAssignmentModal(false)} variant="outline" className="border-neutral-200 text-[#fa541c] font-bold h-9 px-6 hover:bg-orange-50 hover:text-[#fa541c] rounded-[4px]">取消</Button>
-                <Button onClick={() => setShowAssignmentModal(false)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold h-9 px-8 shadow-sm shadow-orange-500/20">确认</Button>
+                <Button onClick={() => setShowAssignmentModal(false)} variant="outline" className="border-neutral-200 text-[#3b82f6] font-bold h-9 px-6 hover:bg-blue-50 hover:text-[#3b82f6] rounded-[4px]">取消</Button>
+                <Button onClick={() => setShowAssignmentModal(false)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold h-9 px-8 shadow-sm shadow-blue-500/20">确认</Button>
               </div>
             </div>
           </div>
@@ -3500,7 +3500,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setShowEditChapterDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3509,11 +3509,11 @@ export default function TeacherCourseManage() {
             <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                  <span className="text-[#fa541c]">*</span> 名称
+                  <span className="text-[#3b82f6]">*</span> 名称
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                   defaultValue="第一课" 
                   autoFocus 
                 />
@@ -3530,7 +3530,7 @@ export default function TeacherCourseManage() {
               </Button>
               <Button 
                 onClick={() => setShowEditChapterDrawer(false)} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 保存
               </Button>
@@ -3546,13 +3546,13 @@ export default function TeacherCourseManage() {
             {/* Body */}
             <div className="p-6 flex flex-col">
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-1 h-5 bg-[#fa541c] rounded-full mt-1 shrink-0"></div>
+                <div className="w-1 h-5 bg-[#3b82f6] rounded-full mt-1 shrink-0"></div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-[18px] font-bold text-neutral-900">删除确认</h2>
                     <button 
                       onClick={() => setShowDeleteChapterModal(false)} 
-                      className="text-neutral-400 hover:text-[#fa541c] transition-colors rounded-[4px] border-0 bg-transparent cursor-pointer p-0"
+                      className="text-neutral-400 hover:text-[#3b82f6] transition-colors rounded-[4px] border-0 bg-transparent cursor-pointer p-0"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -3560,7 +3560,7 @@ export default function TeacherCourseManage() {
                   <p className="text-[14px] text-neutral-600 mb-2">
                     确定要删除这个章吗？删除后将无法恢复
                   </p>
-                  <p className="text-[13px] text-[#fa541c] font-medium">
+                  <p className="text-[13px] text-[#3b82f6] font-medium">
                     若该目录下存在子目录或学生学习数据将一并删除
                   </p>
                 </div>
@@ -3576,7 +3576,7 @@ export default function TeacherCourseManage() {
                 </Button>
                 <Button 
                   onClick={() => setShowDeleteChapterModal(false)} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-6 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-6 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   确定
                 </Button>
@@ -3600,7 +3600,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setShowEditLessonDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3609,11 +3609,11 @@ export default function TeacherCourseManage() {
             <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                  <span className="text-[#fa541c]">*</span> 名称
+                  <span className="text-[#3b82f6]">*</span> 名称
                 </label>
                 <input 
                   type="text" 
-                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                   defaultValue={selectedEditLesson.title} 
                   autoFocus 
                 />
@@ -3630,7 +3630,7 @@ export default function TeacherCourseManage() {
               </Button>
               <Button 
                 onClick={() => setShowEditLessonDrawer(false)} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 保存
               </Button>
@@ -3646,13 +3646,13 @@ export default function TeacherCourseManage() {
             {/* Body */}
             <div className="p-6 flex flex-col">
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-1 h-5 bg-[#fa541c] rounded-full mt-1 shrink-0"></div>
+                <div className="w-1 h-5 bg-[#3b82f6] rounded-full mt-1 shrink-0"></div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-[18px] font-bold text-neutral-900">删除课时确认</h2>
                     <button 
                       onClick={() => setShowDeleteLessonModal(false)} 
-                      className="text-neutral-400 hover:text-[#fa541c] transition-colors rounded-[4px] border-0 bg-transparent cursor-pointer p-0"
+                      className="text-neutral-400 hover:text-[#3b82f6] transition-colors rounded-[4px] border-0 bg-transparent cursor-pointer p-0"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -3660,7 +3660,7 @@ export default function TeacherCourseManage() {
                   <p className="text-[14px] text-neutral-600 mb-2">
                     确定要删除 <strong>{selectedEditLesson.section} {selectedEditLesson.title}</strong> 吗？删除后将无法恢复。
                   </p>
-                  <p className="text-[13px] text-[#fa541c] font-medium">
+                  <p className="text-[13px] text-[#3b82f6] font-medium">
                     该课时关联的学习数据与学生记录将一并删除。
                   </p>
                 </div>
@@ -3676,7 +3676,7 @@ export default function TeacherCourseManage() {
                 </Button>
                 <Button 
                   onClick={() => setShowDeleteLessonModal(false)} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-6 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-6 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   确定
                 </Button>
@@ -3693,11 +3693,11 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <PlusCircle className="w-5 h-5 text-[#fa541c]" /> 邀请学生入班
+                <PlusCircle className="w-5 h-5 text-[#3b82f6]" /> 邀请学生入班
               </h2>
               <button 
                 onClick={() => setShowInviteModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3710,7 +3710,7 @@ export default function TeacherCourseManage() {
                 className={cn(
                   "py-3 text-[13px] font-bold border-b-2 transition-all mr-6 rounded-[4px] border-0 bg-transparent cursor-pointer",
                   inviteActiveTab === 'link' 
-                    ? "border-b-[#fa541c] text-[#fa541c]" 
+                    ? "border-b-[#3b82f6] text-[#3b82f6]" 
                     : "border-transparent text-neutral-400 hover:text-neutral-600"
                 )}
               >
@@ -3721,7 +3721,7 @@ export default function TeacherCourseManage() {
                 className={cn(
                   "py-3 text-[13px] font-bold border-b-2 transition-all rounded-[4px] border-0 bg-transparent cursor-pointer",
                   inviteActiveTab === 'manual' 
-                    ? "border-b-[#fa541c] text-[#fa541c]" 
+                    ? "border-b-[#3b82f6] text-[#3b82f6]" 
                     : "border-transparent text-neutral-400 hover:text-neutral-600"
                 )}
               >
@@ -3746,7 +3746,7 @@ export default function TeacherCourseManage() {
                         navigator.clipboard.writeText("X8J9K2");
                         alert("邀请码复制成功！");
                       }}
-                      className="bg-white border border-[#fa541c] text-[#fa541c] hover:bg-orange-50 font-bold text-[12px] px-3.5 h-9 rounded-[4px] transition-colors"
+                      className="bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 font-bold text-[12px] px-3.5 h-9 rounded-[4px] transition-colors"
                     >
                       复制邀请码
                     </Button>
@@ -3767,7 +3767,7 @@ export default function TeacherCourseManage() {
                           navigator.clipboard.writeText("https://platform.cosmos.com/join/course/1/X8J9K2");
                           alert("邀请链接复制成功！");
                         }}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold text-[12px] px-3.5 h-9 rounded-[4px] transition-colors shrink-0"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold text-[12px] px-3.5 h-9 rounded-[4px] transition-colors shrink-0"
                       >
                         复制链接
                       </Button>
@@ -3783,7 +3783,7 @@ export default function TeacherCourseManage() {
                       rows={4}
                       value={inviteInput}
                       onChange={(e) => setInviteInput(e.target.value)}
-                      className="w-full border border-neutral-200 rounded-[4px] px-4 py-3 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white resize-none"
+                      className="w-full border border-neutral-200 rounded-[4px] px-4 py-3 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white resize-none"
                     />
                     <div className="text-[11px] text-neutral-400">系统将自动向上述联系方式发送包含入班链接的短信或邮件通知。</div>
                   </div>
@@ -3804,7 +3804,7 @@ export default function TeacherCourseManage() {
                 <Button 
                   onClick={handleSendInvite}
                   disabled={!inviteInput.trim()}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold h-9 px-6 text-[13px] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold h-9 px-6 text-[13px] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   发送邀请
                 </Button>
@@ -3821,7 +3821,7 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Paperclip className="w-5 h-5 text-[#fa541c]" /> 批量授权用户名单
+                <Paperclip className="w-5 h-5 text-[#3b82f6]" /> 批量授权用户名单
               </h2>
               <button 
                 onClick={() => {
@@ -3829,7 +3829,7 @@ export default function TeacherCourseManage() {
                   setImportSelectedFile(null);
                   setImportProgress(0);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3840,7 +3840,7 @@ export default function TeacherCourseManage() {
               {/* Step 1: Download Template */}
               <div className="space-y-2">
                 <div className="text-[13px] font-bold text-neutral-800 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-orange-50 text-[#fa541c] flex items-center justify-center text-[11px] font-bold shrink-0">1</span>
+                  <span className="w-5 h-5 rounded-full bg-blue-50 text-[#3b82f6] flex items-center justify-center text-[11px] font-bold shrink-0">1</span>
                   下载Excel授权模板
                 </div>
                 <div className="pl-7 flex items-center justify-between">
@@ -3859,17 +3859,17 @@ export default function TeacherCourseManage() {
               {/* Step 2: Upload File */}
               <div className="space-y-3">
                 <div className="text-[13px] font-bold text-neutral-800 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-orange-50 text-[#fa541c] flex items-center justify-center text-[11px] font-bold shrink-0">2</span>
+                  <span className="w-5 h-5 rounded-full bg-blue-50 text-[#3b82f6] flex items-center justify-center text-[11px] font-bold shrink-0">2</span>
                   上传已填写的用户授权表
                 </div>
                 <div className="pl-7 space-y-3">
                   {!importSelectedFile ? (
                     <div 
                       onClick={handleMockUploadFile}
-                      className="border-2 border-dashed border-neutral-200 rounded-[4px] p-6 flex flex-col items-center justify-center bg-neutral-50/50 hover:bg-orange-50/10 hover:border-orange-200 cursor-pointer transition-all group"
+                      className="border-2 border-dashed border-neutral-200 rounded-[4px] p-6 flex flex-col items-center justify-center bg-neutral-50/50 hover:bg-blue-50/10 hover:border-blue-200 cursor-pointer transition-all group"
                     >
-                      <Paperclip className="w-8 h-8 text-neutral-300 group-hover:text-[#fa541c] transition-colors mb-2" />
-                      <div className="text-[13px] font-bold text-neutral-700 mb-1 group-hover:text-[#fa541c] transition-colors">
+                      <Paperclip className="w-8 h-8 text-neutral-300 group-hover:text-[#3b82f6] transition-colors mb-2" />
+                      <div className="text-[13px] font-bold text-neutral-700 mb-1 group-hover:text-[#3b82f6] transition-colors">
                         点击这里上传或将 Excel 文件拖拽到此处
                       </div>
                       <div className="text-[11px] text-neutral-400">仅支持 .xlsx, .xls 格式文件，文件不超过 10 MB</div>
@@ -3905,7 +3905,7 @@ export default function TeacherCourseManage() {
                         </div>
                         <div className="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-[#fa541c] rounded-full transition-all duration-150" 
+                            className="h-full bg-[#3b82f6] rounded-full transition-all duration-150" 
                             style={{ width: `${importProgress}%` }}
                           ></div>
                         </div>
@@ -3921,7 +3921,7 @@ export default function TeacherCourseManage() {
                   <div className="border-t border-neutral-100"></div>
                   <div className="space-y-3">
                     <div className="text-[13px] font-bold text-neutral-800 flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-orange-50 text-[#fa541c] flex items-center justify-center text-[11px] font-bold shrink-0">3</span>
+                      <span className="w-5 h-5 rounded-full bg-blue-50 text-[#3b82f6] flex items-center justify-center text-[11px] font-bold shrink-0">3</span>
                       预授权数据预览
                     </div>
                     <div className="pl-7 space-y-2">
@@ -3974,7 +3974,7 @@ export default function TeacherCourseManage() {
               {importSelectedFile && importProgress === 100 && (
                 <Button 
                   onClick={handleConfirmBatchAuthorize}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold h-9 px-6 text-[13px] shadow-sm"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold h-9 px-6 text-[13px] shadow-sm"
                 >
                   确认授权 (3名用户)
                 </Button>
@@ -3991,11 +3991,11 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Download className="w-5 h-5 text-[#fa541c]" /> 导出学情数据报告
+                <Download className="w-5 h-5 text-[#3b82f6]" /> 导出学情数据报告
               </h2>
               <button 
                 onClick={() => setShowExportModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -4021,7 +4021,7 @@ export default function TeacherCourseManage() {
                             className={cn(
                               "border-2 rounded-[4px] p-3.5 cursor-pointer transition-all hover:bg-neutral-50/50 flex flex-col text-left",
                               exportDimension === dim.id 
-                                ? "border-[#fa541c] bg-orange-50/10" 
+                                ? "border-[#3b82f6] bg-blue-50/10" 
                                 : "border-neutral-200 bg-white"
                             )}
                           >
@@ -4047,7 +4047,7 @@ export default function TeacherCourseManage() {
                               type="checkbox" 
                               checked={(exportColumns as any)[col.key]}
                               onChange={(e) => setExportColumns({ ...exportColumns, [col.key]: e.target.checked })}
-                              className="w-3.5 h-3.5 accent-[#fa541c]"
+                              className="w-3.5 h-3.5 accent-[#3b82f6]"
                             />
                             <span className="text-[12px] text-neutral-600 font-medium">{col.label}</span>
                           </label>
@@ -4069,7 +4069,7 @@ export default function TeacherCourseManage() {
                               name="exportFormat"
                               checked={exportFormat === fmt.id}
                               onChange={() => setExportFormat(fmt.id)}
-                              className="w-3.5 h-3.5 accent-[#fa541c]"
+                              className="w-3.5 h-3.5 accent-[#3b82f6]"
                             />
                             <span className="text-[12px] text-neutral-700 font-bold">{fmt.label}</span>
                           </label>
@@ -4080,7 +4080,7 @@ export default function TeacherCourseManage() {
                 </>
               ) : isExporting ? (
                 <div className="py-8 flex flex-col items-center justify-center space-y-4">
-                  <div className="w-12 h-12 rounded-full border-4 border-orange-100 border-t-[#fa541c] animate-spin"></div>
+                  <div className="w-12 h-12 rounded-full border-4 border-orange-100 border-t-[#3b82f6] animate-spin"></div>
                   <div className="text-center space-y-2">
                     <div className="text-[14px] font-bold text-neutral-800">正在打包生成高精学情数据报告...</div>
                     <div className="text-[11px] text-neutral-450 font-bold font-mono">EXPORTING PROGRESS: {exportProgress}%</div>
@@ -4089,7 +4089,7 @@ export default function TeacherCourseManage() {
                   {/* Progress Line */}
                   <div className="w-full max-w-[320px] h-2 bg-neutral-100 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-[#fa541c] rounded-full transition-all duration-200"
+                      className="h-full bg-[#3b82f6] rounded-full transition-all duration-200"
                       style={{ width: `${exportProgress}%` }}
                     ></div>
                   </div>
@@ -4139,7 +4139,7 @@ export default function TeacherCourseManage() {
                   </Button>
                   <Button 
                     onClick={handleStartExport}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold h-9 px-6 text-[13px] shadow-sm"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold h-9 px-6 text-[13px] shadow-sm"
                   >
                     开始生成报告
                   </Button>
@@ -4147,7 +4147,7 @@ export default function TeacherCourseManage() {
               ) : exportCompleted ? (
                 <Button 
                   onClick={() => setShowExportModal(false)}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold h-9 px-8 text-[13px]"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold h-9 px-8 text-[13px]"
                 >
                   完成
                 </Button>
@@ -4168,7 +4168,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setConfirmModal(prev => ({ ...prev, show: false }))} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -4176,7 +4176,7 @@ export default function TeacherCourseManage() {
 
             {/* Body */}
             <div className="p-6 flex items-start gap-3 bg-white">
-              <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
+              <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
               <div className="text-[14px] text-neutral-750 leading-normal">
                 {confirmModal.message}
               </div>
@@ -4197,7 +4197,7 @@ export default function TeacherCourseManage() {
                 onClick={() => {
                   confirmModal.onConfirm();
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -4217,7 +4217,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setShowBulkRevokeModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -4267,7 +4267,7 @@ export default function TeacherCourseManage() {
                   setSelectedStudents([]);
                   setShowBulkRevokeModal(false);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确认
               </Button>
@@ -4287,7 +4287,7 @@ export default function TeacherCourseManage() {
               </h2>
               <button 
                 onClick={() => setShowBulkAuthModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -4345,7 +4345,7 @@ export default function TeacherCourseManage() {
                   setStudentList([...studentList, ...newStudents]);
                   setShowBulkAuthModal(false);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确认
               </Button>
@@ -4369,7 +4369,7 @@ export default function TeacherCourseManage() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Award className="w-5 h-5 text-[#fa541c]" />
+                <Award className="w-5 h-5 text-[#3b82f6]" />
                 成绩详情 - {scoreModalAssignment?.title || '作业'}
               </h2>
               <button 
@@ -4377,7 +4377,7 @@ export default function TeacherCourseManage() {
                   setShowScoreModal(false);
                   setScoreModalAssignment(null);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -4407,7 +4407,7 @@ export default function TeacherCourseManage() {
                   
                   {/* Premium Profile Header Card */}
                   <div className="bg-white rounded-xl border border-neutral-100 p-5 flex items-center gap-5 shadow-[0_2px_12px_rgba(0,0,0,0.015)] select-none">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#ff7a45] to-[#fa541c] flex items-center justify-center text-white text-[18px] font-extrabold shadow-md shadow-orange-100 select-none shrink-0 font-sans">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#60a5fa] to-[#3b82f6] flex items-center justify-center text-white text-[18px] font-extrabold shadow-md shadow-blue-100 select-none shrink-0 font-sans">
                       {studentName.slice(-2)}
                     </div>
                     <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -4436,8 +4436,8 @@ export default function TeacherCourseManage() {
                     {/* Left Column: Grade KPI Indicator (span 4) */}
                     <div className="md:col-span-4 bg-white p-6 rounded-xl border border-neutral-100 shadow-[0_2px_12px_rgba(0,0,0,0.015)] flex flex-col items-center justify-center relative overflow-hidden group min-h-[380px]">
                       {/* Background design elements */}
-                      <div className="absolute -right-10 -top-10 w-28 h-28 bg-orange-100/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700"></div>
-                      <div className="absolute -left-10 -bottom-10 w-28 h-28 bg-[#fa541c]/5 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700"></div>
+                      <div className="absolute -right-10 -top-10 w-28 h-28 bg-blue-100/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700"></div>
+                      <div className="absolute -left-10 -bottom-10 w-28 h-28 bg-[#3b82f6]/5 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700"></div>
                       
                       <span className="text-[13px] font-bold text-neutral-400 mb-6 uppercase tracking-wider select-none">作业最终成绩</span>
                       
@@ -4466,8 +4466,8 @@ export default function TeacherCourseManage() {
                           />
                           <defs>
                             <linearGradient id="orangeRadialGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" stopColor="#ff9c6e" />
-                              <stop offset="100%" stopColor="#fa541c" />
+                              <stop offset="0%" stopColor="#93c5fd" />
+                              <stop offset="100%" stopColor="#3b82f6" />
                             </linearGradient>
                           </defs>
                         </svg>
@@ -4483,7 +4483,7 @@ export default function TeacherCourseManage() {
                       <div className="w-full grid grid-cols-2 gap-4 border-t border-neutral-100 pt-5 mt-4 select-none">
                         <div className="text-center">
                           <span className="text-[11px] text-neutral-400 font-bold block mb-1">客观题得分</span>
-                          <span className="text-[16px] font-extrabold text-[#fa541c] font-mono block">{displayScore.toFixed(1)}</span>
+                          <span className="text-[16px] font-extrabold text-[#3b82f6] font-mono block">{displayScore.toFixed(1)}</span>
                         </div>
                         <div className="text-center border-l border-neutral-100">
                           <span className="text-[11px] text-neutral-400 font-bold block mb-1">实训题得分</span>
@@ -4496,7 +4496,7 @@ export default function TeacherCourseManage() {
                     <div className="md:col-span-6 bg-white p-6 rounded-xl border border-neutral-100 shadow-[0_2px_12px_rgba(0,0,0,0.015)] flex flex-col space-y-5">
                       <div className="flex items-center justify-between pb-3 border-b border-neutral-100 select-none">
                         <h3 className="text-[13.5px] font-bold text-[#262626] flex items-center gap-2">
-                          <FileText className="w-4.5 h-4.5 text-[#fa541c]" />
+                          <FileText className="w-4.5 h-4.5 text-[#3b82f6]" />
                           <span>得分详细情况</span>
                         </h3>
                         <span className="text-[11px] text-neutral-400 font-bold uppercase tracking-wider">题型得分占比</span>
@@ -4509,7 +4509,7 @@ export default function TeacherCourseManage() {
                             <div key={cat.id} className="flex items-center gap-4 group/row py-0.5">
                               {/* Type Label */}
                               <div className="w-[75px] text-left shrink-0 select-none">
-                                <span className="text-[12.5px] font-bold text-neutral-500 group-hover/row:text-[#fa541c] transition-colors">
+                                <span className="text-[12.5px] font-bold text-neutral-500 group-hover/row:text-[#3b82f6] transition-colors">
                                   {cat.label}
                                 </span>
                               </div>
@@ -4517,7 +4517,7 @@ export default function TeacherCourseManage() {
                               {/* Premium Progress Bar Track */}
                               <div className="flex-1 bg-neutral-100 h-2 rounded-full overflow-hidden relative shadow-[inset_0_1px_2px_rgba(0,0,0,0.03)]">
                                 <div 
-                                  className="bg-gradient-to-r from-orange-400 to-[#fa541c] h-full rounded-full transition-all duration-700 ease-out shadow-sm shadow-orange-100"
+                                  className="bg-gradient-to-r from-blue-400 to-[#3b82f6] h-full rounded-full transition-all duration-700 ease-out shadow-sm shadow-blue-100"
                                   style={{ width: `${percentage}%` }}
                                 ></div>
                               </div>
@@ -4571,7 +4571,7 @@ export default function TeacherCourseManage() {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h3 className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-[#fa541c]" />
+                <FileText className="w-4 h-4 text-[#3b82f6]" />
                 评审作业 - {reviewModalStudent.name}
               </h3>
               <button 
@@ -4580,7 +4580,7 @@ export default function TeacherCourseManage() {
                   setReviewModalStudent(null);
                   setReviewModalAssignment(null);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4623,7 +4623,7 @@ export default function TeacherCourseManage() {
                                 setShowReviewPreview(true);
                                 setCurrentQuestionIndex(idx);
                               }}
-                              className="text-xs text-[#fa541c] hover:text-[#e84a15] transition-colors border border-[#fa541c]/30 hover:border-[#fa541c] bg-transparent px-2.5 py-1 rounded-[4px] cursor-pointer font-medium"
+                              className="text-xs text-[#3b82f6] hover:text-[#2563eb] transition-colors border border-[#3b82f6]/30 hover:border-[#3b82f6] bg-transparent px-2.5 py-1 rounded-[4px] cursor-pointer font-medium"
                             >
                               预览
                             </button>
@@ -4687,13 +4687,13 @@ export default function TeacherCourseManage() {
                       <div className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
                         <span>{currentQuestionIndex + 1}、{q.type}</span>
                         <span className="text-[13px] text-neutral-400 font-normal">({q.maxScore}分)</span>
-                        <span className="text-[13px] text-[#fa541c] font-bold ml-2">（得分: {q.score}分）</span>
+                        <span className="text-[13px] text-[#3b82f6] font-bold ml-2">（得分: {q.score}分）</span>
                       </div>
                       <div className="flex items-center gap-2 text-xs">
-                        <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-medium">
+                        <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-medium">
                           该题{q.maxScore}.0分
                         </span>
-                        <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-bold">
+                        <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-bold">
                           得{q.score}分
                         </span>
                       </div>
@@ -4792,7 +4792,7 @@ export default function TeacherCourseManage() {
                       <div className="mt-8 p-6 bg-[#fafafa] border border-neutral-200/80 rounded-xl flex flex-col gap-5 text-left max-w-[900px] select-none shadow-sm">
                         <div className="flex items-center justify-between pb-3 border-b border-neutral-100">
                           <div className="flex items-center gap-2 font-bold text-neutral-800 text-[14px]">
-                            <Award className="w-5 h-5 text-[#fa541c]" />
+                            <Award className="w-5 h-5 text-[#3b82f6]" />
                             <span>人工批改</span>
                           </div>
                           <span className="text-[11px] text-neutral-400 font-bold">批改中</span>
@@ -4817,7 +4817,7 @@ export default function TeacherCourseManage() {
                                   }
                                 }}
                                 placeholder="0"
-                                className="w-20 h-8 px-3 border border-neutral-200 rounded-[4px] bg-white text-xs font-bold text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all text-center"
+                                className="w-20 h-8 px-3 border border-neutral-200 rounded-[4px] bg-white text-xs font-bold text-neutral-800 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all text-center"
                               />
                               <span className="text-[13px] text-neutral-400 font-semibold">/ {q.maxScore} 分</span>
                             </div>
@@ -4829,7 +4829,7 @@ export default function TeacherCourseManage() {
                                 value={q.comment || ''}
                                 onChange={(e) => handleReviewQuestionCommentChange(q.id, e.target.value)}
                                 placeholder="请输入针对本题的个性化评语..."
-                                className="w-full min-h-[90px] p-3 border border-neutral-200 rounded-lg bg-white text-[13px] text-neutral-700 placeholder-neutral-400 focus:outline-none focus:border-[#fa541c]/50 focus:ring-1 focus:ring-[#fa541c]/20 transition-all resize-none shadow-sm"
+                                className="w-full min-h-[90px] p-3 border border-neutral-200 rounded-lg bg-white text-[13px] text-neutral-700 placeholder-neutral-400 focus:outline-none focus:border-[#3b82f6]/50 focus:ring-1 focus:ring-[#3b82f6]/20 transition-all resize-none shadow-sm"
                               />
                             </div>
                           </div>
@@ -4837,7 +4837,7 @@ export default function TeacherCourseManage() {
                           {/* Right: AI Intelligent Grading */}
                           <div className="bg-[#fff7f2]/50 border border-orange-100/60 rounded-xl p-4 flex flex-col justify-between">
                             <div className="space-y-2.5 text-left">
-                              <div className="flex items-center gap-1.5 text-[#fa541c] font-bold text-[13px] select-none">
+                              <div className="flex items-center gap-1.5 text-[#3b82f6] font-bold text-[13px] select-none">
                                 <Sparkles className="w-4 h-4" />
                                 <span>智能批改分析</span>
                               </div>
@@ -4850,7 +4850,7 @@ export default function TeacherCourseManage() {
                                 onClick={() => {
                                   handleReviewQuestionAIEvaluate(q.id);
                                 }}
-                                className="px-3.5 py-1.5 bg-gradient-to-r from-[#ff7a45] to-[#fa541c] text-white hover:opacity-95 font-bold rounded-lg text-xs cursor-pointer shadow-sm border-0 flex items-center gap-1"
+                                className="px-3.5 py-1.5 bg-gradient-to-r from-[#60a5fa] to-[#3b82f6] text-white hover:opacity-95 font-bold rounded-lg text-xs cursor-pointer shadow-sm border-0 flex items-center gap-1"
                               >
                                 <Cpu className="w-3.5 h-3.5" />
                                 重新智能分析
@@ -4868,7 +4868,7 @@ export default function TeacherCourseManage() {
                       variant="outline"
                       disabled={currentQuestionIndex === 0}
                       onClick={() => setCurrentQuestionIndex(idx => idx - 1)}
-                      className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                      className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
                     >
                       上一题
                     </Button>
@@ -4880,7 +4880,7 @@ export default function TeacherCourseManage() {
                         "px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1 cursor-pointer",
                         currentQuestionIndex === questions.length - 1
                           ? "bg-neutral-100 text-neutral-400 cursor-not-allowed border border-neutral-200 shadow-none"
-                          : "bg-[#fa541c] hover:bg-[#e84a15] text-white"
+                          : "bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                       )}
                     >
                       下一题
@@ -4931,7 +4931,7 @@ export default function TeacherCourseManage() {
                     <div className="pt-6 border-t border-neutral-200 mt-6 select-none shrink-0">
                       <Button 
                         onClick={handleReviewSubmitScore}
-                        className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
+                        className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
                       >
                         提交评分
                       </Button>

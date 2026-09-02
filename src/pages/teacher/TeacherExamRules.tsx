@@ -173,11 +173,11 @@ export default function TeacherExamRules() {
       >
         <div className={cn(
           "w-4 h-4 rounded-full border flex items-center justify-center bg-white transition-all",
-          isSelected ? "border-[#fa541c]" : "border-neutral-300"
+          isSelected ? "border-[#3b82f6]" : "border-neutral-300"
         )}>
-          {isSelected && <div className="w-2 h-2 rounded-full bg-[#fa541c]"></div>}
+          {isSelected && <div className="w-2 h-2 rounded-full bg-[#3b82f6]"></div>}
         </div>
-        <span className={cn("text-[13px] font-bold", isSelected ? "text-[#fa541c]" : "text-neutral-600")}>
+        <span className={cn("text-[13px] font-bold", isSelected ? "text-[#3b82f6]" : "text-neutral-600")}>
           {label}
         </span>
       </div>
@@ -217,14 +217,14 @@ export default function TeacherExamRules() {
                 placeholder="请输入要搜索的内容"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400"
+                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400"
               />
             </div>
           </div>
           <div className="flex items-center gap-2 w-full md:w-auto justify-end">
             <Button 
               onClick={handleOpenAdd} 
-              className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm h-9 px-4 rounded-[4px] text-xs font-semibold cursor-pointer border-0"
+              className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm h-9 px-4 rounded-[4px] text-xs font-semibold cursor-pointer border-0"
             >
               <Plus className="w-3.5 h-3.5" /> 新建规则
             </Button>
@@ -272,13 +272,13 @@ export default function TeacherExamRules() {
                       <div className="flex items-center justify-center gap-4">
                         <button
                           onClick={() => handleOpenEdit(rule)}
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap"
                         >
                           编辑
                         </button>
                         <button
                           onClick={() => setConfirmDeleteRule(rule)}
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap"
                         >
                           删除
                         </button>
@@ -311,12 +311,12 @@ export default function TeacherExamRules() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                {editingRule ? <Edit className="w-5 h-5 text-[#fa541c]" /> : <Plus className="w-5 h-5 text-[#fa541c]" />}
+                {editingRule ? <Edit className="w-5 h-5 text-[#3b82f6]" /> : <Plus className="w-5 h-5 text-[#3b82f6]" />}
                 {editingRule ? '编辑考试规则' : '新建考试规则'}
               </h2>
               <button 
                 onClick={() => setIsRuleModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -328,7 +328,7 @@ export default function TeacherExamRules() {
               {/* 规则名称 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right select-none">
-                  规则名称 <span className="text-[#fa541c]">*</span>
+                  规则名称 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -340,7 +340,7 @@ export default function TeacherExamRules() {
                       }
                     }}
                     placeholder="请输入规则名称"
-                    className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] h-9 pr-20"
+                    className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] h-9 pr-20"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-neutral-400 select-none pointer-events-none font-mono">
                     {ruleFormName.length} / 100
@@ -358,7 +358,7 @@ export default function TeacherExamRules() {
               {/* 提交方式 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right select-none">
-                  提交方式 <span className="text-[#fa541c]">*</span>
+                  提交方式 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="flex items-center gap-6">
                   {renderRadio('整体提交', '整体提交', ruleFormSubmitMethod, setRuleFormSubmitMethod)}
@@ -368,7 +368,7 @@ export default function TeacherExamRules() {
               {/* 交卷次数 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right select-none">
-                  交卷次数 <span className="text-[#fa541c]">*</span>
+                  交卷次数 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="flex items-center gap-6">
                   <div className="flex items-center gap-6">
@@ -409,7 +409,7 @@ export default function TeacherExamRules() {
               {/* 查看提交记录 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right select-none">
-                  查看提交记录 <span className="text-[#fa541c]">*</span>
+                  查看提交记录 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="flex items-center gap-6">
                   {renderRadio('展示', '展示', ruleFormViewRecords, setRuleFormViewRecords)}
@@ -427,7 +427,7 @@ export default function TeacherExamRules() {
               {/* 分数取值 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                 <label className="text-[13px] font-bold text-[#262626] text-right select-none">
-                  分数取值 <span className="text-[#fa541c]">*</span>
+                  分数取值 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="flex items-center gap-6">
                   {ruleFormSubmitLimit === '仅一次' ? (
@@ -444,7 +444,7 @@ export default function TeacherExamRules() {
               {/* 批阅设置 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                 <label className="text-[13px] font-bold text-[#262626] text-right select-none">
-                  批阅设置 <span className="text-[#fa541c]">*</span>
+                  批阅设置 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="flex items-center gap-6">
                   {ruleFormSubmitLimit === '仅一次' ? (
@@ -471,7 +471,7 @@ export default function TeacherExamRules() {
               </Button>
               <Button 
                 onClick={handleSaveRule}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -491,7 +491,7 @@ export default function TeacherExamRules() {
               </h2>
               <button 
                 onClick={() => setConfirmDeleteRule(null)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -499,7 +499,7 @@ export default function TeacherExamRules() {
 
             {/* Body */}
             <div className="p-6 bg-white flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
+              <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
               <div className="text-[14px] text-neutral-750 leading-normal">
                 确定要删除考试规则 "{confirmDeleteRule.name}" 吗？该操作不可撤销。
               </div>
@@ -519,7 +519,7 @@ export default function TeacherExamRules() {
                   handleDeleteRule(confirmDeleteRule);
                   setConfirmDeleteRule(null);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>

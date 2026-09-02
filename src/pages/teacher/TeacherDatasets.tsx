@@ -438,7 +438,7 @@ export default function TeacherDatasets({
           {toast.type === 'success' ? (
             <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0" />
           ) : (
-            <AlertCircle className="w-5 h-5 text-[#fa541c] shrink-0" />
+            <AlertCircle className="w-5 h-5 text-[#3b82f6] shrink-0" />
           )}
           <span className="text-[14px] font-medium text-neutral-800">{toast.message}</span>
         </div>
@@ -454,13 +454,13 @@ export default function TeacherDatasets({
               placeholder="搜索数据集名称" 
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)}
-              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-9 bg-white"
             />
           </div>
         </div>
 
         <div className="flex items-center gap-4">
-          <Button onClick={handleOpenCreate} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center">
+          <Button onClick={handleOpenCreate} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center">
             <Plus className="w-4 h-4 mr-1" /> 新建数据集
           </Button>
         </div>
@@ -504,7 +504,7 @@ export default function TeacherDatasets({
                           <div>
                             <div 
                               onClick={() => handleOpenDetail(ds)} 
-                              className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer"
+                              className="font-medium text-neutral-800 group-hover:text-[#3b82f6] transition-colors cursor-pointer"
                             >
                               {ds.name}
                             </div>
@@ -567,7 +567,7 @@ export default function TeacherDatasets({
                         <div className="flex items-center gap-3">
                           <button 
                             onClick={() => handleOpenDetail(ds)} 
-                            className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
+                            className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
                           >
                             查看
                           </button>
@@ -575,14 +575,14 @@ export default function TeacherDatasets({
                           {ds.creator === 'liuwei01' ? (
                             <button 
                               onClick={() => handleOpenEdit(ds)} 
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
                             >
                               编辑
                             </button>
                           ) : (
                             <button 
                               disabled
-                              className="text-[#ffbb96] bg-transparent border-0 cursor-not-allowed p-0 text-[13px] font-medium rounded-[4px] select-none opacity-80"
+                              className="text-[#bfdbfe] bg-transparent border-0 cursor-not-allowed p-0 text-[13px] font-medium rounded-[4px] select-none opacity-80"
                               title="非本人创建的数据集不可编辑"
                             >
                               编辑
@@ -592,14 +592,14 @@ export default function TeacherDatasets({
                           {ds.creator === 'liuwei01' ? (
                             <button 
                               onClick={() => handleDelete(ds)} 
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
                             >
                               删除
                             </button>
                           ) : (
                             <button 
                               disabled
-                              className="text-[#ffbb96] bg-transparent border-0 cursor-not-allowed p-0 text-[13px] font-medium rounded-[4px] select-none opacity-80"
+                              className="text-[#bfdbfe] bg-transparent border-0 cursor-not-allowed p-0 text-[13px] font-medium rounded-[4px] select-none opacity-80"
                               title="非本人创建的数据集不可删除"
                             >
                               删除
@@ -621,7 +621,7 @@ export default function TeacherDatasets({
               <p className="text-[13px] text-neutral-500 mb-6 max-w-sm">
                 当前分类下暂无数据集记录。您可以新建数据集或调整过滤条件。
               </p>
-              <Button onClick={handleOpenCreate} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-6 text-[13px] border-0 cursor-pointer">
+              <Button onClick={handleOpenCreate} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-6 text-[13px] border-0 cursor-pointer">
                 新建数据集
               </Button>
             </div>
@@ -636,14 +636,14 @@ export default function TeacherDatasets({
               <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
                 &lt;
               </button>
-              <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs">
+              <button className="w-7 h-7 bg-[#3b82f6] text-white rounded font-bold flex items-center justify-center shadow-xs">
                 1
               </button>
               <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
                 &gt;
               </button>
             </div>
-            <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
+            <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#3b82f6]">
               <option value="10">10 条/页</option>
               <option value="20">20 条/页</option>
               <option value="50">50 条/页</option>
@@ -669,7 +669,7 @@ export default function TeacherDatasets({
               </h2>
               <button 
                 onClick={() => setIsDrawerOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -679,14 +679,14 @@ export default function TeacherDatasets({
             <div className="flex-1 overflow-y-auto p-6 space-y-6">
               <div className="grid grid-cols-[80px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-neutral-400 text-right">
-                  名称 <span className="text-[#fa541c]">*</span>
+                  名称 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <input
                   type="text"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
                   placeholder="请输入数据集名称"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-neutral-800"
                 />
               </div>
 
@@ -698,14 +698,14 @@ export default function TeacherDatasets({
                   value={formDesc}
                   onChange={(e) => setFormDesc(e.target.value)}
                   placeholder="描述数据集的内容、用途及注意事项..."
-                  className="w-full h-24 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800 resize-none"
+                  className="w-full h-24 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-neutral-800 resize-none"
                 />
               </div>
 
               {/* 权限 (描述下方) */}
               <div className="grid grid-cols-[80px_1fr] items-start gap-4">
                 <label className="text-[13px] font-bold text-neutral-400 text-right pt-1.5">
-                  权限 <span className="text-[#fa541c]">*</span>
+                  权限 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div>
                   <div className="flex items-center gap-6 pt-1">
@@ -716,7 +716,7 @@ export default function TeacherDatasets({
                         value="私有" 
                         checked={formScope === '私有'} 
                         onChange={() => setFormScope('私有')}
-                        className="accent-[#fa541c] w-4 h-4 cursor-pointer"
+                        className="accent-[#3b82f6] w-4 h-4 cursor-pointer"
                       />
                       <span>私有</span>
                     </label>
@@ -727,7 +727,7 @@ export default function TeacherDatasets({
                         value="公开" 
                         checked={formScope === '公开'} 
                         onChange={() => setFormScope('公开')}
-                        className="accent-[#fa541c] w-4 h-4 cursor-pointer"
+                        className="accent-[#3b82f6] w-4 h-4 cursor-pointer"
                       />
                       <span>公开</span>
                     </label>
@@ -747,14 +747,14 @@ export default function TeacherDatasets({
                   {/* 类型下拉 (参考新建课程模块风格) */}
                   <div className="grid grid-cols-[80px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      类型 <span className="text-[#fa541c]">*</span>
+                      类型 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div ref={typeDropdownRef} className="relative w-full text-[13px]">
                       <div
                         onClick={() => setIsTypeDropdownOpen(!isTypeDropdownOpen)}
                         className={cn(
                           "min-h-[38px] w-full border rounded-[4px] px-3.5 py-2 flex items-center justify-between transition-all text-[#262626] bg-white cursor-pointer select-none",
-                          isTypeDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
+                          isTypeDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300"
                         )}
                       >
                         <span>{formType}</span>
@@ -786,13 +786,13 @@ export default function TeacherDatasets({
                                   className={cn(
                                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                                     isSelected 
-                                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                   )}
                                 >
                                   <span className="font-medium">{opt.label}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                                   )}
                                 </div>
                               );
@@ -813,7 +813,7 @@ export default function TeacherDatasets({
                         onClick={() => setIsTagDropdownOpen(!isTagDropdownOpen)}
                         className={cn(
                           "min-h-[38px] w-full border rounded-[4px] px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none",
-                          isTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
+                          isTagDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300"
                         )}
                       >
                         {formTags.length === 0 ? (
@@ -867,12 +867,12 @@ export default function TeacherDatasets({
                                 }
                               }}
                               placeholder="自定义标签按回车添加..."
-                              className="flex-1 border border-neutral-200 rounded px-2.5 py-1 text-[12px] focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800"
+                              className="flex-1 border border-neutral-200 rounded px-2.5 py-1 text-[12px] focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800"
                             />
                             <button
                               type="button"
                               onClick={handleAddCustomTag}
-                              className="px-2.5 py-1 text-[12px] bg-[#fa541c] text-white rounded hover:bg-[#e84a15] transition-colors shrink-0 font-medium cursor-pointer"
+                              className="px-2.5 py-1 text-[12px] bg-[#3b82f6] text-white rounded hover:bg-[#2563eb] transition-colors shrink-0 font-medium cursor-pointer"
                             >
                               添加
                             </button>
@@ -895,13 +895,13 @@ export default function TeacherDatasets({
                                   className={cn(
                                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                                     isSelected 
-                                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                   )}
                                 >
                                   <span className="font-medium">{tag}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                                   )}
                                 </div>
                               );
@@ -926,7 +926,7 @@ export default function TeacherDatasets({
               </Button>
               <Button 
                 onClick={handleSave} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 确认
               </Button>
@@ -948,12 +948,12 @@ export default function TeacherDatasets({
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 申请公开数据集资源
               </h2>
               <button 
                 onClick={() => setIsApplyPublicModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -962,11 +962,11 @@ export default function TeacherDatasets({
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">公开后平台师生可见可用</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">公开后平台师生可见可用</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     申请公开后，数据集需经过超管审核。审核通过将加入对应范围的公共数据集库，相应师生可见可用。
                   </p>
                 </div>
@@ -986,7 +986,7 @@ export default function TeacherDatasets({
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                    公开范围 <span className="text-[#fa541c]">*</span>
+                    公开范围 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -999,11 +999,11 @@ export default function TeacherDatasets({
                         className={cn(
                           "border p-4 rounded-[4px] cursor-pointer transition-all select-none flex flex-col gap-1",
                           applyRange === opt.key 
-                            ? "border-[#fa541c] bg-[#fff5f0]/30 font-bold"
+                            ? "border-[#3b82f6] bg-[#fff5f0]/30 font-bold"
                             : "border-neutral-200 bg-white hover:bg-neutral-50"
                         )}
                       >
-                        <span className={cn("font-bold text-[13px]", applyRange === opt.key ? "text-[#fa541c]" : "text-[#262626]")}>
+                        <span className={cn("font-bold text-[13px]", applyRange === opt.key ? "text-[#3b82f6]" : "text-[#262626]")}>
                           {opt.label}
                         </span>
                         <span className="text-[11px] text-neutral-400 leading-normal">{opt.desc}</span>
@@ -1014,13 +1014,13 @@ export default function TeacherDatasets({
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    申请说明 <span className="text-[#fa541c]">*</span>
+                    申请说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={applyReason}
                     onChange={(e) => setApplyReason(e.target.value)}
                     placeholder="请简述申请公开该数据集的理由或适用实验场景..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -1037,7 +1037,7 @@ export default function TeacherDatasets({
               </Button>
               <Button 
                 onClick={handleConfirmApplyPublic} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 提交申请
               </Button>
@@ -1059,12 +1059,12 @@ export default function TeacherDatasets({
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 下架数据集资源
               </h2>
               <button 
                 onClick={() => setIsOffShelfModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1073,11 +1073,11 @@ export default function TeacherDatasets({
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">下架后数据集将暂不对平台师生公开</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">下架后数据集将暂不对平台师生公开</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     下架数据集后，该数据资源将从公共数据集列表与课程绑定中隐藏。历史关联的项目仍保留缓存数据，但无法发起新的数据下载或调用。
                   </p>
                 </div>
@@ -1097,13 +1097,13 @@ export default function TeacherDatasets({
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    下架说明 <span className="text-[#fa541c]">*</span>
+                    下架说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={offShelfReason}
                     onChange={(e) => setOffShelfReason(e.target.value)}
                     placeholder="请简述下架该数据集的具体原因及后续安排..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -1120,7 +1120,7 @@ export default function TeacherDatasets({
               </Button>
               <Button 
                 onClick={handleOffShelfDataset} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 确认下架
               </Button>
@@ -1140,7 +1140,7 @@ export default function TeacherDatasets({
               </h2>
               <button 
                 onClick={() => setConfirmDialog(prev => ({ ...prev, show: false }))} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1148,7 +1148,7 @@ export default function TeacherDatasets({
 
             {/* Body */}
             <div className="p-6 flex items-start gap-3 bg-white">
-              <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
+              <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
               <div className="text-[14px] text-neutral-750 leading-normal">
                 {confirmDialog.message}
               </div>
@@ -1168,7 +1168,7 @@ export default function TeacherDatasets({
                   confirmDialog.onConfirm();
                   setConfirmDialog(prev => ({ ...prev, show: false }));
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>

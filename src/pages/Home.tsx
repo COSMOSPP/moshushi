@@ -43,16 +43,6 @@ const CORE_FEATURES = [
     mockType: "courses",
   },
   {
-    id: "projects",
-    title: "云沙箱项目",
-    icon: Layers,
-    badge: "工程实训中心",
-    tagline: "海量实训项目模板，一键部署虚拟机与容器沙箱",
-    description: "为学生提供开箱即用的工业级实训项目。平台自动根据项目需求调配对应的异构物理机或容器实例，支持端口映射与远程桌面在线调试。",
-    highlights: ["提供企业级真实系统/业务实战沙箱", "预装核心开发包及依赖环境，免配置", "支持一键复制与多人协作调试模式"],
-    mockType: "projects",
-  },
-  {
     id: "practices",
     title: "最佳实践库",
     icon: Star,
@@ -111,14 +101,14 @@ const SUCCESS_CASES = [
     badge: "国家级赛事",
     tagline: "31省精英职工同台竞技，系统可用性99.99%",
     image: "https://picsum.photos/seed/case1/800/500",
-    color: "from-orange-500 to-red-600",
+    color: "from-blue-600 to-indigo-600",
     stats: [
       { label: "覆盖省份", val: "31 个" },
       { label: "参赛职工", val: "10,000+ 人" },
       { label: "系统可用性", val: "99.99%" }
     ],
     detail: {
-      overview: "作为全国职工技能竞技的最高殿堂，本届竞赛全面引入智云实训平台作为官方评测环境。大赛由全国总工会主办，聚焦新一代数据科学与智能运维技能。我们提供了全方位的算力支持与防作弊守护，确保全国赛区同步安全、公平展开。",
+      overview: "作为全国职工技能竞技的最高殿堂，本届竞赛全面引入模数师数字平台作为官方评测环境。大赛由全国总工会主办，聚焦新一代数据科学与智能运维技能。我们提供了全方位的算力支持与防作弊守护，确保全国赛区同步安全、公平展开。",
       metrics: [
         { label: "最高并发在线沙箱", val: "2,400+ 个" },
         { label: "实操自动化评测响应", val: "1.2 秒" },
@@ -155,7 +145,7 @@ const SUCCESS_CASES = [
     badge: "高等教育育人示范",
     tagline: "对接100+所高校学科建设，落地50,000+学生培养",
     image: "https://picsum.photos/seed/case3/800/500",
-    color: "from-amber-500 to-orange-600",
+    color: "from-sky-500 to-blue-600",
     stats: [
       { label: "合作高校", val: "100+ 所" },
       { label: "受益学生", val: "50,000+ 人" },
@@ -235,16 +225,16 @@ const renderScenarioMockup = (mockType: string) => {
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-2xl h-full flex flex-col justify-between text-left font-sans">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs text-orange-500 font-bold bg-orange-500/10 px-2.5 py-1 rounded-full border border-orange-500/20">DeepSeek-R1-Distill-7B</span>
+              <span className="text-xs text-[#3b82f6] font-bold bg-[#3b82f6]/10 px-2.5 py-1 rounded-full border border-[#3b82f6]/20">DeepSeek-R1-Distill-7B</span>
               <span className="text-xs text-slate-500 font-mono">Tuning Loss: 0.12</span>
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-slate-400">
                 <span>LoRA Rank (r)</span>
-                <span className="text-orange-500 font-bold font-mono">16</span>
+                <span className="text-[#3b82f6] font-bold font-mono">16</span>
               </div>
               <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
-                <div className="w-[80%] h-full bg-orange-500 rounded-full"></div>
+                <div className="w-[80%] h-full bg-[#3b82f6] rounded-full"></div>
               </div>
               <div className="flex items-center justify-between text-xs text-slate-400">
                 <span>GPU Usage</span>
@@ -332,7 +322,7 @@ const renderFeatureMockup = (mockType: string) => {
           <div className="space-y-3 flex-1 text-left text-sm text-slate-300">
             <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
               <div className="font-bold text-slate-100 flex items-center gap-2 mb-1">
-                <span className="text-orange-500">第一章:</span> 人工智能训练师基础
+                <span className="text-[#3b82f6]">第一章:</span> 人工智能训练师基础
               </div>
               <div className="text-xs text-slate-500 pl-4">集成3门在线实验 · 包含4个视频课件</div>
             </div>
@@ -348,7 +338,7 @@ const renderFeatureMockup = (mockType: string) => {
               <span className="text-xs text-slate-400">课程总学时:</span>
               <span className="text-xs font-bold text-white bg-slate-800 px-2 py-0.5 rounded">32 小时</span>
             </div>
-            <span className="text-xs text-orange-500 font-bold">交互式课件已就绪</span>
+            <span className="text-xs text-[#3b82f6] font-bold">交互式课件已就绪</span>
           </div>
         </div>
       );
@@ -383,7 +373,7 @@ const renderFeatureMockup = (mockType: string) => {
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-2xl h-full flex flex-col justify-between text-left font-sans">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs text-orange-500 font-bold bg-orange-500/10 px-2.5 py-1 rounded-full border border-orange-500/20">大模型微调演练</span>
+              <span className="text-xs text-[#3b82f6] font-bold bg-[#3b82f6]/10 px-2.5 py-1 rounded-full border border-[#3b82f6]/20">大模型微调演练</span>
               <span className="text-xs text-slate-500 font-mono">V100 算力挂载</span>
             </div>
             <h4 className="text-base font-bold text-white mb-2">LoRA 参数高效微调实践</h4>
@@ -393,14 +383,14 @@ const renderFeatureMockup = (mockType: string) => {
           <div className="bg-slate-950 rounded-xl p-3 border border-slate-800/80 space-y-2.5 my-3">
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-500">Learning Rate (学习率)</span>
-              <span className="text-orange-500 font-mono font-bold">2e-4</span>
+              <span className="text-[#3b82f6] font-mono font-bold">2e-4</span>
             </div>
             <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
-              <div className="w-[60%] h-full bg-orange-500 rounded-full"></div>
+              <div className="w-[60%] h-full bg-[#3b82f6] rounded-full"></div>
             </div>
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-500">Epochs (微调轮数)</span>
-              <span className="text-orange-500 font-mono font-bold">3 / 5</span>
+              <span className="text-[#3b82f6] font-mono font-bold">3 / 5</span>
             </div>
           </div>
           
@@ -499,10 +489,10 @@ const renderFeatureMockup = (mockType: string) => {
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                <Cpu className="w-4 h-4 text-orange-500" />
+                <Cpu className="w-4 h-4 text-[#3b82f6]" />
                 算力资源调度监控
               </span>
-              <span className="text-xs text-orange-500 font-bold font-mono">GPU ACTIVE</span>
+              <span className="text-xs text-[#3b82f6] font-bold font-mono">GPU ACTIVE</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed mb-3">支持对租户及算力卡时的细粒度按需分配与监控。</p>
           </div>
@@ -515,7 +505,7 @@ const renderFeatureMockup = (mockType: string) => {
                 <span className="text-white font-mono font-bold">82.5%</span>
               </div>
               <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                <div className="w-[82.5%] h-full bg-gradient-to-r from-orange-400 to-[#fa541c] rounded-full"></div>
+                <div className="w-[82.5%] h-full bg-gradient-to-r from-blue-400 to-[#3b82f6] rounded-full"></div>
               </div>
             </div>
             {/* progress bar 2 */}
@@ -540,7 +530,7 @@ const renderFeatureMockup = (mockType: string) => {
       return (
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-2xl h-full flex flex-col justify-between text-left font-sans relative overflow-hidden">
           {/* Watermark overlay */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none select-none flex flex-wrap gap-3 items-center justify-center text-[10px] text-orange-500 font-mono rotate-12">
+          <div className="absolute inset-0 opacity-5 pointer-events-none select-none flex flex-wrap gap-3 items-center justify-center text-[10px] text-[#3b82f6] font-mono rotate-12">
             <div>DATA SECURE ZERO EXPORT</div>
             <div>AUDIT ENABLED</div>
           </div>
@@ -607,7 +597,7 @@ export default function Home() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
     const quickAccess = [
-      { title: "我的课程", desc: "继续您的学习旅程", icon: BookOpen, color: "text-[#fa541c]", bg: "bg-[#fff2e8]", href: "/user/courses" },
+      { title: "我的课程", desc: "继续您的学习旅程", icon: BookOpen, color: "text-[#3b82f6]", bg: "bg-blue-50", href: "/user/courses" },
       { title: "我的项目", desc: "管理您的实战沙箱", icon: Target, color: "text-indigo-600", bg: "bg-indigo-50", href: "/login/user" },
       { title: "最近访问", desc: "快速回到上次进度", icon: Star, color: "text-amber-500", bg: "bg-amber-50", href: "/login/user" },
       { title: "推荐内容", desc: "发现更多优质资源", icon: Flame, color: "text-rose-500", bg: "bg-rose-50", href: "/user" }
@@ -621,13 +611,6 @@ export default function Home() {
       { title: "计算机视觉 (CV)", intro: "图像处理、目标检测与识别技术", image: "https://picsum.photos/seed/c5/600/400", tags: ["CV", "实战"] }
     ];
   
-    const practices = [
-      { title: "DeepSeek R1 本地私有化部署指南", rating: 4.9, views: "12.5k", image: "https://picsum.photos/seed/p1/600/400" },
-      { title: "基于 Dify 搭建企业级智能知识库", rating: 4.8, views: "8.2k", image: "https://picsum.photos/seed/p2/600/400" },
-      { title: "大模型微调 (LoRA) 性能优化技巧", rating: 4.7, views: "6.4k", image: "https://picsum.photos/seed/p3/600/400" },
-      { title: "AI Agent 智能体开发从入门到精通", rating: 4.9, views: "15.1k", image: "https://picsum.photos/seed/p4/600/400" }
-    ];
-  
     const announcements = [
       { date: "2025-03-18", title: "平台系统架构升级与维护通知", icon: Bell, isNew: true },
       { date: "2025-03-15", title: "AI 能力中心全新上线，支持异构算力调度", icon: Megaphone, isNew: true },
@@ -635,10 +618,10 @@ export default function Home() {
     ];
   
     return (
-      <div className="flex flex-col min-h-full bg-[#f8fafc] font-sans selection:bg-orange-100 selection:text-orange-900">
+      <div className="flex flex-col min-h-full bg-[#f8fafc] font-sans selection:bg-blue-100 selection:text-blue-900">
         
         {/* Hero Section - Light Luxury Style */}
-        <div className="relative w-full aspect-[1024/346] min-h-[250px] max-h-[580px] overflow-hidden bg-[#fff5eb]">
+        <div className="relative w-full aspect-[1024/346] min-h-[250px] max-h-[580px] overflow-hidden bg-[#eff6ff]">
           {slides.map((slide, index) => {
             const isCurrent = index === currentSlide;
             
@@ -675,12 +658,12 @@ export default function Home() {
                   className="w-full h-full object-cover object-right md:object-center transition-all duration-500"
                 />
                 {/* Elegant Light Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#fff5eb]/90 via-[#fff5eb]/65 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#eff6ff]/90 via-[#eff6ff]/65 to-transparent"></div>
                 
                 <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-24 max-w-5xl">
                   {slide.badge && (
                     <div className="overflow-hidden mb-4 animate-fade-in-up">
-                      <span className="inline-block py-1 px-3 rounded-full bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] text-sm font-medium tracking-wide">
+                      <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-200 text-[#3b82f6] text-sm font-medium tracking-wide">
                         {slide.badge}
                       </span>
                     </div>
@@ -744,7 +727,7 @@ export default function Home() {
                   <item.icon className={cn("w-7 h-7", item.color)} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-slate-900 group-hover:text-[#fa541c] transition-colors">{item.title}</h3>
+                  <h3 className="font-bold text-lg text-slate-900 group-hover:text-[#3b82f6] transition-colors">{item.title}</h3>
                   <p className="text-sm text-slate-500 mt-0.5">{item.desc}</p>
                 </div>
               </Link>
@@ -770,7 +753,7 @@ export default function Home() {
                      className={cn(
                        "px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap",
                        activeScenario === scenario 
-                         ? "bg-white text-[#fa541c] shadow-sm" 
+                         ? "bg-white text-[#3b82f6] shadow-sm" 
                          : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
                      )}
                    >
@@ -804,7 +787,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h4 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-[#fa541c] transition-colors line-clamp-1">
+                    <h4 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-[#3b82f6] transition-colors line-clamp-1">
                       {course.title}
                     </h4>
                     <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed">
@@ -816,60 +799,14 @@ export default function Home() {
             </div>
           </section>
   
-          {/* Best Practices */}
-          <section id="best-practices" className="scroll-mt-24">
-            <div className="flex items-end justify-between mb-12">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">最佳实践</h3>
-                <p className="text-slate-500 text-lg font-light">真实业务场景驱动，沉浸式积累一线实战经验</p>
-              </div>
-              <Link to="/user/practices" className="hidden md:flex items-center gap-2 text-[#fa541c] font-medium hover:text-[#e84a15] transition-colors group">
-                查看更多实践 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-              {practices.map((practice, i) => (
-                <Link to="/user/practices" state={{ showDetail: true, practiceId: i + 1 }} key={i} className="group block bg-white rounded-3xl overflow-hidden shadow-[0_2px_20px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 border border-slate-100">
-                  <div className="relative aspect-video overflow-hidden bg-slate-100">
-                    <img 
-                      src={practice.image} 
-                      alt={practice.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-sm flex items-center gap-1.5">
-                      <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                      <span className="text-sm font-bold text-slate-900">{practice.rating}</span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-bold text-lg text-slate-900 mb-4 group-hover:text-[#fa541c] transition-colors line-clamp-2 leading-snug h-[56px]">
-                      {practice.title}
-                    </h4>
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                      <div className="flex items-center gap-2 text-sm text-slate-500">
-                        <TrendingUp className="w-4 h-4 text-emerald-500" />
-                        <span>{practice.views} 人已学习</span>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-colors">
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          {/* ==================== 1. 实训平台功能展示 ==================== */}
+          {/* ==================== 1. 数字平台功能展示 ==================== */}
           <section id="platform-showcase" className="scroll-mt-24 bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-slate-100/80">
             <div className="max-w-3xl mb-12 text-left">
-              <span className="inline-block py-1 px-3 rounded-full bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] text-xs font-semibold tracking-wide uppercase mb-3">
+              <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-200 text-[#3b82f6] text-xs font-semibold tracking-wide uppercase mb-3">
                 ZhiYun Core Features
               </span>
               <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
-                实训平台核心功能展示
+                数字平台核心功能展示
               </h3>
               <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed">
                 全方位支撑新形态数字化实训，提供从课程制作、沙箱工程、防作弊考试、竞技比赛到算力调度与安全隔离的一体化闭环保障。
@@ -887,9 +824,9 @@ export default function Home() {
                       key={feat.id}
                       onClick={() => setActiveFeature(feat.id)}
                       className={cn(
-                        "w-full p-4 rounded-2xl flex items-center gap-4 text-left border transition-all duration-300 group hover:-translate-y-0.5",
+                        "w-full p-4 rounded-2xl flex items-center gap-4 text-left border transition-all duration-300 group hover:-translate-y-0.5 cursor-pointer",
                         isSelected
-                          ? "bg-[#fff2e8]/40 border-[#ffbb96]/60 shadow-sm"
+                          ? "bg-blue-50/60 border-blue-200 shadow-sm"
                           : "bg-white border-slate-100 hover:border-slate-200/80 hover:bg-slate-50/50"
                       )}
                     >
@@ -897,7 +834,7 @@ export default function Home() {
                         className={cn(
                           "w-11 h-11 rounded-xl flex items-center justify-center transition-colors flex-shrink-0",
                           isSelected
-                            ? "bg-[#fa541c] text-white"
+                            ? "bg-[#3b82f6] text-white"
                             : "bg-slate-100 text-slate-500 group-hover:bg-slate-200/80 group-hover:text-slate-700"
                         )}
                       >
@@ -907,7 +844,7 @@ export default function Home() {
                         <div
                           className={cn(
                             "font-bold text-sm tracking-wide transition-colors",
-                            isSelected ? "text-[#fa541c]" : "text-slate-800"
+                            isSelected ? "text-[#3b82f6]" : "text-slate-800"
                           )}
                         >
                           {feat.title}
@@ -919,7 +856,7 @@ export default function Home() {
                       <ChevronRight
                         className={cn(
                           "w-4 h-4 text-slate-400 transition-all",
-                          isSelected ? "text-[#fa541c] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
+                          isSelected ? "text-[#3b82f6] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
                         )}
                       />
                     </button>
@@ -930,8 +867,8 @@ export default function Home() {
               {/* Right Showcase Card - 7 cols */}
               <div className="lg:col-span-7 flex flex-col justify-between bg-slate-950 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden shadow-2xl border border-slate-800 min-h-[440px]">
                 {/* Background ambient light */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-[80px] -translate-y-1/3 translate-x-1/3"></div>
-                <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#fa541c]/5 rounded-full blur-[60px] translate-y-1/3 -translate-x-1/3"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[80px] -translate-y-1/3 translate-x-1/3"></div>
+                <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#3b82f6]/5 rounded-full blur-[60px] translate-y-1/3 -translate-x-1/3"></div>
 
                 {CORE_FEATURES.map((feat) => {
                   if (feat.id !== activeFeature) return null;
@@ -939,7 +876,7 @@ export default function Home() {
                     <div key={feat.id} className="h-full flex flex-col justify-between gap-6 animate-in fade-in duration-500 relative z-10 flex-1">
                       <div className="space-y-4 text-left">
                         <div className="flex items-center justify-between gap-4">
-                          <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-orange-400 border border-white/5 uppercase tracking-wider">
+                          <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-blue-400 border border-white/5 uppercase tracking-wider">
                             {feat.badge}
                           </span>
                           <span className="text-[10px] font-mono text-slate-500">ZHIYUN ENGINE V2.0</span>
@@ -977,7 +914,7 @@ export default function Home() {
           <section id="success-stories" className="scroll-mt-24">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 text-left">
               <div>
-                <span className="inline-block py-1 px-3 rounded-full bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] text-xs font-semibold tracking-wide uppercase mb-3">
+                <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-200 text-[#3b82f6] text-xs font-semibold tracking-wide uppercase mb-3">
                   ZhiYun Success Cases
                 </span>
                 <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
@@ -1020,7 +957,7 @@ export default function Home() {
                   {/* Body Content */}
                   <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
                     <div>
-                      <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition-colors">
+                      <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#3b82f6] transition-colors">
                         {item.title}
                       </h4>
                       <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed mb-6">
@@ -1045,7 +982,7 @@ export default function Home() {
                     {/* CTA Button */}
                     <button
                       onClick={() => setSelectedCase(item)}
-                      className="w-full h-11 inline-flex items-center justify-center rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 hover:shadow-lg transition-all duration-300"
+                      className="w-full h-11 inline-flex items-center justify-center rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 hover:shadow-lg transition-all duration-300 cursor-pointer"
                     >
                       查看案例详情 <ArrowRight className="w-4 h-4 ml-2" />
                     </button>
@@ -1058,11 +995,11 @@ export default function Home() {
           {/* ==================== 业务场景展示模块 ==================== */}
           <section id="business-scenarios" className="scroll-mt-24 bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-slate-100/80">
             <div className="max-w-3xl mb-12 text-left">
-              <span className="inline-block py-1 px-3 rounded-full bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] text-xs font-semibold tracking-wide uppercase mb-3">
+              <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-200 text-[#3b82f6] text-xs font-semibold tracking-wide uppercase mb-3">
                 ZhiYun Scenarios
               </span>
               <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
-                实训平台业务场景展示
+                数字平台业务场景展示
               </h3>
               <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed">
                 深度覆盖人工智能开发、云计算编排虚拟化和零信任安全运维审计三大业务场景，与企业真实生产无缝对接。
@@ -1082,7 +1019,7 @@ export default function Home() {
                       className={cn(
                         "w-full p-4 rounded-2xl flex items-center gap-4 text-left border transition-all duration-300 group hover:-translate-y-0.5 cursor-pointer",
                         isSelected
-                          ? "bg-[#fff2e8]/40 border-[#ffbb96]/60 shadow-sm"
+                          ? "bg-blue-50/60 border-blue-200 shadow-sm"
                           : "bg-white border-slate-100 hover:border-slate-200/80 hover:bg-slate-50/50"
                       )}
                     >
@@ -1090,7 +1027,7 @@ export default function Home() {
                         className={cn(
                           "w-11 h-11 rounded-xl flex items-center justify-center transition-colors flex-shrink-0",
                           isSelected
-                            ? "bg-[#fa541c] text-white"
+                            ? "bg-[#3b82f6] text-white"
                             : "bg-slate-100 text-slate-500 group-hover:bg-slate-200/80 group-hover:text-slate-700"
                         )}
                       >
@@ -1100,7 +1037,7 @@ export default function Home() {
                         <div
                           className={cn(
                             "font-bold text-sm tracking-wide transition-colors",
-                            isSelected ? "text-[#fa541c]" : "text-slate-800"
+                            isSelected ? "text-[#3b82f6]" : "text-slate-800"
                           )}
                         >
                           {feat.title}
@@ -1112,7 +1049,7 @@ export default function Home() {
                       <ChevronRight
                         className={cn(
                           "w-4 h-4 text-slate-400 transition-all",
-                           isSelected ? "text-[#fa541c] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
+                           isSelected ? "text-[#3b82f6] translate-x-1" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
                         )}
                       />
                     </button>
@@ -1123,8 +1060,8 @@ export default function Home() {
               {/* Right Showcase Card - 7 cols */}
               <div className="lg:col-span-7 flex flex-col justify-between bg-slate-950 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden shadow-2xl border border-slate-800 min-h-[400px]">
                 {/* Background ambient light */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-[80px] -translate-y-1/3 translate-x-1/3"></div>
-                <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#fa541c]/5 rounded-full blur-[60px] translate-y-1/3 -translate-x-1/3"></div>
+                <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[80px] -translate-y-1/3 translate-x-1/3"></div>
+                <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#3b82f6]/5 rounded-full blur-[60px] translate-y-1/3 -translate-x-1/3"></div>
 
                 {BUSINESS_SCENARIOS.map((feat) => {
                   if (feat.id !== activeScenarioId) return null;
@@ -1132,7 +1069,7 @@ export default function Home() {
                     <div key={feat.id} className="h-full flex flex-col justify-between gap-6 animate-in fade-in duration-500 relative z-10 flex-1">
                       <div className="space-y-4 text-left">
                         <div className="flex items-center justify-between gap-4">
-                          <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-orange-400 border border-white/5 uppercase tracking-wider">
+                          <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-blue-400 border border-white/5 uppercase tracking-wider">
                             {feat.badge}
                           </span>
                           <span className="text-[10px] font-mono text-slate-500">ZHIYUN ENGINE V2.0</span>
@@ -1186,13 +1123,13 @@ export default function Home() {
                   {/* Close btn */}
                   <button 
                     onClick={() => setSelectedCase(null)}
-                    className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur-sm transition-all z-20 border border-white/15"
+                    className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur-sm transition-all z-20 border border-white/15 cursor-pointer"
                   >
                     <X className="w-5 h-5" />
                   </button>
 
                   <div className="absolute bottom-4 left-6 right-6">
-                    <span className="px-2.5 py-1 bg-[#fa541c] rounded-md text-[10px] font-bold text-white tracking-wide uppercase border border-orange-400/20 mb-2 inline-block">
+                    <span className="px-2.5 py-1 bg-[#3b82f6] rounded-md text-[10px] font-bold text-white tracking-wide uppercase border border-blue-400/20 mb-2 inline-block">
                       {selectedCase.badge}
                     </span>
                     <h2 className="text-xl md:text-2xl font-bold text-white drop-shadow-md">
@@ -1206,7 +1143,7 @@ export default function Home() {
                   {/* Overview */}
                   <div className="space-y-2">
                     <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                      <span className="w-1.5 h-3.5 bg-[#fa541c] rounded-full inline-block"></span>
+                      <span className="w-1.5 h-3.5 bg-[#3b82f6] rounded-full inline-block"></span>
                       项目概况 / OVERVIEW
                     </h3>
                     <p className="text-slate-600 text-sm leading-relaxed font-light">
@@ -1217,7 +1154,7 @@ export default function Home() {
                   {/* Core Metrics */}
                   <div className="space-y-3">
                     <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                      <span className="w-1.5 h-3.5 bg-[#fa541c] rounded-full inline-block"></span>
+                      <span className="w-1.5 h-3.5 bg-[#3b82f6] rounded-full inline-block"></span>
                       核心技术指标 / METRICS
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -1235,14 +1172,14 @@ export default function Home() {
                   </div>
 
                   {/* Testimonial / Impact */}
-                  <div className="bg-orange-500/[0.04] border border-[#ffbb96]/30 rounded-2xl p-5 relative overflow-hidden">
+                  <div className="bg-blue-500/[0.04] border border-blue-200/50 rounded-2xl p-5 relative overflow-hidden">
                     {/* Decorative quote icon */}
-                    <div className="absolute right-4 bottom-2 opacity-5 text-8xl font-serif text-[#fa541c] pointer-events-none select-none">
+                    <div className="absolute right-4 bottom-2 opacity-5 text-8xl font-serif text-[#3b82f6] pointer-events-none select-none">
                       ”
                     </div>
                     <div className="relative z-10 flex gap-3 items-start">
-                      <Award className="w-5 h-5 text-[#fa541c] flex-shrink-0 mt-0.5" />
-                      <div className="text-xs md:text-sm text-[#fa541c] leading-relaxed font-medium italic">
+                      <Award className="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5" />
+                      <div className="text-xs md:text-sm text-[#3b82f6] leading-relaxed font-medium italic">
                         {selectedCase.detail.achievement}
                       </div>
                     </div>
@@ -1253,7 +1190,7 @@ export default function Home() {
                 <div className="p-6 border-t border-slate-100 flex justify-end flex-shrink-0">
                   <button
                     onClick={() => setSelectedCase(null)}
-                    className="h-10 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition-colors"
+                    className="h-10 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition-colors cursor-pointer"
                   >
                     关闭窗口
                   </button>
@@ -1269,7 +1206,7 @@ export default function Home() {
             <section className="lg:col-span-1 bg-white rounded-3xl p-8 shadow-[0_2px_20px_rgb(0,0,0,0.02)] border border-slate-100">
               <div className="flex items-center justify-between mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 tracking-tight">平台公告</h3>
-                <Link to="/user/center/messages" className="text-sm text-[#fa541c] font-medium hover:text-[#e84a15] transition-colors">
+                <Link to="/user/center/messages" className="text-sm text-[#3b82f6] font-medium hover:text-blue-700 transition-colors">
                   全部
                 </Link>
               </div>
@@ -1280,7 +1217,7 @@ export default function Home() {
                     <announcement.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-base font-medium text-slate-900 group-hover:text-[#fa541c] transition-colors line-clamp-2 mb-1">
+                    <h4 className="text-base font-medium text-slate-900 group-hover:text-[#3b82f6] transition-colors line-clamp-2 mb-1">
                       {announcement.title}
                     </h4>
                     <span className="text-sm text-slate-400 font-mono">{announcement.date}</span>
@@ -1291,27 +1228,27 @@ export default function Home() {
           </section>
 
           {/* Platform Data */}
-          <section className="lg:col-span-2 bg-gradient-to-br from-[#fff6f0] via-[#fffcf9] to-[#fff5eb] rounded-3xl p-8 md:p-12 shadow-sm border border-[#ffbb96]/30 relative overflow-hidden flex flex-col justify-center">
+          <section className="lg:col-span-2 bg-gradient-to-br from-[#eff6ff] via-[#f8fafc] to-[#e0f2fe] rounded-3xl p-8 md:p-12 shadow-sm border border-blue-100/60 relative overflow-hidden flex flex-col justify-center">
             {/* Decorative Background with Diffuse/Spread Gradients */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#ffd8bf] to-[#ffbb96] rounded-full blur-[90px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-[#ffecd2] to-[#fcb69f] rounded-full blur-[100px] opacity-45 translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#fff2e8] rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#bfdbfe] to-[#93c5fd] rounded-full blur-[90px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-[#dbeafe] to-[#bae6fd] rounded-full blur-[100px] opacity-45 translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-100 rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
             
             <div className="relative z-10">
               <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-2">平台运行数据</h3>
               <p className="text-slate-500 mb-12 font-light">持续为您提供稳定、高效的实训环境</p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x divide-[#ffbb96]/30">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x divide-blue-200/50">
                 <div className="text-center px-4">
-                  <div className="text-4xl md:text-5xl font-black text-[#fa541c] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(250,84,28,0.15)]">1,234</div>
+                  <div className="text-4xl md:text-5xl font-black text-[#3b82f6] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(59,130,246,0.15)]">1,234</div>
                   <div className="text-sm font-semibold text-slate-600 tracking-wider">精品课程</div>
                 </div>
                 <div className="text-center px-4">
-                  <div className="text-4xl md:text-5xl font-black text-[#fa541c] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(250,84,28,0.15)]">5,678</div>
+                  <div className="text-4xl md:text-5xl font-black text-[#3b82f6] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(59,130,246,0.15)]">5,678</div>
                   <div className="text-sm font-semibold text-slate-600 tracking-wider">实战项目</div>
                 </div>
                 <div className="text-center px-4">
-                  <div className="text-4xl md:text-5xl font-black text-[#fa541c] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(250,84,28,0.15)]">98k+</div>
+                  <div className="text-4xl md:text-5xl font-black text-[#3b82f6] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(59,130,246,0.15)]">98k+</div>
                   <div className="text-sm font-semibold text-slate-600 tracking-wider">注册用户</div>
                 </div>
                 <div className="text-center px-4">

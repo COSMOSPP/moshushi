@@ -70,6 +70,7 @@ import SystemBilling from "./pages/admin/SystemBilling";
 import SystemResources from "./pages/admin/SystemResources";
 import SystemSecurity from "./pages/admin/SystemSecurity";
 import AdminSystemPage from "./pages/admin/AdminSystemPage";
+import AdminCockpitPage from "./pages/admin/AdminCockpitPage";
 
 import LoginUser from "./pages/LoginUser";
 import LoginTeacher from "./pages/LoginTeacher";
@@ -94,6 +95,8 @@ import TeacherAudit from "./pages/teacher/TeacherAudit";
 import TeacherLogs from "./pages/teacher/TeacherLogs";
 import TeacherExamRules from "./pages/teacher/TeacherExamRules";
 import TeacherGrading from "./pages/teacher/TeacherGrading";
+import TeacherStudentLifecycle from "./pages/teacher/TeacherStudentLifecycle";
+import TeacherGrowthIncentives from "./pages/teacher/TeacherGrowthIncentives";
 
 export default function App() {
   return (
@@ -123,6 +126,8 @@ export default function App() {
         {/* Teacher Dashboard */}
         <Route path="/teacher" element={<TeacherLayout />}>
           <Route index element={<TeacherHome />} />
+          <Route path="student-lifecycle" element={<TeacherStudentLifecycle />} />
+          <Route path="growth-incentives" element={<TeacherGrowthIncentives />} />
           <Route path="course/:id" element={<TeacherCourseManage />} />
           <Route path="dataset/:id" element={<TeacherDatasetDetail />} />
           <Route path="course/:id/experiment/:experimentId" element={<TeacherExperimentIDE />} />
@@ -170,7 +175,8 @@ export default function App() {
 
         {/* Admin Dashboard */}
         <Route path="/admin" element={<DashboardLayout type="admin" />}>
-          <Route index element={<Navigate to="/admin/ai" replace />} />
+          <Route index element={<Navigate to="/admin/cockpit" replace />} />
+          <Route path="cockpit" element={<AdminCockpitPage />} />
           <Route path="ai" element={<AdminAILayout />}>
             <Route index element={<Navigate to="/admin/ai/courses" replace />} />
             <Route path="courses" element={<AdminAICourses />} />

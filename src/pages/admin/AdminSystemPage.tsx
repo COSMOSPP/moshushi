@@ -1287,7 +1287,7 @@ export default function AdminSystemPage() {
       <div className="w-[240px] border-r border-neutral-border flex-shrink-0 flex flex-col bg-white h-full select-none">
         {/* Title Header */}
         <div className="p-5 border-b border-neutral-border shrink-0 flex items-center gap-2.5">
-          <Settings className="w-5.5 h-5.5 text-[#fa541c]" />
+          <Settings className="w-5.5 h-5.5 text-[#3b82f6]" />
           <div>
             <h2 className="text-sm font-black text-neutral-title leading-tight">系统集成管理</h2>
             <span className="text-[10px] text-neutral-caption font-bold">ZHIYUN CONTROL CENTER</span>
@@ -1313,7 +1313,7 @@ export default function AdminSystemPage() {
                 className={cn(
                   "w-full flex items-center justify-between px-3 py-2.5 rounded-[8px] text-[13px] font-semibold transition-all duration-200 cursor-pointer border-0 bg-transparent text-left",
                   isActive 
-                    ? "bg-[#fff2e8] text-[#fa541c] shadow-3xs" 
+                    ? "bg-[#eff6ff] text-[#3b82f6] shadow-3xs" 
                     : "text-neutral-body hover:bg-neutral-bg hover:text-neutral-title"
                 )}
               >
@@ -1370,12 +1370,12 @@ export default function AdminSystemPage() {
                       setSearchTagName(e.target.value);
                       setTagCurrentPage(1);
                     }}
-                    className="pl-9 pr-4 py-2 w-64 bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 placeholder-neutral-400 font-medium transition-all"
+                    className="pl-9 pr-4 py-2 w-64 bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 placeholder-neutral-400 font-medium transition-all"
                   />
                 </div>
                 <button
                   onClick={handleOpenCreateTag}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] shadow-sm font-bold h-9 px-5 text-[13px] border-0 cursor-pointer transition-colors flex items-center justify-center"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] shadow-sm font-bold h-9 px-5 text-[13px] border-0 cursor-pointer transition-colors flex items-center justify-center"
                 >
                   <Plus className="w-4 h-4 mr-1.5" /> 新建标签
                 </button>
@@ -1420,13 +1420,13 @@ export default function AdminSystemPage() {
                           <td className="pl-3 pr-6 py-3 text-left">
                             <button
                               onClick={() => handleOpenEditTag(tag)}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
                             >
                               编辑
                             </button>
                             <button
                               onClick={() => handleDeleteTag(tag.id, tag.name)}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
                             >
                               删除
                             </button>
@@ -1456,7 +1456,7 @@ export default function AdminSystemPage() {
                         onClick={() => setTagCurrentPage(tagCurrentPage - 1)}
                         className={cn(
                           "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] transition-colors",
-                          tagCurrentPage === 1 ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-white"
+                          tagCurrentPage === 1 ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-white"
                         )}
                       >
                         &lt;
@@ -1468,8 +1468,8 @@ export default function AdminSystemPage() {
                           className={cn(
                             "h-7 w-7 rounded-sm border text-[12px] font-bold transition-colors cursor-pointer",
                             p === tagCurrentPage 
-                              ? "bg-[#fa541c] text-white border-[#fa541c]" 
-                              : "bg-white border-neutral-200 text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c]"
+                              ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
+                              : "bg-white border-neutral-200 text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                           )}
                         >
                           {p}
@@ -1480,7 +1480,7 @@ export default function AdminSystemPage() {
                         onClick={() => setTagCurrentPage(tagCurrentPage + 1)}
                         className={cn(
                           "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] transition-colors",
-                          tagCurrentPage === totalTagPages ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-white"
+                          tagCurrentPage === totalTagPages ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-white"
                         )}
                       >
                         &gt;
@@ -1492,7 +1492,7 @@ export default function AdminSystemPage() {
                         setTagPageSize(parseInt(e.target.value));
                         setTagCurrentPage(1);
                       }}
-                      className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer"
+                      className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer"
                     >
                       <option value={10}>10 条/页</option>
                       <option value={20}>20 条/页</option>
@@ -1518,13 +1518,13 @@ export default function AdminSystemPage() {
                   {/* Header */}
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                     <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                      {editingTag ? <Edit className="w-5 h-5 text-[#fa541c]" /> : <Plus className="w-5 h-5 text-[#fa541c]" />} 
+                      {editingTag ? <Edit className="w-5 h-5 text-[#3b82f6]" /> : <Plus className="w-5 h-5 text-[#3b82f6]" />} 
                       <span>{editingTag ? "编辑标签" : "新建标签"}</span>
                     </h2>
                     <button 
                       type="button"
                       onClick={() => setShowTagModal(false)}
-                      className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                      className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -1536,7 +1536,7 @@ export default function AdminSystemPage() {
                     {/* Tag Name */}
                     <div className="grid grid-cols-[120px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        标签名称 <span className="text-[#fa541c]">*</span>
+                        标签名称 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <input
                         type="text"
@@ -1544,7 +1544,7 @@ export default function AdminSystemPage() {
                         placeholder="请输入标签名称"
                         value={formTagName}
                         onChange={(e) => setFormTagName(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                         autoFocus={!editingTag}
                       />
                     </div>
@@ -1552,7 +1552,7 @@ export default function AdminSystemPage() {
                     {/* Tag Group */}
                     <div className="grid grid-cols-[120px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        标签组 <span className="text-[#fa541c]">*</span>
+                        标签组 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <input
                         type="text"
@@ -1560,7 +1560,7 @@ export default function AdminSystemPage() {
                         placeholder="请输入标签组"
                         value={formTagGroup}
                         onChange={(e) => setFormTagGroup(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                       />
                     </div>
 
@@ -1577,7 +1577,7 @@ export default function AdminSystemPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                     >
                       确认
                     </button>
@@ -1594,7 +1594,7 @@ export default function AdminSystemPage() {
           <div className="space-y-4 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                <Key className="w-5.5 h-5.5 text-[#fa541c]" />
+                <Key className="w-5.5 h-5.5 text-[#3b82f6]" />
                 <span>平台运营角色与权限体系</span>
               </h1>
               <p className="text-xs text-neutral-caption mt-1">
@@ -1619,7 +1619,7 @@ export default function AdminSystemPage() {
                           className={cn(
                             "w-full px-3.5 py-3 rounded-xl border transition-all text-left bg-transparent cursor-pointer block",
                             isActive 
-                              ? "border-[#fa541c] bg-[#fff2e8]/25 text-[#fa541c]" 
+                              ? "border-[#3b82f6] bg-[#eff6ff]/25 text-[#3b82f6]" 
                               : "border-neutral-200 text-neutral-body hover:bg-neutral-50 hover:text-neutral-title"
                           )}
                         >
@@ -1634,7 +1634,7 @@ export default function AdminSystemPage() {
                 {/* Clone Role CTA */}
                 <button
                   onClick={() => setShowRoleCloneModal(true)}
-                  className="w-full text-center text-[#fa541c] hover:text-[#e84a15] text-xs font-bold py-2.5 border border-[#ffbb96]/45 bg-[#fff2e8]/45 hover:bg-[#fff2e8] rounded-lg transition-colors cursor-pointer shrink-0 mt-4 block"
+                  className="w-full text-center text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold py-2.5 border border-[#bfdbfe]/45 bg-[#eff6ff]/45 hover:bg-[#eff6ff] rounded-lg transition-colors cursor-pointer shrink-0 mt-4 block"
                 >
                   复制并生成角色复制并生成角色
                 </button>
@@ -1663,7 +1663,7 @@ export default function AdminSystemPage() {
                       </button>
                       <button
                         onClick={() => handleApplyQuickTemplate("full-write")}
-                        className="px-2 py-1 bg-[#fff2e8] hover:bg-[#ffe8d6] border border-[#ffbb96]/45 text-[#fa541c] rounded text-[10.5px] cursor-pointer font-bold shadow-3xs"
+                        className="px-2 py-1 bg-[#eff6ff] hover:bg-[#ffe8d6] border border-[#bfdbfe]/45 text-[#3b82f6] rounded text-[10.5px] cursor-pointer font-bold shadow-3xs"
                       >
                         授权平台写
                       </button>
@@ -1672,7 +1672,7 @@ export default function AdminSystemPage() {
 
                   {/* 1. Functional menu access checklist */}
                   <div className="space-y-3">
-                    <h3 className="text-xs font-bold text-neutral-title border-l-3 border-[#fa541c] pl-2">1. 功能权限 (可访问系统导航菜单访问访问访问)</h3>
+                    <h3 className="text-xs font-bold text-neutral-title border-l-3 border-[#3b82f6] pl-2">1. 功能权限 (可访问系统导航菜单访问访问访问)</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 select-none">
                       {[
                         { code: "ai", label: "人工智能" },
@@ -1692,13 +1692,13 @@ export default function AdminSystemPage() {
                         return (
                           <label key={item.code} className={cn(
                             "flex items-center gap-2.5 p-2 rounded-lg border text-xs cursor-pointer transition-colors font-medium",
-                            isChecked ? "border-[#ffbb96] bg-[#fff2e8]/10 text-neutral-title font-bold" : "border-neutral-200 text-neutral-caption"
+                            isChecked ? "border-[#bfdbfe] bg-[#eff6ff]/10 text-neutral-title font-bold" : "border-neutral-200 text-neutral-caption"
                           )}>
                             <input
                               type="checkbox"
                               checked={isChecked}
                               onChange={() => handleToggleFuncPerm(item.code)}
-                              className="accent-[#fa541c] cursor-pointer w-3.5 h-3.5"
+                              className="accent-[#3b82f6] cursor-pointer w-3.5 h-3.5"
                             />
                             <span>{item.label}</span>
                           </label>
@@ -1709,7 +1709,7 @@ export default function AdminSystemPage() {
 
                   {/* 2. Data scope radio list */}
                   <div className="space-y-3 pt-4 border-t border-neutral-100">
-                    <h3 className="text-xs font-bold text-neutral-title border-l-3 border-[#fa541c] pl-2">2. 数据权限 (可见的数据资源可见可见范围)</h3>
+                    <h3 className="text-xs font-bold text-neutral-title border-l-3 border-[#3b82f6] pl-2">2. 数据权限 (可见的数据资源可见可见范围)</h3>
                     <div className="flex flex-wrap gap-5 select-none font-medium">
                       {[
                         "全部可见",
@@ -1724,7 +1724,7 @@ export default function AdminSystemPage() {
                               name="dataScope"
                               checked={isChecked}
                               onChange={() => handleSetDataPerm(scope)}
-                              className="accent-[#fa541c] cursor-pointer w-3.5 h-3.5"
+                              className="accent-[#3b82f6] cursor-pointer w-3.5 h-3.5"
                             />
                             <span>{scope}</span>
                           </label>
@@ -1735,7 +1735,7 @@ export default function AdminSystemPage() {
 
                   {/* 3. Operational CRUD checkboxes */}
                   <div className="space-y-3 pt-4 border-t border-neutral-100">
-                    <h3 className="text-xs font-bold text-neutral-title border-l-3 border-[#fa541c] pl-2">3. 操作权限 (对关联数据的CRUD操作限制指令)</h3>
+                    <h3 className="text-xs font-bold text-neutral-title border-l-3 border-[#3b82f6] pl-2">3. 操作权限 (对关联数据的CRUD操作限制指令)</h3>
                     <div className="flex flex-wrap gap-5 select-none font-semibold">
                       {[
                         { code: "create", label: "新建 (Create / Upload)" },
@@ -1750,7 +1750,7 @@ export default function AdminSystemPage() {
                               type="checkbox"
                               checked={isChecked}
                               onChange={() => handleToggleOpPerm(op.code)}
-                              className="accent-[#fa541c] cursor-pointer w-3.5 h-3.5"
+                              className="accent-[#3b82f6] cursor-pointer w-3.5 h-3.5"
                             />
                             <span>{op.label}</span>
                           </label>
@@ -1765,7 +1765,7 @@ export default function AdminSystemPage() {
                   <span className="text-[10px] text-neutral-caption font-medium">提示：任何自定义角色都将继承对应高校或企业租户的安全白名单范围。</span>
                   <button
                     onClick={() => triggerToast(`💾 成功保存运营角色「${activeRole.name}」的全新权限矩阵结构！`)}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-6 py-2 rounded-lg transition-colors cursor-pointer shadow-3xs"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-6 py-2 rounded-lg transition-colors cursor-pointer shadow-3xs"
                   >
                     保存角色权限树
                   </button>
@@ -1783,7 +1783,7 @@ export default function AdminSystemPage() {
                   {/* Header */}
                   <div className="bg-neutral-50 px-6 py-4 border-b border-neutral-border flex items-center justify-between shrink-0">
                     <span className="font-black text-neutral-title text-sm flex items-center gap-1.5">
-                      <Copy className="w-4.5 h-4.5 text-[#fa541c]" />
+                      <Copy className="w-4.5 h-4.5 text-[#3b82f6]" />
                       <span>复制新建运营角色</span>
                     </span>
                     <button 
@@ -1812,7 +1812,7 @@ export default function AdminSystemPage() {
                         value={cloneRoleName}
                         onChange={(e) => setCloneRoleName(e.target.value)}
                         placeholder="如: 助理内容运营 / 客服三线专家"
-                        className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800"
+                        className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800"
                       />
                     </div>
                   </div>
@@ -1828,7 +1828,7 @@ export default function AdminSystemPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                     >
                       复制并生成角色
                     </button>
@@ -1866,12 +1866,12 @@ export default function AdminSystemPage() {
                       setSearchPlatformName(e.target.value);
                       setPlatformCurrentPage(1);
                     }}
-                    className="pl-9 pr-4 py-2 w-64 bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 placeholder-neutral-400 font-medium transition-all"
+                    className="pl-9 pr-4 py-2 w-64 bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 placeholder-neutral-400 font-medium transition-all"
                   />
                 </div>
                 <button
                   onClick={handleOpenCreatePlatform}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] shadow-sm font-bold h-9 px-5 text-[13px] border-0 cursor-pointer transition-colors flex items-center justify-center"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] shadow-sm font-bold h-9 px-5 text-[13px] border-0 cursor-pointer transition-colors flex items-center justify-center"
                 >
                   <Plus className="w-4 h-4 mr-1.5" /> 新建云服务插件
                 </button>
@@ -1939,14 +1939,14 @@ export default function AdminSystemPage() {
                           <td className="pl-3 pr-6 py-3 text-left">
                             <button
                               onClick={() => handleOpenEditPlatform(plat)}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
                             >
                               编辑
                             </button>
                             {plat.status === "启用" ? (
                               <button
                                 onClick={() => handleTogglePlatformStatus(plat.id, plat.name, plat.status)}
-                                className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
+                                className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
                               >
                                 禁用
                               </button>
@@ -1954,13 +1954,13 @@ export default function AdminSystemPage() {
                               <>
                                 <button
                                   onClick={() => handleTogglePlatformStatus(plat.id, plat.name, plat.status)}
-                                  className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
+                                  className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
                                 >
                                   启用
                                 </button>
                                 <button
                                   onClick={() => handleDeletePlatform(plat.id, plat.name)}
-                                  className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
+                                  className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
                                 >
                                   删除
                                 </button>
@@ -1991,7 +1991,7 @@ export default function AdminSystemPage() {
                         onClick={() => setPlatformCurrentPage(platformCurrentPage - 1)}
                         className={cn(
                           "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] transition-colors",
-                          platformCurrentPage === 1 ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-white"
+                          platformCurrentPage === 1 ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-white"
                         )}
                       >
                         &lt;
@@ -2003,8 +2003,8 @@ export default function AdminSystemPage() {
                           className={cn(
                             "h-7 w-7 rounded-sm border text-[12px] font-bold transition-colors cursor-pointer",
                             p === platformCurrentPage 
-                              ? "bg-[#fa541c] text-white border-[#fa541c]" 
-                              : "bg-white border-neutral-200 text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c]"
+                              ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
+                              : "bg-white border-neutral-200 text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                           )}
                         >
                           {p}
@@ -2015,7 +2015,7 @@ export default function AdminSystemPage() {
                         onClick={() => setPlatformCurrentPage(platformCurrentPage + 1)}
                         className={cn(
                           "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] transition-colors",
-                          platformCurrentPage === totalPlatformPages ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-white"
+                          platformCurrentPage === totalPlatformPages ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-white"
                         )}
                       >
                         &gt;
@@ -2027,7 +2027,7 @@ export default function AdminSystemPage() {
                         setPlatformPageSize(parseInt(e.target.value));
                         setPlatformCurrentPage(1);
                       }}
-                      className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer"
+                      className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer"
                     >
                       <option value={10}>10 条/页</option>
                       <option value={20}>20 条/页</option>
@@ -2053,13 +2053,13 @@ export default function AdminSystemPage() {
                   {/* Header */}
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                     <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                      {editingPlatform ? <Edit className="w-5 h-5 text-[#fa541c]" /> : <Plus className="w-5 h-5 text-[#fa541c]" />} 
+                      {editingPlatform ? <Edit className="w-5 h-5 text-[#3b82f6]" /> : <Plus className="w-5 h-5 text-[#3b82f6]" />} 
                       <span>{editingPlatform ? "编辑云服务插件" : "新建云服务插件"}</span>
                     </h2>
                     <button 
                       type="button"
                       onClick={() => setShowPlatformModal(false)}
-                      className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                      className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -2071,7 +2071,7 @@ export default function AdminSystemPage() {
                     {/* Name */}
                     <div className="grid grid-cols-[120px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        云服务插件名称 <span className="text-[#fa541c]">*</span>
+                        云服务插件名称 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <input
                         type="text"
@@ -2079,7 +2079,7 @@ export default function AdminSystemPage() {
                         placeholder="请输入云服务插件名称"
                         value={formPlatName}
                         onChange={(e) => setFormPlatName(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                         autoFocus={!editingPlatform}
                       />
                     </div>
@@ -2087,7 +2087,7 @@ export default function AdminSystemPage() {
                     {/* Cloud Service Plugin Types */}
                     <div className="grid grid-cols-[120px_1fr] items-start gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right mt-1.5">
-                        云服务插件类型 <span className="text-[#fa541c]">*</span>
+                        云服务插件类型 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="flex items-center gap-6 py-1">
                         {[
@@ -2102,7 +2102,7 @@ export default function AdminSystemPage() {
                                 "flex items-center gap-2 py-1 text-xs cursor-pointer select-none transition-colors",
                                 isChecked 
                                   ? "text-neutral-800 font-bold" 
-                                  : "text-neutral-600 font-medium hover:text-[#fa541c]"
+                                  : "text-neutral-600 font-medium hover:text-[#3b82f6]"
                               )}
                             >
                               <input
@@ -2115,7 +2115,7 @@ export default function AdminSystemPage() {
                                     setFormResourceTypes([...formResourceTypes, item.label]);
                                   }
                                 }}
-                                className="accent-[#fa541c] cursor-pointer w-4 h-4"
+                                className="accent-[#3b82f6] cursor-pointer w-4 h-4"
                               />
                               <span>{item.label}</span>
                             </label>
@@ -2137,7 +2137,7 @@ export default function AdminSystemPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                     >
                       确认
                     </button>
@@ -2174,12 +2174,12 @@ export default function AdminSystemPage() {
                       setSearchPoolName(e.target.value);
                       setPoolCurrentPage(1);
                     }}
-                    className="pl-9 pr-4 py-2 w-64 bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 placeholder-neutral-400 font-medium transition-all"
+                    className="pl-9 pr-4 py-2 w-64 bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 placeholder-neutral-400 font-medium transition-all"
                   />
                 </div>
                 <button
                   onClick={handleOpenCreatePool}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] shadow-sm font-bold h-9 px-5 text-[13px] border-0 cursor-pointer transition-colors flex items-center justify-center"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] shadow-sm font-bold h-9 px-5 text-[13px] border-0 cursor-pointer transition-colors flex items-center justify-center"
                 >
                   <Plus className="w-4 h-4 mr-1.5" /> 新建资源池
                 </button>
@@ -2224,19 +2224,19 @@ export default function AdminSystemPage() {
                           <td className="pl-3 pr-6 py-3 text-left select-none">
                             <button
                               onClick={() => handleOpenEditPool(pool)}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
                             >
                               编辑
                             </button>
                             <button
                               onClick={() => handleDeletePool(pool.id, pool.name)}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold mr-3"
                             >
                               删除
                             </button>
                             <button
                               onClick={() => handleOpenAkSkModal(pool)}
-                              className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
+                              className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold"
                             >
                               AK/SK
                             </button>
@@ -2266,7 +2266,7 @@ export default function AdminSystemPage() {
                         onClick={() => setPoolCurrentPage(poolCurrentPage - 1)}
                         className={cn(
                           "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] transition-colors",
-                          poolCurrentPage === 1 ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-white"
+                          poolCurrentPage === 1 ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-white"
                         )}
                       >
                         &lt;
@@ -2278,8 +2278,8 @@ export default function AdminSystemPage() {
                           className={cn(
                             "h-7 w-7 rounded-sm border text-[12px] font-bold transition-colors cursor-pointer",
                             p === poolCurrentPage 
-                              ? "bg-[#fa541c] text-white border-[#fa541c]" 
-                              : "bg-white border-neutral-200 text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c]"
+                              ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
+                              : "bg-white border-neutral-200 text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                           )}
                         >
                           {p}
@@ -2290,7 +2290,7 @@ export default function AdminSystemPage() {
                         onClick={() => setPoolCurrentPage(poolCurrentPage + 1)}
                         className={cn(
                           "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] transition-colors",
-                          poolCurrentPage === totalPoolPages ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-white"
+                          poolCurrentPage === totalPoolPages ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-100" : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-white"
                         )}
                       >
                         &gt;
@@ -2302,7 +2302,7 @@ export default function AdminSystemPage() {
                         setPoolPageSize(parseInt(e.target.value));
                         setPoolCurrentPage(1);
                       }}
-                      className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer"
+                      className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer"
                     >
                       <option value={10}>10 条/页</option>
                       <option value={20}>20 条/页</option>
@@ -2328,13 +2328,13 @@ export default function AdminSystemPage() {
                   {/* Header */}
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                     <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                      {editingPool ? <Edit className="w-5 h-5 text-[#fa541c]" /> : <Plus className="w-5 h-5 text-[#fa541c]" />} 
+                      {editingPool ? <Edit className="w-5 h-5 text-[#3b82f6]" /> : <Plus className="w-5 h-5 text-[#3b82f6]" />} 
                       <span>{editingPool ? "编辑算力资源池" : "新建算力资源池"}</span>
                     </h2>
                     <button 
                       type="button"
                       onClick={() => setShowPoolModal(false)}
-                      className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                      className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -2346,7 +2346,7 @@ export default function AdminSystemPage() {
                     {/* Pool Name */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        资源池名称 <span className="text-[#fa541c]">*</span>
+                        资源池名称 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <input
                         type="text"
@@ -2354,7 +2354,7 @@ export default function AdminSystemPage() {
                         placeholder="华东容器资源池"
                         value={formPoolName}
                         onChange={(e) => setFormPoolName(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white"
+                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white"
                         autoFocus={!editingPool}
                       />
                     </div>
@@ -2362,7 +2362,7 @@ export default function AdminSystemPage() {
                     {/* Capabilities Selection */}
                     <div className="grid grid-cols-[100px_1fr] items-start gap-4 animate-fade-in">
                       <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                        能力选择 <span className="text-[#fa541c]">*</span>
+                        能力选择 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="grid grid-cols-2 gap-4">
                         {/* Container Capability */}
@@ -2370,7 +2370,7 @@ export default function AdminSystemPage() {
                           className={cn(
                             "flex items-start gap-3 p-4 rounded-[8px] border text-left cursor-pointer transition-all select-none bg-[#f8fafc]/30 hover:bg-[#f8fafc]/80",
                             formPoolHasContainer 
-                              ? "border-[#fa541c] bg-[#fff2e8]/10 shadow-sm shadow-orange-500/5" 
+                              ? "border-[#3b82f6] bg-[#eff6ff]/10 shadow-sm shadow-blue-500/5" 
                               : "border-neutral-200 hover:border-neutral-300"
                           )}
                         >
@@ -2378,10 +2378,10 @@ export default function AdminSystemPage() {
                             type="checkbox"
                             checked={formPoolHasContainer}
                             onChange={(e) => setFormPoolHasContainer(e.target.checked)}
-                            className="accent-[#fa541c] w-4.5 h-4.5 cursor-pointer mt-1"
+                            className="accent-[#3b82f6] w-4.5 h-4.5 cursor-pointer mt-1"
                           />
                           <div className="flex flex-col gap-0.5">
-                            <span className={cn("text-[13px] font-bold text-[#262626]", formPoolHasContainer && "text-[#fa541c]")}>
+                            <span className={cn("text-[13px] font-bold text-[#262626]", formPoolHasContainer && "text-[#3b82f6]")}>
                               容器能力
                             </span>
                             <span className="text-[11px] text-neutral-400 font-medium">
@@ -2395,7 +2395,7 @@ export default function AdminSystemPage() {
                           className={cn(
                             "flex items-start gap-3 p-4 rounded-[8px] border text-left cursor-pointer transition-all select-none bg-[#f8fafc]/30 hover:bg-[#f8fafc]/80",
                             formPoolHasVm 
-                              ? "border-[#fa541c] bg-[#fff2e8]/10 shadow-sm shadow-orange-500/5" 
+                              ? "border-[#3b82f6] bg-[#eff6ff]/10 shadow-sm shadow-blue-500/5" 
                               : "border-neutral-200 hover:border-neutral-300"
                           )}
                         >
@@ -2403,10 +2403,10 @@ export default function AdminSystemPage() {
                             type="checkbox"
                             checked={formPoolHasVm}
                             onChange={(e) => setFormPoolHasVm(e.target.checked)}
-                            className="accent-[#fa541c] w-4.5 h-4.5 cursor-pointer mt-1"
+                            className="accent-[#3b82f6] w-4.5 h-4.5 cursor-pointer mt-1"
                           />
                           <div className="flex flex-col gap-0.5">
-                            <span className={cn("text-[13px] font-bold text-[#262626]", formPoolHasVm && "text-[#fa541c]")}>
+                            <span className={cn("text-[13px] font-bold text-[#262626]", formPoolHasVm && "text-[#3b82f6]")}>
                               虚机能力
                             </span>
                             <span className="text-[11px] text-neutral-400 font-medium">
@@ -2436,7 +2436,7 @@ export default function AdminSystemPage() {
                           {/* Plugin */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[12px] font-bold text-neutral-700">
-                              插件 <span className="text-[#fa541c]">*</span>
+                              插件 <span className="text-[#3b82f6]">*</span>
                             </label>
                             <CustomSelect
                               value={formPoolContainerPlugin}
@@ -2452,28 +2452,28 @@ export default function AdminSystemPage() {
                           {/* URL */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[12px] font-bold text-neutral-700">
-                              插件服务地址 <span className="text-[#fa541c]">*</span>
+                              插件服务地址 <span className="text-[#3b82f6]">*</span>
                             </label>
                             <input
                               type="text"
                               placeholder="https://plugin.example.com"
                               value={formPoolContainerUrl}
                               onChange={(e) => setFormPoolContainerUrl(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white"
+                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white"
                             />
                           </div>
 
                           {/* JSON Textarea */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[12px] font-bold text-neutral-700">
-                              连接配置 JSON <span className="text-[#fa541c]">*</span>
+                              连接配置 JSON <span className="text-[#3b82f6]">*</span>
                             </label>
                             <textarea
                               rows={3}
                               placeholder="{}"
                               value={formPoolContainerJson}
                               onChange={(e) => setFormPoolContainerJson(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] font-mono bg-white resize-none"
+                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] font-mono bg-white resize-none"
                             />
                           </div>
                         </div>
@@ -2499,7 +2499,7 @@ export default function AdminSystemPage() {
                           {/* Plugin */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[12px] font-bold text-neutral-700">
-                              插件 <span className="text-[#fa541c]">*</span>
+                              插件 <span className="text-[#3b82f6]">*</span>
                             </label>
                             <CustomSelect
                               value={formPoolVmPlugin}
@@ -2515,28 +2515,28 @@ export default function AdminSystemPage() {
                           {/* URL */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[12px] font-bold text-neutral-700">
-                              插件服务地址 <span className="text-[#fa541c]">*</span>
+                              插件服务地址 <span className="text-[#3b82f6]">*</span>
                             </label>
                             <input
                               type="text"
                               placeholder="https://plugin.example.com"
                               value={formPoolVmUrl}
                               onChange={(e) => setFormPoolVmUrl(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white"
+                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white"
                             />
                           </div>
 
                           {/* JSON Textarea */}
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[12px] font-bold text-neutral-700">
-                              连接配置 JSON <span className="text-[#fa541c]">*</span>
+                              连接配置 JSON <span className="text-[#3b82f6]">*</span>
                             </label>
                             <textarea
                               rows={3}
                               placeholder="{}"
                               value={formPoolVmJson}
                               onChange={(e) => setFormPoolVmJson(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] font-mono bg-white resize-none"
+                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] font-mono bg-white resize-none"
                             />
                           </div>
                         </div>
@@ -2553,7 +2553,7 @@ export default function AdminSystemPage() {
                         placeholder="填写区域、供应商或使用范围说明"
                         value={formPoolDesc}
                         onChange={(e) => setFormPoolDesc(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white resize-none"
+                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white resize-none"
                       />
                     </div>
 
@@ -2570,7 +2570,7 @@ export default function AdminSystemPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                     >
                       确认
                     </button>
@@ -2594,13 +2594,13 @@ export default function AdminSystemPage() {
                   {/* Header */}
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                     <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                      <Key className="w-5 h-5 text-[#fa541c]" />
+                      <Key className="w-5 h-5 text-[#3b82f6]" />
                       <span>配置 AK/SK 凭证</span>
                     </h2>
                     <button 
                       type="button"
                       onClick={() => setShowAkSkModal(false)}
-                      className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                      className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -2610,11 +2610,11 @@ export default function AdminSystemPage() {
                   <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
                     
                     {/* Security Tip Box */}
-                    <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-sm text-[#d4380d] select-none leading-relaxed animate-fade-in">
-                      <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+                    <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-sm text-[#1d4ed8] select-none leading-relaxed animate-fade-in">
+                      <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                       <div>
-                        <p className="font-bold mb-1 text-[13px] text-[#fa541c]">凭证安全提示</p>
-                        <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                        <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">凭证安全提示</p>
+                        <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                           当前资源池：<strong>{selectedPoolForAkSk.name}</strong>。
                           此凭证将用于云平台底层 API 对接及算力规格数据的读取/拉取鉴权。为了系统安全性，请妥善保管好您的 Secret Key。
                         </p>
@@ -2624,7 +2624,7 @@ export default function AdminSystemPage() {
                     {/* Access Key */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        Access Key <span className="text-[#fa541c]">*</span>
+                        Access Key <span className="text-[#3b82f6]">*</span>
                       </label>
                       <input
                         type="text"
@@ -2632,14 +2632,14 @@ export default function AdminSystemPage() {
                         placeholder="请输入 Access Key (AK)"
                         value={formPoolAk}
                         onChange={(e) => setFormPoolAk(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white font-medium"
+                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white font-medium"
                       />
                     </div>
 
                     {/* Secret Key */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        Secret Key <span className="text-[#fa541c]">*</span>
+                        Secret Key <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -2648,7 +2648,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入 Secret Key (SK)"
                           value={formPoolSk}
                           onChange={(e) => setFormPoolSk(e.target.value)}
-                          className="w-full border border-neutral-200 rounded-[4px] pl-3.5 pr-10 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white font-medium"
+                          className="w-full border border-neutral-200 rounded-[4px] pl-3.5 pr-10 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 hover:border-neutral-300 transition-all text-[#262626] bg-white font-medium"
                         />
                         <button
                           type="button"
@@ -2677,7 +2677,7 @@ export default function AdminSystemPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                     >
                       确定保存
                     </button>
@@ -2695,7 +2695,7 @@ export default function AdminSystemPage() {
             <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4 shrink-0 border-b border-neutral-200 pb-4">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <Activity className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <Activity className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>平台微服务级系统监控</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -2716,7 +2716,7 @@ export default function AdminSystemPage() {
                       setAlarmCpuThreshold(parseInt(e.target.value) || 85);
                       triggerToast(`🔄 CPU 告警阈值已更新为 ${e.target.value}%`);
                     }}
-                    className="w-12 text-center border-0 border-b border-neutral-300 focus:outline-none focus:border-[#fa541c] font-mono"
+                    className="w-12 text-center border-0 border-b border-neutral-300 focus:outline-none focus:border-[#3b82f6] font-mono"
                   />
                   <span>%</span>
                 </div>
@@ -2732,7 +2732,7 @@ export default function AdminSystemPage() {
                       setAlarmRamThreshold(parseInt(e.target.value) || 90);
                       triggerToast(`🔄 内存 告警阈值已更新为 ${e.target.value}%`);
                     }}
-                    className="w-12 text-center border-0 border-b border-neutral-300 focus:outline-none focus:border-[#fa541c] font-mono"
+                    className="w-12 text-center border-0 border-b border-neutral-300 focus:outline-none focus:border-[#3b82f6] font-mono"
                   />
                   <span>%</span>
                 </div>
@@ -2777,7 +2777,7 @@ export default function AdminSystemPage() {
               <div className="lg:col-span-2 bg-white p-6 rounded-xl border border-neutral-border shadow-3xs flex flex-col justify-between h-[360px] lg:h-auto">
                 <div className="flex items-center justify-between border-b border-neutral-100 pb-3 mb-4 shrink-0">
                   <span className="text-xs font-bold text-neutral-title flex items-center gap-1.5">
-                    <TrendingUp className="w-4 h-4 text-[#fa541c]" />
+                    <TrendingUp className="w-4 h-4 text-[#3b82f6]" />
                     <span>历史监控指标运行趋势走势分析</span>
                   </span>
                   
@@ -2818,7 +2818,7 @@ export default function AdminSystemPage() {
 
                       <polyline
                         fill="none"
-                        stroke="#fa541c"
+                        stroke="#3b82f6"
                         strokeWidth="2.5"
                         points={`
                           0,${120 - (initialTrends[selectedMonitorTrend][0] / (selectedMonitorTrend === "CPU使用率" ? 100 : 200)) * 90} 
@@ -2837,7 +2837,7 @@ export default function AdminSystemPage() {
                           cy={120 - (val / (selectedMonitorTrend === "CPU使用率" ? 100 : 200)) * 90}
                           r="4"
                           fill="white"
-                          stroke="#fa541c"
+                          stroke="#3b82f6"
                           strokeWidth="2"
                         />
                       ))}
@@ -2846,7 +2846,7 @@ export default function AdminSystemPage() {
                     {initialTrends[selectedMonitorTrend].map((val, i) => (
                       <span
                         key={i}
-                        className="absolute text-[8.5px] font-black font-mono text-[#fa541c] bg-white border border-[#ffbb96]/45 px-1 py-0.5 rounded shadow-3xs"
+                        className="absolute text-[8.5px] font-black font-mono text-[#3b82f6] bg-white border border-[#bfdbfe]/45 px-1 py-0.5 rounded shadow-3xs"
                         style={{
                           left: `${i * 20}%`,
                           bottom: `${(val / (selectedMonitorTrend === "CPU使用率" ? 100 : 200)) * 60 + 10}%`,
@@ -2872,7 +2872,7 @@ export default function AdminSystemPage() {
                   <span className="text-[10px] text-neutral-caption font-medium">监控基于 5s 动态拉取健康指标刷新。</span>
                   <button 
                     onClick={() => handleSimulateExport(`Zhiyun_Metrics_History_${selectedMonitorTrend}`)}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs font-sans"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs font-sans"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>导出历史趋势报表</span>
@@ -2884,7 +2884,7 @@ export default function AdminSystemPage() {
               <div className="bg-white p-6 rounded-xl border border-neutral-border shadow-3xs flex flex-col justify-between h-[360px] lg:h-auto">
                 <div className="flex items-center justify-between border-b border-neutral-100 pb-3 mb-4 shrink-0">
                   <span className="text-xs font-bold text-neutral-title flex items-center gap-1.5">
-                    <ShieldAlert className="w-4.5 h-4.5 text-[#fa541c]" />
+                    <ShieldAlert className="w-4.5 h-4.5 text-[#3b82f6]" />
                     <span>活动中触发警报日志</span>
                   </span>
                   {activeAlerts.length > 0 && (
@@ -2934,7 +2934,7 @@ export default function AdminSystemPage() {
             <div className="flex justify-between items-start shrink-0">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <FileText className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <FileText className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>管理端全量行为审计日志</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -2944,7 +2944,7 @@ export default function AdminSystemPage() {
               
               <button 
                 onClick={() => handleSimulateExport("管理端全局行为操作日志")}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
               >
                 <Download className="w-4 h-4 font-black" />
                 <span>生成并导出安全审计报告</span>
@@ -2963,7 +2963,7 @@ export default function AdminSystemPage() {
                   <select 
                     value={logSearchUser}
                     onChange={(e) => setLogSearchUser(e.target.value)}
-                    className="border border-neutral-200 rounded-lg px-2.5 py-1 bg-white focus:outline-none focus:border-[#fa541c]"
+                    className="border border-neutral-200 rounded-lg px-2.5 py-1 bg-white focus:outline-none focus:border-[#3b82f6]"
                   >
                     <option value="全部">全部用户</option>
                     <option value="admin">admin (平台超管)</option>
@@ -2979,7 +2979,7 @@ export default function AdminSystemPage() {
                   <select 
                     value={logSearchModule}
                     onChange={(e) => setLogSearchModule(e.target.value)}
-                    className="border border-neutral-200 rounded-lg px-2.5 py-1 bg-white focus:outline-none focus:border-[#fa541c]"
+                    className="border border-neutral-200 rounded-lg px-2.5 py-1 bg-white focus:outline-none focus:border-[#3b82f6]"
                   >
                     <option value="全部">所有模块</option>
                     <option value="AI配额">AI配额</option>
@@ -3105,7 +3105,7 @@ export default function AdminSystemPage() {
                   {/* Header */}
                   <div className="bg-neutral-50 px-6 py-4 border-b border-neutral-border flex items-center justify-between shrink-0">
                     <span className="font-black text-neutral-title text-sm flex items-center gap-1.5">
-                      <FileText className="w-4.5 h-4.5 text-[#fa541c]" />
+                      <FileText className="w-4.5 h-4.5 text-[#3b82f6]" />
                       <span>查看操作审计 JSON 传输报文</span>
                     </span>
                     <button 
@@ -3151,7 +3151,7 @@ export default function AdminSystemPage() {
                     <button
                       type="button"
                       onClick={() => setSelectedLogDetail(null)}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-6 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-6 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                     >
                       确认并关闭
                     </button>
@@ -3224,8 +3224,8 @@ export default function AdminSystemPage() {
                         className={cn(
                           "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 bg-transparent transition-all cursor-pointer border-transparent -bottom-[1px] relative",
                           isActive 
-                            ? "border-[#fa541c] text-[#fa541c]" 
-                            : "text-neutral-500 hover:text-[#fa541c]"
+                            ? "border-[#3b82f6] text-[#3b82f6]" 
+                            : "text-neutral-500 hover:text-[#3b82f6]"
                         )}
                       >
                         {sub.title}
@@ -3239,7 +3239,7 @@ export default function AdminSystemPage() {
                     type="button"
                     onClick={handleRefreshImages}
                     disabled={isRefreshingImages}
-                    className="border border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 w-8.5 h-8.5 p-0 flex items-center justify-center rounded-[4px] cursor-pointer bg-white transition-all shadow-3xs"
+                    className="border border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 w-8.5 h-8.5 p-0 flex items-center justify-center rounded-[4px] cursor-pointer bg-white transition-all shadow-3xs"
                     title="刷新"
                   >
                     <RotateCw className={cn("w-3.5 h-3.5", isRefreshingImages && "animate-spin")} />
@@ -3250,7 +3250,7 @@ export default function AdminSystemPage() {
                       setUploadImageType(imageSubTab);
                       setUploadImageModalOpen(true);
                     }}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 h-8.5 rounded-[4px] transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs border-0"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 h-8.5 rounded-[4px] transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs border-0"
                   >
                     <Plus className="w-4 h-4" />
                     <span>上传镜像</span>
@@ -3314,7 +3314,7 @@ export default function AdminSystemPage() {
                                     onClick={() => handleOpenEditImage(img)}
                                     disabled={img.syncStatus === "同步中"}
                                     className={cn(
-                                      "text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
+                                      "text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
                                       img.syncStatus === "同步中" && "text-[#ff8d60] cursor-not-allowed"
                                     )}
                                   >
@@ -3326,7 +3326,7 @@ export default function AdminSystemPage() {
                                     onClick={() => handleSyncImage(img.id, "container")}
                                     disabled={img.syncStatus === "同步中" || img.syncStatus === "同步成功"}
                                     className={cn(
-                                      "text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
+                                      "text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
                                       (img.syncStatus === "同步中" || img.syncStatus === "同步成功") && "text-[#ff8d60] cursor-not-allowed"
                                     )}
                                   >
@@ -3340,7 +3340,7 @@ export default function AdminSystemPage() {
                                         e.stopPropagation();
                                         setActiveImageDropdownId(activeImageDropdownId === img.id ? null : img.id);
                                       }}
-                                      className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0 flex items-center gap-0.5"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0 flex items-center gap-0.5"
                                     >
                                       更多 <ChevronDown className="w-3 h-3" />
                                     </button>
@@ -3355,7 +3355,7 @@ export default function AdminSystemPage() {
                                             setActiveImageDropdownId(null);
                                             handleOpenImageLogs(img);
                                           }}
-                                          className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-700 hover:text-[#fa541c] hover:bg-orange-50/40 font-semibold"
+                                          className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-700 hover:text-[#3b82f6] hover:bg-blue-50/40 font-semibold"
                                         >
                                           日志
                                         </button>
@@ -3415,7 +3415,7 @@ export default function AdminSystemPage() {
                               <td className="pl-6 pr-3 py-3 text-left font-semibold text-neutral-800 font-mono">{img.name}</td>
                               <td className="px-3 py-3 text-left text-neutral-600">{img.description}</td>
                               <td className="px-3 py-3 text-left text-neutral-600">
-                                <span className="bg-[#fff2e8] text-[#fa541c] text-[10px] font-bold px-2 py-0.5 rounded border border-[#ffbb96]">
+                                <span className="bg-[#eff6ff] text-[#3b82f6] text-[10px] font-bold px-2 py-0.5 rounded border border-[#bfdbfe]">
                                   {img.resourceType}
                                 </span>
                               </td>
@@ -3444,7 +3444,7 @@ export default function AdminSystemPage() {
                                     onClick={() => handleOpenEditImage(img)}
                                     disabled={img.syncStatus === "同步中"}
                                     className={cn(
-                                      "text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
+                                      "text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
                                       img.syncStatus === "同步中" && "text-[#ff8d60] cursor-not-allowed"
                                     )}
                                   >
@@ -3456,7 +3456,7 @@ export default function AdminSystemPage() {
                                     onClick={() => handleSyncImage(img.id, "vm")}
                                     disabled={img.syncStatus === "同步中" || img.syncStatus === "同步成功"}
                                     className={cn(
-                                      "text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
+                                      "text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0",
                                       (img.syncStatus === "同步中" || img.syncStatus === "同步成功") && "text-[#ff8d60] cursor-not-allowed"
                                     )}
                                   >
@@ -3470,7 +3470,7 @@ export default function AdminSystemPage() {
                                         e.stopPropagation();
                                         setActiveImageDropdownId(activeImageDropdownId === img.id ? null : img.id);
                                       }}
-                                      className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0 flex items-center gap-0.5"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer text-xs font-semibold p-0 flex items-center gap-0.5"
                                     >
                                       更多 <ChevronDown className="w-3 h-3" />
                                     </button>
@@ -3485,7 +3485,7 @@ export default function AdminSystemPage() {
                                             setActiveImageDropdownId(null);
                                             handleOpenImageLogs(img);
                                           }}
-                                          className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-700 hover:text-[#fa541c] hover:bg-orange-50/40 font-semibold"
+                                          className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-700 hover:text-[#3b82f6] hover:bg-blue-50/40 font-semibold"
                                         >
                                           日志
                                         </button>
@@ -3535,7 +3535,7 @@ export default function AdminSystemPage() {
                         "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] font-medium transition-colors bg-white hover:bg-neutral-50 cursor-pointer",
                         (imageSubTab === "container" ? activeContainerPage === 1 : activeVmPage === 1) 
                           ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-150 hover:bg-neutral-50" 
-                          : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c]"
+                          : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                       )}
                     >
                       &lt;
@@ -3553,8 +3553,8 @@ export default function AdminSystemPage() {
                         className={cn(
                           "h-7 w-7 rounded-sm border text-[12px] font-bold transition-colors cursor-pointer flex items-center justify-center",
                           p === (imageSubTab === "container" ? activeContainerPage : activeVmPage) 
-                            ? "bg-[#fa541c] text-white border-[#fa541c]" 
-                            : "bg-white border-neutral-200 text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c]"
+                            ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
+                            : "bg-white border-neutral-200 text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                         )}
                       >
                         {p}
@@ -3573,13 +3573,13 @@ export default function AdminSystemPage() {
                         "h-7 w-7 rounded-sm border border-neutral-200 flex items-center justify-center text-[12px] font-medium transition-colors bg-white hover:bg-neutral-50 cursor-pointer",
                         (imageSubTab === "container" ? activeContainerPage === totalContainerPages || totalContainerPages === 0 : activeVmPage === totalVmPages || totalVmPages === 0) 
                           ? "text-neutral-300 bg-neutral-50 cursor-not-allowed border-neutral-150 hover:bg-neutral-50" 
-                          : "text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c]"
+                          : "text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                       )}
                     >
                       &gt;
                     </button>
                   </div>
-                  <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer h-7">
+                  <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer h-7">
                     <option>{imagePageSize} 条/页</option>
                   </select>
                 </div>
@@ -3596,13 +3596,13 @@ export default function AdminSystemPage() {
               {/* Body */}
               <div className="p-6 flex flex-col">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-1 h-5 bg-[#fa541c] rounded-full mt-1 shrink-0"></div>
+                  <div className="w-1 h-5 bg-[#3b82f6] rounded-full mt-1 shrink-0"></div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-[18px] font-bold text-neutral-900">{deleteConfirm.title || "删除确认"}</h2>
                       <button 
                         onClick={() => setDeleteConfirm(prev => ({ ...prev, show: false }))} 
-                        className="text-neutral-400 hover:text-[#fa541c] transition-colors rounded-[4px] border-0 bg-transparent cursor-pointer p-0"
+                        className="text-neutral-400 hover:text-[#3b82f6] transition-colors rounded-[4px] border-0 bg-transparent cursor-pointer p-0"
                       >
                         <X className="w-5 h-5" />
                       </button>
@@ -3610,7 +3610,7 @@ export default function AdminSystemPage() {
                     <p className="text-[14px] text-neutral-600 mb-2 leading-relaxed">
                       {deleteConfirm.message}
                     </p>
-                    <p className="text-[13px] text-[#fa541c] font-medium">
+                    <p className="text-[13px] text-[#3b82f6] font-medium">
                       删除后此操作不可撤销
                     </p>
                   </div>
@@ -3628,7 +3628,7 @@ export default function AdminSystemPage() {
                       deleteConfirm.onConfirm();
                       setDeleteConfirm(prev => ({ ...prev, show: false }));
                     }} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-6 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-6 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     确定
                   </button>
@@ -3656,7 +3656,7 @@ export default function AdminSystemPage() {
               {/* Drawer Header */}
               <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                 <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                  <Settings className="w-5 h-5 text-[#fa541c]" />
+                  <Settings className="w-5 h-5 text-[#3b82f6]" />
                   <span>编辑镜像</span>
                 </h2>
                 <button 
@@ -3666,7 +3666,7 @@ export default function AdminSystemPage() {
                     setEditingImageId(null);
                     setEditSelectedFileName("");
                   }}
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -3707,7 +3707,7 @@ export default function AdminSystemPage() {
                 {/* 镜像名称 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    镜像名称 <span className="text-[#fa541c]">*</span>
+                    镜像名称 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="relative w-full">
                     <input
@@ -3717,7 +3717,7 @@ export default function AdminSystemPage() {
                       placeholder="请输入镜像名称"
                       value={editingImageName}
                       onChange={(e) => setEditingImageName(e.target.value)}
-                      className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                      className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                     />
                     <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                       {editingImageName.length} / 128
@@ -3730,7 +3730,7 @@ export default function AdminSystemPage() {
                     {/* 命名空间 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        命名空间 <span className="text-[#fa541c]">*</span>
+                        命名空间 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -3740,7 +3740,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入命名空间"
                           value={editingImageNamespace}
                           onChange={(e) => setEditingImageNamespace(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {editingImageNamespace.length} / 100
@@ -3751,7 +3751,7 @@ export default function AdminSystemPage() {
                     {/* 版本号 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        版本号 <span className="text-[#fa541c]">*</span>
+                        版本号 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -3761,7 +3761,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入版本号"
                           value={editingImageVersion}
                           onChange={(e) => setEditingImageVersion(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {editingImageVersion.length} / 100
@@ -3772,7 +3772,7 @@ export default function AdminSystemPage() {
                     {/* 镜像描述 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        镜像描述 <span className="text-[#fa541c]">*</span>
+                        镜像描述 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -3782,7 +3782,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入镜像描述"
                           value={editingImageDesc}
                           onChange={(e) => setEditingImageDesc(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {editingImageDesc.length} / 100
@@ -3795,7 +3795,7 @@ export default function AdminSystemPage() {
                     {/* 镜像描述 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        镜像描述 <span className="text-[#fa541c]">*</span>
+                        镜像描述 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -3805,7 +3805,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入镜像描述"
                           value={editingImageDesc}
                           onChange={(e) => setEditingImageDesc(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {editingImageDesc.length} / 100
@@ -3816,14 +3816,14 @@ export default function AdminSystemPage() {
                     {/* 系统类型 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        系统类型 <span className="text-[#fa541c]">*</span>
+                        系统类型 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div ref={editOsDropdownRef} className="relative w-full text-xs">
                         <div
                           onClick={() => setEditIsOsDropdownOpen(!editIsOsDropdownOpen)}
                           className={cn(
                             "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                            editIsOsDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                            editIsOsDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                           )}
                         >
                           <span className={cn(editingImageOs ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -3853,11 +3853,11 @@ export default function AdminSystemPage() {
                                     }}
                                     className={cn(
                                       "px-3.5 py-2 hover:bg-neutral-50 cursor-pointer transition-colors text-[13px] flex items-center justify-between",
-                                      isSelected ? "text-[#fa541c] bg-[#fff7e6] font-bold" : "text-neutral-700"
+                                      isSelected ? "text-[#3b82f6] bg-[#fff7e6] font-bold" : "text-neutral-700"
                                     )}
                                   >
                                     <span>{opt.label}</span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                                   </div>
                                 );
                               })}
@@ -3870,14 +3870,14 @@ export default function AdminSystemPage() {
                     {/* 资源类型 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        资源类型 <span className="text-[#fa541c]">*</span>
+                        资源类型 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div ref={editResTypeDropdownRef} className="relative w-full text-xs">
                         <div
                           onClick={() => setEditIsResTypeDropdownOpen(!editIsResTypeDropdownOpen)}
                           className={cn(
                             "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                            editIsResTypeDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                            editIsResTypeDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                           )}
                         >
                           <span className={cn(editingImageResType ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -3907,11 +3907,11 @@ export default function AdminSystemPage() {
                                     }}
                                     className={cn(
                                       "px-3.5 py-2 hover:bg-neutral-50 cursor-pointer transition-colors text-[13px] flex items-center justify-between",
-                                      isSelected ? "text-[#fa541c] bg-[#fff7e6] font-bold" : "text-[#262626]"
+                                      isSelected ? "text-[#3b82f6] bg-[#fff7e6] font-bold" : "text-[#262626]"
                                     )}
                                   >
                                     <span>{opt.label}</span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                                   </div>
                                 );
                               })}
@@ -3924,14 +3924,14 @@ export default function AdminSystemPage() {
                     {/* 系统架构 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        系统架构 <span className="text-[#fa541c]">*</span>
+                        系统架构 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div ref={editArchDropdownRef} className="relative w-full text-xs">
                         <div
                           onClick={() => setEditIsArchDropdownOpen(!editIsArchDropdownOpen)}
                           className={cn(
                             "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                            editIsArchDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                            editIsArchDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                           )}
                         >
                           <span className={cn(editingImageArch ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -3961,11 +3961,11 @@ export default function AdminSystemPage() {
                                     }}
                                     className={cn(
                                       "px-3.5 py-2 hover:bg-neutral-50 cursor-pointer transition-colors text-[13px] flex items-center justify-between",
-                                      isSelected ? "text-[#fa541c] bg-[#fff7e6] font-bold" : "text-[#262626]"
+                                      isSelected ? "text-[#3b82f6] bg-[#fff7e6] font-bold" : "text-[#262626]"
                                     )}
                                   >
                                     <span>{opt.label}</span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                                   </div>
                                 );
                               })}
@@ -3998,13 +3998,13 @@ export default function AdminSystemPage() {
                     <button
                       type="button"
                       onClick={() => editFileInputRef.current?.click()}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2 rounded-[4px] transition-colors cursor-pointer border-0 inline-flex items-center gap-1.5 shadow-3xs"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2 rounded-[4px] transition-colors cursor-pointer border-0 inline-flex items-center gap-1.5 shadow-3xs"
                     >
                       上传文件
                     </button>
                     {editSelectedFileName ? (
                       <div className="flex items-center gap-2 mt-2 text-xs text-neutral-600 font-medium">
-                        <FileText className="w-4 h-4 text-[#fa541c]" />
+                        <FileText className="w-4 h-4 text-[#3b82f6]" />
                         <span className="truncate max-w-xs">{editSelectedFileName}</span>
                         <button 
                           type="button" 
@@ -4025,10 +4025,10 @@ export default function AdminSystemPage() {
                 {/* 删除保护 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    删除保护 <span className="text-[#fa541c]">*</span>
+                    删除保护 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="flex items-center gap-3 select-none">
-                    <span className={cn("text-[13px] font-medium transition-colors", !editingDeleteProtection ? "text-[#fa541c] font-bold" : "text-neutral-500")}>
+                    <span className={cn("text-[13px] font-medium transition-colors", !editingDeleteProtection ? "text-[#3b82f6] font-bold" : "text-neutral-500")}>
                       不限制
                     </span>
                     <button
@@ -4036,7 +4036,7 @@ export default function AdminSystemPage() {
                       onClick={() => setEditingDeleteProtection(!editingDeleteProtection)}
                       className={cn(
                         "w-11 h-6 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer border-0 flex items-center",
-                        editingDeleteProtection ? "bg-[#fa541c]" : "bg-neutral-200"
+                        editingDeleteProtection ? "bg-[#3b82f6]" : "bg-neutral-200"
                       )}
                     >
                       <div
@@ -4046,7 +4046,7 @@ export default function AdminSystemPage() {
                         )}
                       />
                     </button>
-                    <span className={cn("text-[13px] font-medium transition-colors", editingDeleteProtection ? "text-[#fa541c] font-bold" : "text-neutral-500")}>
+                    <span className={cn("text-[13px] font-medium transition-colors", editingDeleteProtection ? "text-[#3b82f6] font-bold" : "text-neutral-500")}>
                       限制删除
                     </span>
                   </div>
@@ -4069,7 +4069,7 @@ export default function AdminSystemPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-[13px] rounded transition-colors border-0 cursor-pointer"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-[13px] rounded transition-colors border-0 cursor-pointer"
                 >
                   确定
                 </button>
@@ -4102,7 +4102,7 @@ export default function AdminSystemPage() {
                     setImageLogsModalOpen(false);
                     setSelectedImageForLogs(null);
                   }}
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -4164,7 +4164,7 @@ export default function AdminSystemPage() {
               {/* Drawer Header */}
               <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                 <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                  <Plus className="w-5 h-5 text-[#fa541c]" />
+                  <Plus className="w-5 h-5 text-[#3b82f6]" />
                   <span>上传镜像</span>
                 </h2>
                 <button 
@@ -4182,7 +4182,7 @@ export default function AdminSystemPage() {
                     setDeleteProtection(false);
                     setSelectedFileName("");
                   }}
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -4194,7 +4194,7 @@ export default function AdminSystemPage() {
                 {/* 镜像类型 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    镜像类型 <span className="text-[#fa541c]">*</span>
+                    镜像类型 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="flex items-center gap-6 select-none text-[13px] font-medium">
                     <div 
@@ -4202,13 +4202,13 @@ export default function AdminSystemPage() {
                       className="flex items-center gap-2 cursor-pointer"
                     >
                       {uploadImageType === "container" ? (
-                        <div className="w-4 h-4 rounded-full border-2 border-[#fa541c] flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-[#fa541c]" />
+                        <div className="w-4 h-4 rounded-full border-2 border-[#3b82f6] flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-[#3b82f6]" />
                         </div>
                       ) : (
                         <div className="w-4 h-4 rounded-full border-2 border-neutral-300" />
                       )}
-                      <span className={uploadImageType === "container" ? "text-[#fa541c] font-bold" : "text-neutral-700"}>
+                      <span className={uploadImageType === "container" ? "text-[#3b82f6] font-bold" : "text-neutral-700"}>
                         容器镜像
                       </span>
                     </div>
@@ -4218,13 +4218,13 @@ export default function AdminSystemPage() {
                       className="flex items-center gap-2 cursor-pointer"
                     >
                       {uploadImageType === "vm" ? (
-                        <div className="w-4 h-4 rounded-full border-2 border-[#fa541c] flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-[#fa541c]" />
+                        <div className="w-4 h-4 rounded-full border-2 border-[#3b82f6] flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-[#3b82f6]" />
                         </div>
                       ) : (
                         <div className="w-4 h-4 rounded-full border-2 border-neutral-300" />
                       )}
-                      <span className={uploadImageType === "vm" ? "text-[#fa541c] font-bold" : "text-neutral-700"}>
+                      <span className={uploadImageType === "vm" ? "text-[#3b82f6] font-bold" : "text-neutral-700"}>
                         虚拟机镜像
                       </span>
                     </div>
@@ -4234,7 +4234,7 @@ export default function AdminSystemPage() {
                 {/* 镜像名称 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    镜像名称 <span className="text-[#fa541c]">*</span>
+                    镜像名称 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="relative w-full">
                     <input
@@ -4244,7 +4244,7 @@ export default function AdminSystemPage() {
                       placeholder="请输入镜像名称"
                       value={newImageName}
                       onChange={(e) => setNewImageName(e.target.value)}
-                      className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                      className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                     />
                     <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                       {newImageName.length} / 128
@@ -4257,7 +4257,7 @@ export default function AdminSystemPage() {
                     {/* 命名空间 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        命名空间 <span className="text-[#fa541c]">*</span>
+                        命名空间 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -4267,7 +4267,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入命名空间"
                           value={newImageNamespace}
                           onChange={(e) => setNewImageNamespace(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {newImageNamespace.length} / 100
@@ -4278,7 +4278,7 @@ export default function AdminSystemPage() {
                     {/* 版本号 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        版本号 <span className="text-[#fa541c]">*</span>
+                        版本号 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -4288,7 +4288,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入版本号"
                           value={newImageVersion}
                           onChange={(e) => setNewImageVersion(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {newImageVersion.length} / 100
@@ -4299,7 +4299,7 @@ export default function AdminSystemPage() {
                     {/* 镜像描述 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        镜像描述 <span className="text-[#fa541c]">*</span>
+                        镜像描述 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -4309,7 +4309,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入镜像描述"
                           value={newImageDesc}
                           onChange={(e) => setNewImageDesc(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {newImageDesc.length} / 100
@@ -4322,7 +4322,7 @@ export default function AdminSystemPage() {
                     {/* 镜像描述 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        镜像描述 <span className="text-[#fa541c]">*</span>
+                        镜像描述 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="relative w-full">
                         <input
@@ -4332,7 +4332,7 @@ export default function AdminSystemPage() {
                           placeholder="请输入镜像描述"
                           value={newImageDesc}
                           onChange={(e) => setNewImageDesc(e.target.value)}
-                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
+                          className="h-[36px] w-full border border-neutral-200 rounded px-3.5 pr-16 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-700 placeholder-neutral-400 font-normal transition-all"
                         />
                         <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 select-none">
                           {newImageDesc.length} / 100
@@ -4343,14 +4343,14 @@ export default function AdminSystemPage() {
                     {/* 系统类型 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        系统类型 <span className="text-[#fa541c]">*</span>
+                        系统类型 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div ref={osDropdownRef} className="relative w-full text-xs">
                         <div
                           onClick={() => setIsOsDropdownOpen(!isOsDropdownOpen)}
                           className={cn(
                             "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                            isOsDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                            isOsDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                           )}
                         >
                           <span className={cn(newImageOs ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -4380,11 +4380,11 @@ export default function AdminSystemPage() {
                                     }}
                                     className={cn(
                                       "px-3.5 py-2 hover:bg-neutral-50 cursor-pointer transition-colors text-[13px] flex items-center justify-between",
-                                      isSelected ? "text-[#fa541c] bg-[#fff7e6] font-bold" : "text-neutral-700"
+                                      isSelected ? "text-[#3b82f6] bg-[#fff7e6] font-bold" : "text-neutral-700"
                                     )}
                                   >
                                     <span>{opt.label}</span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                                   </div>
                                 );
                               })}
@@ -4397,14 +4397,14 @@ export default function AdminSystemPage() {
                     {/* 资源类型 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        资源类型 <span className="text-[#fa541c]">*</span>
+                        资源类型 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div ref={resTypeDropdownRef} className="relative w-full text-xs">
                         <div
                           onClick={() => setIsResTypeDropdownOpen(!isResTypeDropdownOpen)}
                           className={cn(
                             "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                            isResTypeDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                            isResTypeDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                           )}
                         >
                           <span className={cn(newImageResType ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -4434,11 +4434,11 @@ export default function AdminSystemPage() {
                                     }}
                                     className={cn(
                                       "px-3.5 py-2 hover:bg-neutral-50 cursor-pointer transition-colors text-[13px] flex items-center justify-between",
-                                      isSelected ? "text-[#fa541c] bg-[#fff7e6] font-bold" : "text-[#262626]"
+                                      isSelected ? "text-[#3b82f6] bg-[#fff7e6] font-bold" : "text-[#262626]"
                                     )}
                                   >
                                     <span>{opt.label}</span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                                   </div>
                                 );
                               })}
@@ -4451,14 +4451,14 @@ export default function AdminSystemPage() {
                     {/* 系统架构 */}
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        系统架构 <span className="text-[#fa541c]">*</span>
+                        系统架构 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div ref={archDropdownRef} className="relative w-full text-xs">
                         <div
                           onClick={() => setIsArchDropdownOpen(!isArchDropdownOpen)}
                           className={cn(
                             "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                            isArchDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                            isArchDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                           )}
                         >
                           <span className={cn(newImageArch ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -4488,11 +4488,11 @@ export default function AdminSystemPage() {
                                     }}
                                     className={cn(
                                       "px-3.5 py-2 hover:bg-neutral-50 cursor-pointer transition-colors text-[13px] flex items-center justify-between",
-                                      isSelected ? "text-[#fa541c] bg-[#fff7e6] font-bold" : "text-[#262626]"
+                                      isSelected ? "text-[#3b82f6] bg-[#fff7e6] font-bold" : "text-[#262626]"
                                     )}
                                   >
                                     <span>{opt.label}</span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                                    {isSelected && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                                   </div>
                                 );
                               })}
@@ -4525,13 +4525,13 @@ export default function AdminSystemPage() {
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2 rounded-[4px] transition-colors cursor-pointer border-0 inline-flex items-center gap-1.5 shadow-3xs"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2 rounded-[4px] transition-colors cursor-pointer border-0 inline-flex items-center gap-1.5 shadow-3xs"
                     >
                       上传文件
                     </button>
                     {selectedFileName ? (
                       <div className="flex items-center gap-2 mt-2 text-xs text-neutral-600 font-medium">
-                        <FileText className="w-4 h-4 text-[#fa541c]" />
+                        <FileText className="w-4 h-4 text-[#3b82f6]" />
                         <span className="truncate max-w-xs">{selectedFileName}</span>
                         <button 
                           type="button" 
@@ -4552,10 +4552,10 @@ export default function AdminSystemPage() {
                 {/* 删除保护 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    删除保护 <span className="text-[#fa541c]">*</span>
+                    删除保护 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="flex items-center gap-3 select-none">
-                    <span className={cn("text-[13px] font-medium transition-colors", !deleteProtection ? "text-[#fa541c] font-bold" : "text-neutral-500")}>
+                    <span className={cn("text-[13px] font-medium transition-colors", !deleteProtection ? "text-[#3b82f6] font-bold" : "text-neutral-500")}>
                       不限制
                     </span>
                     <button
@@ -4563,7 +4563,7 @@ export default function AdminSystemPage() {
                       onClick={() => setDeleteProtection(!deleteProtection)}
                       className={cn(
                         "w-11 h-6 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer border-0 flex items-center",
-                        deleteProtection ? "bg-[#fa541c]" : "bg-neutral-200"
+                        deleteProtection ? "bg-[#3b82f6]" : "bg-neutral-200"
                       )}
                     >
                       <div
@@ -4573,7 +4573,7 @@ export default function AdminSystemPage() {
                         )}
                       />
                     </button>
-                    <span className={cn("text-[13px] font-medium transition-colors", deleteProtection ? "text-[#fa541c] font-bold" : "text-neutral-500")}>
+                    <span className={cn("text-[13px] font-medium transition-colors", deleteProtection ? "text-[#3b82f6] font-bold" : "text-neutral-500")}>
                       限制删除
                     </span>
                   </div>
@@ -4604,7 +4604,7 @@ export default function AdminSystemPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-[13px] rounded transition-colors border-0 cursor-pointer"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-[13px] rounded transition-colors border-0 cursor-pointer"
                 >
                   确定
                 </button>

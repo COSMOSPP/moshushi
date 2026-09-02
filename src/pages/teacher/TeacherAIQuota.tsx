@@ -262,7 +262,7 @@ export default function TeacherAIQuota() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-neutral-900 flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             AI配额管理
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
@@ -277,7 +277,7 @@ export default function TeacherAIQuota() {
           onClick={() => { setActiveTab('monitor'); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'monitor' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'monitor' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Sliders className="w-4 h-4" />
@@ -287,7 +287,7 @@ export default function TeacherAIQuota() {
           onClick={() => { setActiveTab('allocate'); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'allocate' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'allocate' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Users className="w-4 h-4" />
@@ -297,7 +297,7 @@ export default function TeacherAIQuota() {
           onClick={() => { setActiveTab('limits'); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'limits' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'limits' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Cpu className="w-4 h-4" />
@@ -307,7 +307,7 @@ export default function TeacherAIQuota() {
           onClick={() => { setActiveTab('approvals'); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all relative",
-            activeTab === 'approvals' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'approvals' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Receipt className="w-4 h-4" />
@@ -322,7 +322,7 @@ export default function TeacherAIQuota() {
           onClick={() => { setActiveTab('presets'); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'presets' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'presets' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Settings className="w-4 h-4" />
@@ -337,29 +337,29 @@ export default function TeacherAIQuota() {
           {/* Top Info Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             
-            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all">
+            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all">
               <div className="space-y-1.5">
                 <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">租户 Token 已用总量</span>
                 <strong className="text-2xl font-black text-neutral-800 block tracking-tight">{globalTokenUsage.used} M</strong>
                 <span className="text-[10px] text-neutral-400 block">租户上限: {globalTokenUsage.totalLimit} M</span>
               </div>
-              <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+              <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
                 <Database className="w-6 h-6" />
               </div>
             </div>
 
-            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all">
+            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all">
               <div className="space-y-1.5">
                 <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">总分配 Token</span>
                 <strong className="text-2xl font-black text-neutral-800 block tracking-tight">{globalTokenUsage.allocated} M</strong>
                 <span className="text-[10px] text-neutral-400 block">已分配占比: {getPercent(globalTokenUsage.allocated, globalTokenUsage.totalLimit)}%</span>
               </div>
-              <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+              <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
                 <Sliders className="w-6 h-6" />
               </div>
             </div>
 
-            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all">
+            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all">
               <div className="space-y-1.5">
                 <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">接近上限/耗尽预警数</span>
                 <strong className="text-2xl font-black text-red-600 block tracking-tight">{globalTokenUsage.warnCount} 人</strong>
@@ -372,13 +372,13 @@ export default function TeacherAIQuota() {
               </div>
             </div>
 
-            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all">
+            <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all">
               <div className="space-y-1.5">
                 <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">待审批临时申请</span>
-                <strong className="text-2xl font-black text-[#fa541c] block tracking-tight">{globalTokenUsage.pendingApps} 笔</strong>
+                <strong className="text-2xl font-black text-[#3b82f6] block tracking-tight">{globalTokenUsage.pendingApps} 笔</strong>
                 <span className="text-[10px] text-neutral-400 block">有效期7天，即审即用</span>
               </div>
-              <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+              <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
                 <Receipt className="w-6 h-6" />
               </div>
             </div>
@@ -393,7 +393,7 @@ export default function TeacherAIQuota() {
               <div className="flex items-center justify-between pb-3 border-b border-neutral-100">
                 <div className="space-y-1">
                   <h3 className="font-bold text-neutral-800 text-[14px] flex items-center gap-1.5">
-                    <TrendingUp className="w-4 h-4 text-[#fa541c]" />
+                    <TrendingUp className="w-4 h-4 text-[#3b82f6]" />
                     租户大模型 Token 用量趋势分析
                   </h3>
                   <p className="text-[10px] text-neutral-400">最近几周学生实验和教学活动导致的API Token调用量走势</p>
@@ -404,11 +404,11 @@ export default function TeacherAIQuota() {
                 <svg viewBox="0 0 600 180" className="w-full h-36 overflow-visible">
                   <defs>
                     <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#fa541c" stopOpacity="0.2" />
-                      <stop offset="100%" stopColor="#fa541c" stopOpacity="0.0" />
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                     </linearGradient>
                     <linearGradient id="peak-grad" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#fa541c" />
+                      <stop offset="0%" stopColor="#3b82f6" />
                       <stop offset="100%" stopColor="#f5222d" />
                     </linearGradient>
                   </defs>
@@ -421,28 +421,28 @@ export default function TeacherAIQuota() {
                   <path d="M 50 150 L 50 120 C 100 100, 100 85, 150 85 C 200 85, 200 115, 250 115 C 300 115, 300 60, 350 60 C 400 60, 400 95, 450 95 C 500 95, 500 40, 550 40 L 550 150 Z" fill="url(#area-grad)" />
                   
                   {/* Beautiful Smooth Bezier Stroke */}
-                  <path d="M 50 120 C 100 100, 100 85, 150 85 C 200 85, 200 115, 250 115 C 300 115, 300 60, 350 60 C 400 60, 400 95, 450 95 C 500 95, 500 40, 550 40" fill="none" stroke="#fa541c" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M 50 120 C 100 100, 100 85, 150 85 C 200 85, 200 115, 250 115 C 300 115, 300 60, 350 60 C 400 60, 400 95, 450 95 C 500 95, 500 40, 550 40" fill="none" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" />
                   
                   {/* Data Point Circles */}
-                  <circle cx="150" cy="85" r="4.5" fill="#fa541c" stroke="#fff" strokeWidth="1.5" />
-                  <circle cx="350" cy="60" r="4.5" fill="#fa541c" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="150" cy="85" r="4.5" fill="#3b82f6" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="350" cy="60" r="4.5" fill="#3b82f6" stroke="#fff" strokeWidth="1.5" />
                   
                   {/* Pulsing Warning Radar Circle using SVG standard animations */}
-                  <circle cx="550" cy="40" r="4.5" fill="#fa541c" stroke="#fff" strokeWidth="1.5">
+                  <circle cx="550" cy="40" r="4.5" fill="#3b82f6" stroke="#fff" strokeWidth="1.5">
                     <animate attributeName="r" values="4.5;12;4.5" dur="2s" repeatCount="indefinite" />
                     <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
                   </circle>
-                  <circle cx="550" cy="40" r="4.5" fill="#fa541c" stroke="#fff" strokeWidth="1.5" />
+                  <circle cx="550" cy="40" r="4.5" fill="#3b82f6" stroke="#fff" strokeWidth="1.5" />
 
                   {/* SVG Native Floating Tooltips/Labels (100% vector precise and responsive!) */}
                   <g transform="translate(150, 50)">
-                    <rect x="-26" y="-12" width="52" height="18" rx="5" fill="#fff" stroke="#fa541c" strokeWidth="1" />
-                    <text x="0" y="0" fill="#fa541c" fontSize="9" fontWeight="bold" textAnchor="middle" dy="0.3em">350M</text>
+                    <rect x="-26" y="-12" width="52" height="18" rx="5" fill="#fff" stroke="#3b82f6" strokeWidth="1" />
+                    <text x="0" y="0" fill="#3b82f6" fontSize="9" fontWeight="bold" textAnchor="middle" dy="0.3em">350M</text>
                   </g>
 
                   <g transform="translate(350, 25)">
-                    <rect x="-26" y="-12" width="52" height="18" rx="5" fill="#fff" stroke="#fa541c" strokeWidth="1" />
-                    <text x="0" y="0" fill="#fa541c" fontSize="9" fontWeight="bold" textAnchor="middle" dy="0.3em">480M</text>
+                    <rect x="-26" y="-12" width="52" height="18" rx="5" fill="#fff" stroke="#3b82f6" strokeWidth="1" />
+                    <text x="0" y="0" fill="#3b82f6" fontSize="9" fontWeight="bold" textAnchor="middle" dy="0.3em">480M</text>
                   </g>
 
                   <g transform="translate(550, 5)">
@@ -481,7 +481,7 @@ export default function TeacherAIQuota() {
 
                 <div className="flex items-center justify-between font-medium">
                   <div className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded bg-orange-100 text-orange-600 font-bold text-[9px] flex items-center justify-center">2</span>
+                    <span className="w-4 h-4 rounded bg-blue-100 text-orange-600 font-bold text-[9px] flex items-center justify-center">2</span>
                     <strong className="text-neutral-800">张伟 (学生)</strong>
                   </div>
                   <span className="font-mono text-red-600 font-black">495.0M Tokens (99%)</span>
@@ -531,7 +531,7 @@ export default function TeacherAIQuota() {
                   placeholder="搜索学号、姓名、学院..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#fa541c] w-full bg-white transition-all text-neutral-700"
+                  className="pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#3b82f6] w-full bg-white transition-all text-neutral-700"
                 />
               </div>
 
@@ -606,7 +606,7 @@ export default function TeacherAIQuota() {
                         <td className="p-4 text-left">
                           <button 
                             onClick={() => { setTargetUser(u); setSingleQuotaVal(u.quota); setIsSingleOpen(true); }}
-                            className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs transition-colors cursor-pointer"
+                            className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs transition-colors cursor-pointer"
                           >
                             微调配额
                           </button>
@@ -623,10 +623,10 @@ export default function TeacherAIQuota() {
               <span className="text-[13px] text-neutral-500 font-bold">共 {filteredUsers.length} 条</span>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&gt;</Button>
               </div>
-              <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 font-medium">
+              <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 font-medium">
                 <option>10 条/页</option>
                 <option>20 条/页</option>
                 <option>50 条/页</option>
@@ -640,8 +640,8 @@ export default function TeacherAIQuota() {
       {/* Tab Content 3: AI能力限制限制配置 */}
       {activeTab === 'limits' && (
         <div className="space-y-6">
-          <div className="p-4 bg-orange-50/20 border border-orange-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
-            <Info className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+          <div className="p-4 bg-blue-50/20 border border-blue-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
+            <Info className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <span>
               <strong>安全与并发管理：</strong> 管理员可对特定大模型调用能力（每日上限、每周上限、单次调用上限和并发数）配置访问约束规则。该规则即时应用于本租户下全体师生角色。
             </span>
@@ -649,11 +649,11 @@ export default function TeacherAIQuota() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {capabilities.map((cap) => (
-              <div key={cap.id} className="bg-white rounded-2xl p-5 border border-neutral-200 shadow-sm flex flex-col justify-between hover:border-[#fa541c]/30 hover:shadow-md transition-all">
+              <div key={cap.id} className="bg-white rounded-2xl p-5 border border-neutral-200 shadow-sm flex flex-col justify-between hover:border-[#3b82f6]/30 hover:shadow-md transition-all">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between pb-2 border-b border-neutral-100">
                     <h3 className="font-bold text-neutral-800 text-[14px] flex items-center gap-2">
-                      <div className="w-1.5 h-4.5 bg-[#fa541c] rounded-full"></div>
+                      <div className="w-1.5 h-4.5 bg-[#3b82f6] rounded-full"></div>
                       {cap.name}
                     </h3>
                     <span className="px-2 py-0.5 bg-green-50 text-green-600 border border-green-200 rounded-md text-[10px] font-black uppercase tracking-wider">生效中</span>
@@ -691,7 +691,7 @@ export default function TeacherAIQuota() {
                       setFormConcurrency(cap.concurrencyLimit);
                       setIsLimitOpen(true);
                     }}
-                    className="flex items-center gap-1.5 text-xs font-black text-[#fa541c] hover:text-[#e84a15] border border-orange-200 bg-white hover:bg-orange-50/20 px-3 py-1.5 rounded-lg shadow-sm transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 text-xs font-black text-[#3b82f6] hover:text-[#2563eb] border border-blue-200 bg-white hover:bg-blue-50/20 px-3 py-1.5 rounded-lg shadow-sm transition-colors cursor-pointer"
                   >
                     <Settings className="w-3.5 h-3.5" /> 限制参数设定
                   </button>
@@ -706,8 +706,8 @@ export default function TeacherAIQuota() {
       {/* Tab Content 4: 临时配额审批审批柜 */}
       {activeTab === 'approvals' && (
         <div className="space-y-4">
-          <div className="p-4 bg-orange-50/20 border border-orange-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
-            <Info className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+          <div className="p-4 bg-blue-50/20 border border-blue-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
+            <Info className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <span>
               <strong>审批机制说明：</strong> 学生与任课教师因科研实验、重大任务或结课考试产生额度溢出时可在线发起追加。审批同意后配额<strong>即时生效，有效期统一设定为7天，超期自动扣回</strong>。
             </span>
@@ -729,7 +729,7 @@ export default function TeacherAIQuota() {
                   <p className="text-xs font-bold text-neutral-800 leading-relaxed">{req.reason}</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-[11px] text-neutral-400">申请追补 Token 量：</span>
-                    <strong className="text-sm font-black text-[#fa541c] font-mono">+{req.amount}M</strong>
+                    <strong className="text-sm font-black text-[#3b82f6] font-mono">+{req.amount}M</strong>
                   </div>
                 </div>
 
@@ -738,7 +738,7 @@ export default function TeacherAIQuota() {
                     <>
                       <button 
                         onClick={() => { setTargetRequest(req); setAdjustApproveVal(req.amount); setIsApproveOpen(true); }}
-                        className="text-xs font-black text-white bg-[#fa541c] hover:bg-[#e84a15] px-4 py-2 rounded-lg shadow-sm cursor-pointer transition-colors"
+                        className="text-xs font-black text-white bg-[#3b82f6] hover:bg-[#2563eb] px-4 py-2 rounded-lg shadow-sm cursor-pointer transition-colors"
                       >
                         介入审批
                       </button>
@@ -772,7 +772,7 @@ export default function TeacherAIQuota() {
           {/* Preset settings form card */}
           <div className="lg:col-span-1 bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-neutral-100">
-              <Settings className="w-4.5 h-4.5 text-[#fa541c]" />
+              <Settings className="w-4.5 h-4.5 text-[#3b82f6]" />
               <h3 className="font-bold text-neutral-800 text-[14px]">一键批量全局额度预设</h3>
             </div>
 
@@ -807,7 +807,7 @@ export default function TeacherAIQuota() {
                     onClick={() => setPresetScope('new_only')}
                     className={cn(
                       "py-2 rounded-lg border text-center font-bold transition-all cursor-pointer",
-                      presetScope === 'new_only' ? "bg-orange-50 border-[#fa541c] text-[#fa541c]" : "border-neutral-200 text-neutral-600 bg-white"
+                      presetScope === 'new_only' ? "bg-blue-50 border-[#3b82f6] text-[#3b82f6]" : "border-neutral-200 text-neutral-600 bg-white"
                     )}
                   >
                     仅新入驻用户
@@ -817,7 +817,7 @@ export default function TeacherAIQuota() {
                     onClick={() => setPresetScope('all')}
                     className={cn(
                       "py-2 rounded-lg border text-center font-bold transition-all cursor-pointer",
-                      presetScope === 'all' ? "bg-orange-50 border-[#fa541c] text-[#fa541c]" : "border-neutral-200 text-neutral-600 bg-white"
+                      presetScope === 'all' ? "bg-blue-50 border-[#3b82f6] text-[#3b82f6]" : "border-neutral-200 text-neutral-600 bg-white"
                     )}
                   >
                     所有现有及新用户
@@ -834,7 +834,7 @@ export default function TeacherAIQuota() {
                     onClick={() => setPresetEffective('now')}
                     className={cn(
                       "py-2 rounded-lg border text-center font-bold transition-all cursor-pointer",
-                      presetEffective === 'now' ? "bg-orange-50 border-[#fa541c] text-[#fa541c]" : "border-neutral-200 text-neutral-600 bg-white"
+                      presetEffective === 'now' ? "bg-blue-50 border-[#3b82f6] text-[#3b82f6]" : "border-neutral-200 text-neutral-600 bg-white"
                     )}
                   >
                     立即生效
@@ -844,7 +844,7 @@ export default function TeacherAIQuota() {
                     onClick={() => setPresetEffective('next_month')}
                     className={cn(
                       "py-2 rounded-lg border text-center font-bold transition-all cursor-pointer",
-                      presetEffective === 'next_month' ? "bg-orange-50 border-[#fa541c] text-[#fa541c]" : "border-neutral-200 text-neutral-600 bg-white"
+                      presetEffective === 'next_month' ? "bg-blue-50 border-[#3b82f6] text-[#3b82f6]" : "border-neutral-200 text-neutral-600 bg-white"
                     )}
                   >
                     次月结算日生效
@@ -855,7 +855,7 @@ export default function TeacherAIQuota() {
               <div className="pt-2">
                 <Button 
                   type="submit"
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white w-full h-9 rounded-xl text-xs font-bold shadow-md shadow-orange-500/10"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white w-full h-9 rounded-xl text-xs font-bold shadow-md shadow-blue-500/10"
                 >
                   确认应用全局默认分配规则
                 </Button>
@@ -888,7 +888,7 @@ export default function TeacherAIQuota() {
                     </span>
                   </div>
                   <p className="font-bold text-neutral-800">
-                    默认配额设定：教师 <span className="font-mono text-[#fa541c]">{hist.teacherDefault}M</span> · 学生 <span className="font-mono text-[#fa541c]">{hist.studentDefault}M</span>
+                    默认配额设定：教师 <span className="font-mono text-[#3b82f6]">{hist.teacherDefault}M</span> · 学生 <span className="font-mono text-[#3b82f6]">{hist.studentDefault}M</span>
                   </p>
                   <div className="text-[10px] text-neutral-500">
                     应用覆盖范围：<strong className="text-neutral-700">{hist.scope}</strong>
@@ -908,7 +908,7 @@ export default function TeacherAIQuota() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Sliders className="w-5 h-5 text-[#fa541c]" /> 微调用户算力配额
+                <Sliders className="w-5 h-5 text-[#3b82f6]" /> 微调用户算力配额
               </h2>
               <button 
                 type="button" 
@@ -932,7 +932,7 @@ export default function TeacherAIQuota() {
                   type="number" 
                   value={singleQuotaVal}
                   onChange={(e) => setSingleQuotaVal(Number(e.target.value))}
-                  className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs text-neutral-800 focus:outline-none focus:border-[#fa541c]" 
+                  className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs text-neutral-800 focus:outline-none focus:border-[#3b82f6]" 
                 />
                 <span className="text-[10px] text-neutral-400 mt-1 block">配额单位为 M (百万 Token)，大模型实际运行消耗将由此配额库中核扣。</span>
               </div>
@@ -949,7 +949,7 @@ export default function TeacherAIQuota() {
               </Button>
               <Button 
                 type="submit" 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-lg shadow-md shadow-orange-500/10 text-xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-lg shadow-md shadow-blue-500/10 text-xs"
               >
                 确认微调
               </Button>
@@ -966,7 +966,7 @@ export default function TeacherAIQuota() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-[#fa541c]" /> {targetCap.name} 限制微调
+                <Cpu className="w-5 h-5 text-[#3b82f6]" /> {targetCap.name} 限制微调
               </h2>
               <button 
                 type="button" 
@@ -1032,7 +1032,7 @@ export default function TeacherAIQuota() {
               </Button>
               <Button 
                 type="submit" 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-lg shadow-md shadow-orange-500/10 text-xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-lg shadow-md shadow-blue-500/10 text-xs"
               >
                 应用限制参数
               </Button>
@@ -1049,7 +1049,7 @@ export default function TeacherAIQuota() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Receipt className="w-5 h-5 text-[#fa541c]" /> 临时配额增补审批台
+                <Receipt className="w-5 h-5 text-[#3b82f6]" /> 临时配额增补审批台
               </h2>
               <button 
                 type="button" 
@@ -1065,7 +1065,7 @@ export default function TeacherAIQuota() {
               {/* Application Details */}
               <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-200/60 text-xs text-neutral-600 space-y-2 leading-relaxed">
                 <div>申请人姓名：<strong className="text-neutral-800">{targetRequest.applicant} ({targetRequest.role})</strong></div>
-                <div>申请临时Token数：<strong className="text-[#fa541c] font-black font-mono">+{targetRequest.amount}M Tokens</strong></div>
+                <div>申请临时Token数：<strong className="text-[#3b82f6] font-black font-mono">+{targetRequest.amount}M Tokens</strong></div>
                 <div>申请真实理由：<span className="text-neutral-700 italic">“{targetRequest.reason}”</span></div>
                 <div className="pt-1.5 border-t border-neutral-200 flex items-center justify-between text-[11px]">
                   <span>当前正式配额: {targetRequest.currentQuota}M</span>
@@ -1080,7 +1080,7 @@ export default function TeacherAIQuota() {
                   type="number" 
                   value={adjustApproveVal}
                   onChange={(e) => setAdjustApproveVal(Number(e.target.value))}
-                  className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs text-neutral-800 focus:outline-none focus:border-[#fa541c]" 
+                  className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs text-neutral-800 focus:outline-none focus:border-[#3b82f6]" 
                 />
                 <span className="text-[10px] text-neutral-400 mt-1 block">可直接在此修改调整同意追加的额度大小，随后立即划拨即时生效（有效期7天）。</span>
               </div>

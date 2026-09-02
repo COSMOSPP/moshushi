@@ -31,7 +31,7 @@ export default function AdminAILayout() {
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors",
                   isActive 
-                    ? "bg-[#fff2e8] text-[#fa541c]" 
+                    ? "bg-[#eff6ff] text-[#3b82f6]" 
                     : "text-neutral-body hover:bg-neutral-bg hover:text-neutral-title"
                 )}
               >

@@ -53,7 +53,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
         <div className="max-w-6xl mx-auto flex gap-8 items-start relative z-10">
           <div className="flex-1">
              <div className="flex items-center text-[13px] text-neutral-caption mb-6">
-                <button onClick={onBack} className="hover:text-[#fa541c] flex items-center gap-1">
+                <button onClick={onBack} className="hover:text-[#3b82f6] flex items-center gap-1">
                   <ChevronLeft className="w-4 h-4" /> 返回我的考试
                 </button>
                 <span className="mx-2">/</span>
@@ -62,7 +62,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
              <div>
                 <div className={`flex items-center gap-3 ${exam.status === "未开始" ? "mb-6" : "mb-3"}`}>
                    <h1 className="text-2xl font-bold text-neutral-title">{exam.title}</h1>
-                   <span className="px-2 py-1 bg-[#fa541c]/10 text-[#fa541c] text-[12px] font-bold rounded">{exam.type}</span>
+                   <span className="px-2 py-1 bg-[#3b82f6]/10 text-[#3b82f6] text-[12px] font-bold rounded">{exam.type}</span>
                    {exam.status === "已结束" && <span className="px-2 py-1 bg-gray-50 text-gray-600 border border-gray-200 text-[12px] rounded">已结束</span>}
                 </div>
                 {exam.status !== "未开始" && (
@@ -88,7 +88,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
                        </div>
                        <div className="flex items-center gap-2 text-neutral-body">
                           <FileText className="w-4 h-4 text-neutral-caption" />
-                          及格线: <span className="font-bold text-[#fa541c]">{exam.passScore} 分</span> / {exam.totalScore} 分
+                          及格线: <span className="font-bold text-[#3b82f6]">{exam.passScore} 分</span> / {exam.totalScore} 分
                        </div>
                      </>
                    )}
@@ -106,7 +106,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
                         className={`h-11 px-8 rounded-[8px] font-bold shadow-md ${
                           exam.attempts >= exam.maxAttempts
                             ? "bg-neutral-200 text-neutral-400 cursor-not-allowed"
-                            : "bg-[#fa541c] hover:bg-[#d4380d] text-white"
+                            : "bg-[#3b82f6] hover:bg-[#1d4ed8] text-white"
                         }`}
                       >
                          <PlayCircle className="w-5 h-5 mr-2" />
@@ -114,7 +114,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
                       </Button>
                   ) : (
                      <>
-                       <Button onClick={onViewResult} className="h-11 px-8 rounded-[8px] bg-white border border-[#fa541c] text-[#fa541c] hover:bg-[#fff2e8] font-bold">
+                       <Button onClick={onViewResult} className="h-11 px-8 rounded-[8px] bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-[#eff6ff] font-bold">
                           <BarChart2 className="w-5 h-5 mr-2" /> 查看成绩
                        </Button>
                        <Button variant="outline" className="h-11 px-8 rounded-[8px] border-neutral-300">
@@ -130,11 +130,11 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
           {exam.status === "未开始" ? (
             <div className="w-72 bg-[#fafafa] border border-neutral-border rounded-[12px] p-6 shrink-0 shadow-sm">
                <div className="mb-4 flex items-center gap-2 border-b border-neutral-border pb-3">
-                  <Clock className="w-5 h-5 text-[#fa541c]" />
+                  <Clock className="w-5 h-5 text-[#3b82f6]" />
                   <h3 className="font-bold text-neutral-title">距离考试开始还剩</h3>
                </div>
                <div className="flex flex-col items-center justify-center py-4 bg-white rounded-lg border border-neutral-border">
-                  <span className="text-[17px] font-bold text-[#fa541c] tracking-wider font-mono">
+                  <span className="text-[17px] font-bold text-[#3b82f6] tracking-wider font-mono">
                      {timeLeft || "计算中..."}
                   </span>
                </div>
@@ -156,7 +156,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
                     </div>
                     <div className="flex justify-between items-center bg-white p-3 rounded border border-neutral-border shadow-sm">
                        <div className="text-neutral-caption">剩余作答机会</div>
-                       <div className="font-bold text-[#fa541c]">{Math.max(0, exam.maxAttempts - exam.attempts)} 次</div>
+                       <div className="font-bold text-[#3b82f6]">{Math.max(0, exam.maxAttempts - exam.attempts)} 次</div>
                     </div>
                  </div>
                ) : exam.status === "已结束" ? (
@@ -175,7 +175,7 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
                  </div>
                ) : (
                  <div className="text-center py-4 text-[13px] text-neutral-caption">
-                    暂无提交记录，您还有 <span className="font-bold text-[#fa541c]">{exam.maxAttempts}</span> 次作答机会。
+                    暂无提交记录，您还有 <span className="font-bold text-[#3b82f6]">{exam.maxAttempts}</span> 次作答机会。
                  </div>
                )}
             </div>
@@ -185,23 +185,23 @@ export default function ExamDetail({ exam, onBack, onStart, onViewResult }: Exam
 
       <div className="max-w-6xl mx-auto w-full py-8 text-neutral-title">
         <h2 className="text-[18px] font-bold mb-6 flex items-center gap-2">
-           <AlertCircle className="w-5 h-5 text-[#fa541c]" /> 考试规则与须知
+           <AlertCircle className="w-5 h-5 text-[#3b82f6]" /> 考试规则与须知
         </h2>
         <div className="bg-white border border-neutral-border rounded-[12px] shadow-sm p-8 space-y-6">
            <div>
-             <h3 className="font-bold text-[15px] mb-2 border-l-4 border-[#fa541c] pl-3">1. 考试纪律与作答时间</h3>
+             <h3 className="font-bold text-[15px] mb-2 border-l-4 border-[#3b82f6] pl-3">1. 考试纪律与作答时间</h3>
              <p className="text-[14px] text-neutral-body leading-relaxed pl-4">
                一旦点击开始考试或继续考试，倒计时将无法暂停。如遇断网等突发情况，系统具有自动保存功能，请在时长允许范围内重新刷新页面即可恢复作答。考试页面严禁切屏，切屏超过 3 次将会强制收卷。
              </p>
            </div>
            <div>
-             <h3 className="font-bold text-[15px] mb-2 border-l-4 border-[#fa541c] pl-3">2. 成绩规则与客观题</h3>
+             <h3 className="font-bold text-[15px] mb-2 border-l-4 border-[#3b82f6] pl-3">2. 成绩规则与客观题</h3>
              <p className="text-[14px] text-neutral-body leading-relaxed pl-4">
                客观题（选择题、判断题）交卷后由系统自动判分，主观题和实操题可能需要导师复审。最终成绩取系统展示的综合平切或最高分（若包含多场次管理机制）。
              </p>
            </div>
            <div>
-             <h3 className="font-bold text-[15px] mb-2 border-l-4 border-[#fa541c] pl-3">3. 多场次管理细则</h3>
+             <h3 className="font-bold text-[15px] mb-2 border-l-4 border-[#3b82f6] pl-3">3. 多场次管理细则</h3>
              <p className="text-[14px] text-neutral-body leading-relaxed pl-4">
                对于“多场次”展示类型的考试，您可以根据自身时间选择某一场次参加。报名后不可随意退赛，开考后无论您是否点击开始系统都会开始倒计时。
              </p>

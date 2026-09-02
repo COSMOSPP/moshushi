@@ -6,3 +6,4 @@ coverage/
 *.log
 .env*
 !.env.example
+教育培训领导驾驶舱/

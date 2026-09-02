@@ -197,7 +197,7 @@ export default function UserCourses() {
           href="http://192.168.1.206:3000/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-gradient-to-r from-[#fa541c] to-[#ff7a45] hover:opacity-90 text-white px-4 py-2 rounded-[8px] font-bold text-[14px] shadow-sm transition-all hover:scale-105"
+          className="flex items-center gap-2 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] hover:opacity-90 text-white px-4 py-2 rounded-[8px] font-bold text-[14px] shadow-sm transition-all hover:scale-105"
         >
           <Bot className="w-5 h-5" /> AI互动课程
         </a>
@@ -215,8 +215,8 @@ export default function UserCourses() {
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[13px] transition-colors border",
                   selectedTag === tag 
-                    ? "bg-[#fa541c] text-white border-transparent" 
-                    : "bg-white border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c]"
+                    ? "bg-[#3b82f6] text-white border-transparent" 
+                    : "bg-white border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {tag}
@@ -242,7 +242,7 @@ export default function UserCourses() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption" />
           <Input 
             placeholder="输入课程名称或描述搜索" 
-            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#fa541c]" 
+            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#3b82f6]" 
           />
         </div>
       </div>
@@ -268,7 +268,7 @@ export default function UserCourses() {
                   
                   {/* Content */}
                   <div className="p-4 flex flex-col flex-1">
-                    <h3 className="text-[16px] font-bold text-neutral-title mb-2 line-clamp-1 group-hover:text-[#fa541c] transition-colors">
+                    <h3 className="text-[16px] font-bold text-neutral-title mb-2 line-clamp-1 group-hover:text-[#3b82f6] transition-colors">
                       {course.title}
                     </h3>
                     
@@ -306,14 +306,14 @@ export default function UserCourses() {
               <span className="text-[13px] text-neutral-500">共 456 条</span>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]" disabled>&lt;</Button>
-                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">2</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">3</Button>
                 <span className="px-1 text-neutral-caption text-[13px]">...</span>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">&gt;</Button>
               </div>
               <div className="relative bg-white rounded-[6px]">
-                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
+                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
                   <option className="bg-white">10 条/页</option>
                   <option className="bg-white">20 条/页</option>
                   <option className="bg-white">50 条/页</option>
@@ -332,7 +332,7 @@ export default function UserCourses() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
           <div className="bg-white rounded-[16px] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col mx-4">
             {/* Header */}
-            <div className="relative bg-[#fff2e8] px-8 py-6 text-center rounded-t-[16px] border-b border-[#ffd8bf]">
+            <div className="relative bg-[#eff6ff] px-8 py-6 text-center rounded-t-[16px] border-b border-[#dbeafe]">
               <button 
                 onClick={() => setShowOnboardingModal(false)}
                 className="absolute right-4 top-4 text-neutral-caption hover:text-neutral-title transition-colors"
@@ -367,19 +367,19 @@ export default function UserCourses() {
                         className={cn(
                           "flex flex-col items-center gap-4 p-6 rounded-[12px] border-2 transition-all",
                           isSelected 
-                            ? "border-[#fa541c] bg-[#fff2e8]" 
-                            : "border-neutral-border bg-neutral-bg hover:border-[#ffbb96] hover:bg-[#fff2e8]/50"
+                            ? "border-[#3b82f6] bg-[#eff6ff]" 
+                            : "border-neutral-border bg-neutral-bg hover:border-[#bfdbfe] hover:bg-[#eff6ff]/50"
                         )}
                       >
                         <div className={cn(
                           "w-16 h-16 rounded-full flex items-center justify-center transition-colors",
-                          isSelected ? "bg-[#fa541c] text-white" : "bg-white text-neutral-caption shadow-sm"
+                          isSelected ? "bg-[#3b82f6] text-white" : "bg-white text-neutral-caption shadow-sm"
                         )}>
                           <Icon className="w-8 h-8" />
                         </div>
                         <span className={cn(
                           "font-medium",
-                          isSelected ? "text-[#fa541c]" : "text-neutral-title"
+                          isSelected ? "text-[#3b82f6]" : "text-neutral-title"
                         )}>{role.id}</span>
                       </button>
                     );
@@ -405,14 +405,14 @@ export default function UserCourses() {
                         className={cn(
                           "px-5 py-2.5 rounded-[8px] border text-[14px] transition-all relative overflow-hidden",
                           isSelected
-                            ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c] font-medium"
-                            : "border-neutral-border bg-white text-neutral-body hover:border-[#ffbb96] hover:text-[#fa541c]"
+                            ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6] font-medium"
+                            : "border-neutral-border bg-white text-neutral-body hover:border-[#bfdbfe] hover:text-[#3b82f6]"
                         )}
                       >
                         {level}
                         {isSelected && (
                           <div className="absolute bottom-0 right-0 w-5 h-5">
-                            <svg viewBox="0 0 20 20" className="w-full h-full text-[#fa541c] fill-current">
+                            <svg viewBox="0 0 20 20" className="w-full h-full text-[#3b82f6] fill-current">
                               <polygon points="0,20 20,20 20,0" />
                             </svg>
                             <Check className="absolute bottom-[2px] right-[1px] w-3 h-3 text-white" strokeWidth={4} />
@@ -444,14 +444,14 @@ export default function UserCourses() {
                         className={cn(
                           "px-5 py-2.5 rounded-[8px] border text-[14px] transition-all relative overflow-hidden",
                           isSelected
-                            ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c] font-medium"
-                            : "border-neutral-border bg-white text-neutral-body hover:border-[#ffbb96] hover:text-[#fa541c]"
+                            ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6] font-medium"
+                            : "border-neutral-border bg-white text-neutral-body hover:border-[#bfdbfe] hover:text-[#3b82f6]"
                         )}
                       >
                         {direction}
                         {isSelected && (
                           <div className="absolute bottom-0 right-0 w-5 h-5">
-                            <svg viewBox="0 0 20 20" className="w-full h-full text-[#fa541c] fill-current">
+                            <svg viewBox="0 0 20 20" className="w-full h-full text-[#3b82f6] fill-current">
                               <polygon points="0,20 20,20 20,0" />
                             </svg>
                             <Check className="absolute bottom-[2px] right-[1px] w-3 h-3 text-white" strokeWidth={4} />
@@ -467,7 +467,7 @@ export default function UserCourses() {
             {/* Footer */}
             <div className="p-8 pt-0 flex justify-center">
               <Button 
-                className="w-full max-w-md h-12 text-[16px] rounded-[8px] bg-[#fa541c] hover:bg-[#ff7a45] text-white shadow-lg shadow-[#fa541c]/20"
+                className="w-full max-w-md h-12 text-[16px] rounded-[8px] bg-[#3b82f6] hover:bg-[#60a5fa] text-white shadow-lg shadow-[#3b82f6]/20"
                 onClick={() => {
                   setShowOnboardingModal(false);
                   setShowLearningPathModal(true);
@@ -487,7 +487,7 @@ export default function UserCourses() {
             {/* Header */}
             <div className="relative z-10 px-8 py-6 flex items-center justify-between border-b border-neutral-border bg-white/80 backdrop-blur-sm">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#fff2e8] flex items-center justify-center text-[#fa541c]">
+                <div className="w-10 h-10 rounded-full bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
                   <Map className="w-5 h-5" />
                 </div>
                 <div>
@@ -506,7 +506,7 @@ export default function UserCourses() {
             {/* Path Container - Vertical Layout */}
             <div className="flex-1 overflow-y-auto bg-[#fafafa] p-6 md:p-10 custom-scrollbar relative">
               {/* Background Decoration */}
-              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fa541c 2px, transparent 2px)', backgroundSize: '30px 30px' }}></div>
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#3b82f6 2px, transparent 2px)', backgroundSize: '30px 30px' }}></div>
               
               <div className="max-w-2xl mx-auto relative">
                 {[
@@ -529,7 +529,7 @@ export default function UserCourses() {
                       {index !== nodes.length - 1 && (
                         <div className={cn(
                           "absolute left-[22px] top-[48px] bottom-[-32px] w-1 rounded-full transition-colors duration-300",
-                          isCompleted ? "bg-[#fa541c]" : "bg-neutral-border"
+                          isCompleted ? "bg-[#3b82f6]" : "bg-neutral-border"
                         )}></div>
                       )}
 
@@ -537,8 +537,8 @@ export default function UserCourses() {
                       <div className="relative z-10 flex-shrink-0 mt-1">
                         <div className={cn(
                           "w-12 h-12 rounded-full border-[3px] flex items-center justify-center transition-all duration-500",
-                          isCompleted ? "bg-[#fa541c] border-white shadow-md text-white" :
-                          isCurrent ? "bg-white border-[#fa541c] shadow-[0_0_0_4px_rgba(250,84,28,0.2)] text-[#fa541c]" :
+                          isCompleted ? "bg-[#3b82f6] border-white shadow-md text-white" :
+                          isCurrent ? "bg-white border-[#3b82f6] shadow-[0_0_0_4px_rgba(59, 130, 246,0.2)] text-[#3b82f6]" :
                           "bg-white border-neutral-border text-neutral-caption"
                         )}>
                           {isCompleted ? <Check className="w-5 h-5" strokeWidth={3} /> : 
@@ -551,8 +551,8 @@ export default function UserCourses() {
                       <div 
                         className={cn(
                           "flex-1 rounded-[16px] border-2 p-5 transition-all duration-300",
-                          isCompleted ? "bg-white border-[#ffbb96] hover:border-[#fa541c] hover:shadow-md cursor-pointer" :
-                          isCurrent ? "bg-[#fff2e8] border-[#fa541c] shadow-md cursor-pointer" :
+                          isCompleted ? "bg-white border-[#bfdbfe] hover:border-[#3b82f6] hover:shadow-md cursor-pointer" :
+                          isCurrent ? "bg-[#eff6ff] border-[#3b82f6] shadow-md cursor-pointer" :
                           "bg-white border-neutral-border opacity-70 grayscale hover:grayscale-0 hover:opacity-100"
                         )}
                         onClick={() => {
@@ -566,8 +566,8 @@ export default function UserCourses() {
                           <div className="flex items-center gap-3">
                             <div className={cn(
                               "w-10 h-10 rounded-full flex items-center justify-center",
-                              isCompleted ? "bg-[#fff2e8] text-[#fa541c]" :
-                              isCurrent ? "bg-[#fa541c] text-white" :
+                              isCompleted ? "bg-[#eff6ff] text-[#3b82f6]" :
+                              isCurrent ? "bg-[#3b82f6] text-white" :
                               "bg-neutral-bg text-neutral-caption"
                             )}>
                               <Icon className="w-5 h-5" />
@@ -581,7 +581,7 @@ export default function UserCourses() {
                           </div>
                           <div className="flex items-center gap-2">
                             {isCompleted && <span className="text-[12px] text-semantic-success flex items-center gap-1 bg-semantic-success/10 px-2 py-1 rounded-full"><CheckCircle2 className="w-3 h-3" /> 已完成</span>}
-                            {isCurrent && <span className="text-[12px] font-bold text-white bg-[#fa541c] px-2 py-1 rounded-full shadow-sm animate-pulse">进行中</span>}
+                            {isCurrent && <span className="text-[12px] font-bold text-white bg-[#3b82f6] px-2 py-1 rounded-full shadow-sm animate-pulse">进行中</span>}
                             {isLocked && <Lock className="w-4 h-4 text-neutral-caption" />}
                           </div>
                         </div>
@@ -594,7 +594,7 @@ export default function UserCourses() {
                           {!isLocked && (
                             <button className={cn(
                               "text-[13px] font-medium flex items-center gap-1 transition-colors px-4 py-1.5 rounded-full",
-                              isCurrent ? "bg-[#fa541c] text-white hover:bg-[#e84a15]" : "bg-[#fff2e8] text-[#fa541c] hover:bg-[#ffd8bf]"
+                              isCurrent ? "bg-[#3b82f6] text-white hover:bg-[#2563eb]" : "bg-[#eff6ff] text-[#3b82f6] hover:bg-[#dbeafe]"
                             )}>
                               {isCompleted ? "复习课程" : "继续学习"} <ChevronRight className="w-4 h-4" />
                             </button>
@@ -610,9 +610,9 @@ export default function UserCourses() {
             {/* Footer */}
             <div className="px-8 py-5 border-t border-neutral-border bg-white flex items-center justify-between z-10">
               <div className="text-[14px] text-neutral-body">
-                当前进度：<span className="font-bold text-[#fa541c]">2/7</span> 阶段
+                当前进度：<span className="font-bold text-[#3b82f6]">2/7</span> 阶段
               </div>
-              <Button className="bg-[#fa541c] hover:bg-[#ff7a45] text-white rounded-full px-8">
+              <Button className="bg-[#3b82f6] hover:bg-[#60a5fa] text-white rounded-full px-8">
                 我的ai学习路径
               </Button>
             </div>

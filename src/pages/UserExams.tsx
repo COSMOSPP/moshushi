@@ -178,7 +178,7 @@ export default function UserExams() {
                 key={i}
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[13px] transition-colors",
-                  i === 0 ? "bg-[#fa541c] text-white" : "bg-white border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c]"
+                  i === 0 ? "bg-[#3b82f6] text-white" : "bg-white border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {tag}
@@ -191,7 +191,7 @@ export default function UserExams() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption" />
           <Input 
             placeholder="输入考试名称搜索" 
-            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#fa541c]" 
+            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#3b82f6]" 
           />
         </div>
       </div>
@@ -210,7 +210,7 @@ export default function UserExams() {
                     <div className="flex-1 min-w-0">
                       {/* 考试名称 and Badges */}
                       <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 className="text-[16px] font-bold text-neutral-title truncate group-hover:text-[#fa541c] transition-colors max-w-md">
+                        <h3 className="text-[16px] font-bold text-neutral-title truncate group-hover:text-[#3b82f6] transition-colors max-w-md">
                           {exam.examName}
                         </h3>
                         
@@ -289,7 +289,7 @@ export default function UserExams() {
                           "w-full h-9 text-[13px] rounded-[6px] transition-all gap-1.5 font-medium flex items-center justify-center",
                           (exam.attempts >= exam.maxAttempts)
                             ? "bg-neutral-100 border border-neutral-200 text-neutral-400 cursor-not-allowed opacity-60"
-                            : "bg-[#fa541c] hover:bg-[#ff7a45] text-white shadow-sm"
+                            : "bg-[#3b82f6] hover:bg-[#60a5fa] text-white shadow-sm"
                         )}
                       >
                         <PlayCircle className="w-4 h-4" />
@@ -307,7 +307,7 @@ export default function UserExams() {
                           "w-full h-9 text-[13px] rounded-[6px] transition-all gap-1.5 font-medium flex items-center justify-center",
                           (exam.candidateStatus !== "已交卷" && exam.sessionStatus !== "已结束")
                             ? "bg-neutral-50 border border-neutral-200 text-neutral-300 cursor-not-allowed"
-                            : "border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] hover:bg-[#fff2e8]"
+                            : "border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] hover:bg-[#eff6ff]"
                         )}
                       >
                         <FileText className="w-4 h-4" />
@@ -324,14 +324,14 @@ export default function UserExams() {
               <span className="text-[13px] text-neutral-500">共 75 条</span>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]" disabled>&lt;</Button>
-                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">2</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">3</Button>
                 <span className="px-1 text-neutral-caption text-[13px]">...</span>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">&gt;</Button>
               </div>
               <div className="relative bg-white rounded-[6px]">
-                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
+                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
                   <option className="bg-white">10 条/页</option>
                   <option className="bg-white">20 条/页</option>
                   <option className="bg-white">50 条/页</option>

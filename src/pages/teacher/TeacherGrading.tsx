@@ -539,13 +539,13 @@ export default function TeacherGrading() {
                   <div className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
                     <span>{previewQuestionIdx + 1}、{q.type}</span>
                     <span className="text-[13px] text-neutral-400 font-normal">({q.maxScore}分)</span>
-                    <span className="text-[13px] text-[#fa541c] font-bold ml-2">（得分: {q.score}分）</span>
+                    <span className="text-[13px] text-[#3b82f6] font-bold ml-2">（得分: {q.score}分）</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
-                    <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-medium">
+                    <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-medium">
                       该题 {q.maxScore}.0分
                     </span>
-                    <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-bold">
+                    <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-bold">
                       得 {q.score}分
                     </span>
                   </div>
@@ -642,7 +642,7 @@ export default function TeacherGrading() {
                 {/* 判分模块 */}
                 <div className="mt-8 p-5 bg-[#fafafa] border border-neutral-200 rounded-lg flex flex-col gap-4 text-left max-w-[800px] select-none">
                   <div className="flex items-center gap-2 font-bold text-neutral-800 text-[14px]">
-                    <Award className="w-4.5 h-4.5 text-[#fa541c]" />
+                    <Award className="w-4.5 h-4.5 text-[#3b82f6]" />
                     <span>人工判分</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-6">
@@ -661,7 +661,7 @@ export default function TeacherGrading() {
                           }
                         }}
                         placeholder="0"
-                        className="w-20 h-8 px-3 border border-neutral-200 rounded-[4px] bg-white text-xs font-bold text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all text-center"
+                        className="w-20 h-8 px-3 border border-neutral-200 rounded-[4px] bg-white text-xs font-bold text-neutral-800 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all text-center"
                       />
                       <span className="text-[13px] text-neutral-500 font-semibold">/ {q.maxScore} 分</span>
                     </div>
@@ -672,7 +672,7 @@ export default function TeacherGrading() {
                           handleGradeChange(tempQuestionScore);
                           showToast(`已成功保存第 ${previewQuestionIdx + 1} 题的评分：${tempQuestionScore} 分`, 'success');
                         }}
-                        className="px-4 py-1 text-xs border-0 rounded bg-[#fa541c] hover:bg-[#e84a15] text-white transition-colors cursor-pointer font-bold shadow-sm"
+                        className="px-4 py-1 text-xs border-0 rounded bg-[#3b82f6] hover:bg-[#2563eb] text-white transition-colors cursor-pointer font-bold shadow-sm"
                       >
                         保存
                       </button>
@@ -687,7 +687,7 @@ export default function TeacherGrading() {
                   variant="outline"
                   disabled={previewQuestionIdx === 0}
                   onClick={() => setPreviewQuestionIdx(idx => idx - 1)}
-                  className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                  className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
                 >
                   上一题
                 </Button>
@@ -699,7 +699,7 @@ export default function TeacherGrading() {
                     "px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1 cursor-pointer",
                     previewQuestionIdx === questions.length - 1
                       ? "bg-neutral-100 text-neutral-400 cursor-not-allowed border border-neutral-200 shadow-none"
-                      : "bg-[#fa541c] hover:bg-[#e84a15] text-white"
+                      : "bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                   )}
                 >
                   下一题
@@ -711,10 +711,10 @@ export default function TeacherGrading() {
             <div className="w-80 border-l border-neutral-200 flex flex-col bg-white px-6 pt-8 pb-6 shrink-0 justify-between h-full text-left select-none">
               <div className="overflow-y-auto flex-1 no-scrollbar space-y-6 flex flex-col justify-between">
                 {/* 最终得分展示 */}
-                <div className="p-4 bg-[#fff2e8] border border-[#fa541c]/20 rounded-lg text-center select-none shadow-[inset_0_1px_2px_rgba(0,0,0,0.01)]">
+                <div className="p-4 bg-[#eff6ff] border border-[#3b82f6]/20 rounded-lg text-center select-none shadow-[inset_0_1px_2px_rgba(0,0,0,0.01)]">
                   <div className="text-[12px] text-neutral-500 font-semibold mb-0.5">考生：{viewExamStudent?.name}</div>
                   <div className="text-[11px] text-neutral-400">试卷最终得分</div>
-                  <div className="text-[28px] font-extrabold text-[#fa541c] mt-1 flex items-baseline justify-center gap-1 font-mono">
+                  <div className="text-[28px] font-extrabold text-[#3b82f6] mt-1 flex items-baseline justify-center gap-1 font-mono">
                     {totalScore} <span className="text-[13px] font-bold text-neutral-500">/ 100 分</span>
                   </div>
                 </div>
@@ -759,7 +759,7 @@ export default function TeacherGrading() {
                 <div className="pt-6 border-t border-neutral-200 mt-6 select-none shrink-0">
                   <Button 
                     onClick={handleExitPreview}
-                    className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
+                    className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
                   >
                     保存成绩
                   </Button>
@@ -808,7 +808,7 @@ export default function TeacherGrading() {
                   setSearchQuery(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400"
+                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400"
               />
             </div>
           </div>
@@ -855,7 +855,7 @@ export default function TeacherGrading() {
                     </td>
                     <td className="px-3 py-3.5 font-medium">
                       {task.pendingCount > 0 ? (
-                        <span className="text-[#fa541c] font-bold">{task.pendingCount}</span>
+                        <span className="text-[#3b82f6] font-bold">{task.pendingCount}</span>
                       ) : (
                         <span className="text-neutral-400">0</span>
                       )}
@@ -863,7 +863,7 @@ export default function TeacherGrading() {
                     <td className="pl-3 pr-6 py-3.5 text-center">
                       <button
                         onClick={() => handleOpenGrading(task)}
-                        className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap"
+                        className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap"
                       >
                         批阅
                       </button>
@@ -905,7 +905,7 @@ export default function TeacherGrading() {
                   className={cn(
                     "h-7 w-7 p-0 rounded-sm font-bold text-[12px] cursor-pointer",
                     currentPage === pageNum 
-                      ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#fa541c] hover:text-white" 
+                      ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#3b82f6] hover:text-white" 
                       : "bg-white hover:bg-neutral-50 text-neutral-700 border-neutral-200"
                   )}
                   onClick={() => setCurrentPage(pageNum)}
@@ -929,7 +929,7 @@ export default function TeacherGrading() {
                 setPageSize(Number(e.target.value));
                 setCurrentPage(1);
               }}
-              className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white"
+              className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white"
             >
               {[5, 10, 20].map(size => (
                 <option key={size} value={size}>{size} 条/页</option>
@@ -953,14 +953,14 @@ export default function TeacherGrading() {
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <div className="flex flex-col gap-0.5">
                 <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-[#fa541c]" /> 
+                  <BookOpen className="w-5 h-5 text-[#3b82f6]" /> 
                   批阅控制台 - {selectedTask.examName}
                 </h2>
                 <p className="text-[11px] text-neutral-400">场次：{selectedTask.sessionName} | 考场：{selectedTask.roomName}</p>
               </div>
               <button 
                 onClick={() => setIsDrawerOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -980,7 +980,7 @@ export default function TeacherGrading() {
                       setCandQuery(e.target.value);
                       setDrawerPage(1);
                     }}
-                    className="pl-9 pr-4 py-1.5 w-full bg-white border border-neutral-border rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-8"
+                    className="pl-9 pr-4 py-1.5 w-full bg-white border border-neutral-border rounded-full text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400 h-8"
                   />
                 </div>
                 <Button
@@ -1030,7 +1030,7 @@ export default function TeacherGrading() {
                             <div className="flex items-center justify-center gap-1 text-neutral-300 select-none">
                               <button
                                 onClick={() => handleViewExam(sub)}
-                                className="text-xs text-[#fa541c] hover:underline transition-colors border-0 bg-transparent p-0 cursor-pointer font-medium"
+                                className="text-xs text-[#3b82f6] hover:underline transition-colors border-0 bg-transparent p-0 cursor-pointer font-medium"
                               >
                                 批阅试卷
                               </button>
@@ -1041,7 +1041,7 @@ export default function TeacherGrading() {
                                   setTempStatus(sub.gradedStatus);
                                   setStatusDropdownOpen(false);
                                 }}
-                                className="text-xs text-[#fa541c] hover:underline transition-colors border-0 bg-transparent p-0 cursor-pointer font-medium"
+                                className="text-xs text-[#3b82f6] hover:underline transition-colors border-0 bg-transparent p-0 cursor-pointer font-medium"
                               >
                                 变更批阅状态
                               </button>
@@ -1084,7 +1084,7 @@ export default function TeacherGrading() {
                         className={cn(
                           "h-7 w-7 p-0 rounded-sm font-bold text-[12px] cursor-pointer",
                           drawerPage === pageNum 
-                            ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#fa541c] hover:text-white" 
+                            ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#3b82f6] hover:text-white" 
                             : "bg-white hover:bg-neutral-50 text-neutral-700 border-neutral-200"
                         )}
                         onClick={() => setDrawerPage(pageNum)}
@@ -1108,7 +1108,7 @@ export default function TeacherGrading() {
                       setDrawerPageSize(Number(e.target.value));
                       setDrawerPage(1);
                     }}
-                    className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white"
+                    className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white"
                   >
                     {[5, 10, 20].map(size => (
                       <option key={size} value={size}>{size} 条/页</option>
@@ -1122,7 +1122,7 @@ export default function TeacherGrading() {
             <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex justify-end shrink-0">
               <Button 
                 onClick={() => setIsDrawerOpen(false)} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 关闭工作台
               </Button>
@@ -1135,12 +1135,12 @@ export default function TeacherGrading() {
                   {/* Header */}
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                     <h3 className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
-                      <FileText className="w-4 h-4 text-[#fa541c]" />
+                      <FileText className="w-4 h-4 text-[#3b82f6]" />
                       批阅：{gradingStudent.name} ({gradingStudent.account})
                     </h3>
                     <button 
                       onClick={() => setGradingStudent(null)} 
-                      className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                      className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -1148,7 +1148,7 @@ export default function TeacherGrading() {
 
                   {/* Body Form */}
                   <div className="p-6 flex-1 space-y-5 overflow-y-auto">
-                    <div className="bg-[#fff7e6] border border-[#ffd591] text-[#d4380d] p-3.5 rounded-[4px] text-xs font-semibold">
+                    <div className="bg-[#fff7e6] border border-[#ffd591] text-[#1d4ed8] p-3.5 rounded-[4px] text-xs font-semibold">
                       请仔细核对该考生的实训云端运行状态与提交的代码包，确认无误后输入评分。
                     </div>
 
@@ -1161,7 +1161,7 @@ export default function TeacherGrading() {
                         value={scoreInput}
                         onChange={(e) => setScoreInput(e.target.value)}
                         placeholder="请输入考生成绩分数"
-                        className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800 bg-white h-9"
+                        className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] transition-all text-neutral-800 bg-white h-9"
                       />
                     </div>
 
@@ -1173,7 +1173,7 @@ export default function TeacherGrading() {
                         value={commentInput}
                         onChange={(e) => setCommentInput(e.target.value)}
                         placeholder="请输入对考生的主观评语或修改建议..."
-                        className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] transition-all text-neutral-800 bg-white h-24 resize-none"
+                        className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] transition-all text-neutral-800 bg-white h-24 resize-none"
                       />
                     </div>
                   </div>
@@ -1189,7 +1189,7 @@ export default function TeacherGrading() {
                     </Button>
                     <Button 
                       onClick={handleSaveScore}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
                     >
                       保存评分
                     </Button>
@@ -1220,7 +1220,7 @@ export default function TeacherGrading() {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0 rounded-t-lg">
               <h3 className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-[#fa541c]" />
+                <FileText className="w-4 h-4 text-[#3b82f6]" />
                 变更批阅状态
               </h3>
               <button 
@@ -1228,7 +1228,7 @@ export default function TeacherGrading() {
                   setStatusModalStudent(null);
                   setStatusDropdownOpen(false);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1239,7 +1239,7 @@ export default function TeacherGrading() {
               {/* Form Layout matches single selection questions in TeacherQuestions.tsx */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4 relative select-none">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  批阅状态 <span className="text-[#fa541c]">*</span>
+                  批阅状态 <span className="text-[#3b82f6]">*</span>
                 </label>
                 
                 <div className="relative w-full">
@@ -1248,7 +1248,7 @@ export default function TeacherGrading() {
                     onClick={() => setStatusDropdownOpen(!statusDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none text-left text-xs",
-                      statusDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                      statusDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(tempStatus ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -1275,13 +1275,13 @@ export default function TeacherGrading() {
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                 isSelected 
-                                  ? "bg-orange-50 text-[#fa541c] font-bold"
-                                  : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                  : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{option}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -1307,7 +1307,7 @@ export default function TeacherGrading() {
               </Button>
               <Button 
                 onClick={handleSaveStatus}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 确定
               </Button>

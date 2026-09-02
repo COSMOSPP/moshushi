@@ -188,7 +188,7 @@ export default function TeacherBilling() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-neutral-900 flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             计费账单与资源大盘
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
@@ -199,14 +199,14 @@ export default function TeacherBilling() {
           <Button 
             onClick={() => triggerExport('excel')}
             variant="outline" 
-            className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-lg shadow-sm hover:text-[#fa541c] hover:border-[#fa541c] text-xs font-bold px-4 cursor-pointer transition-colors"
+            className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-lg shadow-sm hover:text-[#3b82f6] hover:border-[#3b82f6] text-xs font-bold px-4 cursor-pointer transition-colors"
           >
             <FileSpreadsheet className="w-4 h-4 text-green-600" /> 导出使用明细 (.xlsx)
           </Button>
           <Button 
             onClick={() => triggerExport('pdf')}
             variant="outline" 
-            className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-lg shadow-sm hover:text-[#fa541c] hover:border-[#fa541c] text-xs font-bold px-4 cursor-pointer transition-colors"
+            className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-lg shadow-sm hover:text-[#3b82f6] hover:border-[#3b82f6] text-xs font-bold px-4 cursor-pointer transition-colors"
           >
             <FileText className="w-4 h-4 text-red-500" /> 导出PDF对账单
           </Button>
@@ -274,7 +274,7 @@ export default function TeacherBilling() {
 
       {/* Account Info Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all duration-300">
+        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all duration-300">
           <div className="space-y-1.5">
             <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">租户可用余额</span>
             <strong className="text-2xl font-black text-neutral-800 block tracking-tight">￥{tenantInfo.balance.toFixed(2)}</strong>
@@ -282,42 +282,42 @@ export default function TeacherBilling() {
               <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> 正常可用
             </span>
           </div>
-          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
             <Wallet className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all duration-300">
+        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all duration-300">
           <div className="space-y-1.5">
             <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">企业级信用额度</span>
             <strong className="text-2xl font-black text-neutral-800 block tracking-tight">￥{tenantInfo.creditLimit.toFixed(2)}</strong>
             <span className="text-[10px] text-neutral-400 block">垫付上限 (支持透支实训)</span>
           </div>
-          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
             <Shield className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all duration-300">
+        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all duration-300">
           <div className="space-y-1.5">
             <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">本月预估总消费</span>
-            <strong className="text-2xl font-black text-[#fa541c] block tracking-tight">￥{currentBill.amount.toFixed(2)}</strong>
-            <span className="text-[10px] text-[#fa541c] font-black block flex items-center gap-0.5">
+            <strong className="text-2xl font-black text-[#3b82f6] block tracking-tight">￥{currentBill.amount.toFixed(2)}</strong>
+            <span className="text-[10px] text-[#3b82f6] font-black block flex items-center gap-0.5">
               <TrendingUp className="w-3.5 h-3.5" /> 较上月环比上升 12.8%
             </span>
           </div>
-          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
             <CreditCard className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#fa541c]/40 transition-all duration-300">
+        <div className="bg-white p-5 rounded-2xl border border-neutral-200/60 shadow-sm flex items-center justify-between group hover:border-[#3b82f6]/40 transition-all duration-300">
           <div className="space-y-1.5">
             <span className="text-[11px] font-bold text-neutral-400 block uppercase tracking-wider">租户管理员</span>
             <strong className="text-lg font-black text-neutral-800 block truncate max-w-[140px]">{tenantInfo.admin}</strong>
             <span className="text-[10px] text-neutral-400 block font-mono">编号: {tenantInfo.id}</span>
           </div>
-          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#fff2e8] group-hover:text-[#fa541c] transition-all">
+          <div className="p-3 bg-neutral-50 rounded-2xl text-neutral-400 group-hover:bg-[#eff6ff] group-hover:text-[#3b82f6] transition-all">
             <Users className="w-6 h-6" />
           </div>
         </div>
@@ -334,7 +334,7 @@ export default function TeacherBilling() {
             <div className="p-5 border-b border-neutral-100 bg-neutral-50/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <h2 className="text-[15px] font-black text-neutral-800 flex items-center gap-1.5">
-                  <Receipt className="w-5 h-5 text-[#fa541c]" /> 
+                  <Receipt className="w-5 h-5 text-[#3b82f6]" /> 
                   月度资源用量与账单拆分
                 </h2>
                 <p className="text-[10px] text-neutral-400">大模型Tokens消耗、GPU调度机时、共享云存储等多维度开销的月度账期归集核对</p>
@@ -345,7 +345,7 @@ export default function TeacherBilling() {
                 <select 
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(e.target.value)}
-                  className="pl-3 pr-8 py-1.5 text-xs font-bold border border-neutral-200 rounded-lg focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 cursor-pointer appearance-none"
+                  className="pl-3 pr-8 py-1.5 text-xs font-bold border border-neutral-200 rounded-lg focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 cursor-pointer appearance-none"
                 >
                   <option value="2026-05">2026年05月（本月）</option>
                   <option value="2026-04">2026年04月</option>
@@ -357,7 +357,7 @@ export default function TeacherBilling() {
             </div>
 
             {/* Bill Summary Alert Header inside table */}
-            <div className="px-5 py-4 border-b border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-orange-50/15">
+            <div className="px-5 py-4 border-b border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-blue-50/15">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-neutral-400" />
                 <span className="text-xs text-neutral-600">
@@ -436,7 +436,7 @@ export default function TeacherBilling() {
               <span className="text-xs font-bold text-neutral-500">累计四项核心算力资源合计</span>
               <div className="flex items-baseline gap-2">
                 <span className="text-[10px] text-neutral-400 font-bold">小计（含税价）：</span>
-                <strong className="text-xl font-black text-[#fa541c] font-mono">￥{currentBill.amount.toFixed(2)}</strong>
+                <strong className="text-xl font-black text-[#3b82f6] font-mono">￥{currentBill.amount.toFixed(2)}</strong>
               </div>
             </div>
           </div>
@@ -462,12 +462,12 @@ export default function TeacherBilling() {
               <svg viewBox="0 0 600 160" className="w-full h-36 overflow-visible">
                 <defs>
                   <linearGradient id="chart-area" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#fa541c" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#fa541c" stopOpacity="0.0" />
+                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                   </linearGradient>
                   <linearGradient id="chart-line" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stopColor="#f857a6" />
-                    <stop offset="100%" stopColor="#fa541c" />
+                    <stop offset="100%" stopColor="#3b82f6" />
                   </linearGradient>
                 </defs>
 
@@ -495,9 +495,9 @@ export default function TeacherBilling() {
                 {/* Chart Dots & Tooltips */}
                 <circle cx="50" cy="102" r="4.5" fill="#f857a6" stroke="#fff" strokeWidth="1.5" className="hover:scale-125 transition-transform" />
                 <circle cx="250" cy="50" r="4.5" fill="#f97316" stroke="#fff" strokeWidth="1.5" className="hover:scale-125 transition-transform" />
-                <circle cx="450" cy="110" r="4.5" fill="#fa541c" stroke="#fff" strokeWidth="1.5" className="hover:scale-125 transition-transform" />
-                <circle cx="580" cy="46" r="5" fill="#fa541c" stroke="#fff" strokeWidth="2" className="hover:scale-125 transition-transform animate-ping" />
-                <circle cx="580" cy="46" r="4.5" fill="#fa541c" stroke="#fff" strokeWidth="1.5" className="hover:scale-125 transition-transform" />
+                <circle cx="450" cy="110" r="4.5" fill="#3b82f6" stroke="#fff" strokeWidth="1.5" className="hover:scale-125 transition-transform" />
+                <circle cx="580" cy="46" r="5" fill="#3b82f6" stroke="#fff" strokeWidth="2" className="hover:scale-125 transition-transform animate-ping" />
+                <circle cx="580" cy="46" r="4.5" fill="#3b82f6" stroke="#fff" strokeWidth="1.5" className="hover:scale-125 transition-transform" />
 
                 {/* X Axis Labels */}
                 <text x="50" y="156" fill="#888" fontSize="10" textAnchor="middle" fontWeight="bold">02月账期</text>
@@ -516,7 +516,7 @@ export default function TeacherBilling() {
               <div className="absolute top-24 left-2/3 bg-white border border-neutral-100 shadow-sm rounded-lg px-2 py-1 text-[9px] font-bold text-neutral-500 pointer-events-none">
                 04月: ￥11,480
               </div>
-              <div className="absolute -top-1 right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-sm rounded-lg px-2.5 py-1 text-[10px] font-black pointer-events-none animate-bounce">
+              <div className="absolute -top-1 right-2 bg-gradient-to-r from-blue-500 to-red-500 text-white shadow-sm rounded-lg px-2.5 py-1 text-[10px] font-black pointer-events-none animate-bounce">
                 本月预估: ￥9,130
               </div>
             </div>
@@ -557,7 +557,7 @@ export default function TeacherBilling() {
                     <strong className="text-xs font-black text-neutral-800 block font-mono">￥{bill.amount.toFixed(2)}</strong>
                     <button 
                       onClick={() => openBillDetail(bill)}
-                      className="text-[10px] font-bold text-[#fa541c] hover:text-[#e84a15] hover:underline cursor-pointer block text-right w-full"
+                      className="text-[10px] font-bold text-[#3b82f6] hover:text-[#2563eb] hover:underline cursor-pointer block text-right w-full"
                     >
                       查看详情
                     </button>
@@ -609,7 +609,7 @@ export default function TeacherBilling() {
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[360px] p-6 text-center space-y-4 border border-neutral-200 animate-in zoom-in-95 duration-150">
             <div className="relative w-16 h-16 mx-auto">
               {/* Outer spin spinner */}
-              <div className="w-16 h-16 rounded-full border-4 border-[#fa541c]/20 border-t-[#fa541c] animate-spin"></div>
+              <div className="w-16 h-16 rounded-full border-4 border-[#3b82f6]/20 border-t-[#3b82f6] animate-spin"></div>
               {/* Inner Icon */}
               <div className="absolute inset-0 flex items-center justify-center">
                 {exportType === 'pdf' ? (
@@ -631,7 +631,7 @@ export default function TeacherBilling() {
             <div className="space-y-1.5">
               <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full transition-all duration-100" 
+                  className="h-full bg-gradient-to-r from-blue-500 to-red-500 rounded-full transition-all duration-100" 
                   style={{ width: `${exportProgress}%` }}
                 ></div>
               </div>
@@ -649,7 +649,7 @@ export default function TeacherBilling() {
             {/* Header */}
             <div className="p-5 border-b border-neutral-100 bg-neutral-50/50 flex items-center justify-between">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Receipt className="w-5 h-5 text-[#fa541c]" /> 电子账单明细发票
+                <Receipt className="w-5 h-5 text-[#3b82f6]" /> 电子账单明细发票
               </h2>
               <button 
                 onClick={() => { setIsDetailOpen(false); setSelectedBill(null); }} 
@@ -747,7 +747,7 @@ export default function TeacherBilling() {
                 <Button 
                   onClick={() => triggerExport('pdf')}
                   variant="outline" 
-                  className="border-neutral-200 text-neutral-600 rounded-lg h-9 text-xs font-bold px-3 bg-white hover:text-[#fa541c]"
+                  className="border-neutral-200 text-neutral-600 rounded-lg h-9 text-xs font-bold px-3 bg-white hover:text-[#3b82f6]"
                 >
                   <FileText className="w-3.5 h-3.5 mr-1" /> 导出本期 PDF
                 </Button>
@@ -772,7 +772,7 @@ export default function TeacherBilling() {
                 {selectedBill.status !== '已结清' && (
                   <Button 
                     onClick={() => { setIsPayOpen(true); setIsDetailOpen(false); }}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg shadow-md shadow-orange-500/10 text-xs cursor-pointer"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg shadow-md shadow-blue-500/10 text-xs cursor-pointer"
                   >
                     立即结清此账单
                   </Button>
@@ -791,7 +791,7 @@ export default function TeacherBilling() {
             {/* Header */}
             <div className="p-5 border-b border-neutral-100 bg-neutral-50/50 flex items-center justify-between">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Wallet className="w-5 h-5 text-[#fa541c]" /> 租户账户充值与结清中心
+                <Wallet className="w-5 h-5 text-[#3b82f6]" /> 租户账户充值与结清中心
               </h2>
               <button 
                 onClick={() => { setIsPayOpen(false); setPaySuccess(false); }} 
@@ -819,7 +819,7 @@ export default function TeacherBilling() {
               <form onSubmit={executeRecharge} className="p-6 space-y-5">
                 
                 {/* Current outstanding alert */}
-                <div className="p-3.5 bg-orange-50 border border-orange-200 rounded-xl text-xs text-orange-800 space-y-1">
+                <div className="p-3.5 bg-blue-50 border border-blue-200 rounded-xl text-xs text-orange-800 space-y-1">
                   <div className="flex items-center gap-1.5 font-bold">
                     <AlertTriangle className="w-4 h-4" /> 5月未付账单待清算额：￥{currentBill.amount.toFixed(2)}
                   </div>
@@ -844,8 +844,8 @@ export default function TeacherBilling() {
                         className={cn(
                           "py-2.5 rounded-xl border text-xs font-bold text-center cursor-pointer transition-all",
                           rechargeAmount === preset.value && !customRecharge
-                            ? "bg-[#fa541c] border-[#fa541c] text-white shadow-md shadow-orange-500/10"
-                            : "border-neutral-200 text-neutral-600 bg-white hover:border-[#fa541c] hover:text-[#fa541c]"
+                            ? "bg-[#3b82f6] border-[#3b82f6] text-white shadow-md shadow-blue-500/10"
+                            : "border-neutral-200 text-neutral-600 bg-white hover:border-[#3b82f6] hover:text-[#3b82f6]"
                         )}
                       >
                         {preset.label}
@@ -862,7 +862,7 @@ export default function TeacherBilling() {
                     value={customRecharge}
                     onChange={(e) => { setCustomRecharge(e.target.value); setRechargeAmount(''); }}
                     placeholder="输入需要充值的精确金额值"
-                    className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] text-neutral-800 bg-white"
                   />
                 </div>
 
@@ -903,7 +903,7 @@ export default function TeacherBilling() {
                     <div className="space-y-1">
                       <span className="text-[10px] text-neutral-400 block">知云安全财务结算代付</span>
                       <strong className="text-[15px] text-neutral-800 block">微信/支付宝聚合扫码支付</strong>
-                      <span className="text-[9px] text-[#fa541c] font-bold block">支持学校公务卡扫码对公报销入账</span>
+                      <span className="text-[9px] text-[#3b82f6] font-bold block">支持学校公务卡扫码对公报销入账</span>
                     </div>
                     <div className="w-16 h-16 bg-white border border-neutral-200 rounded-lg p-1 shrink-0 flex items-center justify-center relative group">
                       <QrCode className="w-14 h-14 text-neutral-800" />
@@ -934,7 +934,7 @@ export default function TeacherBilling() {
                   </Button>
                   <Button 
                     type="submit" 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-8 rounded-lg shadow-md shadow-orange-500/10 text-xs"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-8 rounded-lg shadow-md shadow-blue-500/10 text-xs"
                   >
                     模拟确认已扫码支付/已汇款
                   </Button>

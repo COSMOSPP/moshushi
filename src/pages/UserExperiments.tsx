@@ -77,8 +77,8 @@ export default function UserExperiments() {
                   key={i}
                   className={`px-4 py-1.5 text-[13px] rounded-[4px] border transition-colors ${
                     i === 0 
-                      ? "bg-[#fa541c] text-white border-[#fa541c]" 
-                      : "bg-white text-neutral-body border-neutral-border hover:text-[#fa541c] hover:border-[#fa541c]"
+                      ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
+                      : "bg-white text-neutral-body border-neutral-border hover:text-[#3b82f6] hover:border-[#3b82f6]"
                   }`}
                 >
                   {tag}
@@ -106,7 +106,7 @@ export default function UserExperiments() {
                   {exp.tags.map((tag, j) => (
                     <div 
                       key={j} 
-                      className="bg-[#fa541c] text-white text-[12px] px-3 py-1 rounded-br-[8px] font-medium"
+                      className="bg-[#3b82f6] text-white text-[12px] px-3 py-1 rounded-br-[8px] font-medium"
                     >
                       {tag}
                     </div>
@@ -129,7 +129,7 @@ export default function UserExperiments() {
                   <span className={`px-2 py-0.5 rounded-[4px] text-[12px] ${
                     exp.difficulty === '初级' ? 'bg-green-50 text-green-600' :
                     exp.difficulty === '中级' ? 'bg-blue-50 text-blue-600' :
-                    'bg-orange-50 text-orange-600'
+                    'bg-blue-50 text-orange-600'
                   }`}>
                     {exp.difficulty}
                   </span>

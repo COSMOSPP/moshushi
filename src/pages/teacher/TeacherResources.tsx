@@ -249,7 +249,7 @@ export default function TeacherResources() {
                 placeholder="请输入"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400"
+                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400"
               />
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function TeacherResources() {
                 setBulkTokens(4);
                 setIsBulkOpen(true);
               }} 
-              className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1 shadow-sm h-9 px-4 rounded-[4px] text-xs font-semibold cursor-pointer border-0"
+              className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1 shadow-sm h-9 px-4 rounded-[4px] text-xs font-semibold cursor-pointer border-0"
             >
               批量增配
             </Button>
@@ -283,8 +283,8 @@ export default function TeacherResources() {
                     className={cn(
                       "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer",
                       selectedUserIds.length === filteredUsers.length && filteredUsers.length > 0
-                        ? "bg-[#fa541c] border-[#fa541c] text-white"
-                        : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                        ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                        : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                     )}
                   >
                     {selectedUserIds.length === filteredUsers.length && filteredUsers.length > 0 && <span className="text-[10px] font-bold">✓</span>}
@@ -312,8 +312,8 @@ export default function TeacherResources() {
                       className={cn(
                         "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer",
                         selectedUserIds.includes(u.id)
-                          ? "bg-[#fa541c] border-[#fa541c] text-white"
-                          : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                          ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                          : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                       )}
                     >
                       {selectedUserIds.includes(u.id) && <span className="text-[10px] font-bold">✓</span>}
@@ -331,7 +331,7 @@ export default function TeacherResources() {
                   <td className="pl-3 pr-6 py-3">
                     <button 
                       onClick={() => triggerSingleAdjust(u)}
-                      className="text-[#fa541c] hover:text-[#e84a15] font-semibold text-xs transition-colors cursor-pointer border-0 bg-transparent"
+                      className="text-[#3b82f6] hover:text-[#2563eb] font-semibold text-xs transition-colors cursor-pointer border-0 bg-transparent"
                     >
                       配置
                     </button>
@@ -352,10 +352,10 @@ export default function TeacherResources() {
           <span className="text-[13px] text-neutral-500">共 {filteredUsers.length} 条</span>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&gt;</Button>
           </div>
-          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 font-medium bg-white">
+          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 font-medium bg-white">
             <option>10 条/页</option>
             <option>20 条/页</option>
             <option>50 条/页</option>
@@ -376,12 +376,12 @@ export default function TeacherResources() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0 text-left">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Sliders className="w-5 h-5 text-[#fa541c]" />
+                <Sliders className="w-5 h-5 text-[#3b82f6]" />
                 <span>配置学生资源</span>
               </h2>
               <button 
                 onClick={() => setIsSingleAdjustOpen(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -393,14 +393,14 @@ export default function TeacherResources() {
                 {/* GPU卡时 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    GPU卡时 <span className="text-[#fa541c]">*</span>
+                    GPU卡时 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={formGpu}
                     onChange={(e) => setFormGpu(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -408,14 +408,14 @@ export default function TeacherResources() {
                 {/* CPU时长 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    CPU时长 <span className="text-[#fa541c]">*</span>
+                    CPU时长 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={formCpu}
                     onChange={(e) => setFormCpu(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -423,14 +423,14 @@ export default function TeacherResources() {
                 {/* 项目数 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    项目数 <span className="text-[#fa541c]">*</span>
+                    项目数 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={formProjects}
                     onChange={(e) => setFormProjects(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -438,14 +438,14 @@ export default function TeacherResources() {
                 {/* 数据集数 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    数据集数 <span className="text-[#fa541c]">*</span>
+                    数据集数 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={formDatasets}
                     onChange={(e) => setFormDatasets(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -453,14 +453,14 @@ export default function TeacherResources() {
                 {/* 智能助手数 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    智能助手数 <span className="text-[#fa541c]">*</span>
+                    智能助手数 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={formAiAssistants}
                     onChange={(e) => setFormAiAssistants(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -468,14 +468,14 @@ export default function TeacherResources() {
                 {/* token余额 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    token余额 <span className="text-[#fa541c]">*</span>
+                    token余额 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={formTokens}
                     onChange={(e) => setFormTokens(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -493,7 +493,7 @@ export default function TeacherResources() {
                 </Button>
                 <Button 
                   type="submit" 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-[4px] shadow-sm text-[13px] cursor-pointer border-0 transition-colors"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-[4px] shadow-sm text-[13px] cursor-pointer border-0 transition-colors"
                 >
                   确认配置
                 </Button>
@@ -516,12 +516,12 @@ export default function TeacherResources() {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" />
+                <Plus className="w-5 h-5 text-[#3b82f6]" />
                 <span>批量增配资源</span>
               </h2>
               <button 
                 onClick={() => setIsBulkOpen(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -533,14 +533,14 @@ export default function TeacherResources() {
                 {/* GPU卡时 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    GPU卡时 <span className="text-[#fa541c]">*</span>
+                    GPU卡时 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={bulkGpu}
                     onChange={(e) => setBulkGpu(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -548,14 +548,14 @@ export default function TeacherResources() {
                 {/* CPU时长 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    CPU时长 <span className="text-[#fa541c]">*</span>
+                    CPU时长 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={bulkCpu}
                     onChange={(e) => setBulkCpu(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -563,14 +563,14 @@ export default function TeacherResources() {
                 {/* 项目数 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    项目数 <span className="text-[#fa541c]">*</span>
+                    项目数 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={bulkProjects}
                     onChange={(e) => setBulkProjects(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -578,14 +578,14 @@ export default function TeacherResources() {
                 {/* 数据集数 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    数据集数 <span className="text-[#fa541c]">*</span>
+                    数据集数 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={bulkDatasets}
                     onChange={(e) => setBulkDatasets(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -593,14 +593,14 @@ export default function TeacherResources() {
                 {/* 智能助手数 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    智能助手数 <span className="text-[#fa541c]">*</span>
+                    智能助手数 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={bulkAiAssistants}
                     onChange={(e) => setBulkAiAssistants(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -608,14 +608,14 @@ export default function TeacherResources() {
                 {/* token余额 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    token余额 <span className="text-[#fa541c]">*</span>
+                    token余额 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="number"
                     min="0"
                     value={bulkTokens}
                     onChange={(e) => setBulkTokens(Number(e.target.value))}
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 text-neutral-800 bg-white"
                     required
                   />
                 </div>
@@ -633,7 +633,7 @@ export default function TeacherResources() {
                 </Button>
                 <Button 
                   type="submit"
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-[4px] shadow-sm text-[13px] cursor-pointer border-0 transition-colors"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-[4px] shadow-sm text-[13px] cursor-pointer border-0 transition-colors"
                 >
                   确认并立即增配
                 </Button>

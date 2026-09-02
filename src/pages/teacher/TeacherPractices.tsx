@@ -241,7 +241,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
             <input 
               placeholder="按名称或描述搜索..." 
-              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-9 bg-white"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -252,7 +252,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
             <select 
               value={tabFilter} 
               onChange={(e) => setTabFilter(e.target.value as 'all' | 'public' | 'my')}
-              className="appearance-none pl-4 pr-9 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] h-9 bg-white text-neutral-700 font-medium cursor-pointer transition-all min-w-[110px]"
+              className="appearance-none pl-4 pr-9 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] h-9 bg-white text-neutral-700 font-medium cursor-pointer transition-all min-w-[110px]"
             >
               <option value="all">全部实践</option>
               <option value="public">平台公开</option>
@@ -265,7 +265,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
         {/* Right Side: Create Button */}
         <Button 
           onClick={handleOpenCreate} 
-          className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+          className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
         >
           <Plus className="w-4 h-4 mr-1" /> 创建最佳实践
         </Button>
@@ -283,8 +283,8 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[12px] font-medium transition-colors",
                   selectedTech === tech 
-                    ? "bg-[#fa541c] text-white shadow-sm" 
-                    : "bg-white border border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-[#fa541c]"
+                    ? "bg-[#3b82f6] text-white shadow-sm" 
+                    : "bg-white border border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {tech}
@@ -303,8 +303,8 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[12px] font-medium transition-colors",
                   selectedScenario === scenario 
-                    ? "bg-[#fa541c] text-white shadow-sm" 
-                    : "bg-white border border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-[#fa541c]"
+                    ? "bg-[#3b82f6] text-white shadow-sm" 
+                    : "bg-white border border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {scenario}
@@ -328,7 +328,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
             {/* Status Tags for Teachers */}
             <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5">
               {practice.scope === '平台公共' ? (
-                <span className="px-2.5 py-1 bg-[#fff2e8] text-[#fa541c] text-[10px] font-bold rounded-lg border border-[#ffbb96]/30 shadow-sm">
+                <span className="px-2.5 py-1 bg-[#eff6ff] text-[#3b82f6] text-[10px] font-bold rounded-lg border border-[#bfdbfe]/30 shadow-sm">
                   平台公共
                 </span>
               ) : (
@@ -342,7 +342,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                   {practice.auditStatus && (
                     <span className={cn(
                       "px-2 py-0.5 text-[10px] font-medium rounded",
-                      practice.auditStatus === '待审核' ? "text-orange-500 bg-orange-50" :
+                      practice.auditStatus === '待审核' ? "text-orange-500 bg-blue-50" :
                       practice.auditStatus === '审核通过' ? "text-green-600 bg-green-50" :
                       practice.auditStatus === '已拒绝' ? "text-red-500 bg-red-50" : "text-neutral-500 bg-neutral-100"
                     )}>
@@ -358,7 +358,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               <div className="w-12 h-12 rounded-[14px] overflow-hidden shrink-0 border border-neutral-200 shadow-sm">
                 <img src={practice.image} alt={practice.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
               </div>
-              <h3 className="text-[16px] font-bold text-neutral-800 line-clamp-2 group-hover:text-[#fa541c] transition-colors leading-snug">
+              <h3 className="text-[16px] font-bold text-neutral-800 line-clamp-2 group-hover:text-[#3b82f6] transition-colors leading-snug">
                 {practice.title}
               </h3>
             </div>
@@ -395,7 +395,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               <div className="absolute inset-0 bg-white/95 backdrop-blur-sm rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
                 <Button 
                   onClick={(e) => handleOpenEdit(e, practice)}
-                  variant="outline" className="w-32 rounded-full border-[#fa541c] text-[#fa541c] hover:bg-orange-50 hover:text-[#e84a15] font-bold text-[13px] h-9"
+                  variant="outline" className="w-32 rounded-full border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 hover:text-[#2563eb] font-bold text-[13px] h-9"
                 >
                   <Edit className="w-4 h-4 mr-1.5" /> 编辑实践
                 </Button>
@@ -417,7 +417,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                       setApplyTarget('');
                       setIsApplyModalOpen(true);
                     }}
-                    className="w-32 rounded-full bg-[#fa541c] text-white hover:bg-[#e84a15] font-bold text-[13px] h-9 shadow-sm"
+                    className="w-32 rounded-full bg-[#3b82f6] text-white hover:bg-[#2563eb] font-bold text-[13px] h-9 shadow-sm"
                   >
                     <Star className="w-4 h-4 mr-1.5" /> 申请公开
                   </Button>
@@ -444,7 +444,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
         <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-xl border-b border-neutral-100 px-8 py-4 flex items-center justify-between">
           <button 
             onClick={() => setView('list')}
-            className="flex items-center gap-2 text-neutral-600 hover:text-[#fa541c] transition-colors font-bold text-[14px]"
+            className="flex items-center gap-2 text-neutral-600 hover:text-[#3b82f6] transition-colors font-bold text-[14px]"
           >
             <ArrowLeft className="w-4 h-4" /> 返回最佳实践
           </button>
@@ -454,7 +454,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                <span className="text-[13px] font-bold text-neutral-600">{selectedPractice.version}</span>
              </div>
              {selectedPractice.scope === '我的私有' && (
-               <Button onClick={(e) => handleOpenEdit(e, selectedPractice)} className="bg-white border border-[#fa541c] text-[#fa541c] hover:bg-orange-50 font-bold rounded-lg h-9 px-6 text-[13px]">
+               <Button onClick={(e) => handleOpenEdit(e, selectedPractice)} className="bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 font-bold rounded-lg h-9 px-6 text-[13px]">
                  编辑此实践
                </Button>
              )}
@@ -483,13 +483,13 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
 
                 <div className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-sm">
                   <h3 className="text-[15px] font-bold text-neutral-900 mb-5 flex items-center gap-2">
-                    <History className="w-5 h-5 text-[#fa541c]" /> 工作流编排说明
+                    <History className="w-5 h-5 text-[#3b82f6]" /> 工作流编排说明
                   </h3>
                   <div className="flex items-center flex-wrap gap-y-4">
                     {selectedPractice.workflow.map((step: string, index: number) => (
                       <React.Fragment key={index}>
-                        <div className="bg-neutral-50 border border-neutral-200 px-5 py-2.5 rounded-xl text-[13px] font-bold text-neutral-700 shadow-sm flex items-center gap-3 hover:border-[#fa541c] transition-colors cursor-default">
-                          <div className="w-6 h-6 rounded-full bg-[#fa541c]/10 text-[#fa541c] flex items-center justify-center text-[12px]">{index + 1}</div>
+                        <div className="bg-neutral-50 border border-neutral-200 px-5 py-2.5 rounded-xl text-[13px] font-bold text-neutral-700 shadow-sm flex items-center gap-3 hover:border-[#3b82f6] transition-colors cursor-default">
+                          <div className="w-6 h-6 rounded-full bg-[#3b82f6]/10 text-[#3b82f6] flex items-center justify-center text-[12px]">{index + 1}</div>
                           {step}
                         </div>
                         {index < selectedPractice.workflow.length - 1 && (
@@ -544,7 +544,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               </h2>
               <button 
                 onClick={() => setIsDrawerOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -555,14 +555,14 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               {/* 实践名称 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>实践名称
+                  <span className="text-[#3b82f6]">*</span>实践名称
                 </label>
                 <input
                   type="text"
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
                   placeholder="如：项目汇报 PPT 生成..."
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
@@ -576,7 +576,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                   value={formSummary}
                   onChange={(e) => setFormSummary(e.target.value)}
                   placeholder="一句话总结该实践的核心亮点与价值..."
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
@@ -589,7 +589,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                   value={formDesc}
                   onChange={(e) => setFormDesc(e.target.value)}
                   placeholder="描述适用的业务场景、背景痛点以及解决思路..."
-                  className="w-full h-28 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 resize-none transition-all text-[#262626]"
+                  className="w-full h-28 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 resize-none transition-all text-[#262626]"
                 />
               </div>
 
@@ -603,7 +603,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                   value={formTechTags}
                   onChange={(e) => setFormTechTags(e.target.value)}
                   placeholder="如：对话交互, 数据处理"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
@@ -617,7 +617,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                   value={formScenarioTags}
                   onChange={(e) => setFormScenarioTags(e.target.value)}
                   placeholder="如：课程辅助, 日常办公"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
             </div>
@@ -633,7 +633,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               </Button>
               <Button 
                 onClick={handleSave} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 保存配置
               </Button>
@@ -650,39 +650,39 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
               <h2 className="text-[18px] font-bold text-neutral-900">
                 申请公开最佳实践
               </h2>
-              <button onClick={() => setIsApplyModalOpen(false)} className="text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 p-1.5 rounded-full transition-colors">
+              <button onClick={() => setIsApplyModalOpen(false)} className="text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
               </button>
             </div>
             
             <div className="p-8 space-y-6">
-              <div className="bg-orange-50/80 text-orange-600 p-4 rounded-xl text-[13px] flex items-start gap-3 border border-orange-100">
+              <div className="bg-blue-50/80 text-orange-600 p-4 rounded-xl text-[13px] flex items-start gap-3 border border-orange-100">
                 <AlertCircle className="w-5 h-5 shrink-0" />
                 <span className="leading-relaxed">申请公开后，该最佳实践需经过平台超管审核。审核通过后将加入平台公共库，全平台师生可见可用。</span>
               </div>
               
               <div>
                 <label className="text-[13px] font-bold text-neutral-700 block mb-2.5">
-                  <span className="text-[#fa541c]">*</span> 适用对象与收益说明
+                  <span className="text-[#3b82f6]">*</span> 适用对象与收益说明
                 </label>
                 <input 
                   type="text" 
                   value={applyTarget}
                   onChange={(e) => setApplyTarget(e.target.value)}
                   placeholder="例如：适用于全体需要进行项目答辩的学生..." 
-                  className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all"
+                  className="w-full border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all"
                 />
               </div>
 
               <div>
                 <label className="text-[13px] font-bold text-neutral-700 block mb-2.5">
-                  <span className="text-[#fa541c]">*</span> 审核备注 (推荐理由)
+                  <span className="text-[#3b82f6]">*</span> 审核备注 (推荐理由)
                 </label>
                 <textarea 
                   value={applyReason}
                   onChange={(e) => setApplyReason(e.target.value)}
                   placeholder="向管理员简述该实践的核心价值与亮点..." 
-                  className="w-full h-32 border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] resize-none transition-all"
+                  className="w-full h-32 border border-neutral-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] resize-none transition-all"
                 ></textarea>
               </div>
             </div>
@@ -703,7 +703,7 @@ export default function TeacherPractices({ embedded = false }: { embedded?: bool
                   showToast('申请提交成功，已进入待审核队列');
                   setIsApplyModalOpen(false);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 rounded-full shadow-sm text-[13px]"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 rounded-full shadow-sm text-[13px]"
               >
                 提交申请
               </Button>

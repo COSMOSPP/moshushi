@@ -143,7 +143,7 @@ const VM_SPECS = [
 ];
 
 const AVAILABLE_TAGS = [
-  { name: 'AI', bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', dot: 'bg-orange-500' },
+  { name: 'AI', bg: 'bg-blue-50', text: 'text-orange-600', border: 'border-blue-200', dot: 'bg-orange-500' },
   { name: '容器', bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', dot: 'bg-blue-500' },
   { name: '虚机', bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', dot: 'bg-purple-500' },
   { name: 'Java', bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200', dot: 'bg-emerald-500' },
@@ -226,7 +226,7 @@ export function CustomSelect({
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={cn(
           "min-h-[38px] w-full border rounded px-3.5 py-2 flex items-center justify-between transition-all text-[#262626] bg-white cursor-pointer select-none",
-          isOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300",
+          isOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300",
           disabled && "bg-neutral-50 text-neutral-500 cursor-not-allowed border-neutral-100"
         )}
       >
@@ -258,13 +258,13 @@ export function CustomSelect({
                   className={cn(
                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                     isSelected 
-                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                   )}
                 >
                   <span className="font-medium truncate">{opt.label}</span>
                   {isSelected && (
-                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                   )}
                 </div>
               );
@@ -874,21 +874,21 @@ export default function TeacherProjects({
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-lg shadow-lg animate-in slide-in-from-top-4">
-          <span className="w-2 h-2 rounded-full bg-[#fa541c] animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse"></span>
           <span className="text-[14px] font-medium text-neutral-800">{toastMessage}</span>
         </div>
       )}
 
       {/* Associated Course Banner */}
       {incomingCourseId && incomingCourseName && (
-        <div className="mb-5 p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-between animate-in fade-in duration-300">
+        <div className="mb-5 p-4 bg-blue-50 border border-orange-100 rounded-xl flex items-center justify-between animate-in fade-in duration-300">
           <div className="flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-[4px] bg-orange-100 text-[#fa541c] shrink-0">
+            <span className="flex items-center justify-center w-8 h-8 rounded-[4px] bg-blue-100 text-[#3b82f6] shrink-0">
               <BookOpen className="w-4 h-4" />
             </span>
             <div>
               <div className="text-sm font-bold text-neutral-800">
-                当前管理课程：<span className="text-[#fa541c]">{incomingCourseName}</span>
+                当前管理课程：<span className="text-[#3b82f6]">{incomingCourseName}</span>
               </div>
               <div className="text-xs text-neutral-500 mt-0.5 font-medium">
                 在此添加或编辑的项目将自动关联到该课程中。
@@ -899,7 +899,7 @@ export default function TeacherProjects({
             <Button 
               variant="outline" 
               onClick={onBackToCourses}
-              className="border-orange-200 hover:bg-orange-100/50 text-[#fa541c] hover:text-[#e84a15] h-8 text-xs font-bold px-4 rounded-[4px] flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
+              className="border-blue-200 hover:bg-blue-100/50 text-[#3b82f6] hover:text-[#2563eb] h-8 text-xs font-bold px-4 rounded-[4px] flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> 返回课程列表
             </Button>
@@ -917,7 +917,7 @@ export default function TeacherProjects({
               placeholder="搜索项目名称/技能..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-9 bg-white"
             />
           </div>
         </div>
@@ -925,7 +925,7 @@ export default function TeacherProjects({
         <div className="flex items-center gap-4">
           <Button 
             onClick={handleCreateNew}
-            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
           >
             <Plus className="w-4 h-4 mr-1" /> 新建项目
           </Button>
@@ -964,7 +964,7 @@ export default function TeacherProjects({
                           />
                         </div>
                         <div>
-                          <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer" onClick={() => handleViewDetails(proj)}>
+                          <div className="font-medium text-neutral-800 group-hover:text-[#3b82f6] transition-colors cursor-pointer" onClick={() => handleViewDetails(proj)}>
                             {proj.name}
                           </div>
                         </div>
@@ -1004,7 +1004,7 @@ export default function TeacherProjects({
                     <td className="p-4">
                       <span className={cn(
                         "px-2 py-0.5 text-[12px] rounded border font-medium",
-                        proj.range === '平台' ? "bg-orange-50 text-orange-600 border-orange-200" :
+                        proj.range === '平台' ? "bg-blue-50 text-orange-600 border-blue-200" :
                         proj.range === '租户' ? "bg-indigo-50 text-indigo-600 border-indigo-200" :
                         "bg-neutral-50 text-neutral-500 border-neutral-200"
                       )}>
@@ -1015,7 +1015,7 @@ export default function TeacherProjects({
                     {/* 6. 审核状态 */}
                     <td className="p-4">
                       {proj.auditStatus === '待审核' ? (
-                        <span className="text-[#fa541c] font-medium">待审核</span>
+                        <span className="text-[#3b82f6] font-medium">待审核</span>
                       ) : proj.auditStatus === '已审核' || proj.auditStatus === '已通过' ? (
                         <span className="text-emerald-600 font-medium">已通过</span>
                       ) : proj.auditStatus === '已驳回' ? (
@@ -1030,13 +1030,13 @@ export default function TeacherProjects({
                       <div className="flex items-center gap-3">
                         <button 
                           onClick={() => handleViewDetails(proj)} 
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
                         >
                           编辑
                         </button>
                         <button 
                           onClick={() => handleApplyPublic(proj)} 
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px]"
                         >
                           公开
                         </button>
@@ -1159,7 +1159,7 @@ export default function TeacherProjects({
                                   e.stopPropagation();
                                   setActiveDropdownId(activeDropdownId === proj.id ? null : proj.id);
                                 }}
-                                className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px] flex items-center gap-0.5"
+                                className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer font-medium text-[13px] rounded-[4px] flex items-center gap-0.5"
                               >
                                 更多 <ChevronDown className="w-3 h-3" />
                               </button>
@@ -1172,7 +1172,7 @@ export default function TeacherProjects({
                                         setActiveDropdownId(null);
                                         act.onClick();
                                       }}
-                                      className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                      className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                     >
                                       {act.label}
                                     </button>
@@ -1205,14 +1205,14 @@ export default function TeacherProjects({
             <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
               &lt;
             </button>
-            <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
+            <button className="w-7 h-7 bg-[#3b82f6] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
               1
             </button>
             <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
               &gt;
             </button>
           </div>
-          <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
+          <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#3b82f6]">
             <option value="10">10 条/页</option>
             <option value="20">20 条/页</option>
             <option value="50">50 条/页</option>
@@ -1234,12 +1234,12 @@ export default function TeacherProjects({
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                {modalMode === 'create' ? <Plus className="w-5 h-5 text-[#fa541c]" /> : (modalMode === 'view' ? <BookOpen className="w-5 h-5 text-[#fa541c]" /> : <Edit className="w-5 h-5 text-[#fa541c]" />)} 
+                {modalMode === 'create' ? <Plus className="w-5 h-5 text-[#3b82f6]" /> : (modalMode === 'view' ? <BookOpen className="w-5 h-5 text-[#3b82f6]" /> : <Edit className="w-5 h-5 text-[#3b82f6]" />)} 
                 {modalMode === 'create' ? '新建实战项目' : (modalMode === 'view' ? '查看项目详情' : '编辑实战项目')}
               </h2>
               <button 
                 onClick={() => setIsModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1258,7 +1258,7 @@ export default function TeacherProjects({
                   className={cn(
                     "flex-1 py-3 text-center border-b-2 transition-all cursor-pointer flex items-center justify-center gap-1.5 rounded-[4px]",
                     activeFormTab === tab.key 
-                      ? "border-[#fa541c] text-[#fa541c] bg-white font-extrabold" 
+                      ? "border-[#3b82f6] text-[#3b82f6] bg-white font-extrabold" 
                       : "border-transparent text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100/40"
                   )}
                 >
@@ -1278,7 +1278,7 @@ export default function TeacherProjects({
                   {/* 1. 项目名称 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      项目名称 <span className="text-[#fa541c]">*</span>
+                      项目名称 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
@@ -1286,7 +1286,7 @@ export default function TeacherProjects({
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
                       disabled={modalMode === 'view'}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500"
                     />
                   </div>
 
@@ -1300,7 +1300,7 @@ export default function TeacherProjects({
                         onClick={() => modalMode !== 'view' && setIsTagDropdownOpen(!isTagDropdownOpen)}
                         className={cn(
                           "min-h-[38px] w-full border rounded px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none",
-                          isTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300",
+                          isTagDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300",
                           modalMode === 'view' && "bg-neutral-50 text-neutral-500 cursor-not-allowed border-neutral-100"
                         )}
                       >
@@ -1371,13 +1371,13 @@ export default function TeacherProjects({
                                   className={cn(
                                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                                     isSelected 
-                                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                   )}
                                 >
                                   <span className="font-medium">{tag}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                                   )}
                                 </div>
                               );
@@ -1391,7 +1391,7 @@ export default function TeacherProjects({
                   {/* 3. 项目描述 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      项目描述 <span className="text-[#fa541c]">*</span>
+                      项目描述 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
@@ -1399,14 +1399,14 @@ export default function TeacherProjects({
                       value={formDesc}
                       onChange={(e) => setFormDesc(e.target.value)}
                       disabled={modalMode === 'view'}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500"
                     />
                   </div>
 
                   {/* 4. 项目图片 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
-                      项目图片 <span className="text-[#fa541c]">*</span>
+                      项目图片 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="grid grid-cols-3 gap-3">
                       {defaultCovers.map((cover, idx) => (
@@ -1416,16 +1416,16 @@ export default function TeacherProjects({
                           className={cn(
                             "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none",
                             selectedCover === cover 
-                              ? "border-[#fa541c] shadow-md shadow-orange-500/10 scale-[1.02]" 
+                              ? "border-[#3b82f6] shadow-md shadow-blue-500/10 scale-[1.02]" 
                               : "border-transparent",
                             modalMode !== 'view' 
-                              ? "cursor-pointer hover:border-[#fa541c]/50 hover:scale-[1.02]" 
+                              ? "cursor-pointer hover:border-[#3b82f6]/50 hover:scale-[1.02]" 
                               : "cursor-not-allowed"
                           )}
                         >
                           <img src={cover} alt={`cover-${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           {selectedCover === cover && (
-                            <div className="absolute top-2 right-2 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
+                            <div className="absolute top-2 right-2 bg-[#3b82f6] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
                               <Check className="w-3.5 h-3.5" strokeWidth={3} />
                             </div>
                           )}
@@ -1437,14 +1437,14 @@ export default function TeacherProjects({
                   {/* 5. 项目介绍 (富文本编辑区域样式) */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      项目介绍 <span className="text-[#fa541c]">*</span>
+                      项目介绍 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="border border-neutral-200 rounded overflow-hidden flex flex-col bg-white w-full">
                       {/* Rich Text Toolbar */}
                       <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/50 select-none">
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
-                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#fa541c]" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#3b82f6]" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="字体大小"><span className="text-[10px] font-bold font-serif leading-none relative top-[-0.5px]">Tt</span></button>
                         <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="无序列表"><List className="w-3.5 h-3.5" /></button>
@@ -1478,7 +1478,7 @@ export default function TeacherProjects({
                   {/* 1. 选择资源池 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      选择资源池 <span className="text-[#fa541c]">*</span>
+                      选择资源池 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <CustomSelect
                       value={currentResourcePool}
@@ -1506,7 +1506,7 @@ export default function TeacherProjects({
                   {/* 2. 选择环境类型 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      选择环境类型 <span className="text-[#fa541c]">*</span>
+                      选择环境类型 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="flex items-center gap-6 text-[13px]">
                       {[
@@ -1527,7 +1527,7 @@ export default function TeacherProjects({
                             checked={currentEnvType === opt.value}
                             disabled={modalMode === 'view'}
                             onChange={() => handleChangeEnvType(opt.value as any)}
-                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                            className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                           />
                           <span className="font-medium">{opt.label}</span>
                         </label>
@@ -1540,7 +1540,7 @@ export default function TeacherProjects({
                       {/* 3. 源仓库地址 & Mode Selector (同一行) */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          源仓库地址 <span className="text-[#fa541c]">*</span>
+                          源仓库地址 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           {[
@@ -1564,7 +1564,7 @@ export default function TeacherProjects({
                                   setRepoUploadMode(opt.value as any);
                                   setFormSourceRepoUrl('');
                                 }}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                               />
                               <span className="font-medium">{opt.label}</span>
                             </label>
@@ -1583,7 +1583,7 @@ export default function TeacherProjects({
                               value={formSourceRepoUrl}
                               disabled={modalMode === 'view'}
                               onChange={(e) => setFormSourceRepoUrl(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500 font-mono"
+                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500 font-mono"
                             />
                           ) : (
                             <div className="space-y-2.5 w-full">
@@ -1614,9 +1614,9 @@ export default function TeacherProjects({
                                       showToast(`已通过拖拽选择文件: ${file.name}`);
                                     }
                                   }}
-                                  className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
+                                  className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#3b82f6]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
                                 >
-                                  <Upload className="w-6 h-6 text-[#fa541c]" strokeWidth={1.5} />
+                                  <Upload className="w-6 h-6 text-[#3b82f6]" strokeWidth={1.5} />
                                   <span className="text-[13px] text-[#262626] font-bold">点击选择或拖拽源码文件上传</span>
                                   <span className="text-[11px] text-neutral-400">单文件上限 100MB</span>
                                 </label>
@@ -1673,7 +1673,7 @@ export default function TeacherProjects({
                                 checked={formCreationMethod === opt.value}
                                 disabled={modalMode === 'view'}
                                 onChange={() => setFormCreationMethod(opt.value as any)}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                               />
                               <span className="font-medium">{opt.label}</span>
                             </label>
@@ -1699,8 +1699,8 @@ export default function TeacherProjects({
                                 className={cn(
                                   "px-5 py-2 text-xs font-bold rounded-[4px]-t transition-all cursor-pointer border border-b-0 border-neutral-200 flex items-center gap-2",
                                   activeEnvIdx === idx
-                                    ? "bg-[#fa541c] text-white border-[#fa541c] font-black"
-                                    : "bg-white text-[#fa541c] border-[#fa541c]/50 hover:bg-orange-50/20"
+                                    ? "bg-[#3b82f6] text-white border-[#3b82f6] font-black"
+                                    : "bg-white text-[#3b82f6] border-[#3b82f6]/50 hover:bg-blue-50/20"
                                 )}
                               >
                                 <span>{currentEnvType === '容器' ? `容器${idx + 1}` : `云主机${idx + 1}`}</span>
@@ -1758,7 +1758,7 @@ export default function TeacherProjects({
                               setActiveEnvIdx(formEnvironments.length);
                               showToast(`已添加新${currentEnvType === '容器' ? '容器' : '云主机'}实例`);
                             }}
-                            className="text-[#fa541c] hover:text-[#e84a15] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
+                            className="text-[#3b82f6] hover:text-[#2563eb] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
                           >
                             <Plus className="w-3.5 h-3.5" />
                             <span>{currentEnvType === '容器' ? '添加容器' : '添加云主机'}</span>
@@ -1779,7 +1779,7 @@ export default function TeacherProjects({
                             {/* 选择镜像 */}
                             <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                               <label className="text-[13px] font-bold text-[#262626] text-right">
-                                选择镜像 <span className="text-[#fa541c]">*</span>
+                                选择镜像 <span className="text-[#3b82f6]">*</span>
                               </label>
                               <CustomSelect
                                 value={activeEnv.image}
@@ -1798,7 +1798,7 @@ export default function TeacherProjects({
                             <div className="space-y-4">
                               <div className="flex items-center justify-between">
                                 <span className="text-[13px] font-bold text-[#262626]">
-                                  算力配置 <span className="text-[#fa541c]">*</span>
+                                  算力配置 <span className="text-[#3b82f6]">*</span>
                                 </span>
                                 
                                 {activeEnv.type === '虚机' && (
@@ -1818,7 +1818,7 @@ export default function TeacherProjects({
                                         className={cn(
                                           "px-3 py-1 text-center text-[11px] rounded-[4px] transition-all cursor-pointer font-bold border-0",
                                           activeEnv.vmSpecType === opt.key 
-                                            ? "bg-white text-[#fa541c] shadow-sm"
+                                            ? "bg-white text-[#3b82f6] shadow-sm"
                                             : "text-neutral-500 hover:text-neutral-800"
                                         )}
                                       >
@@ -1861,7 +1861,7 @@ export default function TeacherProjects({
                                           updated[activeEnvIdx].cpuCores = e.target.value;
                                           setFormEnvironments(updated);
                                         }}
-                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626]"
+                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626]"
                                       />
                                       <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">核</span>
                                     </div>
@@ -1878,7 +1878,7 @@ export default function TeacherProjects({
                                           updated[activeEnvIdx].memoryGB = e.target.value;
                                           setFormEnvironments(updated);
                                         }}
-                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626]"
+                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626]"
                                       />
                                       <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                     </div>
@@ -1921,7 +1921,7 @@ export default function TeacherProjects({
                                           updated[activeEnvIdx].gpu!.count = e.target.value;
                                           setFormEnvironments(updated);
                                         }}
-                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50"
+                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50"
                                       />
                                       <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">张</span>
                                     </div>
@@ -1943,7 +1943,7 @@ export default function TeacherProjects({
                                             updated[activeEnvIdx].gpu!.power = e.target.value;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50"
+                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50"
                                         />
                                         <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">%</span>
                                       </div>
@@ -1961,7 +1961,7 @@ export default function TeacherProjects({
                                             updated[activeEnvIdx].gpu!.vram = e.target.value;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50"
+                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50"
                                         />
                                         <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                       </div>
@@ -1978,7 +1978,7 @@ export default function TeacherProjects({
                                 <div className="space-y-3">
                                   <div className="flex items-center justify-between border-b border-neutral-100 pb-1.5">
                                     <span className="text-[13px] font-bold text-[#262626]">
-                                      环境变量配置 <span className="text-[#fa541c]">*</span>
+                                      环境变量配置 <span className="text-[#3b82f6]">*</span>
                                     </span>
                                     {modalMode !== 'view' && (
                                       <button
@@ -1989,7 +1989,7 @@ export default function TeacherProjects({
                                           updated[activeEnvIdx].envVariables!.push({ key: '', value: '' });
                                           setFormEnvironments(updated);
                                         }}
-                                        className="text-[#fa541c] hover:text-[#e84a15] text-xs font-bold bg-transparent border-0 cursor-pointer flex items-center gap-0.5 rounded-[4px]"
+                                        className="text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold bg-transparent border-0 cursor-pointer flex items-center gap-0.5 rounded-[4px]"
                                       >
                                         <Plus className="w-3 h-3" /> 添加变量
                                       </button>
@@ -2010,7 +2010,7 @@ export default function TeacherProjects({
                                               updated[activeEnvIdx].envVariables![vIdx].key = e.target.value;
                                               setFormEnvironments(updated);
                                             }}
-                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#fa541c] font-mono text-[#262626]"
+                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#3b82f6] font-mono text-[#262626]"
                                           />
                                           <span className="text-neutral-400 font-bold select-none">=</span>
                                           <input
@@ -2023,7 +2023,7 @@ export default function TeacherProjects({
                                               updated[activeEnvIdx].envVariables![vIdx].value = e.target.value;
                                               setFormEnvironments(updated);
                                             }}
-                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#fa541c] font-mono text-[#262626]"
+                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#3b82f6] font-mono text-[#262626]"
                                           />
                                           {modalMode !== 'view' && (
                                             <button
@@ -2049,7 +2049,7 @@ export default function TeacherProjects({
                                 {/* 启动命令 */}
                                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                                    启动命令 <span className="text-[#fa541c]">*</span>
+                                    启动命令 <span className="text-[#3b82f6]">*</span>
                                   </label>
                                   <textarea
                                     placeholder="请输入"
@@ -2060,7 +2060,7 @@ export default function TeacherProjects({
                                       updated[activeEnvIdx].startCommand = e.target.value;
                                       setFormEnvironments(updated);
                                     }}
-                                    className="w-full min-h-[80px] p-3 text-[13px] border border-neutral-200 rounded focus:outline-none focus:border-[#fa541c] resize-none leading-relaxed text-[#262626] font-mono"
+                                    className="w-full min-h-[80px] p-3 text-[13px] border border-neutral-200 rounded focus:outline-none focus:border-[#3b82f6] resize-none leading-relaxed text-[#262626] font-mono"
                                   />
                                 </div>
                               </div>
@@ -2072,7 +2072,7 @@ export default function TeacherProjects({
                                 {/* 存储配置 */}
                                 <div className="space-y-3">
                                   <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                    存储配置 <span className="text-[#fa541c]">*</span>
+                                    存储配置 <span className="text-[#3b82f6]">*</span>
                                   </span>
                                   
                                   <div className="space-y-3.5 pl-4">
@@ -2167,7 +2167,7 @@ export default function TeacherProjects({
                                 {/* 网络配置 */}
                                 <div className="space-y-3">
                                   <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                    网络配置 <span className="text-[#fa541c]">*</span>
+                                    网络配置 <span className="text-[#3b82f6]">*</span>
                                   </span>
 
                                   <div className="space-y-3.5 pl-4">
@@ -2206,7 +2206,7 @@ export default function TeacherProjects({
                                             updated[activeEnvIdx].network!.subnet = `192.168.${val}.0/${mask}`;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#fa541c] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[50px] text-center"
+                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#3b82f6] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[50px] text-center"
                                         >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
@@ -2239,7 +2239,7 @@ export default function TeacherProjects({
                                             updated[activeEnvIdx].network!.subnet = `192.168.${octet3}.0/${val}`;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#fa541c] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[58px] text-center"
+                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#3b82f6] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[58px] text-center"
                                         >
                                           <option value="16">16</option>
                                           <option value="24">24</option>
@@ -2252,7 +2252,7 @@ export default function TeacherProjects({
                                 {/* VNC类型 */}
                                 <div className="space-y-3">
                                   <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                    VNC类型 <span className="text-[#fa541c]">*</span>
+                                    VNC类型 <span className="text-[#3b82f6]">*</span>
                                   </span>
 
                                   <div className="flex items-center gap-6 text-[13px] pl-4">
@@ -2278,7 +2278,7 @@ export default function TeacherProjects({
                                             updated[activeEnvIdx].vncType = opt.value as any;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                          className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                                         />
                                         <span className="font-medium">{opt.label}</span>
                                       </label>
@@ -2329,7 +2329,7 @@ export default function TeacherProjects({
                   </Button>
                   <Button 
                     onClick={() => setActiveFormTab('env')} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     下一步
                   </Button>
@@ -2352,7 +2352,7 @@ export default function TeacherProjects({
                   </Button>
                   <Button 
                     onClick={() => handleSave()} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     保存
                   </Button>
@@ -2376,12 +2376,12 @@ export default function TeacherProjects({
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 申请公开项目
               </h2>
               <button 
                 onClick={() => setIsApplyModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors"
                 disabled={isApplying}
               >
                 <X className="w-4 h-4" />
@@ -2391,11 +2391,11 @@ export default function TeacherProjects({
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">公开后全平台可见可用</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">公开后全平台可见可用</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     提交申请后，超管将从 <strong>项目完整性、代码质量、文档规范、培训价值</strong> 四个维度进行审核。审核通过后将进入公共资源库。
                   </p>
                 </div>
@@ -2415,7 +2415,7 @@ export default function TeacherProjects({
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                    公开范围 <span className="text-[#fa541c]">*</span>
+                    公开范围 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -2428,11 +2428,11 @@ export default function TeacherProjects({
                         className={cn(
                           "border p-4 rounded cursor-pointer transition-all select-none flex flex-col gap-1",
                           applyRange === opt.key 
-                            ? "border-[#fa541c] bg-[#fff5f0]/30"
+                            ? "border-[#3b82f6] bg-[#fff5f0]/30"
                             : "border-neutral-200 bg-white hover:bg-neutral-50"
                         )}
                       >
-                        <span className={cn("font-bold text-[13px]", applyRange === opt.key ? "text-[#fa541c]" : "text-[#262626]")}>
+                        <span className={cn("font-bold text-[13px]", applyRange === opt.key ? "text-[#3b82f6]" : "text-[#262626]")}>
                           {opt.label}
                         </span>
                         <span className="text-[11px] text-neutral-400 leading-normal">{opt.desc}</span>
@@ -2443,13 +2443,13 @@ export default function TeacherProjects({
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    申请说明 <span className="text-[#fa541c]">*</span>
+                    申请说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={applyUsageSuggestion}
                     onChange={(e) => setApplyUsageSuggestion(e.target.value)}
                     placeholder="请描述该项目的申请公开原因及相关说明..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -2467,7 +2467,7 @@ export default function TeacherProjects({
               </Button>
               <Button 
                 onClick={handleSubmitApplication} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 disabled={isApplying}
               >
                 {isApplying ? (
@@ -2497,12 +2497,12 @@ export default function TeacherProjects({
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 下架实战项目
               </h2>
               <button 
                 onClick={() => setIsOffShelfModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2511,11 +2511,11 @@ export default function TeacherProjects({
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">下架后项目将暂不对学生及协同教师公开</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">下架后项目将暂不对学生及协同教师公开</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     下架项目后，该实战项目将从公共资源库和项目挑选列表中隐藏。已有实训班级的历史数据将予以保留，但无法基于该项目开启新的实训任务。
                   </p>
                 </div>
@@ -2535,13 +2535,13 @@ export default function TeacherProjects({
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    下架说明 <span className="text-[#fa541c]">*</span>
+                    下架说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={offShelfReason}
                     onChange={(e) => setOffShelfReason(e.target.value)}
                     placeholder="请描述该项目的下架原因及相关说明..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -2558,7 +2558,7 @@ export default function TeacherProjects({
               </Button>
               <Button 
                 onClick={handleOffShelfProject} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 确认下架
               </Button>
@@ -2578,7 +2578,7 @@ export default function TeacherProjects({
               </h2>
               <button 
                 onClick={() => setConfirmDialog(prev => ({ ...prev, show: false }))} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -2586,7 +2586,7 @@ export default function TeacherProjects({
 
             {/* Body */}
             <div className="p-6 flex items-start gap-3 bg-white">
-              <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
+              <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
               <div className="text-[14px] text-neutral-750 leading-normal">
                 {confirmDialog.message}
               </div>
@@ -2606,7 +2606,7 @@ export default function TeacherProjects({
                   confirmDialog.onConfirm();
                   setConfirmDialog(prev => ({ ...prev, show: false }));
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>

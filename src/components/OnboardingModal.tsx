@@ -69,8 +69,8 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   className={cn(
                     "p-4 rounded-xl border text-left transition-all",
                     selections['identity'] === option 
-                      ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c] font-medium" 
-                      : "border-slate-200 hover:border-[#fa541c]/50 hover:bg-slate-50 text-slate-700"
+                      ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6] font-medium" 
+                      : "border-slate-200 hover:border-[#3b82f6]/50 hover:bg-slate-50 text-slate-700"
                   )}
                 >
                   {option}
@@ -101,8 +101,8 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                     className={cn(
                       "p-4 rounded-xl border text-left transition-all flex items-center justify-between",
                       isSelected
-                        ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c] font-medium" 
-                        : "border-slate-200 hover:border-[#fa541c]/50 hover:bg-slate-50 text-slate-700"
+                        ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6] font-medium" 
+                        : "border-slate-200 hover:border-[#3b82f6]/50 hover:bg-slate-50 text-slate-700"
                     )}
                   >
                     <span className="text-sm">{option}</span>
@@ -130,12 +130,12 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   className={cn(
                     "p-4 rounded-xl border text-left transition-all",
                     selections['level'] === option.title
-                      ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c]" 
-                      : "border-slate-200 hover:border-[#fa541c]/50 hover:bg-slate-50"
+                      ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6]" 
+                      : "border-slate-200 hover:border-[#3b82f6]/50 hover:bg-slate-50"
                   )}
                 >
                   <div className="font-medium mb-1">{option.title}</div>
-                  <div className={cn("text-sm", selections['level'] === option.title ? "text-[#fa541c]/80" : "text-slate-500")}>{option.desc}</div>
+                  <div className={cn("text-sm", selections['level'] === option.title ? "text-[#3b82f6]/80" : "text-slate-500")}>{option.desc}</div>
                 </button>
               ))}
             </div>
@@ -159,12 +159,12 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   className={cn(
                     "p-4 rounded-xl border text-left transition-all",
                     selections['goal'] === option.title
-                      ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c]" 
-                      : "border-slate-200 hover:border-[#fa541c]/50 hover:bg-slate-50"
+                      ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6]" 
+                      : "border-slate-200 hover:border-[#3b82f6]/50 hover:bg-slate-50"
                   )}
                 >
                   <div className="font-medium mb-1">{option.title}</div>
-                  <div className={cn("text-sm", selections['goal'] === option.title ? "text-[#fa541c]/80" : "text-slate-500")}>{option.desc}</div>
+                  <div className={cn("text-sm", selections['goal'] === option.title ? "text-[#3b82f6]/80" : "text-slate-500")}>{option.desc}</div>
                 </button>
               ))}
             </div>
@@ -188,12 +188,12 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   className={cn(
                     "p-4 rounded-xl border text-left transition-all",
                     selections['time'] === option.title
-                      ? "border-[#fa541c] bg-[#fff2e8] text-[#fa541c]" 
-                      : "border-slate-200 hover:border-[#fa541c]/50 hover:bg-slate-50"
+                      ? "border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6]" 
+                      : "border-slate-200 hover:border-[#3b82f6]/50 hover:bg-slate-50"
                   )}
                 >
                   <div className="font-medium mb-1">{option.title}</div>
-                  <div className={cn("text-sm", selections['time'] === option.title ? "text-[#fa541c]/80" : "text-slate-500")}>{option.desc}</div>
+                  <div className={cn("text-sm", selections['time'] === option.title ? "text-[#3b82f6]/80" : "text-slate-500")}>{option.desc}</div>
                 </button>
               ))}
             </div>
@@ -225,7 +225,7 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
             
             <Button 
               onClick={onClose}
-              className="w-full bg-[#fa541c] hover:bg-[#d4380d] text-white rounded-xl py-6 text-lg font-medium shadow-md shadow-[#fa541c]/20"
+              className="w-full bg-[#3b82f6] hover:bg-[#1d4ed8] text-white rounded-xl py-6 text-lg font-medium shadow-md shadow-[#3b82f6]/20"
             >
               进入首页
             </Button>
@@ -275,8 +275,8 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                     <div key={step.id} className="flex flex-col items-center gap-2 bg-white px-2">
                       <div className={cn(
                         "w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium transition-colors",
-                        isCompleted ? "bg-[#fa541c] text-white" : 
-                        isCurrent ? "border-2 border-[#fa541c] text-[#fa541c] bg-white" : 
+                        isCompleted ? "bg-[#3b82f6] text-white" : 
+                        isCurrent ? "border-2 border-[#3b82f6] text-[#3b82f6] bg-white" : 
                         "bg-slate-100 text-slate-400"
                       )}>
                         {isCompleted ? <Check className="w-3.5 h-3.5" /> : index + 1}
@@ -321,7 +321,7 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
               <Button 
                 onClick={handleNext}
                 disabled={!isCurrentStepValid()}
-                className="bg-[#fa541c] hover:bg-[#d4380d] text-white rounded-xl shadow-md shadow-[#fa541c]/20 px-6"
+                className="bg-[#3b82f6] hover:bg-[#1d4ed8] text-white rounded-xl shadow-md shadow-[#3b82f6]/20 px-6"
               >
                 {currentStep === STEPS.length - 1 ? '生成学习路径' : '下一步'} 
                 {currentStep !== STEPS.length - 1 && <ChevronRight className="w-4 h-4 ml-1" />}

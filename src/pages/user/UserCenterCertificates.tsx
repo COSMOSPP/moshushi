@@ -94,7 +94,7 @@ export default function UserCenterCertificates() {
             {[
               { name: "专家", icon: "🥇", color: "bg-amber-100 border-amber-200 text-amber-700" },
               { name: "达人", icon: "🥈", color: "bg-slate-100 border-slate-200 text-slate-700" },
-              { name: "新星", icon: "🥉", color: "bg-orange-100 border-orange-200 text-orange-700" },
+              { name: "新星", icon: "🥉", color: "bg-blue-100 border-blue-200 text-orange-700" },
               { name: "10连击", icon: "⭐", color: "bg-yellow-100 border-yellow-200 text-yellow-700" },
               { name: "早起鸟", icon: "🌅", color: "bg-blue-100 border-blue-200 text-blue-700" },
               { name: "全勤", icon: "🔥", color: "bg-red-100 border-red-200 text-red-700" },
@@ -143,7 +143,7 @@ export default function UserCenterCertificates() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 bg-neutral-bg rounded-[8px] border border-neutral-border">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 border-2 border-orange-200 flex items-center justify-center text-xl">🥉</div>
+                  <div className="w-10 h-10 rounded-full bg-blue-100 border-2 border-blue-200 flex items-center justify-center text-xl">🥉</div>
                   <div>
                     <div className="text-sm font-bold text-neutral-title">算法新星</div>
                     <div className="text-xs text-neutral-caption">2025-02</div>

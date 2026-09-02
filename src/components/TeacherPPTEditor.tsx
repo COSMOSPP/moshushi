@@ -632,7 +632,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                     "px-5 h-9 rounded text-[14px] font-medium transition-all font-bold",
                     isPreviewMode 
                       ? "bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-600" 
-                      : "bg-white border border-[#fa541c] text-[#fa541c] hover:bg-orange-50"
+                      : "bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50"
                   )}
                 >
                   {isPreviewMode ? '返回编辑' : '预览'}
@@ -640,7 +640,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               ) : (
                 <button 
                   onClick={() => alert("正在进入课件预览...")} 
-                  className="bg-white border border-[#fa541c] text-[#fa541c] hover:bg-orange-50 px-5 h-9 rounded text-[14px] font-medium transition-colors"
+                  className="bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 px-5 h-9 rounded text-[14px] font-medium transition-colors"
                 >
                   预览
                 </button>
@@ -650,7 +650,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                   alert("课件提交并发布成功！");
                   onClose();
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white border border-transparent px-5 h-9 rounded text-[14px] font-medium transition-colors shadow-sm shadow-orange-500/10"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white border border-transparent px-5 h-9 rounded text-[14px] font-medium transition-colors shadow-sm shadow-blue-500/10"
               >
                 提交
               </button>
@@ -670,7 +670,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                   setTargetChapterIdx(activeChapterIdx);
                   setShowCreateLessonDrawer(true);
                 }}
-                className="text-[11px] bg-[#fff2e8] text-[#fa541c] hover:bg-[#ffe4d3] border border-[#ffbb96] px-2 py-0.5 rounded font-bold flex items-center gap-0.5 transition-colors"
+                className="text-[11px] bg-[#eff6ff] text-[#3b82f6] hover:bg-[#ffe4d3] border border-[#bfdbfe] px-2 py-0.5 rounded font-bold flex items-center gap-0.5 transition-colors"
               >
                 <Plus className="w-3 h-3" /> 新建课节
               </button>
@@ -706,7 +706,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                             setChapterActionMenuOpenIndex(null);
                             setActiveLessonMenu(null);
                           }}
-                          className="p-0.5 text-neutral-400 hover:text-[#fa541c] hover:bg-neutral-100 rounded transition-colors"
+                          className="p-0.5 text-neutral-400 hover:text-[#3b82f6] hover:bg-neutral-100 rounded transition-colors"
                           title="新建课件"
                         >
                           <Plus className="w-3.5 h-3.5" />
@@ -721,7 +721,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                             >
                               {[
                                 { title: '教学课件', desc: '支持图文、PPT 文档、视频等', icon: FileText, color: 'text-emerald-500', bg: 'bg-emerald-50', type: 'doc' },
-                                { title: '实验课件', desc: '通过 notebook 制作实训课件', icon: Code, color: 'text-orange-500', bg: 'bg-orange-50', type: 'experiment' },
+                                { title: '实验课件', desc: '通过 notebook 制作实训课件', icon: Code, color: 'text-orange-500', bg: 'bg-blue-50', type: 'experiment' },
                                 { title: '互动学习课件', desc: '知识点分段讲解视频融合实操', icon: MonitorPlay, color: 'text-blue-500', bg: 'bg-blue-50', type: 'split_doc' }
                               ].map((item, idx) => (
                                 <div 
@@ -748,7 +748,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                                     <item.icon className="w-4.5 h-4.5" />
                                   </div>
                                   <div className="text-left">
-                                    <div className="text-[13px] font-bold text-neutral-800 mb-0.5 group-hover/item:text-[#fa541c] transition-colors">{item.title}</div>
+                                    <div className="text-[13px] font-bold text-neutral-800 mb-0.5 group-hover/item:text-[#3b82f6] transition-colors">{item.title}</div>
                                     <div className="text-[11px] text-neutral-400 leading-normal">{item.desc}</div>
                                   </div>
                                 </div>
@@ -829,7 +829,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                           className={cn(
                             "group flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer transition-all border",
                             isActive 
-                              ? "bg-orange-50 border-orange-100 text-[#fa541c]" 
+                              ? "bg-blue-50 border-orange-100 text-[#3b82f6]" 
                               : "border-transparent text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                           )}
                         >
@@ -837,7 +837,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                             <div className={cn(
                               "w-6 h-6 rounded flex items-center justify-center shrink-0",
                               lesson.type === 'split_doc' ? (isActive ? "bg-blue-100 text-blue-600" : "bg-blue-50 text-blue-500") : 
-                              lesson.type === 'experiment' ? (isActive ? "bg-orange-100 text-[#fa541c]" : "bg-orange-50 text-[#fa541c]") :
+                              lesson.type === 'experiment' ? (isActive ? "bg-blue-100 text-[#3b82f6]" : "bg-blue-50 text-[#3b82f6]") :
                               lesson.type === 'assignment' ? (isActive ? "bg-rose-100 text-rose-600" : "bg-rose-50 text-rose-500") :
                               (isActive ? "bg-emerald-100 text-emerald-600" : "bg-emerald-50 text-emerald-500")
                             )}>
@@ -913,13 +913,13 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 {/* Content Header: left title, right switch template button */}
                 <div className="px-6 py-3.5 border-b border-neutral-200 bg-white flex items-center justify-between shrink-0 h-14 shadow-xs">
                   <div className="flex items-center gap-2">
-                    <div className="w-1.5 h-4 bg-[#fa541c] rounded-full"></div>
+                    <div className="w-1.5 h-4 bg-[#3b82f6] rounded-full"></div>
                     <span className="text-[15px] font-bold text-neutral-800">互动学习课件案例演示demo</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <button 
                       onClick={() => setShowSwitchTemplateModal(true)}
-                      className="text-[12px] bg-[#fff2e8] text-[#fa541c] hover:bg-[#ffe4d3] border border-[#ffbb96] px-3.5 py-1.5 rounded-lg font-bold flex items-center gap-1 transition-all shadow-xs active:scale-95"
+                      className="text-[12px] bg-[#eff6ff] text-[#3b82f6] hover:bg-[#ffe4d3] border border-[#bfdbfe] px-3.5 py-1.5 rounded-lg font-bold flex items-center gap-1 transition-all shadow-xs active:scale-95"
                     >
                       <Cpu className="w-3.5 h-3.5" /> 切换模版
                     </button>
@@ -933,11 +933,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                     {/* Document Toolbar */}
                     <div className="h-11 bg-neutral-50/50 border-b border-neutral-100 px-4 flex items-center justify-between shrink-0 select-none">
                       <div className="flex items-center gap-1.5">
-                        <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-neutral-100 rounded transition-colors" title="放大">
+                        <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-neutral-100 rounded transition-colors" title="放大">
                           <Plus className="w-4 h-4" />
                         </button>
                         <span className="text-[12px] text-neutral-600 font-bold px-1.5">100%</span>
-                        <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-neutral-100 rounded transition-colors" title="缩小">
+                        <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-neutral-100 rounded transition-colors" title="缩小">
                           <Minus className="w-4 h-4" />
                         </button>
                       </div>
@@ -983,7 +983,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                         <select 
                           value={model} 
                           onChange={(e) => setModel(e.target.value)}
-                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-[12px] focus:outline-none focus:border-[#fa541c] font-medium bg-white"
+                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-[12px] focus:outline-none focus:border-[#3b82f6] font-medium bg-white"
                         >
                           <option value="DeepSeek-Chat">DeepSeek-V3 (推荐/超轻量)</option>
                           <option value="GPT-4o-Mini">GPT-4o Mini (超低延迟)</option>
@@ -995,7 +995,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                       <div className="space-y-1 text-left">
                         <div className="flex items-center justify-between text-[11px] font-bold text-neutral-500">
                           <span>随机性参数 (Temperature)</span>
-                          <span className="text-[#fa541c] font-mono">{temperature.toFixed(1)}</span>
+                          <span className="text-[#3b82f6] font-mono">{temperature.toFixed(1)}</span>
                         </div>
                         <input 
                           type="range" 
@@ -1004,7 +1004,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                           step="0.1" 
                           value={temperature}
                           onChange={(e) => setTemperature(parseFloat(e.target.value))}
-                          className="w-full h-1.5 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-[#fa541c]"
+                          className="w-full h-1.5 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-[#3b82f6]"
                         />
                         <div className="flex justify-between text-[9px] text-neutral-400 font-medium">
                           <span>0.0 (精准确定)</span>
@@ -1040,7 +1040,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                         </span>
                         <button 
                           onClick={() => setChatMessages(INTERACTIVE_TEMPLATES[activeTemplateIdx].defaultMessages)}
-                          className="text-[10px] text-neutral-500 hover:text-[#fa541c] font-bold flex items-center gap-0.5"
+                          className="text-[10px] text-neutral-500 hover:text-[#3b82f6] font-bold flex items-center gap-0.5"
                           title="重置会话"
                         >
                           <RotateCcw className="w-3 h-3" /> 重置
@@ -1063,14 +1063,14 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                           return (
                             <div key={idx} className={cn("flex gap-2.5", isUser ? "justify-end" : "justify-start")}>
                               {!isUser && (
-                                <div className="w-6.5 h-6.5 rounded-full bg-orange-100 flex items-center justify-center shrink-0 shadow-3xs">
-                                  <Bot className="w-4 h-4 text-[#fa541c]" />
+                                <div className="w-6.5 h-6.5 rounded-full bg-blue-100 flex items-center justify-center shrink-0 shadow-3xs">
+                                  <Bot className="w-4 h-4 text-[#3b82f6]" />
                                 </div>
                               )}
                               <div className={cn(
                                 "max-w-[85%] rounded-2xl px-3 py-2 text-[13px] shadow-3xs text-left",
                                 isUser 
-                                  ? "bg-[#fa541c] text-white rounded-tr-none" 
+                                  ? "bg-[#3b82f6] text-white rounded-tr-none" 
                                   : "bg-white border border-neutral-150 text-neutral-800 rounded-tl-none"
                               )}>
                                 {renderMessageText(msg.text)}
@@ -1080,8 +1080,8 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                         })}
                         {isAiResponding && (
                           <div className="flex gap-2.5 justify-start">
-                            <div className="w-6.5 h-6.5 rounded-full bg-orange-100 flex items-center justify-center shrink-0">
-                              <Bot className="w-4 h-4 text-[#fa541c]" />
+                            <div className="w-6.5 h-6.5 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                              <Bot className="w-4 h-4 text-[#3b82f6]" />
                             </div>
                             <div className="bg-white border border-neutral-150 rounded-2xl rounded-tl-none px-3.5 py-2.5 text-[12px] text-neutral-500 shadow-3xs flex items-center gap-1.5">
                               <span className="flex gap-0.5">
@@ -1097,7 +1097,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
 
                       {/* Chat Input Bar */}
                       <div className="p-3 border-t border-neutral-200 bg-white shrink-0">
-                        <div className="flex items-center gap-2 border border-neutral-200 rounded-xl px-3 py-2 focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] bg-neutral-50/30">
+                        <div className="flex items-center gap-2 border border-neutral-200 rounded-xl px-3 py-2 focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] bg-neutral-50/30">
                           <input 
                             type="text"
                             placeholder="输入测试提示语或聊天内容..."
@@ -1115,7 +1115,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                             className={cn(
                               "p-1.5 rounded-lg transition-colors shrink-0",
                               userInput.trim() && !isAiResponding
-                                ? "bg-[#fa541c] text-white hover:bg-[#e84a15]"
+                                ? "bg-[#3b82f6] text-white hover:bg-[#2563eb]"
                                 : "bg-neutral-100 text-neutral-400 cursor-not-allowed"
                             )}
                           >
@@ -1134,20 +1134,20 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                   <div className="px-6 py-3 border-b border-neutral-200 bg-white flex items-center justify-between shrink-0 h-16 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
                     <div className="flex-1 flex justify-start items-center">
                       <div className="flex flex-col items-center relative">
-                        <div className="border border-[#fa541c] text-[#fa541c] px-6 py-1.5 text-[13px] font-bold rounded-full bg-[#fff7f2] shadow-sm select-none">
+                        <div className="border border-[#3b82f6] text-[#3b82f6] px-6 py-1.5 text-[13px] font-bold rounded-full bg-[#fff7f2] shadow-sm select-none">
                           线性回归实训-预测考试分数
                         </div>
                         {/* caret below the tab */}
-                        <div className="absolute -bottom-2 text-[#fa541c] select-none text-[8px]">
+                        <div className="absolute -bottom-2 text-[#3b82f6] select-none text-[8px]">
                           ▲
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
-                      <Info className="w-5 h-5 text-neutral-400 cursor-pointer hover:text-[#fa541c] transition-colors" />
+                      <Info className="w-5 h-5 text-neutral-400 cursor-pointer hover:text-[#3b82f6] transition-colors" />
                       <button 
                         onClick={() => navigate("/teacher/course/1/experiment/3.1.1")}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg flex items-center gap-1.5 shadow-md shadow-orange-500/10 text-[13px] transition-colors"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg flex items-center gap-1.5 shadow-md shadow-blue-500/10 text-[13px] transition-colors"
                       >
                         <Play className="w-3.5 h-3.5 fill-current" /> 进入实训
                       </button>
@@ -1163,7 +1163,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                   {/* Left Sidebar (custom single active item) */}
                   {!isPreviewMode && (
                     <div className="w-56 border-r border-neutral-100 flex flex-col bg-white">
-                      <div className="py-2.5 px-4 text-[13px] font-bold text-[#fa541c] bg-[#fff7f2] relative border-r-2 border-r-[#fa541c] cursor-pointer h-11 flex items-center">
+                      <div className="py-2.5 px-4 text-[13px] font-bold text-[#3b82f6] bg-[#fff7f2] relative border-r-2 border-r-[#3b82f6] cursor-pointer h-11 flex items-center">
                         线性回归实训-预测考试分数
                       </div>
                     </div>
@@ -1232,7 +1232,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                                 );
                               })}
 
-                              <line x1="50" y1="210" x2="560" y2="78" stroke="#fa541c" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
+                              <line x1="50" y1="210" x2="560" y2="78" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
 
                               {[
                                 { x: 1, y: 88 },
@@ -1289,30 +1289,30 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 {/* Editor Title */}
                 <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between">
                   <h2 className="text-[16px] font-bold text-neutral-800">{activeLessonTitle}</h2>
-                  <span className="text-[12px] bg-orange-50 text-[#fa541c] px-2 py-0.5 rounded font-medium">
+                  <span className="text-[12px] bg-blue-50 text-[#3b82f6] px-2 py-0.5 rounded font-medium">
                     {activeLessonTitle === '认定方案' ? '教学大纲' : '演示文稿'}
                   </span>
                 </div>
                 
                 {/* Editor Toolbar (Moved inside the editor card) */}
                 <div className="h-12 bg-[#F6F8FA] border-b border-neutral-100 flex items-center px-4 gap-1 overflow-x-auto shrink-0 scrollbar-hide">
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><Type className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors font-serif font-bold text-[14px]">B</button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors italic font-serif text-[14px]">I</button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors line-through font-serif text-[14px]">S</button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><Link className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><Type className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors font-serif font-bold text-[14px]">B</button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors italic font-serif text-[14px]">I</button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors line-through font-serif text-[14px]">S</button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><Link className="w-4 h-4" /></button>
                   <div className="w-px h-4 bg-neutral-200 mx-2"></div>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><List className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><ListOrdered className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><CheckSquare className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><List className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><ListOrdered className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><CheckSquare className="w-4 h-4" /></button>
                   <div className="w-px h-4 bg-neutral-200 mx-2"></div>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><AlignLeft className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><AlignCenter className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><AlignRight className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><AlignLeft className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><AlignCenter className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><AlignRight className="w-4 h-4" /></button>
                   <div className="w-px h-4 bg-neutral-200 mx-2"></div>
                   <button className="p-1.5 text-blue-500 hover:bg-blue-50 rounded transition-colors"><ImageIcon className="w-4 h-4" /></button>
                   <button className="p-1.5 text-purple-500 hover:bg-purple-50 rounded transition-colors"><PlaySquare className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-orange-500 hover:bg-orange-50 rounded transition-colors"><FileText className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-orange-500 hover:bg-blue-50 rounded transition-colors"><FileText className="w-4 h-4" /></button>
                   
                   <div className="w-px h-4 bg-neutral-200 mx-2"></div>
                   
@@ -1323,8 +1323,8 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                       className={cn(
                         "flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[13px] font-bold transition-all",
                         showAiMenu 
-                          ? "bg-[#fa541c] text-white border-[#fa541c]" 
-                          : "border-orange-200 text-[#fa541c] bg-orange-50 hover:bg-orange-100"
+                          ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
+                          : "border-blue-200 text-[#3b82f6] bg-blue-50 hover:bg-blue-100"
                       )}
                     >
                       <Bot className="w-3.5 h-3.5" /> AI 备课 <ChevronDown className="w-3.5 h-3.5" />
@@ -1342,7 +1342,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                             <button 
                               key={i} 
                               onClick={() => setShowAiMenu(false)}
-                              className="w-full flex items-center gap-2 px-4 py-2 text-[13px] text-neutral-700 hover:bg-orange-50 hover:text-[#fa541c] transition-colors"
+                              className="w-full flex items-center gap-2 px-4 py-2 text-[13px] text-neutral-700 hover:bg-blue-50 hover:text-[#3b82f6] transition-colors"
                             >
                               <item.icon className="w-3.5 h-3.5" /> {item.label}
                             </button>
@@ -1354,8 +1354,8 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                   
                   <div className="w-px h-4 bg-neutral-200 mx-2"></div>
                   
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><Settings className="w-4 h-4" /></button>
-                  <button className="p-1.5 text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors"><MoreHorizontal className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><Settings className="w-4 h-4" /></button>
+                  <button className="p-1.5 text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors"><MoreHorizontal className="w-4 h-4" /></button>
                 </div>
 
                 {/* Inner Split Layout */}
@@ -1379,7 +1379,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                               className={cn(
                                 "px-3 py-1.5 text-[12px] rounded cursor-pointer transition-colors truncate select-none -ml-[1px] border-l-2",
                                 slide.id === activeSlideId 
-                                  ? "bg-orange-50 text-[#fa541c] border-[#fa541c] font-medium" 
+                                  ? "bg-blue-50 text-[#3b82f6] border-[#3b82f6] font-medium" 
                                   : "text-neutral-500 hover:bg-neutral-50 border-transparent hover:text-neutral-900"
                               )}
                             >
@@ -1426,7 +1426,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                             </div>
 
                             {currentSlide.alert && (
-                              <div className="mt-10 p-5 bg-orange-50 border border-orange-100 rounded-lg text-[14px] text-orange-900 leading-relaxed flex items-start gap-3">
+                              <div className="mt-10 p-5 bg-blue-50 border border-orange-100 rounded-lg text-[14px] text-orange-900 leading-relaxed flex items-start gap-3">
                                 <div className="text-xl">💡</div>
                                 <div>
                                   <strong className="block mb-1 font-bold">讲师教案批注：</strong>
@@ -1534,11 +1534,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <PlusCircle className="w-5 h-5 text-[#fa541c]" /> 新建课节
+                <PlusCircle className="w-5 h-5 text-[#3b82f6]" /> 新建课节
               </h2>
               <button 
                 onClick={() => setShowCreateLessonDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1548,11 +1548,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                    <span className="text-[#fa541c]">*</span> 课节名称
+                    <span className="text-[#3b82f6]">*</span> 课节名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                     placeholder="请输入课节名称" 
                     value={newLessonName}
                     onChange={(e) => setNewLessonName(e.target.value)}
@@ -1573,7 +1573,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 </Button>
                 <Button 
                   type="submit"
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   添加
                 </Button>
@@ -1597,7 +1597,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               </h2>
               <button 
                 onClick={() => setShowTeachingMaterialDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1607,11 +1607,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                    <span className="text-[#fa541c]">*</span> 课件名称
+                    <span className="text-[#3b82f6]">*</span> 课件名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                     placeholder="请输入教学课件名称" 
                     value={teachingMaterialName}
                     onChange={(e) => setTeachingMaterialName(e.target.value)}
@@ -1632,7 +1632,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 </Button>
                 <Button 
                   type="submit"
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   添加
                 </Button>
@@ -1652,11 +1652,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                 <div className="w-1 h-4 bg-[#fa541c] rounded-full"></div> 选择实验课件 <span className="text-[13px] text-blue-500 font-normal cursor-pointer hover:underline ml-2">帮助教程 <Info className="w-3.5 h-3.5 inline mb-0.5" /></span>
+                 <div className="w-1 h-4 bg-[#3b82f6] rounded-full"></div> 选择实验课件 <span className="text-[13px] text-blue-500 font-normal cursor-pointer hover:underline ml-2">帮助教程 <Info className="w-3.5 h-3.5 inline mb-0.5" /></span>
               </h2>
               <button 
                 onClick={() => setShowExperimentMaterialDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1668,11 +1668,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 {/* 课件名称 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                    <span className="text-[#fa541c]">*</span> 课件名称
+                    <span className="text-[#3b82f6]">*</span> 课件名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                     placeholder="请输入课件名称" 
                     value={experimentMaterialName}
                     onChange={(e) => setExperimentMaterialName(e.target.value)}
@@ -1685,12 +1685,12 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                      <div className="text-[14px] font-bold text-neutral-700">我创建的</div>
                      <div className="flex items-center gap-3">
                        {isSearchingExperiment ? (
-                         <div className="flex items-center border border-[#fa541c] rounded-full px-3 h-8 overflow-hidden bg-white animation-slide-left">
-                           <Search className="w-3.5 h-3.5 text-[#fa541c] mr-2 shrink-0" />
+                         <div className="flex items-center border border-[#3b82f6] rounded-full px-3 h-8 overflow-hidden bg-white animation-slide-left">
+                           <Search className="w-3.5 h-3.5 text-[#3b82f6] mr-2 shrink-0" />
                            <input type="text" className="w-32 text-[13px] outline-none text-neutral-800 placeholder-neutral-400" placeholder="搜索课件..." autoFocus onBlur={() => setIsSearchingExperiment(false)} />
                          </div>
                        ) : (
-                         <div onClick={() => setIsSearchingExperiment(true)} className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer hover:bg-neutral-100 text-neutral-400 hover:text-[#fa541c] transition-colors">
+                         <div onClick={() => setIsSearchingExperiment(true)} className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer hover:bg-neutral-100 text-neutral-400 hover:text-[#3b82f6] transition-colors">
                            <Search className="w-4 h-4" />
                          </div>
                        )}
@@ -1698,7 +1698,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                          type="button"
                          onClick={() => navigate('/teacher', { state: { activeSubTab: 'project', openCreate: true } })} 
                          variant="outline" 
-                         className="h-8 border-[#fa541c] text-[#fa541c] hover:bg-orange-50 hover:text-[#fa541c] font-bold px-3 transition-colors rounded-[4px]"
+                         className="h-8 border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 hover:text-[#3b82f6] font-bold px-3 transition-colors rounded-[4px]"
                        >
                          <Plus className="w-3.5 h-3.5 mr-1" /> 新建
                        </Button>
@@ -1715,24 +1715,24 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                          onClick={() => setSelectedExperimentIndex(idx)}
                          className={cn(
                            "flex items-center justify-between p-4 border border-b cursor-pointer group transition-all rounded-[4px] mb-1",
-                           selectedExperimentIndex === idx ? "bg-orange-50 border-orange-100 shadow-[0_2px_10px_rgba(250,84,28,0.05)]" : "hover:bg-neutral-50 border-neutral-50"
+                           selectedExperimentIndex === idx ? "bg-blue-50 border-orange-100 shadow-[0_2px_10px_rgba(59, 130, 246,0.05)]" : "hover:bg-neutral-50 border-neutral-50"
                          )}
                        >
                          <div className="flex items-center gap-4">
                            <div className={cn(
                              "w-10 h-10 rounded-xl flex items-center justify-center transition-colors",
-                             selectedExperimentIndex === idx ? "bg-[#fa541c] text-white" : "bg-orange-100 text-[#fa541c] group-hover:bg-[#fa541c] group-hover:text-white"
+                             selectedExperimentIndex === idx ? "bg-[#3b82f6] text-white" : "bg-blue-100 text-[#3b82f6] group-hover:bg-[#3b82f6] group-hover:text-white"
                            )}>
                              <Code className="w-5 h-5" />
                            </div>
                            <div className="text-left">
-                             <div className="text-[15px] font-bold text-neutral-800 mb-1 group-hover:text-[#fa541c] transition-colors">{item.id}</div>
+                             <div className="text-[15px] font-bold text-neutral-800 mb-1 group-hover:text-[#3b82f6] transition-colors">{item.id}</div>
                              <div className="text-[12px] text-neutral-400 flex items-center gap-1"><Paperclip className="w-3 h-3" /> {item.subtitle}</div>
                            </div>
                          </div>
                          <div className={cn(
                            "w-4 h-4 rounded-full border flex items-center justify-center transition-all",
-                           selectedExperimentIndex === idx ? "border-[#fa541c] bg-[#fa541c]" : "border-neutral-300 group-hover:border-[#fa541c]"
+                           selectedExperimentIndex === idx ? "border-[#3b82f6] bg-[#3b82f6]" : "border-neutral-300 group-hover:border-[#3b82f6]"
                          )}>
                            {selectedExperimentIndex === idx && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
                          </div>
@@ -1744,7 +1744,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
 
               {/* Footer */}
               <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex items-center justify-between shrink-0">
-                <div className="text-[13px] text-neutral-500 font-medium">已选 <span className="text-[#fa541c] font-bold">{selectedExperimentIndex !== null ? 1 : 0}</span> 项</div>
+                <div className="text-[13px] text-neutral-500 font-medium">已选 <span className="text-[#3b82f6] font-bold">{selectedExperimentIndex !== null ? 1 : 0}</span> 项</div>
                 <div className="flex gap-3">
                   <Button 
                     type="button"
@@ -1756,7 +1756,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                   </Button>
                   <Button 
                     type="submit"
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     确认
                   </Button>
@@ -1781,7 +1781,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               </h2>
               <button 
                 onClick={() => setShowInteractiveMaterialDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1791,11 +1791,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                    <span className="text-[#fa541c]">*</span> 课件名称
+                    <span className="text-[#3b82f6]">*</span> 课件名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                     placeholder="请输入课件名称" 
                     value={interactiveMaterialName}
                     onChange={(e) => setInteractiveMaterialName(e.target.value)}
@@ -1816,7 +1816,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 </Button>
                 <Button 
                   type="submit"
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   添加
                 </Button>
@@ -1836,11 +1836,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Settings className="w-5 h-5 text-[#fa541c]" /> 修改课节
+                <Settings className="w-5 h-5 text-[#3b82f6]" /> 修改课节
               </h2>
               <button 
                 onClick={() => setShowEditLessonDrawer(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1850,11 +1850,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               <div className="p-6 space-y-6 bg-white text-[13px] flex-1 overflow-y-auto">
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right flex items-center justify-end gap-1">
-                    <span className="text-[#fa541c]">*</span> 课节名称
+                    <span className="text-[#3b82f6]">*</span> 课节名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-[#262626]" 
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-[#262626]" 
                     placeholder="请输入课节名称" 
                     value={editLessonName}
                     onChange={(e) => setEditLessonName(e.target.value)}
@@ -1875,7 +1875,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 </Button>
                 <Button 
                   type="submit"
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-9 px-8 shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   保存
                 </Button>
@@ -1914,7 +1914,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[480px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[16px] font-bold text-neutral-900 flex items-center gap-2">
-                <div className="w-1 h-4 bg-[#fa541c] rounded-full shrink-0"></div>
+                <div className="w-1 h-4 bg-[#3b82f6] rounded-full shrink-0"></div>
                 编辑章节
               </h2>
               <button onClick={() => setShowEditChapterModal(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200 p-1.5 rounded-full transition-colors">
@@ -1937,11 +1937,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               <div className="p-6 space-y-4">
                 <div className="space-y-2">
                   <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                    <span className="text-[#fa541c]">*</span> 章节序号
+                    <span className="text-[#3b82f6]">*</span> 章节序号
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]" 
+                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]" 
                     placeholder="例如：第一课" 
                     value={editChapterName}
                     onChange={(e) => setEditChapterName(e.target.value)}
@@ -1951,11 +1951,11 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                 </div>
                 <div className="space-y-2">
                   <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                    <span className="text-[#fa541c]">*</span> 章节标题
+                    <span className="text-[#3b82f6]">*</span> 章节标题
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]" 
+                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]" 
                     placeholder="请输入章节标题" 
                     value={editChapterTitle}
                     onChange={(e) => setEditChapterTitle(e.target.value)}
@@ -1965,7 +1965,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
               </div>
               <div className="p-5 border-t border-neutral-100 bg-white flex items-center justify-end gap-3">
                 <Button type="button" onClick={() => setShowEditChapterModal(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-10 px-6">取消</Button>
-                <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20">保存</Button>
+                <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20">保存</Button>
               </div>
             </form>
           </div>
@@ -2007,7 +2007,7 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[540px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[16px] font-bold text-neutral-900 flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-[#fa541c]" /> 切换教学案例模版
+                <Cpu className="w-5 h-5 text-[#3b82f6]" /> 切换教学案例模版
               </h2>
               <button onClick={() => setShowSwitchTemplateModal(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
@@ -2022,22 +2022,22 @@ export default function TeacherPPTEditor({ onClose, courseSyllabus, initialLesso
                     key={tpl.id}
                     onClick={() => handleSwitchTemplateIdx(tpl.id)}
                     className={cn(
-                      "flex items-start gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all hover:bg-orange-50/20 group",
+                      "flex items-start gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all hover:bg-blue-50/20 group",
                       activeTemplateIdx === tpl.id
-                        ? "border-[#fa541c] bg-orange-50/10"
-                        : "border-neutral-150 bg-white hover:border-orange-200"
+                        ? "border-[#3b82f6] bg-blue-50/10"
+                        : "border-neutral-150 bg-white hover:border-blue-200"
                     )}
                   >
                     <div className={cn(
                       "w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm",
-                      tpl.id === 0 ? "bg-orange-100 text-[#fa541c]" :
+                      tpl.id === 0 ? "bg-blue-100 text-[#3b82f6]" :
                       tpl.id === 1 ? "bg-blue-100 text-blue-500" :
                       "bg-green-100 text-green-600"
                     )}>
                       <Bot className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                      <div className="text-[14px] font-bold text-neutral-850 group-hover:text-[#fa541c] transition-colors">
+                      <div className="text-[14px] font-bold text-neutral-850 group-hover:text-[#3b82f6] transition-colors">
                         {tpl.name}
                       </div>
                       <div className="text-[12px] text-neutral-450 mt-1 leading-normal">

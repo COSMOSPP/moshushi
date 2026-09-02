@@ -347,7 +347,7 @@ export default function TeacherStudents() {
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
             activeTab === 'student'
-              ? "text-[#fa541c] border-[#fa541c]"
+              ? "text-[#3b82f6] border-[#3b82f6]"
               : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
@@ -359,7 +359,7 @@ export default function TeacherStudents() {
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
             activeTab === 'teacher'
-              ? "text-[#fa541c] border-[#fa541c]"
+              ? "text-[#3b82f6] border-[#3b82f6]"
               : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
@@ -383,7 +383,7 @@ export default function TeacherStudents() {
                 placeholder="搜索姓名、手机号..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400"
+                className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400"
               />
             </div>
 
@@ -392,7 +392,7 @@ export default function TeacherStudents() {
               <select 
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as any)}
-                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#fa541c] appearance-none bg-white text-neutral-700 font-bold"
+                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#3b82f6] appearance-none bg-white text-neutral-700 font-bold"
               >
                 <option value="all">所有状态</option>
                 <option value="正常">正常正常</option>
@@ -406,7 +406,7 @@ export default function TeacherStudents() {
               <select 
                 value={dateFilter}
                 onChange={(e) => setDateFilter(e.target.value as any)}
-                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#fa541c] appearance-none bg-white text-neutral-700 font-bold"
+                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#3b82f6] appearance-none bg-white text-neutral-700 font-bold"
               >
                 <option value="all">注册时间</option>
                 <option value="week">本周注册</option>
@@ -421,7 +421,7 @@ export default function TeacherStudents() {
           <div className="flex flex-wrap items-center gap-2 w-full md:w-auto md:justify-end">
             {/* Bulk action selection - Shows only when checkboxes are ticked */}
             {selectedUserIds.length > 0 && (
-              <div className="flex items-center gap-2 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-200 animate-slide-up">
+              <div className="flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-200 animate-slide-up">
                 <span className="text-xs font-bold text-orange-700">已选中 {selectedUserIds.length} 个账号</span>
                 <div className="w-px h-4 bg-orange-200"></div>
                 <select
@@ -433,7 +433,7 @@ export default function TeacherStudents() {
                       e.target.value = '';
                     }
                   }}
-                  className="text-xs font-bold bg-transparent text-[#fa541c] focus:outline-none cursor-pointer"
+                  className="text-xs font-bold bg-transparent text-[#3b82f6] focus:outline-none cursor-pointer"
                 >
                   <option value="">-- 选择批量操作 --</option>
                   <option value="status_enable">批量启用账号</option>
@@ -448,20 +448,20 @@ export default function TeacherStudents() {
             <Button 
               onClick={() => setIsImportOpen(true)}
               variant="outline" 
-              className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-[4px] shadow-sm hover:text-[#fa541c] hover:border-[#fa541c] text-xs font-medium px-3.5 cursor-pointer transition-colors"
+              className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-[4px] shadow-sm hover:text-[#3b82f6] hover:border-[#3b82f6] text-xs font-medium px-3.5 cursor-pointer transition-colors"
             >
               <FileSpreadsheet className="w-3.5 h-3.5" /> 批量导入
             </Button>
             <Button 
               onClick={() => setIsExportOpen(true)}
               variant="outline" 
-              className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-[4px] shadow-sm hover:text-[#fa541c] hover:border-[#fa541c] text-xs font-medium px-3.5 cursor-pointer transition-colors"
+              className="flex items-center gap-1.5 h-9 bg-white border-neutral-200 text-neutral-600 rounded-[4px] shadow-sm hover:text-[#3b82f6] hover:border-[#3b82f6] text-xs font-medium px-3.5 cursor-pointer transition-colors"
             >
               <Download className="w-3.5 h-3.5" /> 批量导出
             </Button>
             <Button 
               onClick={() => setIsAddUserOpen(true)}
-              className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm h-9 rounded-[4px] text-xs font-semibold cursor-pointer border-0 px-3.5 transition-colors"
+              className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm h-9 rounded-[4px] text-xs font-semibold cursor-pointer border-0 px-3.5 transition-colors"
             >
               <Plus className="w-3.5 h-3.5" /> 新建用户
             </Button>
@@ -479,8 +479,8 @@ export default function TeacherStudents() {
                     className={cn(
                       "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer mx-auto",
                       selectedUserIds.length === filteredUsers.length && filteredUsers.length > 0
-                        ? "bg-[#fa541c] border-[#fa541c] text-white"
-                        : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                        ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                        : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                     )}
                   >
                     {selectedUserIds.length === filteredUsers.length && filteredUsers.length > 0 && <span className="text-[10px] font-bold">✓</span>}
@@ -507,8 +507,8 @@ export default function TeacherStudents() {
                         className={cn(
                           "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer mx-auto",
                           selectedUserIds.includes(u.id)
-                            ? "bg-[#fa541c] border-[#fa541c] text-white"
-                            : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                            ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                            : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                         )}
                       >
                         {selectedUserIds.includes(u.id) && <span className="text-[10px] font-bold">✓</span>}
@@ -543,31 +543,31 @@ export default function TeacherStudents() {
                       <div className="flex items-center justify-start gap-3">
                         <button 
                           onClick={() => { setSelectedUser(u); setIsDetailUserOpen(true); }}
-                          className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
                         >
                           查看
                         </button>
                         <button 
                           onClick={() => { setEditingUser(u); setIsEditUserOpen(true); }}
-                          className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
                         >
                           编辑
                         </button>
                         <button 
                           onClick={() => { setQuotaUser(u); setSingleQuotaValue(u.quota); setIsQuotaOpen(true); }}
-                          className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
                         >
                           调整配额
                         </button>
                         <button 
                           onClick={() => handleToggleSingleStatus(u.id, u.status)}
-                          className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
                         >
                           {u.status === '正常' ? '禁用' : '启用'}
                         </button>
                         <button 
                           onClick={() => handleDeleteSingleUser(u.id, u.name)}
-                          className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs transition-colors cursor-pointer bg-transparent border-0 p-0"
                         >
                           删除
                         </button>
@@ -591,10 +591,10 @@ export default function TeacherStudents() {
           </span>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&gt;</Button>
           </div>
-          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 font-medium">
+          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 font-medium">
             <option>10 条/页</option>
             <option>20 条/页</option>
             <option>50 条/页</option>
@@ -610,7 +610,7 @@ export default function TeacherStudents() {
           <form onSubmit={handleSaveAddUser} className="bg-white rounded-2xl shadow-xl w-full max-w-[500px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" /> 新建用户账号
+                <Plus className="w-5 h-5 text-[#3b82f6]" /> 新建用户账号
               </h2>
               <button type="button" onClick={() => setIsAddUserOpen(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
@@ -619,21 +619,21 @@ export default function TeacherStudents() {
             
             <div className="p-6 space-y-4">
               <div className="space-y-1">
-                <label className="text-[12px] font-bold text-neutral-800 block">姓名 <span className="text-[#fa541c]">*</span></label>
-                <input name="name" type="text" placeholder="输入用户真实姓名" required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <label className="text-[12px] font-bold text-neutral-800 block">姓名 <span className="text-[#3b82f6]">*</span></label>
+                <input name="name" type="text" placeholder="输入用户真实姓名" required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
               <div className="space-y-1">
-                <label className="text-[12px] font-bold text-neutral-800 block">手机号 <span className="text-[#fa541c]">*</span></label>
-                <input name="phone" type="tel" placeholder="输入11位手机号" required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <label className="text-[12px] font-bold text-neutral-800 block">手机号 <span className="text-[#3b82f6]">*</span></label>
+                <input name="phone" type="tel" placeholder="输入11位手机号" required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
               <div className="space-y-1">
-                <label className="text-[12px] font-bold text-neutral-800 block">电子邮箱 <span className="text-[#fa541c]">*</span></label>
-                <input name="email" type="email" placeholder="例如 format@zhiyun.edu" required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <label className="text-[12px] font-bold text-neutral-800 block">电子邮箱 <span className="text-[#3b82f6]">*</span></label>
+                <input name="email" type="email" placeholder="例如 format@zhiyun.edu" required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-[12px] font-bold text-neutral-800 block">角色权限</label>
-                  <select name="role" defaultValue="学生" className="w-full border border-neutral-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] bg-white font-bold text-neutral-700">
+                  <select name="role" defaultValue="学生" className="w-full border border-neutral-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] bg-white font-bold text-neutral-700">
                     <option value="学生">学生选课账号</option>
                     <option value="教师">协作授课教师</option>
                     <option value="管理员">平台管理员</option>
@@ -641,7 +641,7 @@ export default function TeacherStudents() {
                 </div>
                 <div className="space-y-1">
                   <label className="text-[12px] font-bold text-neutral-800 block">AI 算力配额 (M)</label>
-                  <input name="quota" type="number" defaultValue="300" placeholder="大语言模型额度" className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                  <input name="quota" type="number" defaultValue="300" placeholder="大语言模型额度" className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
                 </div>
               </div>
             </div>
@@ -650,7 +650,7 @@ export default function TeacherStudents() {
               <Button type="button" onClick={() => setIsAddUserOpen(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-9 px-5 rounded-xl text-xs">
                 取消
               </Button>
-              <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs">
+              <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs">
                 确认创建
               </Button>
             </div>
@@ -664,7 +664,7 @@ export default function TeacherStudents() {
           <form onSubmit={handleSaveEditUser} className="bg-white rounded-2xl shadow-xl w-full max-w-[500px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Edit3 className="w-5 h-5 text-[#fa541c]" /> 编辑用户基本信息
+                <Edit3 className="w-5 h-5 text-[#3b82f6]" /> 编辑用户基本信息
               </h2>
               <button type="button" onClick={() => { setIsEditUserOpen(false); setEditingUser(null); }} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
@@ -674,20 +674,20 @@ export default function TeacherStudents() {
             <div className="p-6 space-y-4">
               <div className="space-y-1">
                 <label className="text-[12px] font-bold text-neutral-800 block">姓名</label>
-                <input name="name" type="text" defaultValue={editingUser.name} required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <input name="name" type="text" defaultValue={editingUser.name} required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
               <div className="space-y-1">
                 <label className="text-[12px] font-bold text-neutral-800 block">手机号</label>
-                <input name="phone" type="tel" defaultValue={editingUser.phone} required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <input name="phone" type="tel" defaultValue={editingUser.phone} required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
               <div className="space-y-1">
                 <label className="text-[12px] font-bold text-neutral-800 block">电子邮箱</label>
-                <input name="email" type="email" defaultValue={editingUser.email} required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <input name="email" type="email" defaultValue={editingUser.email} required className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div className="space-y-1 col-span-2">
                   <label className="text-[12px] font-bold text-neutral-800 block">角色权限</label>
-                  <select name="role" defaultValue={editingUser.role} className="w-full border border-neutral-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] bg-white font-bold text-neutral-700">
+                  <select name="role" defaultValue={editingUser.role} className="w-full border border-neutral-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] bg-white font-bold text-neutral-700">
                     <option value="学生">学生选课账号</option>
                     <option value="教师">协作授课教师</option>
                     <option value="管理员">平台管理员</option>
@@ -695,7 +695,7 @@ export default function TeacherStudents() {
                 </div>
                 <div className="space-y-1">
                   <label className="text-[12px] font-bold text-neutral-800 block">账号状态</label>
-                  <select name="status" defaultValue={editingUser.status} className="w-full border border-neutral-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] bg-white font-bold text-neutral-700">
+                  <select name="status" defaultValue={editingUser.status} className="w-full border border-neutral-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] bg-white font-bold text-neutral-700">
                     <option value="正常">正常正常</option>
                     <option value="禁用">禁用冻结</option>
                   </select>
@@ -703,7 +703,7 @@ export default function TeacherStudents() {
               </div>
               <div className="space-y-1">
                 <label className="text-[12px] font-bold text-neutral-800 block">AI 算力配额 (M)</label>
-                <input name="quota" type="number" defaultValue={editingUser.quota} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c]" />
+                <input name="quota" type="number" defaultValue={editingUser.quota} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6]" />
               </div>
             </div>
 
@@ -711,7 +711,7 @@ export default function TeacherStudents() {
               <Button type="button" onClick={() => { setIsEditUserOpen(false); setEditingUser(null); }} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-9 px-5 rounded-xl text-xs">
                 取消
               </Button>
-              <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs">
+              <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs">
                 更新保存
               </Button>
             </div>
@@ -765,7 +765,7 @@ export default function TeacherStudents() {
                 <div>
                   <span className="text-neutral-400 block mb-1">角色类型</span>
                   <span className="text-neutral-800 font-bold flex items-center gap-1">
-                    <Shield className="w-3.5 h-3.5 text-[#fa541c]" /> {selectedUser.role}
+                    <Shield className="w-3.5 h-3.5 text-[#3b82f6]" /> {selectedUser.role}
                   </span>
                 </div>
                 <div>
@@ -794,7 +794,7 @@ export default function TeacherStudents() {
                   </div>
                   <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/50 text-center">
                     <span className="text-[10px] text-neutral-400 block">本周在线频次</span>
-                    <strong className="text-base font-black text-[#fa541c] mt-1 block">8 次</strong>
+                    <strong className="text-base font-black text-[#3b82f6] mt-1 block">8 次</strong>
                   </div>
                   <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/50 text-center">
                     <span className="text-[10px] text-neutral-400 block">实训课件覆盖率</span>
@@ -805,7 +805,7 @@ export default function TeacherStudents() {
             </div>
 
             <div className="p-5 border-t border-neutral-100 bg-neutral-50/10 flex items-center justify-end">
-              <Button onClick={() => { setIsDetailUserOpen(false); setSelectedUser(null); }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl text-xs">
+              <Button onClick={() => { setIsDetailUserOpen(false); setSelectedUser(null); }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl text-xs">
                 关闭看板
               </Button>
             </div>
@@ -817,14 +817,14 @@ export default function TeacherStudents() {
       {isBulkActionOpen && bulkActionType && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[480px] overflow-hidden border border-neutral-200 flex flex-col">
-            <div className="p-5 border-b border-neutral-100 bg-orange-50/30 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-[#fa541c]" />
+            <div className="p-5 border-b border-neutral-100 bg-blue-50/30 flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-[#3b82f6]" />
               <h2 className="text-[15px] font-black text-neutral-900">批量敏感操作二次确认安全校验</h2>
             </div>
             
             <div className="p-6 space-y-4">
               <div className="p-3.5 bg-neutral-50 rounded-xl border border-neutral-200/80 text-xs text-neutral-600 space-y-2 leading-relaxed">
-                <span>您当前已选中了 <strong className="text-[#fa541c] font-black">{selectedUserIds.length}</strong> 个用户账号。</span>
+                <span>您当前已选中了 <strong className="text-[#3b82f6] font-black">{selectedUserIds.length}</strong> 个用户账号。</span>
                 <span className="block">正在准备执行操作：
                   <strong className="text-neutral-800 bg-neutral-200 px-2 py-0.5 rounded ml-1 font-bold">
                     {bulkActionType === 'status_enable' && '批量恢复启用正常权限'}
@@ -878,7 +878,7 @@ export default function TeacherStudents() {
               </Button>
               <Button 
                 onClick={handleExecuteBulkAction}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs"
               >
                 确认并立即执行
               </Button>
@@ -909,18 +909,18 @@ export default function TeacherStudents() {
               <div className="flex items-center justify-between mb-8 text-xs font-bold text-neutral-400 relative">
                 <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-neutral-100 -translate-y-1/2 z-0"></div>
                 
-                <div className={cn("z-10 bg-white px-3 flex items-center gap-1.5", importStep >= 1 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-5 h-5 rounded-full flex items-center justify-center border-2 text-[10px]", importStep >= 1 ? "border-[#fa541c] bg-[#fff2e8]" : "border-neutral-300")}>1</span>
+                <div className={cn("z-10 bg-white px-3 flex items-center gap-1.5", importStep >= 1 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-5 h-5 rounded-full flex items-center justify-center border-2 text-[10px]", importStep >= 1 ? "border-[#3b82f6] bg-[#eff6ff]" : "border-neutral-300")}>1</span>
                   下载/选择模板
                 </div>
                 
-                <div className={cn("z-10 bg-white px-3 flex items-center gap-1.5", importStep >= 2 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-5 h-5 rounded-full flex items-center justify-center border-2 text-[10px]", importStep >= 2 ? "border-[#fa541c] bg-[#fff2e8]" : "border-neutral-300")}>2</span>
+                <div className={cn("z-10 bg-white px-3 flex items-center gap-1.5", importStep >= 2 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-5 h-5 rounded-full flex items-center justify-center border-2 text-[10px]", importStep >= 2 ? "border-[#3b82f6] bg-[#eff6ff]" : "border-neutral-300")}>2</span>
                   数据校验
                 </div>
 
-                <div className={cn("z-10 bg-white px-3 flex items-center gap-1.5", importStep >= 3 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-5 h-5 rounded-full flex items-center justify-center border-2 text-[10px]", importStep >= 3 ? "border-[#fa541c] bg-[#fff2e8]" : "border-neutral-300")}>3</span>
+                <div className={cn("z-10 bg-white px-3 flex items-center gap-1.5", importStep >= 3 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-5 h-5 rounded-full flex items-center justify-center border-2 text-[10px]", importStep >= 3 ? "border-[#3b82f6] bg-[#eff6ff]" : "border-neutral-300")}>3</span>
                   校验反馈
                 </div>
 
@@ -963,7 +963,7 @@ export default function TeacherStudents() {
                     <p className="text-[10px] text-neutral-400 mt-1">支持扩展名为 .xls 或 .xlsx 的电子表格文档</p>
                     
                     {importFile && (
-                      <div className="mt-4 p-2 bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] text-xs font-bold rounded-lg w-fit mx-auto flex items-center gap-1.5">
+                      <div className="mt-4 p-2 bg-[#eff6ff] border border-[#bfdbfe] text-[#3b82f6] text-xs font-bold rounded-lg w-fit mx-auto flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5" /> 已选中: {importFile.name} ({Math.round(importFile.size / 1024)} KB)
                       </div>
                     )}
@@ -981,7 +981,7 @@ export default function TeacherStudents() {
               {/* Step 2: Validating */}
               {importStep === 2 && (
                 <div className="p-12 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full border-4 border-[#fa541c] border-t-transparent animate-spin mx-auto"></div>
+                  <div className="w-12 h-12 rounded-full border-4 border-[#3b82f6] border-t-transparent animate-spin mx-auto"></div>
                   <h4 className="text-xs font-bold text-neutral-800">AI 算力引擎正在进行格式与合规性校验...</h4>
                   <p className="text-[10px] text-neutral-400">正在检索教育局统一认证邮箱真实度、防多设备绑定查重以及手机号位数规范...</p>
                 </div>
@@ -1066,7 +1066,7 @@ export default function TeacherStudents() {
                   <Button 
                     onClick={handleStartImportVerification}
                     disabled={!importFile}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs cursor-pointer"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs cursor-pointer"
                   >
                     校验并进入下一步
                   </Button>
@@ -1078,13 +1078,13 @@ export default function TeacherStudents() {
                   <Button 
                     onClick={() => { setImportStep(1); setImportFile(null); setImportErrors([]); }} 
                     variant="outline" 
-                    className="border-neutral-200 text-[#fa541c] hover:bg-orange-50/40 rounded-xl h-9 text-xs font-bold px-4 cursor-pointer"
+                    className="border-neutral-200 text-[#3b82f6] hover:bg-blue-50/40 rounded-xl h-9 text-xs font-bold px-4 cursor-pointer"
                   >
                     修正数据后重新导入
                   </Button>
                   <Button 
                     onClick={handleConfirmImportData}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs cursor-pointer"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs cursor-pointer"
                   >
                     确认将合法数据导入库
                   </Button>
@@ -1094,7 +1094,7 @@ export default function TeacherStudents() {
               {importStep === 4 && (
                 <Button 
                   onClick={() => { setIsImportOpen(false); setImportStep(1); setImportFile(null); setImportErrors([]); }} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-8 rounded-xl shadow-sm text-xs cursor-pointer"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-8 rounded-xl shadow-sm text-xs cursor-pointer"
                 >
                   完成退出
                 </Button>
@@ -1110,7 +1110,7 @@ export default function TeacherStudents() {
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[480px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Download className="w-5 h-5 text-[#fa541c]" /> 批量导出筛选用户数据
+                <Download className="w-5 h-5 text-[#3b82f6]" /> 批量导出筛选用户数据
               </h2>
               <button onClick={() => setIsExportOpen(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
@@ -1140,7 +1140,7 @@ export default function TeacherStudents() {
                           type="checkbox" 
                           checked={isChecked}
                           onChange={(e) => setExportFields({ ...exportFields, [field]: e.target.checked })}
-                          className="w-4 h-4 rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c]" 
+                          className="w-4 h-4 rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6]" 
                         />
                         {labelMap[field]}
                       </label>
@@ -1165,7 +1165,7 @@ export default function TeacherStudents() {
               </Button>
               <Button 
                 onClick={handleTriggerExport}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs"
               >
                 生成并开始下载
               </Button>
@@ -1180,7 +1180,7 @@ export default function TeacherStudents() {
           <form onSubmit={handleSaveSingleQuota} className="bg-white rounded-2xl shadow-xl w-full max-w-[420px] overflow-hidden border border-neutral-200 flex flex-col animate-in zoom-in-95 duration-150">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-[#fa541c]" /> 调整用户算力配额
+                <Cpu className="w-5 h-5 text-[#3b82f6]" /> 调整用户算力配额
               </h2>
               <button type="button" onClick={() => { setIsQuotaOpen(false); setQuotaUser(null); }} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 p-1.5 rounded-full transition-colors cursor-pointer">
                 <X className="w-5 h-5" />
@@ -1193,12 +1193,12 @@ export default function TeacherStudents() {
                 <div>当前配额：<strong className="text-neutral-800">{quotaUser.quota} M</strong></div>
               </div>
               <div className="space-y-1.5">
-                <label className="text-[12px] font-bold text-[#fa541c] block">新算力配额值 (M)</label>
+                <label className="text-[12px] font-bold text-[#3b82f6] block">新算力配额值 (M)</label>
                 <input 
                   type="number" 
                   value={singleQuotaValue}
                   onChange={(e) => setSingleQuotaValue(Number(e.target.value))}
-                  className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] text-neutral-800" 
+                  className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] text-neutral-800" 
                 />
                 <span className="text-[10px] text-neutral-400 mt-1 block">配额单位为M（兆 Token），代表大模型最大使用资源边界</span>
               </div>
@@ -1208,7 +1208,7 @@ export default function TeacherStudents() {
               <Button type="button" onClick={() => { setIsQuotaOpen(false); setQuotaUser(null); }} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-9 px-5 rounded-xl text-xs">
                 取消
               </Button>
-              <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-orange-500/10 text-xs">
+              <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-xl shadow-md shadow-blue-500/10 text-xs">
                 确认调整
               </Button>
             </div>

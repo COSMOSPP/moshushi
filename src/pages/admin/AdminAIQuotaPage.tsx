@@ -48,7 +48,7 @@ const initialTemplates: QuotaTemplate[] = [
   { id: "tpl-1", name: "极速入门免费包", tokens: 10, concurrency: 10, gpu: "共享算力池", billing: "包月免费", color: "border-neutral-200 text-neutral-600 bg-neutral-50/55", desc: "主要用于高校新生入学实训、简单AI对话调试。限额10M Tokens/月，支持基础的QPS并发限制。" },
   { id: "tpl-2", name: "高校学术标准版", tokens: 100, concurrency: 50, gpu: "优先调度GPU队列", billing: "包年包月", color: "border-emerald-200 text-emerald-600 bg-emerald-50/40", desc: "适用于常规AI大纲教学、小规模NLP及视觉实训项目。提供100M Tokens配额，支持50并发QPS并发限制。" },
   { id: "tpl-3", name: "高校科研卓越版", tokens: 300, concurrency: 100, gpu: "独占高性能算力组", billing: "包年包月", color: "border-blue-200 text-blue-600 bg-blue-50/40", desc: "面向高阶大模型微调、RAG重排检索优化、大课题组科研实验。300M大容量额度，支持极速100QPS吞吐能力。" },
-  { id: "tpl-4", name: "企业级高并发包", tokens: 500, concurrency: 200, gpu: "多区域高可用保障组", billing: "独立按量付费", color: "border-[#ffbb96] text-[#fa541c] bg-[#fff2e8]/45", desc: "针对外部大厂或企业联合实训平台。拥有500M极高Token配额，支持高达200QPS的顶级吞吐响应能力。" }
+  { id: "tpl-4", name: "企业级高并发包", tokens: 500, concurrency: 200, gpu: "多区域高可用保障组", billing: "独立按量付费", color: "border-[#bfdbfe] text-[#3b82f6] bg-[#eff6ff]/45", desc: "针对外部大厂或企业联合实训平台。拥有500M极高Token配额，支持高达200QPS的顶级吞吐响应能力。" }
 ];
 
 // 6 months trend historical datasets (Dec to May)
@@ -228,7 +228,7 @@ export default function AdminAIQuotaPage() {
       concurrency: tplConcurrency,
       gpu: tplGpu,
       billing: "包年包月",
-      color: "border-[#ffbb96] text-[#fa541c] bg-[#fff2e8]/45",
+      color: "border-[#bfdbfe] text-[#3b82f6] bg-[#eff6ff]/45",
       desc: tplDesc || `自定义模板配额配置，包含 ${tplTokens}M Tokens limit, ${tplConcurrency} QPS限制。`
     };
 
@@ -270,7 +270,7 @@ export default function AdminAIQuotaPage() {
       <div className="w-[240px] border-r border-neutral-border flex-shrink-0 flex flex-col bg-white h-full select-none">
         {/* Title Header */}
         <div className="p-5 border-b border-neutral-border shrink-0 flex items-center gap-2.5">
-          <Cpu className="w-5.5 h-5.5 text-[#fa541c]" />
+          <Cpu className="w-5.5 h-5.5 text-[#3b82f6]" />
           <div>
             <h2 className="text-sm font-black text-neutral-title leading-tight">AI 配额控制台</h2>
             <span className="text-[10px] text-neutral-caption font-bold">ZHIYUN QUOTA & TOKEN ENGINE</span>
@@ -292,7 +292,7 @@ export default function AdminAIQuotaPage() {
                 className={cn(
                   "w-full flex items-center justify-between px-3 py-2.5 rounded-[8px] text-[13px] font-semibold transition-all duration-200 cursor-pointer border-0 bg-transparent text-left",
                   isActive 
-                    ? "bg-[#fff2e8] text-[#fa541c] shadow-3xs" 
+                    ? "bg-[#eff6ff] text-[#3b82f6] shadow-3xs" 
                     : "text-neutral-body hover:bg-neutral-bg hover:text-neutral-title"
                 )}
               >
@@ -327,7 +327,7 @@ export default function AdminAIQuotaPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                <TrendingUp className="w-5.5 h-5.5 text-[#fa541c]" />
+                <TrendingUp className="w-5.5 h-5.5 text-[#3b82f6]" />
                 <span>平台 Token 用量监控大盘</span>
               </h1>
               <p className="text-xs text-neutral-caption mt-1">
@@ -338,7 +338,7 @@ export default function AdminAIQuotaPage() {
             {/* Platform KPI Scorecard */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 shrink-0">
               {[
-                { title: "平台总已分配配额", value: `${platformTotalAllocated.toFixed(1)} M`, sub: "基于各租户分配上限总和", color: "text-[#fa541c]" },
+                { title: "平台总已分配配额", value: `${platformTotalAllocated.toFixed(1)} M`, sub: "基于各租户分配上限总和", color: "text-[#3b82f6]" },
                 { title: "平台累计总消耗量", value: `${platformTotalConsumed.toFixed(1)} M`, sub: "本月大模型 API 调用量", color: "text-emerald-500" },
                 { title: "平台平均使用负载率", value: `${avgUsageRate.toFixed(1)} %`, sub: "处于合理负荷配额安全区间", color: "text-blue-500" },
                 { title: "本月 Token 活跃租户", value: `${activeTenantsCount} 个`, sub: "占登记总租户的 85%", color: "text-purple-500" }
@@ -360,7 +360,7 @@ export default function AdminAIQuotaPage() {
               <div className="lg:col-span-2 bg-white p-6 rounded-xl border border-neutral-border shadow-3xs flex flex-col justify-between h-[420px] lg:h-auto">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-neutral-100 pb-3 gap-2 shrink-0">
                   <span className="text-xs font-bold text-neutral-title flex items-center gap-1.5">
-                    <Activity className="w-4 h-4 text-[#fa541c]" />
+                    <Activity className="w-4 h-4 text-[#3b82f6]" />
                     <span>Token 消耗量走势变化趋势图 (六个月)</span>
                   </span>
                   
@@ -370,7 +370,7 @@ export default function AdminAIQuotaPage() {
                     <select
                       value={selectedTrendTenant}
                       onChange={(e) => setSelectedTrendTenant(e.target.value)}
-                      className="border border-neutral-200 rounded px-2 py-0.5 bg-white focus:outline-none focus:border-[#fa541c] text-[11px] font-semibold"
+                      className="border border-neutral-200 rounded px-2 py-0.5 bg-white focus:outline-none focus:border-[#3b82f6] text-[11px] font-semibold"
                     >
                       <option value="全部租户">平台总用量走势</option>
                       {tenants.map(t => (
@@ -387,8 +387,8 @@ export default function AdminAIQuotaPage() {
                     <svg className="w-full h-full" viewBox="0 0 500 150" preserveAspectRatio="none">
                       <defs>
                         <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#fa541c" stopOpacity="0.25" />
-                          <stop offset="100%" stopColor="#fa541c" stopOpacity="0.0" />
+                          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
+                          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                         </linearGradient>
                       </defs>
 
@@ -415,7 +415,7 @@ export default function AdminAIQuotaPage() {
                       {/* Smooth line */}
                       <polyline
                         fill="none"
-                        stroke="#fa541c"
+                        stroke="#3b82f6"
                         strokeWidth="2"
                         points={`
                           0,${150 - (activeTrendData[0] / maxTrendVal) * 110} 
@@ -435,7 +435,7 @@ export default function AdminAIQuotaPage() {
                           cy={150 - (val / maxTrendVal) * 110}
                           r="4.5"
                           fill="white"
-                          stroke="#fa541c"
+                          stroke="#3b82f6"
                           strokeWidth="2.5"
                         />
                       ))}
@@ -445,7 +445,7 @@ export default function AdminAIQuotaPage() {
                     {activeTrendData.map((val, i) => (
                       <span
                         key={i}
-                        className="absolute text-[8.5px] font-black font-mono text-[#fa541c] bg-white border border-[#ffbb96]/45 px-1 py-0.5 rounded shadow-3xs"
+                        className="absolute text-[8.5px] font-black font-mono text-[#3b82f6] bg-white border border-[#bfdbfe]/45 px-1 py-0.5 rounded shadow-3xs"
                         style={{
                           left: `${i * 20}%`,
                           bottom: `${(val / maxTrendVal) * 73 + 8}%`,
@@ -473,7 +473,7 @@ export default function AdminAIQuotaPage() {
                   <span className="text-[10px] text-neutral-caption font-semibold">配额严格隔离机制保护中，禁止跨租户非法调用接口。</span>
                   <button 
                     onClick={() => handleSimulateExport(`Zhiyun_AI_Token_Report_${selectedTrendTenant}`)}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>导出该子表用量审计数据</span>
@@ -485,7 +485,7 @@ export default function AdminAIQuotaPage() {
               <div className="bg-white p-6 rounded-xl border border-neutral-border shadow-3xs flex flex-col justify-between h-[420px] lg:h-auto">
                 <div className="flex items-center justify-between border-b border-neutral-100 pb-3 mb-4 shrink-0">
                   <span className="text-xs font-bold text-neutral-title flex items-center gap-1.5">
-                    <BarChart2 className="w-4 h-4 text-[#fa541c]" />
+                    <BarChart2 className="w-4 h-4 text-[#3b82f6]" />
                     <span>各租户 Token 消耗排行榜</span>
                   </span>
                   <span className="text-[10px] text-neutral-caption font-bold">本月消费大户</span>
@@ -517,7 +517,7 @@ export default function AdminAIQuotaPage() {
                               "h-full rounded-full transition-all duration-300",
                               t.status === "封禁隔离" ? "bg-neutral-400" :
                               usageRate >= 100 ? "bg-red-500" :
-                              usageRate >= 80 ? "bg-[#fa541c]" : "bg-emerald-500"
+                              usageRate >= 80 ? "bg-[#3b82f6]" : "bg-emerald-500"
                             )} 
                             style={{ width: `${Math.min(usageRate, 100)}%` }}
                           ></div>
@@ -529,7 +529,7 @@ export default function AdminAIQuotaPage() {
 
                 <button 
                   onClick={() => setActiveTab("tenants")}
-                  className="w-full text-center text-[#fa541c] hover:text-[#e84a15] text-xs font-bold py-2 border border-[#ffbb96]/45 bg-[#fff2e8]/45 hover:bg-[#fff2e8] rounded-lg transition-colors cursor-pointer shrink-0 mt-4 block"
+                  className="w-full text-center text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold py-2 border border-[#bfdbfe]/45 bg-[#eff6ff]/45 hover:bg-[#eff6ff] rounded-lg transition-colors cursor-pointer shrink-0 mt-4 block"
                 >
                   去管理租户配额分配 ➔
                 </button>
@@ -547,7 +547,7 @@ export default function AdminAIQuotaPage() {
             <div className="flex justify-between items-start shrink-0">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <Users className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <Users className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>租户 AI Token 配额分配名册</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -556,7 +556,7 @@ export default function AdminAIQuotaPage() {
               </div>
               <button 
                 onClick={handleOpenCreateDrawer}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
               >
                 <Plus className="w-4 h-4 font-black" />
                 <span>分配新租户算力配额</span>
@@ -573,7 +573,7 @@ export default function AdminAIQuotaPage() {
                   placeholder="检索租户单位名称..."
                   value={tenantSearch}
                   onChange={(e) => setTenantSearch(e.target.value)}
-                  className="w-full border border-neutral-200 rounded-lg pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 font-medium placeholder-neutral-400"
+                  className="w-full border border-neutral-200 rounded-lg pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 font-medium placeholder-neutral-400"
                 />
               </div>
 
@@ -583,7 +583,7 @@ export default function AdminAIQuotaPage() {
                 <select 
                   value={tenantStatusFilter}
                   onChange={(e) => setTenantStatusFilter(e.target.value)}
-                  className="border border-neutral-200 rounded-lg px-2 py-1 bg-white focus:outline-none focus:border-[#fa541c]"
+                  className="border border-neutral-200 rounded-lg px-2 py-1 bg-white focus:outline-none focus:border-[#3b82f6]"
                 >
                   <option value="全部">全部状态</option>
                   <option value="充足">额度充足</option>
@@ -645,7 +645,7 @@ export default function AdminAIQuotaPage() {
                                       "h-full rounded-full transition-all duration-300",
                                       t.status === "封禁隔离" ? "bg-neutral-400" :
                                       usagePct >= 100 ? "bg-red-500" :
-                                      usagePct >= 80 ? "bg-[#fa541c]" : "bg-emerald-500"
+                                      usagePct >= 80 ? "bg-[#3b82f6]" : "bg-emerald-500"
                                     )} 
                                     style={{ width: `${Math.min(usagePct, 100)}%` }}
                                   ></div>
@@ -659,7 +659,7 @@ export default function AdminAIQuotaPage() {
                                 "px-2.5 py-0.5 rounded-[4px] text-[10.5px] font-black border uppercase tracking-wider font-mono",
                                 t.status === "封禁隔离" ? "bg-neutral-50 border-neutral-200 text-neutral-500" :
                                 usagePct >= 100 ? "bg-red-50 border-red-200 text-red-600 animate-pulse" :
-                                usagePct >= 80 ? "bg-orange-50 border-orange-200 text-[#fa541c]" : "bg-emerald-50 border-emerald-200 text-emerald-600"
+                                usagePct >= 80 ? "bg-blue-50 border-blue-200 text-[#3b82f6]" : "bg-emerald-50 border-emerald-200 text-emerald-600"
                               )}>
                                 {usagePct.toFixed(1)}%
                               </span>
@@ -696,7 +696,7 @@ export default function AdminAIQuotaPage() {
                               <div className="flex items-center justify-center gap-3">
                                 <button
                                   onClick={() => handleOpenEditDrawer(t)}
-                                  className="text-[#fa541c] hover:text-[#e84a15] font-bold flex items-center gap-1 cursor-pointer"
+                                  className="text-[#3b82f6] hover:text-[#2563eb] font-bold flex items-center gap-1 cursor-pointer"
                                   title="单独修改算力分配"
                                 >
                                   <Sliders className="w-3.5 h-3.5" />
@@ -727,7 +727,7 @@ export default function AdminAIQuotaPage() {
                 <span>总共登记 AI 算力租户: {tenants.length} 家</span>
                 <button
                   onClick={() => handleSimulateExport("租户月度Token分配总报表")}
-                  className="text-[#fa541c] hover:text-[#e84a15] font-bold flex items-center gap-1.5 cursor-pointer bg-white px-3 py-1 border border-neutral-200 rounded-lg shadow-3xs"
+                  className="text-[#3b82f6] hover:text-[#2563eb] font-bold flex items-center gap-1.5 cursor-pointer bg-white px-3 py-1 border border-neutral-200 rounded-lg shadow-3xs"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>导出租户配额名册</span>
@@ -749,7 +749,7 @@ export default function AdminAIQuotaPage() {
                   {/* Drawer Header */}
                   <div className="p-6 border-b border-neutral-border flex items-center justify-between shrink-0 bg-neutral-50">
                     <div className="flex items-center gap-2">
-                      <Cpu className="w-5.5 h-5.5 text-[#fa541c]" />
+                      <Cpu className="w-5.5 h-5.5 text-[#3b82f6]" />
                       <h2 className="text-base font-black text-neutral-title">
                         {drawerMode === "create" ? "开通分配租户 AI 算力额度" : "单独微调租户配额参数"}
                       </h2>
@@ -766,8 +766,8 @@ export default function AdminAIQuotaPage() {
                   <form onSubmit={handleSaveTenant} className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar text-xs">
                     
                     {/* Header isolation notice */}
-                    <div className="p-4 bg-[#fff2e8] border border-[#ffbb96]/45 rounded-lg space-y-1 font-medium leading-relaxed">
-                      <span className="text-[#fa541c] font-black block">🔐 平台配额严格隔离机制保护中:</span>
+                    <div className="p-4 bg-[#eff6ff] border border-[#bfdbfe]/45 rounded-lg space-y-1 font-medium leading-relaxed">
+                      <span className="text-[#3b82f6] font-black block">🔐 平台配额严格隔离机制保护中:</span>
                       <p className="text-[10.5px] text-neutral-body">
                         配额额度在此为严格独占策略。任何租户的增加/减少均只能向平台超级总备用池中申请扩展，严禁任意在两个高校租户之间进行跨租户拼凑划拨。
                       </p>
@@ -775,7 +775,7 @@ export default function AdminAIQuotaPage() {
 
                     {/* Section 1: Tenant base */}
                     <div className="space-y-4">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">1. 租户信息及开通类别</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">1. 租户信息及开通类别</h3>
                       
                       {/* Tenant Name */}
                       <div className="space-y-1.5">
@@ -788,14 +788,14 @@ export default function AdminAIQuotaPage() {
                           value={formName}
                           onChange={(e) => setFormName(e.target.value)}
                           placeholder="例如: 浙江大学软件学院"
-                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                         />
                       </div>
 
                       {/* Apply preset templates dropdown */}
                       <div className="p-3 bg-neutral-50 rounded-lg border border-neutral-200/50 space-y-2">
                         <label className="font-bold text-neutral-title block flex items-center gap-1">
-                          <Sliders className="w-3.5 h-3.5 text-[#fa541c]" />
+                          <Sliders className="w-3.5 h-3.5 text-[#3b82f6]" />
                           <span>一键匹配加载配额配置模板：</span>
                         </label>
                         <div className="flex flex-wrap gap-2.5">
@@ -815,13 +815,13 @@ export default function AdminAIQuotaPage() {
 
                     {/* Section 2: Quota params */}
                     <div className="space-y-4 pt-4 border-t border-neutral-100">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">2. Token配额与QPS并发微调</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">2. Token配额与QPS并发微调</h3>
                       
                       {/* Allocated Token Sliders */}
                       <div className="space-y-2.5">
                         <div className="flex justify-between font-bold text-neutral-700">
                           <span>月度 AI Token 配额上限：</span>
-                          <span className="font-mono text-[#fa541c] text-sm font-black">{formTokens} M Tokens</span>
+                          <span className="font-mono text-[#3b82f6] text-sm font-black">{formTokens} M Tokens</span>
                         </div>
                         <div className="flex items-center gap-4">
                           <input
@@ -831,7 +831,7 @@ export default function AdminAIQuotaPage() {
                             step={10}
                             value={formTokens}
                             onChange={(e) => setFormTokens(parseInt(e.target.value) || 10)}
-                            className="flex-1 accent-[#fa541c] cursor-pointer"
+                            className="flex-1 accent-[#3b82f6] cursor-pointer"
                           />
                           <input
                             type="number"
@@ -848,7 +848,7 @@ export default function AdminAIQuotaPage() {
                       <div className="space-y-2.5">
                         <div className="flex justify-between font-bold text-neutral-700">
                           <span>租户最大请求吞吐并发并发并发并发并发并发并发并发并发上限：</span>
-                          <span className="font-mono text-[#fa541c] text-sm font-black">{formConcurrency} QPS</span>
+                          <span className="font-mono text-[#3b82f6] text-sm font-black">{formConcurrency} QPS</span>
                         </div>
                         <div className="flex items-center gap-4">
                           <input
@@ -858,7 +858,7 @@ export default function AdminAIQuotaPage() {
                             step={5}
                             value={formConcurrency}
                             onChange={(e) => setFormConcurrency(parseInt(e.target.value) || 5)}
-                            className="flex-1 accent-[#fa541c] cursor-pointer"
+                            className="flex-1 accent-[#3b82f6] cursor-pointer"
                           />
                           <input
                             type="number"
@@ -874,7 +874,7 @@ export default function AdminAIQuotaPage() {
 
                     {/* Section 3: Isolation settings */}
                     <div className="space-y-4 pt-4 border-t border-neutral-100">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">3. 安全独占策略与结算形式</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">3. 安全独占策略与结算形式</h3>
                       
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
@@ -917,7 +917,7 @@ export default function AdminAIQuotaPage() {
                     <button
                       type="submit"
                       onClick={handleSaveTenant}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-6 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-6 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                     >
                       {drawerMode === "create" ? "开通并激活配额" : "保存微调值"}
                     </button>
@@ -938,7 +938,7 @@ export default function AdminAIQuotaPage() {
             <div className="flex justify-between items-start shrink-0">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <Sliders className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <Sliders className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>AI 配额分配划分模板</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -947,7 +947,7 @@ export default function AdminAIQuotaPage() {
               </div>
               <button 
                 onClick={() => setShowTplModal(true)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
               >
                 <Plus className="w-4 h-4 font-black" />
                 <span>新建分配模板</span>
@@ -986,7 +986,7 @@ export default function AdminAIQuotaPage() {
                     <div className="bg-neutral-50/50 p-4 rounded-lg text-xs grid grid-cols-3 gap-4 border border-neutral-100/60 text-neutral-body">
                       <div>
                         <span className="text-[10px] text-neutral-caption block font-bold">Token分配额:</span>
-                        <span className="font-mono text-sm font-black text-[#fa541c] mt-0.5 block">{tpl.tokens} M</span>
+                        <span className="font-mono text-sm font-black text-[#3b82f6] mt-0.5 block">{tpl.tokens} M</span>
                       </div>
                       <div>
                         <span className="text-[10px] text-neutral-caption block font-bold">最大并发并发:</span>
@@ -1036,7 +1036,7 @@ export default function AdminAIQuotaPage() {
                   {/* Header */}
                   <div className="bg-neutral-50 px-6 py-4 border-b border-neutral-border flex items-center justify-between shrink-0">
                     <span className="font-black text-neutral-title text-sm flex items-center gap-1.5">
-                      <Sliders className="w-4.5 h-4.5 text-[#fa541c]" />
+                      <Sliders className="w-4.5 h-4.5 text-[#3b82f6]" />
                       <span>新增配额分配模板</span>
                     </span>
                     <button 
@@ -1060,7 +1060,7 @@ export default function AdminAIQuotaPage() {
                         value={tplName}
                         onChange={(e) => setTplName(e.target.value)}
                         placeholder="例如: 高校大模型科研增强模板"
-                        className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800"
+                        className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800"
                       />
                     </div>
 
@@ -1114,7 +1114,7 @@ export default function AdminAIQuotaPage() {
                         value={tplDesc}
                         onChange={(e) => setTplDesc(e.target.value)}
                         placeholder="描述该模板对应的适用高校阶段或商业合约场景，帮助以后分配配额快速参考..."
-                        className="w-full border border-neutral-200 rounded-lg p-2 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-semibold leading-relaxed resize-none"
+                        className="w-full border border-neutral-200 rounded-lg p-2 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-semibold leading-relaxed resize-none"
                       />
                     </div>
                   </div>
@@ -1130,7 +1130,7 @@ export default function AdminAIQuotaPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                     >
                       确认发布模板
                     </button>

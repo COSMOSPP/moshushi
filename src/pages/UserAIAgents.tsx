@@ -126,7 +126,7 @@ export default function UserAIAgents() {
               >
                 {/* Assistant styled Avatar */}
                 {isAssistant && (
-                  <div className="w-8 h-8 rounded-[8px] bg-orange-50 text-orange-500 border border-orange-200 flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-8 h-8 rounded-[8px] bg-blue-50 text-orange-500 border border-blue-200 flex items-center justify-center shrink-0 shadow-sm">
                     <FileText className="w-4 h-4" strokeWidth={2.5} />
                   </div>
                 )}
@@ -137,7 +137,7 @@ export default function UserAIAgents() {
                     "rounded-[12px] p-4 text-[14.5px] leading-relaxed shadow-sm transition-all duration-200",
                     isAssistant 
                       ? "bg-white border border-neutral-100 text-neutral-title hover:shadow-md" 
-                      : "bg-[#fa541c] text-white font-medium hover:bg-[#e64a19] hover:shadow-md"
+                      : "bg-[#3b82f6] text-white font-medium hover:bg-[#e64a19] hover:shadow-md"
                   )}
                   style={{ wordBreak: "break-word" }}
                 >
@@ -157,7 +157,7 @@ export default function UserAIAgents() {
           {/* Typing Indicator */}
           {isTyping && (
             <div className="flex gap-4 max-w-4xl w-full justify-start">
-              <div className="w-8 h-8 rounded-[8px] bg-orange-50 text-orange-500 border border-orange-200 flex items-center justify-center shrink-0 shadow-sm animate-pulse">
+              <div className="w-8 h-8 rounded-[8px] bg-blue-50 text-orange-500 border border-blue-200 flex items-center justify-center shrink-0 shadow-sm animate-pulse">
                 <Loader2 className="w-4 h-4 animate-spin" />
               </div>
               <div className="bg-white border border-neutral-100 text-neutral-caption rounded-[12px] px-5 py-3 text-[14px] flex items-center gap-2 shadow-sm">
@@ -181,23 +181,23 @@ export default function UserAIAgents() {
             <div className="flex flex-wrap gap-3 mb-5 justify-center animate-in fade-in slide-in-from-bottom-2 duration-300">
               <button 
                 onClick={() => handleChipClick("需要我生成一份教学教案")} 
-                className="flex items-center gap-2 px-5 py-2.5 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#fa541c] hover:border-[#ffbb96] hover:bg-[#fff2e8] transition-all duration-200 shadow-sm hover:shadow active:scale-95 font-medium group"
+                className="flex items-center gap-2 px-5 py-2.5 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#3b82f6] hover:border-[#bfdbfe] hover:bg-[#eff6ff] transition-all duration-200 shadow-sm hover:shadow active:scale-95 font-medium group"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#fa541c] group-hover:scale-110 transition-transform" />
+                <Sparkles className="w-3.5 h-3.5 text-[#3b82f6] group-hover:scale-110 transition-transform" />
                 需要我生成一份教学教案
               </button>
               <button 
                 onClick={() => handleChipClick("分析一下当前的数据趋势")} 
-                className="flex items-center gap-2 px-5 py-2.5 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#fa541c] hover:border-[#ffbb96] hover:bg-[#fff2e8] transition-all duration-200 shadow-sm hover:shadow active:scale-95 font-medium group"
+                className="flex items-center gap-2 px-5 py-2.5 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#3b82f6] hover:border-[#bfdbfe] hover:bg-[#eff6ff] transition-all duration-200 shadow-sm hover:shadow active:scale-95 font-medium group"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#fa541c] group-hover:scale-110 transition-transform" />
+                <Sparkles className="w-3.5 h-3.5 text-[#3b82f6] group-hover:scale-110 transition-transform" />
                 分析一下当前的数据趋势
               </button>
             </div>
           )}
 
           {/* Interactive Chat Box Container */}
-          <div className="bg-white rounded-[16px] shadow-lg hover:shadow-xl border border-neutral-200/80 p-3 focus-within:border-[#fa541c] focus-within:ring-4 focus-within:ring-[#fa541c]/5 transition-all duration-300">
+          <div className="bg-white rounded-[16px] shadow-lg hover:shadow-xl border border-neutral-200/80 p-3 focus-within:border-[#3b82f6] focus-within:ring-4 focus-within:ring-[#3b82f6]/5 transition-all duration-300">
             <textarea 
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -220,7 +220,7 @@ export default function UserAIAgents() {
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isTyping}
                 className={cn(
-                  "bg-[#fa541c] hover:bg-[#e64a19] text-white rounded-full h-9 px-5 flex items-center gap-1.5 text-[13px] font-semibold transition-all shadow active:scale-95 duration-200 disabled:opacity-50 disabled:pointer-events-none disabled:scale-100"
+                  "bg-[#3b82f6] hover:bg-[#e64a19] text-white rounded-full h-9 px-5 flex items-center gap-1.5 text-[13px] font-semibold transition-all shadow active:scale-95 duration-200 disabled:opacity-50 disabled:pointer-events-none disabled:scale-100"
                 )}
               >
                 <Send className="w-3.5 h-3.5 fill-current" />
@@ -255,10 +255,10 @@ export default function UserAIAgents() {
             {[1, 2, 3].map((day) => (
               <div key={day} className="flex gap-3 cursor-pointer group">
                 <div className="mt-1">
-                  <MessageSquare className="w-4 h-4 text-neutral-caption group-hover:text-[#fa541c] transition-colors" />
+                  <MessageSquare className="w-4 h-4 text-neutral-caption group-hover:text-[#3b82f6] transition-colors" />
                 </div>
                 <div>
-                  <div className="text-[13px] text-neutral-title font-medium group-hover:text-[#fa541c] transition-colors line-clamp-1">
+                  <div className="text-[13px] text-neutral-title font-medium group-hover:text-[#3b82f6] transition-colors line-clamp-1">
                     上一次关于学习工具的对话历史...
                   </div>
                   <div className="text-[11.5px] text-neutral-caption mt-1 flex items-center gap-1">

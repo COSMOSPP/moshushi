@@ -123,7 +123,7 @@ export default function ExamResult({ exam, onBack, directPreview = false }: Exam
          
          <h1 className="text-2xl font-bold text-neutral-900 mb-2 tracking-tight">{exam.title} - 提交历史</h1>
          <p className="text-neutral-500 text-xs flex items-center gap-2 font-medium">
-           <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c] animate-pulse"></span>
+           <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] animate-pulse"></span>
            报告基于 AI 双盲评卷模型与自动化判分系统生成，客观公正。
          </p>
       </div>
@@ -156,7 +156,7 @@ export default function ExamResult({ exam, onBack, directPreview = false }: Exam
                             setCurrentQuestionIndex(0);
                             setShowReviewPreview(true);
                           }}
-                          className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors hover:underline cursor-pointer bg-transparent border-0"
                         >
                           预览
                         </button>
@@ -209,13 +209,13 @@ export default function ExamResult({ exam, onBack, directPreview = false }: Exam
                       <div className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
                         <span>{currentQuestionIndex + 1}、{q.type}</span>
                         <span className="text-[13px] text-neutral-400 font-normal">({q.maxScore}分)</span>
-                        <span className="text-[13px] text-[#fa541c] font-bold ml-2">（得分: {q.score}分）</span>
+                        <span className="text-[13px] text-[#3b82f6] font-bold ml-2">（得分: {q.score}分）</span>
                       </div>
                       <div className="flex items-center gap-2 text-xs">
-                        <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-medium">
+                        <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-medium">
                           该题{q.maxScore}.0分
                         </span>
-                        <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-bold">
+                        <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-bold">
                           得{q.score}分
                         </span>
                       </div>
@@ -309,7 +309,7 @@ export default function ExamResult({ exam, onBack, directPreview = false }: Exam
                       variant="outline"
                       disabled={currentQuestionIndex === 0}
                       onClick={() => setCurrentQuestionIndex(idx => idx - 1)}
-                      className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                      className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
                     >
                       上一题
                     </Button>
@@ -321,7 +321,7 @@ export default function ExamResult({ exam, onBack, directPreview = false }: Exam
                         "px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1 cursor-pointer",
                         currentQuestionIndex === questions.length - 1
                           ? "bg-neutral-100 text-neutral-400 cursor-not-allowed border border-neutral-200 shadow-none"
-                          : "bg-[#fa541c] hover:bg-[#e84a15] text-white"
+                          : "bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                       )}
                     >
                       下一题
@@ -378,7 +378,7 @@ export default function ExamResult({ exam, onBack, directPreview = false }: Exam
                             setShowReviewPreview(false);
                           }
                         }}
-                        className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
+                        className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
                       >
                         退出预览
                       </Button>

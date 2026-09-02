@@ -316,7 +316,7 @@ export default function AdminPermissionsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 shrink-0 pt-2">
         <div>
           <h1 className="text-xl font-black text-[#0f172a] flex items-center gap-2.5">
-            <Key className="w-6 h-6 text-[#fa541c]" />
+            <Key className="w-6 h-6 text-[#3b82f6]" />
             <span>权限分配</span>
           </h1>
           <p className="text-xs text-neutral-body mt-1">
@@ -331,7 +331,7 @@ export default function AdminPermissionsPage() {
           </span>
           <button
             onClick={() => setShowDrawer(true)}
-            className="px-3.5 py-1.5 bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold rounded-full shadow-3xs flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="px-3.5 py-1.5 bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold rounded-full shadow-3xs flex items-center gap-1.5 transition-colors cursor-pointer"
           >
             <Shield className="w-3.5 h-3.5" />
             <span>查看边界规则</span>
@@ -342,7 +342,7 @@ export default function AdminPermissionsPage() {
       {/* Yellow Warning Banner - exact match to Image 1 */}
       <div className="bg-[#fffbe6] border border-[#ffe58f] rounded-xl p-4 flex items-start gap-3 shrink-0 shadow-3xs animate-in fade-in slide-in-from-top-2 duration-200">
         <AlertCircle className="w-4 h-4 text-[#faad14] shrink-0 mt-0.5" />
-        <div className="text-xs text-[#d4380d] font-medium leading-relaxed">
+        <div className="text-xs text-[#1d4ed8] font-medium leading-relaxed">
           当前角色权限动态继承自租户套餐与附加包及当前平台边界，不支持手动编辑。
         </div>
       </div>
@@ -357,10 +357,10 @@ export default function AdminPermissionsPage() {
           <div className="bg-white p-5 rounded-xl border border-neutral-border shadow-3xs flex flex-col space-y-4">
             <div className="flex items-center justify-between pb-2 border-b border-gray-100">
               <span className="text-xs font-black text-neutral-title flex items-center gap-1.5">
-                <Settings className="w-4 h-4 text-[#fa541c]" />
+                <Settings className="w-4 h-4 text-[#3b82f6]" />
                 <span>当前系统平台</span>
               </span>
-              <span className="text-[10px] bg-[#fff2e8] text-[#fa541c] px-2 py-0.5 rounded-full font-bold">
+              <span className="text-[10px] bg-[#eff6ff] text-[#3b82f6] px-2 py-0.5 rounded-full font-bold">
                 {selectedPlatformCode}
               </span>
             </div>
@@ -377,7 +377,7 @@ export default function AdminPermissionsPage() {
                   className={cn(
                     "w-full px-3 py-3 rounded-lg border text-left transition-all cursor-pointer block",
                     selectedPlatformCode === plat.code
-                      ? "border-[#fa541c] bg-[#fff2e8]/25 text-[#fa541c] font-bold"
+                      ? "border-[#3b82f6] bg-[#eff6ff]/25 text-[#3b82f6] font-bold"
                       : "border-gray-200 text-neutral-body bg-transparent hover:bg-neutral-50 hover:text-neutral-title"
                   )}
                 >
@@ -393,7 +393,7 @@ export default function AdminPermissionsPage() {
           {/* Package & Addons Simulator */}
           <div className="bg-white p-5 rounded-xl border border-neutral-border shadow-3xs flex flex-col space-y-4">
             <span className="text-xs font-black text-neutral-title flex items-center gap-1.5 pb-2 border-b border-gray-100">
-              <Cpu className="w-4 h-4 text-[#fa541c]" />
+              <Cpu className="w-4 h-4 text-[#3b82f6]" />
               <span>租户套餐与附加包</span>
             </span>
 
@@ -407,7 +407,7 @@ export default function AdminPermissionsPage() {
                   type="checkbox"
                   checked={includeBase}
                   onChange={(e) => setIncludeBase(e.target.checked)}
-                  className="rounded text-[#fa541c] focus:ring-[#fa541c] border-gray-300 w-3.5 h-3.5"
+                  className="rounded text-[#3b82f6] focus:ring-[#3b82f6] border-gray-300 w-3.5 h-3.5"
                 />
                 <span>基础套餐 (Base Spec)</span>
               </label>
@@ -417,7 +417,7 @@ export default function AdminPermissionsPage() {
                   type="checkbox"
                   checked={includeAdvanced}
                   onChange={(e) => setIncludeAdvanced(e.target.checked)}
-                  className="rounded text-[#fa541c] focus:ring-[#fa541c] border-gray-300 w-3.5 h-3.5"
+                  className="rounded text-[#3b82f6] focus:ring-[#3b82f6] border-gray-300 w-3.5 h-3.5"
                 />
                 <span>高级运维包 (Advanced Ops)</span>
               </label>
@@ -427,7 +427,7 @@ export default function AdminPermissionsPage() {
                   type="checkbox"
                   checked={includeAI}
                   onChange={(e) => setIncludeAI(e.target.checked)}
-                  className="rounded text-[#fa541c] focus:ring-[#fa541c] border-gray-300 w-3.5 h-3.5"
+                  className="rounded text-[#3b82f6] focus:ring-[#3b82f6] border-gray-300 w-3.5 h-3.5"
                 />
                 <span>AI Agent算力扩容包</span>
               </label>
@@ -443,7 +443,7 @@ export default function AdminPermissionsPage() {
                 placeholder="键入关键字..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full text-xs border border-gray-200 rounded-full pl-8 pr-3 py-2 bg-neutral-bg focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none transition-colors"
+                className="w-full text-xs border border-gray-200 rounded-full pl-8 pr-3 py-2 bg-neutral-bg focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none transition-colors"
               />
               <Search className="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-3" />
             </div>
@@ -478,7 +478,7 @@ export default function AdminPermissionsPage() {
                 {/* Module Level Header */}
                 <div className="flex items-center justify-between bg-[#f8fafc] border border-gray-100 p-4 rounded-xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#fff2e8] flex items-center justify-center text-[#fa541c] border border-[#ffbb96]/45">
+                    <div className="w-8 h-8 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6] border border-[#bfdbfe]/45">
                       <Layers className="w-4 h-4" />
                     </div>
                     <div>
@@ -501,7 +501,7 @@ export default function AdminPermissionsPage() {
                       {/* Primary Header */}
                       <div className="flex items-center justify-between pb-2 border-b border-gray-100">
                         <span className="text-xs font-black text-neutral-title flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]" />
                           {primary.name}
                         </span>
                         
@@ -542,7 +542,7 @@ export default function AdminPermissionsPage() {
                                       key={tIdx}
                                       className={cn(
                                         "px-3 py-1.5 rounded-full text-xs font-bold transition-all shadow-3xs flex items-center gap-1 select-none",
-                                        "bg-[#fff2e8] text-[#fa541c] hover:bg-[#ffe7d6]/80 hover:text-[#d4380d] border border-[#ffbb96]/30",
+                                        "bg-[#eff6ff] text-[#3b82f6] hover:bg-[#ffe7d6]/80 hover:text-[#1d4ed8] border border-[#bfdbfe]/30",
                                         tag.inheritedFrom === "ai" && "border-indigo-200 bg-indigo-50/50 text-indigo-600 hover:bg-indigo-100/50 hover:text-indigo-800",
                                         tag.inheritedFrom === "advanced" && "border-amber-200 bg-amber-50/40 text-amber-600 hover:bg-amber-100/50 hover:text-amber-800"
                                       )}
@@ -587,12 +587,12 @@ export default function AdminPermissionsPage() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-[#f5f5f5] flex justify-between items-center bg-[#fafafa]">
               <h2 className="text-[15px] font-bold text-neutral-800 flex items-center gap-2">
-                <ShieldAlert className="w-4 h-4 text-[#fa541c]" />
+                <ShieldAlert className="w-4 h-4 text-[#3b82f6]" />
                 <span>RBAC 动态特权继承边界规范</span>
               </h2>
               <button 
                 onClick={() => setShowDrawer(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-full transition-colors cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-full transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -602,7 +602,7 @@ export default function AdminPermissionsPage() {
             <div className="p-6 overflow-y-auto space-y-5 custom-scrollbar flex-1 bg-white text-xs leading-relaxed text-neutral-body">
               
               <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-4 flex gap-3">
-                <Lock className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+                <Lock className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-[#0f172a] block">系统角色权限锁定说明</span>
                   <p className="mt-1 text-[11px]">
@@ -617,7 +617,7 @@ export default function AdminPermissionsPage() {
                 
                 <div className="space-y-2 pt-1 font-medium">
                   <div className="flex items-start gap-2 bg-neutral-50 p-2.5 rounded-lg">
-                    <span className="w-4 h-4 rounded-full bg-[#fa541c]/15 text-[#fa541c] flex items-center justify-center text-[10px] shrink-0 mt-0.5 font-bold">1</span>
+                    <span className="w-4 h-4 rounded-full bg-[#3b82f6]/15 text-[#3b82f6] flex items-center justify-center text-[10px] shrink-0 mt-0.5 font-bold">1</span>
                     <div>
                       <span className="text-[#0f172a] block font-bold">基础边界拦截</span>
                       <p className="text-[10px] text-neutral-caption mt-0.5">根据选择物理访问的子平台端（运营端/教师端/学生端）注入对应的物理功能菜单集。</p>
@@ -625,7 +625,7 @@ export default function AdminPermissionsPage() {
                   </div>
 
                   <div className="flex items-start gap-2 bg-neutral-50 p-2.5 rounded-lg">
-                    <span className="w-4 h-4 rounded-full bg-[#fa541c]/15 text-[#fa541c] flex items-center justify-center text-[10px] shrink-0 mt-0.5 font-bold">2</span>
+                    <span className="w-4 h-4 rounded-full bg-[#3b82f6]/15 text-[#3b82f6] flex items-center justify-center text-[10px] shrink-0 mt-0.5 font-bold">2</span>
                     <div>
                       <span className="text-[#0f172a] block font-bold">套餐授权静态装配</span>
                       <p className="text-[10px] text-neutral-caption mt-0.5">读取租户订购合同，装配如基础用户管理、项目创建、普通考核等静态基础权限点。</p>
@@ -633,7 +633,7 @@ export default function AdminPermissionsPage() {
                   </div>
 
                   <div className="flex items-start gap-2 bg-neutral-50 p-2.5 rounded-lg">
-                    <span className="w-4 h-4 rounded-full bg-[#fa541c]/15 text-[#fa541c] flex items-center justify-center text-[10px] shrink-0 mt-0.5 font-bold">3</span>
+                    <span className="w-4 h-4 rounded-full bg-[#3b82f6]/15 text-[#3b82f6] flex items-center justify-center text-[10px] shrink-0 mt-0.5 font-bold">3</span>
                     <div>
                       <span className="text-[#0f172a] block font-bold">增值算力/Agent附加包装载</span>
                       <p className="text-[10px] text-neutral-caption mt-0.5">如订购大模型扩容算力或高级审计插件，动态热插拔式激活高级特权与大模型微调特权标签。</p>
@@ -648,7 +648,7 @@ export default function AdminPermissionsPage() {
                   <span className="font-black text-[#0f172a] block text-xs">实时策略编译 YAML</span>
                   <button
                     onClick={handleCopyHash}
-                    className="text-[10px] text-[#fa541c] hover:underline flex items-center gap-1 cursor-pointer font-bold"
+                    className="text-[10px] text-[#3b82f6] hover:underline flex items-center gap-1 cursor-pointer font-bold"
                   >
                     {copied ? "已复制！" : "复制指纹"}
                   </button>

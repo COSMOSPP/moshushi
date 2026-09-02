@@ -3,14 +3,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, Bookmark, Share2, Edit3, CheckCircle2 } from "lucide-react";
 import AIKnowledgeTree from "@/components/AIKnowledgeTree";
 
-const KnowledgeCard = ({ card }: { card: any }) => {
+function KnowledgeCard({ card }: { card: any; key?: React.Key }) {
   const [flipped, setFlipped] = useState(false);
   return (
     <div className="relative w-full h-[320px] group perspective-1000" onClick={() => setFlipped(!flipped)}>
       <div className={`w-full h-full duration-500 transition-all [transform-style:preserve-3d] cursor-pointer ${flipped ? '[transform:rotateY(180deg)]' : ''}`}>
         {/* Front */}
-        <div className="absolute p-6 w-full h-full bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-center [backface-visibility:hidden] hover:shadow-md hover:border-[#fa541c]/50 transition-all">
-           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/80 to-white/10 backdrop-blur-lg border border-white/60 shadow-[0_8px_32px_rgba(250,84,28,0.1)] flex items-center justify-center text-3xl mb-6">
+        <div className="absolute p-6 w-full h-full bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-center [backface-visibility:hidden] hover:shadow-md hover:border-[#3b82f6]/50 transition-all">
+           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/80 to-white/10 backdrop-blur-lg border border-white/60 shadow-[0_8px_32px_rgba(59, 130, 246,0.1)] flex items-center justify-center text-3xl mb-6">
              {card.icon}
            </div>
            <h3 className="text-xl font-bold text-slate-900 text-center mb-4">{card.title}</h3>
@@ -19,7 +19,7 @@ const KnowledgeCard = ({ card }: { card: any }) => {
                <span key={tag} className="bg-slate-50 text-slate-500 text-xs px-2 py-1 rounded">{tag}</span>
              ))}
            </div>
-           <div className="mt-auto flex items-center text-[#fa541c] text-sm font-medium">点击翻转查看解析 <ArrowRight className="w-4 h-4 ml-1" /></div>
+           <div className="mt-auto flex items-center text-[#3b82f6] text-sm font-medium">点击翻转查看解析 <ArrowRight className="w-4 h-4 ml-1" /></div>
         </div>
         {/* Back */}
         <div className="absolute p-6 w-full h-full bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-200 shadow-lg flex flex-col [backface-visibility:hidden] [transform:rotateY(180deg)] text-left">
@@ -28,17 +28,17 @@ const KnowledgeCard = ({ card }: { card: any }) => {
              <span className="text-2xl">{card.icon}</span>
            </div>
            <div className="text-sm text-slate-600 mb-2 flex-1 overflow-y-auto pr-2 custom-scrollbar">
-             <div className="mb-3"><span className="text-[#fa541c] font-bold mr-1 block mb-1">核心定义：</span>{card.desc}</div>
+             <div className="mb-3"><span className="text-[#3b82f6] font-bold mr-1 block mb-1">核心定义：</span>{card.desc}</div>
              <div className="mb-3"><span className="text-blue-600 font-bold mr-1 block mb-1">关键要点：</span>{card.points}</div>
              <div><span className="text-green-600 font-bold mr-1 block mb-1">关联知识点：</span>{card.relations}</div>
            </div>
            <div className="flex justify-between items-center mt-3 pt-3 border-t border-slate-100 text-slate-500">
              <div className="flex gap-1.5">
-               <button className="p-1.5 bg-white border border-slate-100 hover:border-[#fa541c] hover:bg-[#fa541c]/5 hover:text-[#fa541c] rounded-full transition-all" title="收藏" onClick={e=>{e.stopPropagation()}}><Bookmark className="w-3.5 h-3.5"/></button>
+               <button className="p-1.5 bg-white border border-slate-100 hover:border-[#3b82f6] hover:bg-[#3b82f6]/5 hover:text-[#3b82f6] rounded-full transition-all" title="收藏" onClick={e=>{e.stopPropagation()}}><Bookmark className="w-3.5 h-3.5"/></button>
                <button className="p-1.5 bg-white border border-slate-100 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-500 rounded-full transition-all" title="添加笔记" onClick={e=>{e.stopPropagation()}}><Edit3 className="w-3.5 h-3.5"/></button>
                <button className="p-1.5 bg-white border border-slate-100 hover:border-green-500 hover:bg-green-50 hover:text-green-500 rounded-full transition-all" title="分享" onClick={e=>{e.stopPropagation()}}><Share2 className="w-3.5 h-3.5"/></button>
              </div>
-             <button className="text-xs bg-[#fa541c] text-white px-3 py-1.5 rounded-full flex items-center gap-1 hover:bg-[#d4380d] transition-colors" onClick={e=>{e.stopPropagation()}}><CheckCircle2 className="w-3.5 h-3.5"/>已掌握</button>
+             <button className="text-xs bg-[#3b82f6] text-white px-3 py-1.5 rounded-full flex items-center gap-1 hover:bg-[#1d4ed8] transition-colors" onClick={e=>{e.stopPropagation()}}><CheckCircle2 className="w-3.5 h-3.5"/>已掌握</button>
            </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function UserOverview() {
         
         {/* Mouse Follow Glow */}
         <div 
-          className="absolute w-[600px] h-[600px] bg-gradient-to-r from-[#fa541c]/10 to-blue-500/10 rounded-full blur-3xl pointer-events-none transition-transform duration-300 ease-out"
+          className="absolute w-[600px] h-[600px] bg-gradient-to-r from-[#3b82f6]/10 to-blue-500/10 rounded-full blur-3xl pointer-events-none transition-transform duration-300 ease-out"
           style={{
             transform: `translate(${mousePos.x - 300}px, ${mousePos.y - 300}px)`
           }}
@@ -98,15 +98,15 @@ export default function UserOverview() {
         <div className="relative z-10 flex flex-col items-center text-center w-full max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-blue-50/50 backdrop-blur-md border border-blue-100 px-4 py-1.5 rounded-full text-sm font-medium mb-8 shadow-sm">
             <span className="w-6 h-6 flex items-center justify-center bg-gradient-to-br from-white/80 to-white/20 backdrop-blur-lg border border-white/50 shadow-sm rounded-md text-base">🚀</span> 
-            <span className="bg-gradient-to-r from-[#fa541c] to-[#ff9c6e] bg-clip-text text-transparent font-bold">
-              {isLoggedIn ? '欢迎回来，cosmos' : '新一代智云实训平台'}
+            <span className="bg-gradient-to-r from-[#3b82f6] to-[#93c5fd] bg-clip-text text-transparent font-bold">
+              {isLoggedIn ? '欢迎回来，cosmos' : '新一代模数师数字平台'}
             </span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
             {isLoggedIn ? (
-              <>继续你的<span className="text-[#fa541c]">学习之旅</span></>
+              <>继续你的<span className="text-[#3b82f6]">学习之旅</span></>
             ) : (
-              <>探索 <span className="text-[#fa541c]">AI</span>，从这里开始</>
+              <>探索 <span className="text-[#3b82f6]">AI</span>，从这里开始</>
             )}
           </h1>
           <p className="text-slate-500 text-lg md:text-xl mb-12 max-w-2xl">
@@ -115,21 +115,21 @@ export default function UserOverview() {
           
           <div className="w-full max-w-3xl relative mb-8 bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl shadow-slate-200/50 p-2 flex items-center border border-white/60">
             <div className="pl-4 pr-2">
-              <Bot className="w-8 h-8 text-[#fa541c]" strokeWidth={2} />
+              <Bot className="w-8 h-8 text-[#3b82f6]" strokeWidth={2} />
             </div>
             <input 
               type="text" 
               placeholder="有什么想学的？问我吧..." 
               className="flex-1 h-14 bg-transparent border-none focus:outline-none text-slate-700 placeholder-slate-400 text-lg"
             />
-            <button className="bg-[#fa541c] hover:bg-[#ff7a45] px-8 py-4 rounded-xl text-white font-medium transition-colors flex items-center gap-2 text-lg shadow-md shadow-[#fa541c]/20">
+            <button className="bg-[#3b82f6] hover:bg-[#60a5fa] px-8 py-4 rounded-xl text-white font-medium transition-colors flex items-center gap-2 text-lg shadow-md shadow-[#3b82f6]/20">
               提问 <ArrowRight className="w-5 h-5" />
             </button>
           </div>
           
           <div className="flex flex-wrap justify-center gap-3">
             {["推荐Python入门课程", "DeepSeek怎么部署", "RAG是什么", "Agent开发教程", "大模型微调"].map((tag, i) => (
-              <span key={i} className="px-5 py-2 rounded-full bg-white/60 backdrop-blur-md text-slate-600 text-sm hover:text-[#fa541c] hover:border-[#fa541c] hover:bg-white cursor-pointer transition-all border border-slate-200 shadow-sm">
+              <span key={i} className="px-5 py-2 rounded-full bg-white/60 backdrop-blur-md text-slate-600 text-sm hover:text-[#3b82f6] hover:border-[#3b82f6] hover:bg-white cursor-pointer transition-all border border-slate-200 shadow-sm">
                 {tag}
               </span>
             ))}
@@ -149,7 +149,7 @@ export default function UserOverview() {
                 { unit: "项", label: "获得成就", value: "5" },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col items-center justify-center bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-5xl font-bold mb-2 tracking-tight text-[#fa541c]">{stat.value}</div>
+                  <div className="text-5xl font-bold mb-2 tracking-tight text-[#3b82f6]">{stat.value}</div>
                   <div className="text-sm flex items-center gap-1">
                     <span className="text-slate-400">{stat.unit}</span>
                     <span className="text-slate-500">{stat.label}</span>
@@ -166,7 +166,7 @@ export default function UserOverview() {
                 { label: "合作企业", value: "500+" },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col items-center justify-center p-4">
-                  <div className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-[#fa541c]">{stat.value}</div>
+                  <div className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-[#3b82f6]">{stat.value}</div>
                   <div className="text-sm md:text-base text-slate-500">{stat.label}</div>
                 </div>
               ))}
@@ -189,7 +189,7 @@ export default function UserOverview() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-slate-900">你的技能矩阵</h2>
             <div className="text-sm text-slate-500">
-              综合能力评估：<span className="text-[#fa541c] font-bold text-lg">35%</span> (入门阶段)
+              综合能力评估：<span className="text-[#3b82f6] font-bold text-lg">35%</span> (入门阶段)
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -230,9 +230,9 @@ export default function UserOverview() {
             <div className="flex items-center gap-4">
               <span className="text-sm text-slate-500">必修课进度</span>
               <div className="w-48 bg-slate-100 rounded-full h-2">
-                <div className="bg-[#fa541c] h-2 rounded-full" style={{ width: '60%' }}></div>
+                <div className="bg-[#3b82f6] h-2 rounded-full" style={{ width: '60%' }}></div>
               </div>
-              <span className="text-sm font-bold text-[#fa541c]">60%</span>
+              <span className="text-sm font-bold text-[#3b82f6]">60%</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -274,7 +274,7 @@ export default function UserOverview() {
               <h2 className="text-2xl font-bold text-slate-900">AI 知识卡片</h2>
             </div>
             {isLoggedIn && (
-              <Button variant="ghost" className="text-slate-500 hover:text-[#fa541c]">
+              <Button variant="ghost" className="text-slate-500 hover:text-[#3b82f6]">
                 查看更多 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             )}
@@ -302,7 +302,7 @@ export default function UserOverview() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-slate-900">{isLoggedIn ? '为你推荐' : '精选课程推荐'}</h2>
             {isLoggedIn && (
-              <Button variant="ghost" className="text-slate-500 hover:text-[#fa541c]">
+              <Button variant="ghost" className="text-slate-500 hover:text-[#3b82f6]">
                 换一批 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             )}
@@ -363,7 +363,7 @@ export default function UserOverview() {
                     <h3 className="font-bold text-slate-900 text-xl">{item.title}</h3>
                     <div className="flex gap-2">
                        <span className="bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded-md border border-blue-100">{item.scene}</span>
-                       <span className="bg-orange-50 text-orange-600 text-xs px-2 py-1 rounded-md border border-orange-100">{item.difficulty}</span>
+                       <span className="bg-blue-50 text-orange-600 text-xs px-2 py-1 rounded-md border border-orange-100">{item.difficulty}</span>
                     </div>
                   </div>
                   <p className="text-slate-500 text-sm mb-4 line-clamp-2 md:line-clamp-none">{item.desc}</p>
@@ -380,7 +380,7 @@ export default function UserOverview() {
                        <span className="flex items-center gap-1"><span className="text-amber-500">⭐</span> {item.collections} 收藏</span>
                        <span className="flex items-center gap-1">👥 {item.users} 使用</span>
                     </div>
-                    <Button size="sm" className="bg-white text-[#fa541c] border border-[#fa541c] hover:bg-[#fa541c] hover:text-white transition-colors">
+                    <Button size="sm" className="bg-white text-[#3b82f6] border border-[#3b82f6] hover:bg-[#3b82f6] hover:text-white transition-colors">
                       一键应用
                     </Button>
                   </div>
@@ -395,7 +395,7 @@ export default function UserOverview() {
       {!isLoggedIn && (
       <div className="w-full bg-white py-16 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#fa541c] rounded-[24px] p-12 text-center text-white relative overflow-hidden shadow-lg">
+          <div className="bg-[#3b82f6] rounded-[24px] p-12 text-center text-white relative overflow-hidden shadow-lg">
             {/* Texture/Pattern */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
             
@@ -405,7 +405,7 @@ export default function UserOverview() {
                 注册即可获得免费试学课程，完善学习画像还可解锁个性化学习路径
               </p>
               <div className="flex items-center justify-center gap-4">
-                <Button className="bg-white text-[#fa541c] hover:bg-slate-50 rounded-lg px-8 py-6 text-lg font-bold shadow-md">
+                <Button className="bg-white text-[#3b82f6] hover:bg-slate-50 rounded-lg px-8 py-6 text-lg font-bold shadow-md">
                   立即注册
                 </Button>
                 <Button variant="outline" className="border-white text-white hover:bg-white/10 rounded-lg px-8 py-6 text-lg font-medium bg-transparent">

@@ -23,9 +23,9 @@ export default function UserPersona() {
       {/* Header */}
       <div className="flex flex-shrink-0 items-center justify-between mb-6">
         <div className="flex items-center text-sm text-neutral-500">
-          <Link to="/user" className="hover:text-[#fa541c] cursor-pointer transition-colors">首页</Link>
+          <Link to="/user" className="hover:text-[#3b82f6] cursor-pointer transition-colors">首页</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
-          <Link to="/user/center" className="hover:text-[#fa541c] cursor-pointer transition-colors">个人中心</Link>
+          <Link to="/user/center" className="hover:text-[#3b82f6] cursor-pointer transition-colors">个人中心</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
           <span className="text-neutral-900 font-bold">用户画像</span>
         </div>
@@ -35,17 +35,17 @@ export default function UserPersona() {
         
         {/* Top Progress & Summary Card */}
         <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-neutral-200 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-50 rounded-full blur-[100px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none transition-opacity group-hover:opacity-60"></div>
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-50 rounded-full blur-[100px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none transition-opacity group-hover:opacity-60"></div>
           
           {/* Left Avatar & Basic Info */}
           <div className="flex items-center gap-6 relative z-10 w-full md:w-auto">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50 border-2 border-white shadow-md flex items-center justify-center shrink-0 text-[#fa541c]">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50 border-2 border-white shadow-md flex items-center justify-center shrink-0 text-[#3b82f6]">
               <User className="w-10 h-10" />
             </div>
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <h2 className="text-[22px] font-black text-neutral-900 tracking-tight">张三</h2>
-                <span className="px-2.5 py-0.5 bg-[#fff2e8] text-[#fa541c] text-[12px] font-bold rounded-md border border-orange-100/50 flex items-center gap-1">
+                <span className="px-2.5 py-0.5 bg-[#eff6ff] text-[#3b82f6] text-[12px] font-bold rounded-md border border-orange-100/50 flex items-center gap-1">
                   <GraduationCap className="w-3.5 h-3.5" /> 学生
                 </span>
                 <span className="px-2.5 py-0.5 bg-blue-50 text-blue-600 text-[12px] font-bold rounded-md border border-blue-100/50">
@@ -61,11 +61,11 @@ export default function UserPersona() {
             <div className="w-full md:w-auto">
               <div className="flex items-end justify-between mb-2">
                 <span className="text-[13px] font-bold text-neutral-600">画像完善度</span>
-                <span className="text-[#fa541c] text-xl font-black leading-none">{completionRate}%</span>
+                <span className="text-[#3b82f6] text-xl font-black leading-none">{completionRate}%</span>
               </div>
               <div className="w-full md:w-[200px] h-2 bg-neutral-100 rounded-full overflow-hidden shadow-inner">
                 <div 
-                  className="h-full bg-gradient-to-r from-orange-400 to-[#fa541c] rounded-full transition-all duration-1000" 
+                  className="h-full bg-gradient-to-r from-blue-400 to-[#3b82f6] rounded-full transition-all duration-1000" 
                   style={{ width: `${completionRate}%` }} 
                 />
               </div>
@@ -73,10 +73,10 @@ export default function UserPersona() {
             </div>
             
             <div className="flex gap-3 w-full md:w-auto">
-              <Button onClick={() => setShowEditModal(true)} variant="outline" className="flex-1 md:flex-none border-neutral-200 text-neutral-600 font-bold hover:text-[#fa541c] hover:bg-orange-50 hover:border-orange-200 h-10 shadow-sm transition-all">
+              <Button onClick={() => setShowEditModal(true)} variant="outline" className="flex-1 md:flex-none border-neutral-200 text-neutral-600 font-bold hover:text-[#3b82f6] hover:bg-blue-50 hover:border-blue-200 h-10 shadow-sm transition-all">
                 <FileText className="w-4 h-4 mr-2" /> 完善画像问卷
               </Button>
-              <Button onClick={() => setShowEditModal(true)} className="flex-1 md:flex-none bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 shadow-md shadow-orange-500/20 transition-all">
+              <Button onClick={() => setShowEditModal(true)} className="flex-1 md:flex-none bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 shadow-md shadow-blue-500/20 transition-all">
                 <Edit className="w-4 h-4 mr-2" /> 修改信息
               </Button>
             </div>
@@ -87,7 +87,7 @@ export default function UserPersona() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Card 1: Identity & Domain */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden flex flex-col hover:border-orange-200 transition-colors duration-300">
+          <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden flex flex-col hover:border-blue-200 transition-colors duration-300">
             <div className="p-5 border-b border-neutral-100 bg-neutral-50/50 flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center shrink-0">
                 <Building className="w-4 h-4" />
@@ -117,7 +117,7 @@ export default function UserPersona() {
               <div className="mt-8 pt-6 border-t border-neutral-100">
                 <h4 className="text-[13px] font-bold text-neutral-500 mb-4 uppercase tracking-widest">核心专业领域</h4>
                 <div className="flex flex-wrap gap-2.5">
-                  <span className="px-3 py-1.5 bg-orange-50 text-[#fa541c] font-bold text-[13px] rounded-lg border border-orange-100">Python后端</span>
+                  <span className="px-3 py-1.5 bg-blue-50 text-[#3b82f6] font-bold text-[13px] rounded-lg border border-orange-100">Python后端</span>
                   <span className="px-3 py-1.5 bg-emerald-50 text-emerald-600 font-bold text-[13px] rounded-lg border border-emerald-100">数据分析</span>
                   <span className="px-3 py-1.5 bg-blue-50 text-blue-600 font-bold text-[13px] rounded-lg border border-blue-100">AI 应用</span>
                   <span className="px-3 py-1.5 bg-neutral-100 text-neutral-600 font-bold text-[13px] rounded-lg border border-neutral-200">深度学习基础</span>
@@ -127,7 +127,7 @@ export default function UserPersona() {
           </div>
 
           {/* Card 2: Skill Depth Radar */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden flex flex-col hover:border-orange-200 transition-colors duration-300">
+          <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden flex flex-col hover:border-blue-200 transition-colors duration-300">
             <div className="p-5 border-b border-neutral-100 bg-neutral-50/50 flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
                 <Target className="w-4 h-4" />
@@ -141,7 +141,7 @@ export default function UserPersona() {
                     <PolarGrid stroke="#f3f4f6" />
                     <PolarAngleAxis dataKey="subject" tick={{ fill: "#6b7280", fontSize: 12, fontWeight: 600 }} />
                     <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                    <Radar name="技能值" dataKey="A" stroke="#fa541c" strokeWidth={2} fill="#fa541c" fillOpacity={0.2} />
+                    <Radar name="技能值" dataKey="A" stroke="#3b82f6" strokeWidth={2} fill="#3b82f6" fillOpacity={0.2} />
                   </RadarChart>
                 </ResponsiveContainer>
               </div>
@@ -165,9 +165,9 @@ export default function UserPersona() {
           </div>
 
           {/* Card 3: Goals & Preferences */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden flex flex-col hover:border-orange-200 transition-colors duration-300 relative">
+          <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden flex flex-col hover:border-blue-200 transition-colors duration-300 relative">
             <div className="absolute top-0 right-0 p-4">
-              <span className="bg-gradient-to-r from-orange-400 to-[#fa541c] text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+              <span className="bg-gradient-to-r from-blue-400 to-[#3b82f6] text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
                 <Sparkles className="w-3 h-3" /> AI 生成画像
               </span>
             </div>
@@ -181,20 +181,20 @@ export default function UserPersona() {
               
               <div>
                 <h4 className="flex items-center gap-2 text-[14px] font-bold text-neutral-900 mb-3">
-                  <Target className="w-4 h-4 text-[#fa541c]" /> 核心学习目标
+                  <Target className="w-4 h-4 text-[#3b82f6]" /> 核心学习目标
                 </h4>
-                <div className="bg-orange-50/50 border border-orange-100 rounded-xl p-4">
+                <div className="bg-blue-50/50 border border-orange-100 rounded-xl p-4">
                   <ul className="space-y-2.5">
                     <li className="flex items-start gap-2 text-[13.5px] text-neutral-700 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
                       掌握大模型应用层开发（Prompt Engineering & LangChain）
                     </li>
                     <li className="flex items-start gap-2 text-[13.5px] text-neutral-700 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
                       准备春季大厂实习招聘，主攻算法岗
                     </li>
                     <li className="flex items-start gap-2 text-[13.5px] text-neutral-700 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
                       提升工程化部署能力，完成1个端到端项目
                     </li>
                   </ul>
@@ -219,7 +219,7 @@ export default function UserPersona() {
               </div>
 
               <div className="mt-auto pt-4">
-                <Button className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 shadow-md shadow-orange-500/20">
+                <Button className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 shadow-md shadow-blue-500/20">
                   <Zap className="w-4 h-4 mr-2" /> 生成我的专属学习路径
                 </Button>
               </div>
@@ -236,7 +236,7 @@ export default function UserPersona() {
             <div className="p-5 md:p-6 border-b border-neutral-100 flex items-center justify-between bg-gradient-to-r from-orange-50/50 to-white shrink-0">
               <div>
                 <h2 className="text-lg font-black text-neutral-900 flex items-center gap-2 mb-1">
-                  <Edit className="w-5 h-5 text-[#fa541c]" /> 完善画像问卷
+                  <Edit className="w-5 h-5 text-[#3b82f6]" /> 完善画像问卷
                 </h2>
                 <p className="text-[13px] text-neutral-500 font-medium">填写越详细，AI 推荐的学习路径越精准</p>
               </div>
@@ -251,13 +251,13 @@ export default function UserPersona() {
                 {/* Identity */}
                 <div className="space-y-3">
                   <label className="text-[14px] font-bold text-neutral-800 flex items-center gap-2">
-                    <User className="w-4 h-4 text-[#fa541c]" /> 1. 您的当前身份是？<span className="text-red-500">*</span>
+                    <User className="w-4 h-4 text-[#3b82f6]" /> 1. 您的当前身份是？<span className="text-red-500">*</span>
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {['学生', '教师', '企业员工'].map((item, i) => (
                       <button key={item} className={cn(
                         "py-3 px-4 rounded-xl border text-[14px] font-bold transition-all",
-                        i === 0 ? "border-[#fa541c] bg-orange-50 text-[#fa541c] shadow-sm shadow-orange-500/10" : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300"
+                        i === 0 ? "border-[#3b82f6] bg-blue-50 text-[#3b82f6] shadow-sm shadow-blue-500/10" : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300"
                       )}>
                         {item}
                       </button>
@@ -268,11 +268,11 @@ export default function UserPersona() {
                 {/* Level */}
                 <div className="space-y-3">
                   <label className="text-[14px] font-bold text-neutral-800 flex items-center gap-2">
-                    <Target className="w-4 h-4 text-[#fa541c]" /> 2. 您对目前所学专业的掌握程度如何？<span className="text-red-500">*</span>
+                    <Target className="w-4 h-4 text-[#3b82f6]" /> 2. 您对目前所学专业的掌握程度如何？<span className="text-red-500">*</span>
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     <button className="py-3 px-4 rounded-xl border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300 text-[14px] font-bold transition-all">小白入门</button>
-                    <button className="py-3 px-4 rounded-xl border border-[#fa541c] bg-orange-50 text-[#fa541c] shadow-sm shadow-orange-500/10 text-[14px] font-bold transition-all">进阶学习</button>
+                    <button className="py-3 px-4 rounded-xl border border-[#3b82f6] bg-blue-50 text-[#3b82f6] shadow-sm shadow-blue-500/10 text-[14px] font-bold transition-all">进阶学习</button>
                     <button className="py-3 px-4 rounded-xl border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300 text-[14px] font-bold transition-all">领域专家</button>
                   </div>
                 </div>
@@ -280,13 +280,13 @@ export default function UserPersona() {
                 {/* Domains */}
                 <div className="space-y-3">
                   <label className="text-[14px] font-bold text-neutral-800 flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-[#fa541c]" /> 3. 您最感兴趣的技术领域？（多选）
+                    <BookOpen className="w-4 h-4 text-[#3b82f6]" /> 3. 您最感兴趣的技术领域？（多选）
                   </label>
                   <div className="flex flex-wrap gap-2.5">
                     {['Python开发', '大语言模型', '前端开发', '后端架构', '数据分析', 'UI设计', '自动化测试', '运维部署'].map((tag, i) => (
                       <button key={tag} className={cn(
                         "px-4 py-2 rounded-full border text-[13px] font-bold transition-all",
-                        [0, 1, 4].includes(i) ? "border-[#fa541c] bg-[#fa541c] text-white shadow-sm shadow-orange-500/20" : "border-neutral-200 bg-white text-neutral-600 hover:bg-neutral-50"
+                        [0, 1, 4].includes(i) ? "border-[#3b82f6] bg-[#3b82f6] text-white shadow-sm shadow-blue-500/20" : "border-neutral-200 bg-white text-neutral-600 hover:bg-neutral-50"
                       )}>
                         {tag}
                       </button>
@@ -297,11 +297,11 @@ export default function UserPersona() {
                 {/* Goals */}
                 <div className="space-y-3">
                   <label className="text-[14px] font-bold text-neutral-800 flex items-center gap-2">
-                    <Award className="w-4 h-4 text-[#fa541c]" /> 4. 您近期的核心学习目标是？
+                    <Award className="w-4 h-4 text-[#3b82f6]" /> 4. 您近期的核心学习目标是？
                   </label>
                   <textarea 
                     placeholder="例如：准备秋招，希望提升算法能力，或者想要完成一个大模型微调的实战项目..."
-                    className="w-full h-24 p-4 rounded-xl border border-neutral-200 bg-white text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] resize-none"
+                    className="w-full h-24 p-4 rounded-xl border border-neutral-200 bg-white text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] resize-none"
                     defaultValue="掌握大模型应用层开发，准备春季大厂实习招聘，主攻算法岗。"
                   />
                 </div>
@@ -311,7 +311,7 @@ export default function UserPersona() {
 
             <div className="p-5 md:p-6 border-t border-neutral-100 bg-white shrink-0 flex items-center justify-end gap-3">
               <Button onClick={() => setShowEditModal(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-10 px-6">取消</Button>
-              <Button onClick={() => setShowEditModal(false)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20">保存并生成新画像</Button>
+              <Button onClick={() => setShowEditModal(false)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20">保存并生成新画像</Button>
             </div>
           </div>
         </div>

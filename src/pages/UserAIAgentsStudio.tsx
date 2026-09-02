@@ -50,7 +50,7 @@ export default function UserAIAgentsStudio() {
           
           {/* User Message */}
           <div className="flex justify-end mb-6">
-             <div className="px-5 py-3.5 rounded-[16px] max-w-[80%] text-[14px] leading-relaxed shadow-sm bg-[#fa541c] text-white rounded-tr-[4px]">
+             <div className="px-5 py-3.5 rounded-[16px] max-w-[80%] text-[14px] leading-relaxed shadow-sm bg-[#3b82f6] text-white rounded-tr-[4px]">
                mcp是什么
              </div>
           </div>
@@ -60,8 +60,8 @@ export default function UserAIAgentsStudio() {
              
             {/* Thinking / initial reply */}
             <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-[#fff2e8] flex items-center justify-center shrink-0">
-                <span className="text-[#fa541c] font-bold text-[18px] mb-1">+</span>
+              <div className="w-8 h-8 rounded-full bg-[#eff6ff] flex items-center justify-center shrink-0">
+                <span className="text-[#3b82f6] font-bold text-[18px] mb-1">+</span>
               </div>
               <div className="flex-1 mt-1">
                 <div className="font-bold text-[14px] text-neutral-title mb-2">翼小问</div>
@@ -76,8 +76,8 @@ export default function UserAIAgentsStudio() {
 
             {/* Task Process Panel */}
             <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-[#fff2e8] flex items-center justify-center shrink-0">
-                <span className="text-[#fa541c] font-bold text-[18px] mb-1">+</span>
+              <div className="w-8 h-8 rounded-full bg-[#eff6ff] flex items-center justify-center shrink-0">
+                <span className="text-[#3b82f6] font-bold text-[18px] mb-1">+</span>
               </div>
               <div className="flex-1 mt-1">
                 <div className="font-bold text-[14px] text-neutral-title mb-4">翼小问</div>
@@ -90,8 +90,8 @@ export default function UserAIAgentsStudio() {
                   
                   {/* Step 1 */}
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-[#fa541c] font-medium">
-                      <CheckCircle2 className="w-4 h-4 fill-current text-white bg-[#fa541c] rounded-full" />
+                    <div className="flex items-center gap-2 text-[#3b82f6] font-medium">
+                      <CheckCircle2 className="w-4 h-4 fill-current text-white bg-[#3b82f6] rounded-full" />
                       <span>深入研究并整理MCP的核心定义与架构原理</span>
                     </div>
                     <div className="pl-6 space-y-2 border-l-2 border-neutral-100 ml-2 py-1">
@@ -109,8 +109,8 @@ export default function UserAIAgentsStudio() {
 
                   {/* Step 2 */}
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-[#fa541c] font-medium">
-                      <CheckCircle2 className="w-4 h-4 fill-current text-white bg-[#fa541c] rounded-full" />
+                    <div className="flex items-center gap-2 text-[#3b82f6] font-medium">
+                      <CheckCircle2 className="w-4 h-4 fill-current text-white bg-[#3b82f6] rounded-full" />
                       <span>编写并交付 MCP 详细说明文档</span>
                     </div>
                     <div className="pl-6 space-y-4 border-l-2 border-transparent ml-2 py-1">
@@ -121,8 +121,8 @@ export default function UserAIAgentsStudio() {
                       {/* Attached Files */}
                       <div className="flex gap-4">
                         {/* File Card 1 (Active) */}
-                        <div className="flex items-center gap-3 p-3 rounded-[8px] border-2 border-[#fa541c] bg-[#fff2e8] min-w-[200px] cursor-pointer shadow-sm">
-                          <div className="w-10 h-10 rounded-[6px] bg-[#fa541c]/10 flex items-center justify-center text-[#fa541c]">
+                        <div className="flex items-center gap-3 p-3 rounded-[8px] border-2 border-[#3b82f6] bg-[#eff6ff] min-w-[200px] cursor-pointer shadow-sm">
+                          <div className="w-10 h-10 rounded-[6px] bg-[#3b82f6]/10 flex items-center justify-center text-[#3b82f6]">
                             <FileText className="w-5 h-5" />
                           </div>
                           <div>
@@ -132,7 +132,7 @@ export default function UserAIAgentsStudio() {
                         </div>
 
                         {/* File Card 2 */}
-                        <div className="flex items-center gap-3 p-3 rounded-[8px] border border-neutral-200 bg-white hover:border-[#fa541c] hover:shadow-sm cursor-pointer transition-all min-w-[200px]">
+                        <div className="flex items-center gap-3 p-3 rounded-[8px] border border-neutral-200 bg-white hover:border-[#3b82f6] hover:shadow-sm cursor-pointer transition-all min-w-[200px]">
                           <div className="w-10 h-10 rounded-[6px] bg-[#f5f6f8] flex items-center justify-center text-neutral-title">
                             <Folder className="w-5 h-5" />
                           </div>
@@ -159,7 +159,7 @@ export default function UserAIAgentsStudio() {
 
         {/* Input Area */}
         <div className="shrink-0 p-4 bg-white border-t border-neutral-border z-10 w-full">
-          <div className="border border-neutral-200 rounded-[12px] p-3 bg-[#fdfdfd] focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c]/20 transition-all shadow-sm flex flex-col gap-2">
+          <div className="border border-neutral-200 rounded-[12px] p-3 bg-[#fdfdfd] focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6]/20 transition-all shadow-sm flex flex-col gap-2">
             <textarea
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
@@ -186,7 +186,7 @@ export default function UserAIAgentsStudio() {
                 <button 
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim()}
-                  className="flex items-center justify-center w-8 h-8 bg-[#fa541c] text-white rounded-[8px] hover:bg-[#e64a19] disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+                  className="flex items-center justify-center w-8 h-8 bg-[#3b82f6] text-white rounded-[8px] hover:bg-[#e64a19] disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
                 >
                   <Send className="w-3.5 h-3.5" />
                 </button>

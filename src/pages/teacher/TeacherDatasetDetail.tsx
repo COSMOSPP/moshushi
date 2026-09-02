@@ -130,7 +130,7 @@ export default function TeacherDatasetDetail() {
   const getTagStyle = (tag: string) => {
     switch (tag) {
       case 'AI':
-        return { bg: 'bg-orange-50', text: 'text-[#fa541c]', border: 'border-orange-200', dot: 'bg-[#fa541c]' };
+        return { bg: 'bg-blue-50', text: 'text-[#3b82f6]', border: 'border-blue-200', dot: 'bg-[#3b82f6]' };
       case '容器':
         return { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', dot: 'bg-blue-500' };
       case '虚机':
@@ -284,7 +284,7 @@ export default function TeacherDatasetDetail() {
             className="w-full h-full object-cover opacity-15"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fff2e8] via-[#ffe4d3]/95 to-[#ffd8bf]/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#eff6ff] via-[#ffe4d3]/95 to-[#dbeafe]/85"></div>
           {/* Decorative background glow circle */}
           <div className="absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 bg-white/40 rounded-full blur-3xl pointer-events-none"></div>
         </div>
@@ -295,14 +295,14 @@ export default function TeacherDatasetDetail() {
             <div className="flex items-center text-[13px] text-neutral-600">
               <button 
                 onClick={handleBack} 
-                className="hover:text-[#fa541c] flex items-center gap-1 font-medium transition-colors cursor-pointer bg-transparent border-0 p-0"
+                className="hover:text-[#3b82f6] flex items-center gap-1 font-medium transition-colors cursor-pointer bg-transparent border-0 p-0"
               >
                 <ChevronLeft className="w-4 h-4" /> 返回数据集列表
               </button>
               <span className="mx-2 text-neutral-400">/</span>
-              <span className="hover:text-[#fa541c] cursor-pointer">智云平台</span>
+              <span className="hover:text-[#3b82f6] cursor-pointer">智云平台</span>
               <span className="mx-2 text-neutral-400">/</span>
-              <span className="hover:text-[#fa541c] cursor-pointer">数据集中心</span>
+              <span className="hover:text-[#3b82f6] cursor-pointer">数据集中心</span>
               <span className="mx-2 text-neutral-400">/</span>
               <span className="text-neutral-900 font-bold">{dataset.name}</span>
             </div>
@@ -316,11 +316,11 @@ export default function TeacherDatasetDetail() {
                 className={cn(
                   "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full transition-all text-[13px] font-medium cursor-pointer border",
                   isStarred 
-                    ? "bg-[#fa541c]/10 text-[#fa541c] border-[#ffbb96] hover:bg-[#fa541c]/20" 
+                    ? "bg-[#3b82f6]/10 text-[#3b82f6] border-[#bfdbfe] hover:bg-[#3b82f6]/20" 
                     : "bg-white/70 hover:bg-white text-neutral-700 border-white/80 shadow-2xs"
                 )}
               >
-                <Star className={cn("w-4 h-4 transition-transform active:scale-95", isStarred ? "text-[#fa541c] fill-[#fa541c]" : "")} /> 
+                <Star className={cn("w-4 h-4 transition-transform active:scale-95", isStarred ? "text-[#3b82f6] fill-[#3b82f6]" : "")} /> 
                 {isStarred ? '已收藏' : '收藏'}
               </button>
             </div>
@@ -390,7 +390,7 @@ export default function TeacherDatasetDetail() {
 
                 <Button
                   onClick={() => setShowAddToProjectModal(true)}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white shadow-md shadow-orange-500/20 h-9 px-5 text-xs font-bold rounded-[4px] flex items-center gap-1.5 cursor-pointer transition-all border-0"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white shadow-md shadow-blue-500/20 h-9 px-5 text-xs font-bold rounded-[4px] flex items-center gap-1.5 cursor-pointer transition-all border-0"
                 >
                   <Plus className="w-4 h-4" />
                   添加到项目
@@ -421,14 +421,14 @@ export default function TeacherDatasetDetail() {
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={() => setIsUploadModalOpen(true)}
-                    className="p-1 text-neutral-400 hover:text-[#fa541c] transition-colors border-0 bg-transparent cursor-pointer"
+                    className="p-1 text-neutral-400 hover:text-[#3b82f6] transition-colors border-0 bg-transparent cursor-pointer"
                     title="上传文件"
                   >
                     <Upload className="w-4 h-4" />
                   </button>
                   <button 
                     onClick={() => setIsSettingsMode(true)}
-                    className="p-1 text-neutral-400 hover:text-[#fa541c] transition-colors border-0 bg-transparent cursor-pointer"
+                    className="p-1 text-neutral-400 hover:text-[#3b82f6] transition-colors border-0 bg-transparent cursor-pointer"
                     title="文件设置"
                   >
                     <Settings className="w-4 h-4" />
@@ -443,7 +443,7 @@ export default function TeacherDatasetDetail() {
                       setIsSettingsMode(false);
                       setSelectedFileIds([]);
                     }}
-                    className="p-1 text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent cursor-pointer"
+                    className="p-1 text-[#3b82f6] hover:text-[#2563eb] transition-colors border-0 bg-transparent cursor-pointer"
                     title="返回文件列表"
                   >
                     <RotateCcw className="w-4 h-4" />
@@ -452,7 +452,7 @@ export default function TeacherDatasetDetail() {
                   {/* 2. Unzip Icon (FolderArchive) */}
                   <button 
                     onClick={handleBatchUnzip}
-                    className="p-1 text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent cursor-pointer"
+                    className="p-1 text-[#3b82f6] hover:text-[#2563eb] transition-colors border-0 bg-transparent cursor-pointer"
                     title="解压所选文件"
                   >
                     <FolderArchive className="w-4 h-4" />
@@ -461,7 +461,7 @@ export default function TeacherDatasetDetail() {
                   {/* 3. Delete Icon (Trash bin) */}
                   <button 
                     onClick={handleBatchDelete}
-                    className="p-1 text-[#fa541c] hover:text-red-500 transition-colors border-0 bg-transparent cursor-pointer"
+                    className="p-1 text-[#3b82f6] hover:text-red-500 transition-colors border-0 bg-transparent cursor-pointer"
                     title="删除所选文件"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -479,11 +479,11 @@ export default function TeacherDatasetDetail() {
                     type="checkbox"
                     checked={selectedFileIds.length === (fileItems.length + 1)}
                     onChange={handleToggleSelectAll}
-                    className="w-3.5 h-3.5 accent-[#fa541c] rounded cursor-pointer"
+                    className="w-3.5 h-3.5 accent-[#3b82f6] rounded cursor-pointer"
                   />
                   <span 
                     onClick={handleToggleSelectAll}
-                    className="text-[#fa541c] font-medium cursor-pointer select-none"
+                    className="text-[#3b82f6] font-medium cursor-pointer select-none"
                   >
                     全选
                   </span>
@@ -495,8 +495,8 @@ export default function TeacherDatasetDetail() {
                 <div className={cn(
                   "w-full text-left px-3 py-2 rounded-[4px] flex items-center justify-between transition-all font-medium text-[13px]",
                   activeDetailTab === 'overview'
-                    ? "bg-[#fff2e8] text-[#fa541c] font-bold shadow-2xs"
-                    : "text-neutral-700 hover:bg-[#fff2e8] hover:text-[#fa541c]"
+                    ? "bg-[#eff6ff] text-[#3b82f6] font-bold shadow-2xs"
+                    : "text-neutral-700 hover:bg-[#eff6ff] hover:text-[#3b82f6]"
                 )}>
                   <span className="flex items-center gap-2">
                     {isSettingsMode && (
@@ -504,7 +504,7 @@ export default function TeacherDatasetDetail() {
                         type="checkbox"
                         checked={selectedFileIds.includes('overview')}
                         onChange={() => handleToggleSelectFile('overview')}
-                        className="w-3.5 h-3.5 accent-[#fa541c] rounded cursor-pointer mr-0.5 shrink-0"
+                        className="w-3.5 h-3.5 accent-[#3b82f6] rounded cursor-pointer mr-0.5 shrink-0"
                       />
                     )}
                     <button 
@@ -526,8 +526,8 @@ export default function TeacherDatasetDetail() {
                   <div className={cn(
                     "w-full text-left px-3 py-2 rounded-[4px] flex items-center justify-between transition-all font-medium text-[12.5px]",
                     activeDetailTab === item.id
-                      ? "bg-[#fff2e8] text-[#fa541c] font-bold shadow-2xs"
-                      : "text-neutral-700 hover:bg-[#fff2e8] hover:text-[#fa541c]"
+                      ? "bg-[#eff6ff] text-[#3b82f6] font-bold shadow-2xs"
+                      : "text-neutral-700 hover:bg-[#eff6ff] hover:text-[#3b82f6]"
                   )}>
                     <span className="flex items-center gap-2 truncate pr-6">
                       {isSettingsMode && (
@@ -535,7 +535,7 @@ export default function TeacherDatasetDetail() {
                           type="checkbox"
                           checked={selectedFileIds.includes(item.id)}
                           onChange={() => handleToggleSelectFile(item.id)}
-                          className="w-3.5 h-3.5 accent-[#fa541c] rounded cursor-pointer shrink-0"
+                          className="w-3.5 h-3.5 accent-[#3b82f6] rounded cursor-pointer shrink-0"
                         />
                       )}
                       <button 
@@ -571,7 +571,7 @@ export default function TeacherDatasetDetail() {
                         setFileItems(prev => prev.filter(f => f.id !== item.id));
                         showToast(`已删除「${item.name}」`, 'success');
                       }}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 p-1 text-neutral-400 hover:text-[#fa541c] transition-all border-0 bg-transparent cursor-pointer rounded"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 p-1 text-neutral-400 hover:text-[#3b82f6] transition-all border-0 bg-transparent cursor-pointer rounded"
                       title={`删除 ${item.name}`}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -586,7 +586,7 @@ export default function TeacherDatasetDetail() {
           <div className="bg-white rounded-xl border border-neutral-200/80 p-6 shadow-sm space-y-6 text-left min-h-[460px] flex flex-col justify-between">
             {activeDetailTab === 'overview' ? (
               <div className="space-y-5 animate-in fade-in duration-150">
-                <div className="flex items-center gap-2 border-l-4 border-[#fa541c] pl-3 py-0.5">
+                <div className="flex items-center gap-2 border-l-4 border-[#3b82f6] pl-3 py-0.5">
                   <h2 className="text-base font-bold text-neutral-900">概览</h2>
                 </div>
 
@@ -609,7 +609,7 @@ export default function TeacherDatasetDetail() {
                         showToast('已复制示例代码到剪贴板', 'success');
                         setTimeout(() => setIsCopied(false), 2000);
                       }}
-                      className="inline-flex items-center gap-1 text-neutral-500 hover:text-[#fa541c] bg-white border border-neutral-200 px-2 py-0.5 rounded text-[11px] cursor-pointer transition-colors"
+                      className="inline-flex items-center gap-1 text-neutral-500 hover:text-[#3b82f6] bg-white border border-neutral-200 px-2 py-0.5 rounded text-[11px] cursor-pointer transition-colors"
                     >
                       {isCopied ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
                       <span>{isCopied ? '已复制' : '复制代码'}</span>
@@ -633,7 +633,7 @@ export default function TeacherDatasetDetail() {
                     href="https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="text-[#fa541c] hover:underline flex items-center gap-1"
+                    className="text-[#3b82f6] hover:underline flex items-center gap-1"
                   >
                     https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
                     <ExternalLink className="w-3 h-3" />
@@ -642,7 +642,7 @@ export default function TeacherDatasetDetail() {
               </div>
             ) : (
               <div className="space-y-5 animate-in fade-in duration-150">
-                <div className="flex items-center justify-between border-l-4 border-[#fa541c] pl-3 py-0.5">
+                <div className="flex items-center justify-between border-l-4 border-[#3b82f6] pl-3 py-0.5">
                   <h2 className="text-base font-bold text-neutral-900 font-mono">
                     {activeItem?.name || '文件'} 结构预览
                   </h2>
@@ -705,11 +705,11 @@ export default function TeacherDatasetDetail() {
           >
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h3 className="text-[15px] font-bold text-neutral-900 flex items-center gap-2">
-                <Upload className="w-4 h-4 text-[#fa541c]" /> 上传数据集文件
+                <Upload className="w-4 h-4 text-[#3b82f6]" /> 上传数据集文件
               </h3>
               <button 
                 onClick={() => setIsUploadModalOpen(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1 rounded-full transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1 rounded-full transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -717,10 +717,10 @@ export default function TeacherDatasetDetail() {
 
             <div className="p-6 space-y-4">
               {/* Upload Zone */}
-              <div className="border-2 border-dashed border-neutral-200 hover:border-[#fa541c] rounded-xl p-8 text-center bg-neutral-50/50 hover:bg-[#fff2e8]/20 transition-all cursor-pointer group">
-                <UploadCloud className="w-10 h-10 text-neutral-400 group-hover:text-[#fa541c] mx-auto mb-3 transition-colors" />
+              <div className="border-2 border-dashed border-neutral-200 hover:border-[#3b82f6] rounded-xl p-8 text-center bg-neutral-50/50 hover:bg-[#eff6ff]/20 transition-all cursor-pointer group">
+                <UploadCloud className="w-10 h-10 text-neutral-400 group-hover:text-[#3b82f6] mx-auto mb-3 transition-colors" />
                 <p className="text-xs text-neutral-700 font-medium">
-                  将文件拖拽到此处，或 <span className="text-[#fa541c] font-bold hover:underline">点击浏览文件</span>
+                  将文件拖拽到此处，或 <span className="text-[#3b82f6] font-bold hover:underline">点击浏览文件</span>
                 </p>
                 <p className="text-[11px] text-neutral-400 mt-1.5 font-mono">
                   支持 .zip, .tar.gz, .npz, .csv, .png, .md 等多种格式 (最大 2GB)
@@ -741,7 +741,7 @@ export default function TeacherDatasetDetail() {
                   showToast('文件上传成功', 'success');
                   setIsUploadModalOpen(false);
                 }}
-                className="h-8 px-5 text-xs bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] border-0"
+                className="h-8 px-5 text-xs bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] border-0"
               >
                 开始上传
               </Button>
@@ -764,18 +764,18 @@ export default function TeacherDatasetDetail() {
           >
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" /> 添加到项目
+                <Plus className="w-5 h-5 text-[#3b82f6]" /> 添加到项目
               </h2>
               <button 
                 onClick={() => setShowAddToProjectModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
-              <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/60 rounded-[6px] p-4 text-[13px] text-neutral-700">
+              <div className="bg-[#eff6ff]/40 border border-[#bfdbfe]/60 rounded-[6px] p-4 text-[13px] text-neutral-700">
                 数据集包含预处理特征向量，选择将此数据集挂载至已有项目或创建新项目。
               </div>
 
@@ -789,7 +789,7 @@ export default function TeacherDatasetDetail() {
                       className={cn(
                         "p-3.5 rounded-[6px] border cursor-pointer flex items-center justify-between transition-all",
                         selectedProjectId === proj.id 
-                          ? "border-[#fa541c] bg-[#fff2e8]/30 shadow-xs" 
+                          ? "border-[#3b82f6] bg-[#eff6ff]/30 shadow-xs" 
                           : "border-neutral-200/80 hover:border-neutral-300 bg-white"
                       )}
                     >
@@ -798,7 +798,7 @@ export default function TeacherDatasetDetail() {
                         <div className="text-[12px] text-neutral-400 font-mono mt-0.5">ID: {proj.id}</div>
                       </div>
                       {selectedProjectId === proj.id && (
-                        <Check className="w-5 h-5 text-[#fa541c]" />
+                        <Check className="w-5 h-5 text-[#3b82f6]" />
                       )}
                     </div>
                   ))}
@@ -808,7 +808,7 @@ export default function TeacherDatasetDetail() {
               <div className="pt-2">
                 <button 
                   onClick={handleOpenCreateProjectModal}
-                  className="w-full py-2.5 border border-dashed border-[#fa541c]/60 text-[#fa541c] rounded-[6px] hover:bg-[#fff2e8]/40 font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 bg-transparent text-[13px]"
+                  className="w-full py-2.5 border border-dashed border-[#3b82f6]/60 text-[#3b82f6] rounded-[6px] hover:bg-[#eff6ff]/40 font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 bg-transparent text-[13px]"
                 >
                   <Plus className="w-4 h-4" /> 新建项目
                 </button>
@@ -828,7 +828,7 @@ export default function TeacherDatasetDetail() {
                   setShowAddToProjectModal(false);
                   setShowSuccessConfirmModal(true);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
               >
                 确定
               </Button>
@@ -850,11 +850,11 @@ export default function TeacherDatasetDetail() {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" /> 新建实战项目
+                <Plus className="w-5 h-5 text-[#3b82f6]" /> 新建实战项目
               </h2>
               <button 
                 onClick={() => setShowCreateProjectModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -873,7 +873,7 @@ export default function TeacherDatasetDetail() {
                   className={cn(
                     "flex-1 py-3 text-center border-b-2 transition-all cursor-pointer flex items-center justify-center gap-1.5 rounded-[4px] border-t-0 border-x-0 bg-transparent",
                     activeFormTab === tab.key 
-                      ? "border-[#fa541c] text-[#fa541c] bg-white font-extrabold" 
+                      ? "border-[#3b82f6] text-[#3b82f6] bg-white font-extrabold" 
                       : "border-transparent text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100/40"
                   )}
                 >
@@ -893,14 +893,14 @@ export default function TeacherDatasetDetail() {
                   {/* 1. 项目名称 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      项目名称 <span className="text-[#fa541c]">*</span>
+                      项目名称 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
                       placeholder="请输入"
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                     />
                   </div>
 
@@ -914,7 +914,7 @@ export default function TeacherDatasetDetail() {
                         onClick={() => setIsTagDropdownOpen(!isTagDropdownOpen)}
                         className={cn(
                           "min-h-[38px] w-full border rounded px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none relative",
-                          isTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
+                          isTagDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300"
                         )}
                       >
                         {formTags.length === 0 ? (
@@ -978,13 +978,13 @@ export default function TeacherDatasetDetail() {
                                   className={cn(
                                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                                     isSelected 
-                                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                   )}
                                 >
                                   <span className="font-medium">{tag}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                                   )}
                                 </div>
                               );
@@ -998,21 +998,21 @@ export default function TeacherDatasetDetail() {
                   {/* 3. 项目描述 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      项目描述 <span className="text-[#fa541c]">*</span>
+                      项目描述 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
                       placeholder="请输入"
                       value={formDesc}
                       onChange={(e) => setFormDesc(e.target.value)}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                     />
                   </div>
 
                   {/* 4. 项目图片 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
-                      项目图片 <span className="text-[#fa541c]">*</span>
+                      项目图片 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="grid grid-cols-3 gap-3">
                       {defaultCovers.map((cover, idx) => (
@@ -1020,15 +1020,15 @@ export default function TeacherDatasetDetail() {
                           key={idx}
                           onClick={() => setSelectedCover(cover)}
                           className={cn(
-                            "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#fa541c]/50 hover:scale-[1.02]",
+                            "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#3b82f6]/50 hover:scale-[1.02]",
                             selectedCover === cover 
-                              ? "border-[#fa541c] shadow-md shadow-orange-500/10 scale-[1.02]" 
+                              ? "border-[#3b82f6] shadow-md shadow-blue-500/10 scale-[1.02]" 
                               : "border-transparent"
                           )}
                         >
                           <img src={cover} alt={`cover-${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           {selectedCover === cover && (
-                            <div className="absolute top-2 right-2 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
+                            <div className="absolute top-2 right-2 bg-[#3b82f6] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
                               <Check className="w-3.5 h-3.5" strokeWidth={3} />
                             </div>
                           )}
@@ -1040,14 +1040,14 @@ export default function TeacherDatasetDetail() {
                   {/* 5. 项目介绍 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      项目介绍 <span className="text-[#fa541c]">*</span>
+                      项目介绍 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="border border-neutral-200 rounded overflow-hidden flex flex-col bg-white w-full">
                       {/* Rich Text Toolbar */}
                       <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/50 select-none">
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
-                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#fa541c] border-0 bg-transparent cursor-pointer" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#3b82f6] border-0 bg-transparent cursor-pointer" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="字体大小"><span className="text-[10px] font-bold font-serif leading-none relative top-[-0.5px]">Tt</span></button>
                         <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="无序列表"><List className="w-3.5 h-3.5" /></button>
@@ -1079,12 +1079,12 @@ export default function TeacherDatasetDetail() {
                   {/* 1. 选择资源池 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      选择资源池 <span className="text-[#fa541c]">*</span>
+                      选择资源池 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <select 
                       value={resourcePool} 
                       onChange={(e) => setResourcePool(e.target.value)}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                     >
                       <option value="天翼云资源池1">天翼云资源池1</option>
                       <option value="资源池1">资源池1</option>
@@ -1095,7 +1095,7 @@ export default function TeacherDatasetDetail() {
                   {/* 2. 选择环境类型 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      选择环境类型 <span className="text-[#fa541c]">*</span>
+                      选择环境类型 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="flex items-center gap-6 text-[13px]">
                       {[
@@ -1109,7 +1109,7 @@ export default function TeacherDatasetDetail() {
                             value={opt.value}
                             checked={envType === opt.value}
                             onChange={() => setEnvType(opt.value as any)}
-                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                            className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                           />
                           <span className="font-medium">{opt.label}</span>
                         </label>
@@ -1120,7 +1120,7 @@ export default function TeacherDatasetDetail() {
                   {/* 3. 源仓库地址 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      源仓库地址 <span className="text-[#fa541c]">*</span>
+                      源仓库地址 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="flex items-center gap-6 text-[13px]">
                       {[
@@ -1137,7 +1137,7 @@ export default function TeacherDatasetDetail() {
                               setRepoUploadMode(opt.value as any);
                               setFormSourceRepoUrl('');
                             }}
-                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                            className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                           />
                           <span className="font-medium">{opt.label}</span>
                         </label>
@@ -1154,12 +1154,12 @@ export default function TeacherDatasetDetail() {
                           placeholder="请输入源仓库地址 (如: git@github.com:... 或 https://...)"
                           value={formSourceRepoUrl}
                           onChange={(e) => setFormSourceRepoUrl(e.target.value)}
-                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] font-mono"
+                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] font-mono"
                         />
                       ) : (
                         <div className="space-y-2.5 w-full">
-                          <label className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center">
-                            <Upload className="w-6 h-6 text-[#fa541c]" strokeWidth={1.5} />
+                          <label className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#3b82f6]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center">
+                            <Upload className="w-6 h-6 text-[#3b82f6]" strokeWidth={1.5} />
                             <span className="text-[13px] text-[#262626] font-bold">点击选择或拖拽源码文件上传</span>
                             <span className="text-[11px] text-neutral-400">单文件上限 100MB</span>
                           </label>
@@ -1185,7 +1185,7 @@ export default function TeacherDatasetDetail() {
                             value={opt.value}
                             checked={creationMethod === opt.value}
                             onChange={() => setCreationMethod(opt.value as any)}
-                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                            className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                           />
                           <span className="font-medium">{opt.label}</span>
                         </label>
@@ -1197,12 +1197,12 @@ export default function TeacherDatasetDetail() {
                   <div className="border border-neutral-200 rounded p-5 bg-white space-y-4">
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        选择模板 <span className="text-[#fa541c]">*</span>
+                        选择模板 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <select 
                         value={templateValue}
                         onChange={(e) => setTemplateValue(e.target.value)}
-                        className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                        className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                       >
                         <option value="通用 Python 3.10 AI 分析环境">通用 Python 3.10 AI 分析环境</option>
                         <option value="PyTorch 2.0 + CUDA 11.8 深度学习环境">PyTorch 2.0 + CUDA 11.8 深度学习环境</option>
@@ -1212,10 +1212,10 @@ export default function TeacherDatasetDetail() {
 
                     <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                       <label className="text-[13px] font-bold text-[#262626] text-right">
-                        算力配置 <span className="text-[#fa541c]">*</span>
+                        算力配置 <span className="text-[#3b82f6]">*</span>
                       </label>
                       <div className="flex gap-3 text-[12px]">
-                        <span className="px-3 py-1.5 bg-orange-50 text-[#fa541c] border border-orange-200 rounded font-bold">2核 4G (基础开发)</span>
+                        <span className="px-3 py-1.5 bg-blue-50 text-[#3b82f6] border border-blue-200 rounded font-bold">2核 4G (基础开发)</span>
                         <span className="px-3 py-1.5 bg-white text-neutral-600 border border-neutral-200 rounded font-medium cursor-pointer hover:border-neutral-300">4核 8G (标准计算)</span>
                         <span className="px-3 py-1.5 bg-white text-neutral-600 border border-neutral-200 rounded font-medium cursor-pointer hover:border-neutral-300">8核 16G + RTX 4090</span>
                       </div>
@@ -1250,14 +1250,14 @@ export default function TeacherDatasetDetail() {
                 {activeFormTab === 'basic' ? (
                   <Button 
                     onClick={() => setActiveFormTab('env')} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
                   >
                     下一步
                   </Button>
                 ) : (
                   <Button 
                     onClick={handleConfirmCreateProject} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer font-semibold"
                   >
                     创建项目
                   </Button>
@@ -1276,7 +1276,7 @@ export default function TeacherDatasetDetail() {
               <h3 className="text-[15px] font-bold text-neutral-800 tracking-tight">提示</h3>
               <button 
                 onClick={() => setShowSuccessConfirmModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-full transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-full transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1285,7 +1285,7 @@ export default function TeacherDatasetDetail() {
             <div className="p-7 space-y-4">
               <p className="text-[14px] text-neutral-700 leading-relaxed font-normal">
                 此数据集已被成功添加到你的项目{' '}
-                <span className="text-[#fa541c] font-bold hover:underline cursor-pointer">
+                <span className="text-[#3b82f6] font-bold hover:underline cursor-pointer">
                   {selectedProjectId}
                 </span>
                 ，你可以进入相应 Notebook 进行数据分析。
@@ -1304,7 +1304,7 @@ export default function TeacherDatasetDetail() {
                   setShowSuccessConfirmModal(false);
                   setShowExperimentIDE(true);
                 }}
-                className="px-6 h-9 rounded-[4px] bg-[#fa541c] hover:bg-[#e84a15] text-white transition-colors text-[13px] font-semibold cursor-pointer border-0 shadow-sm select-none"
+                className="px-6 h-9 rounded-[4px] bg-[#3b82f6] hover:bg-[#2563eb] text-white transition-colors text-[13px] font-semibold cursor-pointer border-0 shadow-sm select-none"
               >
                 开始分析
               </button>

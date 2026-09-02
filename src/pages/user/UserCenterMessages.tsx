@@ -62,18 +62,18 @@ export default function UserCenterMessages() {
       {/* Header */}
       <div className="flex flex-shrink-0 items-center justify-between mb-6">
         <div className="flex items-center text-sm text-neutral-500">
-          <Link to="/user" className="hover:text-[#fa541c] cursor-pointer transition-colors">首页</Link>
+          <Link to="/user" className="hover:text-[#3b82f6] cursor-pointer transition-colors">首页</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
-          <Link to="/user/center" className="hover:text-[#fa541c] cursor-pointer transition-colors">个人中心</Link>
+          <Link to="/user/center" className="hover:text-[#3b82f6] cursor-pointer transition-colors">个人中心</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
           <span className="text-neutral-900 font-bold">消息中心</span>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" onClick={markAllAsRead} className="h-9 text-sm bg-white text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50 border-neutral-200 shadow-sm">
+          <Button variant="outline" size="sm" onClick={markAllAsRead} className="h-9 text-sm bg-white text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50 border-neutral-200 shadow-sm">
             <CheckCircle2 className="w-4 h-4 mr-1.5" />
             全部已读
           </Button>
-          <Button variant="outline" size="sm" onClick={() => setShowSettings(!showSettings)} className={cn("h-9 text-sm transition-colors shadow-sm", showSettings ? "bg-orange-50 text-[#fa541c] border-orange-200" : "bg-white text-neutral-600 border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50")}>
+          <Button variant="outline" size="sm" onClick={() => setShowSettings(!showSettings)} className={cn("h-9 text-sm transition-colors shadow-sm", showSettings ? "bg-blue-50 text-[#3b82f6] border-blue-200" : "bg-white text-neutral-600 border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50")}>
             <SlidersHorizontal className="w-4 h-4 mr-1.5" />
             接收偏好
           </Button>
@@ -84,7 +84,7 @@ export default function UserCenterMessages() {
       {showSettings && (
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-neutral-200 mb-6 animation-fade-in flex flex-col gap-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-[15px] font-bold text-neutral-900 flex items-center gap-2"><Bell className="w-4 h-4 text-[#fa541c]" /> 通知接收偏好</h3>
+            <h3 className="text-[15px] font-bold text-neutral-900 flex items-center gap-2"><Bell className="w-4 h-4 text-[#3b82f6]" /> 通知接收偏好</h3>
             <button onClick={() => setShowSettings(false)} className="text-neutral-400 hover:text-neutral-600 bg-neutral-50 p-1.5 rounded-lg">
               <X className="w-4 h-4" />
             </button>
@@ -96,7 +96,7 @@ export default function UserCenterMessages() {
                   type="checkbox" 
                   checked={preferences[tab.id as keyof typeof preferences]} 
                   onChange={(e) => setPreferences({...preferences, [tab.id]: e.target.checked})}
-                  className="w-4 h-4 rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c] cursor-pointer transition-all"
+                  className="w-4 h-4 rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer transition-all"
                 />
                 <span className="text-[13px] font-bold text-neutral-600 group-hover:text-neutral-900 transition-colors">{tab.label}</span>
               </label>
@@ -124,24 +124,24 @@ export default function UserCenterMessages() {
                 )}
               >
                 {isActive && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#fa541c] rounded-r-md"></div>
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#3b82f6] rounded-r-md"></div>
                 )}
                 <div className={cn(
                   "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors",
-                  isActive ? "bg-orange-50 text-[#fa541c]" : "bg-neutral-100 text-neutral-500 group-hover:text-neutral-700 group-hover:bg-neutral-200"
+                  isActive ? "bg-blue-50 text-[#3b82f6]" : "bg-neutral-100 text-neutral-500 group-hover:text-neutral-700 group-hover:bg-neutral-200"
                 )}>
                   <tab.icon className="w-4 h-4" />
                 </div>
                 <span className={cn(
                   "flex-1 font-bold truncate transition-colors text-[13px]",
-                  isActive ? "text-[#fa541c]" : "text-neutral-600 group-hover:text-neutral-900"
+                  isActive ? "text-[#3b82f6]" : "text-neutral-600 group-hover:text-neutral-900"
                 )}>
                   {tab.label}
                 </span>
                 {unreadCounts[tab.id] > 0 && (
                   <span className={cn(
                     "text-[11px] px-1.5 py-0.5 rounded-full font-black leading-none",
-                    isActive ? "bg-[#fa541c] text-white shadow-sm shadow-orange-500/20" : "bg-neutral-200 text-neutral-500"
+                    isActive ? "bg-[#3b82f6] text-white shadow-sm shadow-blue-500/20" : "bg-neutral-200 text-neutral-500"
                   )}>
                     {unreadCounts[tab.id]}
                   </span>
@@ -157,7 +157,7 @@ export default function UserCenterMessages() {
             <div className="absolute inset-0 z-20 bg-white overflow-y-auto custom-scrollbar p-6 md:p-8 animation-slide-up flex flex-col">
               <button 
                 onClick={() => setSelectedNotif(null)} 
-                className="mb-6 w-fit inline-flex items-center gap-1.5 text-[14px] font-bold text-neutral-500 hover:text-[#fa541c] bg-neutral-50 hover:bg-orange-50 px-3 py-1.5 rounded-lg transition-colors"
+                className="mb-6 w-fit inline-flex items-center gap-1.5 text-[14px] font-bold text-neutral-500 hover:text-[#3b82f6] bg-neutral-50 hover:bg-blue-50 px-3 py-1.5 rounded-lg transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" /> 返回消息列表
               </button>
@@ -165,7 +165,7 @@ export default function UserCenterMessages() {
               {/* Detail Header */}
               <div className="flex items-start justify-between mb-6 pb-6 border-b border-neutral-100">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#fa541c] shrink-0 shadow-sm">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-orange-100 flex items-center justify-center text-[#3b82f6] shrink-0 shadow-sm">
                       {(() => {
                         const Icon = tabs.find(t => t.id === selectedNotif.type)?.icon;
                         return Icon ? <Icon className="w-6 h-6" /> : null;
@@ -174,7 +174,7 @@ export default function UserCenterMessages() {
                     <div>
                       <h2 className="text-[20px] font-black text-neutral-900 mb-1.5 tracking-wide leading-tight">{selectedNotif.title}</h2>
                       <div className="flex items-center gap-3">
-                        <span className="bg-[#fa541c] text-white px-2 py-0.5 rounded text-[11px] font-bold shadow-sm shadow-orange-500/20">
+                        <span className="bg-[#3b82f6] text-white px-2 py-0.5 rounded text-[11px] font-bold shadow-sm shadow-blue-500/20">
                           {tabs.find(t => t.id === selectedNotif.type)?.label}
                         </span>
                         <span className="text-neutral-400 font-medium text-[13px] flex items-center gap-1.5">
@@ -197,7 +197,7 @@ export default function UserCenterMessages() {
                   {selectedNotif.type === 'audit' && (
                     <div className="mt-6 p-5 bg-neutral-50/80 border border-neutral-200 rounded-xl shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
-                        <FileCheck className="w-5 h-5 text-[#fa541c]" />
+                        <FileCheck className="w-5 h-5 text-[#3b82f6]" />
                         <h4 className="font-bold text-neutral-900 text-[14px] m-0">工单审批摘要</h4>
                       </div>
                       <div className="grid grid-cols-2 gap-3 text-[13px]">
@@ -219,7 +219,7 @@ export default function UserCenterMessages() {
                         </div>
                       </div>
                       <div className="mt-4 flex justify-start">
-                        <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 text-[13px] shadow-sm shadow-orange-500/20">前往资源中心查看详情</Button>
+                        <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 text-[13px] shadow-sm shadow-blue-500/20">前往资源中心查看详情</Button>
                       </div>
                     </div>
                   )}
@@ -241,11 +241,11 @@ export default function UserCenterMessages() {
                       }}
                       className={cn(
                         "p-5 px-6 cursor-pointer transition-colors group relative border-l-4",
-                        !notif.isRead ? "border-l-[#fa541c] bg-orange-50/30" : "border-l-transparent hover:bg-neutral-50/80"
+                        !notif.isRead ? "border-l-[#3b82f6] bg-blue-50/30" : "border-l-transparent hover:bg-neutral-50/80"
                       )}
                     >
                       {!notif.isRead && (
-                        <div className="absolute top-8 left-4 w-2 h-2 rounded-full bg-[#fa541c] shadow-sm shadow-orange-500/30" />
+                        <div className="absolute top-8 left-4 w-2 h-2 rounded-full bg-[#3b82f6] shadow-sm shadow-blue-500/30" />
                       )}
                       <div className="flex items-start justify-between pl-4">
                         <div className="flex-1 mr-6">
@@ -260,7 +260,7 @@ export default function UserCenterMessages() {
                         </div>
                         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                           {!notif.isRead && (
-                            <button onClick={(e) => markAsRead(notif.id, e)} className="p-2 text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 rounded-xl transition-colors" title="标记已读">
+                            <button onClick={(e) => markAsRead(notif.id, e)} className="p-2 text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50 rounded-xl transition-colors" title="标记已读">
                               <Check className="w-4 h-4" />
                             </button>
                           )}

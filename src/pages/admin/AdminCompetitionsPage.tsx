@@ -485,7 +485,7 @@ export default function AdminCompetitionsPage() {
       <div className="w-[240px] border-r border-neutral-border flex-shrink-0 flex flex-col bg-white h-full select-none">
         {/* Title Header */}
         <div className="p-5 border-b border-neutral-border shrink-0 flex items-center gap-2.5">
-          <Trophy className="w-5 h-5 text-[#fa541c]" />
+          <Trophy className="w-5 h-5 text-[#3b82f6]" />
           <div>
             <h2 className="text-sm font-black text-neutral-title leading-tight">公开竞赛管理</h2>
             <span className="text-[10px] text-neutral-caption font-bold">ZHIYUN COMPETITION HUB</span>
@@ -509,7 +509,7 @@ export default function AdminCompetitionsPage() {
                 className={cn(
                   "w-full flex items-center justify-between px-3 py-2.5 rounded-[8px] text-[13px] font-semibold transition-all duration-200 cursor-pointer border-0 bg-transparent text-left",
                   isActive 
-                    ? "bg-[#fff2e8] text-[#fa541c] shadow-3xs" 
+                    ? "bg-[#eff6ff] text-[#3b82f6] shadow-3xs" 
                     : "text-neutral-body hover:bg-neutral-bg hover:text-neutral-title"
                 )}
               >
@@ -544,7 +544,7 @@ export default function AdminCompetitionsPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                <BarChart2 className="w-5.5 h-5.5 text-[#fa541c]" />
+                <BarChart2 className="w-5.5 h-5.5 text-[#3b82f6]" />
                 <span>竞赛运营统计大盘</span>
               </h1>
               <p className="text-xs text-neutral-caption mt-1">
@@ -555,7 +555,7 @@ export default function AdminCompetitionsPage() {
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 shrink-0">
               {[
-                { title: "公开赛事总量", value: "8 场", sub: "包含 3 场在办大模型创新赛", color: "text-[#fa541c]" },
+                { title: "公开赛事总量", value: "8 场", sub: "包含 3 场在办大模型创新赛", color: "text-[#3b82f6]" },
                 { title: "参赛注册总人次", value: "4,846 人", sub: "本月新增活跃 1,245 人", color: "text-emerald-500" },
                 { title: "提报算法作品次数", value: "15,640 次", sub: "沙箱评测自动比对通过率 87%", color: "text-blue-500" },
                 { title: "GPU累计算力消耗", value: "1,840 h", sub: "当前队列空闲，平均等待 12s", color: "text-purple-500" }
@@ -578,7 +578,7 @@ export default function AdminCompetitionsPage() {
                 <div>
                   <div className="flex items-center justify-between border-b border-neutral-100 pb-3 mb-4">
                     <span className="text-xs font-bold text-neutral-title flex items-center gap-1.5">
-                      <Trophy className="w-4 h-4 text-[#fa541c]" />
+                      <Trophy className="w-4 h-4 text-[#3b82f6]" />
                       <span>热门赛事赛道分布比例</span>
                     </span>
                     <span className="text-[10px] text-neutral-caption font-bold">热门赛道占比统计</span>
@@ -586,7 +586,7 @@ export default function AdminCompetitionsPage() {
 
                   <div className="space-y-4">
                     {[
-                      { type: "大模型应用开发 (LLM Apps)", count: 2100, pct: "43%", color: "bg-[#fa541c]" },
+                      { type: "大模型应用开发 (LLM Apps)", count: 2100, pct: "43%", color: "bg-[#3b82f6]" },
                       { type: "计算机视觉与图像分割 (CV)", count: 1200, pct: "25%", color: "bg-emerald-500" },
                       { type: "经典非平衡样本分类 (ML)", count: 890, pct: "18%", color: "bg-blue-500" },
                       { type: "安全防御与云渗透 (CTF)", count: 656, pct: "14%", color: "bg-purple-500" }
@@ -609,7 +609,7 @@ export default function AdminCompetitionsPage() {
                   <button 
                     onClick={() => handleSimulateExport("平台整体竞赛数据统计大盘")}
                     disabled={isExporting}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>导出大盘数据报表</span>
@@ -648,7 +648,7 @@ export default function AdminCompetitionsPage() {
 
                 <button 
                   onClick={() => setActiveTab("list")}
-                  className="w-full text-center text-[#fa541c] hover:text-[#e84a15] text-xs font-bold py-2 border border-[#ffbb96]/45 bg-[#fff2e8]/45 hover:bg-[#fff2e8] rounded-lg transition-colors cursor-pointer shrink-0 mt-4 block"
+                  className="w-full text-center text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold py-2 border border-[#bfdbfe]/45 bg-[#eff6ff]/45 hover:bg-[#eff6ff] rounded-lg transition-colors cursor-pointer shrink-0 mt-4 block"
                 >
                   查看完整竞赛列表 ➔
                 </button>
@@ -666,7 +666,7 @@ export default function AdminCompetitionsPage() {
             <div className="flex justify-between items-start shrink-0">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <Trophy className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <Trophy className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>平台公开竞赛库</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -675,7 +675,7 @@ export default function AdminCompetitionsPage() {
               </div>
               <button 
                 onClick={handleOpenCreateDrawer}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-3xs"
               >
                 <Plus className="w-4 h-4 font-black" />
                 <span>新建公开竞赛</span>
@@ -692,7 +692,7 @@ export default function AdminCompetitionsPage() {
                   placeholder="搜索竞赛名称或描述..."
                   value={compSearch}
                   onChange={(e) => setCompSearch(e.target.value)}
-                  className="w-full border border-neutral-200 rounded-lg pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 font-medium placeholder-neutral-400"
+                  className="w-full border border-neutral-200 rounded-lg pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 font-medium placeholder-neutral-400"
                 />
               </div>
 
@@ -704,7 +704,7 @@ export default function AdminCompetitionsPage() {
                   <select 
                     value={compTypeFilter}
                     onChange={(e) => setCompTypeFilter(e.target.value)}
-                    className="border border-neutral-200 rounded-lg px-2 py-1 bg-white focus:outline-none focus:border-[#fa541c]"
+                    className="border border-neutral-200 rounded-lg px-2 py-1 bg-white focus:outline-none focus:border-[#3b82f6]"
                   >
                     <option value="全部">全部赛道</option>
                     <option value="大模型开发">大模型开发</option>
@@ -720,7 +720,7 @@ export default function AdminCompetitionsPage() {
                   <select 
                     value={compStatusFilter}
                     onChange={(e) => setCompStatusFilter(e.target.value)}
-                    className="border border-neutral-200 rounded-lg px-2 py-1 bg-white focus:outline-none focus:border-[#fa541c]"
+                    className="border border-neutral-200 rounded-lg px-2 py-1 bg-white focus:outline-none focus:border-[#3b82f6]"
                   >
                     <option value="全部">所有状态</option>
                     <option value="筹备中">筹备中</option>
@@ -847,7 +847,7 @@ export default function AdminCompetitionsPage() {
                   {/* Drawer Header */}
                   <div className="p-6 border-b border-neutral-border flex items-center justify-between shrink-0 bg-neutral-50">
                     <div className="flex items-center gap-2">
-                      <Trophy className="w-5.5 h-5.5 text-[#fa541c]" />
+                      <Trophy className="w-5.5 h-5.5 text-[#3b82f6]" />
                       <h2 className="text-base font-black text-neutral-title">
                         {drawerMode === "create" ? "新建公开竞赛项目" : "编辑竞赛配置信息"}
                       </h2>
@@ -865,7 +865,7 @@ export default function AdminCompetitionsPage() {
                     
                     {/* Section 1: Basic */}
                     <div className="space-y-4">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">1. 竞赛基本属性</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">1. 竞赛基本属性</h3>
                       
                       {/* Name */}
                       <div className="space-y-1.5">
@@ -878,7 +878,7 @@ export default function AdminCompetitionsPage() {
                           value={formName}
                           onChange={(e) => setFormName(e.target.value)}
                           placeholder="例如: 2026年智云杯大语言模型应用创新赛"
-                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                         />
                       </div>
 
@@ -922,7 +922,7 @@ export default function AdminCompetitionsPage() {
                           value={formDuration}
                           onChange={(e) => setFormDuration(e.target.value)}
                           placeholder="例如: 2026-06-01 至 2026-08-31"
-                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 font-mono font-medium"
+                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 font-mono font-medium"
                         />
                       </div>
 
@@ -934,14 +934,14 @@ export default function AdminCompetitionsPage() {
                           value={formDescription}
                           onChange={(e) => setFormDescription(e.target.value)}
                           placeholder="说明本届赛事的考察大纲、核心开发沙箱环境要求、背景及鼓励方向等信息..."
-                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium resize-none leading-relaxed"
+                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium resize-none leading-relaxed"
                         />
                       </div>
                     </div>
 
                     {/* Section 2: Format */}
                     <div className="space-y-4 pt-4 border-t border-neutral-100">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">2. 赛制与团队配额设定</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">2. 赛制与团队配额设定</h3>
                       
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
@@ -971,7 +971,7 @@ export default function AdminCompetitionsPage() {
 
                     {/* Section 3: Rules & Quotas */}
                     <div className="space-y-4 pt-4 border-t border-neutral-100">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">3. 提报规则与算力隔离分配</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">3. 提报规则与算力隔离分配</h3>
                       
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
@@ -1003,7 +1003,7 @@ export default function AdminCompetitionsPage() {
 
                     {/* Section 4: Scoring */}
                     <div className="space-y-4 pt-4 border-t border-neutral-100">
-                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">4. 评分评测算法定义</h3>
+                      <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">4. 评分评测算法定义</h3>
                       
                       <div className="space-y-1.5">
                         <label className="font-bold text-neutral-700 block">自动评分数学公式与比对指标：</label>
@@ -1012,7 +1012,7 @@ export default function AdminCompetitionsPage() {
                           value={formEvalMetric}
                           onChange={(e) => setFormEvalMetric(e.target.value)}
                           placeholder="例如: AUC / Accuracy / F1-Score / MSE / IoU"
-                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#fa541c]"
+                          className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#3b82f6]"
                         />
                       </div>
                     </div>
@@ -1031,7 +1031,7 @@ export default function AdminCompetitionsPage() {
                     <button
                       type="submit"
                       onClick={handleSaveCompetition}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-6 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-6 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                     >
                       {drawerMode === "create" ? "发布并公开竞赛" : "保存更新参数"}
                     </button>
@@ -1049,7 +1049,7 @@ export default function AdminCompetitionsPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                <Shield className="w-5.5 h-5.5 text-[#fa541c]" />
+                <Shield className="w-5.5 h-5.5 text-[#3b82f6]" />
                 <span>公开赛事申请审核控制台</span>
               </h1>
               <p className="text-xs text-neutral-caption mt-1">
@@ -1100,7 +1100,7 @@ export default function AdminCompetitionsPage() {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => setSelectedApp(app)}
-                            className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer shadow-3xs"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer shadow-3xs"
                           >
                             审核公开申请
                           </button>
@@ -1137,7 +1137,7 @@ export default function AdminCompetitionsPage() {
                   {/* Header */}
                   <div className="bg-neutral-50 px-6 py-4 border-b border-neutral-border flex items-center justify-between shrink-0">
                     <span className="font-black text-neutral-title text-sm flex items-center gap-1.5">
-                      <Shield className="w-4.5 h-4.5 text-[#fa541c]" />
+                      <Shield className="w-4.5 h-4.5 text-[#3b82f6]" />
                       <span>审核公开竞赛升级申请</span>
                     </span>
                     <button 
@@ -1150,8 +1150,8 @@ export default function AdminCompetitionsPage() {
 
                   {/* Body details */}
                   <div className="p-6 overflow-y-auto space-y-4 max-h-[420px] custom-scrollbar">
-                    <div className="p-4 bg-[#fff2e8] border border-[#ffbb96]/45 rounded-lg space-y-2">
-                      <div className="text-[11px] font-black text-[#fa541c]">升级后公开说明：</div>
+                    <div className="p-4 bg-[#eff6ff] border border-[#bfdbfe]/45 rounded-lg space-y-2">
+                      <div className="text-[11px] font-black text-[#3b82f6]">升级后公开说明：</div>
                       <p className="text-[10.5px] leading-relaxed text-neutral-body font-medium">
                         一旦通过审核，该赛事将自动转换升级并**上架至平台公开竞赛列表中**。平台将向全国所有高校租户用户敞开注册报名，并由平台自动托管调度沙箱算力容器进行自动算法检测评测。
                       </p>
@@ -1172,7 +1172,7 @@ export default function AdminCompetitionsPage() {
                           value={rejectReason}
                           onChange={(e) => setRejectReason(e.target.value)}
                           placeholder="说明驳回理由，如: 算力配额超限，请降低测试次数..."
-                          className="w-full border border-neutral-200 rounded-lg p-2 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800"
+                          className="w-full border border-neutral-200 rounded-lg p-2 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800"
                         />
                       </div>
                     )}
@@ -1209,7 +1209,7 @@ export default function AdminCompetitionsPage() {
                         <button
                           type="button"
                           onClick={() => handleApproveRequest(selectedApp)}
-                          className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                          className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                         >
                           同意升级公开
                         </button>
@@ -1232,7 +1232,7 @@ export default function AdminCompetitionsPage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shrink-0 border-b border-neutral-200 pb-4">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <Users className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <Users className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>参赛报名队伍名册</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -1246,7 +1246,7 @@ export default function AdminCompetitionsPage() {
                 <select
                   value={selectedCompId}
                   onChange={(e) => setSelectedCompId(e.target.value)}
-                  className="border border-neutral-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-[#fa541c]"
+                  className="border border-neutral-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-[#3b82f6]"
                 >
                   {competitions.map(c => (
                     <option key={c.id} value={c.id}>{c.name}</option>
@@ -1286,7 +1286,7 @@ export default function AdminCompetitionsPage() {
                           <td className="px-6 py-4 font-medium text-neutral-body">{team.captain}</td>
                           <td className="px-6 py-4 font-mono font-semibold text-neutral-body">{team.membersCount} 人结构</td>
                           <td className="px-6 py-4 font-medium text-neutral-body">{team.school}</td>
-                          <td className="px-6 py-4 font-mono font-bold text-[#fa541c]">{team.submissions} 次</td>
+                          <td className="px-6 py-4 font-mono font-bold text-[#3b82f6]">{team.submissions} 次</td>
                           <td className="px-6 py-4">
                             <span className={cn(
                               "px-2 py-0.5 rounded-[4px] text-[9.5px] font-black border uppercase tracking-wider",
@@ -1321,7 +1321,7 @@ export default function AdminCompetitionsPage() {
                 <span>当前赛事登记队伍量: {teams[selectedCompId]?.length || 0} 支</span>
                 <button
                   onClick={() => handleSimulateExport(`参赛队伍花名册_${selectedCompId}`)}
-                  className="text-[#fa541c] hover:text-[#e84a15] font-bold flex items-center gap-1.5 cursor-pointer bg-white px-3 py-1 border border-neutral-200 rounded-lg shadow-3xs"
+                  className="text-[#3b82f6] hover:text-[#2563eb] font-bold flex items-center gap-1.5 cursor-pointer bg-white px-3 py-1 border border-neutral-200 rounded-lg shadow-3xs"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>导出队伍花名册</span>
@@ -1341,7 +1341,7 @@ export default function AdminCompetitionsPage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shrink-0 border-b border-neutral-200 pb-4">
               <div>
                 <h1 className="text-lg font-black text-neutral-title flex items-center gap-2">
-                  <TrendingUp className="w-5.5 h-5.5 text-[#fa541c]" />
+                  <TrendingUp className="w-5.5 h-5.5 text-[#3b82f6]" />
                   <span>竞赛成绩与实时排行榜</span>
                 </h1>
                 <p className="text-xs text-neutral-caption mt-1">
@@ -1355,7 +1355,7 @@ export default function AdminCompetitionsPage() {
                 <select
                   value={selectedCompId}
                   onChange={(e) => setSelectedCompId(e.target.value)}
-                  className="border border-neutral-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-[#fa541c]"
+                  className="border border-neutral-200 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:border-[#3b82f6]"
                 >
                   {competitions.map(c => (
                     <option key={c.id} value={c.id}>{c.name}</option>
@@ -1397,7 +1397,7 @@ export default function AdminCompetitionsPage() {
                               "inline-flex items-center justify-center w-6 h-6 rounded-full text-[10.5px] font-black font-mono shadow-3xs",
                               index === 0 ? "bg-amber-100 text-amber-600 font-bold" :
                               index === 1 ? "bg-slate-100 text-slate-600 font-bold" :
-                              index === 2 ? "bg-orange-100 text-orange-600 font-bold" : "bg-neutral-100 text-neutral-500"
+                              index === 2 ? "bg-blue-100 text-orange-600 font-bold" : "bg-neutral-100 text-neutral-500"
                             )}>
                               {index + 1}
                             </span>
@@ -1407,7 +1407,7 @@ export default function AdminCompetitionsPage() {
                           {/* School */}
                           <td className="px-6 py-4 font-medium text-neutral-body">{rec.school}</td>
                           {/* Score */}
-                          <td className="px-6 py-4 font-mono font-bold text-[#fa541c] text-sm">
+                          <td className="px-6 py-4 font-mono font-bold text-[#3b82f6] text-sm">
                             {rec.score}
                           </td>
                           {/* File download trigger */}
@@ -1450,7 +1450,7 @@ export default function AdminCompetitionsPage() {
                 <span>榜单显示当前前 {leaderboards[selectedCompId]?.length || 0} 支成绩最高的有效队伍</span>
                 <button
                   onClick={() => handleSimulateExport(`竞赛成绩排行榜_${selectedCompId}`)}
-                  className="text-[#fa541c] hover:text-[#e84a15] font-bold flex items-center gap-1.5 cursor-pointer bg-white px-3 py-1 border border-neutral-200 rounded-lg shadow-3xs"
+                  className="text-[#3b82f6] hover:text-[#2563eb] font-bold flex items-center gap-1.5 cursor-pointer bg-white px-3 py-1 border border-neutral-200 rounded-lg shadow-3xs"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>导出总成绩单EXCEL</span>
@@ -1467,7 +1467,7 @@ export default function AdminCompetitionsPage() {
                   {/* Header */}
                   <div className="bg-neutral-50 px-6 py-4 border-b border-neutral-border flex items-center justify-between shrink-0">
                     <span className="font-black text-neutral-title text-sm flex items-center gap-1.5">
-                      <Sliders className="w-4.5 h-4.5 text-[#fa541c]" />
+                      <Sliders className="w-4.5 h-4.5 text-[#3b82f6]" />
                       <span>人工修改比赛分值</span>
                     </span>
                     <button 
@@ -1496,7 +1496,7 @@ export default function AdminCompetitionsPage() {
                           step={0.0001}
                           value={adjustScoreVal}
                           onChange={(e) => setAdjustScoreVal(parseFloat(e.target.value) || 0.0)}
-                          className="flex-1 accent-[#fa541c] cursor-pointer"
+                          className="flex-1 accent-[#3b82f6] cursor-pointer"
                         />
                         <input
                           type="number"
@@ -1523,7 +1523,7 @@ export default function AdminCompetitionsPage() {
                     </button>
                     <button
                       type="submit"
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-sm"
                     >
                       保存微调值
                     </button>

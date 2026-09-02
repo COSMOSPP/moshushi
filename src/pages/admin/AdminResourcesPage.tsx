@@ -330,8 +330,8 @@ export default function AdminResourcesPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
         <div>
           <h1 className="text-xl font-black text-neutral-title flex items-center gap-2.5">
-            <Database className="w-6 h-6 text-[#fa541c]" />
-            <span>智云实训运营端 - 公共实训资源控制台</span>
+            <Database className="w-6 h-6 text-[#3b82f6]" />
+            <span>模数师数字平台运营端 - 公共实训资源控制台</span>
           </h1>
           <p className="text-xs text-neutral-caption mt-1">
             超级管理员对实训平台中所有已审核通过的课程、项目、数据集、最佳实践、ai能力执行集中管控、在线结构化查看、沙箱部署以及违规驳回下架。
@@ -348,7 +348,7 @@ export default function AdminResourcesPage() {
         {/* Statistics Cards */}
         <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
-            { title: "在架公共实训资源", val: totalAssets, desc: "覆盖五类资源格式", icon: Layers, color: "text-[#fa541c]" },
+            { title: "在架公共实训资源", val: totalAssets, desc: "覆盖五类资源格式", icon: Layers, color: "text-[#3b82f6]" },
             { title: "高校租户引用总量", val: `${totalReferences} 次`, desc: "已被引入实训班级", icon: BookmarkCheck, color: "text-emerald-600" },
             { title: "环境部署可用性", val: "99.85 %", desc: "今日测试挂载成功率", icon: ShieldCheck, color: "text-blue-600" },
             { title: "运营总下载热度", val: `${totalDownloads} 次`, desc: "课件/数据集提取总量", icon: Download, color: "text-purple-600" }
@@ -371,7 +371,7 @@ export default function AdminResourcesPage() {
           <div className="space-y-1.5 max-w-[130px]">
             <span className="text-[10px] font-black text-neutral-caption uppercase tracking-wider block">资源品类引用分布</span>
             <div className="space-y-1 text-[9px] font-bold text-neutral-body leading-none">
-              <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-[#fa541c] rounded-xs" /><span>课程资源 30%</span></div>
+              <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-[#3b82f6] rounded-xs" /><span>课程资源 30%</span></div>
               <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-emerald-500 rounded-xs" /><span>实训项目 25%</span></div>
               <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-blue-500 rounded-xs" /><span>数据集 20%</span></div>
               <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-indigo-500 rounded-xs" /><span>最佳实践 15%</span></div>
@@ -383,7 +383,7 @@ export default function AdminResourcesPage() {
           <div className="relative w-16 h-16 flex items-center justify-center shrink-0">
             <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
               <path className="text-neutral-100" strokeWidth="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-              <path className="text-[#fa541c]" strokeWidth="4.2" strokeDasharray="30, 100" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path className="text-[#3b82f6]" strokeWidth="4.2" strokeDasharray="30, 100" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
               <path className="text-emerald-500" strokeWidth="4.2" strokeDasharray="25, 100" strokeDashoffset="-30" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
               <path className="text-blue-500" strokeWidth="4.2" strokeDasharray="20, 100" strokeDashoffset="-55" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
               <path className="text-indigo-500" strokeWidth="4.2" strokeDasharray="15, 100" strokeDashoffset="-75" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -410,14 +410,14 @@ export default function AdminResourcesPage() {
               className={cn(
                 "px-4 py-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center gap-2 border-0",
                 activeTab === tab.id 
-                  ? "bg-[#fff2e8] text-[#fa541c]" 
+                  ? "bg-[#eff6ff] text-[#3b82f6]" 
                   : "text-neutral-body hover:bg-neutral-50 hover:text-neutral-title"
               )}
             >
               <tab.icon className="w-4 h-4 shrink-0" />
               <span>{tab.title}</span>
               {tab.badge !== undefined && tab.badge > 0 && (
-                <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded-full scale-90 bg-[#fa541c] text-white">
+                <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded-full scale-90 bg-[#3b82f6] text-white">
                   {tab.badge}
                 </span>
               )}
@@ -429,14 +429,14 @@ export default function AdminResourcesPage() {
         <div className="flex items-center gap-1 pr-1">
           <button
             onClick={() => setViewMode("grid")}
-            className={cn("p-1.5 rounded cursor-pointer transition-colors border-0 bg-transparent", viewMode === "grid" ? "bg-neutral-100 text-[#fa541c]" : "text-neutral-caption hover:text-neutral-body")}
+            className={cn("p-1.5 rounded cursor-pointer transition-colors border-0 bg-transparent", viewMode === "grid" ? "bg-neutral-100 text-[#3b82f6]" : "text-neutral-caption hover:text-neutral-body")}
             title="卡片网格大图展示"
           >
             <LayoutGrid className="w-4.5 h-4.5" />
           </button>
           <button
             onClick={() => setViewMode("list")}
-            className={cn("p-1.5 rounded cursor-pointer transition-colors border-0 bg-transparent", viewMode === "list" ? "bg-neutral-100 text-[#fa541c]" : "text-neutral-caption hover:text-neutral-body")}
+            className={cn("p-1.5 rounded cursor-pointer transition-colors border-0 bg-transparent", viewMode === "list" ? "bg-neutral-100 text-[#3b82f6]" : "text-neutral-caption hover:text-neutral-body")}
             title="紧凑名录表格展示"
           >
             <List className="w-4.5 h-4.5" />
@@ -455,7 +455,7 @@ export default function AdminResourcesPage() {
             placeholder="搜索公共资源名称、编号、作者姓名..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border border-neutral-200 rounded-lg pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 font-medium placeholder-neutral-400"
+            className="w-full border border-neutral-200 rounded-lg pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 font-medium placeholder-neutral-400"
           />
         </div>
 
@@ -465,7 +465,7 @@ export default function AdminResourcesPage() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="border border-neutral-200 rounded-lg px-2.5 py-1 bg-white focus:outline-none focus:border-[#fa541c] text-neutral-title"
+            className="border border-neutral-200 rounded-lg px-2.5 py-1 bg-white focus:outline-none focus:border-[#3b82f6] text-neutral-title"
           >
             <option value="popularity">按全平台租户引用热度</option>
             <option value="createdAt">按最新通过审核上架时间</option>
@@ -495,7 +495,7 @@ export default function AdminResourcesPage() {
                       "bg-white rounded-2xl border p-5 flex flex-col justify-between shadow-3xs transition-all duration-200 relative group",
                       isDown 
                         ? "border-neutral-200 bg-neutral-50/40 text-neutral-400 opacity-75" 
-                        : "border-neutral-border hover:border-[#ffbb96] hover:shadow-2xs"
+                        : "border-neutral-border hover:border-[#bfdbfe] hover:shadow-2xs"
                     )}
                   >
                     {/* Status Badge Tag */}
@@ -517,7 +517,7 @@ export default function AdminResourcesPage() {
                             onClick={() => { setSelectedResource(r); setShowDetailDrawer(true); }}
                             className={cn(
                               "font-black text-xs leading-snug truncate cursor-pointer hover:underline block",
-                              isDown ? "text-neutral-body" : "text-neutral-title hover:text-[#fa541c]"
+                              isDown ? "text-neutral-body" : "text-neutral-title hover:text-[#3b82f6]"
                             )}
                             title="点击查看资源完整结构"
                           >
@@ -665,14 +665,14 @@ export default function AdminResourcesPage() {
                               onClick={() => { setSelectedResource(r); setShowDetailDrawer(true); }}
                               className={cn(
                                 "font-black block truncate cursor-pointer hover:underline",
-                                isDown ? "text-neutral-body" : "text-neutral-title hover:text-[#fa541c]"
+                                isDown ? "text-neutral-body" : "text-neutral-title hover:text-[#3b82f6]"
                               )}
                               title={r.name}
                             >
                               {r.name}
                             </span>
                             <span className="text-[10px] font-semibold text-neutral-caption block">
-                              类型: <span className="font-bold text-[#fa541c]">
+                              类型: <span className="font-bold text-[#3b82f6]">
                                 {r.type === 'course' ? '课程' : 
                                  r.type === 'project' ? '项目' : 
                                  r.type === 'dataset' ? '数据集' : 
@@ -814,7 +814,7 @@ export default function AdminResourcesPage() {
               
               {/* Description info */}
               <div className="space-y-2">
-                <span className="text-[11px] font-black text-[#fa541c] uppercase tracking-wider block">资源内容概要简介</span>
+                <span className="text-[11px] font-black text-[#3b82f6] uppercase tracking-wider block">资源内容概要简介</span>
                 <p className="p-3.5 bg-neutral-50 border border-neutral-200/50 rounded-xl leading-relaxed text-neutral-title font-semibold">
                   {selectedResource.description}
                 </p>
@@ -822,7 +822,7 @@ export default function AdminResourcesPage() {
 
               {/* Creator details */}
               <div className="space-y-3">
-                <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2">
+                <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2">
                   公共上传作者授信证明
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -841,7 +841,7 @@ export default function AdminResourcesPage() {
 
               {/* Dependencies required */}
               <div className="space-y-2">
-                <span className="text-[11px] font-black text-[#fa541c] uppercase tracking-wider block">实训依赖运行包/环境</span>
+                <span className="text-[11px] font-black text-[#3b82f6] uppercase tracking-wider block">实训依赖运行包/环境</span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedResource.dependencies.map((dep, i) => (
                     <span key={i} className="bg-neutral-100 text-neutral-title border border-neutral-200 px-2.5 py-1 rounded-lg font-bold font-mono">
@@ -853,7 +853,7 @@ export default function AdminResourcesPage() {
 
               {/* Outline / Structure nodes */}
               <div className="space-y-3">
-                <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#fa541c] pl-2 flex justify-between items-center">
+                <h3 className="font-black text-neutral-title text-sm border-l-3 border-[#3b82f6] pl-2 flex justify-between items-center">
                   <span>结构化内容大纲章节目录 ({selectedResource.outline.length}项)</span>
                   <span className="text-[10px] text-neutral-caption font-mono">物理存储: {selectedResource.fileSize}</span>
                 </h3>
@@ -863,7 +863,7 @@ export default function AdminResourcesPage() {
                     <div key={idx} className="p-3.5 bg-neutral-50/50 border border-neutral-100 rounded-xl space-y-1.5">
                       <div className="flex justify-between items-center font-bold text-neutral-title">
                         <span>{out.title}</span>
-                        <span className="font-mono text-[#fa541c] text-[10.5px] bg-[#fff2e8] px-1.5 py-0.2 rounded scale-90">{out.duration}</span>
+                        <span className="font-mono text-[#3b82f6] text-[10.5px] bg-[#eff6ff] px-1.5 py-0.2 rounded scale-90">{out.duration}</span>
                       </div>
                       <p className="text-[10.5px] text-neutral-body leading-relaxed font-semibold">
                         {out.description}
@@ -884,7 +884,7 @@ export default function AdminResourcesPage() {
                   "font-bold px-4 py-2.5 rounded-lg flex-1 cursor-pointer transition-colors shadow-3xs text-center flex items-center justify-center gap-1 text-white",
                   selectedResource.status === "已下架"
                     ? "bg-neutral-300 cursor-not-allowed"
-                    : "bg-[#fa541c] hover:bg-[#e84a15]"
+                    : "bg-[#3b82f6] hover:bg-[#2563eb]"
                 )}
               >
                 <Play className="w-4 h-4" />
@@ -909,7 +909,7 @@ export default function AdminResourcesPage() {
           <div className="w-full max-w-[500px] bg-white rounded-2xl shadow-2xl overflow-hidden animate-scale-up flex flex-col h-[520px]">
             
             {/* Header */}
-            <div className="bg-[#fff2e8] px-6 py-4 border-b border-[#ffbb96]/45 flex items-center justify-between shrink-0 text-[#fa541c]">
+            <div className="bg-[#eff6ff] px-6 py-4 border-b border-[#bfdbfe]/45 flex items-center justify-between shrink-0 text-[#3b82f6]">
               <div className="flex items-center gap-2">
                 <Play className="w-5 h-5 animate-pulse" />
                 <span className="font-black text-sm">公共资源测试部署与引用看板</span>
@@ -946,7 +946,7 @@ export default function AdminResourcesPage() {
 
               {/* Sandbox Deploy Test Console */}
               <div className="space-y-2 pt-2 border-t border-neutral-100">
-                <span className="text-[10px] font-black text-[#fa541c] uppercase tracking-wider block flex justify-between items-center">
+                <span className="text-[10px] font-black text-[#3b82f6] uppercase tracking-wider block flex justify-between items-center">
                   <span>超级管理员沙箱热部署隔离环境校验</span>
                   {deployStep === "success" && (
                     <span className="bg-emerald-100 text-emerald-700 border border-emerald-200/50 px-1.5 py-0.2 rounded scale-90 uppercase">健康合格</span>
@@ -964,7 +964,7 @@ export default function AdminResourcesPage() {
                     </div>
                     <button
                       onClick={() => handleSimulateSandboxDeploy(selectedResource)}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-[11px] font-black px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-3xs flex items-center gap-1.5"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-[11px] font-black px-5 py-2 rounded-lg cursor-pointer transition-colors shadow-3xs flex items-center gap-1.5"
                     >
                       <Play className="w-3.5 h-3.5" />
                       <span>一键拉起沙箱测试部署</span>
@@ -987,8 +987,8 @@ export default function AdminResourcesPage() {
                     {/* Progress loader */}
                     {deployStep !== "success" && (
                       <div className="flex items-center gap-2 pt-2 border-t border-neutral-800 mt-2 shrink-0">
-                        <RefreshCw className="w-3 h-3 animate-spin text-[#fa541c]" />
-                        <span className="text-[9.5px] text-[#fa541c] font-bold">
+                        <RefreshCw className="w-3 h-3 animate-spin text-[#3b82f6]" />
+                        <span className="text-[9.5px] text-[#3b82f6] font-bold">
                           {deployStep === "pulling" ? "正在Docker拉取基础依赖..." :
                            deployStep === "mounting" ? "正在从MinIO挂载二进制物理卷..." :
                            "正在对 API 注入心跳测试参数..."}
@@ -1042,7 +1042,7 @@ export default function AdminResourcesPage() {
             {/* Body */}
             <div className="p-6 space-y-4 text-neutral-body font-semibold">
               <p className="leading-relaxed font-bold text-neutral-title">
-                🚨 确定要驳回并强制下架资源「<span className="text-[#fa541c]">{selectedResource.name}</span>」吗？
+                🚨 确定要驳回并强制下架资源「<span className="text-[#3b82f6]">{selectedResource.name}</span>」吗？
               </p>
               
               <div className="p-3 bg-rose-50/50 border border-rose-100 rounded-lg text-[10.5px] text-rose-800 leading-relaxed font-medium">

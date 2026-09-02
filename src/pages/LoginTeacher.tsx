@@ -152,7 +152,7 @@ export default function LoginTeacher() {
       )}
 
       {/* Left Side - 2/5 */}
-      <div className="hidden lg:flex w-2/5 relative overflow-hidden bg-[#fa541c]">
+      <div className="hidden lg:flex w-2/5 relative overflow-hidden bg-[#3b82f6]">
         <img
           src={teacherImg}
           alt="Teacher Login Background"
@@ -163,7 +163,7 @@ export default function LoginTeacher() {
         <Link to="/" className="flex items-center gap-3 mb-16 hover:opacity-90 transition-opacity absolute top-8 left-8 z-20 text-white drop-shadow-md">
           <ZhiYunLogo className="w-12 h-12 text-white drop-shadow-md animate-pulse" strokeWidth={2} />
           <span className="text-[24px] font-bold tracking-widest">
-            智云实训平台
+            模数师数字平台
           </span>
         </Link>
       </div>

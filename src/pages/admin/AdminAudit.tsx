@@ -877,7 +877,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "course" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -889,7 +889,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "project" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -901,7 +901,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "practice" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -913,7 +913,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "dataset" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -925,7 +925,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "question" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -937,7 +937,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "paper" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -949,7 +949,7 @@ export default function AdminAudit() {
             className={cn(
               "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
               activeMenu === "ai_capacity" 
-                ? "bg-[#fff2e8] text-[#fa541c] font-semibold" 
+                ? "bg-[#eff6ff] text-[#3b82f6] font-semibold" 
                 : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
             )}
           >
@@ -991,7 +991,7 @@ export default function AdminAudit() {
             </div>
             <div className="bg-white px-3 py-1.5 rounded border border-neutral-border text-xs flex items-center gap-2">
               <span className="text-neutral-500 font-medium">待审核:</span>
-              <span className="font-bold text-[#fa541c]">{getPendingCount(activeMenu)}</span>
+              <span className="font-bold text-[#3b82f6]">{getPendingCount(activeMenu)}</span>
             </div>
           </div>
         </div>
@@ -1009,7 +1009,7 @@ export default function AdminAudit() {
                   placeholder="请输入要搜索的内容"
                   value={searchQuery}
                   onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-                  className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400"
+                  className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400"
                 />
               </div>
             </div>
@@ -1024,7 +1024,7 @@ export default function AdminAudit() {
                     className={cn(
                       "px-4 py-1.5 text-[12px] font-medium rounded-full transition-all duration-200 cursor-pointer border-0 bg-transparent",
                       activeStatusFilter === f 
-                        ? "bg-white text-[#fa541c] font-bold shadow-sm" 
+                        ? "bg-white text-[#3b82f6] font-bold shadow-sm" 
                         : "text-neutral-body hover:text-neutral-title"
                     )}
                   >
@@ -1039,7 +1039,7 @@ export default function AdminAudit() {
                     triggerToast(`已为选中的 ${selectedItemIds.length} 项资源发起批量处理`);
                     setSelectedItemIds([]);
                   }}
-                  className="bg-[#fff2e8] text-[#fa541c] hover:bg-[#ffe8d6] border border-[#ffbb96]/50 h-8 px-3 rounded-[4px] text-xs font-semibold cursor-pointer shadow-2xs transition-all"
+                  className="bg-[#eff6ff] text-[#3b82f6] hover:bg-[#ffe8d6] border border-[#bfdbfe]/50 h-8 px-3 rounded-[4px] text-xs font-semibold cursor-pointer shadow-2xs transition-all"
                 >
                   批量审核 ({selectedItemIds.length})
                 </Button>
@@ -1068,7 +1068,7 @@ export default function AdminAudit() {
                 {paginatedResources.map((item, index) => (
                   <tr key={item.id} className={cn("border-b border-neutral-100 hover:bg-neutral-50/30 transition-colors group text-[13px]", index === paginatedResources.length - 1 && "border-b-0")}>
                     <td className="pl-6 pr-3 py-3 text-left">
-                      <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer truncate max-w-[340px]" title={item.name}>
+                      <div className="font-medium text-neutral-800 group-hover:text-[#3b82f6] transition-colors cursor-pointer truncate max-w-[340px]" title={item.name}>
                         {item.name}
                       </div>
                     </td>
@@ -1079,7 +1079,7 @@ export default function AdminAudit() {
                           ? "bg-[#fafafa] text-[#8c8c8c] border-[#d9d9d9]" 
                           : (item.auditType || "平台公开") === "租户公开"
                           ? "bg-blue-50 text-blue-600 border-blue-200"
-                          : "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]"
+                          : "bg-[#eff6ff] text-[#3b82f6] border-[#bfdbfe]"
                       )}>
                         {item.auditType === "公开" ? "平台公开" : (item.auditType || "平台公开")}
                       </span>
@@ -1093,7 +1093,7 @@ export default function AdminAudit() {
                         <span className="text-emerald-600 font-medium">已通过</span>
                       )}
                       {item.status === "待审核" && (
-                        <span className="text-[#fa541c] font-medium">待审核</span>
+                        <span className="text-[#3b82f6] font-medium">待审核</span>
                       )}
                       {item.status === "已驳回" && (
                         <span className="text-rose-600 font-medium">已驳回</span>
@@ -1107,14 +1107,14 @@ export default function AdminAudit() {
                         {item.status === "待审核" || item.status === "审核中" ? (
                           <button 
                             onClick={() => { setDrawerMode("audit"); setReviewingItem(item); }}
-                            className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-semibold"
+                            className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-semibold"
                           >
                             审核
                           </button>
                         ) : (
                           <button 
                             onClick={() => { setDrawerMode("audit"); setReviewingItem(item); }}
-                            className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-semibold"
+                            className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-semibold"
                           >
                             查看
                           </button>
@@ -1126,7 +1126,7 @@ export default function AdminAudit() {
                               setActiveProjectTab("basic");
                               setReviewingItem(item); 
                             }}
-                            className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-semibold"
+                            className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-semibold"
                           >
                             资源详情
                           </button>
@@ -1167,7 +1167,7 @@ export default function AdminAudit() {
                     className={cn(
                       "h-7 w-7 p-0 rounded-sm text-xs font-semibold cursor-pointer transition-colors border",
                       currentPage === page 
-                        ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#e84a15]" 
+                        ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#2563eb]" 
                         : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
                     )}
                     onClick={() => setCurrentPage(page)}
@@ -1191,7 +1191,7 @@ export default function AdminAudit() {
                   setPageSize(Number(e.target.value));
                   setCurrentPage(1);
                 }}
-                className="text-[13px] border border-neutral-200 rounded-sm px-2.5 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer"
+                className="text-[13px] border border-neutral-200 rounded-sm px-2.5 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer"
               >
                 <option value={5}>5 条/页</option>
                 <option value={10}>10 条/页</option>
@@ -1210,20 +1210,20 @@ export default function AdminAudit() {
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h3 className="text-[15px] font-bold text-neutral-850 flex items-center gap-2">
                 {drawerMode === "detail" ? (
-                  <svg className="w-5 h-5 text-[#fa541c]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-5 h-5 text-[#3b82f6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="9.5" />
                     <path d="M7.5 8.5h9" />
                     <path d="M7.5 12h9" />
                     <path d="M7.5 15.5h9" />
                   </svg>
                 ) : (
-                  <ShieldCheck className="w-5 h-5 text-[#fa541c]" />
+                  <ShieldCheck className="w-5 h-5 text-[#3b82f6]" />
                 )}
                 <span>{drawerMode === "detail" ? "资源详情" : (activeMenu === "course" ? "审核" : "审核资源详情")}</span>
               </h3>
               <button 
                 onClick={() => setReviewingItem(null)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1243,7 +1243,7 @@ export default function AdminAudit() {
                     className={cn(
                       "flex-1 py-3 text-center border-b-2 transition-all cursor-pointer flex items-center justify-center gap-1.5 rounded-[4px]",
                       activeProjectTab === tab.key 
-                        ? "border-[#fa541c] text-[#fa541c] bg-white font-extrabold" 
+                        ? "border-[#3b82f6] text-[#3b82f6] bg-white font-extrabold" 
                         : "border-transparent text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100/40"
                     )}
                   >
@@ -1264,10 +1264,10 @@ export default function AdminAudit() {
                   <div className="border border-neutral-200 rounded-[8px] bg-white shadow-xs overflow-hidden">
                     <div className="bg-neutral-50 px-4 py-2.5 border-b border-neutral-200 font-bold text-neutral-800 text-[13px] flex items-center justify-between shrink-0">
                       <div className="flex items-center gap-1.5">
-                        <FileText className="w-4 h-4 text-[#fa541c]" />
+                        <FileText className="w-4 h-4 text-[#3b82f6]" />
                         <span>审核资源基础信息</span>
                       </div>
-                      <span className="px-2 py-0.5 text-[11px] font-bold rounded bg-orange-50 text-[#fa541c] border border-[#ffbb96]">
+                      <span className="px-2 py-0.5 text-[11px] font-bold rounded bg-blue-50 text-[#3b82f6] border border-[#bfdbfe]">
                         {reviewingItem.status}
                       </span>
                     </div>
@@ -1291,7 +1291,7 @@ export default function AdminAudit() {
                                 ? "bg-[#fafafa] text-[#8c8c8c] border-[#d9d9d9]"
                                 : (reviewingItem.auditType || "平台公开") === "租户公开"
                                 ? "bg-blue-50 text-blue-600 border-blue-200"
-                                : "bg-[#fff2e8] text-[#fa541c] border-[#ffbb96]"
+                                : "bg-[#eff6ff] text-[#3b82f6] border-[#bfdbfe]"
                             )}>
                               {reviewingItem.auditType === "公开" ? "平台公开" : (reviewingItem.auditType || "平台公开")}
                             </span>
@@ -1307,11 +1307,11 @@ export default function AdminAudit() {
                       <label className="text-[13px] font-bold text-[#262626]">申请说明</label>
                       <span className="text-[11px] text-neutral-400">提请变动与发布详情</span>
                     </div>
-                    <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-[#d4380d]">
-                      <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+                    <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-[#1d4ed8]">
+                      <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                       <div className="flex-1 space-y-1.5">
-                        <p className="font-bold text-[13px] text-[#fa541c]">说明及原由摘要</p>
-                        <p className="text-[13px] text-[#d4380d] opacity-90 leading-relaxed bg-white/80 border border-[#ffbb96]/50 rounded-[4px] p-3 font-normal">
+                        <p className="font-bold text-[13px] text-[#3b82f6]">说明及原由摘要</p>
+                        <p className="text-[13px] text-[#1d4ed8] opacity-90 leading-relaxed bg-white/80 border border-[#bfdbfe]/50 rounded-[4px] p-3 font-normal">
                           {reviewingItem.details.content}
                         </p>
                       </div>
@@ -1358,7 +1358,7 @@ export default function AdminAudit() {
                                   className="px-5 py-3 flex items-center gap-3 bg-white hover:bg-neutral-50/50 transition-colors cursor-pointer group"
                                 >
                                   {/* Left 课时 Label */}
-                                  <span className="text-neutral-400 font-normal text-xs shrink-0 w-12 group-hover:text-[#fa541c] transition-colors">
+                                  <span className="text-neutral-400 font-normal text-xs shrink-0 w-12 group-hover:text-[#3b82f6] transition-colors">
                                     课时{lesIdx + 1}:
                                   </span>
 
@@ -1380,7 +1380,7 @@ export default function AdminAudit() {
                                   )}
 
                                   {/* Lesson Title */}
-                                  <span className="text-xs font-bold text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer leading-snug">
+                                  <span className="text-xs font-bold text-neutral-800 group-hover:text-[#3b82f6] transition-colors cursor-pointer leading-snug">
                                     {lesson.title}
                                   </span>
                                 </div>
@@ -1404,7 +1404,7 @@ export default function AdminAudit() {
                       {/* 1. 项目名称 */}
                       <div className="grid grid-cols-[90px_1fr] items-center gap-3">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          项目名称 <span className="text-[#fa541c]">*</span>
+                          项目名称 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <input 
                           type="text"
@@ -1436,7 +1436,7 @@ export default function AdminAudit() {
                       {/* 3. 项目描述 */}
                       <div className="grid grid-cols-[90px_1fr] items-center gap-3">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          项目描述 <span className="text-[#fa541c]">*</span>
+                          项目描述 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <input 
                           type="text"
@@ -1450,15 +1450,15 @@ export default function AdminAudit() {
                       {/* 4. 项目图片 */}
                       <div className="grid grid-cols-[90px_1fr] items-start gap-3">
                         <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
-                          项目图片 <span className="text-[#fa541c]">*</span>
+                          项目图片 <span className="text-[#3b82f6]">*</span>
                         </label>
-                        <div className="w-full aspect-[5/2] rounded-[4px] overflow-hidden border-2 border-[#fa541c] relative shadow-sm max-w-md">
+                        <div className="w-full aspect-[5/2] rounded-[4px] overflow-hidden border-2 border-[#3b82f6] relative shadow-sm max-w-md">
                           <img 
                             src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80" 
                             alt="project-cover" 
                             className="w-full h-full object-cover" 
                           />
-                          <div className="absolute top-2 right-2 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5">
+                          <div className="absolute top-2 right-2 bg-[#3b82f6] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5">
                             <Check className="w-3.5 h-3.5" strokeWidth={3} />
                           </div>
                         </div>
@@ -1467,14 +1467,14 @@ export default function AdminAudit() {
                       {/* 5. 项目介绍 (富文本编辑区域样式) */}
                       <div className="grid grid-cols-[90px_1fr] items-start gap-3">
                         <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                          项目介绍 <span className="text-[#fa541c]">*</span>
+                          项目介绍 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div className="border border-neutral-200 rounded overflow-hidden flex flex-col bg-white w-full">
                           {/* Rich Text Toolbar */}
                           <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/80 select-none">
                             <button type="button" className="p-1 hover:bg-neutral-200 rounded text-neutral-400 cursor-not-allowed" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
                             <button type="button" className="p-1 hover:bg-neutral-200 rounded text-neutral-400 cursor-not-allowed" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
-                            <button type="button" className="p-1 hover:bg-neutral-200 rounded text-[#fa541c] cursor-not-allowed" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
+                            <button type="button" className="p-1 hover:bg-neutral-200 rounded text-[#3b82f6] cursor-not-allowed" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
                             <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
                             <button type="button" className="p-1 hover:bg-neutral-200 rounded text-neutral-400 cursor-not-allowed" title="无序列表"><List className="w-3.5 h-3.5" /></button>
                             <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
@@ -1507,7 +1507,7 @@ export default function AdminAudit() {
                       {/* 1. 选择资源池 */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          选择资源池 <span className="text-[#fa541c]">*</span>
+                          选择资源池 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <input 
                           type="text"
@@ -1521,11 +1521,11 @@ export default function AdminAudit() {
                       {/* 2. 选择环境类型 */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          选择环境类型 <span className="text-[#fa541c]">*</span>
+                          选择环境类型 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           <label className="flex items-center gap-2 select-none text-neutral-700 font-medium cursor-not-allowed">
-                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#fa541c]" />
+                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#3b82f6]" />
                             <span>容器</span>
                           </label>
                           <label className="flex items-center gap-2 select-none text-neutral-400 font-medium cursor-not-allowed">
@@ -1538,11 +1538,11 @@ export default function AdminAudit() {
                       {/* 3. 源仓库地址 */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          源仓库地址 <span className="text-[#fa541c]">*</span>
+                          源仓库地址 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           <label className="flex items-center gap-2 select-none text-neutral-700 font-medium cursor-not-allowed">
-                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#fa541c]" />
+                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#3b82f6]" />
                             <span>手动添加</span>
                           </label>
                           <label className="flex items-center gap-2 select-none text-neutral-400 font-medium cursor-not-allowed">
@@ -1571,7 +1571,7 @@ export default function AdminAudit() {
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           <label className="flex items-center gap-2 select-none text-neutral-700 font-medium cursor-not-allowed">
-                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#fa541c]" />
+                            <input type="radio" checked readOnly disabled className="w-4 h-4 accent-[#3b82f6]" />
                             <span>模板创建</span>
                           </label>
                           <label className="flex items-center gap-2 select-none text-neutral-400 font-medium cursor-not-allowed">
@@ -1605,7 +1605,7 @@ export default function AdminAudit() {
                   {/* 1. 实践名称 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      <span className="text-[#fa541c]">*</span>实践名称
+                      <span className="text-[#3b82f6]">*</span>实践名称
                     </label>
                     <input 
                       type="text"
@@ -1682,7 +1682,7 @@ export default function AdminAudit() {
                   {/* 1. 名称 */}
                   <div className="grid grid-cols-[90px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      名称 <span className="text-[#fa541c]">*</span>
+                      名称 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
@@ -1710,7 +1710,7 @@ export default function AdminAudit() {
                   {/* 3. 类型 */}
                   <div className="grid grid-cols-[90px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      类型 <span className="text-[#fa541c]">*</span>
+                      类型 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="relative w-full">
                       <input 
@@ -1795,7 +1795,7 @@ export default function AdminAudit() {
                       关联标签：
                     </label>
                     <div>
-                      <span className="inline-flex items-center px-3 py-1 bg-orange-50 text-[#fa541c] border border-orange-200 rounded-[4px] text-xs font-semibold">
+                      <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-[#3b82f6] border border-blue-200 rounded-[4px] text-xs font-semibold">
                         智能体
                       </span>
                     </div>
@@ -1830,9 +1830,9 @@ export default function AdminAudit() {
                     <label className="text-[13px] font-bold text-neutral-600 block">
                       正确参考答案：
                     </label>
-                    <div className="w-full border border-orange-200/80 rounded-[4px] p-4 bg-orange-50/40 flex items-center gap-2">
-                      <span className="text-[#fa541c] font-bold text-[13px]">● 答案为：</span>
-                      <span className="w-7 h-7 rounded-[4px] bg-[#fa541c] text-white font-extrabold flex items-center justify-center text-xs shadow-xs">
+                    <div className="w-full border border-blue-200/80 rounded-[4px] p-4 bg-blue-50/40 flex items-center gap-2">
+                      <span className="text-[#3b82f6] font-bold text-[13px]">● 答案为：</span>
+                      <span className="w-7 h-7 rounded-[4px] bg-[#3b82f6] text-white font-extrabold flex items-center justify-center text-xs shadow-xs">
                         B
                       </span>
                     </div>
@@ -1887,9 +1887,9 @@ export default function AdminAudit() {
                   </div>
 
                   {/* 4. Question Configuration Detail Card */}
-                  <div className="bg-[#fff2e8]/10 border border-[#ffbb96]/30 rounded-[4px] p-5 space-y-4">
-                    <h4 className="text-xs font-bold text-[#fa541c] flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c]"></span>
+                  <div className="bg-[#eff6ff]/10 border border-[#bfdbfe]/30 rounded-[4px] p-5 space-y-4">
+                    <h4 className="text-xs font-bold text-[#3b82f6] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></span>
                       <span>配置详情</span>
                     </h4>
 
@@ -1958,8 +1958,8 @@ export default function AdminAudit() {
                       助手头像
                     </label>
                     <div>
-                      <div className="w-14 h-14 rounded-[4px] bg-[#fff2e8] border border-[#ffbb96] flex items-center justify-center text-[#fa541c] shadow-xs shrink-0">
-                        <Bot className="w-7 h-7 text-[#fa541c]" />
+                      <div className="w-14 h-14 rounded-[4px] bg-[#eff6ff] border border-[#bfdbfe] flex items-center justify-center text-[#3b82f6] shadow-xs shrink-0">
+                        <Bot className="w-7 h-7 text-[#3b82f6]" />
                       </div>
                     </div>
                   </div>
@@ -1967,7 +1967,7 @@ export default function AdminAudit() {
                   {/* 2. 助手名称 */}
                   <div className="grid grid-cols-[90px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      助手名称 <span className="text-[#fa541c]">*</span>
+                      助手名称 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
@@ -2029,16 +2029,16 @@ export default function AdminAudit() {
               {/* Rejection input area */}
               {drawerMode === "audit" && showRejectForm && (
                 <div className="space-y-2 pt-2 animate-slide-up">
-                  <label className="text-[13px] font-bold text-[#fa541c] flex items-center gap-1.5">
-                    <AlertCircle className="w-4 h-4 text-[#fa541c]" />
-                    <span>驳回审核具体意见 <span className="text-[#fa541c]">*</span></span>
+                  <label className="text-[13px] font-bold text-[#3b82f6] flex items-center gap-1.5">
+                    <AlertCircle className="w-4 h-4 text-[#3b82f6]" />
+                    <span>驳回审核具体意见 <span className="text-[#3b82f6]">*</span></span>
                   </label>
                   <textarea 
                     rows={4}
                     placeholder="请输入对该教学资源调整修改的细则说明，协助教师进行补充重构..."
                     value={rejectionInput}
                     onChange={(e) => setRejectionInput(e.target.value)}
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] p-3.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28 leading-relaxed"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] p-3.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28 leading-relaxed"
                   />
                 </div>
               )}
@@ -2064,7 +2064,7 @@ export default function AdminAudit() {
                   </button>
                   <button 
                     onClick={() => handleReject(reviewingItem.id)} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-6 rounded-[4px] text-[13px] font-semibold cursor-pointer border-0 shadow-sm transition-colors"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-6 rounded-[4px] text-[13px] font-semibold cursor-pointer border-0 shadow-sm transition-colors"
                   >
                     确认驳回
                   </button>
@@ -2079,7 +2079,7 @@ export default function AdminAudit() {
                   </button>
                   <button 
                     onClick={() => handleApprove(reviewingItem.id)} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] text-[13px] font-semibold cursor-pointer border-0 shadow-sm transition-colors"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] text-[13px] font-semibold cursor-pointer border-0 shadow-sm transition-colors"
                   >
                     审核通过
                   </button>
@@ -2103,7 +2103,7 @@ export default function AdminAudit() {
             <div className="p-4 border-b border-neutral-100 shrink-0 space-y-3">
               <button 
                 onClick={() => setActiveDetailLesson(null)}
-                className="flex items-center gap-1.5 text-neutral-800 hover:text-[#fa541c] text-sm font-bold transition-colors bg-transparent border-0 cursor-pointer p-0"
+                className="flex items-center gap-1.5 text-neutral-800 hover:text-[#3b82f6] text-sm font-bold transition-colors bg-transparent border-0 cursor-pointer p-0"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>返回</span>
@@ -2119,7 +2119,7 @@ export default function AdminAudit() {
               {/* Progress Bar */}
               <div className="space-y-1 pt-1">
                 <div className="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-[#fa541c] h-full w-[0%]" />
+                  <div className="bg-[#3b82f6] h-full w-[0%]" />
                 </div>
                 <div className="flex justify-end">
                   <span className="text-[11px] text-neutral-400">0%</span>
@@ -2169,7 +2169,7 @@ export default function AdminAudit() {
                                 className={cn(
                                   "px-2.5 py-1.5 rounded text-xs transition-colors cursor-pointer flex items-center justify-between",
                                   isSelected 
-                                    ? "bg-[#fff2e8] text-[#fa541c] font-bold border-l-2 border-[#fa541c]" 
+                                    ? "bg-[#eff6ff] text-[#3b82f6] font-bold border-l-2 border-[#3b82f6]" 
                                     : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 font-normal"
                                 )}
                               >
@@ -2188,7 +2188,7 @@ export default function AdminAudit() {
             {/* Collapse Toggle Button on Border Line */}
             <button 
               onClick={() => setIsLessonMenuCollapsed(!isLessonMenuCollapsed)}
-              className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center text-neutral-500 hover:text-[#fa541c] z-20 cursor-pointer"
+              className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white border border-neutral-200 shadow-sm flex items-center justify-center text-neutral-500 hover:text-[#3b82f6] z-20 cursor-pointer"
             >
               <ChevronLeft className={cn("w-3.5 h-3.5 transition-transform", isLessonMenuCollapsed && "rotate-180")} />
             </button>

@@ -232,7 +232,7 @@ export default function AdminTenantsPage() {
         {/* Primary Action Button */}
         <button
           onClick={handleOpenCreateDrawer}
-          className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-black px-4 py-2.5 rounded-full flex items-center gap-1.5 shadow-sm transition-all cursor-pointer border-0"
+          className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-black px-4 py-2.5 rounded-full flex items-center gap-1.5 shadow-sm transition-all cursor-pointer border-0"
         >
           <Plus className="w-4 h-4 font-black" />
           <span>新建租户</span>
@@ -248,7 +248,7 @@ export default function AdminTenantsPage() {
             placeholder="搜索手机号/邮箱/租户名称..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full text-xs pl-9 pr-4 py-2 border border-gray-200 rounded-full bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder-gray-400 shadow-3xs"
+            className="w-full text-xs pl-9 pr-4 py-2 border border-gray-200 rounded-full bg-white focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder-gray-400 shadow-3xs"
           />
         </div>
       </div>
@@ -282,7 +282,7 @@ export default function AdminTenantsPage() {
                     {/* Column 1: Tenant Details */}
                     <td className="p-4 pl-6">
                       <div className="space-y-1">
-                        <div className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer text-sm">
+                        <div className="font-medium text-neutral-800 group-hover:text-[#3b82f6] transition-colors cursor-pointer text-sm">
                           {tenant.name}
                         </div>
                         <div className="text-xs text-neutral-500 font-mono mt-0.5">
@@ -339,21 +339,21 @@ export default function AdminTenantsPage() {
                       <div className="flex items-center justify-end gap-3">
                         <button
                           onClick={() => handleOpenEditDrawer(tenant)}
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer border-0 bg-transparent p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer border-0 bg-transparent p-0"
                         >
                           编辑
                         </button>
                         
                         <button
                           onClick={() => handleToggleStatus(tenant)}
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer border-0 bg-transparent p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer border-0 bg-transparent p-0"
                         >
                           {tenant.status === "正常" ? "停用" : "启用"}
                         </button>
 
                         <button
                           onClick={() => handleDeleteTenant(tenant.id, tenant.name)}
-                          className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer border-0 bg-transparent p-0"
+                          className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer border-0 bg-transparent p-0"
                         >
                           注销删除
                         </button>
@@ -374,11 +374,11 @@ export default function AdminTenantsPage() {
           
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&gt;</Button>
           </div>
 
-          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer">
+          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer">
             <option>15 条/页</option>
             <option>30 条/页</option>
             <option>50 条/页</option>
@@ -401,14 +401,14 @@ export default function AdminTenantsPage() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-[#f5f5f5] flex justify-between items-center bg-[#fafafa]">
               <h2 className="text-[15px] font-bold text-neutral-800 flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#fa541c]" />
+                <Users className="w-4 h-4 text-[#3b82f6]" />
                 <span>
                   {drawerMode === "create" ? "开通新实训租户" : "编辑租户参数"}
                 </span>
               </h2>
               <button 
                 onClick={() => setShowDrawer(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-full transition-colors cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-full transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -419,7 +419,7 @@ export default function AdminTenantsPage() {
               
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                  <span className="text-[#fa541c]">*</span> 租户单位名称
+                  <span className="text-[#3b82f6]">*</span> 租户单位名称
                 </label>
                 <input
                   type="text"
@@ -427,13 +427,13 @@ export default function AdminTenantsPage() {
                   placeholder="例如：北京大学信息学院"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
-                  className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400"
+                  className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400"
                 />
               </div>
 
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                  <span className="text-[#fa541c]">*</span> 租户唯一标识码
+                  <span className="text-[#3b82f6]">*</span> 租户唯一标识码
                 </label>
                 <input
                   type="text"
@@ -442,13 +442,13 @@ export default function AdminTenantsPage() {
                   disabled={drawerMode === "edit"}
                   value={formCode}
                   onChange={(e) => setFormCode(e.target.value)}
-                  className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400 disabled:bg-gray-100 disabled:text-gray-400"
+                  className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400 disabled:bg-gray-100 disabled:text-gray-400"
                 />
               </div>
 
               <div className="space-y-2">
                 <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                  <span className="text-[#fa541c]">*</span> 平台主管理员账号
+                  <span className="text-[#3b82f6]">*</span> 平台主管理员账号
                 </label>
                 <input
                   type="text"
@@ -456,12 +456,12 @@ export default function AdminTenantsPage() {
                   placeholder="例如：admin_pku"
                   value={formMainAccount}
                   onChange={(e) => setFormMainAccount(e.target.value)}
-                  className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400"
+                  className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400"
                 />
               </div>
 
               <div className="border-t border-neutral-200/60 my-4 pt-4 space-y-4">
-                <span className="font-black text-[#fa541c] block border-l-2 border-[#fa541c] pl-2 text-xs">
+                <span className="font-black text-[#3b82f6] block border-l-2 border-[#3b82f6] pl-2 text-xs">
                   联系人信息维护
                 </span>
 
@@ -472,7 +472,7 @@ export default function AdminTenantsPage() {
                     placeholder="未设置联系人"
                     value={formContactName}
                     onChange={(e) => setFormContactName(e.target.value)}
-                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400"
+                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400"
                   />
                 </div>
 
@@ -483,7 +483,7 @@ export default function AdminTenantsPage() {
                     placeholder="例如：13900000000"
                     value={formPhone}
                     onChange={(e) => setFormPhone(e.target.value)}
-                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400"
+                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400"
                   />
                 </div>
 
@@ -494,7 +494,7 @@ export default function AdminTenantsPage() {
                     placeholder="例如：pku@example.com"
                     value={formEmail}
                     onChange={(e) => setFormEmail(e.target.value)}
-                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all placeholder:text-neutral-400"
+                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all placeholder:text-neutral-400"
                   />
                 </div>
               </div>
@@ -505,7 +505,7 @@ export default function AdminTenantsPage() {
                   <select
                     value={formStatus}
                     onChange={(e) => setFormStatus(e.target.value as any)}
-                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs appearance-none focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-700 transition-all cursor-pointer font-medium"
+                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs appearance-none focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-700 transition-all cursor-pointer font-medium"
                   >
                     <option value="正常">正常开启</option>
                     <option value="已停用">封禁停用</option>
@@ -526,7 +526,7 @@ export default function AdminTenantsPage() {
               </button>
               <button
                 onClick={handleSaveTenant}
-                className="px-6 py-2 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-lg text-xs font-bold cursor-pointer shadow-3xs transition-colors h-9 border-0"
+                className="px-6 py-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-lg text-xs font-bold cursor-pointer shadow-3xs transition-colors h-9 border-0"
               >
                 确认保存
               </button>

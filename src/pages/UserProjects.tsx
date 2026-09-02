@@ -35,6 +35,8 @@ import { cn } from "@/lib/utils";
 import ProjectIDE from "@/components/ProjectIDE";
 import ProjectDetail from "@/components/ProjectDetail";
 
+import { useLocation } from "react-router-dom";
+
 interface EnvConfig {
   id: string;
   resourcePool: string;
@@ -169,7 +171,7 @@ export function CustomSelect({
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={cn(
           "min-h-[38px] w-full border rounded px-3.5 py-2 flex items-center justify-between transition-all text-[#262626] bg-white cursor-pointer select-none",
-          isOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300",
+          isOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300",
           disabled && "bg-neutral-50 text-neutral-500 cursor-not-allowed border-neutral-100"
         )}
       >
@@ -201,13 +203,13 @@ export function CustomSelect({
                   className={cn(
                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                     isSelected 
-                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                   )}
                 >
                   <span className="font-medium">{opt.label}</span>
                   {isSelected && (
-                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                   )}
                 </div>
               );
@@ -220,7 +222,7 @@ export function CustomSelect({
 }
 
 const AVAILABLE_TAGS = [
-  { name: 'AI', bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', dot: 'bg-orange-500' },
+  { name: 'AI', bg: 'bg-blue-50', text: 'text-orange-600', border: 'border-blue-200', dot: 'bg-orange-500' },
   { name: '容器', bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', dot: 'bg-blue-500' },
   { name: '虚机', bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', dot: 'bg-purple-500' },
   { name: 'Java', bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200', dot: 'bg-emerald-500' },
@@ -246,8 +248,15 @@ const getTagStyle = (tagName: string) => {
 
 
 export default function UserProjects() {
+  const location = useLocation();
   const [isEditingProject, setIsEditingProject] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<any>(location.state?.project || null);
+
+  useEffect(() => {
+    if (location.state?.project) {
+      setSelectedProject(location.state.project);
+    }
+  }, [location.state]);
   const [showNewProjectModal, setShowNewProjectModal] = useState(false);
   const [currentBanner, setCurrentBanner] = useState(0);
 
@@ -449,7 +458,7 @@ export default function UserProjects() {
 
   const banners = [
     { title: "2026 AI 创新挑战赛", desc: "丰厚奖金池，等你来战！", color: "from-blue-600 to-indigo-800" },
-    { title: "大模型前沿探索营", desc: "掌握最新 LLM 核心技术", color: "from-[#fa541c] to-[#d4380d]" },
+    { title: "大模型前沿探索营", desc: "掌握最新 LLM 核心技术", color: "from-[#3b82f6] to-[#1d4ed8]" },
     { title: "计算机视觉实战课", desc: "从入门到精通 CV", color: "from-emerald-600 to-teal-800" }
   ];
 
@@ -577,7 +586,7 @@ export default function UserProjects() {
           <h1 className="text-2xl font-bold text-neutral-title">全部项目</h1>
         </div>
         <Button 
-          className="bg-[#fa541c] hover:bg-[#d4380d] text-white flex items-center gap-2 shadow-sm h-10 px-6 rounded-[4px]"
+          className="bg-[#3b82f6] hover:bg-[#1d4ed8] text-white flex items-center gap-2 shadow-sm h-10 px-6 rounded-[4px]"
           onClick={() => {
             setFormName('');
             setFormDesc('');
@@ -622,7 +631,7 @@ export default function UserProjects() {
                 key={i}
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[13px] transition-colors border",
-                  i === 0 ? "bg-[#fa541c] text-white border-transparent" : "bg-white border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c]"
+                  i === 0 ? "bg-[#3b82f6] text-white border-transparent" : "bg-white border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {tag}
@@ -647,7 +656,7 @@ export default function UserProjects() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption" />
           <Input 
             placeholder="输入项目名称或描述搜索" 
-            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#fa541c]" 
+            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#3b82f6]" 
           />
         </div>
       </div>
@@ -673,7 +682,7 @@ export default function UserProjects() {
                   
                   {/* Content */}
                   <div className="p-4 flex flex-col flex-1">
-                    <h3 className="text-[16px] font-bold text-neutral-title mb-2 line-clamp-1 group-hover:text-[#fa541c] transition-colors">
+                    <h3 className="text-[16px] font-bold text-neutral-title mb-2 line-clamp-1 group-hover:text-[#3b82f6] transition-colors">
                       {project.title}
                     </h3>
                     
@@ -713,14 +722,14 @@ export default function UserProjects() {
               <span className="text-[13px] text-neutral-500">共 234 条</span>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]" disabled>&lt;</Button>
-                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">2</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">3</Button>
                 <span className="px-1 text-neutral-caption text-[13px]">...</span>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">&gt;</Button>
               </div>
               <div className="relative bg-white rounded-[6px]">
-                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
+                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
                   <option className="bg-white">10 条/页</option>
                   <option className="bg-white">20 条/页</option>
                   <option className="bg-white">50 条/页</option>
@@ -734,7 +743,7 @@ export default function UserProjects() {
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-[100] bg-neutral-900/95 text-white border border-neutral-800 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 animate-slide-up text-xs font-semibold backdrop-blur-md">
-          <span className="w-2 h-2 rounded-full bg-[#fa541c] animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse"></span>
           <span>{toastMessage}</span>
         </div>
       )}
@@ -752,12 +761,12 @@ export default function UserProjects() {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" /> 
+                <Plus className="w-5 h-5 text-[#3b82f6]" /> 
                 新建实战项目
               </h2>
               <button 
                 onClick={() => setShowNewProjectModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -776,7 +785,7 @@ export default function UserProjects() {
                   className={cn(
                     "flex-1 py-3 text-center border-b-2 transition-all cursor-pointer flex items-center justify-center gap-1.5 rounded-[4px]",
                     activeFormTab === tab.key 
-                      ? "border-[#fa541c] text-[#fa541c] bg-white font-extrabold" 
+                      ? "border-[#3b82f6] text-[#3b82f6] bg-white font-extrabold" 
                       : "border-transparent text-neutral-500 hover:text-neutral-800 hover:bg-neutral-100/40"
                   )}
                 >
@@ -796,14 +805,14 @@ export default function UserProjects() {
                   {/* 1. 项目名称 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      项目名称 <span className="text-[#fa541c]">*</span>
+                      项目名称 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
                       placeholder="请输入"
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                     />
                   </div>
 
@@ -817,7 +826,7 @@ export default function UserProjects() {
                         onClick={() => setIsTagDropdownOpen(!isTagDropdownOpen)}
                         className={cn(
                           "min-h-[38px] w-full border rounded px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none",
-                          isTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
+                          isTagDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300"
                         )}
                       >
                         {formTags.length === 0 ? (
@@ -881,13 +890,13 @@ export default function UserProjects() {
                                   className={cn(
                                     "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                                     isSelected 
-                                      ? "bg-orange-50 text-[#fa541c] font-bold"
-                                      : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                      ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                      : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                   )}
                                 >
                                   <span className="font-medium">{tag}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                    <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                                   )}
                                 </div>
                               );
@@ -901,21 +910,21 @@ export default function UserProjects() {
                   {/* 3. 项目描述 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      项目描述 <span className="text-[#fa541c]">*</span>
+                      项目描述 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input 
                       type="text"
                       placeholder="请输入"
                       value={formDesc}
                       onChange={(e) => setFormDesc(e.target.value)}
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]"
                     />
                   </div>
 
                   {/* 4. 项目图片 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
-                      项目图片 <span className="text-[#fa541c]">*</span>
+                      项目图片 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="grid grid-cols-3 gap-3">
                       {defaultCovers.map((cover, idx) => (
@@ -923,15 +932,15 @@ export default function UserProjects() {
                           key={idx}
                           onClick={() => setSelectedCover(cover)}
                           className={cn(
-                            "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#fa541c]/50 hover:scale-[1.02]",
+                            "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#3b82f6]/50 hover:scale-[1.02]",
                             selectedCover === cover 
-                              ? "border-[#fa541c] shadow-md shadow-orange-500/10 scale-[1.02]" 
+                              ? "border-[#3b82f6] shadow-md shadow-blue-500/10 scale-[1.02]" 
                               : "border-transparent"
                           )}
                         >
                           <img src={cover} alt={`cover-${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           {selectedCover === cover && (
-                            <div className="absolute top-2 right-2 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
+                            <div className="absolute top-2 right-2 bg-[#3b82f6] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
                               <Check className="w-3.5 h-3.5" strokeWidth={3} />
                             </div>
                           )}
@@ -943,14 +952,14 @@ export default function UserProjects() {
                   {/* 5. 项目介绍 (富文本编辑区域样式) */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      项目介绍 <span className="text-[#fa541c]">*</span>
+                      项目介绍 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="border border-neutral-200 rounded overflow-hidden flex flex-col bg-white w-full">
                       {/* Rich Text Toolbar */}
                       <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/50 select-none">
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
-                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#fa541c] border-0 bg-transparent cursor-pointer" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
+                        <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#3b82f6] border-0 bg-transparent cursor-pointer" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="字体大小"><span className="text-[10px] font-bold font-serif leading-none relative top-[-0.5px]">Tt</span></button>
                         <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
                         <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500 border-0 bg-transparent cursor-pointer" title="无序列表"><List className="w-3.5 h-3.5" /></button>
@@ -984,7 +993,7 @@ export default function UserProjects() {
                   {/* 1. 选择资源池 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      选择资源池 <span className="text-[#fa541c]">*</span>
+                      选择资源池 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <CustomSelect
                       value={currentResourcePool}
@@ -1012,7 +1021,7 @@ export default function UserProjects() {
                   {/* 2. 选择环境类型 */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      选择环境类型 <span className="text-[#fa541c]">*</span>
+                      选择环境类型 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="flex items-center gap-6 text-[13px]">
                       {[
@@ -1033,7 +1042,7 @@ export default function UserProjects() {
                             checked={currentEnvType === opt.value}
                             disabled={modalMode === 'view'}
                             onChange={() => handleChangeEnvType(opt.value as any)}
-                            className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                            className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                           />
                           <span className="font-medium">{opt.label}</span>
                         </label>
@@ -1046,7 +1055,7 @@ export default function UserProjects() {
                       {/* 3. 源仓库地址 & Mode Selector (同一行) */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          源仓库地址 <span className="text-[#fa541c]">*</span>
+                          源仓库地址 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           {[
@@ -1070,7 +1079,7 @@ export default function UserProjects() {
                                   setRepoUploadMode(opt.value as any);
                                   setFormSourceRepoUrl('');
                                 }}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                               />
                               <span className="font-medium">{opt.label}</span>
                             </label>
@@ -1089,7 +1098,7 @@ export default function UserProjects() {
                               value={formSourceRepoUrl}
                               disabled={modalMode === 'view'}
                               onChange={(e) => setFormSourceRepoUrl(e.target.value)}
-                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500 font-mono"
+                              className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] disabled:bg-neutral-50 disabled:text-neutral-500 font-mono"
                             />
                           ) : (
                             <div className="space-y-2.5 w-full">
@@ -1120,9 +1129,9 @@ export default function UserProjects() {
                                       showToast(`已通过拖拽选择文件: ${file.name}`);
                                     }
                                   }}
-                                  className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
+                                  className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#3b82f6]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
                                 >
-                                  <Upload className="w-6 h-6 text-[#fa541c]" strokeWidth={1.5} />
+                                  <Upload className="w-6 h-6 text-[#3b82f6]" strokeWidth={1.5} />
                                   <span className="text-[13px] text-[#262626] font-bold">点击选择或拖拽源码文件上传</span>
                                   <span className="text-[11px] text-neutral-400">单文件上限 100MB</span>
                                 </label>
@@ -1179,7 +1188,7 @@ export default function UserProjects() {
                                 checked={formCreationMethod === opt.value}
                                 disabled={modalMode === 'view'}
                                 onChange={() => setFormCreationMethod(opt.value as any)}
-                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                               />
                               <span className="font-medium">{opt.label}</span>
                             </label>
@@ -1205,8 +1214,8 @@ export default function UserProjects() {
                                 className={cn(
                                   "px-5 py-2 text-xs font-bold rounded-[4px]-t transition-all cursor-pointer border border-b-0 border-neutral-200 flex items-center gap-2",
                                   activeEnvIdx === idx
-                                    ? "bg-[#fa541c] text-white border-[#fa541c] font-black"
-                                    : "bg-white text-[#fa541c] border-[#fa541c]/50 hover:bg-orange-50/20"
+                                    ? "bg-[#3b82f6] text-white border-[#3b82f6] font-black"
+                                    : "bg-white text-[#3b82f6] border-[#3b82f6]/50 hover:bg-blue-50/20"
                                 )}
                               >
                                 <span>{currentEnvType === '容器' ? `容器${idx + 1}` : `云主机${idx + 1}`}</span>
@@ -1264,7 +1273,7 @@ export default function UserProjects() {
                               setActiveEnvIdx(formEnvironments.length);
                               showToast(`已添加新${currentEnvType === '容器' ? '容器' : '云主机'}实例`);
                             }}
-                            className="text-[#fa541c] hover:text-[#e84a15] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
+                            className="text-[#3b82f6] hover:text-[#2563eb] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
                           >
                             <Plus className="w-3.5 h-3.5" />
                             <span>{currentEnvType === '容器' ? '添加容器' : '添加云主机'}</span>
@@ -1285,7 +1294,7 @@ export default function UserProjects() {
                             {/* 选择镜像 */}
                             <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                               <label className="text-[13px] font-bold text-[#262626] text-right">
-                                选择镜像 <span className="text-[#fa541c]">*</span>
+                                选择镜像 <span className="text-[#3b82f6]">*</span>
                               </label>
                               <CustomSelect
                                 value={activeEnv.image}
@@ -1304,7 +1313,7 @@ export default function UserProjects() {
                             <div className="space-y-4">
                               <div className="flex items-center justify-between">
                                 <span className="text-[13px] font-bold text-[#262626]">
-                                  算力配置 <span className="text-[#fa541c]">*</span>
+                                  算力配置 <span className="text-[#3b82f6]">*</span>
                                 </span>
                                 
                                 {activeEnv.type === '虚机' && (
@@ -1324,7 +1333,7 @@ export default function UserProjects() {
                                         className={cn(
                                           "px-3 py-1 text-center text-[11px] rounded-[4px] transition-all cursor-pointer font-bold border-0",
                                           activeEnv.vmSpecType === opt.key 
-                                            ? "bg-white text-[#fa541c] shadow-sm"
+                                            ? "bg-white text-[#3b82f6] shadow-sm"
                                             : "text-neutral-500 hover:text-neutral-800"
                                         )}
                                       >
@@ -1367,7 +1376,7 @@ export default function UserProjects() {
                                           updated[activeEnvIdx].cpuCores = e.target.value;
                                           setFormEnvironments(updated);
                                         }}
-                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626]"
+                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626]"
                                       />
                                       <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">核</span>
                                     </div>
@@ -1384,7 +1393,7 @@ export default function UserProjects() {
                                           updated[activeEnvIdx].memoryGB = e.target.value;
                                           setFormEnvironments(updated);
                                         }}
-                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626]"
+                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626]"
                                       />
                                       <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                     </div>
@@ -1427,7 +1436,7 @@ export default function UserProjects() {
                                           updated[activeEnvIdx].gpu!.count = e.target.value;
                                           setFormEnvironments(updated);
                                         }}
-                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50"
+                                        className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50"
                                       />
                                       <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">张</span>
                                     </div>
@@ -1449,7 +1458,7 @@ export default function UserProjects() {
                                             updated[activeEnvIdx].gpu!.power = e.target.value;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50"
+                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50"
                                         />
                                         <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">%</span>
                                       </div>
@@ -1467,7 +1476,7 @@ export default function UserProjects() {
                                             updated[activeEnvIdx].gpu!.vram = e.target.value;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50"
+                                          className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50"
                                         />
                                         <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                       </div>
@@ -1484,7 +1493,7 @@ export default function UserProjects() {
                                 <div className="space-y-3">
                                   <div className="flex items-center justify-between border-b border-neutral-100 pb-1.5">
                                     <span className="text-[13px] font-bold text-[#262626]">
-                                      环境变量配置 <span className="text-[#fa541c]">*</span>
+                                      环境变量配置 <span className="text-[#3b82f6]">*</span>
                                     </span>
                                     {modalMode !== 'view' && (
                                       <button
@@ -1495,7 +1504,7 @@ export default function UserProjects() {
                                           updated[activeEnvIdx].envVariables!.push({ key: '', value: '' });
                                           setFormEnvironments(updated);
                                         }}
-                                        className="text-[#fa541c] hover:text-[#e84a15] text-xs font-bold bg-transparent border-0 cursor-pointer flex items-center gap-0.5 rounded-[4px]"
+                                        className="text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold bg-transparent border-0 cursor-pointer flex items-center gap-0.5 rounded-[4px]"
                                       >
                                         <Plus className="w-3 h-3" /> 添加变量
                                       </button>
@@ -1516,7 +1525,7 @@ export default function UserProjects() {
                                               updated[activeEnvIdx].envVariables![vIdx].key = e.target.value;
                                               setFormEnvironments(updated);
                                             }}
-                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#fa541c] font-mono text-[#262626]"
+                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#3b82f6] font-mono text-[#262626]"
                                           />
                                           <span className="text-neutral-400 font-bold select-none">=</span>
                                           <input
@@ -1529,7 +1538,7 @@ export default function UserProjects() {
                                               updated[activeEnvIdx].envVariables![vIdx].value = e.target.value;
                                               setFormEnvironments(updated);
                                             }}
-                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#fa541c] font-mono text-[#262626]"
+                                            className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#3b82f6] font-mono text-[#262626]"
                                           />
                                           {modalMode !== 'view' && (
                                             <button
@@ -1555,7 +1564,7 @@ export default function UserProjects() {
                                 {/* 启动命令 */}
                                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                                    启动命令 <span className="text-[#fa541c]">*</span>
+                                    启动命令 <span className="text-[#3b82f6]">*</span>
                                   </label>
                                   <textarea
                                     placeholder="请输入"
@@ -1566,7 +1575,7 @@ export default function UserProjects() {
                                       updated[activeEnvIdx].startCommand = e.target.value;
                                       setFormEnvironments(updated);
                                     }}
-                                    className="w-full min-h-[80px] p-3 text-[13px] border border-neutral-200 rounded focus:outline-none focus:border-[#fa541c] resize-none leading-relaxed text-[#262626] font-mono"
+                                    className="w-full min-h-[80px] p-3 text-[13px] border border-neutral-200 rounded focus:outline-none focus:border-[#3b82f6] resize-none leading-relaxed text-[#262626] font-mono"
                                   />
                                 </div>
                               </div>
@@ -1578,7 +1587,7 @@ export default function UserProjects() {
                                 {/* 存储配置 */}
                                 <div className="space-y-3">
                                   <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                    存储配置 <span className="text-[#fa541c]">*</span>
+                                    存储配置 <span className="text-[#3b82f6]">*</span>
                                   </span>
                                   
                                   <div className="space-y-3.5 pl-4">
@@ -1673,7 +1682,7 @@ export default function UserProjects() {
                                 {/* 网络配置 */}
                                 <div className="space-y-3">
                                   <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                    网络配置 <span className="text-[#fa541c]">*</span>
+                                    网络配置 <span className="text-[#3b82f6]">*</span>
                                   </span>
 
                                   <div className="space-y-3.5 pl-4">
@@ -1712,7 +1721,7 @@ export default function UserProjects() {
                                             updated[activeEnvIdx].network!.subnet = `192.168.${val}.0/${mask}`;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#fa541c] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[50px] text-center"
+                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#3b82f6] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[50px] text-center"
                                         >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
@@ -1745,7 +1754,7 @@ export default function UserProjects() {
                                             updated[activeEnvIdx].network!.subnet = `192.168.${octet3}.0/${val}`;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#fa541c] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[58px] text-center"
+                                          className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#3b82f6] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[58px] text-center"
                                         >
                                           <option value="16">16</option>
                                           <option value="24">24</option>
@@ -1758,7 +1767,7 @@ export default function UserProjects() {
                                 {/* VNC类型 */}
                                 <div className="space-y-3">
                                   <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                    VNC类型 <span className="text-[#fa541c]">*</span>
+                                    VNC类型 <span className="text-[#3b82f6]">*</span>
                                   </span>
 
                                   <div className="flex items-center gap-6 text-[13px] pl-4">
@@ -1784,7 +1793,7 @@ export default function UserProjects() {
                                             updated[activeEnvIdx].vncType = opt.value as any;
                                             setFormEnvironments(updated);
                                           }}
-                                          className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                          className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                                         />
                                         <span className="font-medium">{opt.label}</span>
                                       </label>
@@ -1834,7 +1843,7 @@ export default function UserProjects() {
                   </Button>
                   <Button 
                     onClick={() => setActiveFormTab('env')} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     下一步
                   </Button>
@@ -1857,7 +1866,7 @@ export default function UserProjects() {
                   </Button>
                   <Button 
                     onClick={() => handleSave()} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     保存
                   </Button>

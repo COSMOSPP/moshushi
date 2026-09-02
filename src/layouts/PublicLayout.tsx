@@ -27,13 +27,12 @@ export default function PublicLayout() {
             <Link to="/" className="flex items-center gap-2">
               <ZhiYunLogo className="w-8 h-8 text-primary" />
               <span className="text-[18px] font-medium text-neutral-title">
-                智云实训平台
+                模数师数字平台
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-[14px]">
               <Link to="/" className="text-primary font-medium">首页</Link>
               <button onClick={() => handleScrollTo("featured-courses")} className="text-neutral-body hover:text-primary transition-colors cursor-pointer">精选课程</button>
-              <button onClick={() => handleScrollTo("best-practices")} className="text-neutral-body hover:text-primary transition-colors cursor-pointer">最佳实践</button>
               <div className="group relative cursor-pointer text-neutral-body hover:text-primary transition-colors h-16 flex items-center">
                 <span className="flex items-center gap-1">
                   实训场景 <ChevronDown className="w-4 h-4" />
@@ -59,6 +58,12 @@ export default function PublicLayout() {
             </nav>
           </div>
           <div className="flex items-center gap-2 h-16">
+            <Link 
+              to="/admin/cockpit" 
+              className={cn(buttonVariants({ variant: "ghost" }), "text-neutral-body hover:text-primary")}
+            >
+              驾驶舱
+            </Link>
             <Link 
               to="/login/admin" 
               className={cn(buttonVariants({ variant: "ghost" }), "text-neutral-body hover:text-primary")}
@@ -97,7 +102,7 @@ export default function PublicLayout() {
         <span>|</span>
         <Link to="#" className="hover:text-neutral-title transition-colors">服务条款</Link>
         <span>|</span>
-        <span>©2025 智云实训2.0</span>
+        <span>©2025 模数师数字平台</span>
         <span>|</span>
         <span>京ICP备12345678号</span>
       </footer>

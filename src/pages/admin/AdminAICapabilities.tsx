@@ -645,13 +645,13 @@ export default function AdminAICapabilities() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "auth" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             ai助手
             {activeTab === "auth" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
           <button 
@@ -659,13 +659,13 @@ export default function AdminAICapabilities() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "skills" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             Skills库管理
             {activeTab === "skills" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
           <button 
@@ -673,13 +673,13 @@ export default function AdminAICapabilities() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "agents" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             数字员工
             {activeTab === "agents" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
         </div>
@@ -717,13 +717,13 @@ export default function AdminAICapabilities() {
                   className={cn(
                     "px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer border-0 bg-transparent font-medium",
                     agentFilter === pill.id 
-                      ? "bg-white text-[#fa541c] font-bold shadow-sm" 
+                      ? "bg-white text-[#3b82f6] font-bold shadow-sm" 
                       : "text-neutral-500 hover:text-neutral-800"
                   )}
                 >
                   {pill.label}
                   {pill.id === '待审核' && adminAgents.filter(a => a.status === '待审核').length > 0 && (
-                    <span className="ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-[#fa541c] text-[10px] text-white px-1 font-bold">
+                    <span className="ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-[#3b82f6] text-[10px] text-white px-1 font-bold">
                       {adminAgents.filter(a => a.status === '待审核').length}
                     </span>
                   )}
@@ -740,13 +740,13 @@ export default function AdminAICapabilities() {
                   placeholder="搜索助手名称、描述或学校..."
                   value={agentSearchQuery}
                   onChange={(e) => setAgentSearchQuery(e.target.value)}
-                  className="pl-9 pr-4 py-2 text-xs w-full rounded-full border border-neutral-200 bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] shadow-sm transition-all"
+                  className="pl-9 pr-4 py-2 text-xs w-full rounded-full border border-neutral-200 bg-white focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] shadow-sm transition-all"
                 />
               </div>
 
               <button
                 onClick={() => setIsCreateAgentOpen(true)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-5 py-2 text-xs shadow-sm font-bold shrink-0 flex items-center gap-1.5 cursor-pointer border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-5 py-2 text-xs shadow-sm font-bold shrink-0 flex items-center gap-1.5 cursor-pointer border-0"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>新建官方助手</span>
@@ -794,7 +794,7 @@ export default function AdminAICapabilities() {
                             setCheckOriginality(true);
                             setCheckStandard(true);
                           }}
-                          className="px-3 h-7 flex items-center justify-center bg-white border border-[#fa541c] hover:bg-orange-50 rounded-full text-[#fa541c] font-bold text-[11px] shadow-xs cursor-pointer"
+                          className="px-3 h-7 flex items-center justify-center bg-white border border-[#3b82f6] hover:bg-blue-50 rounded-full text-[#3b82f6] font-bold text-[11px] shadow-xs cursor-pointer"
                         >
                           评估审核
                         </button>
@@ -804,7 +804,7 @@ export default function AdminAICapabilities() {
                             onClick={() => {
                               alert(`配置助手 ${agent.name}：运营管理员有最高管理权，可微调其挂载的知识库。`);
                             }}
-                            className="w-7 h-7 flex items-center justify-center bg-white border border-neutral-200 rounded-full text-neutral-500 hover:text-[#fa541c] hover:bg-orange-50 shadow-xs cursor-pointer"
+                            className="w-7 h-7 flex items-center justify-center bg-white border border-neutral-200 rounded-full text-neutral-500 hover:text-[#3b82f6] hover:bg-blue-50 shadow-xs cursor-pointer"
                             title="配置助手"
                           >
                             <Settings className="w-3.5 h-3.5" />
@@ -843,7 +843,7 @@ export default function AdminAICapabilities() {
                         <img src={agent.avatar} alt="avatar" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="text-center mb-4">
-                        <h3 className="font-bold text-neutral-900 text-[15px] group-hover:text-[#fa541c] transition-colors line-clamp-1">{agent.name}</h3>
+                        <h3 className="font-bold text-neutral-900 text-[15px] group-hover:text-[#3b82f6] transition-colors line-clamp-1">{agent.name}</h3>
                         <div className="flex items-center justify-center gap-1.5 mt-1.5">
                           <span className="px-2 py-0.5 bg-neutral-100 text-neutral-600 text-[10px] rounded-md font-bold border border-neutral-200/50">
                             {agent.type}
@@ -887,18 +887,18 @@ export default function AdminAICapabilities() {
                 {/* Header */}
                 <div className="px-8 py-5 border-b border-neutral-100 flex justify-between items-center shrink-0 bg-neutral-50/50">
                   <div className="flex items-center gap-2">
-                    <Bot className="w-5 h-5 text-[#fa541c]" />
+                    <Bot className="w-5 h-5 text-[#3b82f6]" />
                     <h2 className="text-[17px] font-bold text-neutral-900">部署平台官方智能体助手</h2>
                   </div>
-                  <button onClick={() => setIsCreateAgentOpen(false)} className="text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 p-1.5 rounded-full transition-colors cursor-pointer border-0 bg-transparent"><X className="w-5 h-5" /></button>
+                  <button onClick={() => setIsCreateAgentOpen(false)} className="text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50 p-1.5 rounded-full transition-colors cursor-pointer border-0 bg-transparent"><X className="w-5 h-5" /></button>
                 </div>
 
                 {/* Form Body */}
                 <form onSubmit={handleCreateOfficialAgent} className="flex-1 overflow-y-auto p-8 space-y-6 custom-scrollbar">
                   {/* Avatar Upload Selection */}
                   <div className="flex flex-col items-center justify-center gap-2 border-b border-neutral-100 pb-6 shrink-0">
-                    <div className="w-20 h-20 rounded-full bg-[#fff2e8] border border-dashed border-[#fa541c]/50 flex items-center justify-center cursor-pointer overflow-hidden hover:bg-orange-50/80 transition-all shadow-3xs group">
-                      <UploadCloud className="w-6 h-6 text-[#fa541c] group-hover:scale-110 transition-transform" />
+                    <div className="w-20 h-20 rounded-full bg-[#eff6ff] border border-dashed border-[#3b82f6]/50 flex items-center justify-center cursor-pointer overflow-hidden hover:bg-blue-50/80 transition-all shadow-3xs group">
+                      <UploadCloud className="w-6 h-6 text-[#3b82f6] group-hover:scale-110 transition-transform" />
                     </div>
                     <span className="text-[12px] font-bold text-neutral-400">点击上传官方专属头像</span>
                   </div>
@@ -912,7 +912,7 @@ export default function AdminAICapabilities() {
                       placeholder="例如：SQL数据库结构设计专家"
                       value={agentForm.name}
                       onChange={(e) => setAgentForm({...agentForm, name: e.target.value})}
-                      className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all bg-white text-neutral-800 font-semibold"
+                      className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all bg-white text-neutral-800 font-semibold"
                     />
                   </div>
 
@@ -923,7 +923,7 @@ export default function AdminAICapabilities() {
                       <select 
                         value={agentForm.type}
                         onChange={(e) => setAgentForm({...agentForm, type: e.target.value as any})}
-                        className="w-full border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-800 font-semibold cursor-pointer"
+                        className="w-full border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-800 font-semibold cursor-pointer"
                       >
                         <option>课程助手</option>
                         <option>实验助手</option>
@@ -936,7 +936,7 @@ export default function AdminAICapabilities() {
                       <select 
                         value={agentForm.model}
                         onChange={(e) => setAgentForm({...agentForm, model: e.target.value})}
-                        className="w-full border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-800 font-semibold cursor-pointer"
+                        className="w-full border border-neutral-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-800 font-semibold cursor-pointer"
                       >
                         <option>DeepSeek-R1</option>
                         <option>GPT-4o</option>
@@ -950,7 +950,7 @@ export default function AdminAICapabilities() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <label className="text-[12px] font-bold text-neutral-700">模型发散度 (Temperature)</label>
-                      <span className="text-[11px] font-mono font-bold text-[#fa541c] bg-orange-50 px-2 py-0.5 rounded border border-[#ffbb96]/45">{agentForm.temperature}</span>
+                      <span className="text-[11px] font-mono font-bold text-[#3b82f6] bg-blue-50 px-2 py-0.5 rounded border border-[#bfdbfe]/45">{agentForm.temperature}</span>
                     </div>
                     <input 
                       type="range" 
@@ -959,7 +959,7 @@ export default function AdminAICapabilities() {
                       step="0.1"
                       value={agentForm.temperature}
                       onChange={(e) => setAgentForm({...agentForm, temperature: parseFloat(e.target.value)})}
-                      className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-[#fa541c]"
+                      className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-[#3b82f6]"
                     />
                     <div className="flex justify-between text-[9px] text-neutral-400 px-0.5">
                       <span>绝对精确 (0.0)</span>
@@ -976,14 +976,14 @@ export default function AdminAICapabilities() {
                       value={agentForm.prompt}
                       onChange={(e) => setAgentForm({...agentForm, prompt: e.target.value})}
                       placeholder="请定义助手的系统人格设定，包括解答策略、输出字数约束、支持代码高亮与拦截敏感内容规则..."
-                      className="w-full border border-neutral-200 rounded-xl p-3 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all bg-white text-neutral-800 font-medium resize-none leading-relaxed"
+                      className="w-full border border-neutral-200 rounded-xl p-3 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all bg-white text-neutral-800 font-medium resize-none leading-relaxed"
                     />
                   </div>
 
                   {/* Knowledge Base */}
                   <div className="space-y-1.5">
                     <label className="text-[12px] font-bold text-neutral-700 block">关联公共知识库 / 大纲境界</label>
-                    <div className="border-2 border-dashed border-neutral-200 rounded-xl p-5 flex flex-col items-center justify-center bg-neutral-50/50 hover:bg-orange-50/30 hover:border-[#fa541c]/50 transition-all cursor-pointer">
+                    <div className="border-2 border-dashed border-neutral-200 rounded-xl p-5 flex flex-col items-center justify-center bg-neutral-50/50 hover:bg-blue-50/30 hover:border-[#3b82f6]/50 transition-all cursor-pointer">
                       <Database className="w-5 h-5 text-neutral-400 mb-2" />
                       <span className="text-[12px] font-bold text-neutral-600 mb-0.5">挂载全局公共核心知识库</span>
                       <span className="text-[10px] text-neutral-400 text-center leading-normal max-w-xs">已默认选择《智云公共教学大纲与题库合集》，点击可切换其他知识库</span>
@@ -1000,7 +1000,7 @@ export default function AdminAICapabilities() {
                     </button>
                     <button 
                       type="submit"
-                      className="px-8 py-2 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full text-xs font-bold transition-all shadow-sm cursor-pointer border-0"
+                      className="px-8 py-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full text-xs font-bold transition-all shadow-sm cursor-pointer border-0"
                     >
                       保存并向全网发布
                     </button>
@@ -1019,18 +1019,18 @@ export default function AdminAICapabilities() {
                 {/* Header */}
                 <div className="px-8 py-5 border-b border-neutral-100 flex justify-between items-center shrink-0 bg-neutral-50/50">
                   <div className="flex items-center gap-2">
-                    <Shield className="w-5 h-5 text-[#fa541c]" />
+                    <Shield className="w-5 h-5 text-[#3b82f6]" />
                     <h2 className="text-[17px] font-bold text-neutral-900">公共能力准入合规度评估</h2>
                   </div>
-                  <button onClick={() => { setIsAuditModalOpen(false); setReviewingAgent(null); }} className="text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 p-1.5 rounded-full transition-colors cursor-pointer border-0 bg-transparent"><X className="w-5 h-5" /></button>
+                  <button onClick={() => { setIsAuditModalOpen(false); setReviewingAgent(null); }} className="text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50 p-1.5 rounded-full transition-colors cursor-pointer border-0 bg-transparent"><X className="w-5 h-5" /></button>
                 </div>
 
                 {/* Audit Body */}
                 <div className="flex-1 overflow-y-auto p-8 space-y-6 custom-scrollbar">
                   {/* Info Banner */}
-                  <div className="space-y-2 bg-[#fff2e8]/10 p-5 rounded-xl border border-[#ffbb96]/30 shrink-0">
+                  <div className="space-y-2 bg-[#eff6ff]/10 p-5 rounded-xl border border-[#bfdbfe]/30 shrink-0">
                     <div className="flex items-center gap-2">
-                      <span className="text-[9px] bg-[#fa541c] text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">AUD-AIC-001</span>
+                      <span className="text-[9px] bg-[#3b82f6] text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">AUD-AIC-001</span>
                       <span className="text-[11px] font-bold text-neutral-400">{reviewingAgent.tenant} | 教师: {reviewingAgent.creator}</span>
                     </div>
                     <h4 className="text-[15px] font-bold text-neutral-title leading-snug">{reviewingAgent.name}</h4>
@@ -1078,11 +1078,11 @@ export default function AdminAICapabilities() {
                     <div 
                       onClick={() => setCheckQuality(!checkQuality)}
                       className={cn(
-                        "p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 bg-white shadow-3xs hover:border-[#fa541c]/50",
-                        checkQuality ? "border-[#fa541c] bg-[#fff2e8]/5" : "border-neutral-200"
+                        "p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 bg-white shadow-3xs hover:border-[#3b82f6]/50",
+                        checkQuality ? "border-[#3b82f6] bg-[#eff6ff]/5" : "border-neutral-200"
                       )}
                     >
-                      <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5 shrink-0 transition-colors cursor-pointer", checkQuality ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300 bg-white")}>
+                      <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5 shrink-0 transition-colors cursor-pointer", checkQuality ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300 bg-white")}>
                         {checkQuality && <Check className="w-3 h-3 stroke-[3]" />}
                       </button>
                       <div>
@@ -1095,11 +1095,11 @@ export default function AdminAICapabilities() {
                     <div 
                       onClick={() => setCheckOriginality(!checkOriginality)}
                       className={cn(
-                        "p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 bg-white shadow-3xs hover:border-[#fa541c]/50",
-                        checkOriginality ? "border-[#fa541c] bg-[#fff2e8]/5" : "border-neutral-200"
+                        "p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 bg-white shadow-3xs hover:border-[#3b82f6]/50",
+                        checkOriginality ? "border-[#3b82f6] bg-[#eff6ff]/5" : "border-neutral-200"
                       )}
                     >
-                      <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5 shrink-0 transition-colors cursor-pointer", checkOriginality ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300 bg-white")}>
+                      <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5 shrink-0 transition-colors cursor-pointer", checkOriginality ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300 bg-white")}>
                         {checkOriginality && <Check className="w-3 h-3 stroke-[3]" />}
                       </button>
                       <div>
@@ -1112,11 +1112,11 @@ export default function AdminAICapabilities() {
                     <div 
                       onClick={() => setCheckStandard(!checkStandard)}
                       className={cn(
-                        "p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 bg-white shadow-3xs hover:border-[#fa541c]/50",
-                        checkStandard ? "border-[#fa541c] bg-[#fff2e8]/5" : "border-neutral-200"
+                        "p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 bg-white shadow-3xs hover:border-[#3b82f6]/50",
+                        checkStandard ? "border-[#3b82f6] bg-[#eff6ff]/5" : "border-neutral-200"
                       )}
                     >
-                      <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5 shrink-0 transition-colors cursor-pointer", checkStandard ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300 bg-white")}>
+                      <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5 shrink-0 transition-colors cursor-pointer", checkStandard ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300 bg-white")}>
                         {checkStandard && <Check className="w-3 h-3 stroke-[3]" />}
                       </button>
                       <div>
@@ -1139,7 +1139,7 @@ export default function AdminAICapabilities() {
                         value={rejectionReason}
                         onChange={(e) => setRejectionReason(e.target.value)}
                         placeholder="请输入对该大模型助手能力进行修改、脱敏或优化挂载大纲的具体调整意见..."
-                        className="w-full border border-neutral-200 rounded-xl p-3 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all bg-white text-neutral-800 font-medium resize-none leading-relaxed"
+                        className="w-full border border-neutral-200 rounded-xl p-3 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all bg-white text-neutral-800 font-medium resize-none leading-relaxed"
                       />
                     </div>
                   )}
@@ -1174,7 +1174,7 @@ export default function AdminAICapabilities() {
                       <button 
                         onClick={() => handleApproveAgent(reviewingAgent.id)}
                         disabled={isAuditLoading || !checkQuality || !checkOriginality || !checkStandard}
-                        className="px-8 py-2 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full text-xs font-bold transition-all shadow-sm cursor-pointer border-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-8 py-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full text-xs font-bold transition-all shadow-sm cursor-pointer border-0 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isAuditLoading ? "部署中..." : "审核通过并公开"}
                       </button>
@@ -1198,19 +1198,19 @@ export default function AdminAICapabilities() {
               {/* Category Filter Tab Selector */}
               <div className="flex bg-neutral-100/80 rounded-full p-1 border border-neutral-200/60">
                 <button 
-                  className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", skillCategoryFilter === 'All' ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
+                  className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", skillCategoryFilter === 'All' ? "bg-white text-[#3b82f6] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
                   onClick={() => setSkillCategoryFilter('All')}
                 >
                   全部
                 </button>
                 <button 
-                  className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", skillCategoryFilter === '通用技能' ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
+                  className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", skillCategoryFilter === '通用技能' ? "bg-white text-[#3b82f6] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
                   onClick={() => setSkillCategoryFilter('通用技能')}
                 >
                   通用技能
                 </button>
                 <button 
-                  className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", skillCategoryFilter === '专业技能' ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
+                  className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", skillCategoryFilter === '专业技能' ? "bg-white text-[#3b82f6] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
                   onClick={() => setSkillCategoryFilter('专业技能')}
                 >
                   专业技能
@@ -1224,7 +1224,7 @@ export default function AdminAICapabilities() {
                 <select 
                   value={skillTypeFilter}
                   onChange={(e) => setSkillTypeFilter(e.target.value)}
-                  className="appearance-none border border-neutral-200 rounded-full pl-4 pr-10 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer h-8"
+                  className="appearance-none border border-neutral-200 rounded-full pl-4 pr-10 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer h-8"
                 >
                   <option value="All">所有技能类型</option>
                   <option value="文本处理">文本处理</option>
@@ -1245,14 +1245,14 @@ export default function AdminAICapabilities() {
                   placeholder="搜索AI技能名称" 
                   value={skillSearchQuery}
                   onChange={(e) => setSkillSearchQuery(e.target.value)}
-                  className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-8"
+                  className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-8"
                 />
               </div>
 
               {/* Add Button */}
               <button 
                 onClick={() => setIsCreateSkillOpen(true)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-5 h-8 text-[13px] shadow-sm shrink-0 flex items-center gap-1 cursor-pointer font-bold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-5 h-8 text-[13px] shadow-sm shrink-0 flex items-center gap-1 cursor-pointer font-bold"
               >
                 <Plus className="w-4 h-4" /> 增设AI技能
               </button>
@@ -1282,7 +1282,7 @@ export default function AdminAICapabilities() {
                       placeholder="例如: 大模型PDF摘要分析..."
                       value={newSkillName}
                       onChange={(e) => setNewSkillName(e.target.value)}
-                      className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800"
+                      className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800"
                     />
                   </div>
 
@@ -1322,7 +1322,7 @@ export default function AdminAICapabilities() {
                       value={newSkillDesc}
                       onChange={(e) => setNewSkillDesc(e.target.value)}
                       rows={2}
-                      className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 resize-none"
+                      className="w-full border border-neutral-200 rounded px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 resize-none"
                     />
                   </div>
 
@@ -1401,7 +1401,7 @@ export default function AdminAICapabilities() {
                   <button 
                     onClick={handleSaveNewSkill}
                     disabled={!newSkillName.trim()}
-                    className="px-4 py-2 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-lg text-xs font-bold transition-all disabled:opacity-50 cursor-pointer"
+                    className="px-4 py-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-lg text-xs font-bold transition-all disabled:opacity-50 cursor-pointer"
                   >
                     增设并发布
                   </button>
@@ -1416,7 +1416,7 @@ export default function AdminAICapabilities() {
               <div className="bg-white rounded-xl shadow-2xl border border-neutral-100 max-w-2xl w-full p-6 animate-scale-up space-y-4">
                 <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] rounded text-[10px] font-bold">{testingSkill.type}</span>
+                    <span className="px-2 py-0.5 bg-[#eff6ff] text-[#3b82f6] rounded text-[10px] font-bold">{testingSkill.type}</span>
                     <h3 className="text-sm font-bold text-neutral-800">
                       测试技能模块: {testingSkill.name} ({testingSkill.version})
                     </h3>
@@ -1442,12 +1442,12 @@ export default function AdminAICapabilities() {
                       placeholder="在此处填写符合输入定义的测试文本..."
                       value={testInputText}
                       onChange={(e) => setTestInputText(e.target.value)}
-                      className="w-full border border-neutral-200 rounded-lg p-3 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 resize-none font-mono"
+                      className="w-full border border-neutral-200 rounded-lg p-3 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 resize-none font-mono"
                     />
                     <button 
                       onClick={handleTestSkillSubmit}
                       disabled={!testInputText.trim() || isTestLoading}
-                      className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white py-2 rounded-lg text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                      className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white py-2 rounded-lg text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
                     >
                       {isTestLoading ? (
                         <>
@@ -1514,7 +1514,7 @@ export default function AdminAICapabilities() {
                   {/* Category Tag matching mockup */}
                   <div className={cn(
                     "absolute top-0 right-0 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg",
-                    skill.category === '通用技能' ? "bg-[#fff2e8] text-[#fa541c]" : "bg-blue-50 text-blue-600"
+                    skill.category === '通用技能' ? "bg-[#eff6ff] text-[#3b82f6]" : "bg-blue-50 text-blue-600"
                   )}>
                     {skill.category === '通用技能' ? "通用技能" : "专业技能"}
                   </div>
@@ -1526,7 +1526,7 @@ export default function AdminAICapabilities() {
                         {getIconByType(skill.type)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-[15px] text-neutral-800 truncate group-hover:text-[#fa541c] transition-colors">{skill.name}</h3>
+                        <h3 className="font-bold text-[15px] text-neutral-800 truncate group-hover:text-[#3b82f6] transition-colors">{skill.name}</h3>
                         <p className="text-[12px] text-neutral-500 mt-1 line-clamp-2 leading-relaxed">{skill.description}</p>
                       </div>
                     </div>
@@ -1536,7 +1536,7 @@ export default function AdminAICapabilities() {
                       <span className="px-2 py-0.5 bg-neutral-50 text-neutral-600 rounded text-[11px] border border-neutral-200 font-mono">
                         {skill.version}
                       </span>
-                      <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] rounded text-[11px] border border-[#ffbb96] font-medium">
+                      <span className="px-2 py-0.5 bg-[#eff6ff] text-[#3b82f6] rounded text-[11px] border border-[#bfdbfe] font-medium">
                         灰度 {skill.grayPercent}%
                       </span>
                       {skill.nodes.slice(0, 2).map((node, idx) => (
@@ -1583,7 +1583,7 @@ export default function AdminAICapabilities() {
                       {/* Test */}
                       <button 
                         onClick={() => setTestingSkill(skill)}
-                        className="p-1.5 text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50 rounded transition-colors flex items-center justify-center cursor-pointer" 
+                        className="p-1.5 text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50 rounded transition-colors flex items-center justify-center cursor-pointer" 
                         title="效果测试"
                       >
                         <Play className="w-4 h-4 fill-current" />
@@ -1614,7 +1614,7 @@ export default function AdminAICapabilities() {
           <div className="lg:col-span-4 border border-neutral-200 rounded-xl overflow-hidden">
             <div className="p-4 border-b border-neutral-200 bg-neutral-50/50 flex justify-between items-center">
               <span className="font-bold text-neutral-800 text-xs tracking-wider uppercase">数字员工配置列表</span>
-              <span className="text-[10px] font-bold text-[#fa541c] bg-[#fff2e8] border border-[#ffbb96] rounded px-1.5 py-0.5">多环境</span>
+              <span className="text-[10px] font-bold text-[#3b82f6] bg-[#eff6ff] border border-[#bfdbfe] rounded px-1.5 py-0.5">多环境</span>
             </div>
 
             <div className="divide-y divide-neutral-100">
@@ -1626,11 +1626,11 @@ export default function AdminAICapabilities() {
                     onClick={() => setSelectedAgentId(agent.id)}
                     className={cn(
                       "p-4 cursor-pointer transition-all hover:bg-neutral-50 flex flex-col gap-2 relative",
-                      isActive ? "bg-[#fff2e8]/45 border-l-4 border-[#fa541c]" : ""
+                      isActive ? "bg-[#eff6ff]/45 border-l-4 border-[#3b82f6]" : ""
                     )}
                   >
                     <div className="flex justify-between items-start">
-                      <span className={cn("text-xs font-bold leading-normal transition-colors", isActive ? "text-[#fa541c]" : "text-neutral-800")}>
+                      <span className={cn("text-xs font-bold leading-normal transition-colors", isActive ? "text-[#3b82f6]" : "text-neutral-800")}>
                         {agent.name}
                       </span>
                       <span className="text-[10px] font-mono text-neutral-400 font-semibold">{agent.version}</span>
@@ -1670,7 +1670,7 @@ export default function AdminAICapabilities() {
             <div className="bg-white border border-neutral-100 rounded-xl p-6 space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-neutral-100 pb-4 gap-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#fff2e8] flex items-center justify-center text-[#fa541c]">
+                  <div className="w-8 h-8 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
                     <Settings className="w-4 h-4" />
                   </div>
                   <div>
@@ -1685,7 +1685,7 @@ export default function AdminAICapabilities() {
                   <select 
                     value={agentEnv} 
                     onChange={(e) => setAgentEnv(e.target.value as any)}
-                    className="text-xs border border-neutral-200 rounded px-2.5 py-1.5 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer"
+                    className="text-xs border border-neutral-200 rounded px-2.5 py-1.5 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer"
                   >
                     <option value="Dev">开发环境 (Dev)</option>
                     <option value="Test">测试环境 (Test)</option>
@@ -1704,7 +1704,7 @@ export default function AdminAICapabilities() {
               <div className="space-y-6">
                 {/* 1. Basic Parameters Block */}
                 <div className="space-y-4">
-                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#fa541c] pl-2 flex items-center justify-between">
+                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#3b82f6] pl-2 flex items-center justify-between">
                     <span>1. 基础推理参数</span>
                     <span className="text-[10px] text-neutral-400 font-normal">模型和输出控制</span>
                   </h3>
@@ -1737,7 +1737,7 @@ export default function AdminAICapabilities() {
                     <div className="space-y-1.5 md:col-span-2">
                       <div className="flex justify-between text-[11px] font-bold text-neutral-600">
                         <span>核温系数 (Temperature - 发散度)</span>
-                        <span className="text-[#fa541c] font-black">{cfgTemp}</span>
+                        <span className="text-[#3b82f6] font-black">{cfgTemp}</span>
                       </div>
                       <p className="text-[10px] text-neutral-400 leading-normal pb-1">较低核温回答精确严谨（适合出题及答卷打分），较高核温回答充满创意（适合写作与代码重构）</p>
                       <input 
@@ -1747,7 +1747,7 @@ export default function AdminAICapabilities() {
                         step="0.1"
                         value={cfgTemp}
                         onChange={(e) => setCfgTemp(parseFloat(e.target.value))}
-                        className="w-full h-1 accent-[#fa541c] bg-neutral-200 rounded-lg cursor-pointer"
+                        className="w-full h-1 accent-[#3b82f6] bg-neutral-200 rounded-lg cursor-pointer"
                       />
                     </div>
                   </div>
@@ -1755,7 +1755,7 @@ export default function AdminAICapabilities() {
 
                 {/* 2. Capability Binds (关联技能, 知识库) */}
                 <div className="space-y-4">
-                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#fa541c] pl-2 flex items-center justify-between">
+                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#3b82f6] pl-2 flex items-center justify-between">
                     <span>2. 能力绑定与知识融合</span>
                     <span className="text-[10px] text-neutral-400 font-normal">多端技能包 & 密级文档</span>
                   </h3>
@@ -1783,7 +1783,7 @@ export default function AdminAICapabilities() {
                                 type="button"
                                 className={cn(
                                   "w-3.5 h-3.5 rounded border flex items-center justify-center flex-shrink-0 transition-all",
-                                  isBound ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300"
+                                  isBound ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300"
                                 )}
                               >
                                 {isBound && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -1817,7 +1817,7 @@ export default function AdminAICapabilities() {
                                 type="button"
                                 className={cn(
                                   "w-3.5 h-3.5 rounded border flex items-center justify-center flex-shrink-0 transition-all",
-                                  isBound ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300"
+                                  isBound ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300"
                                 )}
                               >
                                 {isBound && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -1833,7 +1833,7 @@ export default function AdminAICapabilities() {
 
                 {/* 3. Trigger rules & Intent settings */}
                 <div className="space-y-4">
-                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#fa541c] pl-2 flex items-center justify-between">
+                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#3b82f6] pl-2 flex items-center justify-between">
                     <span>3. 自动触发策略及意图识别</span>
                     <span className="text-[10px] text-neutral-400 font-normal">前置网关规则</span>
                   </h3>
@@ -1923,7 +1923,7 @@ export default function AdminAICapabilities() {
                       </div>
                       <div className="flex flex-wrap gap-1.5 pt-1">
                         {cfgIntents.map(int => (
-                          <span key={int} className="bg-[#fff2e8] border border-[#ffbb96]/45 rounded px-2 py-0.5 text-[10px] text-[#fa541c] flex items-center gap-1">
+                          <span key={int} className="bg-[#eff6ff] border border-[#bfdbfe]/45 rounded px-2 py-0.5 text-[10px] text-[#3b82f6] flex items-center gap-1">
                             <span>{int}</span>
                             <button 
                               type="button" 
@@ -1941,7 +1941,7 @@ export default function AdminAICapabilities() {
 
                 {/* 4. Response Strategy & Human Handoff */}
                 <div className="space-y-4">
-                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#fa541c] pl-2 flex items-center justify-between">
+                  <h3 className="text-xs font-bold text-neutral-800 border-l-3 border-[#3b82f6] pl-2 flex items-center justify-between">
                     <span>4. 答复模板及人机协作分流</span>
                     <span className="text-[10px] text-neutral-400 font-normal">接管逻辑与兜底安全</span>
                   </h3>
@@ -1954,7 +1954,7 @@ export default function AdminAICapabilities() {
                         rows={3}
                         value={cfgTemplate}
                         onChange={(e) => setCfgTemplate(e.target.value)}
-                        className="w-full border border-neutral-200 rounded-lg p-3 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 leading-normal"
+                        className="w-full border border-neutral-200 rounded-lg p-3 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 leading-normal"
                       />
                     </div>
 
@@ -2021,7 +2021,7 @@ export default function AdminAICapabilities() {
                   type="button"
                   onClick={handleOneClickPublishAgent}
                   disabled={isPublishingAgent}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md shadow-[#fa541c]/10 flex items-center gap-2 cursor-pointer select-none"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md shadow-[#3b82f6]/10 flex items-center gap-2 cursor-pointer select-none"
                 >
                   {isPublishingAgent ? (
                     <>
@@ -2041,7 +2041,7 @@ export default function AdminAICapabilities() {
               {isPublishingAgent && (
                 <div className="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden transition-all duration-300">
                   <div 
-                    className="bg-[#fa541c] h-full rounded-full transition-all duration-300"
+                    className="bg-[#3b82f6] h-full rounded-full transition-all duration-300"
                     style={{ width: `${publishingAgentProgress}%` }}
                   />
                 </div>

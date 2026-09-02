@@ -181,7 +181,7 @@ export default function TeacherHome() {
     { icon: Database, title: '资源分配', desc: '实训算力资源配置', bgGradient: 'bg-gradient-to-br from-emerald-50/60 via-teal-50/30 to-white hover:from-emerald-100/50 hover:to-emerald-50/60', borderClass: 'border-emerald-100/70 hover:border-emerald-200/80', titleColor: 'text-emerald-950', descColor: 'text-neutral-500', iconBg: 'bg-emerald-600', iconTextColor: 'text-emerald-600', shadowColor: 'hover:shadow-emerald-500/5 hover:shadow-md', path: '/teacher/resources' },
     { icon: Users, title: '用户管理', desc: '学生与协作教师团队管理', bgGradient: 'bg-gradient-to-br from-cyan-50/60 via-blue-50/30 to-white hover:from-cyan-100/50 hover:to-blue-50/60', borderClass: 'border-cyan-100/70 hover:border-cyan-200/80', titleColor: 'text-cyan-950', descColor: 'text-neutral-500', iconBg: 'bg-cyan-600', iconTextColor: 'text-cyan-600', shadowColor: 'hover:shadow-cyan-500/5 hover:shadow-md', path: '/teacher/students' },
     { icon: BarChart3, title: '学习数据统计', desc: '学生学习曲线进度大盘', bgGradient: 'bg-gradient-to-br from-amber-50/60 via-orange-50/30 to-white hover:from-amber-100/50 hover:to-orange-50/60', borderClass: 'border-amber-100/70 hover:border-amber-200/80', titleColor: 'text-amber-950', descColor: 'text-neutral-500', iconBg: 'bg-amber-600', iconTextColor: 'text-amber-600', shadowColor: 'hover:shadow-amber-500/5 hover:shadow-md', path: '/teacher/statistics' },
-    { icon: PenTool, title: '批阅管理', desc: '主客观题人工批改与反馈', bgGradient: 'bg-gradient-to-br from-orange-50/60 via-amber-50/30 to-white hover:from-orange-100/50 hover:to-amber-50/60', borderClass: 'border-orange-100/70 hover:border-orange-200/80', titleColor: 'text-orange-950', descColor: 'text-neutral-500', iconBg: 'bg-[#fa541c]', iconTextColor: 'text-[#fa541c]', shadowColor: 'hover:shadow-orange-500/5 hover:shadow-md', path: '/teacher/grading' },
+    { icon: PenTool, title: '批阅管理', desc: '主客观题人工批改与反馈', bgGradient: 'bg-gradient-to-br from-orange-50/60 via-amber-50/30 to-white hover:from-orange-100/50 hover:to-amber-50/60', borderClass: 'border-orange-100/70 hover:border-blue-200/80', titleColor: 'text-orange-950', descColor: 'text-neutral-500', iconBg: 'bg-[#3b82f6]', iconTextColor: 'text-[#3b82f6]', shadowColor: 'hover:shadow-blue-500/5 hover:shadow-md', path: '/teacher/grading' },
     { icon: ClipboardList, title: '考试规则', desc: '设置考试防作弊与规则模板', bgGradient: 'bg-gradient-to-br from-teal-50/60 via-emerald-50/30 to-white hover:from-teal-100/50 hover:to-emerald-50/60', borderClass: 'border-teal-100/70 hover:border-teal-200/80', titleColor: 'text-teal-950', descColor: 'text-neutral-500', iconBg: 'bg-teal-600', iconTextColor: 'text-teal-600', shadowColor: 'hover:shadow-teal-500/5 hover:shadow-md', path: '/teacher/examrules' },
     { icon: CreditCard, title: '计费账单', desc: '查看算力与存储消费', bgGradient: 'bg-gradient-to-br from-fuchsia-50/60 via-pink-50/30 to-white hover:from-fuchsia-100/50 hover:to-pink-50/60', borderClass: 'border-fuchsia-100/70 hover:border-fuchsia-200/80', titleColor: 'text-fuchsia-950', descColor: 'text-neutral-500', iconBg: 'bg-fuchsia-600', iconTextColor: 'text-fuchsia-600', shadowColor: 'hover:shadow-fuchsia-500/5 hover:shadow-md', path: '/teacher/billing' },
     { icon: Cpu, title: 'AI配额管理', desc: '大模型GPU算力配额设置', bgGradient: 'bg-gradient-to-br from-indigo-50/60 via-violet-50/30 to-white hover:from-indigo-100/50 hover:to-violet-50/60', borderClass: 'border-indigo-100/70 hover:border-indigo-200/80', titleColor: 'text-indigo-950', descColor: 'text-neutral-500', iconBg: 'bg-indigo-600', iconTextColor: 'text-indigo-600', shadowColor: 'hover:shadow-indigo-500/5 hover:shadow-md', path: '/teacher/aiquota' },
@@ -337,7 +337,7 @@ export default function TeacherHome() {
   });
 
   return (
-    <div className="-m-6 p-6 bg-gradient-to-b from-[#ffe2d1] via-[#fff8f5] to-[#ffffff] min-h-full space-y-8 pb-12 relative flex-1">
+    <div className="-m-6 p-6 bg-gradient-to-b from-[#e0edff] via-[#f3f7fd] to-[#ffffff] min-h-full space-y-8 pb-12 relative flex-1">
       {/* Toast */}
       {toast && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 px-4 py-2 bg-white border border-neutral-200 rounded-lg shadow-lg animate-in slide-in-from-top-4">
@@ -351,7 +351,7 @@ export default function TeacherHome() {
       )}
 
       {/* Welcome Banner */}
-      <div className="relative bg-gradient-to-r from-[#fa541c] via-[#ff7a45] to-[#fa541c] rounded-2xl overflow-hidden shadow-lg group h-auto md:h-[165px]">
+      <div className="relative bg-gradient-to-r from-[#3b82f6] via-[#60a5fa] to-[#3b82f6] rounded-2xl overflow-hidden shadow-lg group h-auto md:h-[165px]">
         
         {/* Diagonal light rays */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
@@ -372,17 +372,17 @@ export default function TeacherHome() {
           <div className="p-5 md:py-6 md:pl-10 w-full flex flex-col justify-center">
             {/* Bold slanted Title */}
             <div className="transform -skew-x-12 origin-left mb-2 flex flex-wrap items-end gap-3 md:gap-5">
-              <h1 className="text-2xl md:text-[30px] font-black text-white leading-none drop-shadow-[2px_3px_0px_rgba(212,56,13,0.5)] italic tracking-wider">
+              <h1 className="text-2xl md:text-[30px] font-black text-white leading-none drop-shadow-[2px_3px_0px_rgba(29,78,216,0.35)] italic tracking-wider">
                 欢迎回来，张老师
               </h1>
-              <h2 className="text-lg md:text-[22px] font-bold text-white/90 leading-none drop-shadow-[1px_2px_0px_rgba(212,56,13,0.5)] italic tracking-wide">
+              <h2 className="text-lg md:text-[22px] font-bold text-white/90 leading-none drop-shadow-[1px_2px_0px_rgba(29,78,216,0.35)] italic tracking-wide">
                 智云实战教学空间
               </h2>
             </div>
             
             {/* White highlighted Subtitle */}
             <div className="transform -skew-x-12 origin-left mb-2 inline-block max-w-max">
-              <div className="bg-gradient-to-r from-white via-white to-transparent text-[#fa541c] text-xs md:text-sm font-black pl-6 pr-12 py-1 md:py-1.5">
+              <div className="bg-gradient-to-r from-white via-white to-transparent text-[#3b82f6] text-xs md:text-sm font-black pl-6 pr-12 py-1 md:py-1.5">
                 <span className="transform skew-x-12 block italic tracking-wide">带你轻松管理今日教学任务</span>
               </div>
             </div>
@@ -397,7 +397,7 @@ export default function TeacherHome() {
       <div>
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             教学利器
           </h2>
         </div>
@@ -427,7 +427,7 @@ export default function TeacherHome() {
                 <tool.icon className={cn("w-5 h-5 drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.08)] relative z-10", tool.iconTextColor)} />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className={cn("font-bold text-sm tracking-wide truncate group-hover:text-[#fa541c] transition-colors", tool.titleColor)}>{tool.title}</h4>
+                <h4 className={cn("font-bold text-sm tracking-wide truncate group-hover:text-[#3b82f6] transition-colors", tool.titleColor)}>{tool.title}</h4>
                 <p className={cn("text-[11px] mt-0.5 leading-tight truncate", tool.descColor)}>{tool.desc}</p>
               </div>
             </div>
@@ -442,7 +442,7 @@ export default function TeacherHome() {
             onClick={() => setActiveSubTab('course')}
             className={cn(
               "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'course' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-body border-transparent hover:text-[#fa541c]"
+              activeSubTab === 'course' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
             )}
           >
             课程
@@ -455,7 +455,7 @@ export default function TeacherHome() {
             }}
             className={cn(
               "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'project' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-body border-transparent hover:text-[#fa541c]"
+              activeSubTab === 'project' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
             )}
           >
             项目
@@ -468,7 +468,7 @@ export default function TeacherHome() {
             }}
             className={cn(
               "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'dataset' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-body border-transparent hover:text-[#fa541c]"
+              activeSubTab === 'dataset' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
             )}
           >
             数据集
@@ -481,7 +481,7 @@ export default function TeacherHome() {
             }}
             className={cn(
               "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'exam' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-body border-transparent hover:text-[#fa541c]"
+              activeSubTab === 'exam' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
             )}
           >
             考试
@@ -494,7 +494,7 @@ export default function TeacherHome() {
             }}
             className={cn(
               "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'practice' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-body border-transparent hover:text-[#fa541c]"
+              activeSubTab === 'practice' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
             )}
           >
             最佳实践
@@ -507,7 +507,7 @@ export default function TeacherHome() {
             }}
             className={cn(
               "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'aicenter' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-body border-transparent hover:text-[#fa541c]"
+              activeSubTab === 'aicenter' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
             )}
           >
             ai能力中心
@@ -525,7 +525,7 @@ export default function TeacherHome() {
                     value={courseSearchQuery}
                     onChange={(e) => setCourseSearchQuery(e.target.value)}
                     placeholder="搜索课程名称/代码" 
-                    className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+                    className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-9 bg-white"
                   />
                 </div>
               </div>
@@ -543,7 +543,7 @@ export default function TeacherHome() {
                     setCourseModalMode('create'); 
                     setIsCourseModalOpen(true); 
                   }} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
                 >
                   <Plus className="w-4 h-4 mr-1" /> 新建课程
                 </Button>
@@ -577,7 +577,7 @@ export default function TeacherHome() {
                               <div>
                                 <div 
                                   onClick={() => handleOpenCourseDetail(course)} 
-                                  className="font-medium text-neutral-800 group-hover:text-[#fa541c] transition-colors cursor-pointer"
+                                  className="font-medium text-neutral-800 group-hover:text-[#3b82f6] transition-colors cursor-pointer"
                                 >
                                   {course.name}
                                 </div>
@@ -590,7 +590,7 @@ export default function TeacherHome() {
                           </td>
                           <td className="p-4">
                             {course.scope === '平台' ? (
-                              <span className="px-2 py-0.5 bg-orange-50 text-orange-600 rounded text-[12px] border border-orange-200 font-medium">{course.scope}</span>
+                              <span className="px-2 py-0.5 bg-blue-50 text-orange-600 rounded text-[12px] border border-blue-200 font-medium">{course.scope}</span>
                             ) : course.scope === '租户' ? (
                               <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-[12px] border border-blue-200 font-medium">{course.scope}</span>
                             ) : (
@@ -600,7 +600,7 @@ export default function TeacherHome() {
                           <td className="p-4">
                             <span className={cn(
                               "px-2 py-0.5 text-[12px] rounded border font-medium", 
-                              course.status === '已发布' ? "bg-orange-50 text-orange-600 border-orange-200" : 
+                              course.status === '已发布' ? "bg-blue-50 text-orange-600 border-blue-200" : 
                               course.status === '已下架' ? "bg-neutral-100 text-neutral-600 border-neutral-200" : 
                               "bg-rose-50 text-rose-600 border-rose-200"
                             )}>
@@ -612,7 +612,7 @@ export default function TeacherHome() {
                               <span className="text-emerald-600 font-medium">已通过</span>
                             )}
                             {course.auditStatus === '待审核' && (
-                              <span className="text-[#fa541c] font-medium">待审核</span>
+                              <span className="text-[#3b82f6] font-medium">待审核</span>
                             )}
                             {course.auditStatus === '已驳回' && (
                               <span className="text-rose-600 font-medium">已驳回</span>
@@ -620,10 +620,10 @@ export default function TeacherHome() {
                           </td>
                           <td className="p-4">
                             <div className="flex items-center gap-3">
-                              <button onClick={() => navigate(`/teacher/course/${course.id}`)} className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]">查看</button>
+                              <button onClick={() => navigate(`/teacher/course/${course.id}`)} className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]">查看</button>
                               <button 
                                 onClick={() => handleOpenCourseDetail(course)}
-                                className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
+                                className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium rounded-[4px]"
                               >
                                 详情
                               </button>
@@ -635,7 +635,7 @@ export default function TeacherHome() {
                                       e.stopPropagation();
                                       setActiveCourseDropdownId(activeCourseDropdownId === course.id ? null : course.id);
                                   }}
-                                  className="text-[#fa541c] hover:text-[#e84a15] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium flex items-center gap-0.5 rounded-[4px]"
+                                  className="text-[#3b82f6] hover:text-[#2563eb] transition-colors bg-transparent border-0 cursor-pointer p-0 text-[13px] font-medium flex items-center gap-0.5 rounded-[4px]"
                                 >
                                   更多 <ChevronDown className="w-3 h-3" />
                                 </button>
@@ -661,7 +661,7 @@ export default function TeacherHome() {
                                         "w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all font-medium",
                                         (course.scope === '租户' || course.scope === '平台') 
                                           ? "text-neutral-400 cursor-not-allowed hover:bg-transparent" 
-                                          : "text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50"
+                                          : "text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50"
                                       )}
                                     >
                                       编辑
@@ -676,7 +676,7 @@ export default function TeacherHome() {
                                             onConfirm: () => handlePublishCourse(course.id)
                                           });
                                         }} 
-                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                       >
                                         发布
                                       </button>
@@ -690,7 +690,7 @@ export default function TeacherHome() {
                                             onConfirm: () => handleCancelPublishCourse(course.id)
                                           });
                                         }} 
-                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                       >
                                         取消发布
                                       </button>
@@ -703,7 +703,7 @@ export default function TeacherHome() {
                                           setApplyRange('租户');
                                           setIsApplyPublicModalOpen(true);
                                         }} 
-                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                       >
                                         申请公开
                                       </button>
@@ -718,7 +718,7 @@ export default function TeacherHome() {
                                             onConfirm: () => handlePublishCourse(course.id)
                                           });
                                         }} 
-                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                       >
                                         重新上架
                                       </button>
@@ -729,14 +729,14 @@ export default function TeacherHome() {
                                           setOffShelfReason('');
                                           setIsOffShelfModalOpen(true);
                                         }} 
-                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                        className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                       >
                                         下架
                                       </button>
                                     )}
                                     <button 
                                       onClick={() => handleCopyCourse(course)}
-                                      className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                      className="w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                     >
                                       复制
                                     </button>
@@ -756,7 +756,7 @@ export default function TeacherHome() {
                                         "w-full text-left px-3.5 py-1.5 text-[12px] bg-transparent border-0 block transition-all cursor-pointer font-medium",
                                         (course.scope === '租户' || course.scope === '平台') 
                                           ? "text-neutral-400 cursor-not-allowed hover:bg-transparent" 
-                                          : "text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50"
+                                          : "text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50"
                                       )}
                                     >
                                       删除
@@ -786,14 +786,14 @@ export default function TeacherHome() {
                   <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
                     &lt;
                   </button>
-                  <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
+                  <button className="w-7 h-7 bg-[#3b82f6] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
                     1
                   </button>
                   <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
                     &gt;
                   </button>
                 </div>
-                <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
+                <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#3b82f6]">
                   <option value="10">10 条/页</option>
                   <option value="20">20 条/页</option>
                   <option value="50">50 条/页</option>
@@ -841,17 +841,17 @@ export default function TeacherHome() {
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
                 {courseModalMode === 'create' ? (
-                  <Plus className="w-5 h-5 text-[#fa541c]" />
+                  <Plus className="w-5 h-5 text-[#3b82f6]" />
                 ) : courseModalMode === 'edit' ? (
-                  <Edit className="w-5 h-5 text-[#fa541c]" />
+                  <Edit className="w-5 h-5 text-[#3b82f6]" />
                 ) : (
-                  <FileText className="w-5 h-5 text-[#fa541c]" />
+                  <FileText className="w-5 h-5 text-[#3b82f6]" />
                 )} 
                 {courseModalMode === 'create' ? '新建课程' : courseModalMode === 'edit' ? '编辑课程' : '课程详情'}
               </h2>
               <button 
                 onClick={() => setIsCourseModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -928,7 +928,7 @@ export default function TeacherHome() {
                   <div className="border border-neutral-200/80 rounded-[4px] overflow-hidden flex flex-col bg-white">
                     <div className="px-3.5 py-2 border-b border-neutral-200 bg-neutral-50/60 font-bold text-neutral-700 text-xs flex items-center justify-between select-none">
                       <span className="flex items-center gap-1.5">
-                        <BookOpen className="w-3.5 h-3.5 text-[#fa541c]" />
+                        <BookOpen className="w-3.5 h-3.5 text-[#3b82f6]" />
                         富文本介绍预览
                       </span>
                       <span className="text-[11px] font-normal text-neutral-400">只读视图</span>
@@ -945,11 +945,11 @@ export default function TeacherHome() {
                 {/* 1. 课程名称 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    课程名称 <span className="text-[#fa541c]">*</span>
+                    课程名称 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] transition-all text-[#262626]" 
+                    className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626]" 
                     value={courseFormName}
                     onChange={(e) => setCourseFormName(e.target.value)}
                     placeholder="请输入课程名称" 
@@ -960,14 +960,14 @@ export default function TeacherHome() {
                 {/* 2. 标签 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    标签 <span className="text-[#fa541c]">*</span>
+                    标签 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div ref={courseTagDropdownRef} className="relative w-full text-[13px]">
                     <div
                       onClick={() => setIsCourseTagDropdownOpen(!isCourseTagDropdownOpen)}
                       className={cn(
                         "min-h-[38px] w-full border rounded-[4px] px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-[#262626] bg-white cursor-pointer select-none",
-                        isCourseTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "border-neutral-200 hover:border-neutral-300"
+                        isCourseTagDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "border-neutral-200 hover:border-neutral-300"
                       )}
                     >
                       {courseFormTags.length === 0 ? (
@@ -1025,13 +1025,13 @@ export default function TeacherHome() {
                                 className={cn(
                                   "px-4 py-2.5 text-left text-[13px] transition-colors cursor-pointer flex items-center justify-between",
                                   isSelected 
-                                    ? "bg-orange-50 text-[#fa541c] font-bold"
-                                    : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                    ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                    : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                 )}
                               >
                                 <span className="font-medium">{tag}</span>
                                 {isSelected && (
-                                  <Check className="w-3.5 h-3.5 text-[#fa541c]" strokeWidth={2.5} />
+                                  <Check className="w-3.5 h-3.5 text-[#3b82f6]" strokeWidth={2.5} />
                                 )}
                               </div>
                             );
@@ -1045,10 +1045,10 @@ export default function TeacherHome() {
                 {/* 3. 课程描述 */}
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    课程描述 <span className="text-[#fa541c]">*</span>
+                    课程描述 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea 
-                    className="w-full min-h-[100px] border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none" 
+                    className="w-full min-h-[100px] border border-neutral-200 rounded-[4px] px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none" 
                     value={courseFormDesc}
                     onChange={(e) => setCourseFormDesc(e.target.value)}
                     placeholder="请输入课程描述"
@@ -1058,7 +1058,7 @@ export default function TeacherHome() {
                 {/* 4. 课程封面 */}
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-1.5">
-                    课程封面 <span className="text-[#fa541c]">*</span>
+                    课程封面 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {defaultCovers.map((cover, idx) => (
@@ -1066,15 +1066,15 @@ export default function TeacherHome() {
                         key={idx}
                         onClick={() => setSelectedCover(cover)}
                         className={cn(
-                          "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#fa541c]/50 hover:scale-[1.02]",
+                          "aspect-[5/2] rounded-[4px] overflow-hidden border-2 transition-all relative select-none cursor-pointer hover:border-[#3b82f6]/50 hover:scale-[1.02]",
                           selectedCover === cover 
-                            ? "border-[#fa541c] shadow-md shadow-orange-500/10 scale-[1.02]" 
+                            ? "border-[#3b82f6] shadow-md shadow-blue-500/10 scale-[1.02]" 
                             : "border-transparent"
                         )}
                       >
                         <img src={cover} alt={`cover-${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                         {selectedCover === cover && (
-                          <div className="absolute top-1.5 right-1.5 bg-[#fa541c] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
+                          <div className="absolute top-1.5 right-1.5 bg-[#3b82f6] text-white rounded-full p-0.5 shadow-md flex items-center justify-center w-5 h-5 animate-in zoom-in-50 duration-150">
                             <Check className="w-3.5 h-3.5" strokeWidth={3} />
                           </div>
                         )}
@@ -1086,14 +1086,14 @@ export default function TeacherHome() {
                 {/* 5. 课程介绍 */}
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    课程介绍 <span className="text-[#fa541c]">*</span>
+                    课程介绍 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="border border-neutral-200 rounded-[4px] overflow-hidden flex flex-col bg-white w-full">
                     {/* Rich Text Toolbar */}
                     <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-200 bg-neutral-50/50 select-none">
                       <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="加粗"><Bold className="w-3.5 h-3.5" /></button>
                       <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="斜体"><Italic className="w-3.5 h-3.5" /></button>
-                      <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#fa541c]" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
+                      <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-[#3b82f6]" title="文本颜色"><Type className="w-3.5 h-3.5" /></button>
                       <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="字体大小"><span className="text-[10px] font-bold font-serif leading-none relative top-[-0.5px]">Tt</span></button>
                       <div className="w-px h-3.5 bg-neutral-200 mx-1"></div>
                       <button type="button" className="p-1 hover:bg-neutral-200 rounded-[4px] transition-colors text-neutral-500" title="无序列表"><List className="w-3.5 h-3.5" /></button>
@@ -1142,7 +1142,7 @@ export default function TeacherHome() {
                   </Button>
                   <Button 
                     onClick={handleSaveCourse} 
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                   >
                     确认
                   </Button>
@@ -1166,12 +1166,12 @@ export default function TeacherHome() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 申请公开课程资源
               </h2>
               <button 
                 onClick={() => setIsApplyPublicModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1180,11 +1180,11 @@ export default function TeacherHome() {
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">公开后平台师生可见可用</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">公开后平台师生可见可用</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     申请公开后，课程需经过超管审核。审核通过将加入对应范围的公共课程库，相应师生可见可用。
                   </p>
                 </div>
@@ -1204,7 +1204,7 @@ export default function TeacherHome() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                    公开范围 <span className="text-[#fa541c]">*</span>
+                    公开范围 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -1217,11 +1217,11 @@ export default function TeacherHome() {
                         className={cn(
                           "border p-4 rounded-[4px] cursor-pointer transition-all select-none flex flex-col gap-1",
                           applyRange === opt.key 
-                            ? "border-[#fa541c] bg-[#fff5f0]/30 font-bold"
+                            ? "border-[#3b82f6] bg-[#fff5f0]/30 font-bold"
                             : "border-neutral-200 bg-white hover:bg-neutral-50"
                         )}
                       >
-                        <span className={cn("font-bold text-[13px]", applyRange === opt.key ? "text-[#fa541c]" : "text-[#262626]")}>
+                        <span className={cn("font-bold text-[13px]", applyRange === opt.key ? "text-[#3b82f6]" : "text-[#262626]")}>
                           {opt.label}
                         </span>
                         <span className="text-[11px] text-neutral-400 leading-normal">{opt.desc}</span>
@@ -1232,13 +1232,13 @@ export default function TeacherHome() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    申请说明 <span className="text-[#fa541c]">*</span>
+                    申请说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={applyReason}
                     onChange={(e) => setApplyReason(e.target.value)}
                     placeholder="请简述申请公开该课程的理由或推荐使用场景..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -1255,7 +1255,7 @@ export default function TeacherHome() {
               </Button>
               <Button 
                 onClick={handleApplyPublic} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 提交申请
               </Button>
@@ -1277,12 +1277,12 @@ export default function TeacherHome() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 下架课程资源
               </h2>
               <button 
                 onClick={() => setIsOffShelfModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1291,11 +1291,11 @@ export default function TeacherHome() {
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px]">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">下架后课程将暂不对选课师生公开</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">下架后课程将暂不对选课师生公开</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     下架课程后，该课程资源将从公共课程库和选课列表中隐藏。已有选课记录的班级保留历史学习数据，但无法发起新的选课或创建班级。
                   </p>
                 </div>
@@ -1315,13 +1315,13 @@ export default function TeacherHome() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    下架说明 <span className="text-[#fa541c]">*</span>
+                    下架说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={offShelfReason}
                     onChange={(e) => setOffShelfReason(e.target.value)}
                     placeholder="请简述下架该课程的具体原因及后续安排..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -1338,7 +1338,7 @@ export default function TeacherHome() {
               </Button>
               <Button 
                 onClick={handleOffShelf} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 确认下架
               </Button>
@@ -1358,7 +1358,7 @@ export default function TeacherHome() {
               </h2>
               <button 
                 onClick={() => setConfirmDialog(prev => ({ ...prev, show: false }))} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1366,7 +1366,7 @@ export default function TeacherHome() {
 
             {/* Body */}
             <div className="p-6 flex items-start gap-3 bg-white">
-              <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
+              <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
               <div className="text-[14px] text-neutral-750 leading-normal">
                 {confirmDialog.message}
               </div>
@@ -1386,7 +1386,7 @@ export default function TeacherHome() {
                   confirmDialog.onConfirm();
                   setConfirmDialog(prev => ({ ...prev, show: false }));
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>

@@ -282,7 +282,7 @@ export default function AdminAICenterPage() {
       <div className="w-[240px] border-r border-neutral-border flex-shrink-0 flex flex-col bg-white h-full">
         <div className="p-5 border-b border-neutral-border shrink-0">
           <h2 className="text-lg font-bold text-neutral-title flex items-center gap-2">
-            <Zap className="w-5 h-5 text-[#fa541c]" />
+            <Zap className="w-5 h-5 text-[#3b82f6]" />
             <span>AI能力中心</span>
           </h2>
         </div>
@@ -306,7 +306,7 @@ export default function AdminAICenterPage() {
                 className={cn(
                   "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-all duration-200 cursor-pointer text-left border-0 bg-transparent",
                   isActive 
-                    ? "bg-[#fff2e8] text-[#fa541c]" 
+                    ? "bg-[#eff6ff] text-[#3b82f6]" 
                     : "text-neutral-body hover:bg-neutral-bg hover:text-neutral-title"
                 )}
               >
@@ -326,7 +326,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <Code className="w-6 h-6 text-[#fa541c]" />
+                <Code className="w-6 h-6 text-[#3b82f6]" />
                 <span>AI 代码助手</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -343,7 +343,7 @@ export default function AdminAICenterPage() {
                   className={cn(
                     "px-4 py-1.5 text-xs font-semibold rounded-full border transition-all cursor-pointer",
                     selectedLang === lang 
-                      ? "bg-[#fa541c] text-white border-[#fa541c] shadow-xs" 
+                      ? "bg-[#3b82f6] text-white border-[#3b82f6] shadow-xs" 
                       : "bg-white text-neutral-body border-neutral-border hover:bg-neutral-bg"
                   )}
                 >
@@ -365,7 +365,7 @@ export default function AdminAICenterPage() {
                     <div className="w-3 h-3 rounded-full bg-green-400" />
                     <span className="text-xs font-bold text-neutral-body ml-2 font-mono">zhiyun_workspace_main.{selectedLang === "Python" ? "py" : selectedLang === "Go" ? "go" : selectedLang === "SQL" ? "sql" : "java"}</span>
                   </div>
-                  <span className="text-[10px] uppercase font-bold text-[#fa541c] bg-[#fff2e8] px-2 py-0.5 rounded border border-[#ffbb96]/45">{selectedLang}</span>
+                  <span className="text-[10px] uppercase font-bold text-[#3b82f6] bg-[#eff6ff] px-2 py-0.5 rounded border border-[#bfdbfe]/45">{selectedLang}</span>
                 </div>
 
                 {/* Editor Textarea with line numbers */}
@@ -385,7 +385,7 @@ export default function AdminAICenterPage() {
                   <button onClick={() => handleCodeAction("complete")} className="bg-white hover:bg-neutral-100 text-neutral-title text-xs font-bold px-3 py-2 border border-neutral-border rounded-lg transition-colors cursor-pointer shadow-3xs">自动补全</button>
                   <button onClick={() => handleCodeAction("explain")} className="bg-white hover:bg-neutral-100 text-neutral-title text-xs font-bold px-3 py-2 border border-neutral-border rounded-lg transition-colors cursor-pointer shadow-3xs">解释代码</button>
                   <button onClick={() => handleCodeAction("refactor")} className="bg-white hover:bg-neutral-100 text-neutral-title text-xs font-bold px-3 py-2 border border-neutral-border rounded-lg transition-colors cursor-pointer shadow-3xs">重构优化</button>
-                  <button onClick={() => handleCodeAction("bug")} className="bg-[#fff2e8] hover:bg-[#ffe8d6] text-[#fa541c] text-xs font-bold px-3.5 py-2 border border-[#ffbb96]/45 rounded-lg transition-colors cursor-pointer shadow-3xs">Bug 检测</button>
+                  <button onClick={() => handleCodeAction("bug")} className="bg-[#eff6ff] hover:bg-[#ffe8d6] text-[#3b82f6] text-xs font-bold px-3.5 py-2 border border-[#bfdbfe]/45 rounded-lg transition-colors cursor-pointer shadow-3xs">Bug 检测</button>
                 </div>
               </div>
 
@@ -393,7 +393,7 @@ export default function AdminAICenterPage() {
               <div className="bg-neutral-900 rounded-xl border border-neutral-800 shadow-sm overflow-hidden flex flex-col h-[400px] xl:h-auto">
                 <div className="bg-neutral-950 px-4 py-3 border-b border-neutral-800 flex items-center justify-between shrink-0">
                   <div className="flex items-center gap-2 text-white font-bold text-xs">
-                    <Terminal className="w-4 h-4 text-[#fa541c]" />
+                    <Terminal className="w-4 h-4 text-[#3b82f6]" />
                     <span>AI 编译器辅助控制台</span>
                   </div>
                   <span className="text-[10px] text-neutral-500 font-mono">STATUS: ONLINE</span>
@@ -402,7 +402,7 @@ export default function AdminAICenterPage() {
                 <div className="flex-1 p-5 overflow-y-auto custom-scrollbar font-mono text-xs text-neutral-300 leading-relaxed whitespace-pre-wrap">
                   {isTerminalLoading ? (
                     <div className="h-full flex flex-col items-center justify-center gap-3 text-neutral-400">
-                      <RefreshCw className="w-7 h-7 text-[#fa541c] animate-spin" />
+                      <RefreshCw className="w-7 h-7 text-[#3b82f6] animate-spin" />
                       <span>正在调用大模型处理中...</span>
                     </div>
                   ) : codeTerminalLog ? (
@@ -425,7 +425,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <Trophy className="w-6 h-6 text-[#fa541c]" />
+                <Trophy className="w-6 h-6 text-[#3b82f6]" />
                 <span>AI 智能评测中心</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -436,7 +436,7 @@ export default function AdminAICenterPage() {
             {/* Summary statistics grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 shrink-0">
               {[
-                { title: "知识掌握度", val: "88 / 100", label: "理论考核评级 A", color: "text-[#fa541c]" },
+                { title: "知识掌握度", val: "88 / 100", label: "理论考核评级 A", color: "text-[#3b82f6]" },
                 { title: "实践能力度", val: "92 / 100", label: "沙箱项目表现 卓越", color: "text-emerald-500" },
                 { title: "代码质量分", val: "85 / 100", label: "静态分析合格率 98%", color: "text-blue-500" },
                 { title: "学习态度值", val: "95 / 100", label: "高活跃行为分析", color: "text-indigo-500" }
@@ -458,7 +458,7 @@ export default function AdminAICenterPage() {
               <div className="bg-white p-6 rounded-xl border border-neutral-border shadow-xs flex flex-col justify-between h-[360px] lg:h-auto">
                 <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
                   <span className="text-sm font-bold text-neutral-title flex items-center gap-1.5">
-                    <BarChart2 className="w-4 h-4 text-[#fa541c]" />
+                    <BarChart2 className="w-4 h-4 text-[#3b82f6]" />
                     <span>多维度核心能力图谱 (雷达评估)</span>
                   </span>
                   <span className="text-[11px] text-neutral-caption font-medium">更新时间: 2026/05/27</span>
@@ -478,13 +478,13 @@ export default function AdminAICenterPage() {
                     <line x1="50" y1="50" x2="22" y2="90" stroke="#cbd5e1" strokeWidth="0.5" />
                     <line x1="50" y1="50" x2="5" y2="38" stroke="#cbd5e1" strokeWidth="0.5" />
                     {/* Active Radar Shape (Orange) */}
-                    <polygon points="50,15 88,40 70,82 32,75 12,42" fill="#fa541c" fillOpacity="0.15" stroke="#fa541c" strokeWidth="1.5" />
+                    <polygon points="50,15 88,40 70,82 32,75 12,42" fill="#3b82f6" fillOpacity="0.15" stroke="#3b82f6" strokeWidth="1.5" />
                     {/* Data Points */}
-                    <circle cx="50" cy="15" r="2.5" fill="#fa541c" />
-                    <circle cx="88" cy="40" r="2.5" fill="#fa541c" />
-                    <circle cx="70" cy="82" r="2.5" fill="#fa541c" />
-                    <circle cx="32" cy="75" r="2.5" fill="#fa541c" />
-                    <circle cx="12" cy="42" r="2.5" fill="#fa541c" />
+                    <circle cx="50" cy="15" r="2.5" fill="#3b82f6" />
+                    <circle cx="88" cy="40" r="2.5" fill="#3b82f6" />
+                    <circle cx="70" cy="82" r="2.5" fill="#3b82f6" />
+                    <circle cx="32" cy="75" r="2.5" fill="#3b82f6" />
+                    <circle cx="12" cy="42" r="2.5" fill="#3b82f6" />
                   </svg>
                   
                   {/* Floating labels */}
@@ -497,7 +497,7 @@ export default function AdminAICenterPage() {
 
                 <button 
                   onClick={() => setShowEvalReport(true)}
-                  className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center shadow-sm shrink-0"
+                  className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center shadow-sm shrink-0"
                 >
                   智能生成个人综合评测报告
                 </button>
@@ -555,7 +555,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <Database className="w-6 h-6 text-[#fa541c]" />
+                <Database className="w-6 h-6 text-[#3b82f6]" />
                 <span>RAG 检索增强引擎</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -577,7 +577,7 @@ export default function AdminAICenterPage() {
                     placeholder="输入新文档名称以模拟上传..."
                     value={newRagFile}
                     onChange={(e) => setNewRagFile(e.target.value)}
-                    className="border border-neutral-200 rounded-lg px-3 py-1.5 text-xs flex-1 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                    className="border border-neutral-200 rounded-lg px-3 py-1.5 text-xs flex-1 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                   />
                   <button
                     onClick={() => {
@@ -585,7 +585,7 @@ export default function AdminAICenterPage() {
                       setRagFiles([...ragFiles, newRagFile.trim()]);
                       setNewRagFile("");
                     }}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors cursor-pointer shadow-sm"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors cursor-pointer shadow-sm"
                   >
                     模拟解析
                   </button>
@@ -595,7 +595,7 @@ export default function AdminAICenterPage() {
                   {ragFiles.map((file, idx) => (
                     <div key={idx} className="flex items-center justify-between p-2.5 bg-neutral-50 hover:bg-neutral-100/60 rounded-lg border border-neutral-200/50 text-xs transition-colors font-medium">
                       <div className="flex items-center gap-2 text-neutral-title max-w-[180px] truncate">
-                        <FileText className="w-3.5 h-3.5 text-[#fa541c] shrink-0" />
+                        <FileText className="w-3.5 h-3.5 text-[#3b82f6] shrink-0" />
                         <span title={file}>{file}</span>
                       </div>
                       <button
@@ -619,12 +619,12 @@ export default function AdminAICenterPage() {
                       placeholder="例如输入：什么是大模型中的 LoRA 技术？"
                       value={ragQueries}
                       onChange={(e) => setRagQueries(e.target.value)}
-                      className="border border-neutral-200 rounded-lg px-4 py-2 text-xs flex-1 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                      className="border border-neutral-200 rounded-lg px-4 py-2 text-xs flex-1 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                       onKeyDown={(e) => { if (e.key === "Enter") handleRagSearch(); }}
                     />
                     <button
                       onClick={handleRagSearch}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-5 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-5 py-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-sm"
                     >
                       <Search className="w-4 h-4" />
                       <span>检索并重排</span>
@@ -636,7 +636,7 @@ export default function AdminAICenterPage() {
                 <div className="bg-neutral-900 text-white rounded-xl border border-neutral-800 shadow-sm overflow-hidden flex-1 flex flex-col min-h-[300px]">
                   <div className="bg-neutral-950 px-4 py-3 border-b border-neutral-800 flex items-center justify-between shrink-0">
                     <span className="text-xs font-bold text-neutral-300 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#fa541c]" />
+                      <Sparkles className="w-4 h-4 text-[#3b82f6]" />
                       <span>RAG 检索增强引擎响应日志</span>
                     </span>
                     <span className="text-[10px] text-emerald-400 font-mono">200 OK</span>
@@ -645,13 +645,13 @@ export default function AdminAICenterPage() {
                   <div className="flex-1 p-5 overflow-y-auto custom-scrollbar font-mono text-xs leading-relaxed text-neutral-300 whitespace-pre-wrap">
                     {isRagSearching ? (
                       <div className="h-full flex flex-col items-center justify-center gap-3 text-neutral-400">
-                        <RefreshCw className="w-7 h-7 text-[#fa541c] animate-spin" />
+                        <RefreshCw className="w-7 h-7 text-[#3b82f6] animate-spin" />
                         <span>正在进行 密集向量检索 & BGE-Reranker 大模型重排中...</span>
                       </div>
                     ) : ragResult ? (
                       <div className="space-y-4">
                         <div>
-                          <span className="text-[#fa541c] font-bold block mb-1">🤖 [AI 检索整合回答]</span>
+                          <span className="text-[#3b82f6] font-bold block mb-1">🤖 [AI 检索整合回答]</span>
                           <p className="bg-neutral-950/80 p-3 rounded-lg border border-neutral-800 text-neutral-200">{ragResult.answer}</p>
                         </div>
                         <div className="border-t border-neutral-800 my-2"></div>
@@ -660,7 +660,7 @@ export default function AdminAICenterPage() {
                           <div className="space-y-2">
                             {ragResult.citations.map((cite: any, i: number) => (
                               <div key={i} className="p-3 bg-neutral-950 rounded border border-neutral-800 space-y-1">
-                                <div className="text-[11px] font-bold text-[#fa541c] flex items-center justify-between">
+                                <div className="text-[11px] font-bold text-[#3b82f6] flex items-center justify-between">
                                   <span>{cite.file} ({cite.line})</span>
                                   <span className="text-neutral-500 font-normal">Relevance: 0.94</span>
                                 </div>
@@ -696,7 +696,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <Brain className="w-6 h-6 text-[#fa541c]" />
+                <Brain className="w-6 h-6 text-[#3b82f6]" />
                 <span>AI 出题助手</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -714,14 +714,14 @@ export default function AdminAICenterPage() {
                 {/* 1. Knowledge Point */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-neutral-700 flex items-center gap-1">
-                    <span className="text-[#fa541c]">*</span> 考察知识点：
+                    <span className="text-[#3b82f6]">*</span> 考察知识点：
                   </label>
                   <input
                     type="text"
                     value={qTopic}
                     onChange={(e) => setQTopic(e.target.value)}
                     placeholder="输入知识点名称..."
-                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                   />
                 </div>
 
@@ -731,7 +731,7 @@ export default function AdminAICenterPage() {
                   <select
                     value={qType}
                     onChange={(e) => setQType(e.target.value)}
-                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 font-medium transition-all"
+                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 font-medium transition-all"
                   >
                     <option value="单选题">单选题</option>
                     <option value="多选题">多选题</option>
@@ -748,7 +748,7 @@ export default function AdminAICenterPage() {
                   <select
                     value={qDifficulty}
                     onChange={(e) => setQDifficulty(e.target.value)}
-                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 font-medium transition-all"
+                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 font-medium transition-all"
                   >
                     <option value="初级">初级</option>
                     <option value="中级">中级</option>
@@ -759,7 +759,7 @@ export default function AdminAICenterPage() {
                 <button
                   onClick={handleGenerateQuestion}
                   disabled={isGeneratingQuestion}
-                  className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-sm"
+                  className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <Sparkles className="w-4 h-4 animate-pulse" />
                   <span>AI 智能生成题目</span>
@@ -773,7 +773,7 @@ export default function AdminAICenterPage() {
                   
                   {isGeneratingQuestion ? (
                     <div className="flex-1 flex flex-col items-center justify-center gap-3 text-neutral-400">
-                      <RefreshCw className="w-8 h-8 text-[#fa541c] animate-spin" />
+                      <RefreshCw className="w-8 h-8 text-[#3b82f6] animate-spin" />
                       <span className="text-xs">出题助手大脑正在根据大纲拼合生成试题、选项及详细公式级解析...</span>
                     </div>
                   ) : generatedQuestion ? (
@@ -781,7 +781,7 @@ export default function AdminAICenterPage() {
                       {/* Generated Card */}
                       <div className="border border-neutral-200 rounded-xl overflow-hidden shadow-3xs">
                         <div className="bg-neutral-50 border-b border-neutral-200 px-4 py-2.5 flex items-center justify-between text-[11px] font-bold text-neutral-500">
-                          <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96]/45 rounded uppercase tracking-wider">{generatedQuestion.type}</span>
+                          <span className="px-2 py-0.5 bg-[#eff6ff] text-[#3b82f6] border border-[#bfdbfe]/45 rounded uppercase tracking-wider">{generatedQuestion.type}</span>
                           <span>考察难度：{generatedQuestion.difficulty}</span>
                         </div>
                         
@@ -792,7 +792,7 @@ export default function AdminAICenterPage() {
                             <div className="space-y-2">
                               {generatedQuestion.options.map((opt: string) => (
                                 <div key={opt} className="flex gap-2.5 items-start text-[11px] text-neutral-body leading-relaxed">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c] mt-1.5 shrink-0" />
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] mt-1.5 shrink-0" />
                                   <span>{opt}</span>
                                 </div>
                               ))}
@@ -801,11 +801,11 @@ export default function AdminAICenterPage() {
 
                           <div className="border-t border-neutral-200/50 my-2"></div>
 
-                          <div className="p-3.5 bg-[#fff2e8]/10 border border-[#ffbb96]/30 rounded-xl space-y-2">
-                            <div className="font-bold text-[#fa541c] flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c]" />
+                          <div className="p-3.5 bg-[#eff6ff]/10 border border-[#bfdbfe]/30 rounded-xl space-y-2">
+                            <div className="font-bold text-[#3b82f6] flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]" />
                               <span>正确答案：</span>
-                              <span className="bg-[#fa541c] text-white px-2 py-0.5 rounded text-[10px] font-bold shadow-xs">{generatedQuestion.correct}</span>
+                              <span className="bg-[#3b82f6] text-white px-2 py-0.5 rounded text-[10px] font-bold shadow-xs">{generatedQuestion.correct}</span>
                             </div>
                             <div className="text-[11px] text-neutral-body leading-relaxed bg-white p-2.5 rounded-lg border border-neutral-100">
                               <span className="font-bold text-neutral-700 block mb-1">大模型深度解析：</span>
@@ -845,7 +845,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <CheckSquare className="w-6 h-6 text-[#fa541c]" />
+                <CheckSquare className="w-6 h-6 text-[#3b82f6]" />
                 <span>AI 判分助手</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -864,7 +864,7 @@ export default function AdminAICenterPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs text-neutral-700 font-bold">
                     <span>用例正确性权重：</span>
-                    <span className="text-[#fa541c]">{gradeAccuracy}%</span>
+                    <span className="text-[#3b82f6]">{gradeAccuracy}%</span>
                   </div>
                   <input
                     type="range"
@@ -876,7 +876,7 @@ export default function AdminAICenterPage() {
                       setGradeFormat(Math.floor((100 - val) / 2));
                       setGradePerformance(100 - val - Math.floor((100 - val) / 2));
                     }}
-                    className="w-full accent-[#fa541c] cursor-pointer"
+                    className="w-full accent-[#3b82f6] cursor-pointer"
                   />
                 </div>
 
@@ -884,7 +884,7 @@ export default function AdminAICenterPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs text-neutral-700 font-bold">
                     <span>代码规范度权重：</span>
-                    <span className="text-[#fa541c]">{gradeFormat}%</span>
+                    <span className="text-[#3b82f6]">{gradeFormat}%</span>
                   </div>
                   <input
                     type="range"
@@ -899,7 +899,7 @@ export default function AdminAICenterPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs text-neutral-700 font-bold">
                     <span>算法时空复杂度权重：</span>
-                    <span className="text-[#fa541c]">{gradePerformance}%</span>
+                    <span className="text-[#3b82f6]">{gradePerformance}%</span>
                   </div>
                   <input
                     type="range"
@@ -913,7 +913,7 @@ export default function AdminAICenterPage() {
                 <button
                   onClick={handleSimulateGrading}
                   disabled={isGrading}
-                  className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-sm"
+                  className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <Play className="w-4 h-4" />
                   <span>启动模拟自动判分评估</span>
@@ -925,7 +925,7 @@ export default function AdminAICenterPage() {
                 <div className="bg-neutral-900 rounded-xl border border-neutral-800 shadow-sm overflow-hidden flex-1 flex flex-col min-h-[300px]">
                   <div className="bg-neutral-950 px-4 py-3 border-b border-neutral-800 flex items-center justify-between shrink-0">
                     <span className="text-xs font-bold text-neutral-300 flex items-center gap-2">
-                      <Terminal className="w-4 h-4 text-[#fa541c]" />
+                      <Terminal className="w-4 h-4 text-[#3b82f6]" />
                       <span>沙箱测试用例判分沙箱控制台</span>
                     </span>
                     {isGrading && <span className="text-xs text-amber-500 font-mono animate-pulse">GRADING...</span>}
@@ -969,7 +969,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <Users className="w-6 h-6 text-[#fa541c]" />
+                <Users className="w-6 h-6 text-[#3b82f6]" />
                 <span>智能体全生命周期管理</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -998,7 +998,7 @@ export default function AdminAICenterPage() {
                           className={cn(
                             "p-3 rounded-lg border cursor-pointer transition-all flex flex-col justify-between gap-1.5",
                             isSel 
-                              ? "border-[#fa541c] bg-[#fff2e8]/5 shadow-3xs" 
+                              ? "border-[#3b82f6] bg-[#eff6ff]/5 shadow-3xs" 
                               : "border-neutral-200 bg-white hover:bg-neutral-50"
                           )}
                         >
@@ -1027,7 +1027,7 @@ export default function AdminAICenterPage() {
                 {/* Detail configuration details */}
                 <div className="bg-white p-5 rounded-xl border border-neutral-border shadow-xs space-y-4 shrink-0">
                   <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
-                    <span className="text-xs font-bold text-[#fa541c] uppercase tracking-wider flex items-center gap-1">
+                    <span className="text-xs font-bold text-[#3b82f6] uppercase tracking-wider flex items-center gap-1">
                       <Settings className="w-4 h-4" />
                       <span>智能体元数据配置：{selectedAgent.name}</span>
                     </span>
@@ -1068,7 +1068,7 @@ export default function AdminAICenterPage() {
                   {/* Simulator Header */}
                   <div className="bg-neutral-50 px-4 py-3 border-b border-neutral-border flex justify-between items-center shrink-0">
                     <span className="text-xs font-bold text-neutral-title flex items-center gap-1.5">
-                      <Sparkles className="w-4 h-4 text-[#fa541c]" />
+                      <Sparkles className="w-4 h-4 text-[#3b82f6]" />
                       <span>智能体对话沙箱调优测试</span>
                     </span>
                     <span className="text-[10px] text-neutral-caption font-mono">CLIENT: SYSTEM_SANDBOX</span>
@@ -1082,7 +1082,7 @@ export default function AdminAICenterPage() {
                         className={cn(
                           "p-3 rounded-xl max-w-[85%] shadow-3xs text-[11px] leading-relaxed",
                           msg.sender === "user" 
-                            ? "bg-[#fa541c] text-white self-end rounded-tr-none ml-auto" 
+                            ? "bg-[#3b82f6] text-white self-end rounded-tr-none ml-auto" 
                             : "bg-white border border-neutral-200 text-neutral-800 self-start rounded-tl-none mr-auto space-y-2 whitespace-pre-wrap"
                         )}
                       >
@@ -1103,12 +1103,12 @@ export default function AdminAICenterPage() {
                       placeholder="发送调优指令（如：生成一道高阶大模型题目）..."
                       value={agentChatInput}
                       onChange={(e) => setAgentChatInput(e.target.value)}
-                      className="border border-neutral-200 rounded-lg px-3.5 py-2 text-xs flex-1 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                      className="border border-neutral-200 rounded-lg px-3.5 py-2 text-xs flex-1 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                       onKeyDown={(e) => { if (e.key === "Enter") handleSendAgentChat(); }}
                     />
                     <button
                       onClick={handleSendAgentChat}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center justify-center shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer flex items-center justify-center shadow-sm"
                     >
                       <Send className="w-4 h-4" />
                     </button>
@@ -1125,7 +1125,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <BookOpen className="w-6 h-6 text-[#fa541c]" />
+                <BookOpen className="w-6 h-6 text-[#3b82f6]" />
                 <span>AI 最佳实践库</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -1143,9 +1143,9 @@ export default function AdminAICenterPage() {
                 { title: "智能中英文口语流畅度 Whispers-v3 API对接", desc: "通过Whisper流式音频评测API，完成口语读音纠错、重音偏移、语流卡顿分析，快速接入教学系统。", category: "语音分析", users: "4.8k", complexity: "中级", tags: ["Whisper", "音频API", "SLA"] },
                 { title: "Kubernetes 就绪探针 Readiness 最佳配置", desc: "云原生运维必修实践。演示如何配置活性与存活探针保障高可用微服务无缝发布及水平动态扩展。", category: "系统运维", users: "9.2k", complexity: "初级", tags: ["K8s", "探针", "Docker"] }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-xl border border-neutral-border shadow-xs hover:border-[#fa541c]/50 transition-all flex flex-col justify-between gap-4">
+                <div key={idx} className="bg-white p-5 rounded-xl border border-neutral-border shadow-xs hover:border-[#3b82f6]/50 transition-all flex flex-col justify-between gap-4">
                   <div className="space-y-2">
-                    <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-[#fa541c]">
+                    <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-[#3b82f6]">
                       <span>{item.category}</span>
                       <span className="bg-neutral-100 text-neutral-500 px-1.5 py-0.5 rounded">{item.complexity}</span>
                     </div>
@@ -1162,7 +1162,7 @@ export default function AdminAICenterPage() {
                     <div className="h-[1px] bg-neutral-border"></div>
                     <div className="flex justify-between items-center text-[10px] text-neutral-caption font-semibold">
                       <span>使用人次: {item.users}</span>
-                      <button className="text-[#fa541c] hover:underline flex items-center gap-1 text-[10px] font-bold cursor-pointer">
+                      <button className="text-[#3b82f6] hover:underline flex items-center gap-1 text-[10px] font-bold cursor-pointer">
                         <span>阅读指南</span>
                         <ExternalLink className="w-3 h-3" />
                       </button>
@@ -1179,7 +1179,7 @@ export default function AdminAICenterPage() {
           <div className="space-y-6 flex flex-col flex-1 min-h-0 animate-slide-up">
             <div>
               <h1 className="text-xl font-bold text-neutral-title flex items-center gap-2">
-                <FileText className="w-6 h-6 text-[#fa541c]" />
+                <FileText className="w-6 h-6 text-[#3b82f6]" />
                 <span>AI 课件助手</span>
               </h1>
               <p className="text-sm text-neutral-body mt-1">
@@ -1197,14 +1197,14 @@ export default function AdminAICenterPage() {
                 {/* 1. Theme title */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-neutral-700 flex items-center gap-1">
-                    <span className="text-[#fa541c]">*</span> 课件主题：
+                    <span className="text-[#3b82f6]">*</span> 课件主题：
                   </label>
                   <input
                     type="text"
                     value={coursewareTitle}
                     onChange={(e) => setCoursewareTitle(e.target.value)}
                     placeholder="输入课件主题名称..."
-                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
+                    className="w-full border border-neutral-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 placeholder-neutral-400 font-medium"
                   />
                 </div>
 
@@ -1212,7 +1212,7 @@ export default function AdminAICenterPage() {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-neutral-700">演示文稿风格：</label>
                   <select
-                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 font-medium transition-all"
+                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 font-medium transition-all"
                   >
                     <option>极客科技 (橙黑配色)</option>
                     <option>学术研究 (深蓝严肃)</option>
@@ -1223,7 +1223,7 @@ export default function AdminAICenterPage() {
                 <button
                   onClick={handleGenerateCourseware}
                   disabled={isGeneratingCourseware}
-                  className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-sm"
+                  className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold py-2.5 rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>一键生成多级课件大纲</span>
@@ -1237,13 +1237,13 @@ export default function AdminAICenterPage() {
 
                   {isGeneratingCourseware ? (
                     <div className="flex-1 flex flex-col items-center justify-center gap-3 text-neutral-400">
-                      <RefreshCw className="w-8 h-8 text-[#fa541c] animate-spin" />
+                      <RefreshCw className="w-8 h-8 text-[#3b82f6] animate-spin" />
                       <span className="text-xs">课件助手正在检索深度学习专业大纲并进行 PPT/PDF 页级大纲拆解中...</span>
                     </div>
                   ) : generatedCourseware ? (
                     <div className="space-y-5 flex-1 animate-slide-up">
-                      <div className="p-4 bg-[#fff2e8]/20 border border-[#ffbb96]/45 rounded-xl">
-                        <span className="text-[10px] font-bold text-[#fa541c] uppercase tracking-wider">PPT幻灯片主题大纲</span>
+                      <div className="p-4 bg-[#eff6ff]/20 border border-[#bfdbfe]/45 rounded-xl">
+                        <span className="text-[10px] font-bold text-[#3b82f6] uppercase tracking-wider">PPT幻灯片主题大纲</span>
                         <h2 className="text-xs font-bold text-neutral-title mt-1">{generatedCourseware.title}</h2>
                       </div>
 
@@ -1254,7 +1254,7 @@ export default function AdminAICenterPage() {
                             <div className="space-y-1.5">
                               {slide.points.map((pt: string, i: number) => (
                                 <div key={i} className="flex gap-2 items-start text-[11px] text-neutral-body leading-relaxed font-medium">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c] mt-1.5 shrink-0" />
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] mt-1.5 shrink-0" />
                                   <span>{pt}</span>
                                 </div>
                               ))}
@@ -1281,7 +1281,7 @@ export default function AdminAICenterPage() {
                     </button>
                     <button 
                       onClick={() => { alert("已成功一键转化为多页 PPT 模板大纲并下发至教师工作台！"); setGeneratedCourseware(null); }}
-                      className="flex-1 bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold py-2 rounded-lg transition-colors cursor-pointer text-center shadow-sm"
+                      className="flex-1 bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold py-2 rounded-lg transition-colors cursor-pointer text-center shadow-sm"
                     >
                       导出为 PPT 课件大纲
                     </button>

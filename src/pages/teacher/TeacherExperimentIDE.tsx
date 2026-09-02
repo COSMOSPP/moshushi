@@ -120,7 +120,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
           <div className="relative">
             <div 
               onClick={() => setShowCollaboratorDropdown(!showCollaboratorDropdown)}
-              className="w-9 h-9 rounded-full bg-[#fa541c]/10 hover:bg-[#fa541c]/20 flex items-center justify-center cursor-pointer border border-[#fa541c]/30 relative shadow-sm"
+              className="w-9 h-9 rounded-full bg-[#3b82f6]/10 hover:bg-[#3b82f6]/20 flex items-center justify-center cursor-pointer border border-[#3b82f6]/30 relative shadow-sm"
             >
               <div className="w-7 h-7 rounded-full bg-[#e8a27c] flex items-center justify-center text-white font-bold select-none">
                 <span className="text-xs">🦞</span>
@@ -180,7 +180,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
           {/* Add Collaborator Member Button */}
           <button 
             onClick={() => setShowAddMemberModal(true)}
-            className="w-8 h-8 rounded-full border border-[#fa541c] hover:bg-orange-50 text-[#fa541c] flex items-center justify-center transition-colors cursor-pointer shadow-sm shrink-0"
+            className="w-8 h-8 rounded-full border border-[#3b82f6] hover:bg-blue-50 text-[#3b82f6] flex items-center justify-center transition-colors cursor-pointer shadow-sm shrink-0"
           >
             <Plus className="w-4 h-4" />
           </button>
@@ -196,13 +196,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                 setShowResetFilesModal(true);
               }}
               variant="outline" 
-              className="h-8 border-[#fa541c] text-[#fa541c] hover:bg-orange-50 hover:border-[#fa541c] rounded-md px-4 text-[13px] font-bold bg-transparent transition-all"
+              className="h-8 border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 hover:border-[#3b82f6] rounded-md px-4 text-[13px] font-bold bg-transparent transition-all"
             >
               重置文件
             </Button>
             <Button 
               onClick={() => setShowRestartModal(true)}
-              className="h-8 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-md px-4 text-[13px] font-bold shadow-sm shadow-orange-500/10"
+              className="h-8 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-md px-4 text-[13px] font-bold shadow-sm shadow-blue-500/10"
             >
               重启
             </Button>
@@ -226,13 +226,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveLeftTab('course')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeLeftTab === 'course' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeLeftTab === 'course' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeLeftTab === 'course' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-r"></div>}
+            {activeLeftTab === 'course' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-r"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeLeftTab === 'course' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeLeftTab === 'course' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <Folder className="w-5 h-5 fill-current" />
             </div>
@@ -243,13 +243,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveLeftTab('files')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeLeftTab === 'files' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeLeftTab === 'files' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeLeftTab === 'files' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-r"></div>}
+            {activeLeftTab === 'files' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-r"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeLeftTab === 'files' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeLeftTab === 'files' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <FileText className="w-5 h-5" />
             </div>
@@ -260,13 +260,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveLeftTab('datasets')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeLeftTab === 'datasets' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeLeftTab === 'datasets' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeLeftTab === 'datasets' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-r"></div>}
+            {activeLeftTab === 'datasets' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-r"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeLeftTab === 'datasets' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeLeftTab === 'datasets' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <Database className="w-5 h-5" />
             </div>
@@ -277,13 +277,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveLeftTab('outline')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeLeftTab === 'outline' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeLeftTab === 'outline' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeLeftTab === 'outline' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-r"></div>}
+            {activeLeftTab === 'outline' && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-r"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeLeftTab === 'outline' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeLeftTab === 'outline' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <List className="w-5 h-5" />
             </div>
@@ -353,7 +353,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               <span className="text-[12px] font-bold text-neutral-500 uppercase tracking-wider">项目文件 (WORKSPACE)</span>
               <button 
                 onClick={() => triggerToast('正在新建文件...')}
-                className="text-neutral-400 hover:text-[#fa541c] p-1 rounded hover:bg-neutral-50"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1 rounded hover:bg-neutral-50"
                 title="新建文件"
               >
                 <Plus className="w-4 h-4" />
@@ -417,11 +417,11 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                 className={cn(
                   "flex items-center gap-1.5 p-1.5 rounded cursor-pointer select-none border transition-colors",
                   activeTab === 'notebook' 
-                    ? "bg-orange-50/50 border-orange-200 text-[#fa541c] font-bold" 
+                    ? "bg-blue-50/50 border-blue-200 text-[#3b82f6] font-bold" 
                     : "hover:bg-neutral-50 border-transparent text-neutral-700"
                 )}
               >
-                <div className="w-4 h-4 rounded border border-orange-500 bg-orange-50 flex items-center justify-center shrink-0">
+                <div className="w-4 h-4 rounded border border-orange-500 bg-blue-50 flex items-center justify-center shrink-0">
                   <div className="w-1.5 h-1.5 bg-orange-500 rounded-sm"></div>
                 </div>
                 <span className="text-[13px] truncate">智能音箱产品的数据分析与优化.ipynb</span>
@@ -445,7 +445,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               <span className="text-[12px] font-bold text-neutral-500 uppercase tracking-wider">数据集仓库 (DATASETS)</span>
               <button 
                 onClick={() => triggerToast('正在上传数据集...')}
-                className="text-neutral-400 hover:text-[#fa541c] p-1 rounded hover:bg-neutral-50"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1 rounded hover:bg-neutral-50"
                 title="上传数据集"
               >
                 <Plus className="w-4 h-4" />
@@ -458,7 +458,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                 <input 
                   type="text" 
                   placeholder="搜索公共/项目数据集..." 
-                  className="w-full pl-8 pr-3 py-1.5 text-[12px] border border-neutral-200 rounded-md focus:outline-none focus:border-[#fa541c]"
+                  className="w-full pl-8 pr-3 py-1.5 text-[12px] border border-neutral-200 rounded-md focus:outline-none focus:border-[#3b82f6]"
                 />
               </div>
             </div>
@@ -471,13 +471,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                   { name: '用户唤醒与交互对话音频数据.zip', rows: '音频包文件', size: '452 MB' },
                   { name: '音响元器件使用寿命数据.xlsx', rows: '2,500 条数据', size: '85 KB' },
                 ].map(d => (
-                  <div key={d.name} className="p-2 border border-neutral-100 rounded-lg hover:border-orange-200 hover:bg-orange-50/10 transition-colors group">
+                  <div key={d.name} className="p-2 border border-neutral-100 rounded-lg hover:border-blue-200 hover:bg-blue-50/10 transition-colors group">
                     <div className="text-[12px] font-bold text-neutral-700 truncate">{d.name}</div>
                     <div className="flex items-center justify-between mt-1 text-[10px] text-neutral-400">
                       <span>{d.rows} • {d.size}</span>
                       <button 
                         onClick={() => triggerToast(`已成功将 '${d.name}' 导入当前工作区！`)}
-                        className="text-[#fa541c] hover:underline font-bold opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="text-[#3b82f6] hover:underline font-bold opacity-0 group-hover:opacity-100 transition-opacity"
                       >
                         导入
                       </button>
@@ -488,9 +488,9 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
 
               <div className="space-y-1.5">
                 <div className="text-[11px] font-bold text-neutral-400 px-1 uppercase tracking-wider">我的项目数据集</div>
-                <div className="p-2 border border-orange-100 bg-orange-50/10 rounded-lg">
-                  <div className="text-[12px] font-bold text-[#fa541c] truncate flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 bg-[#fa541c] rounded-full shrink-0"></span>
+                <div className="p-2 border border-orange-100 bg-blue-50/10 rounded-lg">
+                  <div className="text-[12px] font-bold text-[#3b82f6] truncate flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 bg-[#3b82f6] rounded-full shrink-0"></span>
                     speaker_test_regression.csv
                   </div>
                   <div className="flex items-center justify-between mt-1 text-[10px] text-neutral-400">
@@ -549,7 +549,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                   : "bg-neutral-100/50 text-neutral-500 border-transparent hover:bg-neutral-200"
               )}
             >
-              <div className="w-2 h-2 rounded-full bg-[#fa541c]"></div> 智能音箱产品的数据分析与优化[3.1.1].ipynb <X className="w-3 h-3 ml-2 opacity-50 hover:opacity-100" />
+              <div className="w-2 h-2 rounded-full bg-[#3b82f6]"></div> 智能音箱产品的数据分析与优化[3.1.1].ipynb <X className="w-3 h-3 ml-2 opacity-50 hover:opacity-100" />
             </button>
             <button 
               onClick={() => setActiveTab('launcher')}
@@ -572,7 +572,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               {/* Notebook Section */}
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-4 border-b border-neutral-100 pb-2">
-                  <div className="w-6 h-6 rounded bg-[#fa541c] text-white flex items-center justify-center font-bold text-[10px]">&lt;&gt;</div>
+                  <div className="w-6 h-6 rounded bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[10px]">&lt;&gt;</div>
                   <h3 className="text-[15px] font-bold text-neutral-800">Notebook</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -633,19 +633,19 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               <span className="text-[12px] font-bold text-neutral-700 flex items-center gap-1.5 select-none">
                 {activeRightTab === 'guide' && (
                   <>
-                    <BookOpen className="w-4 h-4 text-[#fa541c]" />
+                    <BookOpen className="w-4 h-4 text-[#3b82f6]" />
                     <span>实训指导手册 (GUIDE)</span>
                   </>
                 )}
                 {activeRightTab === 'chat' && (
                   <>
-                    <Sparkles className="w-4 h-4 text-[#fa541c]" />
+                    <Sparkles className="w-4 h-4 text-[#3b82f6]" />
                     <span>AI 答疑助手 (CO-PILOT)</span>
                   </>
                 )}
                 {activeRightTab === 'monitor' && (
                   <>
-                    <Cpu className="w-4 h-4 text-[#fa541c]" />
+                    <Cpu className="w-4 h-4 text-[#3b82f6]" />
                     <span>系统容器监控 (MONITOR)</span>
                   </>
                 )}
@@ -664,8 +664,8 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               {/* Tab 1: Guide */}
               {activeRightTab === 'guide' && (
                 <div className="space-y-4">
-                  <div className="p-3 bg-orange-50/40 border border-orange-100 rounded-lg">
-                    <h4 className="text-[13px] font-bold text-[#fa541c]">任务 1: 拟合智能音箱的回归曲线</h4>
+                  <div className="p-3 bg-blue-50/40 border border-orange-100 rounded-lg">
+                    <h4 className="text-[13px] font-bold text-[#3b82f6]">任务 1: 拟合智能音箱的回归曲线</h4>
                     <p className="text-[11px] text-neutral-500 mt-1 leading-relaxed">
                       在此实训中，您需要引导学生理解线性回归在产品优化中的意义。当前目标是预测智能音箱产品在不同评分下的销量表现。
                     </p>
@@ -698,7 +698,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                         >
                           <div className={cn(
                             "w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors",
-                            t.completed ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300"
+                            t.completed ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300"
                           )}>
                             {t.completed && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                           </div>
@@ -716,7 +716,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                   {/* Messages container */}
                   <div className="flex-1 space-y-3 overflow-y-auto max-h-[calc(100vh-16rem)] pr-1 text-[12px]">
                     <div className="flex gap-2 items-start">
-                      <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-xs shrink-0 select-none">🤖</div>
+                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-xs shrink-0 select-none">🤖</div>
                       <div className="bg-neutral-100 p-2.5 rounded-lg rounded-tl-none text-neutral-700 leading-relaxed max-w-[85%]">
                         您好！我是实训 AI 答疑助手。
                         如果您在本次线性回归实训或 sklearn 代码拟合中遇到任何错误，都可以直接发给我，我会全力为您解答！
@@ -725,11 +725,11 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                     
                     {chatMessages.map((m, idx) => (
                       <div key={idx} className={cn("flex gap-2 items-start", m.sender === 'user' ? "justify-end" : "justify-start")}>
-                        {m.sender === 'ai' && <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-xs shrink-0 select-none">🤖</div>}
+                        {m.sender === 'ai' && <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-xs shrink-0 select-none">🤖</div>}
                         <div className={cn(
                           "p-2.5 rounded-lg leading-relaxed max-w-[85%]",
                           m.sender === 'user' 
-                            ? "bg-[#fa541c] text-white rounded-tr-none" 
+                            ? "bg-[#3b82f6] text-white rounded-tr-none" 
                             : "bg-neutral-100 text-neutral-700 rounded-tl-none"
                         )}>
                           {m.text}
@@ -750,11 +750,11 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                           handleSendChatMessage();
                         }
                       }}
-                      className="flex-1 px-3 py-1.5 text-[12px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c]"
+                      className="flex-1 px-3 py-1.5 text-[12px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6]"
                     />
                     <button 
                       onClick={handleSendChatMessage}
-                      className="w-7 h-7 rounded-full bg-[#fa541c] text-white flex items-center justify-center hover:bg-[#e84a15] transition-colors shrink-0"
+                      className="w-7 h-7 rounded-full bg-[#3b82f6] text-white flex items-center justify-center hover:bg-[#2563eb] transition-colors shrink-0"
                     >
                       <Send className="w-3.5 h-3.5" />
                     </button>
@@ -771,11 +771,11 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                         <Cpu className="w-4 h-4 text-orange-500" />
                         CPU 使用率
                       </span>
-                      <span className="text-[#fa541c]">{cpuUsage.toFixed(1)}%</span>
+                      <span className="text-[#3b82f6]">{cpuUsage.toFixed(1)}%</span>
                     </div>
                     <div className="h-1.5 bg-neutral-100 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-[#fa541c] transition-all duration-500" 
+                        className="h-full bg-[#3b82f6] transition-all duration-500" 
                         style={{ width: `${cpuUsage}%` }}
                       ></div>
                     </div>
@@ -791,7 +791,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                     </div>
                     <div className="h-1.5 bg-neutral-100 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-[#fa541c] transition-all duration-500" 
+                        className="h-full bg-[#3b82f6] transition-all duration-500" 
                         style={{ width: `${(ramUsage/16.0)*100}%` }}
                       ></div>
                     </div>
@@ -834,13 +834,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveRightTab(activeRightTab === 'guide' ? null : 'guide')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeRightTab === 'guide' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeRightTab === 'guide' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeRightTab === 'guide' && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-l"></div>}
+            {activeRightTab === 'guide' && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-l"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeRightTab === 'guide' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeRightTab === 'guide' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <BookOpen className="w-5 h-5" />
             </div>
@@ -851,13 +851,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveRightTab(activeRightTab === 'chat' ? null : 'chat')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeRightTab === 'chat' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeRightTab === 'chat' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeRightTab === 'chat' && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-l"></div>}
+            {activeRightTab === 'chat' && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-l"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeRightTab === 'chat' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeRightTab === 'chat' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <Sparkles className="w-5 h-5" />
             </div>
@@ -868,13 +868,13 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             onClick={() => setActiveRightTab(activeRightTab === 'monitor' ? null : 'monitor')}
             className={cn(
               "flex flex-col items-center gap-1 transition-all group relative w-full py-1",
-              activeRightTab === 'monitor' ? "text-[#fa541c]" : "text-neutral-500 hover:text-[#fa541c]"
+              activeRightTab === 'monitor' ? "text-[#3b82f6]" : "text-neutral-500 hover:text-[#3b82f6]"
             )}
           >
-            {activeRightTab === 'monitor' && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#fa541c] rounded-l"></div>}
+            {activeRightTab === 'monitor' && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[#3b82f6] rounded-l"></div>}
             <div className={cn(
               "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-              activeRightTab === 'monitor' ? "bg-orange-100" : "group-hover:bg-neutral-100"
+              activeRightTab === 'monitor' ? "bg-blue-100" : "group-hover:bg-neutral-100"
             )}>
               <Cpu className="w-5 h-5" />
             </div>
@@ -889,7 +889,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-[440px] overflow-hidden border border-neutral-100 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[16px] font-bold text-neutral-900 flex items-center gap-2">
-                <div className="w-1 h-4 bg-[#fa541c] rounded-full shrink-0"></div>
+                <div className="w-1 h-4 bg-[#3b82f6] rounded-full shrink-0"></div>
                 添加协作成员
               </h2>
               <button 
@@ -912,7 +912,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                   placeholder="搜索教师姓名或专业部门..."
                   value={collaboratorSearch}
                   onChange={(e) => setCollaboratorSearch(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 text-[13px] border border-neutral-200 rounded-lg focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all bg-neutral-50/35"
+                  className="w-full pl-9 pr-4 py-2 text-[13px] border border-neutral-200 rounded-lg focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all bg-neutral-50/35"
                 />
               </div>
 
@@ -933,7 +933,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                         className={cn(
                           "flex items-center justify-between p-2.5 rounded-lg border cursor-pointer select-none transition-all",
                           isChecked 
-                            ? "border-orange-200 bg-orange-50/40" 
+                            ? "border-blue-200 bg-blue-50/40" 
                             : "border-neutral-100 hover:bg-neutral-50 hover:border-neutral-200"
                         )}
                       >
@@ -949,7 +949,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                         
                         <div className={cn(
                           "w-4.5 h-4.5 rounded border flex items-center justify-center transition-colors",
-                          isChecked ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300 bg-white"
+                          isChecked ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300 bg-white"
                         )}>
                           {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
@@ -989,7 +989,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                   className={cn(
                     "px-5 py-1.5 rounded-full text-[13px] font-bold transition-all shadow-sm",
                     selectedTeachers.length > 0 
-                      ? "bg-[#fa541c] hover:bg-[#e84a15] text-white cursor-pointer shadow-orange-500/10" 
+                      ? "bg-[#3b82f6] hover:bg-[#2563eb] text-white cursor-pointer shadow-blue-500/10" 
                       : "bg-neutral-50 text-neutral-300 cursor-not-allowed border border-neutral-200"
                   )}
                 >
@@ -1007,7 +1007,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-[540px] overflow-hidden p-8 flex flex-col gap-6">
             <div className="flex items-start gap-3">
               {/* Thick vertical orange bar as requested */}
-              <div className="w-[5px] h-7 bg-[#fa541c] rounded-full shrink-0 mt-0.5"></div>
+              <div className="w-[5px] h-7 bg-[#3b82f6] rounded-full shrink-0 mt-0.5"></div>
               <div className="flex-1">
                 <h2 className="text-[20px] font-bold text-neutral-800 tracking-wide leading-7">重置文件</h2>
                 <p className="text-[13px] text-neutral-400 mt-1">所选文件重置后将恢复到初始状态，可提前复制备份。</p>
@@ -1026,7 +1026,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               >
                 <div className={cn(
                   "w-4.5 h-4.5 rounded border flex items-center justify-center transition-colors",
-                  selectedResetAll ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300 bg-white"
+                  selectedResetAll ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300 bg-white"
                 )}>
                   {selectedResetAll && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
@@ -1048,14 +1048,14 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
               >
                 <div className={cn(
                   "w-4.5 h-4.5 rounded border flex items-center justify-center transition-colors",
-                  selectedResetFile ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300 bg-white"
+                  selectedResetFile ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300 bg-white"
                 )}>
                   {selectedResetFile && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
                 
                 {/* File Details: Notebook Orange Icon & Text */}
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded border border-orange-500 bg-orange-50 flex items-center justify-center shrink-0">
+                  <div className="w-4 h-4 rounded border border-orange-500 bg-blue-50 flex items-center justify-center shrink-0">
                     <div className="w-1.5 h-1.5 bg-orange-500 rounded-sm"></div>
                   </div>
                   <span className="text-[14px] text-neutral-700 font-medium">线性回归实训-预测考试分数.ipynb</span>
@@ -1066,7 +1066,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
             <div className="flex justify-end gap-3 pt-2">
               <button 
                 onClick={() => setShowResetFilesModal(false)}
-                className="px-6 py-1.5 border border-[#fa541c] text-[#fa541c] hover:bg-orange-50 rounded-full text-[14px] font-bold transition-all"
+                className="px-6 py-1.5 border border-[#3b82f6] text-[#3b82f6] hover:bg-blue-50 rounded-full text-[14px] font-bold transition-all"
               >
                 取消
               </button>
@@ -1081,7 +1081,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                 className={cn(
                   "px-6 py-1.5 rounded-full text-[14px] font-bold transition-all shadow-sm",
                   selectedResetFile 
-                    ? "bg-[#fa541c] hover:bg-[#e84a15] text-white cursor-pointer shadow-orange-500/10" 
+                    ? "bg-[#3b82f6] hover:bg-[#2563eb] text-white cursor-pointer shadow-blue-500/10" 
                     : "bg-[#f5f5f5] text-neutral-300 cursor-not-allowed border border-neutral-200"
                 )}
               >
@@ -1097,7 +1097,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
         <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/40 backdrop-blur-sm animation-fade-in">
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-[420px] overflow-hidden border border-neutral-100 flex flex-col p-6 gap-5">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center shrink-0 text-[#fa541c]">
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0 text-[#3b82f6]">
                 <RotateCcw className="w-5 h-5" />
               </div>
               <div className="flex-1">
@@ -1120,7 +1120,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
                   setShowRestartModal(false);
                   triggerToast('环境重启中，请稍候...');
                 }}
-                className="px-5 py-1.5 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full text-[13px] font-bold transition-all shadow-sm shadow-orange-500/10"
+                className="px-5 py-1.5 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full text-[13px] font-bold transition-all shadow-sm shadow-blue-500/10"
               >
                 确认重启
               </button>
@@ -1132,7 +1132,7 @@ export default function TeacherExperimentIDE({ onBack }: TeacherExperimentIDEPro
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-neutral-900/90 backdrop-blur-md text-white text-[13px] font-bold px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-neutral-800 animation-slide-up">
-          <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse"></div>
           {toastMessage}
         </div>
       )}

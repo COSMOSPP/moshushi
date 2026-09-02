@@ -18,7 +18,7 @@ const pieData = [
   { name: '云计算', value: 300 },
   { name: '其他', value: 200 },
 ];
-const COLORS = ['#fa541c', '#1890ff', '#52c41a', '#faad14'];
+const COLORS = ['#3b82f6', '#1890ff', '#52c41a', '#faad14'];
 
 export default function AdminDashboard() {
   return (
@@ -63,8 +63,8 @@ export default function AdminDashboard() {
                 >
                   <defs>
                     <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#fa541c" stopOpacity={0.8}/>
-                      <stop offset="95%" stopColor="#fa541c" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
+                      <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="name" stroke="#8c8c8c" fontSize={12} tickLine={false} axisLine={false} />
@@ -74,7 +74,7 @@ export default function AdminDashboard() {
                     contentStyle={{ backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #d9d9d9' }}
                     itemStyle={{ color: '#1f1f1f' }}
                   />
-                  <Area type="monotone" dataKey="users" stroke="#fa541c" fillOpacity={1} fill="url(#colorUsers)" />
+                  <Area type="monotone" dataKey="users" stroke="#3b82f6" fillOpacity={1} fill="url(#colorUsers)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>

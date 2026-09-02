@@ -97,7 +97,7 @@ export default function AdminStandardPage({ title, description, stats, columns, 
           <h1 className="text-xl font-bold text-neutral-900">{title}</h1>
           <p className="text-sm text-neutral-500 mt-1">{description}</p>
         </div>
-        <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm h-9 rounded cursor-pointer transition-all">
+        <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm h-9 rounded cursor-pointer transition-all">
           <Plus className="w-4 h-4" /> {primaryAction}
         </Button>
       </div>
@@ -108,7 +108,7 @@ export default function AdminStandardPage({ title, description, stats, columns, 
           <Card key={i} className="shadow-sm border-neutral-100 bg-white rounded overflow-hidden transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-xs font-bold text-neutral-500 tracking-wider uppercase">{stat.title}</CardTitle>
-              <div className="w-8 h-8 rounded bg-[#fff2e8] flex items-center justify-center text-[#fa541c]">
+              <div className="w-8 h-8 rounded bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
                 <stat.icon className="w-4 h-4" />
               </div>
             </CardHeader>
@@ -134,10 +134,10 @@ export default function AdminStandardPage({ title, description, stats, columns, 
               <input 
                 type="text" 
                 placeholder="搜索..." 
-                className="pl-9 pr-4 py-1.5 text-xs border border-neutral-200 rounded focus:outline-none focus:border-[#fa541c] w-64 bg-white text-neutral-800 placeholder-neutral-400 transition-all"
+                className="pl-9 pr-4 py-1.5 text-xs border border-neutral-200 rounded focus:outline-none focus:border-[#3b82f6] w-64 bg-white text-neutral-800 placeholder-neutral-400 transition-all"
               />
             </div>
-            <Button variant="outline" size="sm" className="h-8 gap-1.5 bg-white border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-[#fa541c] hover:bg-[#fff2e8]/30 rounded cursor-pointer transition-all">
+            <Button variant="outline" size="sm" className="h-8 gap-1.5 bg-white border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-[#3b82f6] hover:bg-[#eff6ff]/30 rounded cursor-pointer transition-all">
               <Filter className="w-3.5 h-3.5" /> 筛选
             </Button>
           </div>
@@ -156,8 +156,8 @@ export default function AdminStandardPage({ title, description, stats, columns, 
                     className={cn(
                       "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer mx-auto",
                       selectedRows.length === data.length && data.length > 0
-                        ? "bg-[#fa541c] border-[#fa541c] text-white"
-                        : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                        ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                        : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                     )}
                   >
                     {selectedRows.length === data.length && data.length > 0 && <span className="text-[10px] font-bold">✓</span>}
@@ -187,8 +187,8 @@ export default function AdminStandardPage({ title, description, stats, columns, 
                       className={cn(
                         "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer mx-auto",
                         selectedRows.includes(i)
-                          ? "bg-[#fa541c] border-[#fa541c] text-white"
-                          : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                          ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                          : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                       )}
                     >
                       {selectedRows.includes(i) && <span className="text-[10px] font-bold">✓</span>}
@@ -203,10 +203,10 @@ export default function AdminStandardPage({ title, description, stats, columns, 
                   {/* Operations */}
                   <td className="p-4">
                     <div className="flex items-center justify-end gap-3.5">
-                      <button className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]">
+                      <button className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]">
                         查看
                       </button>
-                      <button className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]">
+                      <button className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]">
                         编辑
                       </button>
                       <button className="text-neutral-400 hover:text-neutral-600 transition-colors font-medium cursor-pointer bg-transparent border-0 p-0 text-[13px]">
@@ -225,10 +225,10 @@ export default function AdminStandardPage({ title, description, stats, columns, 
           <span className="text-[13px] text-neutral-500">共 {data.length} 条</span>
           <div className="flex items-center gap-2">
             <button className="h-7 w-7 p-0 rounded-sm border border-neutral-200 text-neutral-400 cursor-not-allowed bg-transparent text-center leading-7 flex items-center justify-center text-[12px]">&lt;</button>
-            <button className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border border-[#fa541c] text-center leading-7 text-[12px] font-bold">1</button>
-            <button className="h-7 w-7 p-0 rounded-sm border border-neutral-200 text-neutral-600 hover:border-[#fa541c] hover:text-[#fa541c] cursor-pointer bg-transparent text-center leading-7 flex items-center justify-center text-[12px]">&gt;</button>
+            <button className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border border-[#3b82f6] text-center leading-7 text-[12px] font-bold">1</button>
+            <button className="h-7 w-7 p-0 rounded-sm border border-neutral-200 text-neutral-600 hover:border-[#3b82f6] hover:text-[#3b82f6] cursor-pointer bg-transparent text-center leading-7 flex items-center justify-center text-[12px]">&gt;</button>
           </div>
-          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white cursor-pointer">
+          <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white cursor-pointer">
             <option>10 条/页</option>
             <option>20 条/页</option>
             <option>50 条/页</option>

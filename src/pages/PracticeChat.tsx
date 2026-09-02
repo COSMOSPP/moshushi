@@ -35,12 +35,12 @@ export default function PracticeChat() {
       <div className="w-[260px] bg-[#f5f5f5] border-r border-neutral-200 flex flex-col shrink-0">
         {/* Logo */}
         <div className="h-[60px] flex items-center px-6 border-b border-transparent">
-          <div className="flex items-center gap-2 text-[#fa541c] font-bold text-[16px]">
+          <div className="flex items-center gap-2 text-[#3b82f6] font-bold text-[16px]">
             <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="2">
               <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" fillOpacity="0.2"/>
               <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            智云实训平台
+            模数师数字平台
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export default function PracticeChat() {
         <div className="p-4 border-t border-neutral-200 flex justify-between items-center text-neutral-500">
           <button className="flex items-center gap-2 text-[13px] hover:text-neutral-800 transition-colors">
             <Info className="w-4 h-4" />
-            关于智云实训
+            关于模数师
           </button>
           <button className="hover:text-neutral-800 transition-colors">
             <Download className="w-4 h-4" />
@@ -168,7 +168,7 @@ export default function PracticeChat() {
                   }}
                   disabled={!input.trim()}
                   className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
-                    input.trim() ? "bg-[#fa541c] text-white hover:bg-[#e64a19]" : "bg-neutral-100 text-neutral-400 cursor-not-allowed"
+                    input.trim() ? "bg-[#3b82f6] text-white hover:bg-[#e64a19]" : "bg-neutral-100 text-neutral-400 cursor-not-allowed"
                   }`}
                 >
                   <Send className="w-4 h-4" />

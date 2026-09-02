@@ -22,7 +22,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
       {/* Top Bar */}
       <div className="h-12 border-b border-neutral-border flex items-center justify-between px-4 shrink-0 bg-[#fafafa]">
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 cursor-pointer hover:text-[#fa541c] text-neutral-title" onClick={onBack}>
+          <div className="flex items-center gap-2 cursor-pointer hover:text-[#3b82f6] text-neutral-title" onClick={onBack}>
             <ChevronLeft className="w-5 h-5" /> 返回
           </div>
           <div className="h-4 w-px bg-neutral-border mx-2"></div>
@@ -51,12 +51,12 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                  <Activity className="w-3.5 h-3.5" /> GPU 运行中
                </Button>
             ) : (
-               <Button size="sm" className="h-8 text-[13px] bg-[#fa541c] hover:bg-[#d4380d] text-white flex items-center gap-1.5 mr-2" onClick={() => setShowGpuModal(true)}>
+               <Button size="sm" className="h-8 text-[13px] bg-[#3b82f6] hover:bg-[#1d4ed8] text-white flex items-center gap-1.5 mr-2" onClick={() => setShowGpuModal(true)}>
                  <Cpu className="w-3.5 h-3.5" /> 启动 GPU 环境
                </Button>
             )}
 
-            <Button variant="outline" size="sm" className="h-8 text-[13px] text-[#fa541c] border-[#fa541c] hover:bg-[#fff2e8] flex items-center gap-1.5">
+            <Button variant="outline" size="sm" className="h-8 text-[13px] text-[#3b82f6] border-[#3b82f6] hover:bg-[#eff6ff] flex items-center gap-1.5">
               保存为我的项目
             </Button>
           </div>
@@ -79,21 +79,21 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
         {/* Left Sidebar - Icons */}
         <div className="w-16 border-r border-neutral-border flex flex-col items-center py-4 gap-6 text-neutral-caption bg-[#fafafa]">
           <div 
-            className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeTab === 'file' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+            className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeTab === 'file' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
             onClick={() => setActiveTab('file')}
           >
             <FileText className="w-5 h-5" />
             <span className="text-[10px]">文件</span>
           </div>
           <div 
-            className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeTab === 'dataset' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+            className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeTab === 'dataset' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
             onClick={() => setActiveTab('dataset')}
           >
             <Map className="w-5 h-5" />
             <span className="text-[10px]">数据集</span>
           </div>
           <div 
-            className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeTab === 'toc' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+            className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeTab === 'toc' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
             onClick={() => setActiveTab('toc')}
           >
             <List className="w-5 h-5" />
@@ -112,8 +112,8 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                 <div className="flex items-center gap-1 text-[13px] text-neutral-title font-medium py-1">
                   <ChevronDown className="w-4 h-4" /> root
                 </div>
-                <div className="pl-6 py-1 text-[13px] text-[#fa541c] hover:bg-neutral-200 cursor-pointer flex items-center gap-2">
-                   <div className="w-3 h-3 bg-[#fa541c] rounded-sm shrink-0"></div> main.ipynb
+                <div className="pl-6 py-1 text-[13px] text-[#3b82f6] hover:bg-neutral-200 cursor-pointer flex items-center gap-2">
+                   <div className="w-3 h-3 bg-[#3b82f6] rounded-sm shrink-0"></div> main.ipynb
                 </div>
                 <div className="pl-6 py-1 text-[13px] text-neutral-body hover:bg-neutral-200 cursor-pointer flex items-center gap-2">
                    <FileText className="w-3 h-3 text-neutral-caption shrink-0" /> utils.py
@@ -139,7 +139,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                     onClick={() => setDatasetTab(t.id)}
                     className={cn(
                       "flex-1 py-3 flex flex-col items-center justify-center gap-1 cursor-pointer transition-colors border-b-2",
-                      datasetTab === t.id ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-caption border-transparent hover:text-neutral-title"
+                      datasetTab === t.id ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-caption border-transparent hover:text-neutral-title"
                     )}
                   >
                     <t.icon className="w-4 h-4" />
@@ -152,7 +152,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                     <>
                       <div className="relative mb-4">
                         <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-caption" />
-                        <Input type="text" placeholder="搜索公开数据集..." className="w-full pl-9 pr-4 py-2 bg-neutral-100 rounded-md text-sm border-0 focus-visible:ring-1 focus-visible:ring-[#fa541c]" />
+                        <Input type="text" placeholder="搜索公开数据集..." className="w-full pl-9 pr-4 py-2 bg-neutral-100 rounded-md text-sm border-0 focus-visible:ring-1 focus-visible:ring-[#3b82f6]" />
                       </div>
                       <div className="space-y-3">
                         {[
@@ -160,8 +160,8 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                           {name: "IMDB Movie Reviews", desc: "自然语言情感分类标准数据集"},
                           {name: "COCO Image 2017", desc: "目标检测巨无霸公开数据集"}
                         ].map((d, i) => (
-                          <div onClick={() => setSelectedDataset(d)} key={i} className="p-3 border border-neutral-border rounded hover:border-[#fa541c] hover:shadow-sm cursor-pointer transition-all bg-white group">
-                            <div className="text-sm font-bold text-neutral-title mb-1 group-hover:text-[#fa541c]">{d.name}</div>
+                          <div onClick={() => setSelectedDataset(d)} key={i} className="p-3 border border-neutral-border rounded hover:border-[#3b82f6] hover:shadow-sm cursor-pointer transition-all bg-white group">
+                            <div className="text-sm font-bold text-neutral-title mb-1 group-hover:text-[#3b82f6]">{d.name}</div>
                             <div className="text-[11px] text-neutral-caption line-clamp-2">{d.desc}</div>
                           </div>
                         ))}
@@ -212,8 +212,8 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
         {/* Main Editor Area */}
         <div className="flex-1 flex flex-col bg-white relative">
           <div className="flex border-b border-neutral-border bg-[#f5f6f8] shrink-0">
-            <div className="px-4 py-2 border-r border-neutral-border flex items-center gap-2 bg-white border-t-2 border-t-[#fa541c]">
-              <div className="w-3 h-3 bg-[#fa541c] rounded-sm"></div>
+            <div className="px-4 py-2 border-r border-neutral-border flex items-center gap-2 bg-white border-t-2 border-t-[#3b82f6]">
+              <div className="w-3 h-3 bg-[#3b82f6] rounded-sm"></div>
               <span className="text-[13px] text-neutral-title">main.ipynb</span>
             </div>
           </div>
@@ -224,13 +224,13 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                 <div className="flex justify-between items-start mb-6">
                     <div>
                       <h2 className="text-xl font-bold text-neutral-title flex items-center gap-3">
-                        <Database className="w-6 h-6 text-[#fa541c]" /> {selectedDataset.name}
+                        <Database className="w-6 h-6 text-[#3b82f6]" /> {selectedDataset.name}
                       </h2>
                     </div>
                     <div className="flex gap-2">
                       <Button variant="outline" size="sm" className="h-8 shadow-sm">收藏</Button>
                       {!importedDatasets.includes(selectedDataset.name) && (
-                        <Button size="sm" className="h-8 bg-[#fa541c] text-white" onClick={() => setImportedDatasets(prev => [...prev, selectedDataset.name])}>
+                        <Button size="sm" className="h-8 bg-[#3b82f6] text-white" onClick={() => setImportedDatasets(prev => [...prev, selectedDataset.name])}>
                           导入
                         </Button>
                       )}
@@ -276,11 +276,11 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
             {/* Bottom AI Toolbar */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-neutral-border px-4 py-3 rounded-full z-10">
               <div className="flex items-center gap-2 text-neutral-title font-bold text-[14px] px-2 py-1">
-                 <Bot className="w-5 h-5 text-[#fa541c]" /> AI 项目助手
+                 <Bot className="w-5 h-5 text-[#3b82f6]" /> AI 项目助手
               </div>
               <div className="w-px h-5 bg-neutral-border mx-1"></div>
-              <Button variant="outline" size="sm" className="h-8 rounded-full text-[13px] text-neutral-title border-[#fa541c]/30 hover:border-[#fa541c] hover:bg-[#fff2e8] px-4 shadow-sm flex items-center gap-1.5 transition-all">
-                <Sparkles className="w-3.5 h-3.5 text-[#fa541c]" /> AI 代码生成
+              <Button variant="outline" size="sm" className="h-8 rounded-full text-[13px] text-neutral-title border-[#3b82f6]/30 hover:border-[#3b82f6] hover:bg-[#eff6ff] px-4 shadow-sm flex items-center gap-1.5 transition-all">
+                <Sparkles className="w-3.5 h-3.5 text-[#3b82f6]" /> AI 代码生成
               </Button>
               <Button variant="outline" size="sm" className="h-8 rounded-full text-[13px] text-neutral-title border-neutral-300 hover:border-[#1890ff] hover:text-[#1890ff] hover:bg-[#e6f4ff] px-4 shadow-sm flex items-center gap-1.5 transition-all">
                 <MessageSquare className="w-3.5 h-3.5" /> AI 代码解释
@@ -292,7 +292,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
         {/* Right Sidebar - Monitor */}
         <div className="w-80 border-l border-neutral-border flex flex-col bg-[#fdfdfd] shrink-0">
           <div className="p-4 border-b border-neutral-border flex items-center gap-2 bg-white">
-            <Activity className="w-5 h-5 text-[#fa541c]" />
+            <Activity className="w-5 h-5 text-[#3b82f6]" />
             <h3 className="font-bold text-neutral-title text-[15px]">资源监控</h3>
           </div>
           <div className="flex-1 overflow-y-auto p-5 space-y-6">
@@ -319,15 +319,15 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
             <div>
               <div className="flex justify-between items-end mb-2">
                 <span className="text-[13px] font-bold text-neutral-title flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#fa541c]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> 
+                  <svg className="w-4 h-4 text-[#3b82f6]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> 
                   GPU 使用率
                 </span>
-                <span className="text-[13px] text-[#fa541c] font-mono">
+                <span className="text-[13px] text-[#3b82f6] font-mono">
                    {isGpuRunning ? '89%' : 'N/A'}
                 </span>
               </div>
               <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden">
-                <div className="h-full bg-[#fa541c]" style={{ width: isGpuRunning ? '89%' : '0%' }}></div>
+                <div className="h-full bg-[#3b82f6]" style={{ width: isGpuRunning ? '89%' : '0%' }}></div>
               </div>
               <div className="text-[11px] text-neutral-caption mt-2 flex justify-between">
                 <span>显存: {isGpuRunning ? '14.2 / 16 GB' : '0 / 0 GB'}</span>
@@ -352,7 +352,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
           <div className="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
             <div className="h-14 border-b border-neutral-border flex items-center justify-between px-6 bg-[#fafafa]">
               <h2 className="text-[16px] font-bold text-neutral-title flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-[#fa541c]" /> 启动实验环境
+                <Cpu className="w-5 h-5 text-[#3b82f6]" /> 启动实验环境
               </h2>
               <button onClick={() => setShowGpuModal(false)} className="text-neutral-caption hover:text-neutral-title transition-colors">
                 <X className="w-5 h-5" />
@@ -396,7 +396,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
                 <label className="text-[13px] font-bold text-neutral-title flex justify-between">
                   <span>GPU 算力分配</span>
                 </label>
-                <div className="border border-neutral-border rounded text-[13px] p-2 bg-[#fff2e8] text-[#fa541c] font-bold">
+                <div className="border border-neutral-border rounded text-[13px] p-2 bg-[#eff6ff] text-[#3b82f6] font-bold">
                   50%
                 </div>
               </div>
@@ -404,7 +404,7 @@ export default function ProjectIDE({ onBack }: ProjectIDEProps) {
               <div className="pt-4 border-t border-neutral-border flex justify-end gap-3">
                 <Button variant="outline" onClick={() => setShowGpuModal(false)}>取消</Button>
                 <Button 
-                  className="bg-[#fa541c] hover:bg-[#d4380d] text-white" 
+                  className="bg-[#3b82f6] hover:bg-[#1d4ed8] text-white" 
                   onClick={() => {
                     setIsGpuRunning(true);
                     setShowGpuModal(false);

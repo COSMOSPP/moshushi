@@ -19,7 +19,7 @@ export default function TeacherStatistics() {
     <div className="space-y-6 pb-12">
       {/* Breadcrumb */}
       <div className="text-sm text-neutral-500 flex items-center gap-1.5">
-        <span className="hover:text-[#fa541c] cursor-pointer" onClick={() => navigate('/teacher')}>首页</span>
+        <span className="hover:text-[#3b82f6] cursor-pointer" onClick={() => navigate('/teacher')}>首页</span>
         <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
         <span className="text-neutral-900">学习数据统计</span>
       </div>
@@ -28,7 +28,7 @@ export default function TeacherStatistics() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-neutral-900 flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             学习数据统计
           </h1>
           <p className="text-sm text-neutral-500 mt-1">
@@ -45,7 +45,7 @@ export default function TeacherStatistics() {
               className={cn(
                 "px-4 py-1.5 text-xs font-bold rounded-lg transition-all",
                 timeRange === range
-                  ? "bg-[#fa541c] text-white shadow-sm"
+                  ? "bg-[#3b82f6] text-white shadow-sm"
                   : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
               )}
             >
@@ -100,7 +100,7 @@ export default function TeacherStatistics() {
         </div>
 
         {/* KPI 3 */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-6 text-white shadow-md shadow-amber-500/10 group hover:-translate-y-1 transition-all duration-300">
+        <div className="relative overflow-hidden bg-gradient-to-br from-amber-500 to-blue-600 rounded-2xl p-6 text-white shadow-md shadow-amber-500/10 group hover:-translate-y-1 transition-all duration-300">
           <div className="absolute right-0 top-0 w-24 h-24 bg-white/10 rounded-full blur-xl translate-x-4 -translate-y-4 pointer-events-none"></div>
           <div className="flex items-center justify-between">
             <span className="text-sm text-white/80 font-medium">活跃学生人数</span>
@@ -299,10 +299,10 @@ export default function TeacherStatistics() {
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-bold text-neutral-700">
                 <span>人工智能基础与实践</span>
-                <span className="text-[#fa541c]">88% 进度 (超预期)</span>
+                <span className="text-[#3b82f6]">88% 进度 (超预期)</span>
               </div>
               <div className="w-full h-3 bg-neutral-100 rounded-full overflow-hidden flex">
-                <div className="h-full bg-gradient-to-r from-orange-400 to-[#fa541c] rounded-full" style={{ width: '88%' }}></div>
+                <div className="h-full bg-gradient-to-r from-blue-400 to-[#3b82f6] rounded-full" style={{ width: '88%' }}></div>
               </div>
               <div className="flex justify-between text-[10px] text-neutral-400">
                 <span>实训项目已交率: 92%</span>

@@ -46,7 +46,7 @@ export default function AIAssistantDetail({ assistant, onBack }: AIAssistantDeta
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-neutral-50 text-neutral-caption hover:text-[#fa541c] transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-neutral-50 text-neutral-caption hover:text-[#3b82f6] transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -105,16 +105,16 @@ export default function AIAssistantDetail({ assistant, onBack }: AIAssistantDeta
           <div className="w-full max-w-4xl p-6 pt-0">
             {messages.length === 1 && (
               <div className="flex flex-wrap gap-2 mb-4 justify-center">
-                <button onClick={() => setInput('请帮我生成一份教学教案')} className="px-4 py-2 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] transition-colors shadow-sm">
+                <button onClick={() => setInput('请帮我生成一份教学教案')} className="px-4 py-2 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors shadow-sm">
                   <Sparkles className="w-3.5 h-3.5 inline mr-1" /> 请帮我生成一份教学教案
                 </button>
-                <button onClick={() => setInput('分析一下当前的数据趋势')} className="px-4 py-2 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] transition-colors shadow-sm">
+                <button onClick={() => setInput('分析一下当前的数据趋势')} className="px-4 py-2 bg-white border border-neutral-border rounded-full text-[13px] text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors shadow-sm">
                   <Sparkles className="w-3.5 h-3.5 inline mr-1" /> 分析一下当前的数据趋势
                 </button>
               </div>
             )}
             
-            <div className="bg-white rounded-[16px] shadow-lg border border-neutral-border p-3 focus-within:border-[#fa541c]/50 focus-within:ring-4 focus-within:ring-[#fa541c]/10 transition-all">
+            <div className="bg-white rounded-[16px] shadow-lg border border-neutral-border p-3 focus-within:border-[#3b82f6]/50 focus-within:ring-4 focus-within:ring-[#3b82f6]/10 transition-all">
               <textarea 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -136,7 +136,7 @@ export default function AIAssistantDetail({ assistant, onBack }: AIAssistantDeta
                 <Button 
                   onClick={handleSend}
                   disabled={!input.trim()}
-                  className="bg-[#fa541c] hover:bg-[#e64a19] text-white rounded-full h-8 px-4 flex items-center gap-1.5 text-[13px]"
+                  className="bg-[#3b82f6] hover:bg-[#e64a19] text-white rounded-full h-8 px-4 flex items-center gap-1.5 text-[13px]"
                 >
                   <Send className="w-3.5 h-3.5" /> 发送
                 </Button>
@@ -160,10 +160,10 @@ export default function AIAssistantDetail({ assistant, onBack }: AIAssistantDeta
                {[1, 2, 3].map((i) => (
                  <div key={i} className="flex gap-3 cursor-pointer group">
                    <div className="mt-1">
-                     <MessageSquare className="w-4 h-4 text-neutral-caption group-hover:text-[#fa541c] transition-colors" />
+                     <MessageSquare className="w-4 h-4 text-neutral-caption group-hover:text-[#3b82f6] transition-colors" />
                    </div>
                    <div>
-                     <div className="text-[13px] text-neutral-title font-medium group-hover:text-[#fa541c] transition-colors line-clamp-1">
+                     <div className="text-[13px] text-neutral-title font-medium group-hover:text-[#3b82f6] transition-colors line-clamp-1">
                        上一次关于{assistant.type}的对话历史...
                      </div>
                      <div className="text-[12px] text-neutral-caption mt-1 flex items-center gap-1">

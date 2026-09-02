@@ -111,7 +111,7 @@ export default function UserAISkills() {
                 key={i}
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[13px] transition-colors",
-                  i === 0 ? "bg-[#fa541c] text-white" : "bg-white border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c]"
+                  i === 0 ? "bg-[#3b82f6] text-white" : "bg-white border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {tag}
@@ -136,7 +136,7 @@ export default function UserAISkills() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption" />
           <Input 
             placeholder="输入Skills名称搜索" 
-            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#fa541c]" 
+            className="pl-9 h-10 text-[14px] rounded-full border-neutral-border bg-white focus-visible:ring-[#3b82f6]" 
           />
         </div>
       </div>
@@ -155,7 +155,7 @@ export default function UserAISkills() {
                         <Icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-[16px] font-bold text-neutral-title mb-1 truncate group-hover:text-[#fa541c] transition-colors">
+                        <h3 className="text-[16px] font-bold text-neutral-title mb-1 truncate group-hover:text-[#3b82f6] transition-colors">
                           {skill.title}
                         </h3>
                         <p className="text-[13px] text-neutral-caption line-clamp-2">
@@ -179,7 +179,7 @@ export default function UserAISkills() {
                       </div>
                     </div>
                     
-                    <Button className="w-full h-9 text-[13px] rounded-[8px] bg-white border border-neutral-border text-neutral-title hover:bg-neutral-bg hover:text-[#fa541c] hover:border-[#fa541c] transition-colors">
+                    <Button className="w-full h-9 text-[13px] rounded-[8px] bg-white border border-neutral-border text-neutral-title hover:bg-neutral-bg hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors">
                       立即使用
                     </Button>
                   </div>
@@ -190,15 +190,15 @@ export default function UserAISkills() {
             {/* Load More / Pagination */}
             <div className="mt-8 flex items-center justify-between">
               <div className="flex items-center gap-1">
-                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-caption hover:text-[#fa541c] hover:border-[#fa541c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-caption hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] bg-[#fa541c] text-white font-medium">1</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] transition-colors">2</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] transition-colors">3</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] bg-[#3b82f6] text-white font-medium">1</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors">2</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors">3</button>
                 <span className="px-2 text-neutral-caption">...</span>
-                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] transition-colors">5</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c] transition-colors">
+                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors">5</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[4px] border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6] transition-colors">
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -206,7 +206,7 @@ export default function UserAISkills() {
               <div className="flex items-center gap-4 text-[13px] text-neutral-body">
                 <div className="flex items-center gap-2">
                   <span>每页</span>
-                  <button className="flex items-center gap-1 px-2 py-1 border border-neutral-border rounded-[4px] hover:border-[#fa541c] transition-colors">
+                  <button className="flex items-center gap-1 px-2 py-1 border border-neutral-border rounded-[4px] hover:border-[#3b82f6] transition-colors">
                     20 <ChevronDown className="w-3 h-3" />
                   </button>
                   <span>条</span>

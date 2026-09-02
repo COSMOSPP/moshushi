@@ -55,7 +55,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
             </div>
             <h3 className="text-[16px] font-bold text-neutral-800 mb-2">暂无匹配的智能助手</h3>
             <p className="text-[13px] text-neutral-500 max-w-sm text-center mb-6">您可以尝试更换搜索关键词，或者点击右上角新建一个助手。</p>
-            <Button onClick={() => { setAssForm({ name: '', type: '课程助手', welcome: '', kbs: '' }); setIsAssModalOpen(true); }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-8 shadow-sm">
+            <Button onClick={() => { setAssForm({ name: '', type: '课程助手', welcome: '', kbs: '' }); setIsAssModalOpen(true); }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-8 shadow-sm">
               <Plus className="w-4 h-4 mr-1.5" /> 新建助手
             </Button>
           </div>
@@ -64,10 +64,10 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
             {filteredAssistants.map(ass => (
               <div key={ass.id} className="bg-white rounded-[20px] p-6 border border-neutral-200 shadow-sm relative group overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1.5 flex flex-col">
                 <div className="absolute top-4 right-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                   <button onClick={() => { setApplyForm({ name: ass.name, desc: '', scenario: '', example: '', cost: '' }); setIsApplyModalOpen(true); }} className="px-3 h-8 flex items-center justify-center bg-white border border-[#fa541c] rounded-full text-[#fa541c] hover:bg-orange-50 shadow-sm text-[12px] font-bold">申请公开</button>
+                   <button onClick={() => { setApplyForm({ name: ass.name, desc: '', scenario: '', example: '', cost: '' }); setIsApplyModalOpen(true); }} className="px-3 h-8 flex items-center justify-center bg-white border border-[#3b82f6] rounded-full text-[#3b82f6] hover:bg-blue-50 shadow-sm text-[12px] font-bold">申请公开</button>
                    <button 
                      onClick={() => { setAssForm({ name: ass.name, type: ass.type, welcome: ass.welcomeMsg, kbs: '' }); setIsAssModalOpen(true); }}
-                     className="w-8 h-8 flex items-center justify-center bg-white border border-neutral-200 rounded-full text-neutral-500 hover:text-[#fa541c] shadow-sm hover:bg-orange-50"
+                     className="w-8 h-8 flex items-center justify-center bg-white border border-neutral-200 rounded-full text-neutral-500 hover:text-[#3b82f6] shadow-sm hover:bg-blue-50"
                    >
                      <Edit className="w-3.5 h-3.5" />
                    </button>
@@ -88,7 +88,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
                   <img src={ass.avatar} alt="avatar" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="text-center mb-5">
-                  <h3 className="font-bold text-neutral-900 text-[16px] group-hover:text-[#fa541c] transition-colors">{ass.name}</h3>
+                  <h3 className="font-bold text-neutral-900 text-[16px] group-hover:text-[#3b82f6] transition-colors">{ass.name}</h3>
                   <span className="inline-block px-3 py-1 mt-2 bg-indigo-50 text-indigo-600 text-[11px] rounded-lg font-bold border border-indigo-100/50">
                     {ass.type}
                   </span>
@@ -133,7 +133,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
           <input 
             placeholder="搜索名称或描述..." 
-            className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+            className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-9 bg-white"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -144,7 +144,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
           onClick={() => {
             setAssForm({ name: '', type: '课程助手', welcome: '', kbs: '' }); setIsAssModalOpen(true);
           }} 
-          className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+          className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
         >
           <Plus className="w-4 h-4 mr-1" /> 新建助手
         </Button>
@@ -160,7 +160,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
           <div className="bg-white rounded-3xl shadow-xl w-[560px] overflow-hidden border border-neutral-200 flex flex-col" onClick={e => e.stopPropagation()}>
             <div className="p-6 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[18px] font-bold text-neutral-900">申请公开至公共能力池</h2>
-              <button onClick={() => setIsApplyModalOpen(false)} className="text-neutral-400 hover:text-[#fa541c]"><X className="w-5 h-5" /></button>
+              <button onClick={() => setIsApplyModalOpen(false)} className="text-neutral-400 hover:text-[#3b82f6]"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-8 space-y-5 max-h-[70vh] overflow-y-auto custom-scrollbar">
               <div className="bg-blue-50 text-blue-600 p-4 rounded-xl text-[13px] flex items-start gap-3 border border-blue-100">
@@ -174,19 +174,19 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
               </div>
               <div className="space-y-2">
                 <label className="text-[13px] font-bold block"><span className="text-red-500">*</span> 功能描述</label>
-                <textarea value={applyForm.desc} onChange={e => setApplyForm({...applyForm, desc: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] h-20 resize-none focus:outline-none focus:border-[#fa541c]" placeholder="详细描述该能力的核心功能..." />
+                <textarea value={applyForm.desc} onChange={e => setApplyForm({...applyForm, desc: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] h-20 resize-none focus:outline-none focus:border-[#3b82f6]" placeholder="详细描述该能力的核心功能..." />
               </div>
               <div className="space-y-2">
                 <label className="text-[13px] font-bold block"><span className="text-red-500">*</span> 适用场景</label>
-                <input value={applyForm.scenario} onChange={e => setApplyForm({...applyForm, scenario: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#fa541c]" placeholder="例如：适用于自然语言处理相关课程..." />
+                <input value={applyForm.scenario} onChange={e => setApplyForm({...applyForm, scenario: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#3b82f6]" placeholder="例如：适用于自然语言处理相关课程..." />
               </div>
               <div className="space-y-2">
                 <label className="text-[13px] font-bold block"><span className="text-red-500">*</span> 调用示例</label>
-                <textarea value={applyForm.example} onChange={e => setApplyForm({...applyForm, example: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] h-20 resize-none focus:outline-none focus:border-[#fa541c]" placeholder="描述该能力的输入规范及样例..." />
+                <textarea value={applyForm.example} onChange={e => setApplyForm({...applyForm, example: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] h-20 resize-none focus:outline-none focus:border-[#3b82f6]" placeholder="描述该能力的输入规范及样例..." />
               </div>
               <div className="space-y-2">
                 <label className="text-[13px] font-bold block"><span className="text-red-500">*</span> 成本评估</label>
-                <input value={applyForm.cost} onChange={e => setApplyForm({...applyForm, cost: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#fa541c]" placeholder="例如：约 50 Token / 次" />
+                <input value={applyForm.cost} onChange={e => setApplyForm({...applyForm, cost: e.target.value})} className="w-full border border-neutral-200 rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#3b82f6]" placeholder="例如：约 50 Token / 次" />
               </div>
             </div>
             <div className="p-6 border-t border-neutral-100 bg-neutral-50/30 flex justify-end gap-3">
@@ -197,7 +197,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
                 }
                 showToast('提交成功，等待管理员审核');
                 setIsApplyModalOpen(false);
-              }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-8 text-[13px] shadow-sm font-bold">提交审核</Button>
+              }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-8 text-[13px] shadow-sm font-bold">提交审核</Button>
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
               <h2 className="text-[15px] font-bold text-neutral-850">配置私有智能助手</h2>
               <button 
                 onClick={() => setIsAssModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -228,8 +228,8 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
             <div className="p-6 overflow-y-auto space-y-5 custom-scrollbar flex-1 bg-white relative">
               {/* 头像上传 */}
               <div className="flex flex-col items-center justify-center gap-2 border-b border-neutral-100 pb-5">
-                <div className="w-20 h-20 rounded-[16px] bg-neutral-50 border-2 border-neutral-200 border-dashed flex items-center justify-center overflow-hidden cursor-pointer hover:bg-neutral-100 hover:border-[#fa541c]/50 transition-all group shadow-xs">
-                  <UploadCloud className="w-7 h-7 text-neutral-400 group-hover:text-[#fa541c]" />
+                <div className="w-20 h-20 rounded-[16px] bg-neutral-50 border-2 border-neutral-200 border-dashed flex items-center justify-center overflow-hidden cursor-pointer hover:bg-neutral-100 hover:border-[#3b82f6]/50 transition-all group shadow-xs">
+                  <UploadCloud className="w-7 h-7 text-neutral-400 group-hover:text-[#3b82f6]" />
                 </div>
                 <div className="text-xs font-bold text-neutral-500">点击上传助手头像</div>
               </div>
@@ -237,13 +237,13 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
               {/* 助手名称 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>助手名称
+                  <span className="text-[#3b82f6]">*</span>助手名称
                 </label>
                 <input 
                   value={assForm.name} 
                   onChange={e => setAssForm({...assForm, name: e.target.value})} 
                   placeholder="例如：操作系统答疑机器人"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]" 
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]" 
                 />
               </div>
               
@@ -255,7 +255,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
                 <select 
                   value={assForm.type} 
                   onChange={e => setAssForm({...assForm, type: e.target.value as any})} 
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] bg-white focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all cursor-pointer text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] bg-white focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all cursor-pointer text-[#262626]"
                 >
                   <option>课程助手</option>
                   <option>实验助手</option>
@@ -272,7 +272,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
                   value={assForm.welcome} 
                   onChange={e => setAssForm({...assForm, welcome: e.target.value})} 
                   placeholder="设置学生进入聊天室时看到的开场白..." 
-                  className="w-full h-24 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 resize-none transition-all text-[#262626]" 
+                  className="w-full h-24 border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 resize-none transition-all text-[#262626]" 
                 />
               </div>
               
@@ -281,7 +281,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
                 <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
                   关联知识库
                 </label>
-                <div className="w-full border-2 border-dashed border-neutral-200 rounded-xl p-5 flex flex-col items-center justify-center text-neutral-500 bg-neutral-50 cursor-pointer hover:bg-orange-50/40 hover:border-[#fa541c]/50 transition-all">
+                <div className="w-full border-2 border-dashed border-neutral-200 rounded-xl p-5 flex flex-col items-center justify-center text-neutral-500 bg-neutral-50 cursor-pointer hover:bg-blue-50/40 hover:border-[#3b82f6]/50 transition-all">
                   <Database className="w-5 h-5 mb-2 text-neutral-400" />
                   <span className="text-[13px] font-bold text-neutral-700 mb-0.5">挂载专属知识边界</span>
                   <span className="text-xs text-neutral-400 max-w-[240px] text-center leading-relaxed">点击选取实训平台内的课程文档或个人题库作为知识来源</span>
@@ -304,7 +304,7 @@ export default function TeacherAICenter({ embedded = false }: { embedded?: boole
                   showToast('智能助手创建成功');
                   setIsAssModalOpen(false);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 保存并生效
               </Button>

@@ -30,7 +30,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <div className="border border-neutral-200 rounded overflow-hidden bg-white shadow-sm transition-all focus-within:border-[#fa541c]/50">
+    <div className="border border-neutral-200 rounded overflow-hidden bg-white shadow-sm transition-all focus-within:border-[#3b82f6]/50">
       {/* Editor Header */}
       <div className="flex items-center justify-between bg-neutral-50 px-4 py-2 border-b border-neutral-200">
         <div className="flex items-center gap-2">
@@ -44,7 +44,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
             </button>
           )}
           <span className="text-[13px] font-bold text-neutral-800 flex items-center">
-            {required && <span className="text-[#fa541c] mr-1">*</span>}
+            {required && <span className="text-[#3b82f6] mr-1">*</span>}
             {label}
           </span>
         </div>
@@ -1438,24 +1438,24 @@ export default function TeacherQuestions() {
                     placeholder="请输入要搜索的内容"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400"
+                    className="pl-9 pr-4 py-2 w-full bg-white border border-neutral-border rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400"
                   />
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2 w-full md:w-auto md:justify-end">
-                <Button onClick={() => setIsCreateModalOpen(true)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1 shadow-sm h-9 px-4 rounded-[4px] text-xs font-semibold cursor-pointer border-0">
+                <Button onClick={() => setIsCreateModalOpen(true)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1 shadow-sm h-9 px-4 rounded-[4px] text-xs font-semibold cursor-pointer border-0">
                   <Plus className="w-3.5 h-3.5" /> 新建试题
                 </Button>
-                <Button onClick={() => setView('ai')} variant="outline" className="flex items-center h-9 px-4 border-[#fa541c] text-[#fa541c] hover:bg-[#fff2e8] bg-white rounded-[4px] text-xs font-medium cursor-pointer shadow-sm">
+                <Button onClick={() => setView('ai')} variant="outline" className="flex items-center h-9 px-4 border-[#3b82f6] text-[#3b82f6] hover:bg-[#eff6ff] bg-white rounded-[4px] text-xs font-medium cursor-pointer shadow-sm">
                   智能出题
                 </Button>
-                <Button onClick={() => setIsBankListModalOpen(true)} variant="outline" className="flex items-center h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-[#fa541c] hover:bg-[#fff2e8]/30 transition-all cursor-pointer bg-white rounded-[4px] text-xs font-medium shadow-sm">
+                <Button onClick={() => setIsBankListModalOpen(true)} variant="outline" className="flex items-center h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-[#3b82f6] hover:bg-[#eff6ff]/30 transition-all cursor-pointer bg-white rounded-[4px] text-xs font-medium shadow-sm">
                   题库管理
                 </Button>
-                <Button onClick={() => setIsImportModalOpen(true)} variant="outline" className="flex items-center h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-[#fa541c] hover:bg-[#fff2e8]/30 transition-all cursor-pointer bg-white rounded-[4px] text-xs font-medium shadow-sm">
+                <Button onClick={() => setIsImportModalOpen(true)} variant="outline" className="flex items-center h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-[#3b82f6] hover:bg-[#eff6ff]/30 transition-all cursor-pointer bg-white rounded-[4px] text-xs font-medium shadow-sm">
                   导入
                 </Button>
-                <Button onClick={() => setIsBatchPublicOpen(true)} variant="outline" className="flex items-center h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-[#fa541c] hover:bg-[#fff2e8]/30 transition-all cursor-pointer bg-white rounded-[4px] text-xs font-medium shadow-sm">
+                <Button onClick={() => setIsBatchPublicOpen(true)} variant="outline" className="flex items-center h-9 px-4 border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-[#3b82f6] hover:bg-[#eff6ff]/30 transition-all cursor-pointer bg-white rounded-[4px] text-xs font-medium shadow-sm">
                   批量公开
                 </Button>
               </div>
@@ -1472,8 +1472,8 @@ export default function TeacherQuestions() {
                         className={cn(
                           "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer",
                           selectedQuestions.length === filteredQuestions.length && filteredQuestions.length > 0
-                            ? "bg-[#fa541c] border-[#fa541c] text-white"
-                            : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                            ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                            : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                         )}
                       >
                         {selectedQuestions.length === filteredQuestions.length && filteredQuestions.length > 0 && <span className="text-[10px] font-bold">✓</span>}
@@ -1517,8 +1517,8 @@ export default function TeacherQuestions() {
                           className={cn(
                             "w-4 h-4 rounded border flex items-center justify-center transition-all cursor-pointer",
                             selectedQuestions.includes(q.id)
-                              ? "bg-[#fa541c] border-[#fa541c] text-white"
-                              : "border-neutral-300 hover:border-[#fa541c] bg-white"
+                              ? "bg-[#3b82f6] border-[#3b82f6] text-white"
+                              : "border-neutral-300 hover:border-[#3b82f6] bg-white"
                           )}
                         >
                           {selectedQuestions.includes(q.id) && <span className="text-[10px] font-bold">✓</span>}
@@ -1556,10 +1556,10 @@ export default function TeacherQuestions() {
                           <span className="px-2 py-0.5 bg-blue-50 border border-blue-200 rounded text-[12px] text-blue-600">租户</span>
                         )}
                         {q.scope === '平台' && (
-                          <span className="px-2 py-0.5 bg-[#fff2e8] border border-[#ffbb96] rounded text-[12px] text-[#fa541c]">平台</span>
+                          <span className="px-2 py-0.5 bg-[#eff6ff] border border-[#bfdbfe] rounded text-[12px] text-[#3b82f6]">平台</span>
                         )}
                         {!['私有', '租户', '平台'].includes(q.scope) && (
-                          <span className="px-2 py-0.5 bg-[#fff2e8] border border-[#ffbb96] rounded text-[12px] text-[#fa541c]">{q.scope}</span>
+                          <span className="px-2 py-0.5 bg-[#eff6ff] border border-[#bfdbfe] rounded text-[12px] text-[#3b82f6]">{q.scope}</span>
                         )}
                       </td>
                       <td className="px-3 py-3 font-medium">
@@ -1624,7 +1624,7 @@ export default function TeacherQuestions() {
                                     type="button"
                                     onClick={act.onClick}
                                     className={cn(
-                                      "text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap",
+                                      "text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs font-semibold whitespace-nowrap",
                                       act.isDanger && "text-red-500 hover:text-red-700"
                                     )}
                                   >
@@ -1640,7 +1640,7 @@ export default function TeacherQuestions() {
                                         e.stopPropagation();
                                         setActiveDropdownId(activeDropdownId === q.id ? null : q.id);
                                       }}
-                                      className="text-[#fa541c] hover:text-[#e84a15] transition-colors cursor-pointer bg-transparent border-0 p-0 flex items-center gap-0.5 text-xs font-semibold whitespace-nowrap"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] transition-colors cursor-pointer bg-transparent border-0 p-0 flex items-center gap-0.5 text-xs font-semibold whitespace-nowrap"
                                     >
                                       <span>更多</span>
                                       <ChevronDown className={cn("w-3 h-3 transition-transform duration-200 text-neutral-405", activeDropdownId === q.id && "rotate-180")} />
@@ -1664,7 +1664,7 @@ export default function TeacherQuestions() {
                                               act.onClick();
                                               setActiveDropdownId(null);
                                             }}
-                                            className="w-full text-left px-3 py-1.5 text-xs transition-colors bg-transparent border-0 cursor-pointer block font-medium text-neutral-700 hover:bg-orange-50/40 hover:text-[#fa541c]"
+                                            className="w-full text-left px-3 py-1.5 text-xs transition-colors bg-transparent border-0 cursor-pointer block font-medium text-neutral-700 hover:bg-blue-50/40 hover:text-[#3b82f6]"
                                           >
                                             {act.label}
                                           </button>
@@ -1689,10 +1689,10 @@ export default function TeacherQuestions() {
               <span className="text-[13px] text-neutral-500">共 {filteredQuestions.length} 条</span>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm">&gt;</Button>
               </div>
-              <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600">
+              <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600">
                 <option>10 条/页</option>
                 <option>20 条/页</option>
                 <option>50 条/页</option>
@@ -1716,7 +1716,7 @@ export default function TeacherQuestions() {
           `}</style>
           
           {/* Top orange gradient banner */}
-          <div className="relative bg-gradient-to-r from-[#fa541c] via-[#ff7a45] to-[#fa541c] pt-6 pb-16 text-white select-none overflow-hidden shrink-0">
+          <div className="relative bg-gradient-to-r from-[#3b82f6] via-[#60a5fa] to-[#3b82f6] pt-6 pb-16 text-white select-none overflow-hidden shrink-0">
             {/* Background circular decorations referencing assignment preview */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               <div className="absolute -right-20 -top-20 w-[400px] h-[400px] border-[40px] border-white/5 rounded-full"></div>
@@ -1733,7 +1733,7 @@ export default function TeacherQuestions() {
                 <div className="absolute w-28 h-28 border border-white/30 rounded-full animate-[spin_8s_linear_infinite_reverse]"></div>
                 {/* Inner floating cube/sphere */}
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-white/30 to-white/15 backdrop-blur-md border border-white/45 shadow-2xl rotate-12 flex items-center justify-center style-floating-element">
-                  <div className="w-10 h-10 rounded bg-gradient-to-br from-[#fa541c] to-[#ff7875] opacity-85 shadow-sm transform -rotate-12 border border-white/25"></div>
+                  <div className="w-10 h-10 rounded bg-gradient-to-br from-[#3b82f6] to-[#ff7875] opacity-85 shadow-sm transform -rotate-12 border border-white/25"></div>
                 </div>
                 {/* Secondary floating dots */}
                 <div className="absolute top-6 right-6 w-5 h-5 rounded-full bg-[#ff7875] opacity-75 blur-[1px] animate-[float_3s_ease-in-out_infinite_alternate]"></div>
@@ -1813,7 +1813,7 @@ export default function TeacherQuestions() {
                       <div key={group.type} className="animate-slide-up">
                         {/* Group Header */}
                         <div className="flex items-center gap-2.5 border-b border-neutral-100 pb-3.5 mb-6 text-left">
-                          <div className="w-5.5 h-5.5 rounded-full bg-orange-50 border border-orange-100 text-[#fa541c] flex items-center justify-center flex-shrink-0">
+                          <div className="w-5.5 h-5.5 rounded-full bg-blue-50 border border-orange-100 text-[#3b82f6] flex items-center justify-center flex-shrink-0">
                             <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                           </div>
                           <span className="text-[14px] font-bold text-neutral-800">
@@ -1881,7 +1881,7 @@ export default function TeacherQuestions() {
             {/* 顶部左侧返回智能出题 */}
             <button 
               onClick={() => setView('list')} 
-              className="flex items-center gap-1.5 text-xs text-[#fa541c] hover:text-[#e84a15] font-bold transition-colors cursor-pointer bg-transparent px-1 py-1.5 z-10"
+              className="flex items-center gap-1.5 text-xs text-[#3b82f6] hover:text-[#2563eb] font-bold transition-colors cursor-pointer bg-transparent px-1 py-1.5 z-10"
             >
               <ChevronLeft className="w-3.5 h-3.5" /> 返回智能出题
             </button>
@@ -1913,7 +1913,7 @@ export default function TeacherQuestions() {
                     ]);
                     setImportedIndexes([]);
                   }}
-                  className="w-full bg-white border border-[#fa541c] text-[#fa541c] hover:bg-[#fff2e8] flex items-center justify-center gap-2 py-2 px-4 rounded-xl text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                  className="w-full bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-[#eff6ff] flex items-center justify-center gap-2 py-2 px-4 rounded-xl text-xs font-semibold shadow-sm transition-all cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" /> 新建对话
                 </button>
@@ -1921,7 +1921,7 @@ export default function TeacherQuestions() {
 
               {/* 对话列表 */}
               <div className="flex-1 overflow-y-auto">
-                <div className="mx-3 mt-3 bg-[#fff2e8] text-[#fa541c] flex items-center gap-2.5 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all cursor-pointer">
+                <div className="mx-3 mt-3 bg-[#eff6ff] text-[#3b82f6] flex items-center gap-2.5 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all cursor-pointer">
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>新的对话</span>
                 </div>
@@ -1949,8 +1949,8 @@ export default function TeacherQuestions() {
                   >
                     {/* AI头像 */}
                     {msg.sender === 'assistant' && (
-                      <div className="w-8 h-8 rounded-full bg-[#fff2e8] border border-[#ffbb96] flex items-center justify-center flex-shrink-0 shadow-sm">
-                        <Sparkles className="w-4 h-4 text-[#fa541c]" />
+                      <div className="w-8 h-8 rounded-full bg-[#eff6ff] border border-[#bfdbfe] flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <Sparkles className="w-4 h-4 text-[#3b82f6]" />
                       </div>
                     )}
 
@@ -1959,7 +1959,7 @@ export default function TeacherQuestions() {
                       className={cn(
                         "p-4 rounded-2xl shadow-sm text-xs leading-relaxed transition-all",
                         msg.sender === 'user' 
-                          ? "bg-[#fa541c] text-white rounded-tr-none" 
+                          ? "bg-[#3b82f6] text-white rounded-tr-none" 
                           : "bg-white border border-neutral-200/80 text-neutral-800 rounded-tl-none space-y-4"
                       )}
                     >
@@ -1970,7 +1970,7 @@ export default function TeacherQuestions() {
                         <div className="border border-neutral-200 rounded-xl overflow-hidden shadow-sm bg-neutral-50/50 w-full max-w-[520px] transition-all animate-slide-up">
                           {/* 题卡头部 */}
                           <div className="bg-neutral-50 border-b border-neutral-200 px-4 py-2 flex items-center justify-between">
-                            <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96] rounded text-[10px] font-bold">
+                            <span className="px-2 py-0.5 bg-[#eff6ff] text-[#3b82f6] border border-[#bfdbfe] rounded text-[10px] font-bold">
                               {msg.questionCard.type}
                             </span>
                             <span className="text-[10px] text-neutral-500 font-medium bg-white px-2 py-0.5 rounded border border-neutral-100">
@@ -2003,11 +2003,11 @@ export default function TeacherQuestions() {
                             <div className="border-t border-neutral-200/50 my-2"></div>
 
                             {/* 答案与深度解析栏 */}
-                            <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/40 rounded-xl p-3.5 space-y-2">
-                              <div className="text-xs text-[#fa541c] font-bold flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#fa541c]"></span>
+                            <div className="bg-[#eff6ff]/40 border border-[#bfdbfe]/40 rounded-xl p-3.5 space-y-2">
+                              <div className="text-xs text-[#3b82f6] font-bold flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></span>
                                 <span>正确答案：</span>
-                                <span className="px-2 py-0.5 bg-[#fa541c] text-white rounded text-[10px] font-bold shadow-sm">{msg.questionCard.correct}</span>
+                                <span className="px-2 py-0.5 bg-[#3b82f6] text-white rounded text-[10px] font-bold shadow-sm">{msg.questionCard.correct}</span>
                               </div>
                               <div className="text-[11px] text-neutral-600 leading-relaxed bg-white/60 p-2.5 rounded-lg border border-neutral-100">
                                 <span className="font-bold text-neutral-700 block mb-1">解析：</span>
@@ -2025,7 +2025,7 @@ export default function TeacherQuestions() {
                                 "w-full py-2.5 rounded-lg flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-sm cursor-pointer",
                                 importedIndexes.includes(index)
                                   ? "bg-green-50 text-green-600 border border-green-200"
-                                  : "bg-[#fa541c] hover:bg-[#e84a15] text-white"
+                                  : "bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                               )}
                             >
                               {importedIndexes.includes(index) ? (
@@ -2046,14 +2046,14 @@ export default function TeacherQuestions() {
                 {/* AI正在输入动效 */}
                 {isTyping && (
                   <div className="flex gap-3 max-w-[85%] animate-fade-in self-start justify-start">
-                    <div className="w-8 h-8 rounded-full bg-[#fff2e8] border border-[#ffbb96] flex items-center justify-center flex-shrink-0 animate-pulse shadow-sm">
-                      <Sparkles className="w-4 h-4 text-[#fa541c]" />
+                    <div className="w-8 h-8 rounded-full bg-[#eff6ff] border border-[#bfdbfe] flex items-center justify-center flex-shrink-0 animate-pulse shadow-sm">
+                      <Sparkles className="w-4 h-4 text-[#3b82f6]" />
                     </div>
                     <div className="bg-white border border-neutral-200/80 rounded-2xl rounded-tl-none py-3.5 px-4 shadow-sm text-xs text-neutral-500 font-medium italic flex items-center gap-2.5">
                       <div className="flex gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-[#fa541c] rounded-full animate-bounce"></span>
-                        <span className="w-1.5 h-1.5 bg-[#fa541c] rounded-full animate-bounce delay-150"></span>
-                        <span className="w-1.5 h-1.5 bg-[#fa541c] rounded-full animate-bounce delay-300"></span>
+                        <span className="w-1.5 h-1.5 bg-[#3b82f6] rounded-full animate-bounce"></span>
+                        <span className="w-1.5 h-1.5 bg-[#3b82f6] rounded-full animate-bounce delay-150"></span>
+                        <span className="w-1.5 h-1.5 bg-[#3b82f6] rounded-full animate-bounce delay-300"></span>
                       </div>
                       <span>出题助手正在智能生成试题中...</span>
                     </div>
@@ -2063,7 +2063,7 @@ export default function TeacherQuestions() {
 
               {/* 底部交互输入区域 */}
               <div className="p-4 border-t border-neutral-100 bg-white">
-                <div className="flex items-center gap-3 bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-2.5 focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] transition-all">
+                <div className="flex items-center gap-3 bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-2.5 focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] transition-all">
                   <textarea
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
@@ -2082,7 +2082,7 @@ export default function TeacherQuestions() {
                   <button
                     onClick={handleSendChatMessage}
                     disabled={!chatInput.trim()}
-                    className="text-[#fa541c] hover:text-[#e84a15] disabled:text-neutral-300 transition-colors cursor-pointer"
+                    className="text-[#3b82f6] hover:text-[#2563eb] disabled:text-neutral-300 transition-colors cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
                   </button>
@@ -2106,12 +2106,12 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                {editingQuestion ? <Edit className="w-5 h-5 text-[#fa541c]" /> : <Plus className="w-5 h-5 text-[#fa541c]" />}
+                {editingQuestion ? <Edit className="w-5 h-5 text-[#3b82f6]" /> : <Plus className="w-5 h-5 text-[#3b82f6]" />}
                 {editingQuestion ? '编辑试题' : '新建试题'}
               </h2>
               <button 
                 onClick={handleCloseCreateModal}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2130,7 +2130,7 @@ export default function TeacherQuestions() {
                       className={cn(
                         "pb-2 text-[13px] font-medium transition-all relative whitespace-nowrap cursor-pointer -mb-[1px] border-b-2",
                         newQuestionType === type
-                          ? "text-[#fa541c] font-bold border-[#fa541c]"
+                          ? "text-[#3b82f6] font-bold border-[#3b82f6]"
                           : "text-neutral-500 hover:text-neutral-800 border-transparent"
                       )}
                     >
@@ -2143,14 +2143,14 @@ export default function TeacherQuestions() {
               {/* Dropdowns (Belonging Bank, Difficulty) */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  所属题库 <span className="text-[#fa541c]">*</span>
+                  所属题库 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div ref={singleQuestionBankDropdownRef} className="relative w-full text-xs">
                   <div
                     onClick={() => setIsQuestionBankDropdownOpen(!isQuestionBankDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                      isQuestionBankDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                      isQuestionBankDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(newQuestionBank ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -2173,13 +2173,13 @@ export default function TeacherQuestions() {
                           className={cn(
                             "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                             !newQuestionBank 
-                              ? "bg-orange-50 text-[#fa541c] font-bold"
-                              : "text-neutral-400 hover:bg-orange-50/40 hover:text-neutral-600"
+                              ? "bg-blue-50 text-[#3b82f6] font-bold"
+                              : "text-neutral-400 hover:bg-blue-50/40 hover:text-neutral-600"
                           )}
                         >
                           <span>请选择所属题库</span>
                           {!newQuestionBank && (
-                            <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                            <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                           )}
                         </div>
                         {banksList.map(bank => {
@@ -2194,13 +2194,13 @@ export default function TeacherQuestions() {
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                 isSelected 
-                                  ? "bg-orange-50 text-[#fa541c] font-bold"
-                                  : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                  : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{bank.name}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -2214,14 +2214,14 @@ export default function TeacherQuestions() {
               {/* Difficulty */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  选择难度 <span className="text-[#fa541c]">*</span>
+                  选择难度 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div ref={singleQuestionDifficultyDropdownRef} className="relative w-full text-xs">
                   <div
                     onClick={() => setIsQuestionDifficultyDropdownOpen(!isQuestionDifficultyDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                      isQuestionDifficultyDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                      isQuestionDifficultyDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(newQuestionDifficulty ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -2244,13 +2244,13 @@ export default function TeacherQuestions() {
                           className={cn(
                             "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                             !newQuestionDifficulty 
-                              ? "bg-orange-50 text-[#fa541c] font-bold"
-                              : "text-neutral-400 hover:bg-orange-50/40 hover:text-neutral-600"
+                              ? "bg-blue-50 text-[#3b82f6] font-bold"
+                              : "text-neutral-400 hover:bg-blue-50/40 hover:text-neutral-600"
                           )}
                         >
                           <span>请选择试题难度</span>
                           {!newQuestionDifficulty && (
-                            <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                            <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                           )}
                         </div>
                         {['容易', '较易', '中等', '较难', '困难'].map(diff => {
@@ -2265,13 +2265,13 @@ export default function TeacherQuestions() {
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                 isSelected 
-                                  ? "bg-orange-50 text-[#fa541c] font-bold"
-                                  : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                  : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{diff}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -2292,7 +2292,7 @@ export default function TeacherQuestions() {
                     onClick={() => setIsQuestionTagDropdownOpen(!isQuestionTagDropdownOpen)}
                     className={cn(
                       "min-h-[36px] w-full border border-neutral-200 rounded px-3.5 py-1.5 flex flex-wrap items-center gap-1.5 transition-all text-neutral-700 bg-white cursor-pointer select-none",
-                      isQuestionTagDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                      isQuestionTagDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     {tags.length === 0 ? (
@@ -2347,13 +2347,13 @@ export default function TeacherQuestions() {
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                 isSelected 
-                                  ? "bg-orange-50 text-[#fa541c] font-bold"
-                                  : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                  : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{tag}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -2367,7 +2367,7 @@ export default function TeacherQuestions() {
               {/* Question Body Editor */}
               <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                  题目 <span className="text-[#fa541c]">*</span>
+                  题目 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="w-full">
                   <RichTextEditor
@@ -2383,7 +2383,7 @@ export default function TeacherQuestions() {
               {newQuestionType === '单选题' ? (
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    答案选项 <span className="text-[#fa541c]">*</span>
+                    答案选项 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="space-y-3.5 w-full">
                     {options.map((opt) => (
@@ -2402,7 +2402,7 @@ export default function TeacherQuestions() {
                     <button
                       type="button"
                       onClick={handleAddOption}
-                      className="h-8 px-4 border border-[#fa541c] text-[#fa541c] rounded-[4px] hover:bg-[#fff2e8] text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
+                      className="h-8 px-4 border border-[#3b82f6] text-[#3b82f6] rounded-[4px] hover:bg-[#eff6ff] text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
                     >
                       <Plus className="w-3.5 h-3.5" /> 增加选项
                     </button>
@@ -2412,7 +2412,7 @@ export default function TeacherQuestions() {
                 (newQuestionType === '多选题') && (
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      答案选项 <span className="text-[#fa541c]">*</span>
+                      答案选项 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="space-y-3.5 w-full">
                       {options.map((opt) => (
@@ -2431,7 +2431,7 @@ export default function TeacherQuestions() {
                       <button
                         type="button"
                         onClick={handleAddOption}
-                        className="h-8 px-4 border border-[#fa541c] text-[#fa541c] rounded-[4px] hover:bg-[#fff2e8] text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
+                        className="h-8 px-4 border border-[#3b82f6] text-[#3b82f6] rounded-[4px] hover:bg-[#eff6ff] text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
                       >
                         <Plus className="w-3.5 h-3.5" /> 增加选项
                       </button>
@@ -2446,11 +2446,11 @@ export default function TeacherQuestions() {
                   {/* 试题答案 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      试题答案 <span className="text-[#fa541c]">*</span>
+                      试题答案 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="space-y-3.5 w-full">
                       {blanks.map((blank) => (
-                        <div key={blank.id} className="flex items-center gap-3 w-full bg-white border border-neutral-200 rounded p-2 focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] transition-all">
+                        <div key={blank.id} className="flex items-center gap-3 w-full bg-white border border-neutral-200 rounded p-2 focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] transition-all">
                           <span className="text-xs font-bold text-neutral-500 min-w-[50px] shrink-0 pl-1">{blank.name}</span>
                           <input
                             type="text"
@@ -2479,7 +2479,7 @@ export default function TeacherQuestions() {
                   {/* 得分关键词 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      得分关键词 <span className="text-[#fa541c]">*</span>
+                      得分关键词 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="space-y-3 w-full text-left">
                       <div className="border border-neutral-200 rounded overflow-hidden">
@@ -2502,7 +2502,7 @@ export default function TeacherQuestions() {
                                 <tr key={item.id} className="border-b border-neutral-100 hover:bg-neutral-50/30 transition-colors">
                                   {/* 填空名称 */}
                                   <td className="px-3 py-2">
-                                    <div className="flex items-center border border-neutral-200 rounded px-2.5 py-1 bg-white focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] transition-all">
+                                    <div className="flex items-center border border-neutral-200 rounded px-2.5 py-1 bg-white focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] transition-all">
                                       <select
                                         value={item.blankId}
                                         onChange={(e) => {
@@ -2531,16 +2531,16 @@ export default function TeacherQuestions() {
                                               <button
                                                 type="button"
                                                 onClick={() => handleRemoveKeywordTag(item.id, idx)}
-                                                className="text-neutral-400 hover:text-[#fa541c] transition-colors border-0 bg-transparent p-0 cursor-pointer flex items-center justify-center ml-0.5 group"
+                                                className="text-neutral-400 hover:text-[#3b82f6] transition-colors border-0 bg-transparent p-0 cursor-pointer flex items-center justify-center ml-0.5 group"
                                               >
-                                                <X className="w-3.5 h-3.5 stroke-[2.5] text-neutral-400 group-hover:text-[#fa541c] transition-colors" />
+                                                <X className="w-3.5 h-3.5 stroke-[2.5] text-neutral-400 group-hover:text-[#3b82f6] transition-colors" />
                                               </button>
                                             </span>
                                           ))}
                                         </div>
                                       )}
 
-                                      <div className="w-full flex items-center border border-neutral-200 rounded-[6px] px-3 py-1 bg-white focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] transition-all">
+                                      <div className="w-full flex items-center border border-neutral-200 rounded-[6px] px-3 py-1 bg-white focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] transition-all">
                                         <input
                                           type="text"
                                           value={draftKeywords[item.id] || ''}
@@ -2561,13 +2561,13 @@ export default function TeacherQuestions() {
 
                                   {/* 得分比例 */}
                                   <td className="px-3 py-2">
-                                    <div className="flex items-center gap-1 border border-neutral-200 rounded bg-white overflow-hidden max-w-[130px] focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] transition-all">
+                                    <div className="flex items-center gap-1 border border-neutral-200 rounded bg-white overflow-hidden max-w-[130px] focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] transition-all">
                                       <button
                                         type="button"
                                         onClick={() => {
                                           setScoreItems(scoreItems.map(si => si.id === item.id ? { ...si, ratio: Math.max(0, Number(si.ratio || 0) - 10) } : si));
                                         }}
-                                        className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#fa541c] font-bold border-r border-neutral-200 transition-colors cursor-pointer shrink-0"
+                                        className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#3b82f6] font-bold border-r border-neutral-200 transition-colors cursor-pointer shrink-0"
                                       >
                                         -
                                       </button>
@@ -2579,7 +2579,7 @@ export default function TeacherQuestions() {
                                         onClick={() => {
                                           setScoreItems(scoreItems.map(si => si.id === item.id ? { ...si, ratio: Math.min(100, Number(si.ratio || 0) + 10) } : si));
                                         }}
-                                        className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#fa541c] font-bold border-l border-neutral-200 transition-colors cursor-pointer shrink-0"
+                                        className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#3b82f6] font-bold border-l border-neutral-200 transition-colors cursor-pointer shrink-0"
                                       >
                                         +
                                       </button>
@@ -2614,7 +2614,7 @@ export default function TeacherQuestions() {
                         <button
                           type="button"
                           onClick={handleAddScoreItem}
-                          className="text-[#fa541c] hover:text-[#e84a15] text-xs font-bold border-0 bg-transparent p-0 cursor-pointer transition-colors flex items-center gap-1"
+                          className="text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold border-0 bg-transparent p-0 cursor-pointer transition-colors flex items-center gap-1"
                         >
                           添加得分项
                         </button>
@@ -2625,7 +2625,7 @@ export default function TeacherQuestions() {
                   {/* 得分占比 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      得分占比 <span className="text-[#fa541c]">*</span>
+                      得分占比 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="space-y-4 w-full">
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -2638,7 +2638,7 @@ export default function TeacherQuestions() {
                                 onClick={() => {
                                   setBlanks(blanks.map(blank => blank.id === b.id ? { ...blank, proportion: Math.max(0, blank.proportion - 5) } : blank));
                                 }}
-                                className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#fa541c] font-bold border-r border-neutral-200 transition-colors cursor-pointer"
+                                className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#3b82f6] font-bold border-r border-neutral-200 transition-colors cursor-pointer"
                               >
                                 -
                               </button>
@@ -2650,7 +2650,7 @@ export default function TeacherQuestions() {
                                 onClick={() => {
                                   setBlanks(blanks.map(blank => blank.id === b.id ? { ...blank, proportion: Math.min(100, blank.proportion + 5) } : blank));
                                 }}
-                                className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#fa541c] font-bold border-l border-neutral-200 transition-colors cursor-pointer"
+                                className="w-8 h-7 text-neutral-500 hover:bg-neutral-100 hover:text-[#3b82f6] font-bold border-l border-neutral-200 transition-colors cursor-pointer"
                               >
                                 +
                               </button>
@@ -2692,7 +2692,7 @@ export default function TeacherQuestions() {
                   {/* 试题内容说明 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      内容说明 <span className="text-[#fa541c]">*</span>
+                      内容说明 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="w-full">
                       <RichTextEditor
@@ -2707,7 +2707,7 @@ export default function TeacherQuestions() {
                   {/* 答题方式 */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      答题方式 <span className="text-[#fa541c]">*</span>
+                      答题方式 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <div className="w-full space-y-4">
                       <div className="flex flex-wrap gap-6 items-center p-3.5 bg-neutral-50/50 border border-neutral-200/60 rounded-xl">
@@ -2722,9 +2722,9 @@ export default function TeacherQuestions() {
                               value={item.value}
                               checked={shixunAnswerType === item.value}
                               onChange={() => setShixunAnswerType(item.value)}
-                              className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                              className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                             />
-                            <span className="group-hover:text-[#fa541c] transition-colors font-medium">{item.label}</span>
+                            <span className="group-hover:text-[#3b82f6] transition-colors font-medium">{item.label}</span>
                           </label>
                         ))}
                       </div>
@@ -2737,14 +2737,14 @@ export default function TeacherQuestions() {
                       {/* 选择资源池 */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          选择资源池 <span className="text-[#fa541c]">*</span>
+                          选择资源池 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div ref={shixunResourcePoolDropdownRef} className="relative w-full text-xs">
                           <div
                             onClick={() => setIsShixunResourcePoolDropdownOpen(!isShixunResourcePoolDropdownOpen)}
                             className={cn(
                               "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                              isShixunResourcePoolDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                              isShixunResourcePoolDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                             )}
                           >
                             <span className={cn(shixunResourcePool ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -2771,13 +2771,13 @@ export default function TeacherQuestions() {
                                       className={cn(
                                         "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                         isSelected 
-                                          ? "bg-orange-50 text-[#fa541c] font-bold"
-                                          : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                          ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                          : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                       )}
                                     >
                                       <span>{pool}</span>
                                       {isSelected && (
-                                        <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                        <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                                       )}
                                     </div>
                                   );
@@ -2791,7 +2791,7 @@ export default function TeacherQuestions() {
                       {/* 2. 选择环境类型 */}
                       <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                          选择环境类型 <span className="text-[#fa541c]">*</span>
+                          选择环境类型 <span className="text-[#3b82f6]">*</span>
                         </label>
                         <div className="flex items-center gap-6 text-[13px]">
                           {[
@@ -2805,7 +2805,7 @@ export default function TeacherQuestions() {
                                 value={opt.value}
                                 checked={shixunEnvType === opt.value}
                                 onChange={() => setShixunEnvType(opt.value as any)}
-                                className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                                className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                               />
                               <span className="font-semibold">{opt.label}</span>
                             </label>
@@ -2819,7 +2819,7 @@ export default function TeacherQuestions() {
                           {/* 3. 源仓库地址 */}
                           <div className="grid grid-cols-[100px_1fr] items-center gap-4 animate-fade-in">
                             <label className="text-[13px] font-bold text-[#262626] text-right">
-                              源仓库地址 <span className="text-[#fa541c]">*</span>
+                              源仓库地址 <span className="text-[#3b82f6]">*</span>
                             </label>
                             <div className="flex items-center gap-6 text-[13px]">
                               {[
@@ -2836,7 +2836,7 @@ export default function TeacherQuestions() {
                                       setShixunRepoMode(opt.value as any);
                                       setShixunRepoUrl(opt.value === 'manual' ? 'https://github.com/opencv/opencv.git' : '');
                                     }}
-                                    className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                                    className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                                   />
                                   <span className="font-semibold">{opt.label}</span>
                                 </label>
@@ -2854,7 +2854,7 @@ export default function TeacherQuestions() {
                                   placeholder="请输入源仓库地址 (如: git@github.com:... 或 https://...)"
                                   value={shixunRepoUrl}
                                   onChange={(e) => setShixunRepoUrl(e.target.value)}
-                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] transition-all text-[#262626] font-mono bg-white"
+                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] transition-all text-[#262626] font-mono bg-white"
                                 />
                               ) : (
                                 <div className="space-y-2.5 w-full">
@@ -2872,9 +2872,9 @@ export default function TeacherQuestions() {
                                   />
                                   <label
                                     htmlFor="shixun-repo-file-upload"
-                                    className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
+                                    className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#3b82f6]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
                                   >
-                                    <Upload className="w-5 h-5 text-[#fa541c]" strokeWidth={1.5} />
+                                    <Upload className="w-5 h-5 text-[#3b82f6]" strokeWidth={1.5} />
                                     <span className="text-xs text-[#262626] font-bold">点击选择或拖拽源码文件上传</span>
                                     <span className="text-[10px] text-neutral-400 font-medium">单文件上限 100MB</span>
                                   </label>
@@ -2916,7 +2916,7 @@ export default function TeacherQuestions() {
                                     value={opt.value}
                                     checked={shixunCreationMethod === opt.value}
                                     onChange={() => setShixunCreationMethod(opt.value as any)}
-                                    className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                                    className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                                   />
                                   <span className="font-semibold">{opt.label}</span>
                                 </label>
@@ -2932,7 +2932,7 @@ export default function TeacherQuestions() {
                                   onClick={() => setIsTemplateDropdownOpen(!isTemplateDropdownOpen)}
                                   className={cn(
                                     "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                                    isTemplateDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                                    isTemplateDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                                   )}
                                 >
                                   <span className="text-neutral-700 font-medium">
@@ -2964,13 +2964,13 @@ export default function TeacherQuestions() {
                                             className={cn(
                                               "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                               isSelected 
-                                                ? "bg-orange-50 text-[#fa541c] font-bold"
-                                                : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                                ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                                : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                                             )}
                                           >
                                             <span>{tmpl.label}</span>
                                             {isSelected && (
-                                              <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                              <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                                             )}
                                           </div>
                                         );
@@ -2991,9 +2991,9 @@ export default function TeacherQuestions() {
                           <div className="w-full border border-neutral-200 rounded-[8px] p-5 bg-white space-y-6 shadow-sm">
                             
                             {/* Header (容器环境 or 云主机环境) */}
-                            <div className="text-xs font-bold text-[#fa541c] border-b border-[#fa541c]/10 pb-3 flex items-center gap-1.5 justify-between">
+                            <div className="text-xs font-bold text-[#3b82f6] border-b border-[#3b82f6]/10 pb-3 flex items-center gap-1.5 justify-between">
                               <span className="flex items-center gap-1.5">
-                                <Sparkles className="w-3.5 h-3.5 text-[#fa541c]" /> 
+                                <Sparkles className="w-3.5 h-3.5 text-[#3b82f6]" /> 
                                 {shixunEnvType === '容器' ? '自定义容器环境配置' : '云主机环境配置'}
                               </span>
                             </div>
@@ -3012,8 +3012,8 @@ export default function TeacherQuestions() {
                                           className={cn(
                                             "px-5 py-2 text-xs font-bold rounded-t-[4px] transition-all cursor-pointer border border-b-0 border-neutral-200 flex items-center gap-2",
                                             activeShixunContainerIdx === idx
-                                              ? "bg-[#fa541c] text-white border-[#fa541c] font-black"
-                                              : "bg-white text-[#fa541c] border-[#fa541c]/50 hover:bg-orange-50/20"
+                                              ? "bg-[#3b82f6] text-white border-[#3b82f6] font-black"
+                                              : "bg-white text-[#3b82f6] border-[#3b82f6]/50 hover:bg-blue-50/20"
                                           )}
                                         >
                                           <span>容器{idx + 1}</span>
@@ -3052,7 +3052,7 @@ export default function TeacherQuestions() {
                                       setShixunContainers([...shixunContainers, newContainer]);
                                       setActiveShixunContainerIdx(shixunContainers.length);
                                     }}
-                                    className="text-[#fa541c] hover:text-[#e84a15] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
+                                    className="text-[#3b82f6] hover:text-[#2563eb] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
                                   >
                                     <Plus className="w-3.5 h-3.5" />
                                     <span>添加容器</span>
@@ -3067,13 +3067,13 @@ export default function TeacherQuestions() {
                                       {/* 选择镜像 */}
                                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                                          选择镜像 <span className="text-[#fa541c]">*</span>
+                                          选择镜像 <span className="text-[#3b82f6]">*</span>
                                         </label>
                                         <div className="relative w-full text-xs">
                                           <select
                                             value={activeContainer.containerImage || 'ctyun-python:3.10-slim-cpu'}
                                             onChange={(e) => updateContainerField('containerImage', e.target.value)}
-                                            className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs appearance-none focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 cursor-pointer font-mono"
+                                            className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-2 text-xs appearance-none focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 cursor-pointer font-mono"
                                           >
                                             <option value="ctyun-python:3.10-slim-cpu">ctyun-python:3.10-slim-cpu</option>
                                             <option value="Ubuntu 22.04 + PyTorch 2.1 + CUDA 12.1">Ubuntu 22.04 + PyTorch 2.1 + CUDA 12.1 (深度学习推荐)</option>
@@ -3089,7 +3089,7 @@ export default function TeacherQuestions() {
                                       <div className="space-y-4">
                                         <div className="flex items-center justify-between">
                                           <span className="text-[13px] font-bold text-[#262626]">
-                                            算力配置 <span className="text-[#fa541c]">*</span>
+                                            算力配置 <span className="text-[#3b82f6]">*</span>
                                           </span>
                                         </div>
 
@@ -3102,7 +3102,7 @@ export default function TeacherQuestions() {
                                                 type="text"
                                                 value={activeContainer.cpuCores || '2'}
                                                 onChange={(e) => updateContainerField('cpuCores', e.target.value)}
-                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] bg-white"
+                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] bg-white"
                                               />
                                               <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">核</span>
                                             </div>
@@ -3113,7 +3113,7 @@ export default function TeacherQuestions() {
                                                 type="text"
                                                 value={activeContainer.memoryGb || '4'}
                                                 onChange={(e) => updateContainerField('memoryGb', e.target.value)}
-                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] bg-white"
+                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] bg-white"
                                               />
                                               <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                             </div>
@@ -3134,7 +3134,7 @@ export default function TeacherQuestions() {
                                                       updateContainerField('gpuMem', '0');
                                                     }
                                                   }}
-                                                  className="w-full border border-neutral-200 rounded-[4px] px-3 py-1.5 text-[13px] appearance-none focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 cursor-pointer"
+                                                  className="w-full border border-neutral-200 rounded-[4px] px-3 py-1.5 text-[13px] appearance-none focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 cursor-pointer"
                                                 >
                                                   <option value="4090">4090</option>
                                                   <option value="A100">A100</option>
@@ -3154,7 +3154,7 @@ export default function TeacherQuestions() {
                                                 value={activeContainer.gpuCards || '0'}
                                                 disabled={activeContainer.gpuModel === '无'}
                                                 onChange={(e) => updateContainerField('gpuCards', e.target.value)}
-                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] bg-white disabled:bg-neutral-50"
+                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] bg-white disabled:bg-neutral-50"
                                               />
                                               <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">张</span>
                                             </div>
@@ -3169,7 +3169,7 @@ export default function TeacherQuestions() {
                                                   value={activeContainer.gpuPower || '无'}
                                                   disabled={activeContainer.gpuModel === '无'}
                                                   onChange={(e) => updateContainerField('gpuPower', e.target.value)}
-                                                  className="w-full border border-neutral-200 rounded-[4px] px-3 py-1.5 text-[13px] appearance-none focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 cursor-pointer disabled:bg-neutral-50"
+                                                  className="w-full border border-neutral-200 rounded-[4px] px-3 py-1.5 text-[13px] appearance-none focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 cursor-pointer disabled:bg-neutral-50"
                                                 >
                                                   <option value="无">无</option>
                                                   <option value="10%">10%</option>
@@ -3189,7 +3189,7 @@ export default function TeacherQuestions() {
                                                 value={activeContainer.gpuMem || '0'}
                                                 disabled={activeContainer.gpuModel === '无'}
                                                 onChange={(e) => updateContainerField('gpuMem', e.target.value)}
-                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] bg-white disabled:bg-neutral-50"
+                                                className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] bg-white disabled:bg-neutral-50"
                                               />
                                               <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                             </div>
@@ -3201,7 +3201,7 @@ export default function TeacherQuestions() {
                                       <div className="space-y-3">
                                         <div className="flex items-center justify-between border-b border-neutral-100 pb-1.5">
                                           <span className="text-[13px] font-bold text-[#262626]">
-                                            环境变量配置 <span className="text-[#fa541c]">*</span>
+                                            环境变量配置 <span className="text-[#3b82f6]">*</span>
                                           </span>
                                           <button
                                             type="button"
@@ -3209,7 +3209,7 @@ export default function TeacherQuestions() {
                                               const currentVars = activeContainer.envVars || [];
                                               updateContainerField('envVars', [...currentVars, { id: Date.now(), key: '', value: '' }]);
                                             }}
-                                            className="text-[#fa541c] hover:text-[#e84a15] text-xs font-bold bg-transparent border-0 cursor-pointer flex items-center gap-0.5 rounded-[4px]"
+                                            className="text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold bg-transparent border-0 cursor-pointer flex items-center gap-0.5 rounded-[4px]"
                                           >
                                             <Plus className="w-3.5 h-3.5" /> 添加变量
                                           </button>
@@ -3228,7 +3228,7 @@ export default function TeacherQuestions() {
                                                     updated[vIdx].key = e.target.value;
                                                     updateContainerField('envVars', updated);
                                                   }}
-                                                  className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#fa541c] font-mono text-[#262626] bg-white"
+                                                  className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#3b82f6] font-mono text-[#262626] bg-white"
                                                 />
                                                 <span className="text-neutral-400 font-bold select-none">=</span>
                                                 <input
@@ -3240,7 +3240,7 @@ export default function TeacherQuestions() {
                                                     updated[vIdx].value = e.target.value;
                                                     updateContainerField('envVars', updated);
                                                   }}
-                                                  className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#fa541c] font-mono text-[#262626] bg-white"
+                                                  className="flex-1 text-[13px] border border-neutral-200 rounded px-3 py-1.5 focus:outline-none focus:border-[#3b82f6] font-mono text-[#262626] bg-white"
                                                 />
                                                 <button
                                                   type="button"
@@ -3263,13 +3263,13 @@ export default function TeacherQuestions() {
                                       {/* 启动命令 */}
                                       <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                                         <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                                          启动命令 <span className="text-[#fa541c]">*</span>
+                                          启动命令 <span className="text-[#3b82f6]">*</span>
                                         </label>
                                         <textarea
                                           placeholder="请输入"
                                           value={activeContainer.startCmd || ''}
                                           onChange={(e) => updateContainerField('startCmd', e.target.value)}
-                                          className="w-full min-h-[80px] p-3 text-[13px] border border-neutral-200 rounded focus:outline-none focus:border-[#fa541c] resize-none leading-relaxed text-[#262626] font-mono bg-white"
+                                          className="w-full min-h-[80px] p-3 text-[13px] border border-neutral-200 rounded focus:outline-none focus:border-[#3b82f6] resize-none leading-relaxed text-[#262626] font-mono bg-white"
                                         />
                                       </div>
                                     </div>
@@ -3290,8 +3290,8 @@ export default function TeacherQuestions() {
                                           className={cn(
                                             "px-5 py-2 text-xs font-bold rounded-t-[4px] transition-all cursor-pointer border border-b-0 border-neutral-200 flex items-center gap-2",
                                             activeShixunVmIdx === idx
-                                              ? "bg-[#fa541c] text-white border-[#fa541c] font-black"
-                                              : "bg-white text-[#fa541c] border-[#fa541c]/50 hover:bg-orange-50/20"
+                                              ? "bg-[#3b82f6] text-white border-[#3b82f6] font-black"
+                                              : "bg-white text-[#3b82f6] border-[#3b82f6]/50 hover:bg-blue-50/20"
                                           )}
                                         >
                                           <span>云主机{idx + 1}</span>
@@ -3337,7 +3337,7 @@ export default function TeacherQuestions() {
                                       setShixunVms([...shixunVms, newVm]);
                                       setActiveShixunVmIdx(shixunVms.length);
                                     }}
-                                    className="text-[#fa541c] hover:text-[#e84a15] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
+                                    className="text-[#3b82f6] hover:text-[#2563eb] text-[13px] font-bold cursor-pointer flex items-center gap-1 bg-transparent border-0 rounded-[4px]"
                                   >
                                     <Plus className="w-3.5 h-3.5" />
                                     <span>添加云主机</span>
@@ -3352,7 +3352,7 @@ export default function TeacherQuestions() {
                                       {/* 选择镜像 */}
                                       <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                                         <label className="text-[13px] font-bold text-[#262626] text-right">
-                                          选择镜像 <span className="text-[#fa541c]">*</span>
+                                          选择镜像 <span className="text-[#3b82f6]">*</span>
                                         </label>
                                         <CustomSelect
                                           value={activeVm.vmImage}
@@ -3370,7 +3370,7 @@ export default function TeacherQuestions() {
                                       <div className="space-y-4">
                                         <div className="flex items-center justify-between">
                                           <span className="text-[13px] font-bold text-[#262626]">
-                                            算力配置 <span className="text-[#fa541c]">*</span>
+                                            算力配置 <span className="text-[#3b82f6]">*</span>
                                           </span>
                                           
                                           <div className="flex bg-neutral-100 rounded p-0.5 border border-neutral-200 max-w-max">
@@ -3385,7 +3385,7 @@ export default function TeacherQuestions() {
                                                 className={cn(
                                                   "px-3 py-1 text-center text-[11px] rounded-[4px] transition-all cursor-pointer font-bold border-0",
                                                   activeVm.vmSpecType === opt.key 
-                                                    ? "bg-white text-[#fa541c] shadow-sm"
+                                                    ? "bg-white text-[#3b82f6] shadow-sm"
                                                     : "text-neutral-555 hover:text-neutral-800"
                                                 )}
                                               >
@@ -3440,7 +3440,7 @@ export default function TeacherQuestions() {
                                                   placeholder="请输入"
                                                   value={activeVm.vmCpu || '2'}
                                                   onChange={(e) => updateVmField('vmCpu', e.target.value)}
-                                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] bg-white"
+                                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] bg-white"
                                                 />
                                                 <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">核</span>
                                               </div>
@@ -3452,7 +3452,7 @@ export default function TeacherQuestions() {
                                                   placeholder="请输入"
                                                   value={activeVm.vmMem || '8'}
                                                   onChange={(e) => updateVmField('vmMem', e.target.value)}
-                                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] bg-white"
+                                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] bg-white"
                                                 />
                                                 <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">GB</span>
                                               </div>
@@ -3489,7 +3489,7 @@ export default function TeacherQuestions() {
                                                   value={activeVm.vmGpuCards || '0'}
                                                   disabled={activeVm.vmGpuModel === '无'}
                                                   onChange={(e) => updateVmField('vmGpuCards', e.target.value)}
-                                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#fa541c] text-[#262626] disabled:bg-neutral-50 bg-white"
+                                                  className="w-full border border-neutral-200 rounded-[4px] px-3.5 py-1.5 text-[13px] focus:outline-none focus:border-[#3b82f6] text-[#262626] disabled:bg-neutral-50 bg-white"
                                                 />
                                                 <span className="text-[13px] text-[#262626] font-bold pl-2 shrink-0">张</span>
                                               </div>
@@ -3501,7 +3501,7 @@ export default function TeacherQuestions() {
                                       {/* 存储配置 */}
                                       <div className="space-y-3">
                                         <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                          存储配置 <span className="text-[#fa541c]">*</span>
+                                          存储配置 <span className="text-[#3b82f6]">*</span>
                                         </span>
                                         
                                         <div className="space-y-3.5 pl-4">
@@ -3572,7 +3572,7 @@ export default function TeacherQuestions() {
                                       {/* 网络配置 */}
                                       <div className="space-y-3">
                                         <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                          网络配置 <span className="text-[#fa541c]">*</span>
+                                          网络配置 <span className="text-[#3b82f6]">*</span>
                                         </span>
 
                                         <div className="space-y-3.5 pl-4">
@@ -3606,7 +3606,7 @@ export default function TeacherQuestions() {
                                                   const { mask } = parseSubnet(activeVm.vmSubnet || '192.168.1.0/24');
                                                   updateVmField('vmSubnet', `192.168.${val}.0/${mask}`);
                                                 }}
-                                                className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#fa541c] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[50px] text-center font-bold"
+                                                className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#3b82f6] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[50px] text-center font-bold"
                                               >
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -3634,7 +3634,7 @@ export default function TeacherQuestions() {
                                                   const { octet3 } = parseSubnet(activeVm.vmSubnet || '192.168.1.0/24');
                                                   updateVmField('vmSubnet', `192.168.${octet3}.0/${val}`);
                                                 }}
-                                                className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#fa541c] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[58px] text-center font-bold"
+                                                className="px-2 py-1.5 border border-neutral-200 rounded text-[13px] text-[#262626] bg-white focus:outline-none focus:border-[#3b82f6] disabled:bg-neutral-50 disabled:text-neutral-500 cursor-pointer min-w-[58px] text-center font-bold"
                                               >
                                                 <option value="16">16</option>
                                                 <option value="24">24</option>
@@ -3647,7 +3647,7 @@ export default function TeacherQuestions() {
                                       {/* VNC类型 */}
                                       <div className="space-y-3">
                                         <span className="text-[13px] font-bold text-[#262626] block border-b border-neutral-100 pb-1.5">
-                                          VNC类型 <span className="text-[#fa541c]">*</span>
+                                          VNC类型 <span className="text-[#3b82f6]">*</span>
                                         </span>
 
                                         <div className="flex items-center gap-6 text-[13px] pl-4">
@@ -3662,7 +3662,7 @@ export default function TeacherQuestions() {
                                                 value={opt.value}
                                                 checked={(activeVm.vmVncType || 'novnc').toLowerCase() === opt.value.toLowerCase()}
                                                 onChange={() => updateVmField('vmVncType', opt.value)}
-                                                className="w-4 h-4 accent-[#fa541c] cursor-pointer"
+                                                className="w-4 h-4 accent-[#3b82f6] cursor-pointer"
                                               />
                                               <span className="font-medium text-[#262626]">{opt.label}</span>
                                             </label>
@@ -3702,9 +3702,9 @@ export default function TeacherQuestions() {
                         />
                         <label
                           htmlFor="shixun-offline-file-upload"
-                          className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#fa541c]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
+                          className="flex flex-col items-center justify-center border border-dashed border-neutral-300 hover:border-[#3b82f6]/50 bg-neutral-50/10 hover:bg-neutral-50/30 rounded-[8px] p-6 cursor-pointer transition-all gap-2 text-center"
                         >
-                          <Upload className="w-5 h-5 text-[#fa541c]" strokeWidth={1.5} />
+                          <Upload className="w-5 h-5 text-[#3b82f6]" strokeWidth={1.5} />
                           <span className="text-xs text-[#262626] font-bold">点击选择或拖拽文件上传</span>
                           <span className="text-[10px] text-neutral-400 font-medium">单文件上限 100MB</span>
                         </label>
@@ -3738,7 +3738,7 @@ export default function TeacherQuestions() {
                         <button
                           type="button"
                           onClick={() => setIsDatasetDropdownOpen(!isDatasetDropdownOpen)}
-                          className="h-8 px-4 border border-[#fa541c] text-[#fa541c] rounded hover:bg-[#fff2e8] text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
+                          className="h-8 px-4 border border-[#3b82f6] text-[#3b82f6] rounded hover:bg-[#eff6ff] text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer bg-white"
                         >
                           <Plus className="w-3.5 h-3.5" /> 添加数据集
                         </button>
@@ -3763,7 +3763,7 @@ export default function TeacherQuestions() {
                                           setShixunDatasets([...shixunDatasets, ds.name]);
                                         }
                                       }}
-                                      className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 rounded focus:ring-[#fa541c] cursor-pointer"
+                                      className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 rounded focus:ring-[#3b82f6] cursor-pointer"
                                     />
                                     <span className="font-medium">{ds.name}</span>
                                   </div>
@@ -3781,9 +3781,9 @@ export default function TeacherQuestions() {
                           {shixunDatasets.map((datasetName) => {
                             const dsInfo = AVAILABLE_DATASETS.find(d => d.name === datasetName) || { name: datasetName, size: '未知大小' };
                             return (
-                              <div key={datasetName} className="flex items-center justify-between p-2.5 bg-[#fff2e8]/20 border border-[#ffbb96]/45 rounded-lg animate-slide-up">
+                              <div key={datasetName} className="flex items-center justify-between p-2.5 bg-[#eff6ff]/20 border border-[#bfdbfe]/45 rounded-lg animate-slide-up">
                                 <div className="flex items-center gap-2 text-xs text-neutral-700">
-                                  <Database className="w-4 h-4 text-[#fa541c]" />
+                                  <Database className="w-4 h-4 text-[#3b82f6]" />
                                   <span className="font-medium">{dsInfo.name}</span>
                                   <span className="text-neutral-400 text-[10px]">({dsInfo.size})</span>
                                 </div>
@@ -3810,7 +3810,7 @@ export default function TeacherQuestions() {
               {(newQuestionType === '单选题' || newQuestionType === '多选题' || newQuestionType === '判断题') && (
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    正确答案 <span className="text-[#fa541c]">*</span>
+                    正确答案 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="p-4 bg-neutral-50/50 border border-neutral-200/60 rounded w-full">
                     {newQuestionType === '单选题' && (
@@ -3823,9 +3823,9 @@ export default function TeacherQuestions() {
                               value={opt.key}
                               checked={correctAnswerSingle === opt.key}
                               onChange={() => setCorrectAnswerSingle(opt.key)}
-                              className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                              className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                             />
-                            <span className="group-hover:text-[#fa541c] transition-colors font-medium">选项 {opt.key}</span>
+                            <span className="group-hover:text-[#3b82f6] transition-colors font-medium">选项 {opt.key}</span>
                           </label>
                         ))}
                       </div>
@@ -3845,9 +3845,9 @@ export default function TeacherQuestions() {
                                   setCorrectAnswerMultiple([...correctAnswerMultiple, opt.key]);
                                 }
                               }}
-                              className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 rounded focus:ring-[#fa541c] cursor-pointer bg-white"
+                              className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 rounded focus:ring-[#3b82f6] cursor-pointer bg-white"
                             />
-                            <span className="group-hover:text-[#fa541c] transition-colors font-medium">选项 {opt.key}</span>
+                            <span className="group-hover:text-[#3b82f6] transition-colors font-medium">选项 {opt.key}</span>
                           </label>
                         ))}
                       </div>
@@ -3863,9 +3863,9 @@ export default function TeacherQuestions() {
                               value={val}
                               checked={correctAnswerTrueFalse === val}
                               onChange={() => setCorrectAnswerTrueFalse(val)}
-                              className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                              className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                             />
-                            <span className="group-hover:text-[#fa541c] transition-colors font-medium">{val}</span>
+                            <span className="group-hover:text-[#3b82f6] transition-colors font-medium">{val}</span>
                           </label>
                         ))}
                       </div>
@@ -3878,10 +3878,10 @@ export default function TeacherQuestions() {
               {newQuestionType === '简答题' && (
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    检查脚本 <span className="text-[#fa541c]">*</span>
+                    检查脚本 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="w-full">
-                    <div className="relative border border-neutral-200 rounded overflow-hidden bg-white shadow-sm focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c] transition-all w-full">
+                    <div className="relative border border-neutral-200 rounded overflow-hidden bg-white shadow-sm focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6] transition-all w-full">
                       {/* Top Action Bar */}
                       <div className="flex items-center justify-between px-4 py-2 border-b border-neutral-200 bg-neutral-50">
                         <span className="text-xs font-semibold text-neutral-500 font-mono">SCRIPT EDITOR</span>
@@ -3903,7 +3903,7 @@ export default function TeacherQuestions() {
                             };
                             input.click();
                           }}
-                          className="text-[#fa541c] hover:text-[#e84a15] text-[11px] font-bold transition-colors cursor-pointer bg-transparent border-0 flex items-center gap-1"
+                          className="text-[#3b82f6] hover:text-[#2563eb] text-[11px] font-bold transition-colors cursor-pointer bg-transparent border-0 flex items-center gap-1"
                         >
                           <Plus className="w-3 h-3" /> 加载文件
                         </button>
@@ -3967,9 +3967,9 @@ export default function TeacherQuestions() {
                         value={item.value}
                         checked={newQuestionStatus === item.value}
                         onChange={() => setNewQuestionStatus(item.value)}
-                        className="w-4 h-4 text-[#fa541c] accent-[#fa541c] border-neutral-300 focus:ring-[#fa541c] cursor-pointer bg-white"
+                        className="w-4 h-4 text-[#3b82f6] accent-[#3b82f6] border-neutral-300 focus:ring-[#3b82f6] cursor-pointer bg-white"
                       />
-                      <span className="group-hover:text-[#fa541c] transition-colors font-medium">{item.label}</span>
+                      <span className="group-hover:text-[#3b82f6] transition-colors font-medium">{item.label}</span>
                     </label>
                   ))}
                 </div>
@@ -3987,7 +3987,7 @@ export default function TeacherQuestions() {
               </Button>
               <Button 
                 onClick={handleSaveQuestion}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer"
               >
                 确定
               </Button>
@@ -4009,12 +4009,12 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Upload className="w-5 h-5 text-[#fa541c]" />
+                <Upload className="w-5 h-5 text-[#3b82f6]" />
                 批量导入试题
               </h2>
               <button 
                 onClick={() => setIsImportModalOpen(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4025,13 +4025,13 @@ export default function TeacherQuestions() {
               {/* 所属题库 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span> 所属题库
+                  <span className="text-[#3b82f6]">*</span> 所属题库
                 </label>
                 <div className="relative w-full">
                   <select
                     value={importBank}
                     onChange={(e) => setImportBank(e.target.value)}
-                    className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs appearance-none focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-700 transition-all cursor-pointer"
+                    className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs appearance-none focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-700 transition-all cursor-pointer"
                   >
                     <option value="">请选择所属题库</option>
                     {banksList.map(bank => (
@@ -4045,7 +4045,7 @@ export default function TeacherQuestions() {
               {/* 本地文件上传 */}
               <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                  <span className="text-[#fa541c]">*</span> 本地文件
+                  <span className="text-[#3b82f6]">*</span> 本地文件
                 </label>
                 
                 {/* Drag and Drop Zone */}
@@ -4057,13 +4057,13 @@ export default function TeacherQuestions() {
                   className={cn(
                     "border-2 border-dashed rounded-[8px] p-8 flex flex-col items-center justify-center bg-neutral-50/30 transition-all cursor-pointer group text-center w-full",
                     importFileName
-                      ? "border-[#fa541c] bg-[#fff2e8]/10"
-                      : "border-neutral-200 hover:border-[#fa541c] hover:bg-neutral-50"
+                      ? "border-[#3b82f6] bg-[#eff6ff]/10"
+                      : "border-neutral-200 hover:border-[#3b82f6] hover:bg-neutral-50"
                   )}
                 >
                   <div className={cn(
                     "w-10 h-10 rounded-[8px] flex items-center justify-center mb-3 shadow-sm transition-transform group-hover:scale-110",
-                    importFileName ? "bg-[#fa541c] text-white" : "bg-neutral-100 text-neutral-400 group-hover:bg-[#fff2e8]/60 group-hover:text-[#fa541c]"
+                    importFileName ? "bg-[#3b82f6] text-white" : "bg-neutral-100 text-neutral-400 group-hover:bg-[#eff6ff]/60 group-hover:text-[#3b82f6]"
                   )}>
                     <Upload className="w-5 h-5" />
                   </div>
@@ -4084,7 +4084,7 @@ export default function TeacherQuestions() {
                   ) : (
                     <div>
                       <p className="text-xs text-neutral-700 leading-relaxed font-medium">
-                        将文件拖到此或 <span className="text-[#fa541c] hover:text-[#e84a15] font-semibold underline">点击上传</span>
+                        将文件拖到此或 <span className="text-[#3b82f6] hover:text-[#2563eb] font-semibold underline">点击上传</span>
                       </p>
                       <p className="text-[11px] text-neutral-400 mt-1 font-mono">支持扩展名：.xlsx</p>
                     </div>
@@ -4095,8 +4095,8 @@ export default function TeacherQuestions() {
               {/* Tips Section */}
               <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                 <div />
-                <div className="border border-[#ffbb96] bg-[#fff2e8]/30 rounded-[8px] p-4 flex items-start gap-3 relative overflow-hidden w-full">
-                  <span className="bg-[#fa541c] text-white px-2 py-0.5 rounded text-[10px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="border border-[#bfdbfe] bg-[#eff6ff]/30 rounded-[8px] p-4 flex items-start gap-3 relative overflow-hidden w-full">
+                  <span className="bg-[#3b82f6] text-white px-2 py-0.5 rounded text-[10px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
                     Tips
                   </span>
                   <div className="flex-1 flex justify-between items-start gap-4">
@@ -4106,7 +4106,7 @@ export default function TeacherQuestions() {
                     <button
                       type="button"
                       onClick={() => alert('已为您成功触发模板下载！')}
-                      className="text-[#fa541c] hover:text-[#e84a15] text-xs font-bold whitespace-nowrap hover:underline cursor-pointer flex items-center border-0 bg-transparent"
+                      className="text-[#3b82f6] hover:text-[#2563eb] text-xs font-bold whitespace-nowrap hover:underline cursor-pointer flex items-center border-0 bg-transparent"
                     >
                       下载模板
                     </button>
@@ -4159,7 +4159,7 @@ export default function TeacherQuestions() {
                   }, 1200);
                 }}
                 disabled={isImporting}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm cursor-pointer border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm cursor-pointer border-0"
               >
                 {isImporting ? '导入中...' : '导入'}
               </Button>
@@ -4181,14 +4181,14 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96] rounded-[4px] text-[11px] font-bold">
+                <span className="px-2 py-0.5 bg-[#eff6ff] text-[#3b82f6] border border-[#bfdbfe] rounded-[4px] text-[11px] font-bold">
                   {viewingQuestion.type}
                 </span>
                 <h2 className="text-[15px] font-bold text-neutral-800">查看试题详情</h2>
               </div>
               <button 
                 onClick={() => setViewingQuestion(null)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4222,7 +4222,7 @@ export default function TeacherQuestions() {
                 <div className="flex flex-wrap gap-2">
                   {viewingQuestion.tags ? (
                     viewingQuestion.tags.split(', ').map((tag: string) => (
-                      <span key={tag} className="px-2.5 py-1 bg-[#fff2e8] border border-[#ffbb96] rounded-[4px] text-xs text-[#fa541c] font-medium shadow-sm">
+                      <span key={tag} className="px-2.5 py-1 bg-[#eff6ff] border border-[#bfdbfe] rounded-[4px] text-xs text-[#3b82f6] font-medium shadow-sm">
                         {tag}
                       </span>
                     ))
@@ -4310,10 +4310,10 @@ export default function TeacherQuestions() {
                     {viewingQuestion.correctAnswer || '无检查脚本'}
                   </div>
                 ) : (
-                  <div className="bg-[#fff2e8]/40 border border-[#ffbb96]/40 rounded-[4px] p-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#fa541c]"></span>
+                  <div className="bg-[#eff6ff]/40 border border-[#bfdbfe]/40 rounded-[4px] p-4 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#3b82f6]"></span>
                     <span className="text-xs font-bold text-neutral-600">答案为：</span>
-                    <span className="px-3 py-1 bg-[#fa541c] text-white rounded-[4px] text-xs font-bold shadow-sm">
+                    <span className="px-3 py-1 bg-[#3b82f6] text-white rounded-[4px] text-xs font-bold shadow-sm">
                       {viewingQuestion.type === '单选题' ? 'B' : viewingQuestion.type === '多选题' ? 'A, B, C' : '正确'}
                     </span>
                   </div>
@@ -4339,7 +4339,7 @@ export default function TeacherQuestions() {
             <div className="px-6 py-4 border-t border-neutral-100 flex justify-end bg-neutral-50/50">
               <Button 
                 onClick={() => setViewingQuestion(null)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer"
               >
                 关闭
               </Button>
@@ -4364,7 +4364,7 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 {isCheckpointFormOpen ? (editingCheckpoint ? '编辑检查项' : '新建检查项') : '实训题检查项配置'}
               </h2>
               <button 
@@ -4372,7 +4372,7 @@ export default function TeacherQuestions() {
                   setIsCheckpointsModalOpen(false);
                   setCheckpointQuestion(null);
                 }}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4400,7 +4400,7 @@ export default function TeacherQuestions() {
                         setCheckpointFormRatio(20);
                         setIsCheckpointFormOpen(true);
                       }}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm h-8 px-3.5 rounded-[4px] text-xs font-semibold cursor-pointer border-0"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm h-8 px-3.5 rounded-[4px] text-xs font-semibold cursor-pointer border-0"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       新建
@@ -4444,7 +4444,7 @@ export default function TeacherQuestions() {
                                     setCheckpointFormRatio(cp.scoreRatio);
                                     setIsCheckpointFormOpen(true);
                                   }}
-                                  className="text-xs text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent p-0 cursor-pointer font-semibold"
+                                  className="text-xs text-[#3b82f6] hover:text-[#2563eb] transition-colors border-0 bg-transparent p-0 cursor-pointer font-semibold"
                                 >
                                   编辑
                                 </button>
@@ -4475,27 +4475,27 @@ export default function TeacherQuestions() {
                   {/* Name field */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      检查项名称 <span className="text-[#fa541c]">*</span>
+                      检查项名称 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input
                       type="text"
                       value={checkpointFormName}
                       onChange={(e) => setCheckpointFormName(e.target.value)}
                       placeholder="如：依赖库配置检查"
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-800 transition-all placeholder:text-neutral-400"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-800 transition-all placeholder:text-neutral-400"
                     />
                   </div>
 
                   {/* Content field */}
                   <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                      检查项内容 <span className="text-[#fa541c]">*</span>
+                      检查项内容 <span className="text-[#3b82f6]">*</span>
                     </label>
                     <textarea
                       value={checkpointFormContent}
                       onChange={(e) => setCheckpointFormContent(e.target.value)}
                       placeholder="请输入检查命令或判定脚本内容..."
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-800 transition-all placeholder:text-neutral-400 resize-none h-24 font-mono"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-800 transition-all placeholder:text-neutral-400 resize-none h-24 font-mono"
                     />
                   </div>
 
@@ -4508,21 +4508,21 @@ export default function TeacherQuestions() {
                       value={checkpointFormDesc}
                       onChange={(e) => setCheckpointFormDesc(e.target.value)}
                       placeholder="请输入关于此项检查的具体描述和评分指南..."
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-800 transition-all placeholder:text-neutral-400 resize-none h-24"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-800 transition-all placeholder:text-neutral-400 resize-none h-24"
                     />
                   </div>
 
                   {/* ScoreRatio field */}
                   <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                     <label className="text-[13px] font-bold text-[#262626] text-right">
-                      得分比例 (%) <span className="text-[#fa541c]">*</span>
+                      得分比例 (%) <span className="text-[#3b82f6]">*</span>
                     </label>
                     <input
                       type="number"
                       value={checkpointFormRatio}
                       onChange={(e) => setCheckpointFormRatio(Number(e.target.value))}
                       placeholder="如 20"
-                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] bg-white text-neutral-800 transition-all placeholder:text-neutral-400"
+                      className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] bg-white text-neutral-800 transition-all placeholder:text-neutral-400"
                     />
                   </div>
                 </div>
@@ -4545,7 +4545,7 @@ export default function TeacherQuestions() {
                   </Button>
                   <Button 
                     onClick={handleSaveCheckpoint}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm cursor-pointer border-0"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm cursor-pointer border-0"
                   >
                     保存
                   </Button>
@@ -4556,7 +4556,7 @@ export default function TeacherQuestions() {
                     setIsCheckpointsModalOpen(false);
                     setCheckpointQuestion(null);
                   }}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer border-0"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer border-0"
                 >
                   关闭
                 </Button>
@@ -4583,7 +4583,7 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Database className="w-5 h-5 text-[#fa541c]" />
+                <Database className="w-5 h-5 text-[#3b82f6]" />
                 {viewingBankDetail ? `${viewingBankDetail.name} 详情` : "题库管理"}
               </h2>
               <button 
@@ -4592,7 +4592,7 @@ export default function TeacherQuestions() {
                   setIsCreateBankOpen(false);
                   setViewingBankDetail(null);
                 }}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4605,7 +4605,7 @@ export default function TeacherQuestions() {
                 {/* Back Link */}
                 <button
                   onClick={() => setViewingBankDetail(null)}
-                  className="flex items-center gap-1 text-xs text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent p-0 cursor-pointer font-bold mb-2 self-start"
+                  className="flex items-center gap-1 text-xs text-[#3b82f6] hover:text-[#2563eb] transition-colors border-0 bg-transparent p-0 cursor-pointer font-bold mb-2 self-start"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" /> 返回题库列表
                 </button>
@@ -4667,7 +4667,7 @@ export default function TeacherQuestions() {
                                   setViewingQuestion(q);
                                   setIsBankListModalOpen(false);
                                 }}
-                                className="text-xs text-[#fa541c] hover:underline transition-colors border-0 bg-transparent p-0 cursor-pointer font-medium"
+                                className="text-xs text-[#3b82f6] hover:underline transition-colors border-0 bg-transparent p-0 cursor-pointer font-medium"
                               >
                                 查看
                               </button>
@@ -4697,12 +4697,12 @@ export default function TeacherQuestions() {
                       placeholder="搜索题库名称..."
                       value={searchBankQuery}
                       onChange={(e) => setSearchBankQuery(e.target.value)}
-                      className="w-full pl-9 pr-4 py-1.5 bg-white border border-neutral-border rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-8"
+                      className="w-full pl-9 pr-4 py-1.5 bg-white border border-neutral-border rounded-full text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400 h-8"
                     />
                   </div>
                   <Button 
                     onClick={() => setIsCreateBankOpen(!isCreateBankOpen)}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm h-8 px-3 rounded-[4px] text-xs font-semibold cursor-pointer"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm h-8 px-3 rounded-[4px] text-xs font-semibold cursor-pointer"
                   >
                     {isCreateBankOpen ? '取消新建' : '新建题库'}
                   </Button>
@@ -4719,7 +4719,7 @@ export default function TeacherQuestions() {
                         placeholder="如：自然语言处理基础"
                         value={newBankName}
                         onChange={(e) => setNewBankName(e.target.value)}
-                        className="w-full border border-neutral-200 rounded px-3 py-1.5 text-xs bg-white text-neutral-800 focus:outline-none focus:border-[#fa541c]"
+                        className="w-full border border-neutral-200 rounded px-3 py-1.5 text-xs bg-white text-neutral-800 focus:outline-none focus:border-[#3b82f6]"
                       />
                     </div>
                     <div className="flex justify-end pt-1">
@@ -4741,7 +4741,7 @@ export default function TeacherQuestions() {
                           setNewBankName('');
                           setIsCreateBankOpen(false);
                         }}
-                        className="border border-[#fa541c] text-[#fa541c] bg-transparent hover:bg-[#fff2e8] h-7 px-4 rounded-[4px] text-xs font-semibold shadow-sm cursor-pointer"
+                        className="border border-[#3b82f6] text-[#3b82f6] bg-transparent hover:bg-[#eff6ff] h-7 px-4 rounded-[4px] text-xs font-semibold shadow-sm cursor-pointer"
                       >
                         保存
                       </Button>
@@ -4776,7 +4776,7 @@ export default function TeacherQuestions() {
                                     setEditingBank(bank);
                                     setEditBankName(bank.name);
                                   }}
-                                  className="text-xs text-[#fa541c] hover:text-[#e84a15] transition-colors border-0 bg-transparent p-0 cursor-pointer font-semibold"
+                                  className="text-xs text-[#3b82f6] hover:text-[#2563eb] transition-colors border-0 bg-transparent p-0 cursor-pointer font-semibold"
                                 >
                                   编辑
                                 </button>
@@ -4823,7 +4823,7 @@ export default function TeacherQuestions() {
                   setIsCreateBankOpen(false);
                   setViewingBankDetail(null);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer border-0"
               >
                 关闭
               </Button>
@@ -4844,12 +4844,12 @@ export default function TeacherQuestions() {
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4">
-              <div className="flex items-center gap-2 border-l-4 border-[#fa541c] pl-2.5">
+              <div className="flex items-center gap-2 border-l-4 border-[#3b82f6] pl-2.5">
                 <span className="text-[16px] font-bold text-neutral-800">编辑题库</span>
               </div>
               <button 
                 onClick={() => setEditingBank(null)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1 rounded-full transition-colors cursor-pointer bg-transparent border-0"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1 rounded-full transition-colors cursor-pointer bg-transparent border-0"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4859,13 +4859,13 @@ export default function TeacherQuestions() {
             <div className="space-y-4 text-left">
               <div className="space-y-1.5">
                 <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                  <span className="text-[#fa541c]">*</span> 题库名称：
+                  <span className="text-[#3b82f6]">*</span> 题库名称：
                 </label>
                 <input
                   type="text"
                   value={editBankName}
                   onChange={(e) => setEditBankName(e.target.value)}
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs bg-white text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-xs bg-white text-neutral-800 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]"
                 />
               </div>
             </div>
@@ -4888,7 +4888,7 @@ export default function TeacherQuestions() {
                   setBanksList(banksList.map(b => b.id === editingBank.id ? { ...b, name: editBankName.trim() } : b));
                   setEditingBank(null);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm cursor-pointer"
               >
                 保存
               </Button>
@@ -4910,12 +4910,12 @@ export default function TeacherQuestions() {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 申请公开试题
               </h2>
               <button 
                 onClick={() => setIsApplyPublicModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
                 disabled={isApplyingPublic}
               >
                 <X className="w-4 h-4" />
@@ -4925,11 +4925,11 @@ export default function TeacherQuestions() {
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px] text-left">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">公开后可用于租户/平台组卷</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">公开后可用于租户/平台组卷</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     提交申请后，超管将从 <strong>试题完整性、题干描述、答案解析、参考价值</strong> 四个维度进行审核。审核通过后将进入公共试题库。
                   </p>
                 </div>
@@ -4949,7 +4949,7 @@ export default function TeacherQuestions() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                    公开范围 <span className="text-[#fa541c]">*</span>
+                    公开范围 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -4962,11 +4962,11 @@ export default function TeacherQuestions() {
                         className={cn(
                           "border p-4 rounded cursor-pointer transition-all select-none flex flex-col gap-1",
                           applyPublicRange === opt.key 
-                            ? "border-[#fa541c] bg-[#fff5f0]/30"
+                            ? "border-[#3b82f6] bg-[#fff5f0]/30"
                             : "border-neutral-200 bg-white hover:bg-neutral-50"
                         )}
                       >
-                        <span className={cn("font-bold text-[13px]", applyPublicRange === opt.key ? "text-[#fa541c]" : "text-[#262626]")}>
+                        <span className={cn("font-bold text-[13px]", applyPublicRange === opt.key ? "text-[#3b82f6]" : "text-[#262626]")}>
                           {opt.label}
                         </span>
                         <span className="text-[11px] text-neutral-400 leading-normal">{opt.desc}</span>
@@ -4977,13 +4977,13 @@ export default function TeacherQuestions() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    申请说明 <span className="text-[#fa541c]">*</span>
+                    申请说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={applyPublicReason}
                     onChange={(e) => setApplyPublicReason(e.target.value)}
                     placeholder="请描述该试题的申请公开原因及相关说明..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -5001,7 +5001,7 @@ export default function TeacherQuestions() {
               </Button>
               <Button 
                 onClick={handleSubmitApplyPublic} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 disabled={isApplyingPublic}
               >
                 {isApplyingPublic ? (
@@ -5031,12 +5031,12 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 批量公开试题
               </h2>
               <button 
                 onClick={() => setIsBatchPublicOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -5045,11 +5045,11 @@ export default function TeacherQuestions() {
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px] text-left">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">公开后可用于租户/平台组卷</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">公开后可用于租户/平台组卷</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     提交申请后，超管将从 <strong>试题完整性、题干描述、答案解析、参考价值</strong> 四个维度进行审核。审核通过后将进入公共试题库。
                   </p>
                 </div>
@@ -5089,7 +5089,7 @@ export default function TeacherQuestions() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2.5">
-                    公开范围 <span className="text-[#fa541c]">*</span>
+                    公开范围 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -5102,11 +5102,11 @@ export default function TeacherQuestions() {
                         className={cn(
                           "border p-4 rounded cursor-pointer transition-all select-none flex flex-col gap-1",
                           applyPublicRange === opt.key 
-                            ? "border-[#fa541c] bg-[#fff5f0]/30"
+                            ? "border-[#3b82f6] bg-[#fff5f0]/30"
                             : "border-neutral-200 bg-white hover:bg-neutral-50"
                         )}
                       >
-                        <span className={cn("font-bold text-[13px]", applyPublicRange === opt.key ? "text-[#fa541c]" : "text-[#262626]")}>
+                        <span className={cn("font-bold text-[13px]", applyPublicRange === opt.key ? "text-[#3b82f6]" : "text-[#262626]")}>
                           {opt.label}
                         </span>
                         <span className="text-[11px] text-neutral-400 leading-normal">{opt.desc}</span>
@@ -5117,13 +5117,13 @@ export default function TeacherQuestions() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    申请说明 <span className="text-[#fa541c]">*</span>
+                    申请说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={applyPublicReason}
                     onChange={(e) => setApplyPublicReason(e.target.value)}
                     placeholder="请描述申请公开原因及相关说明..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -5167,7 +5167,7 @@ export default function TeacherQuestions() {
                     alert(`批量公开申请已提交！已成功将选中的 ${selectedQuestions.length} 道试题设置为【${applyPublicRange}级公开】。`);
                   }, 1200);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 disabled={isApplyingPublic || selectedQuestions.length === 0}
               >
                 {isApplyingPublic ? (
@@ -5201,7 +5201,7 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Copy className="w-5 h-5 text-[#fa541c]" />
+                <Copy className="w-5 h-5 text-[#3b82f6]" />
                 复制试题
               </h2>
               <button 
@@ -5210,7 +5210,7 @@ export default function TeacherQuestions() {
                   setCopyingQuestion(null);
                   setCopyTargetBank('');
                 }}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -5221,14 +5221,14 @@ export default function TeacherQuestions() {
               {/* Target Bank Dropdown */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  选择题库 <span className="text-[#fa541c]">*</span>
+                  选择题库 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div ref={copyBankDropdownRef} className="relative w-full text-xs">
                   <div
                     onClick={() => setIsCopyBankDropdownOpen(!isCopyBankDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none",
-                      isCopyBankDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                      isCopyBankDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(copyTargetBank ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -5251,13 +5251,13 @@ export default function TeacherQuestions() {
                           className={cn(
                             "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                             !copyTargetBank 
-                              ? "bg-orange-50 text-[#fa541c] font-bold"
-                              : "text-neutral-400 hover:bg-orange-50/40 hover:text-neutral-600"
+                              ? "bg-blue-50 text-[#3b82f6] font-bold"
+                              : "text-neutral-400 hover:bg-blue-50/40 hover:text-neutral-600"
                           )}
                         >
                           <span>请选择所属题库</span>
                           {!copyTargetBank && (
-                            <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                            <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                           )}
                         </div>
                         {banksList.map(bank => {
@@ -5272,13 +5272,13 @@ export default function TeacherQuestions() {
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                 isSelected 
-                                  ? "bg-orange-50 text-[#fa541c] font-bold"
-                                  : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                  : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{bank.name}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -5305,7 +5305,7 @@ export default function TeacherQuestions() {
               </Button>
               <Button 
                 onClick={handleCopyQuestionSubmit}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-colors rounded-[4px] shadow-sm cursor-pointer"
               >
                 确定
               </Button>
@@ -5327,12 +5327,12 @@ export default function TeacherQuestions() {
             {/* Drawer Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#fa541c]" />
+                <Layers className="w-5 h-5 text-[#3b82f6]" />
                 下架试题资源
               </h2>
               <button 
                 onClick={() => setIsOffShelfModalOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -5341,11 +5341,11 @@ export default function TeacherQuestions() {
             {/* Body */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 bg-white text-[13px] text-left">
               {/* Info Alert */}
-              <div className="bg-[#fff5f0] border border-[#ffbb96] rounded-[4px] p-4 flex gap-3 text-sm text-[#d4380d]">
-                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#fa541c]" />
+              <div className="bg-[#fff5f0] border border-[#bfdbfe] rounded-[4px] p-4 flex gap-3 text-sm text-[#1d4ed8]">
+                <Info className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#3b82f6]" />
                 <div>
-                  <p className="font-bold mb-1 text-[13px] text-[#fa541c]">下架后试题将暂不对平台师生公开组卷</p>
-                  <p className="text-xs text-[#d4380d] opacity-90 leading-relaxed">
+                  <p className="font-bold mb-1 text-[13px] text-[#3b82f6]">下架后试题将暂不对平台师生公开组卷</p>
+                  <p className="text-xs text-[#1d4ed8] opacity-90 leading-relaxed">
                     下架试题后，该试题资源将从公共试题库和组卷候选列表中隐藏。已生成的历史试卷数据予以保留，但无法在新的作业或考试中引用该试题。
                   </p>
                 </div>
@@ -5365,13 +5365,13 @@ export default function TeacherQuestions() {
 
                 <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                    下架说明 <span className="text-[#fa541c]">*</span>
+                    下架说明 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <textarea
                     value={offShelfReason}
                     onChange={(e) => setOffShelfReason(e.target.value)}
                     placeholder="请简述下架该试题的具体原因及后续安排..."
-                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 bg-white transition-all resize-none h-28"
+                    className="w-full text-[13px] text-[#262626] border border-neutral-200 rounded-[4px] px-3.5 py-2.5 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 bg-white transition-all resize-none h-28"
                   />
                 </div>
               </div>
@@ -5388,7 +5388,7 @@ export default function TeacherQuestions() {
               </Button>
               <Button 
                 onClick={handleOffShelfQuestion} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 确认下架
               </Button>

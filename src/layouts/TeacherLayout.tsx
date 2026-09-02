@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { GraduationCap, User, LayoutDashboard, ChevronDown, HelpCircle, FileText, LogOut, Settings } from "lucide-react";
+import { GraduationCap, User, LayoutDashboard, ChevronDown, HelpCircle, FileText, LogOut, Settings, Users, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function TeacherLayout() {
@@ -27,6 +27,8 @@ export default function TeacherLayout() {
   
   const navItems = [
     { name: "首页", path: "/teacher", icon: LayoutDashboard },
+    { name: "学员全生命周期管理", path: "/teacher/student-lifecycle", icon: Users },
+    { name: "成长激励", path: "/teacher/growth-incentives", icon: Sparkles },
   ];
 
   return (
@@ -35,11 +37,11 @@ export default function TeacherLayout() {
       <header className="h-14 bg-[#1f1f1f] text-white flex items-center justify-between px-4 flex-shrink-0 z-50">
         <div className="flex items-center gap-6 h-full">
           <Link to="/" className="flex items-center gap-2 mr-4">
-            <div className="w-6 h-6 bg-[#fa541c] rounded-[4px] flex items-center justify-center text-white font-bold text-xs">
+            <div className="w-6 h-6 bg-[#3b82f6] rounded-[4px] flex items-center justify-center text-white font-bold text-xs">
               翼
             </div>
             <span className="text-[16px] font-medium tracking-wide">
-              智云实训平台(教师端)
+              模数师数字平台(教师端)
             </span>
           </Link>
           
@@ -85,7 +87,7 @@ export default function TeacherLayout() {
                   )}
                 >
                   {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#fa541c]" />
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#3b82f6]" />
                   )}
                   <item.icon className="w-4 h-4" />
                   {item.name}
@@ -112,7 +114,7 @@ export default function TeacherLayout() {
               className="flex items-center gap-2 cursor-pointer hover:bg-white/10 px-3 py-1.5 rounded-md transition-colors"
               onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
             >
-              <div className="w-7 h-7 bg-[#fa541c] rounded-full flex items-center justify-center text-white">
+              <div className="w-7 h-7 bg-[#3b82f6] rounded-full flex items-center justify-center text-white">
                 <User className="w-4 h-4" />
               </div>
               <span className="text-sm font-medium text-gray-200">张老师</span>

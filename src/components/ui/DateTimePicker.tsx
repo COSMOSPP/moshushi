@@ -245,7 +245,7 @@ export function DateTimePicker({
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={cn(
           "w-full border border-neutral-200 rounded-[4px] px-3 py-2 text-[14px] flex items-center justify-between cursor-pointer bg-white transition-all select-none",
-          isOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-neutral-300",
+          isOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-neutral-300",
           disabled && "bg-neutral-50 text-neutral-400 cursor-not-allowed border-neutral-100"
         )}
       >
@@ -264,14 +264,14 @@ export function DateTimePicker({
               <X className="w-3.5 h-3.5" />
             </button>
           )}
-          <CalendarIcon className={cn("w-4 h-4 text-neutral-400", isOpen && "text-[#fa541c]")} />
+          <CalendarIcon className={cn("w-4 h-4 text-neutral-400", isOpen && "text-[#3b82f6]")} />
         </div>
       </div>
 
       {/* Date-Time Picker Popover */}
       {isOpen && (
         <div className={cn(
-          "absolute top-[calc(100%+6px)] z-50 bg-white border border-orange-100 rounded-2xl shadow-xl shadow-orange-500/5 backdrop-blur-md p-4 mt-1 flex flex-col animate-in fade-in slide-in-from-top-2 duration-200",
+          "absolute top-[calc(100%+6px)] z-50 bg-white border border-orange-100 rounded-2xl shadow-xl shadow-blue-500/5 backdrop-blur-md p-4 mt-1 flex flex-col animate-in fade-in slide-in-from-top-2 duration-200",
           showPresets ? "w-[500px]" : "w-[410px]",
           align === "left" ? "left-0" : "right-0"
         )}>
@@ -283,7 +283,7 @@ export function DateTimePicker({
                 <button
                   type="button"
                   onClick={prevMonth}
-                  className="p-1 hover:bg-orange-50 rounded-lg text-neutral-500 hover:text-[#fa541c] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="p-1 hover:bg-blue-50 rounded-lg text-neutral-500 hover:text-[#3b82f6] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -293,7 +293,7 @@ export function DateTimePicker({
                 <button
                   type="button"
                   onClick={nextMonth}
-                  className="p-1 hover:bg-orange-50 rounded-lg text-neutral-500 hover:text-[#fa541c] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="p-1 hover:bg-blue-50 rounded-lg text-neutral-500 hover:text-[#3b82f6] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -318,9 +318,9 @@ export function DateTimePicker({
                     className={cn(
                       "w-8 h-8 flex items-center justify-center text-[12px] rounded-lg transition-all border-0 bg-transparent cursor-pointer relative",
                       !isCurrentMonth && "text-neutral-300 hover:bg-neutral-50",
-                      isCurrentMonth && !isSelectedDay(date) && "text-neutral-700 hover:bg-orange-50 hover:text-[#fa541c]",
-                      isSelectedDay(date) && "bg-[#fa541c] text-white font-bold shadow-md shadow-orange-500/20",
-                      isToday(date) && !isSelectedDay(date) && "border border-orange-300"
+                      isCurrentMonth && !isSelectedDay(date) && "text-neutral-700 hover:bg-blue-50 hover:text-[#3b82f6]",
+                      isSelectedDay(date) && "bg-[#3b82f6] text-white font-bold shadow-md shadow-blue-500/20",
+                      isToday(date) && !isSelectedDay(date) && "border border-blue-300"
                     )}
                   >
                     {date.getDate()}
@@ -328,7 +328,7 @@ export function DateTimePicker({
                       <span className="absolute bottom-1 w-1 h-1 bg-white rounded-full"></span>
                     )}
                     {isToday(date) && !isSelectedDay(date) && (
-                      <span className="absolute bottom-1 w-1 h-1 bg-[#fa541c] rounded-full"></span>
+                      <span className="absolute bottom-1 w-1 h-1 bg-[#3b82f6] rounded-full"></span>
                     )}
                   </button>
                 ))}
@@ -352,8 +352,8 @@ export function DateTimePicker({
                       className={cn(
                         "h-7 w-full shrink-0 flex items-center justify-center text-[12px] rounded-md transition-colors cursor-pointer border-0 bg-transparent",
                         selectedHour === h
-                          ? "bg-[#fa541c] text-white font-bold"
-                          : "text-neutral-600 hover:bg-orange-50 hover:text-[#fa541c]"
+                          ? "bg-[#3b82f6] text-white font-bold"
+                          : "text-neutral-600 hover:bg-blue-50 hover:text-[#3b82f6]"
                       )}
                     >
                       {String(h).padStart(2, "0")}
@@ -377,8 +377,8 @@ export function DateTimePicker({
                       className={cn(
                         "h-7 w-full shrink-0 flex items-center justify-center text-[12px] rounded-md transition-colors cursor-pointer border-0 bg-transparent",
                         selectedMinute === m
-                          ? "bg-[#fa541c] text-white font-bold"
-                          : "text-neutral-600 hover:bg-orange-50 hover:text-[#fa541c]"
+                          ? "bg-[#3b82f6] text-white font-bold"
+                          : "text-neutral-600 hover:bg-blue-50 hover:text-[#3b82f6]"
                       )}
                     >
                       {String(m).padStart(2, "0")}
@@ -398,7 +398,7 @@ export function DateTimePicker({
                       key={idx}
                       type="button"
                       onClick={() => handlePresetSelect(preset.date)}
-                      className="text-left text-[12px] text-neutral-600 hover:text-[#fa541c] hover:bg-orange-50 px-2 py-1.5 rounded-lg transition-colors font-medium cursor-pointer border-0 bg-transparent"
+                      className="text-left text-[12px] text-neutral-600 hover:text-[#3b82f6] hover:bg-blue-50 px-2 py-1.5 rounded-lg transition-colors font-medium cursor-pointer border-0 bg-transparent"
                     >
                       {preset.label}
                     </button>
@@ -414,7 +414,7 @@ export function DateTimePicker({
               {selectedDate ? (
                 <>
                   已选：
-                  <span className="text-[#fa541c] font-semibold">
+                  <span className="text-[#3b82f6] font-semibold">
                     {formatDisplay(
                       formatToValueString(selectedDate, selectedHour, selectedMinute)
                     )}
@@ -436,7 +436,7 @@ export function DateTimePicker({
               <button
                 type="button"
                 onClick={handleConfirm}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-3.5 py-1.5 rounded-[4px] text-[12px] font-bold transition-all shadow-md shadow-orange-500/10 cursor-pointer border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-3.5 py-1.5 rounded-[4px] text-[12px] font-bold transition-all shadow-md shadow-blue-500/10 cursor-pointer border-0"
               >
                 确定
               </button>

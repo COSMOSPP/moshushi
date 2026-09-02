@@ -101,7 +101,7 @@ export default function AICompetition() {
               </p>
               <div className="flex items-center justify-between text-sm text-slate-500 mb-6 pb-6 border-b border-slate-100">
                 <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-slate-400" /> 1,204 队伍</span>
-                <span className="flex items-center gap-1.5 text-orange-500 bg-orange-50 px-2 py-1 rounded-md font-medium"><Clock className="w-4 h-4" /> 剩余 15 天</span>
+                <span className="flex items-center gap-1.5 text-orange-500 bg-blue-50 px-2 py-1 rounded-md font-medium"><Clock className="w-4 h-4" /> 剩余 15 天</span>
               </div>
               <Button className="w-full bg-slate-900 hover:bg-slate-800 text-white rounded-xl h-11">报名参赛</Button>
             </div>
@@ -128,7 +128,7 @@ export default function AICompetition() {
               </p>
               <div className="flex items-center justify-between text-sm text-slate-500 mb-6 pb-6 border-b border-slate-100">
                 <span className="flex items-center gap-1.5"><Users className="w-4 h-4 text-slate-400" /> 856 队伍</span>
-                <span className="flex items-center gap-1.5 text-orange-500 bg-orange-50 px-2 py-1 rounded-md font-medium"><Clock className="w-4 h-4" /> 剩余 30 天</span>
+                <span className="flex items-center gap-1.5 text-orange-500 bg-blue-50 px-2 py-1 rounded-md font-medium"><Clock className="w-4 h-4" /> 剩余 30 天</span>
               </div>
               <Button className="w-full bg-slate-900 hover:bg-slate-800 text-white rounded-xl h-11">报名参赛</Button>
             </div>

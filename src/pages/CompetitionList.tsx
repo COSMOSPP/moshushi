@@ -196,17 +196,17 @@ export default function CompetitionList() {
     <div className="min-h-screen bg-[#f8fafc] pb-24 font-sans text-slate-800">
       
       {/* Light-Luxury Futuristic Header */}
-      <div className="relative w-full overflow-hidden bg-[#fff5eb] border-b border-[#ffd8bf] py-20 px-6">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff7a45]/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="relative w-full overflow-hidden bg-[#eff6ff] border-b border-[#dbeafe] py-20 px-6">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#60a5fa]/15 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-400/10 rounded-full blur-[80px] pointer-events-none" />
         
         <div className="container mx-auto max-w-[1200px] relative z-10 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] text-xs font-bold mb-6 tracking-wide shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#fa541c]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#eff6ff] border border-[#bfdbfe] text-[#3b82f6] text-xs font-bold mb-6 tracking-wide shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#3b82f6]" />
             <span>翼智实战擂台</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight">
-            实战竞赛 <span className="text-[#fa541c]">赋能跃升</span>
+            实战竞赛 <span className="text-[#3b82f6]">赋能跃升</span>
           </h1>
           <p className="text-slate-600 text-lg font-light max-w-2xl leading-relaxed">
             协同顶尖合作企业及主流开源技术组织，为您定制以真实业务挑战、漏洞防护、大模型微调为背景的沉浸式实战赛道，实现在攻防对决中突破技术瓶颈！
@@ -229,7 +229,7 @@ export default function CompetitionList() {
                 placeholder="搜索竞赛名称、分类或赞助方..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#fa541c]/10 focus:border-[#fa541c] bg-[#fafafa] placeholder-slate-400 transition-all font-medium"
+                className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/10 focus:border-[#3b82f6] bg-[#fafafa] placeholder-slate-400 transition-all font-medium"
               />
             </div>
 
@@ -237,7 +237,7 @@ export default function CompetitionList() {
             <div className="flex items-center gap-6 self-start text-sm border-l border-slate-200 pl-6 h-10 text-slate-500 font-light">
               <div>全部赛事: <span className="font-bold text-slate-900">{competitions.length}</span></div>
               <div>进行中: <span className="font-bold text-emerald-600">{competitions.filter(c => c.status === "进行中").length}</span></div>
-              <div>总奖金池: <span className="font-bold text-[#fa541c]">￥340,000</span></div>
+              <div>总奖金池: <span className="font-bold text-[#3b82f6]">￥340,000</span></div>
             </div>
           </div>
 
@@ -251,7 +251,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveCategory("all")}
                 className={cn(
                   "px-5 py-2 text-xs font-semibold rounded-lg transition-all whitespace-nowrap",
-                  activeCategory === "all" ? "bg-white text-[#fa541c] shadow-sm border border-slate-200/50" : "text-slate-500 hover:text-slate-800"
+                  activeCategory === "all" ? "bg-white text-[#3b82f6] shadow-sm border border-slate-200/50" : "text-slate-500 hover:text-slate-800"
                 )}
               >
                 全部赛道
@@ -260,7 +260,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveCategory("ai")}
                 className={cn(
                   "px-5 py-2 text-xs font-semibold rounded-lg transition-all whitespace-nowrap",
-                  activeCategory === "ai" ? "bg-white text-[#fa541c] shadow-sm border border-slate-200/50" : "text-slate-500 hover:text-slate-800"
+                  activeCategory === "ai" ? "bg-white text-[#3b82f6] shadow-sm border border-slate-200/50" : "text-slate-500 hover:text-slate-800"
                 )}
               >
                 AI大模型
@@ -269,7 +269,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveCategory("cloud")}
                 className={cn(
                   "px-5 py-2 text-xs font-semibold rounded-lg transition-all whitespace-nowrap",
-                  activeCategory === "cloud" ? "bg-white text-[#fa541c] shadow-sm border border-slate-200/50" : "text-slate-500 hover:text-slate-800"
+                  activeCategory === "cloud" ? "bg-white text-[#3b82f6] shadow-sm border border-slate-200/50" : "text-slate-500 hover:text-slate-800"
                 )}
               >
                 云原生/安全
@@ -283,7 +283,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveStatus("all")}
                 className={cn(
                   "px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all",
-                  activeStatus === "all" ? "bg-[#fa541c] border-[#fa541c] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                  activeStatus === "all" ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
                 )}
               >
                 全部
@@ -292,7 +292,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveStatus("ongoing")}
                 className={cn(
                   "px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all",
-                  activeStatus === "ongoing" ? "bg-[#fa541c] border-[#fa541c] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                  activeStatus === "ongoing" ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
                 )}
               >
                 进行中
@@ -301,7 +301,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveStatus("upcoming")}
                 className={cn(
                   "px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all",
-                  activeStatus === "upcoming" ? "bg-[#fa541c] border-[#fa541c] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                  activeStatus === "upcoming" ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
                 )}
               >
                 未开始
@@ -310,7 +310,7 @@ export default function CompetitionList() {
                 onClick={() => setActiveStatus("ended")}
                 className={cn(
                   "px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all",
-                  activeStatus === "ended" ? "bg-[#fa541c] border-[#fa541c] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                  activeStatus === "ended" ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
                 )}
               >
                 已结束
@@ -353,7 +353,7 @@ export default function CompetitionList() {
                         {/* Name & Sponsor */}
                         <td className="py-5 px-6">
                           <div className="flex flex-col gap-1 max-w-[380px]">
-                            <span className="font-bold text-slate-900 group-hover:text-[#fa541c] transition-colors leading-snug line-clamp-2">
+                            <span className="font-bold text-slate-900 group-hover:text-[#3b82f6] transition-colors leading-snug line-clamp-2">
                               {comp.name}
                             </span>
                             <span className="text-xs text-slate-400 flex items-center gap-1.5 mt-0.5">
@@ -369,7 +369,7 @@ export default function CompetitionList() {
                             <span className={cn(
                               "px-2.5 py-0.5 text-xs font-bold rounded-md border shadow-sm",
                               comp.category === 'ai' 
-                                ? "bg-orange-50/70 border-orange-100 text-[#fa541c]" 
+                                ? "bg-blue-50/70 border-orange-100 text-[#3b82f6]" 
                                 : "bg-blue-50/70 border-blue-100 text-blue-600"
                             )}>
                               {comp.type}
@@ -422,7 +422,7 @@ export default function CompetitionList() {
                             </span>
                             <div className="flex -space-x-1.5 overflow-hidden">
                               <div className="inline-block h-5 w-5 rounded-full ring-2 ring-white bg-slate-200 text-[8px] flex items-center justify-center font-bold text-slate-500">A</div>
-                              <div className="inline-block h-5 w-5 rounded-full ring-2 ring-white bg-[#ffd8bf] text-[8px] flex items-center justify-center font-bold text-[#fa541c]">B</div>
+                              <div className="inline-block h-5 w-5 rounded-full ring-2 ring-white bg-[#dbeafe] text-[8px] flex items-center justify-center font-bold text-[#3b82f6]">B</div>
                               <div className="inline-block h-5 w-5 rounded-full ring-2 ring-white bg-[#d6e4ff] text-[8px] flex items-center justify-center font-bold text-blue-500">C</div>
                             </div>
                           </div>
@@ -452,7 +452,7 @@ export default function CompetitionList() {
                               <Button 
                                 variant="outline" 
                                 size="sm" 
-                                className="border-[#ffbb96] bg-[#fff2e8]/40 text-[#fa541c] hover:bg-[#fff2e8]/40 rounded-lg text-xs gap-1 cursor-default font-bold"
+                                className="border-[#bfdbfe] bg-[#eff6ff]/40 text-[#3b82f6] hover:bg-[#eff6ff]/40 rounded-lg text-xs gap-1 cursor-default font-bold"
                               >
                                 <UserCheck className="w-3.5 h-3.5" /> 已报名
                               </Button>
@@ -486,7 +486,7 @@ export default function CompetitionList() {
           {/* Modal Container */}
           <div className="bg-white rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl relative z-10 mx-4 border border-slate-100 animate-in fade-in zoom-in-95 duration-200">
             {/* Header decoration */}
-            <div className="h-4 bg-gradient-to-r from-orange-400 to-[#fa541c]" />
+            <div className="h-4 bg-gradient-to-r from-blue-400 to-[#3b82f6]" />
             
             {/* Close Button */}
             <button 
@@ -502,7 +502,7 @@ export default function CompetitionList() {
               <div className="flex items-center gap-2 mb-4">
                 <span className={cn(
                   "px-2.5 py-0.5 text-xs font-bold rounded-md border",
-                  selectedComp.category === 'ai' ? "bg-orange-50 border-orange-100 text-[#fa541c]" : "bg-blue-50 border-blue-100 text-blue-600"
+                  selectedComp.category === 'ai' ? "bg-blue-50 border-orange-100 text-[#3b82f6]" : "bg-blue-50 border-blue-100 text-blue-600"
                 )}>
                   {selectedComp.type}
                 </span>
@@ -526,20 +526,20 @@ export default function CompetitionList() {
               <div className="space-y-6 max-h-[350px] overflow-y-auto pr-2">
                 <div>
                   <h4 className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
-                    <FileText className="w-4 h-4 text-[#fa541c]" /> 赛事简介
+                    <FileText className="w-4 h-4 text-[#3b82f6]" /> 赛事简介
                   </h4>
                   <p className="text-slate-600 text-sm leading-relaxed">{selectedComp.desc}</p>
                 </div>
 
                 <div>
                   <h4 className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
-                    <Award className="w-4 h-4 text-[#fa541c]" /> 奖项分配
+                    <Award className="w-4 h-4 text-[#3b82f6]" /> 奖项分配
                   </h4>
                   <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 space-y-2.5 text-xs">
                     {selectedComp.rewards.map((r, i) => (
                       <div key={i} className="flex justify-between items-center">
                         <span className="font-bold text-slate-700">{r.rank}</span>
-                        <span className="font-black text-[#fa541c]">{r.prize}</span>
+                        <span className="font-black text-[#3b82f6]">{r.prize}</span>
                       </div>
                     ))}
                   </div>
@@ -547,7 +547,7 @@ export default function CompetitionList() {
 
                 <div>
                   <h4 className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-[#fa541c]" /> 参赛规则及评审
+                    <Clock className="w-4 h-4 text-[#3b82f6]" /> 参赛规则及评审
                   </h4>
                   <ul className="list-decimal list-inside space-y-2 text-slate-600 text-sm leading-relaxed pl-1">
                     {selectedComp.rules.map((rule, i) => (
@@ -566,7 +566,7 @@ export default function CompetitionList() {
                     </span>
                   )}
                   {selectedComp.status === "未开始" && (
-                    <span className="flex items-center gap-1.5 text-orange-500 bg-orange-50 px-2.5 py-1 rounded-md font-bold">
+                    <span className="flex items-center gap-1.5 text-orange-500 bg-blue-50 px-2.5 py-1 rounded-md font-bold">
                       <Calendar className="w-3.5 h-3.5" /> 即将开启通道
                     </span>
                   )}
@@ -594,7 +594,7 @@ export default function CompetitionList() {
                   ) : registeredComps.includes(selectedComp.id) ? (
                     <Button 
                       variant="outline" 
-                      className="border-[#ffbb96] bg-[#fff2e8]/40 text-[#fa541c] rounded-xl font-bold gap-1 cursor-default"
+                      className="border-[#bfdbfe] bg-[#eff6ff]/40 text-[#3b82f6] rounded-xl font-bold gap-1 cursor-default"
                     >
                       <UserCheck className="w-4 h-4" /> 已报名成功
                     </Button>
@@ -624,15 +624,15 @@ export default function CompetitionList() {
           <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setShowSuccessModal(false)} />
           
           {/* Glowing Card */}
-          <div className="bg-white border-2 border-orange-500/10 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl relative z-10 mx-4 p-8 text-center animate-in fade-in zoom-in-90 duration-200 shadow-[0_20px_50px_rgba(250,84,28,0.15)]">
-            <div className="w-16 h-16 rounded-full bg-[#fff2e8] border border-[#ffbb96] flex items-center justify-center text-[#fa541c] mx-auto mb-6 shadow-md shadow-orange-500/5">
-              <CheckCircle className="w-8 h-8 text-[#fa541c]" />
+          <div className="bg-white border-2 border-orange-500/10 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl relative z-10 mx-4 p-8 text-center animate-in fade-in zoom-in-90 duration-200 shadow-[0_20px_50px_rgba(59, 130, 246,0.15)]">
+            <div className="w-16 h-16 rounded-full bg-[#eff6ff] border border-[#bfdbfe] flex items-center justify-center text-[#3b82f6] mx-auto mb-6 shadow-md shadow-blue-500/5">
+              <CheckCircle className="w-8 h-8 text-[#3b82f6]" />
             </div>
             
             <h3 className="text-xl font-black text-slate-900 mb-2">报名提交成功!</h3>
             <p className="text-xs text-slate-400 mb-6 px-4">您已成功加入该项实训竞技赛道</p>
             
-            <div className="bg-[#fff5eb] border border-[#ffd8bf] rounded-xl p-4 text-xs font-semibold text-[#fa541c] mb-6 select-all break-words leading-relaxed text-center shadow-inner">
+            <div className="bg-[#eff6ff] border border-[#dbeafe] rounded-xl p-4 text-xs font-semibold text-[#3b82f6] mb-6 select-all break-words leading-relaxed text-center shadow-inner">
               【{successCompName}】
             </div>
             

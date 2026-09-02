@@ -72,7 +72,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
             className="w-full h-full object-cover opacity-20 filter blur-md"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fff2e8]/95 to-[#ffd8bf]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#eff6ff]/95 to-[#dbeafe]/90"></div>
           
           {/* Decorative background elements moved inside the overflow-hidden container */}
           <div className="absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 bg-white/40 rounded-full blur-3xl pointer-events-none z-0"></div>
@@ -85,11 +85,11 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
             {/* Breadcrumb & Actions */}
             <div className="flex flex-wrap items-center justify-between mb-3 gap-2">
               <div className="flex items-center text-[13px] text-neutral-caption">
-                <button onClick={onBack} className="hover:text-[#fa541c] flex items-center gap-1 font-medium transition-colors">
+                <button onClick={onBack} className="hover:text-[#3b82f6] flex items-center gap-1 font-medium transition-colors">
                   <ChevronLeft className="w-4 h-4" /> 返回
                 </button>
                 <span className="mx-2">/</span>
-                <span className="hover:text-[#fa541c] cursor-pointer transition-colors">全部项目</span>
+                <span className="hover:text-[#3b82f6] cursor-pointer transition-colors">全部项目</span>
                 <span className="mx-2">/</span>
                 <span className="text-neutral-title font-bold">{project.title}</span>
               </div>
@@ -99,11 +99,11 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                   className={cn(
                     "flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all text-[13px] font-medium border shadow-sm",
                     isFavorited 
-                      ? "bg-[#fa541c]/10 border-[#fa541c]/30 text-[#fa541c] hover:bg-[#fa541c]/20" 
+                      ? "bg-[#3b82f6]/10 border-[#3b82f6]/30 text-[#3b82f6] hover:bg-[#3b82f6]/20" 
                       : "bg-white/50 hover:bg-white text-neutral-title border-neutral-200/20"
                   )}
                 >
-                  <Star className={cn("w-4 h-4 transition-transform active:scale-95", isFavorited ? "text-[#fa541c] fill-[#fa541c]" : "")} /> 
+                  <Star className={cn("w-4 h-4 transition-transform active:scale-95", isFavorited ? "text-[#3b82f6] fill-[#3b82f6]" : "")} /> 
                   {isFavorited ? '已收藏' : '收藏'}
                 </button>
               </div>
@@ -134,9 +134,9 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
               <div className="flex flex-wrap items-center justify-between gap-4 mt-2">
                 <div className="flex items-center gap-6 bg-white px-4 py-2 rounded-[10px] shadow-sm border border-neutral-200/50">
                   <div className="flex items-center gap-2">
-                    <Star className={cn("w-4 h-4 transition-colors", isFavorited ? "text-[#fa541c] fill-[#fa541c]" : "text-neutral-500")} />
+                    <Star className={cn("w-4 h-4 transition-colors", isFavorited ? "text-[#3b82f6] fill-[#3b82f6]" : "text-neutral-500")} />
                     <span className="text-[13px] text-neutral-600 font-medium">
-                      <span className="text-[#fa541c] font-bold">
+                      <span className="text-[#3b82f6] font-bold">
                         {(project.favorites || (project.rating > 10 ? project.rating : Math.floor(project.rating * 100))) + (isFavorited ? 1 : 0)}
                       </span> 人收藏
                     </span>
@@ -144,7 +144,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                   <div className="w-px h-5 bg-neutral-200"></div>
                   <div className="flex items-center gap-2">
                     <Users className="w-4 h-4 text-neutral-500" />
-                    <span className="text-[13px] text-neutral-600 font-medium"><span className="text-[#fa541c] font-bold">{project.participants}</span> 人已参与</span>
+                    <span className="text-[13px] text-neutral-600 font-medium"><span className="text-[#3b82f6] font-bold">{project.participants}</span> 人已参与</span>
                   </div>
                 </div>
 
@@ -170,7 +170,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
                     "px-6 py-3 rounded-[8px] text-[15px] font-medium transition-all flex items-center",
-                    activeTab === tab.id ? "text-[#fa541c] bg-[#fff2e8]" : "text-neutral-body hover:text-neutral-title hover:bg-neutral-bg"
+                    activeTab === tab.id ? "text-[#3b82f6] bg-[#eff6ff]" : "text-neutral-body hover:text-neutral-title hover:bg-neutral-bg"
                   )}
                 >
                   {tab.label}
@@ -181,7 +181,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
               {activeTab === 'source' && (
                 <button 
                   onClick={handleDownloadSource}
-                  className="flex items-center gap-1.5 px-3 py-1 border border-neutral-200 rounded-[4px] hover:text-[#fa541c] hover:border-[#fa541c]/30 text-neutral-500 bg-white hover:bg-[#fff2e8] transition-colors text-[13px] font-semibold cursor-pointer h-7"
+                  className="flex items-center gap-1.5 px-3 py-1 border border-neutral-200 rounded-[4px] hover:text-[#3b82f6] hover:border-[#3b82f6]/30 text-neutral-500 bg-white hover:bg-[#eff6ff] transition-colors text-[13px] font-semibold cursor-pointer h-7"
                   title="下载源码"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -211,7 +211,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                           }}
                           className={cn(
                             "w-full text-left px-4 py-2 text-[13px] hover:bg-neutral-50 transition-colors",
-                            selectedVersion === ver ? "text-[#fa541c] font-bold" : "text-neutral-700"
+                            selectedVersion === ver ? "text-[#3b82f6] font-bold" : "text-neutral-700"
                           )}
                         >
                           {ver}
@@ -239,7 +239,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                     "提升全栈/AI应用独立开发能力"
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-neutral-body text-[14px]">
-                       <CheckCircle2 className="w-4 h-4 text-[#fa541c]" /> {item}
+                       <CheckCircle2 className="w-4 h-4 text-[#3b82f6]" /> {item}
                     </div>
                   ))}
                 </div>
@@ -269,13 +269,13 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                       <div className="w-4 h-4 bg-purple-400 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">M</div> _overview.md
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
-                      <div className="w-4 h-4 bg-[#fa541c] text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">J</div> _readme.ipynb
+                      <div className="w-4 h-4 bg-[#3b82f6] text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">J</div> _readme.ipynb
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
                       <div className="w-4 h-4 bg-pink-400 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">Y</div> app_spec.yml
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
-                      <div className="w-4 h-4 bg-[#fa541c] text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">J</div> coding_here.ipynb
+                      <div className="w-4 h-4 bg-[#3b82f6] text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">J</div> coding_here.ipynb
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
                       <div className="w-4 h-4 bg-blue-500 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">P</div> handler.py
@@ -284,7 +284,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                       <div className="w-4 h-4 bg-neutral-300 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">T</div> LICENSE
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
-                      <div className="w-4 h-4 bg-[#fa541c] text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">J</div> Main.ipynb
+                      <div className="w-4 h-4 bg-[#3b82f6] text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">J</div> Main.ipynb
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
                       <div className="w-4 h-4 bg-blue-500 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">P</div> preproduction.py
@@ -292,7 +292,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
                       <div className="w-4 h-4 bg-neutral-300 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">T</div> project_requirements.txt
                     </div>
-                    <div className="flex items-center gap-2 px-2 py-1.5 bg-[#f5f6f8] rounded cursor-pointer text-[14px] text-neutral-title font-medium border-l-2 border-[#fa541c] -ml-2 pl-3">
+                    <div className="flex items-center gap-2 px-2 py-1.5 bg-[#f5f6f8] rounded cursor-pointer text-[14px] text-neutral-title font-medium border-l-2 border-[#3b82f6] -ml-2 pl-3">
                       <div className="w-4 h-4 bg-purple-400 text-white rounded-[3px] flex items-center justify-center font-bold text-[10px]">M</div> readme.md
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1.5 hover:bg-neutral-100 rounded cursor-pointer text-[14px] text-neutral-700">
@@ -305,11 +305,11 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
                 </div>
               </div>
               <div className="relative flex-1 flex flex-col bg-white overflow-hidden">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-24 bg-[#fff2e8] rounded-full flex items-center justify-end pr-1 cursor-pointer z-10 border border-[#ffd8bf] shadow-sm">
-                  <ChevronLeft className="w-4 h-4 text-[#fa541c]" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-24 bg-[#eff6ff] rounded-full flex items-center justify-end pr-1 cursor-pointer z-10 border border-[#dbeafe] shadow-sm">
+                  <ChevronLeft className="w-4 h-4 text-[#3b82f6]" />
                 </div>
                 <div className="h-12 border-b border-neutral-100 flex items-center justify-between px-6 shrink-0">
-                  <div className="text-[14px] text-[#fa541c]">master <span className="text-neutral-caption mx-1">/</span> <span className="text-[#fa541c]">readme.md</span></div>
+                  <div className="text-[14px] text-[#3b82f6]">master <span className="text-neutral-caption mx-1">/</span> <span className="text-[#3b82f6]">readme.md</span></div>
                 </div>
                 <div className="flex-1 overflow-y-auto p-12 custom-scrollbar">
                   <div className="max-w-3xl">
@@ -384,8 +384,8 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
             />
             
             <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-2 text-[#fa541c] font-medium text-[18px]">
-                <div className="w-[3px] h-4 bg-[#fa541c] rounded-full"></div>
+              <div className="flex items-center gap-2 text-[#3b82f6] font-medium text-[18px]">
+                <div className="w-[3px] h-4 bg-[#3b82f6] rounded-full"></div>
                 项目
               </div>
               <div className="flex items-center text-[15px] text-neutral-500">
@@ -396,7 +396,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
             </div>
             <Button 
               onClick={onStart}
-              className="w-full h-12 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[6px] font-bold text-[18px] transition-colors shadow-sm flex items-center justify-center gap-2 border-0 cursor-pointer"
+              className="w-full h-12 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[6px] font-bold text-[18px] transition-colors shadow-sm flex items-center justify-center gap-2 border-0 cursor-pointer"
             >
               <Play className="w-5 h-5 fill-white" />
               <span>启动项目</span>
@@ -416,7 +416,7 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
               </h2>
               <button 
                 onClick={cancelDownload} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -424,20 +424,20 @@ export default function ProjectDetail({ project, onBack, onStart }: ProjectDetai
 
             {/* Body */}
             <div className="p-6 flex items-start gap-3 bg-white">
-              <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5 animate-pulse">!</div>
+              <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5 animate-pulse">!</div>
               <div className="flex-1 text-[14px] text-neutral-750 leading-normal">
                 <div>正在为您打包并下载项目源码，请勿关闭页面...</div>
                 
                 {/* Progress Bar */}
                 <div className="mt-4 w-full bg-neutral-100 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="bg-[#fa541c] h-full transition-all duration-150 ease-out" 
+                    className="bg-[#3b82f6] h-full transition-all duration-150 ease-out" 
                     style={{ width: `${downloadProgress}%` }}
                   ></div>
                 </div>
                 <div className="mt-2 flex items-center justify-between text-[11px] text-neutral-400">
                   <span>下载进度</span>
-                  <span className="text-[#fa541c] font-bold">{downloadProgress}%</span>
+                  <span className="text-[#3b82f6] font-bold">{downloadProgress}%</span>
                 </div>
               </div>
             </div>

@@ -59,7 +59,7 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
              <div className="p-8 border-b border-neutral-border bg-gradient-to-r from-blue-50/50 to-transparent">
                 <h2 className="text-2xl font-bold text-neutral-title">填写数据集信息</h2>
                 <p className="text-[14px] text-neutral-caption mt-2 flex items-center gap-1.5 line-clamp-2">
-                  <Info className="w-4 h-4 text-[#fa541c]" /> 我们极力推崇开源精神，您上传的公共数据集将被成千上万的开发者所利用并挂载至他们的模型项目中。
+                  <Info className="w-4 h-4 text-[#3b82f6]" /> 我们极力推崇开源精神，您上传的公共数据集将被成千上万的开发者所利用并挂载至他们的模型项目中。
                 </p>
              </div>
 
@@ -70,7 +70,7 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                    <Input 
                      value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})}
                      placeholder="例如：电商用户行为十万级分析底座" 
-                     className="max-w-md h-11 text-[14px] focus-visible:ring-[#fa541c]" 
+                     className="max-w-md h-11 text-[14px] focus-visible:ring-[#3b82f6]" 
                    />
                 </div>
 
@@ -80,7 +80,7 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                    </label>
                    <textarea 
                      value={formData.desc} onChange={e => setFormData({...formData, desc: e.target.value})}
-                     className="w-full h-32 p-4 text-[14px] bg-white border border-neutral-300 rounded-[8px] focus:outline-none focus:ring-2 focus:ring-[#fa541c] resize-none"
+                     className="w-full h-32 p-4 text-[14px] bg-white border border-neutral-300 rounded-[8px] focus:outline-none focus:ring-2 focus:ring-[#3b82f6] resize-none"
                      placeholder="描述这段数据的来源、清洗方式、支持的任务类型（如：分类、回归、生成）等，尽量控制在 50-500 字内。"
                    />
                 </div>
@@ -90,7 +90,7 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                      <label className="text-[14px] font-bold text-neutral-title">数据集类别 / 模态</label>
                      <select 
                        value={formData.type} onChange={e => setFormData({...formData, type: e.target.value})}
-                       className="w-full h-11 px-4 text-[14px] bg-white border border-neutral-300 rounded-[8px] focus:outline-none focus:ring-2 focus:ring-[#fa541c]"
+                       className="w-full h-11 px-4 text-[14px] bg-white border border-neutral-300 rounded-[8px] focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
                      >
                        {["表格数据", "文本语料", "图像样本", "视频音频", "图数据集", "其他结构化数据"].map(t => (
                          <option key={t} value={t}>{t}</option>
@@ -106,9 +106,9 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                           onChange={e => setTagInput(e.target.value)} 
                           onKeyDown={e => e.key === 'Enter' && addTag()}
                           placeholder="输入后回车添加" 
-                          className="h-11 text-[14px] focus-visible:ring-[#fa541c]" 
+                          className="h-11 text-[14px] focus-visible:ring-[#3b82f6]" 
                         />
-                        <Button onClick={addTag} variant="outline" className="h-11 px-4 border-[#fa541c] text-[#fa541c] hover:bg-[#fff2e8]">添加</Button>
+                        <Button onClick={addTag} variant="outline" className="h-11 px-4 border-[#3b82f6] text-[#3b82f6] hover:bg-[#eff6ff]">添加</Button>
                      </div>
                      <div className="flex flex-wrap gap-2 pt-2">
                         {formData.tags.map(tag => (
@@ -133,10 +133,10 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                      onDrop={(e) => { e.preventDefault(); setIsDragging(false); simulateFileUpload(); }}
                      className={cn(
                        "w-full h-48 border-2 border-dashed rounded-[12px] flex flex-col items-center justify-center cursor-pointer transition-all",
-                       isDragging ? "border-[#fa541c] bg-[#fff2e8]" : "border-neutral-300 bg-[#fafafa] hover:bg-neutral-50 hover:border-[#fa541c]/50"
+                       isDragging ? "border-[#3b82f6] bg-[#eff6ff]" : "border-neutral-300 bg-[#fafafa] hover:bg-neutral-50 hover:border-[#3b82f6]/50"
                      )}
                    >
-                     <CloudUpload className={cn("w-12 h-12 mb-3 transition-colors", isDragging ? "text-[#fa541c]" : "text-neutral-300")} />
+                     <CloudUpload className={cn("w-12 h-12 mb-3 transition-colors", isDragging ? "text-[#3b82f6]" : "text-neutral-300")} />
                      <p className="text-[15px] font-bold text-neutral-title mb-1">
                        点击我 或 将目标文件拖拽至此处
                      </p>
@@ -151,7 +151,7 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                        {files.map((f, i) => (
                          <div key={i} className="flex justify-between items-center p-3 bg-white border border-neutral-200 rounded-[8px] shadow-sm">
                            <div className="flex items-center gap-3">
-                              <File className="w-5 h-5 text-[#fa541c]" />
+                              <File className="w-5 h-5 text-[#3b82f6]" />
                               <div>
                                 <span className="font-bold text-[14px] text-neutral-title">{f.name}</span>
                                 <div className="text-[12px] text-neutral-caption">{f.size} - 校验成功</div>
@@ -172,9 +172,9 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                    <div className="flex gap-4">
                      <label onClick={() => setFormData({...formData, isPublic: true})} className={cn(
                         "flex items-center gap-3 p-4 flex-1 border rounded-[8px] cursor-pointer transition-colors",
-                        formData.isPublic ? "border-[#fa541c] bg-[#fff2e8]" : "border-neutral-200 bg-white"
+                        formData.isPublic ? "border-[#3b82f6] bg-[#eff6ff]" : "border-neutral-200 bg-white"
                      )}>
-                        <input type="radio" checked={formData.isPublic} readOnly className="accent-[#fa541c] w-4 h-4" />
+                        <input type="radio" checked={formData.isPublic} readOnly className="accent-[#3b82f6] w-4 h-4" />
                         <div>
                           <div className="font-bold text-[14px] text-neutral-title flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-green-500" /> 公开 (Public)</div>
                           <div className="text-[12px] text-neutral-caption mt-0.5">允许平台任何人检索和使用此数据集作为训练底层支撑</div>
@@ -183,11 +183,11 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
 
                      <label onClick={() => setFormData({...formData, isPublic: false})} className={cn(
                         "flex items-center gap-3 p-4 flex-1 border rounded-[8px] cursor-pointer transition-colors",
-                        !formData.isPublic ? "border-[#fa541c] bg-[#fff2e8]" : "border-neutral-200 bg-white"
+                        !formData.isPublic ? "border-[#3b82f6] bg-[#eff6ff]" : "border-neutral-200 bg-white"
                      )}>
-                        <input type="radio" checked={!formData.isPublic} readOnly className="accent-[#fa541c] w-4 h-4" />
+                        <input type="radio" checked={!formData.isPublic} readOnly className="accent-[#3b82f6] w-4 h-4" />
                         <div>
-                          <div className="font-bold text-[14px] text-neutral-title text-[#fa541c]">私有 (Private)</div>
+                          <div className="font-bold text-[14px] text-neutral-title text-[#3b82f6]">私有 (Private)</div>
                           <div className="text-[12px] text-neutral-caption mt-0.5">仅在您的账户沙盒可见，不可进行任何共享</div>
                         </div>
                      </label>
@@ -197,7 +197,7 @@ export default function DatasetUpload({ onBack, onSubmit }: DatasetUploadProps) 
                 <div className="pt-8">
                    <Button 
                      onClick={() => onSubmit(formData)}
-                     className="w-full h-12 text-[16px] font-bold rounded-[8px] bg-[#fa541c] hover:bg-[#d4380d] text-white shadow-lg"
+                     className="w-full h-12 text-[16px] font-bold rounded-[8px] bg-[#3b82f6] hover:bg-[#1d4ed8] text-white shadow-lg"
                    >
                      完成填写，正式发布数据集
                    </Button>

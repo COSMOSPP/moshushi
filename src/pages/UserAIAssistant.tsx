@@ -45,7 +45,7 @@ const assistants = [
     isRecommended: true,
     usageCount: "8.9k",
     icon: FileQuestion,
-    iconBg: "bg-orange-50",
+    iconBg: "bg-blue-50",
     iconColor: "text-orange-500",
   },
   {
@@ -184,7 +184,7 @@ export default function UserAIAssistant() {
                 onClick={() => setActiveTab(tab)}
                 className={cn(
                   "pb-2 text-[15px] font-medium transition-colors border-b-2",
-                  activeTab === tab ? "border-[#fa541c] text-[#fa541c]" : "border-transparent text-neutral-body hover:text-neutral-title"
+                  activeTab === tab ? "border-[#3b82f6] text-[#3b82f6]" : "border-transparent text-neutral-body hover:text-neutral-title"
                 )}
               >
                 {tab}
@@ -193,7 +193,7 @@ export default function UserAIAssistant() {
           </div>
           <button 
             onClick={() => navigate('/user/ai/assistant/studio')}
-            className="flex items-center gap-2 px-6 py-2 bg-[#fa541c] text-white rounded-full text-[14px] font-bold hover:bg-[#e64a19] transition-colors shadow-sm"
+            className="flex items-center gap-2 px-6 py-2 bg-[#3b82f6] text-white rounded-full text-[14px] font-bold hover:bg-[#e64a19] transition-colors shadow-sm"
           >
             <span className="text-[16px] leading-none mb-[2px]">+</span> 创建新助手
           </button>
@@ -213,7 +213,7 @@ export default function UserAIAssistant() {
                     onClick={() => setActiveCategory(tag)}
                     className={cn(
                       "px-4 py-1.5 rounded-full text-[13px] transition-colors",
-                      activeCategory === tag ? "bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96]" : "bg-[#f5f6f8] border border-transparent text-neutral-body hover:text-[#fa541c] hover:border-[#ffbb96]"
+                      activeCategory === tag ? "bg-[#eff6ff] text-[#3b82f6] border border-[#bfdbfe]" : "bg-[#f5f6f8] border border-transparent text-neutral-body hover:text-[#3b82f6] hover:border-[#bfdbfe]"
                     )}
                   >
                     {tag}
@@ -245,7 +245,7 @@ export default function UserAIAssistant() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption" />
             <Input 
               placeholder="输入助手名称搜索" 
-              className="pl-9 h-10 text-[14px] rounded-[8px] border-neutral-border bg-white focus-visible:ring-[#fa541c] shadow-sm" 
+              className="pl-9 h-10 text-[14px] rounded-[8px] border-neutral-border bg-white focus-visible:ring-[#3b82f6] shadow-sm" 
             />
           </div>
         </div>
@@ -258,10 +258,10 @@ export default function UserAIAssistant() {
                   <div 
                     key={assistant.id} 
                     onClick={() => setSelectedAssistant(assistant)}
-                    className="bg-white rounded-[16px] overflow-hidden border border-neutral-border shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:border-[#fa541c]/30 group flex flex-col cursor-pointer p-6 relative"
+                    className="bg-white rounded-[16px] overflow-hidden border border-neutral-border shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:border-[#3b82f6]/30 group flex flex-col cursor-pointer p-6 relative"
                   >
                     {assistant.isRecommended && (
-                      <div className="absolute top-0 right-0 bg-gradient-to-r from-[#fa541c] to-[#ff8c3a] text-white text-[11px] font-bold px-3 py-1 rounded-bl-[12px] flex items-center gap-1 shadow-sm">
+                      <div className="absolute top-0 right-0 bg-gradient-to-r from-[#3b82f6] to-[#ff8c3a] text-white text-[11px] font-bold px-3 py-1 rounded-bl-[12px] flex items-center gap-1 shadow-sm">
                         <ThumbsUp className="w-3 h-3" /> 推荐
                       </div>
                     )}
@@ -271,7 +271,7 @@ export default function UserAIAssistant() {
                         <Icon className="w-6 h-6" strokeWidth={2} />
                       </div>
                       <div>
-                        <h3 className="text-[16px] font-bold text-neutral-title group-hover:text-[#fa541c] transition-colors line-clamp-1 mb-1">
+                        <h3 className="text-[16px] font-bold text-neutral-title group-hover:text-[#3b82f6] transition-colors line-clamp-1 mb-1">
                           {assistant.title}
                         </h3>
                         <span className="text-[11px] px-2 py-0.5 bg-neutral-100 text-neutral-caption rounded border border-neutral-200">
@@ -289,8 +289,8 @@ export default function UserAIAssistant() {
                         <Flame className="w-3.5 h-3.5 text-orange-500" />
                         <span><span className="font-medium text-neutral-title">{assistant.usageCount}</span> 次使用</span>
                       </div>
-                      <div className="w-6 h-6 rounded-full bg-neutral-50 flex items-center justify-center group-hover:bg-[#fff2e8] transition-colors">
-                        <ChevronRight className="w-3.5 h-3.5 text-neutral-caption group-hover:text-[#fa541c]" />
+                      <div className="w-6 h-6 rounded-full bg-neutral-50 flex items-center justify-center group-hover:bg-[#eff6ff] transition-colors">
+                        <ChevronRight className="w-3.5 h-3.5 text-neutral-caption group-hover:text-[#3b82f6]" />
                       </div>
                     </div>
                   </div>
@@ -303,14 +303,14 @@ export default function UserAIAssistant() {
               <span className="text-[13px] text-neutral-500">共 45 条</span>
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]" disabled>&lt;</Button>
-                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">2</Button>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">3</Button>
                 <span className="px-1 text-neutral-caption text-[13px]">...</span>
                 <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">&gt;</Button>
               </div>
               <div className="relative bg-white rounded-[6px]">
-                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
+                <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
                   <option className="bg-white">10 条/页</option>
                   <option className="bg-white">20 条/页</option>
                   <option className="bg-white">50 条/页</option>

@@ -239,7 +239,7 @@ export default function TeacherAudit() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-neutral-900 flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             审核中心
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
@@ -254,7 +254,7 @@ export default function TeacherAudit() {
           onClick={() => { setActiveTab('ai_capability'); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'ai_capability' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'ai_capability' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Cpu className="w-4 h-4" />
@@ -264,7 +264,7 @@ export default function TeacherAudit() {
           onClick={() => { setActiveTab('course'); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'course' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'course' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <BookOpen className="w-4 h-4" />
@@ -274,7 +274,7 @@ export default function TeacherAudit() {
           onClick={() => { setActiveTab('project'); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'project' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'project' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <FolderKanban className="w-4 h-4" />
@@ -284,7 +284,7 @@ export default function TeacherAudit() {
           onClick={() => { setActiveTab('practice'); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'practice' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'practice' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Award className="w-4 h-4" />
@@ -294,7 +294,7 @@ export default function TeacherAudit() {
           onClick={() => { setActiveTab('logs'); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'logs' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'logs' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <History className="w-4 h-4" />
@@ -311,7 +311,7 @@ export default function TeacherAudit() {
             placeholder="搜索申请人、名称、描述..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#fa541c] w-full bg-white transition-all text-neutral-700"
+            className="pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#3b82f6] w-full bg-white transition-all text-neutral-700"
           />
         </div>
       )}
@@ -319,8 +319,8 @@ export default function TeacherAudit() {
       {/* Tab 1: AI能力公开审核 */}
       {activeTab === 'ai_capability' && (
         <div className="space-y-4">
-          <div className="p-4 bg-orange-50/20 border border-orange-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
-            <Info className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+          <div className="p-4 bg-blue-50/20 border border-blue-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
+            <Info className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <span>
               <strong>AI能力公开审核说明：</strong> 审核主讲教师自研并申请公开的特定大语言模型/多模态API能力。审核通过后将正式升级为<strong>租户级公共大模型资源</strong>，本租户内所有协同教师及选课学生均可调用与学习。
             </span>
@@ -358,7 +358,7 @@ export default function TeacherAudit() {
                   {item.status === '待审核' ? (
                     <Button 
                       onClick={() => { setTargetAICap(item); setIsAIDialogOpen(true); }}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg text-xs"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg text-xs"
                     >
                       接入审核
                     </Button>
@@ -380,8 +380,8 @@ export default function TeacherAudit() {
       {/* Tab 2: 课程审核 */}
       {activeTab === 'course' && (
         <div className="space-y-4">
-          <div className="p-4 bg-orange-50/20 border border-orange-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
-            <Info className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+          <div className="p-4 bg-blue-50/20 border border-blue-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
+            <Info className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <span>
               <strong>课程公开审核说明：</strong> 审核教师自建的实训课程大纲与课程体系。重点评估<strong>课件内容合规性、课程质量、以及申请划拨的云端 GPU/CPU 算力额度合理性</strong>。通过后该课程将在租户内上架公开，本租户学生立即可见选修。
             </span>
@@ -428,7 +428,7 @@ export default function TeacherAudit() {
                   {item.status === '待审核' ? (
                     <Button 
                       onClick={() => { setTargetCourse(item); setAdjustGpu(item.gpuRequested); setAdjustCpu(item.cpuRequested); setIsCourseDialogOpen(true); }}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg text-xs"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg text-xs"
                     >
                       接入审核
                     </Button>
@@ -450,8 +450,8 @@ export default function TeacherAudit() {
       {/* Tab 3: 项目审核 */}
       {activeTab === 'project' && (
         <div className="space-y-4">
-          <div className="p-4 bg-orange-50/20 border border-orange-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
-            <Info className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+          <div className="p-4 bg-blue-50/20 border border-blue-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
+            <Info className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <span>
               <strong>实训项目审核说明：</strong> 审核教师自建的实训沙箱与项目模版。重点评估<strong>项目的教学质量、预装镜像合规性、以及分配算力资源（GPU卡时/CPU时长）的配额边界</strong>。通过后项目上架租户库，学生可选做。
             </span>
@@ -490,7 +490,7 @@ export default function TeacherAudit() {
                   {item.status === '待审核' ? (
                     <Button 
                       onClick={() => { setTargetProject(item); setAdjustProjGpu(item.gpuRequested); setAdjustProjCpu(item.cpuRequested); setIsProjectDialogOpen(true); }}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg text-xs"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg text-xs"
                     >
                       接入审核
                     </Button>
@@ -512,8 +512,8 @@ export default function TeacherAudit() {
       {/* Tab 4: 最佳实践审核 */}
       {activeTab === 'practice' && (
         <div className="space-y-4">
-          <div className="p-4 bg-orange-50/20 border border-orange-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
-            <Info className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+          <div className="p-4 bg-blue-50/20 border border-blue-200 rounded-xl text-xs text-neutral-600 leading-relaxed flex items-start gap-1.5">
+            <Info className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <span>
               <strong>最佳实践公开审核说明：</strong> 评估教师撰写并申请租户级公开的最佳实践文档。审核通过后将正式置于租户级最佳实践区，供全体师生查阅及直接运行。请务必在 <strong>3个工作日 (3-day SLA)</strong> 内完成各项评估并签署意见。
             </span>
@@ -571,7 +571,7 @@ export default function TeacherAudit() {
                     {item.status === '待审核' ? (
                       <Button 
                         onClick={() => { setTargetPractice(item); setPracticeStep(1); setIsPracticeDialogOpen(true); }}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg text-xs"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg text-xs"
                       >
                         介入向导审核
                       </Button>
@@ -647,7 +647,7 @@ export default function TeacherAudit() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#fa541c]" /> AI能力公开审核台
+                <ShieldCheck className="w-5 h-5 text-[#3b82f6]" /> AI能力公开审核台
               </h2>
               <button 
                 onClick={() => { setIsAIDialogOpen(false); setTargetAICap(null); setAuditOpinion(''); }} 
@@ -676,7 +676,7 @@ export default function TeacherAudit() {
                   value={auditOpinion}
                   onChange={(e) => setAuditOpinion(e.target.value)}
                   placeholder="在此输入您的详细审查评判意见或打回修改说明..."
-                  className="w-full h-20 border border-neutral-200 rounded-xl p-3 focus:outline-none focus:border-[#fa541c] resize-none"
+                  className="w-full h-20 border border-neutral-200 rounded-xl p-3 focus:outline-none focus:border-[#3b82f6] resize-none"
                 />
               </div>
             </div>
@@ -722,7 +722,7 @@ export default function TeacherAudit() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-[#fa541c]" /> 课程公开上架审核
+                <BookOpen className="w-5 h-5 text-[#3b82f6]" /> 课程公开上架审核
               </h2>
               <button 
                 onClick={() => { setIsCourseDialogOpen(false); setTargetCourse(null); setAuditOpinion(''); }} 
@@ -743,9 +743,9 @@ export default function TeacherAudit() {
               </div>
 
               {/* Adjust resources */}
-              <div className="p-4 border border-orange-200 bg-orange-50/10 rounded-xl space-y-3">
+              <div className="p-4 border border-blue-200 bg-blue-50/10 rounded-xl space-y-3">
                 <span className="font-bold text-neutral-800 block flex items-center gap-1.5">
-                  <Cpu className="w-4 h-4 text-[#fa541c]" /> 管理员审减算力资源划拨
+                  <Cpu className="w-4 h-4 text-[#3b82f6]" /> 管理员审减算力资源划拨
                 </span>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
@@ -777,7 +777,7 @@ export default function TeacherAudit() {
                   value={auditOpinion}
                   onChange={(e) => setAuditOpinion(e.target.value)}
                   placeholder="在此输入您的详细审查评判意见..."
-                  className="w-full h-16 border border-neutral-200 rounded-xl p-3 focus:outline-none focus:border-[#fa541c] resize-none"
+                  className="w-full h-16 border border-neutral-200 rounded-xl p-3 focus:outline-none focus:border-[#3b82f6] resize-none"
                 />
               </div>
             </div>
@@ -809,7 +809,7 @@ export default function TeacherAudit() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <FolderKanban className="w-5 h-5 text-[#fa541c]" /> 实训沙箱项目上架审核
+                <FolderKanban className="w-5 h-5 text-[#3b82f6]" /> 实训沙箱项目上架审核
               </h2>
               <button 
                 onClick={() => { setIsProjectDialogOpen(false); setTargetProject(null); setAuditOpinion(''); }} 
@@ -830,9 +830,9 @@ export default function TeacherAudit() {
               </div>
 
               {/* Adjust resources */}
-              <div className="p-4 border border-orange-200 bg-orange-50/10 rounded-xl space-y-3">
+              <div className="p-4 border border-blue-200 bg-blue-50/10 rounded-xl space-y-3">
                 <span className="font-bold text-neutral-800 block flex items-center gap-1.5">
-                  <Cpu className="w-4 h-4 text-[#fa541c]" /> 管理员核对算力资源划拨
+                  <Cpu className="w-4 h-4 text-[#3b82f6]" /> 管理员核对算力资源划拨
                 </span>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
@@ -863,7 +863,7 @@ export default function TeacherAudit() {
                   value={auditOpinion}
                   onChange={(e) => setAuditOpinion(e.target.value)}
                   placeholder="在此输入您的详细审查评判意见..."
-                  className="w-full h-16 border border-neutral-200 rounded-xl p-3 focus:outline-none focus:border-[#fa541c] resize-none"
+                  className="w-full h-16 border border-neutral-200 rounded-xl p-3 focus:outline-none focus:border-[#3b82f6] resize-none"
                 />
               </div>
             </div>
@@ -897,7 +897,7 @@ export default function TeacherAudit() {
             <div className="p-5 border-b border-neutral-100 bg-neutral-50/50 flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-[#fa541c]" /> 最佳实践上架智能评估台
+                  <Award className="w-5 h-5 text-[#3b82f6]" /> 最佳实践上架智能评估台
                 </h2>
                 <button 
                   onClick={() => { setIsPracticeDialogOpen(false); setTargetPractice(null); setPracticeStep(1); }} 
@@ -909,23 +909,23 @@ export default function TeacherAudit() {
 
               {/* Wizard Steps progress bar */}
               <div className="flex items-center justify-between text-[11px] font-bold text-neutral-400 px-2 mt-1">
-                <div className={cn("flex items-center gap-1", practiceStep >= 1 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 1 ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300")}>1</span>
+                <div className={cn("flex items-center gap-1", practiceStep >= 1 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 1 ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300")}>1</span>
                   查看申请
                 </div>
                 <div className="h-0.5 bg-neutral-200 grow mx-2"></div>
-                <div className={cn("flex items-center gap-1", practiceStep >= 2 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 2 ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300")}>2</span>
+                <div className={cn("flex items-center gap-1", practiceStep >= 2 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 2 ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300")}>2</span>
                   评估内容
                 </div>
                 <div className="h-0.5 bg-neutral-200 grow mx-2"></div>
-                <div className={cn("flex items-center gap-1", practiceStep >= 3 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 3 ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300")}>3</span>
+                <div className={cn("flex items-center gap-1", practiceStep >= 3 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 3 ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300")}>3</span>
                   决定结果
                 </div>
                 <div className="h-0.5 bg-neutral-200 grow mx-2"></div>
-                <div className={cn("flex items-center gap-1", practiceStep >= 4 ? "text-[#fa541c]" : "")}>
-                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 4 ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300")}>4</span>
+                <div className={cn("flex items-center gap-1", practiceStep >= 4 ? "text-[#3b82f6]" : "")}>
+                  <span className={cn("w-4 h-4 rounded-full flex items-center justify-center border text-[9px]", practiceStep >= 4 ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300")}>4</span>
                   填写意见
                 </div>
               </div>
@@ -1029,7 +1029,7 @@ export default function TeacherAudit() {
                     value={practiceOpinion}
                     onChange={(e) => setPracticeOpinion(e.target.value)}
                     placeholder="在此输入本次最佳实践质量审查的评估反馈或整改意见..."
-                    className="w-full h-32 border border-neutral-200 rounded-xl p-3.5 focus:outline-none focus:border-[#fa541c] resize-none"
+                    className="w-full h-32 border border-neutral-200 rounded-xl p-3.5 focus:outline-none focus:border-[#3b82f6] resize-none"
                   />
                 </div>
               )}
@@ -1053,7 +1053,7 @@ export default function TeacherAudit() {
               {practiceStep < 4 ? (
                 <Button 
                   onClick={() => setPracticeStep((prev) => Math.min(4, prev + 1) as any)}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-lg text-xs"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-lg text-xs"
                 >
                   下一步
                 </Button>

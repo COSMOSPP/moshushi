@@ -120,6 +120,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
   ];
 
   const adminItems: NavItem[] = [
+    { title: "领导驾驶舱", icon: LayoutDashboard, href: "/admin/cockpit" },
     { title: "人工智能", icon: Brain, href: "/admin/ai" },
     { title: "安全运维", icon: Shield, href: "/admin/security" },
     { title: "公有云", icon: Cloud, href: "/admin/public-cloud" },
@@ -152,14 +153,19 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
   );
 
   const items = type === "user" ? userItems : adminItems;
+  const isCockpit = location.pathname.startsWith("/admin/cockpit");
 
   return (
-    <div className="h-screen w-screen overflow-hidden flex flex-col bg-[#f5f6f8]">
+    <div className={cn(
+      "h-screen w-screen overflow-hidden flex flex-col",
+      isCockpit ? "bg-[#020716]" : "bg-[#f5f6f8]"
+    )}>
       {/* Header */}
-      <header className={cn(
-        "h-16 flex items-center justify-between px-8 flex-shrink-0 z-50 transition-colors duration-200",
-        isAnswering ? "bg-white border-b border-neutral-200 border-t-[3px] border-t-purple-600 text-neutral-800" : "bg-[#1f1f1f] text-white"
-      )}>
+      {!isCockpit && (
+        <header className={cn(
+          "h-16 flex items-center justify-between px-8 flex-shrink-0 z-50 transition-colors duration-200",
+          isAnswering ? "bg-white border-b border-neutral-200 border-t-[3px] border-t-purple-600 text-neutral-800" : "bg-[#1f1f1f] text-white"
+        )}>
         {isAnswering ? (
           /* Answering Header (White background) */
           <>
@@ -185,15 +191,15 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                 <span className="text-[13px] text-[#262626] font-semibold">正在监控</span>
               </div>
 
-              <div className="border border-[#fa541c] bg-orange-50/5 rounded-[4px] px-3.5 py-1.5 flex items-center gap-2 font-mono font-bold text-[13px] text-[#fa541c] ml-6 shadow-xs select-none">
-                <Clock className="w-4 h-4 text-[#fa541c] shrink-0" />
-                <span className="font-sans text-[#fa541c] font-medium">距离考试结束：</span>
-                <span className="text-[#fa541c]">{formatExamTime(examTimeLeft)}</span>
+              <div className="border border-[#3b82f6] bg-blue-50/5 rounded-[4px] px-3.5 py-1.5 flex items-center gap-2 font-mono font-bold text-[13px] text-[#3b82f6] ml-6 shadow-xs select-none">
+                <Clock className="w-4 h-4 text-[#3b82f6] shrink-0" />
+                <span className="font-sans text-[#3b82f6] font-medium">距离考试结束：</span>
+                <span className="text-[#3b82f6]">{formatExamTime(examTimeLeft)}</span>
               </div>
 
               <div className="flex items-center gap-2 select-none ml-6 font-semibold text-neutral-title text-[13px]">
-                <div className="flex items-center justify-center w-7 h-7 rounded-full border border-orange-200 bg-[#fa541c]/5 text-[#fa541c]">
-                  <UserIcon className="w-3.5 h-3.5 text-[#fa541c] shrink-0" />
+                <div className="flex items-center justify-center w-7 h-7 rounded-full border border-blue-200 bg-[#3b82f6]/5 text-[#3b82f6]">
+                  <UserIcon className="w-3.5 h-3.5 text-[#3b82f6] shrink-0" />
                 </div>
                 <span>学生1</span>
               </div>
@@ -204,9 +210,9 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
           <>
             <div className="flex items-center gap-6 h-full">
               <Link to="/" className="flex items-center gap-2 mr-4">
-                <ZhiYunLogo className="w-6 h-6 text-[#fa541c]" />
+                <ZhiYunLogo className="w-6 h-6 text-[#3b82f6]" />
                 <span className="text-[16px] font-medium tracking-wide">
-                  {type === "admin" ? "智云实训平台" : "智云实训平台(人工智能)"}
+                  {type === "admin" ? "模数师数字平台" : "模数师数字平台(人工智能)"}
                 </span>
               </Link>
               
@@ -225,7 +231,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                         <span className="text-[14px]">人工智能</span>
                         <ChevronDown className={cn("w-4 h-4 text-gray-400 transition-transform duration-200", isModuleOpen ? "rotate-180" : "")} />
                         {isAnyModuleActive && (
-                          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#fa541c]" />
+                          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#3b82f6]" />
                         )}
                       </div>
                       
@@ -242,7 +248,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                                     className={cn(
                                       "flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors",
                                       isActive 
-                                        ? "bg-white/5 text-[#fa541c] font-semibold" 
+                                        ? "bg-white/5 text-[#3b82f6] font-semibold" 
                                         : "text-gray-300 hover:text-white hover:bg-white/10"
                                     )}
                                     onClick={() => setIsModuleOpen(false)}
@@ -276,7 +282,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                             <div className="absolute top-full left-0 hidden group-hover:block pt-1 min-w-[160px]">
                               <div className="rounded-[6px] border border-neutral-border bg-white p-2 shadow-lg">
                                 {item.children.map(child => (
-                                  <Link key={child.href} to={child.href} className="block px-3 py-2 hover:bg-[#fff2e8] hover:text-[#fa541c] rounded-[4px] text-[14px] text-neutral-title transition-colors">
+                                  <Link key={child.href} to={child.href} className="block px-3 py-2 hover:bg-[#eff6ff] hover:text-[#3b82f6] rounded-[4px] text-[14px] text-neutral-title transition-colors">
                                     {child.title}
                                   </Link>
                                 ))}
@@ -297,7 +303,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                           )}
                         >
                           {isActive && (
-                            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#fa541c]" />
+                            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#3b82f6]" />
                           )}
                           <item.icon className="w-4 h-4" />
                           {item.title}
@@ -326,13 +332,13 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
                       <div className="rounded-[6px] border border-neutral-border bg-white p-2 shadow-lg">
                         {type === "user" && (
                           <>
-                            <Link to="/user/center" className="block px-3 py-2 hover:bg-[#fff2e8] hover:text-[#fa541c] rounded-[4px] text-[14px] text-neutral-title transition-colors">个人中心</Link>
-                            <Link to="/user/persona" className="block px-3 py-2 hover:bg-[#fff2e8] hover:text-[#fa541c] rounded-[4px] text-[14px] text-neutral-title transition-colors">用户画像</Link>
-                            <Link to="/user/mylearning" className="block px-3 py-2 hover:bg-[#fff2e8] hover:text-[#fa541c] rounded-[4px] text-[14px] text-neutral-title transition-colors">我的学习</Link>
+                            <Link to="/user/center" className="block px-3 py-2 hover:bg-[#eff6ff] hover:text-[#3b82f6] rounded-[4px] text-[14px] text-neutral-title transition-colors">个人中心</Link>
+                            <Link to="/user/persona" className="block px-3 py-2 hover:bg-[#eff6ff] hover:text-[#3b82f6] rounded-[4px] text-[14px] text-neutral-title transition-colors">用户画像</Link>
+                            <Link to="/user/mylearning" className="block px-3 py-2 hover:bg-[#eff6ff] hover:text-[#3b82f6] rounded-[4px] text-[14px] text-neutral-title transition-colors">我的学习</Link>
                             <div className="h-[1px] bg-neutral-border my-1" />
                           </>
                         )}
-                        <button onClick={handleLogout} className="w-full text-left block px-3 py-2 hover:bg-[#fff2e8] hover:text-[#fa541c] rounded-[4px] text-[14px] text-neutral-title transition-colors">退出登录</button>
+                        <button onClick={handleLogout} className="w-full text-left block px-3 py-2 hover:bg-[#eff6ff] hover:text-[#3b82f6] rounded-[4px] text-[14px] text-neutral-title transition-colors">退出登录</button>
                       </div>
                     </div>
                   </div>
@@ -340,20 +346,23 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
               ) : (
                 <div className="flex items-center gap-3">
                   <Link to="/login/user" className="text-[14px] hover:text-white transition-colors">登录</Link>
-                  <Link to="/login/user" className="text-[14px] bg-[#fa541c] hover:bg-[#ff7a45] text-white px-4 py-1.5 rounded-full transition-colors">注册</Link>
+                  <Link to="/login/user" className="text-[14px] bg-[#3b82f6] hover:bg-[#60a5fa] text-white px-4 py-1.5 rounded-full transition-colors">注册</Link>
                 </div>
               )}
             </div>
           </>
         )}
       </header>
+      )}
 
       {/* Main Body */}
       <div className="flex flex-1 min-h-0">
         {/* Main Content Area */}
         <main className={cn(
           "flex flex-col min-h-0",
-          isAnswering 
+          isCockpit 
+            ? "flex-1 p-0 overflow-y-auto bg-[#020716]" 
+            : isAnswering 
             ? "flex-1 bg-[#f5f6f8] overflow-hidden p-0" 
             : cn(
                 (location.pathname === "/user/ai/assistant/studio" || location.pathname === "/user/ai/agents/studio" || location.pathname === "/user/ai/agents") ? "flex-1 p-0 bg-[#f5f6f8] overflow-hidden" : "flex-1 bg-[#f5f6f8] overflow-auto",

@@ -43,7 +43,7 @@ export default function SkillBuilder() {
         <div className="flex-1 flex justify-start items-end h-full ml-8 gap-1 pt-3">
            <div className={cn(
              "px-4 py-2 text-sm font-medium border-t-2 rounded-t-lg flex items-center gap-2 cursor-pointer transition-colors",
-             activeBuilderTab === 'preview' ? "bg-white border-[#fa541c] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]" : "bg-neutral-100 border-transparent text-neutral-500 hover:bg-neutral-200"
+             activeBuilderTab === 'preview' ? "bg-white border-[#3b82f6] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]" : "bg-neutral-100 border-transparent text-neutral-500 hover:bg-neutral-200"
            )}
            onClick={() => setActiveBuilderTab('preview')}
            >
@@ -52,10 +52,10 @@ export default function SkillBuilder() {
            {activeBuilderTab === 'deploy' && (
              <div className={cn(
                "px-4 py-2 text-sm font-medium border-t-2 rounded-t-lg flex items-center gap-2 cursor-pointer transition-colors",
-               "bg-white border-[#fa541c] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]"
+               "bg-white border-[#3b82f6] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]"
              )}>
                <Rocket className="w-4 h-4" /> 部署
-               <X className="w-3.5 h-3.5 ml-2 hover:text-[#fa541c]" onClick={(e) => { e.stopPropagation(); setActiveBuilderTab('preview'); }} />
+               <X className="w-3.5 h-3.5 ml-2 hover:text-[#3b82f6]" onClick={(e) => { e.stopPropagation(); setActiveBuilderTab('preview'); }} />
              </div>
            )}
            <button className="px-3 py-2 text-sm text-neutral-500 hover:text-neutral-800 flex items-center gap-1 hover:bg-neutral-100 rounded-t-lg ml-1">
@@ -70,7 +70,7 @@ export default function SkillBuilder() {
            <button className="p-1.5 text-neutral-500 hover:bg-neutral-100 rounded"><Copy className="w-4 h-4" /></button>
            <button 
              onClick={() => setActiveBuilderTab('deploy')}
-             className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-5 py-1.5 rounded-lg text-[13px] font-bold shadow-sm transition-colors ml-2"
+             className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-5 py-1.5 rounded-lg text-[13px] font-bold shadow-sm transition-colors ml-2"
            >
              部署
            </button>
@@ -144,9 +144,9 @@ export default function SkillBuilder() {
                      现在验证脚本并打包：
                    </div>
                    <div className="flex gap-2 items-center mt-2 p-2 border border-neutral-100 rounded-full w-fit">
-                     <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-bounce"></div>
-                     <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                     <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                     <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-bounce"></div>
+                     <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                     <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                    </div>
                 </div>
              </div>
@@ -334,7 +334,7 @@ export default function SkillBuilder() {
                     </div>
 
                     <button 
-                       className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white py-3.5 rounded-xl text-[15px] font-bold shadow-md transition-colors mt-4"
+                       className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white py-3.5 rounded-xl text-[15px] font-bold shadow-md transition-colors mt-4"
                        onClick={() => {
                           setDeployState('success');
                        }}
@@ -355,49 +355,49 @@ export default function SkillBuilder() {
                  
                  <div className="w-full border border-neutral-200 rounded-xl bg-white shadow-sm overflow-hidden mb-6 flex-1 max-h-[800px] flex flex-col">
                     <div className="px-5 py-4 border-b border-neutral-100 flex items-center justify-between cursor-pointer hover:bg-neutral-50 transition-colors shrink-0">
-                       <div className="flex items-center gap-2 text-[14px] font-bold text-[#fa541c]">部署成功</div>
-                       <ChevronDown className="w-4 h-4 text-[#fa541c]" />
+                       <div className="flex items-center gap-2 text-[14px] font-bold text-[#3b82f6]">部署成功</div>
+                       <ChevronDown className="w-4 h-4 text-[#3b82f6]" />
                     </div>
                     
                     <div className="p-8 flex-1 flex flex-col">
                        <div className="flex items-center justify-between w-full mx-auto mb-20 relative px-4">
                           {/* Connecting Lines */}
-                          <div className="absolute left-[40px] right-[40px] top-[12px] h-[1px] bg-[#fa541c] z-0"></div>
+                          <div className="absolute left-[40px] right-[40px] top-[12px] h-[1px] bg-[#3b82f6] z-0"></div>
                           
                           {/* Step 1 */}
                           <div className="flex items-center gap-2 bg-white px-2 z-10 relative">
-                             <div className="w-6 h-6 rounded-full bg-[#fa541c] text-white flex items-center justify-center shrink-0">
+                             <div className="w-6 h-6 rounded-full bg-[#3b82f6] text-white flex items-center justify-center shrink-0">
                                 <CheckCircle2 className="w-4 h-4" />
                              </div>
-                             <span className="text-[13px] font-bold text-[#fa541c] pr-1">打包</span>
+                             <span className="text-[13px] font-bold text-[#3b82f6] pr-1">打包</span>
                           </div>
                           
                           {/* Step 2 */}
                           <div className="flex items-center gap-2 bg-white px-2 z-10 relative">
-                             <div className="w-6 h-6 rounded-full bg-[#fa541c] text-white flex items-center justify-center shrink-0">
+                             <div className="w-6 h-6 rounded-full bg-[#3b82f6] text-white flex items-center justify-center shrink-0">
                                 <CheckCircle2 className="w-4 h-4" />
                              </div>
-                             <span className="text-[13px] font-bold text-[#fa541c] pr-1">构建</span>
+                             <span className="text-[13px] font-bold text-[#3b82f6] pr-1">构建</span>
                           </div>
                           
                           {/* Step 3 */}
                           <div className="flex items-center gap-2 bg-white px-2 z-10 relative">
-                             <div className="w-6 h-6 rounded-full bg-[#fa541c] text-white flex items-center justify-center shrink-0">
+                             <div className="w-6 h-6 rounded-full bg-[#3b82f6] text-white flex items-center justify-center shrink-0">
                                 <CheckCircle2 className="w-4 h-4" />
                              </div>
-                             <span className="text-[13px] font-bold text-[#fa541c] pr-1">部署</span>
+                             <span className="text-[13px] font-bold text-[#3b82f6] pr-1">部署</span>
                           </div>
                        </div>
 
                        <div className="flex flex-col items-center justify-center text-center mt-6">
-                          <div className="w-16 h-16 rounded-2xl border border-orange-200 flex items-center justify-center mb-6 shadow-sm bg-orange-50">
-                             <CheckCircle2 className="w-7 h-7 text-[#fa541c]" />
+                          <div className="w-16 h-16 rounded-2xl border border-blue-200 flex items-center justify-center mb-6 shadow-sm bg-blue-50">
+                             <CheckCircle2 className="w-7 h-7 text-[#3b82f6]" />
                           </div>
-                          <h3 className="text-[22px] font-bold text-[#fa541c] mb-3">部署成功</h3>
+                          <h3 className="text-[22px] font-bold text-[#3b82f6] mb-3">部署成功</h3>
                           <p className="text-[14px] text-neutral-500 mb-10">请前往扣子对话区进行体验</p>
                           <button 
                              onClick={() => navigate('/practice-chat')}
-                             className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-6 py-2.5 rounded-lg text-[14px] font-medium transition-colors flex items-center gap-2 shadow-sm"
+                             className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 py-2.5 rounded-lg text-[14px] font-medium transition-colors flex items-center gap-2 shadow-sm"
                           >
                              立即体验 <ArrowUpRight className="w-4 h-4" />
                           </button>

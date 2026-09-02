@@ -653,11 +653,11 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
 
       let circleColorClass = "";
       if (isCurrent) {
-        circleColorClass = "border-2 border-[#fa541c] text-[#fa541c] bg-white font-bold shadow-xs";
+        circleColorClass = "border-2 border-[#3b82f6] text-[#3b82f6] bg-white font-bold shadow-xs";
       } else if (isAnswered) {
-        circleColorClass = "bg-[#fa541c] border-[#fa541c] text-white font-medium";
+        circleColorClass = "bg-[#3b82f6] border-[#3b82f6] text-white font-medium";
       } else {
-        circleColorClass = "border-neutral-300 text-neutral-600 bg-white hover:border-[#fa541c] hover:text-[#fa541c]";
+        circleColorClass = "border-neutral-300 text-neutral-600 bg-white hover:border-[#3b82f6] hover:text-[#3b82f6]";
       }
 
       return (
@@ -697,8 +697,8 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   className={cn(
                     "flex items-center gap-1.5 text-[12px] border px-3 py-1.5 rounded-[4px] transition-colors cursor-pointer bg-white",
                     isMarked 
-                      ? "bg-orange-50 border-[#fa541c] text-[#fa541c] font-bold" 
-                      : "border-neutral-200 hover:border-[#fa541c] hover:text-[#fa541c] text-neutral-500"
+                      ? "bg-blue-50 border-[#3b82f6] text-[#3b82f6] font-bold" 
+                      : "border-neutral-200 hover:border-[#3b82f6] hover:text-[#3b82f6] text-neutral-500"
                   )}
                 >
                   <Pin className="w-3.5 h-3.5" />
@@ -727,28 +727,28 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           className={cn(
                             "group flex items-center gap-3 px-5 py-4 border rounded-[4px] cursor-pointer transition-all select-none",
                             isChecked 
-                              ? "bg-transparent border-[#fa541c] shadow-xs" 
-                              : "bg-transparent border-neutral-150 hover:text-[#fa541c] hover:border-orange-200 hover:bg-[#fa541c]/5"
+                              ? "bg-transparent border-[#3b82f6] shadow-xs" 
+                              : "bg-transparent border-neutral-150 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-[#3b82f6]/5"
                           )}
                         >
                           {question.type === 'single' ? (
                             <div className={cn(
                               "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors",
-                              isChecked ? "border-[#fa541c]" : "border-neutral-300 group-hover:border-orange-200"
+                              isChecked ? "border-[#3b82f6]" : "border-neutral-300 group-hover:border-blue-200"
                             )}>
-                              {isChecked && <div className="w-2 h-2 bg-[#fa541c] rounded-full animate-scale-up"></div>}
+                              {isChecked && <div className="w-2 h-2 bg-[#3b82f6] rounded-full animate-scale-up"></div>}
                             </div>
                           ) : (
                             <div className={cn(
                               "w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors",
-                              isChecked ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300 group-hover:border-orange-200"
+                              isChecked ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300 group-hover:border-blue-200"
                             )}>
                               {isChecked && <Check className="w-3 h-3 text-white stroke-[3]" />}
                             </div>
                           )}
                           <span className={cn(
                             "text-[14px] transition-colors",
-                            isChecked ? "text-[#fa541c] font-bold" : "text-neutral-title group-hover:text-[#fa541c]"
+                            isChecked ? "text-[#3b82f6] font-bold" : "text-neutral-title group-hover:text-[#3b82f6]"
                           )}>{opt}</span>
                         </div>
                       );
@@ -776,7 +776,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 variant="outline"
                 disabled={currentQuestionIdx === 0}
                 onClick={() => setCurrentQuestionIdx(prev => prev - 1)}
-                className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
               >
                 上一题
               </Button>
@@ -794,7 +794,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         setIsSubmitAnswerDrawerOpen(true);
                       }
                     }}
-                    className="border-[#fa541c] text-[#fa541c] hover:bg-[#fa541c]/5 hover:text-[#e84a15] hover:border-[#e84a15] px-6 h-9.5 text-[13px] font-bold rounded-[4px] transition-all flex items-center gap-1.5"
+                    className="border-[#3b82f6] text-[#3b82f6] hover:bg-[#3b82f6]/5 hover:text-[#2563eb] hover:border-[#2563eb] px-6 h-9.5 text-[13px] font-bold rounded-[4px] transition-all flex items-center gap-1.5"
                   >
                     {currentPracticalIdx === 0 ? "开始答题" : "提交答案"}
                   </Button>
@@ -808,7 +808,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       handleSubmitAnswering();
                     }
                   }}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1"
                 >
                   {currentQuestionIdx === NEW_QUESTIONS.length - 1 ? "提交作业" : "下一题"}
                 </Button>
@@ -870,7 +870,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
             <div className="border-t border-neutral-150 pt-5 mt-4">
               <div className="flex items-center justify-around text-[12px] text-neutral-caption mb-5">
                 <div className="flex flex-col items-center gap-1.5">
-                  <div className="w-4 h-4 rounded-full bg-[#fa541c]"></div>
+                  <div className="w-4 h-4 rounded-full bg-[#3b82f6]"></div>
                   <span>已答</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
@@ -878,7 +878,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   <span>未答</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
-                  <div className="w-4 h-4 rounded-full border-2 border-[#fa541c] bg-white"></div>
+                  <div className="w-4 h-4 rounded-full border-2 border-[#3b82f6] bg-white"></div>
                   <span>当前</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
@@ -891,14 +891,14 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
 
               <Button 
                 onClick={handleSubmitAnswering}
-                className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white py-3 font-bold shadow-lg shadow-orange-500/10 rounded-[4px] transition-all text-sm cursor-pointer"
+                className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white py-3 font-bold shadow-lg shadow-blue-500/10 rounded-[4px] transition-all text-sm cursor-pointer"
               >
                 提交作业
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => setShowStudentAnswering(false)}
-                className="w-full mt-3 border-neutral-300 hover:text-[#fa541c] hover:border-orange-200 hover:bg-[#fa541c]/5 py-3 font-bold rounded-[4px] transition-all text-sm cursor-pointer"
+                className="w-full mt-3 border-neutral-300 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-[#3b82f6]/5 py-3 font-bold rounded-[4px] transition-all text-sm cursor-pointer"
               >
                 退出试卷
               </Button>
@@ -920,12 +920,12 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               {/* Header */}
               <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
                 <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                  <Plus className="w-5 h-5 text-[#fa541c]" />
+                  <Plus className="w-5 h-5 text-[#3b82f6]" />
                   提交答案
                 </h2>
                 <button 
                   onClick={() => setIsSubmitAnswerDrawerOpen(false)} 
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -946,7 +946,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 {/* 上传答案文件 */}
                 <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                   <label className="text-[13px] font-bold text-[#262626] text-right">
-                    上传答案文件 <span className="text-[#fa541c]">*</span>
+                    上传答案文件 <span className="text-[#3b82f6]">*</span>
                   </label>
                   <div className="flex items-center gap-3">
                     <input
@@ -962,7 +962,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     />
                     <label
                       htmlFor="submit-answer-file-input"
-                      className="border border-[#fa541c] rounded-[4px] px-3.5 py-1.5 bg-transparent hover:bg-[#fa541c]/5 cursor-pointer text-xs text-[#fa541c] transition-colors font-bold select-none"
+                      className="border border-[#3b82f6] rounded-[4px] px-3.5 py-1.5 bg-transparent hover:bg-[#3b82f6]/5 cursor-pointer text-xs text-[#3b82f6] transition-colors font-bold select-none"
                     >
                       选择文件
                     </label>
@@ -988,7 +988,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     setIsSubmitAnswerDrawerOpen(false);
                     alert("答案提交成功！");
                   }} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
                 >
                   确认
                 </Button>
@@ -1003,7 +1003,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
           <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40 backdrop-blur-xs animate-in fade-in duration-200">
             <div className="bg-white rounded-2xl shadow-xl w-full max-w-[400px] overflow-hidden border border-neutral-200 flex flex-col animate-in zoom-in-95 duration-150">
               <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
-                <h2 className="text-[16px] font-bold text-[#fa541c] flex items-center gap-2">
+                <h2 className="text-[16px] font-bold text-[#3b82f6] flex items-center gap-2">
                   提示
                 </h2>
                 <button onClick={() => setShowSubmitConfirmModal(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200 p-1.5 rounded-full transition-colors">
@@ -1015,7 +1015,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               </div>
               <div className="p-5 border-t border-neutral-100 bg-white flex items-center justify-end gap-3">
                 <Button type="button" onClick={() => setShowSubmitConfirmModal(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-10 px-6">取消</Button>
-                <Button type="button" onClick={handleConfirmSubmit} className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20">确定提交</Button>
+                <Button type="button" onClick={handleConfirmSubmit} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20">确定提交</Button>
               </div>
             </div>
           </div>
@@ -1049,7 +1049,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     setShowTimeoutModal(false);
                     setShowStudentAnswering(false);
                   }} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20"
                 >
                   确定
                 </Button>
@@ -1086,7 +1086,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     setShowSubmitSuccessModal(false);
                     setShowStudentAnswering(false);
                   }} 
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20"
                 >
                   确定
                 </Button>
@@ -1111,7 +1111,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
             className="w-full h-full object-cover opacity-15"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fff2e8]/95 to-[#ffd8bf]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#eff6ff]/95 to-[#dbeafe]/90"></div>
           
           {/* Decorative background elements */}
           <div className="absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 bg-white/40 rounded-full blur-3xl pointer-events-none z-0"></div>
@@ -1123,13 +1123,13 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
           {/* Breadcrumb & Actions */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center text-[13px] text-neutral-caption">
-              <button onClick={onBack} className="hover:text-[#fa541c] flex items-center gap-1">
+              <button onClick={onBack} className="hover:text-[#3b82f6] flex items-center gap-1">
                 <ChevronLeft className="w-4 h-4" /> 返回
               </button>
               <span className="mx-2">/</span>
-              <span className="hover:text-[#fa541c] cursor-pointer">课程</span>
+              <span className="hover:text-[#3b82f6] cursor-pointer">课程</span>
               <span className="mx-2">/</span>
-              <span className="hover:text-[#fa541c] cursor-pointer">Python 系列课程</span>
+              <span className="hover:text-[#3b82f6] cursor-pointer">Python 系列课程</span>
               <span className="mx-2">/</span>
               <span className="text-neutral-title">Python 基础</span>
             </div>
@@ -1139,11 +1139,11 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 className={cn(
                   "flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all text-[13px] font-medium",
                   isFavorited 
-                    ? "bg-[#fa541c]/10 text-[#fa541c] hover:bg-[#fa541c]/20" 
+                    ? "bg-[#3b82f6]/10 text-[#3b82f6] hover:bg-[#3b82f6]/20" 
                     : "bg-white/50 hover:bg-white text-neutral-title"
                 )}
               >
-                <Star className={cn("w-4 h-4 transition-transform active:scale-95", isFavorited ? "text-[#fa541c] fill-[#fa541c]" : "")} /> 
+                <Star className={cn("w-4 h-4 transition-transform active:scale-95", isFavorited ? "text-[#3b82f6] fill-[#3b82f6]" : "")} /> 
                 {isFavorited ? '已收藏' : '收藏'}
               </button>
             </div>
@@ -1168,7 +1168,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                 <h1 className="text-4xl font-bold text-neutral-title">Python 基础</h1>
                 <Button 
-                  className="bg-[#fff2e8] text-[#fa541c] hover:bg-[#ffe4d3] border border-[#ffbb96] shadow-sm h-8.5 px-4 text-[13px] flex items-center gap-1.5 shrink-0 rounded-[8px] self-start sm:self-auto"
+                  className="bg-[#eff6ff] text-[#3b82f6] hover:bg-[#ffe4d3] border border-[#bfdbfe] shadow-sm h-8.5 px-4 text-[13px] flex items-center gap-1.5 shrink-0 rounded-[8px] self-start sm:self-auto"
                   onClick={() => setShowReportModal(true)}
                 >
                   <span className="text-[14px]">✨</span> 生成个性化学习报告
@@ -1186,7 +1186,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     "flex items-center gap-2 px-8 py-3 rounded-[8px] font-bold text-[15px] shadow-lg transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer",
                     isJoined 
                       ? "bg-[#52c41a] hover:bg-[#73d13d] text-white shadow-[#52c41a]/20 hover:shadow-[#52c41a]/30" 
-                      : "bg-gradient-to-r from-[#fa541c] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#ff9c6e] text-white shadow-[#fa541c]/20 hover:shadow-[#fa541c]/30"
+                      : "bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] hover:from-[#60a5fa] hover:to-[#93c5fd] text-white shadow-[#3b82f6]/20 hover:shadow-[#3b82f6]/30"
                   )}
                 >
                   {isJoined ? (
@@ -1223,7 +1223,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
                   "px-6 py-3 rounded-[8px] text-[15px] font-medium transition-all relative flex items-center gap-2",
-                  activeTab === tab.id ? "text-[#fa541c] bg-[#fff2e8]" : "text-neutral-body hover:text-neutral-title hover:bg-neutral-bg"
+                  activeTab === tab.id ? "text-[#3b82f6] bg-[#eff6ff]" : "text-neutral-body hover:text-neutral-title hover:bg-neutral-bg"
                 )}
               >
                 {tab.label}
@@ -1247,7 +1247,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   "开发基础 Python 应用"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-[14px] text-neutral-title">
-                    <div className="w-6 h-6 rounded-full bg-[#fff2e8] flex items-center justify-center text-[#fa541c]">
+                    <div className="w-6 h-6 rounded-full bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                     </div>
                     {item}
@@ -1282,7 +1282,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <span><span className="font-bold text-neutral-title">{chapter.videos}</span> 个教学课件</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Code className="w-4 h-4 text-[#fa541c]" />
+                        <Code className="w-4 h-4 text-[#3b82f6]" />
                         <span><span className="font-bold text-neutral-title">{chapter.docs}</span> 个实验课件</span>
                       </div>
                       <div className="flex items-center gap-1.5">
@@ -1327,7 +1327,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                               <div className={cn(
                                 "w-6 h-6 rounded flex items-center justify-center shrink-0",
                                 lesson.type === 'split_doc' ? "bg-blue-50 text-blue-500" : 
-                                lesson.type === 'experiment' ? "bg-orange-50 text-[#fa541c]" :
+                                lesson.type === 'experiment' ? "bg-blue-50 text-[#3b82f6]" :
                                 lesson.type === 'assignment' ? "bg-rose-50 text-rose-500" :
                                 "bg-emerald-50 text-emerald-500"
                               )}>
@@ -1339,7 +1339,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                               </div>
                               <span className={cn(
                                 "text-[14px] transition-colors",
-                                lesson.locked ? "text-neutral-body" : "text-neutral-title group-hover:text-[#fa541c]"
+                                lesson.locked ? "text-neutral-body" : "text-neutral-title group-hover:text-[#3b82f6]"
                               )}>
                                 {lesson.title}
                               </span>
@@ -1354,7 +1354,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           {lesson.status === '未学习' && !lesson.locked ? (
                             <div className="flex items-center justify-end w-20">
                               <span className="text-[14px] text-neutral-caption group-hover:hidden">未学习</span>
-                              <span className="text-[14px] text-[#fa541c] font-bold hidden group-hover:block transition-all">开始学习</span>
+                              <span className="text-[14px] text-[#3b82f6] font-bold hidden group-hover:block transition-all">开始学习</span>
                             </div>
                           ) : (
                             <span className={cn("text-[14px] w-20 text-right", lesson.status === '已完成' ? "text-[#52c41a]" : "text-neutral-caption")}>
@@ -1408,7 +1408,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-neutral-title flex items-center gap-2">
-                          <span className="w-1.5 h-3.5 bg-[#fa541c] rounded-full"></span>
+                          <span className="w-1.5 h-3.5 bg-[#3b82f6] rounded-full"></span>
                           客观题
                         </span>
                         <Button 
@@ -1416,7 +1416,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                             setShowStudentAnswering(true);
                             setAnsweringAnswers({});
                           }}
-                          className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-5 h-8.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1"
+                          className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-5 h-8.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1"
                         >
                           开始答题
                         </Button>
@@ -1477,7 +1477,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               <div className="w-56 bg-white border-r border-neutral-200 flex flex-col shrink-0">
                 {/* Sidebar Brand/Logo */}
                 <div className="h-14 border-b border-neutral-100 flex items-center px-6 gap-2 shrink-0 bg-white">
-                  <div className="w-6 h-6 rounded-md bg-[#fa541c] flex items-center justify-center text-white font-bold text-xs shadow-sm">Mo</div>
+                  <div className="w-6 h-6 rounded-md bg-[#3b82f6] flex items-center justify-center text-white font-bold text-xs shadow-sm">Mo</div>
                   <span className="font-bold text-[14px] text-neutral-800">实训教师端</span>
                 </div>
                 
@@ -1498,7 +1498,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   <div>
                     <div className="flex items-center justify-between px-3 py-2.5 rounded-lg text-neutral-800 font-bold cursor-default transition-colors">
                       <div className="flex items-center gap-2.5">
-                        <Database className="w-4 h-4 text-[#fa541c]" />
+                        <Database className="w-4 h-4 text-[#3b82f6]" />
                         <span className="text-[13px]">题库管理</span>
                       </div>
                       <ChevronDown className="w-3.5 h-3.5 text-neutral-500" />
@@ -1506,10 +1506,10 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     
                     {/* Submenus */}
                     <div className="pl-3 mt-1.5 space-y-2">
-                      <div className="text-[12px] text-neutral-500 hover:text-[#fa541c] cursor-pointer transition-colors select-none">
+                      <div className="text-[12px] text-neutral-500 hover:text-[#3b82f6] cursor-pointer transition-colors select-none">
                         试题管理
                       </div>
-                      <div className="text-[12px] font-bold text-[#fa541c] cursor-pointer transition-all select-none">
+                      <div className="text-[12px] font-bold text-[#3b82f6] cursor-pointer transition-all select-none">
                         试卷管理
                       </div>
                     </div>
@@ -1538,12 +1538,12 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         {/* Return/Back button placed directly above title */}
                         <button 
                           onClick={() => setTeacherActionMode('detail')} 
-                          className="flex items-center gap-1 text-[13px] text-neutral-500 hover:text-[#fa541c] transition-colors mb-1.5 w-fit font-medium group"
+                          className="flex items-center gap-1 text-[13px] text-neutral-500 hover:text-[#3b82f6] transition-colors mb-1.5 w-fit font-medium group"
                         >
-                          <ArrowLeft className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#fa541c] transition-colors" /> 返回
+                          <ArrowLeft className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#3b82f6] transition-colors" /> 返回
                         </button>
                         <h2 className="text-[18px] font-bold text-neutral-800 flex items-center gap-2">
-                          <span className="w-1.5 h-4.5 bg-[#fa541c] rounded-full"></span>
+                          <span className="w-1.5 h-4.5 bg-[#3b82f6] rounded-full"></span>
                           试卷管理
                         </h2>
                         <p className="text-[12px] text-neutral-400 mt-1 leading-relaxed">
@@ -1552,7 +1552,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       </div>
                       <Button 
                         onClick={() => setShowCreatePaperModal(true)}
-                        className="bg-[#fa541c] hover:bg-[#ff7a45] text-white hover:shadow-md transition-all h-8.5 px-4 rounded-md text-[13px] font-bold flex items-center gap-1.5 shrink-0 shadow-sm mt-6 md:mt-2"
+                        className="bg-[#3b82f6] hover:bg-[#60a5fa] text-white hover:shadow-md transition-all h-8.5 px-4 rounded-md text-[13px] font-bold flex items-center gap-1.5 shrink-0 shadow-sm mt-6 md:mt-2"
                       >
                         <Plus className="w-3.5 h-3.5" /> 新建试卷
                       </Button>
@@ -1564,12 +1564,12 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <thead>
                           <tr className="bg-[#fafafa] text-[13px] text-neutral-600 font-bold border-b border-neutral-200 select-none">
                             <th className="py-4 px-6 w-12 text-center">
-                              <input type="checkbox" className="rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c] cursor-pointer" readOnly checked />
+                              <input type="checkbox" className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer" readOnly checked />
                             </th>
                             <th className="py-4 px-4 w-72">
                               <div className="flex items-center gap-1">
                                 试卷名称 
-                                <Search className="w-3.5 h-3.5 text-[#fa541c] cursor-pointer hover:opacity-80 transition-opacity" />
+                                <Search className="w-3.5 h-3.5 text-[#3b82f6] cursor-pointer hover:opacity-80 transition-opacity" />
                               </div>
                             </th>
                             <th className="py-4 px-4">试卷说明</th>
@@ -1612,9 +1612,9 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                             return (
                               <React.Fragment key={paper.id}>
                                 {/* Main Row */}
-                                <tr className="border-b border-neutral-100 hover:bg-[#fff2e8]/10 transition-colors">
+                                <tr className="border-b border-neutral-100 hover:bg-[#eff6ff]/10 transition-colors">
                                   <td className="py-4 px-6 text-center select-none">
-                                    <input type="checkbox" className="rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c] cursor-pointer" />
+                                    <input type="checkbox" className="rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] cursor-pointer" />
                                   </td>
                                   <td className="py-4 px-4">
                                     <div className="flex items-center gap-3">
@@ -1623,8 +1623,8 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                         className={cn(
                                           "w-4 h-4 border flex items-center justify-center text-xs font-bold transition-all rounded-[3px] select-none",
                                           isExpanded 
-                                            ? "bg-[#fff2e8] border-[#fa541c] text-[#fa541c]" 
-                                            : "bg-white border-neutral-300 text-neutral-500 hover:border-[#fa541c] hover:text-[#fa541c]"
+                                            ? "bg-[#eff6ff] border-[#3b82f6] text-[#3b82f6]" 
+                                            : "bg-white border-neutral-300 text-neutral-500 hover:border-[#3b82f6] hover:text-[#3b82f6]"
                                         )}
                                       >
                                         {isExpanded ? "-" : "+"}
@@ -1657,10 +1657,10 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                   </td>
                                   <td className="py-4 px-6 text-[13px] font-medium text-right whitespace-nowrap select-none">
                                     <div className="flex items-center justify-end gap-4">
-                                      <button className="text-[#fa541c] hover:text-[#ff7a45] transition-colors">编辑</button>
+                                      <button className="text-[#3b82f6] hover:text-[#60a5fa] transition-colors">编辑</button>
                                       <button 
                                         onClick={(e) => handleDeletePaper(paper.id, e)}
-                                        className="text-[#fa541c] hover:text-[#ff7a45] transition-colors"
+                                        className="text-[#3b82f6] hover:text-[#60a5fa] transition-colors"
                                       >
                                         删除
                                       </button>
@@ -1675,23 +1675,23 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                       <div className="w-full bg-white border border-neutral-200/80 rounded-xl p-4 shadow-sm relative overflow-hidden transition-all duration-300">
                                         
                                         <h3 className="flex items-center gap-2 text-[13.5px] font-bold text-neutral-800 mb-4 mt-1">
-                                          <FileText className="w-4 h-4 text-[#fa541c]" /> 客观题配置明细
+                                          <FileText className="w-4 h-4 text-[#3b82f6]" /> 客观题配置明细
                                         </h3>
                                         
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-2">
                                           {/* Item 1 */}
-                                          <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-100 hover:bg-white hover:border-[#ffbb96]/60 transition-all group">
+                                          <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-100 hover:bg-white hover:border-[#bfdbfe]/60 transition-all group">
                                             <div className="font-bold text-[13px] text-neutral-800 mb-1 flex items-center gap-1.5">
-                                              <span className="w-1.5 h-1.5 bg-[#fa541c] rounded-full"></span>
+                                              <span className="w-1.5 h-1.5 bg-[#3b82f6] rounded-full"></span>
                                               1. 客观题 {paper.questionsCount} 道，共 100 分
                                             </div>
                                             <div className="text-[12px] text-neutral-400 pl-3">包含客观选择题以及Python基础编程自动测评题。</div>
                                           </div>
                                           
                                           {/* Item 2 */}
-                                          <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-100 hover:bg-white hover:border-[#ffbb96]/60 transition-all group">
+                                          <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-100 hover:bg-white hover:border-[#bfdbfe]/60 transition-all group">
                                             <div className="font-bold text-[13px] text-neutral-800 mb-1 flex items-center gap-1.5">
-                                              <span className="w-1.5 h-1.5 bg-[#fa541c] rounded-full"></span>
+                                              <span className="w-1.5 h-1.5 bg-[#3b82f6] rounded-full"></span>
                                               2. 答题限时：60 分钟
                                             </div>
                                             <div className="text-[12px] text-neutral-400 pl-3">客观题需在 60 分钟内完成答题，过程中无法暂停，仅支持提交一次，请提前合理安排时间。</div>
@@ -1704,7 +1704,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                               setShowPreviewQuestionsModal(true);
                                               setSelectedAnswers({});
                                             }}
-                                            className="bg-white hover:bg-[#fff2e8] text-[#fa541c] border border-[#ffbb96] h-8.5 px-6 rounded-md text-[12px] font-bold transition-all shadow-sm flex items-center gap-1"
+                                            className="bg-white hover:bg-[#eff6ff] text-[#3b82f6] border border-[#bfdbfe] h-8.5 px-6 rounded-md text-[12px] font-bold transition-all shadow-sm flex items-center gap-1"
                                           >
                                             <Eye className="w-3.5 h-3.5" /> 预览客观题
                                           </Button>
@@ -1738,7 +1738,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 <div className="fixed inset-0 z-[250] flex items-center justify-center bg-black/50 backdrop-blur-xs animate-in fade-in duration-200">
                   <div className="w-[500px] bg-white rounded-xl shadow-xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 border border-neutral-150">
                     {/* Header */}
-                    <div className="h-14 bg-gradient-to-r from-[#fa541c] to-[#ff7a45] flex items-center justify-between px-6 shrink-0 text-white font-bold text-sm relative">
+                    <div className="h-14 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] flex items-center justify-between px-6 shrink-0 text-white font-bold text-sm relative">
                       <div className="flex items-center gap-2">
                         <PlusCircle className="w-5 h-5" />
                         <span>新建试卷</span>
@@ -1758,7 +1758,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <input 
                           type="text" 
                           placeholder="请输入试卷名称，例如：Python基础数据类型测试"
-                          className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c] focus:border-[#fa541c] transition-all"
+                          className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all"
                           value={newPaperForm.name}
                           onChange={(e) => setNewPaperForm(prev => ({ ...prev, name: e.target.value }))}
                           required
@@ -1769,7 +1769,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <label className="block text-[13px] font-bold text-neutral-700 mb-1.5">试卷说明</label>
                         <textarea 
                           placeholder="请输入试卷的描述性信息..."
-                          className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c] focus:border-[#fa541c] transition-all resize-none h-20"
+                          className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all resize-none h-20"
                           value={newPaperForm.desc}
                           onChange={(e) => setNewPaperForm(prev => ({ ...prev, desc: e.target.value }))}
                         />
@@ -1781,7 +1781,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           <input 
                             type="number" 
                             min="1"
-                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c] focus:border-[#fa541c] transition-all"
+                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all"
                             value={newPaperForm.questionsCount}
                             onChange={(e) => setNewPaperForm(prev => ({ ...prev, questionsCount: Number(e.target.value) }))}
                           />
@@ -1791,7 +1791,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           <input 
                             type="number" 
                             min="1"
-                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c] focus:border-[#fa541c] transition-all"
+                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all"
                             value={newPaperForm.timeLimit}
                             onChange={(e) => setNewPaperForm(prev => ({ ...prev, timeLimit: Number(e.target.value) }))}
                           />
@@ -1802,7 +1802,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <div>
                           <label className="block text-[13px] font-bold text-neutral-700 mb-1.5">包含题型</label>
                           <select 
-                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c] focus:border-[#fa541c] transition-all bg-white"
+                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all bg-white"
                             value={newPaperForm.questionTypes}
                             onChange={(e) => setNewPaperForm(prev => ({ ...prev, questionTypes: e.target.value }))}
                           >
@@ -1814,7 +1814,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <div>
                           <label className="block text-[13px] font-bold text-neutral-700 mb-1.5">试卷类型</label>
                           <select 
-                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c] focus:border-[#fa541c] transition-all bg-white"
+                            className="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all bg-white"
                             value={newPaperForm.paperType}
                             onChange={(e) => setNewPaperForm(prev => ({ ...prev, paperType: e.target.value }))}
                           >
@@ -1836,7 +1836,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         </Button>
                         <Button 
                           type="submit"
-                          className="h-9 px-5 bg-[#fa541c] hover:bg-[#ff7a45] text-white rounded-md text-[13px] font-bold shadow-sm"
+                          className="h-9 px-5 bg-[#3b82f6] hover:bg-[#60a5fa] text-white rounded-md text-[13px] font-bold shadow-sm"
                         >
                           确认创建
                         </Button>
@@ -1851,7 +1851,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 <div className="fixed inset-0 z-[250] flex items-center justify-center bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
                   <div className="w-[700px] max-w-full bg-white rounded-xl shadow-xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 border border-neutral-200 mx-4 h-[550px]">
                     {/* Header */}
-                    <div className="h-14 bg-gradient-to-r from-[#fa541c] to-[#ff7a45] flex items-center justify-between px-6 shrink-0 text-white font-bold text-sm relative">
+                    <div className="h-14 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] flex items-center justify-between px-6 shrink-0 text-white font-bold text-sm relative">
                       <div className="flex items-center gap-2">
                         <Eye className="w-5 h-5 animate-pulse" />
                         <span>客观题在线预览（互动答题模式）</span>
@@ -1869,7 +1869,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       {/* Question Box */}
                       <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-xs space-y-4">
                         <div className="flex justify-between items-center text-xs">
-                          <span className="px-2 py-0.5 rounded bg-orange-50 text-[#fa541c] font-bold border border-[#ffbb96]/60">单选题</span>
+                          <span className="px-2 py-0.5 rounded bg-blue-50 text-[#3b82f6] font-bold border border-[#bfdbfe]/60">单选题</span>
                           <span className="text-neutral-400 font-mono font-medium">题目 1 / 1</span>
                         </div>
                         
@@ -1892,14 +1892,14 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                 className={cn(
                                   "p-3 rounded-lg border text-sm cursor-pointer transition-all flex items-start gap-3 select-none",
                                   isSelected 
-                                    ? "bg-[#fff2e8]/80 border-[#fa541c] text-[#fa541c] shadow-sm font-semibold" 
-                                    : "bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-50/50 hover:border-[#ffbb96]/60"
+                                    ? "bg-[#eff6ff]/80 border-[#3b82f6] text-[#3b82f6] shadow-sm font-semibold" 
+                                    : "bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-50/50 hover:border-[#bfdbfe]/60"
                                 )}
                               >
                                 <span className={cn(
                                   "w-5 h-5 rounded-full flex items-center justify-center shrink-0 font-mono text-xs border transition-colors",
                                   isSelected 
-                                    ? "bg-[#fa541c] border-[#fa541c] text-white font-bold" 
+                                    ? "bg-[#3b82f6] border-[#3b82f6] text-white font-bold" 
                                     : "border-neutral-300 text-neutral-400 bg-white"
                                 )}>
                                   {opt.key}
@@ -1946,7 +1946,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       </div>
                       <Button 
                         onClick={() => setShowPreviewQuestionsModal(false)}
-                        className="bg-[#fa541c] hover:bg-[#ff7a45] text-white h-9 px-6 rounded-md text-[13px] font-bold transition-all shadow-sm"
+                        className="bg-[#3b82f6] hover:bg-[#60a5fa] text-white h-9 px-6 rounded-md text-[13px] font-bold transition-all shadow-sm"
                       >
                         关闭预览
                       </Button>
@@ -1966,7 +1966,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 {isTeacher && teacherActionMode !== 'preview' ? (
                   <div className="p-4 flex flex-col gap-4 border-b border-neutral-border">
                     <div 
-                      className="flex items-center gap-1 text-[15px] font-medium text-neutral-title cursor-pointer hover:text-[#fa541c] w-fit"
+                      className="flex items-center gap-1 text-[15px] font-medium text-neutral-title cursor-pointer hover:text-[#3b82f6] w-fit"
                       onClick={handleCloseLesson}
                     >
                       <ChevronLeft className="w-4 h-4" /> 人工智能基础与实践
@@ -1978,7 +1978,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="h-7 px-2 text-[#fa541c] border-[#fa541c] hover:bg-[#fff2e8] flex items-center gap-1 text-xs shadow-sm"
+                        className="h-7 px-2 text-[#3b82f6] border-[#3b82f6] hover:bg-[#eff6ff] flex items-center gap-1 text-xs shadow-sm"
                         onClick={() => setShowCreateLessonModal(true)}
                       >
                         <PlusCircle className="w-3.5 h-3.5" /> 新建课节
@@ -2006,7 +2006,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           <span className="shrink-0">3.4%</span>
                         </div>
                         <div className="h-1.5 w-full bg-neutral-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-[#fa541c] w-[3.4%] rounded-full"></div>
+                          <div className="h-full bg-[#3b82f6] w-[3.4%] rounded-full"></div>
                         </div>
                       </div>
                     </div>
@@ -2028,7 +2028,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                               key={idx} 
                               className={cn(
                                 "flex items-center justify-between px-4 py-2.5 text-[13px] transition-colors cursor-pointer border-r-2 relative group",
-                                isActive ? "bg-[#fff2e8] text-[#fa541c] border-[#fa541c]" : "text-neutral-body hover:bg-neutral-100 border-transparent",
+                                isActive ? "bg-[#eff6ff] text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body hover:bg-neutral-100 border-transparent",
                                 lesson.locked && "opacity-50 cursor-not-allowed hover:bg-transparent",
                                 isMenuOpen ? "z-20" : "z-10"
                               )}
@@ -2040,11 +2040,11 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                               }}
                             >
                               <div className="flex items-center gap-2.5 w-full pr-4">
-                                <span className={cn("shrink-0", isActive ? "text-[#fa541c] font-medium" : "text-neutral-body")}>{i + 1}-{idx + 1}</span>
+                                <span className={cn("shrink-0", isActive ? "text-[#3b82f6] font-medium" : "text-neutral-body")}>{i + 1}-{idx + 1}</span>
                                 <div className={cn(
                                   "w-6 h-6 rounded flex items-center justify-center shrink-0",
                                   lesson.type === 'split_doc' ? "bg-blue-50 text-blue-500" : 
-                                  lesson.type === 'experiment' ? "bg-orange-50 text-[#fa541c]" :
+                                  lesson.type === 'experiment' ? "bg-blue-50 text-[#3b82f6]" :
                                   lesson.type === 'assignment' ? "bg-rose-50 text-rose-500" :
                                   "bg-emerald-50 text-emerald-500"
                                 )}>
@@ -2068,7 +2068,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                       }}
                                       className={cn(
                                         "w-6 h-6 rounded hover:bg-neutral-200/60 flex items-center justify-center text-neutral-400 hover:text-neutral-600 transition-colors",
-                                        activeLessonMenu?.cIdx === i && activeLessonMenu?.lIdx === idx && "text-[#fa541c]"
+                                        activeLessonMenu?.cIdx === i && activeLessonMenu?.lIdx === idx && "text-[#3b82f6]"
                                       )}
                                     >
                                       <MoreHorizontal className="w-4 h-4" />
@@ -2079,7 +2079,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                         <div className="fixed inset-0 z-40" onClick={(e) => { e.stopPropagation(); setActiveLessonMenu(null); }}></div>
                                         <div className="absolute right-0 top-7 w-24 bg-white rounded-lg shadow-lg border border-neutral-100 z-50 py-1 flex flex-col">
                                           <button 
-                                            className="px-4 py-2 text-[12px] text-left text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] font-medium"
+                                            className="px-4 py-2 text-[12px] text-left text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] font-medium"
                                             onClick={(e) => {
                                               e.stopPropagation();
                                               handleOpenEditModal(i, idx, lesson.title);
@@ -2121,7 +2121,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   </div>
                   <div className="flex-1 overflow-y-auto py-2 custom-scrollbar">
                     <div className="flex flex-col">
-                      <div className="px-4 py-3.5 text-[13px] bg-[#fff2e8] text-[#fa541c] border-l-[3px] border-[#fa541c] cursor-pointer font-medium hover:bg-[#ffe4d3] transition-colors">
+                      <div className="px-4 py-3.5 text-[13px] bg-[#eff6ff] text-[#3b82f6] border-l-[3px] border-[#3b82f6] cursor-pointer font-medium hover:bg-[#ffe4d3] transition-colors">
                         1.1 我们为什么要学 AI
                       </div>
                       <div className="px-4 py-3.5 text-[13px] text-neutral-body hover:bg-neutral-50 hover:text-neutral-title cursor-pointer border-l-[3px] border-transparent transition-colors">
@@ -2146,10 +2146,10 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       {playingLesson.title}
                     </div>
                     <div className="flex items-center gap-3">
-                      <Button variant="outline" className="h-8 px-4 text-[#fa541c] border-[#fa541c] hover:bg-[#fff2e8] flex items-center gap-1.5 shadow-sm rounded-md" onClick={() => setTeacherActionMode('preview')}>
+                      <Button variant="outline" className="h-8 px-4 text-[#3b82f6] border-[#3b82f6] hover:bg-[#eff6ff] flex items-center gap-1.5 shadow-sm rounded-md" onClick={() => setTeacherActionMode('preview')}>
                         <Eye className="w-3.5 h-3.5" /> 预览
                       </Button>
-                      <Button className="h-8 px-4 bg-[#fa541c] hover:bg-[#e84a15] text-white flex items-center gap-1.5 shadow-sm rounded-md" onClick={() => setTeacherActionMode('edit')}>
+                      <Button className="h-8 px-4 bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-1.5 shadow-sm rounded-md" onClick={() => setTeacherActionMode('edit')}>
                         <Edit className="w-3.5 h-3.5" /> 编辑
                       </Button>
                     </div>
@@ -2204,7 +2204,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         </ol>
                       </div>
 
-                      <div className="bg-neutral-50 p-4 border-l-4 border-[#fa541c] rounded mt-12">
+                      <div className="bg-neutral-50 p-4 border-l-4 border-[#3b82f6] rounded mt-12">
                          <p className="text-sm text-neutral-caption m-0">注：本文档为《{playingLesson.title}》的官方配套讲义资料，未经许可严禁外传。</p>
                       </div>
                     </div>
@@ -2278,7 +2278,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           <div className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100">
                             <h3 className="text-[18px] font-bold text-neutral-title mb-4">1.1 图片的本质：数字矩阵</h3>
                             <p className="text-[14px] text-neutral-body mb-6 leading-loose">
-                              我们看到的图像，在计算机内部其实是一串串数字。这些数字按照行和列整齐地排列，形成了一个 <span className="text-[#fa541c] font-medium">矩阵</span>。
+                              我们看到的图像，在计算机内部其实是一串串数字。这些数字按照行和列整齐地排列，形成了一个 <span className="text-[#3b82f6] font-medium">矩阵</span>。
                             </p>
                             
                             <div className="border-2 border-dashed border-neutral-200 rounded-xl p-8 flex flex-col items-center justify-center bg-[#fafafa]">
@@ -2332,8 +2332,8 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     <h1 className="text-3xl font-bold text-neutral-title mb-8 text-center pb-6 border-b border-neutral-border w-full">{playingLesson.title}</h1>
                     <div className="w-full aspect-video bg-black relative rounded-lg overflow-hidden shadow-2xl border border-white/10">
                       <div className="absolute inset-0 flex flex-col items-center justify-center text-white/80 bg-gradient-to-b from-neutral-900 to-black">
-                        <div className="w-20 h-20 rounded-full bg-[#fa541c]/20 flex items-center justify-center mb-6 animate-pulse">
-                          <PlayCircle className="w-12 h-12 text-[#fa541c]" />
+                        <div className="w-20 h-20 rounded-full bg-[#3b82f6]/20 flex items-center justify-center mb-6 animate-pulse">
+                          <PlayCircle className="w-12 h-12 text-[#3b82f6]" />
                         </div>
                         <h3 className="text-2xl font-bold mb-2">{playingLesson.title}</h3>
                         <p className="text-neutral-400">视频正在加载中...</p>
@@ -2341,9 +2341,9 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         {/* Fake Video Controls */}
                         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/80 to-transparent flex items-end px-6 pb-4">
                           <div className="w-full flex items-center gap-4">
-                            <PlayCircle className="w-6 h-6 text-white cursor-pointer hover:text-[#fa541c] transition-colors" />
+                            <PlayCircle className="w-6 h-6 text-white cursor-pointer hover:text-[#3b82f6] transition-colors" />
                             <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer">
-                              <div className="w-1/3 h-full bg-[#fa541c] rounded-full"></div>
+                              <div className="w-1/3 h-full bg-[#3b82f6] rounded-full"></div>
                             </div>
                             <span className="text-xs text-white/70 font-mono">05:24 / 15:00</span>
                           </div>
@@ -2360,21 +2360,21 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <h2 className="text-xl font-bold text-neutral-title mb-3">一、选择题</h2>
                         <p>1. 以下哪个是正确的 Python 变量名？</p>
                         <ul className="list-none space-y-2 mt-4">
-                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#fa541c] focus:ring-[#fa541c]" /> <span>A. 1_variable</span></label></li>
-                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#fa541c] focus:ring-[#fa541c]" /> <span>B. variable_1</span></label></li>
-                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#fa541c] focus:ring-[#fa541c]" /> <span>C. var-1</span></label></li>
-                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#fa541c] focus:ring-[#fa541c]" /> <span>D. def</span></label></li>
+                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#3b82f6] focus:ring-[#3b82f6]" /> <span>A. 1_variable</span></label></li>
+                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#3b82f6] focus:ring-[#3b82f6]" /> <span>B. variable_1</span></label></li>
+                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#3b82f6] focus:ring-[#3b82f6]" /> <span>C. var-1</span></label></li>
+                          <li><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="q1" className="text-[#3b82f6] focus:ring-[#3b82f6]" /> <span>D. def</span></label></li>
                         </ul>
                       </div>
 
                       <div className="mt-8">
                         <h2 className="text-xl font-bold text-neutral-title mb-3">二、简答题</h2>
                         <p>2. 简述 Python 中列表和元组的区别。</p>
-                        <textarea className="w-full h-32 p-3 mt-4 border border-neutral-border rounded-md outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all resize-none" placeholder="请输入你的答案..."></textarea>
+                        <textarea className="w-full h-32 p-3 mt-4 border border-neutral-border rounded-md outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all resize-none" placeholder="请输入你的答案..."></textarea>
                       </div>
                       
                       <div className="flex justify-end mt-8 pt-6 border-t border-neutral-border">
-                         <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-8" onClick={() => { alert('作业提交成功！'); handleCloseLesson(); }}>提交作业</Button>
+                         <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8" onClick={() => { alert('作业提交成功！'); handleCloseLesson(); }}>提交作业</Button>
                       </div>
                     </div>
                   </div>
@@ -2384,7 +2384,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     <div className="flex items-center justify-between px-8 py-4 border-b border-neutral-border bg-white shrink-0 z-10">
                       <span className="text-[16px] font-bold text-neutral-title">{playingLesson.title}</span>
                       <div className="flex gap-4">
-                        <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-6" onClick={() => setIsExperimentStarted(true)}>启动实验</Button>
+                        <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-6" onClick={() => setIsExperimentStarted(true)}>启动实验</Button>
                         <Button variant="outline" className="text-neutral-body h-9 px-6">结束实验</Button>
                       </div>
                     </div>
@@ -2392,15 +2392,15 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                       <div className="max-w-4xl mx-auto">
                         <h1 className="text-3xl font-bold text-neutral-title mb-8">🧠第12课：Linux 实时进程监控工具 top</h1>
                         
-                        <h2 className="text-xl font-bold text-neutral-title mt-8 mb-4 flex items-center gap-2"><BookOpen className="w-5 h-5 text-[#fa541c]" /> 介绍</h2>
+                        <h2 className="text-xl font-bold text-neutral-title mt-8 mb-4 flex items-center gap-2"><BookOpen className="w-5 h-5 text-[#3b82f6]" /> 介绍</h2>
                         <p className="text-[14px] text-neutral-body leading-loose mb-6">
-                          在 Linux 系统中，<code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">top</code> 是动态监控进程和系统资源使用情况的核心工具。它以交互式界面的形式实时显示 CPU、内存、负载和每个进程的详细状态，并支持快捷键进行排序、筛选和操作。本课将带你从基础运行 <code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">top</code> 开始，逐步掌握界面解读、常用快捷键、自定义显示字段、批处理模式以及结合脚本进行自动化监控，让你能够实时掌握系统的运行状态。
+                          在 Linux 系统中，<code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">top</code> 是动态监控进程和系统资源使用情况的核心工具。它以交互式界面的形式实时显示 CPU、内存、负载和每个进程的详细状态，并支持快捷键进行排序、筛选和操作。本课将带你从基础运行 <code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">top</code> 开始，逐步掌握界面解读、常用快捷键、自定义显示字段、批处理模式以及结合脚本进行自动化监控，让你能够实时掌握系统的运行状态。
                         </p>
 
                         <h2 className="text-2xl font-bold text-neutral-title mt-10 mb-6">1. 理论</h2>
                         <h3 className="text-[18px] font-bold text-neutral-title mt-6 mb-4 flex items-center gap-2"><span className="text-yellow-400">💡</span> 基本介绍 什么是 top?</h3>
                         <p className="text-[14px] text-neutral-body leading-loose mb-4">
-                          <code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">top</code> (table of processes) 是 Linux 中实时显示系统状态的命令。它提供一个全屏交互界面，默认每 3 秒刷新一次，动态展示系统负载、任务总数、CPU 使用率、内存和交换分区使用情况，以及各进程的详细资源占用。用户可通过按键对进程进行排序、杀死进程、调整进程优先级等操作。
+                          <code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">top</code> (table of processes) 是 Linux 中实时显示系统状态的命令。它提供一个全屏交互界面，默认每 3 秒刷新一次，动态展示系统负载、任务总数、CPU 使用率、内存和交换分区使用情况，以及各进程的详细资源占用。用户可通过按键对进程进行排序、杀死进程、调整进程优先级等操作。
                         </p>
                         <p className="text-[14px] text-neutral-body leading-loose mb-3">基本语法：</p>
                         <div className="bg-[#282c34] rounded-lg overflow-hidden mb-8">
@@ -2420,17 +2420,17 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                           </div>
                         </div>
 
-                        <h3 className="text-[18px] font-bold text-neutral-title mt-8 mb-4 flex items-center gap-2"><BarChart className="w-5 h-5 text-[#fa541c]" /> 解析</h3>
+                        <h3 className="text-[18px] font-bold text-neutral-title mt-8 mb-4 flex items-center gap-2"><BarChart className="w-5 h-5 text-[#3b82f6]" /> 解析</h3>
                         <p className="text-[14px] text-neutral-body leading-loose mb-4">常用选项：</p>
                         <ul className="list-disc pl-6 space-y-4 text-[14px] text-neutral-body mb-8">
-                          <li><code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">-d 秒数</code> : 指定刷新间隔（默认 3 秒）</li>
-                          <li><code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">-p PID1,PID2</code> : 只监视指定 PID 的进程</li>
-                          <li><code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">-u 用户名</code> : 只显示指定用户的进程</li>
-                          <li><code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">-b</code> : 批处理模式，将输出重定向到文件或管道</li>
-                          <li><code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">-n 次数</code> : 批处理模式下指定刷新次数</li>
+                          <li><code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">-d 秒数</code> : 指定刷新间隔（默认 3 秒）</li>
+                          <li><code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">-p PID1,PID2</code> : 只监视指定 PID 的进程</li>
+                          <li><code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">-u 用户名</code> : 只显示指定用户的进程</li>
+                          <li><code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">-b</code> : 批处理模式，将输出重定向到文件或管道</li>
+                          <li><code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">-n 次数</code> : 批处理模式下指定刷新次数</li>
                         </ul>
                         <p className="text-[14px] text-neutral-body leading-loose">
-                          最简单的用法直接在终端输入 <code className="bg-[#fff2e8] text-[#fa541c] px-1.5 py-0.5 rounded text-[13px]">top</code> 进入交互界面。
+                          最简单的用法直接在终端输入 <code className="bg-[#eff6ff] text-[#3b82f6] px-1.5 py-0.5 rounded text-[13px]">top</code> 进入交互界面。
                         </p>
                       </div>
                     </div>
@@ -2444,18 +2444,18 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 <div className="w-80 border-l border-neutral-border bg-white flex flex-col animate-in slide-in-from-right-8 duration-300">
                   <div className="p-4 border-b border-neutral-border flex justify-between items-center">
                     <h3 className="font-bold text-neutral-title flex items-center gap-2">
-                      <FileText className="w-4 h-4 text-[#fa541c]" /> 课堂笔记
+                      <FileText className="w-4 h-4 text-[#3b82f6]" /> 课堂笔记
                     </h3>
                     <X className="w-4 h-4 cursor-pointer text-neutral-caption hover:text-neutral-title" onClick={() => setShowNotesPanel(false)} />
                   </div>
                   <div className="flex-1 p-4 overflow-y-auto bg-[#fafafa]">
                     <textarea 
-                      className="w-full h-full p-4 border border-neutral-border rounded-lg outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] resize-none text-[14px] text-neutral-body bg-white shadow-sm transition-all" 
+                      className="w-full h-full p-4 border border-neutral-border rounded-lg outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] resize-none text-[14px] text-neutral-body bg-white shadow-sm transition-all" 
                       placeholder="在这里记录你的学习心得、重要知识点或待办事项..."
                     ></textarea>
                   </div>
                   <div className="p-4 border-t border-neutral-border bg-white flex justify-end">
-                    <Button className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-8 text-xs px-4">保存笔记</Button>
+                    <Button className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-8 text-xs px-4">保存笔记</Button>
                   </div>
                 </div>
               )}
@@ -2466,7 +2466,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   <div 
                     className={cn(
                       "flex flex-col items-center gap-1.5 cursor-pointer group",
-                      showNotesPanel ? "text-[#fa541c]" : "text-neutral-caption hover:text-[#fa541c]"
+                      showNotesPanel ? "text-[#3b82f6]" : "text-neutral-caption hover:text-[#3b82f6]"
                     )}
                     onClick={() => setShowNotesPanel(!showNotesPanel)}
                   >
@@ -2484,7 +2484,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               <div className="h-12 border-b border-neutral-border flex items-center justify-between px-4">
                 <div className="flex items-center gap-4">
                   <div 
-                    className="flex items-center gap-1 text-[14px] font-bold text-neutral-title cursor-pointer hover:text-[#fa541c]"
+                    className="flex items-center gap-1 text-[14px] font-bold text-neutral-title cursor-pointer hover:text-[#3b82f6]"
                     onClick={() => {
                       if (teacherActionMode === 'edit') {
                         setTeacherActionMode('detail');
@@ -2498,12 +2498,12 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   <div className="w-px h-4 bg-neutral-border mx-2"></div>
                   <span className="text-sm font-bold text-neutral-title">{playingLesson.title}</span>
                   {teacherActionMode === 'edit' && (
-                    <span className="ml-2 px-2 py-0.5 bg-[#fff2e8] text-[#fa541c] text-[10px] rounded border border-[#ffbb96]">编辑模式</span>
+                    <span className="ml-2 px-2 py-0.5 bg-[#eff6ff] text-[#3b82f6] text-[10px] rounded border border-[#bfdbfe]">编辑模式</span>
                   )}
                 </div>
                 <div className="flex items-center gap-4">
                   {teacherActionMode === 'edit' && (
-                    <Button size="sm" className="h-7 text-xs bg-[#fa541c] hover:bg-[#e84a15] text-white px-4 mr-4" onClick={() => setTeacherActionMode('detail')}>
+                    <Button size="sm" className="h-7 text-xs bg-[#3b82f6] hover:bg-[#2563eb] text-white px-4 mr-4" onClick={() => setTeacherActionMode('detail')}>
                       保存课时
                     </Button>
                   )}
@@ -2515,10 +2515,10 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     <button className="p-1 hover:bg-neutral-200 rounded text-neutral-600" title="Interrupt the kernel"><Square className="w-4 h-4" /></button>
                     <button className="p-1 hover:bg-neutral-200 rounded text-neutral-600" title="Restart the kernel"><RotateCcw className="w-4 h-4" /></button>
                     <div className="mx-2 h-4 w-px bg-neutral-border"></div>
-                    <Button variant="outline" size="sm" className="h-7 text-xs text-[#fa541c] border-[#ffbb96] hover:bg-[#fff2e8] px-2 flex items-center gap-1">
+                    <Button variant="outline" size="sm" className="h-7 text-xs text-[#3b82f6] border-[#bfdbfe] hover:bg-[#eff6ff] px-2 flex items-center gap-1">
                       <Layers className="w-3.5 h-3.5" /> 收起/展开非Cell块
                     </Button>
-                    <Button size="sm" className="h-7 text-xs bg-[#fa541c] hover:bg-[#e84a15] text-white px-3 flex items-center gap-1 mt-0">
+                    <Button size="sm" className="h-7 text-xs bg-[#3b82f6] hover:bg-[#2563eb] text-white px-3 flex items-center gap-1 mt-0">
                       <Cpu className="w-3.5 h-3.5" /> 启动 GPU 环境
                     </Button>
                   </div>
@@ -2541,21 +2541,21 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 {/* Left Sidebar - Icons */}
                 <div className="w-16 border-r border-neutral-border flex flex-col items-center py-4 gap-6 text-neutral-caption bg-[#fafafa]">
                   <div 
-                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'course' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'course' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
                     onClick={() => setActiveExperimentTab('course')}
                   >
                     <CheckSquare className="w-5 h-5" />
                     <span className="text-[10px]">课程</span>
                   </div>
                   <div 
-                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'file' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'file' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
                     onClick={() => setActiveExperimentTab('file')}
                   >
                     <FileText className="w-5 h-5" />
                     <span className="text-[10px]">文件</span>
                   </div>
                   <div 
-                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'dataset' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'dataset' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
                     onClick={() => setActiveExperimentTab('dataset')}
                   >
                     <Map className="w-5 h-5" />
@@ -2563,7 +2563,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   </div>
 
                   <div 
-                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'toc' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'toc' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
                     onClick={() => setActiveExperimentTab('toc')}
                   >
                     <List className="w-5 h-5" />
@@ -2593,7 +2593,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <span>Last Modified</span>
                       </div>
                       <div className="flex-1 overflow-y-auto">
-                        <div className="flex items-center justify-between p-2 bg-[#fa541c] text-white text-sm cursor-pointer">
+                        <div className="flex items-center justify-between p-2 bg-[#3b82f6] text-white text-sm cursor-pointer">
                           <div className="flex items-center gap-2">
                             <FileText className="w-4 h-4 text-white" />
                             <span>Python 基础数据类型</span>
@@ -2625,7 +2625,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                             onClick={() => setDatasetTab(t.id)}
                             className={cn(
                               "flex-1 py-3 flex flex-col items-center justify-center gap-1 cursor-pointer transition-colors border-b-2",
-                              datasetTab === t.id ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-caption border-transparent hover:text-neutral-title"
+                              datasetTab === t.id ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-caption border-transparent hover:text-neutral-title"
                             )}
                           >
                             <t.icon className="w-4 h-4" />
@@ -2638,7 +2638,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                            <>
                              <div className="relative mb-4">
                                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-caption" />
-                               <input type="text" placeholder="搜索公开数据集..." className="w-full pl-9 pr-4 py-2 bg-neutral-100 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#fa541c]" />
+                               <input type="text" placeholder="搜索公开数据集..." className="w-full pl-9 pr-4 py-2 bg-neutral-100 rounded-md text-sm outline-none focus:ring-1 focus:ring-[#3b82f6]" />
                              </div>
                              <div className="space-y-3">
                                 {[
@@ -2646,8 +2646,8 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                    {name: "IMDB Movie Reviews", desc: "自然语言情感分类标准数据集"},
                                    {name: "COCO Image 2017", desc: "目标检测巨无霸公开数据集"}
                                 ].map((d, i) => (
-                                   <div onClick={() => setSelectedDataset(d)} key={i} className="p-3 border border-neutral-border rounded hover:border-[#fa541c] hover:shadow-sm cursor-pointer transition-all bg-white group">
-                                     <div className="text-sm font-bold text-neutral-title mb-1 group-hover:text-[#fa541c]">{d.name}</div>
+                                   <div onClick={() => setSelectedDataset(d)} key={i} className="p-3 border border-neutral-border rounded hover:border-[#3b82f6] hover:shadow-sm cursor-pointer transition-all bg-white group">
+                                     <div className="text-sm font-bold text-neutral-title mb-1 group-hover:text-[#3b82f6]">{d.name}</div>
                                      <div className="text-[11px] text-neutral-caption line-clamp-2">{d.desc}</div>
                                    </div>
                                 ))}
@@ -2691,19 +2691,19 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                          )}
                          {datasetTab === 'my' && (
                            <>
-                             <Button size="sm" className="w-full mb-4 bg-white border border-[#fa541c] text-[#fa541c] hover:bg-[#fff2e8] h-8 shadow-none rounded-md text-xs transition-colors">
+                             <Button size="sm" className="w-full mb-4 bg-white border border-[#3b82f6] text-[#3b82f6] hover:bg-[#eff6ff] h-8 shadow-none rounded-md text-xs transition-colors">
                                <Plus className="w-3.5 h-3.5 mr-1" /> 上传私有数据集
                              </Button>
                              <div className="space-y-3">
                                {[
                                  {name: "公司财务脱敏验证集(2023)", desc: "我自己清洗加工的文件包"}
                                ].map((d, i) => (
-                                 <div key={i} className="p-3 border border-neutral-border rounded bg-white group hover:border-[#fa541c] transition-colors cursor-pointer shadow-sm" onClick={() => setSelectedDataset(d)}>
-                                   <div className="text-sm font-bold text-neutral-title mb-1 group-hover:text-[#fa541c]">{d.name}</div>
+                                 <div key={i} className="p-3 border border-neutral-border rounded bg-white group hover:border-[#3b82f6] transition-colors cursor-pointer shadow-sm" onClick={() => setSelectedDataset(d)}>
+                                   <div className="text-sm font-bold text-neutral-title mb-1 group-hover:text-[#3b82f6]">{d.name}</div>
                                    <div className="text-[11px] text-neutral-caption line-clamp-2 mb-2">{d.desc}</div>
                                    <div className="text-right">
                                      {!importedDatasets.includes(d.name) ? (
-                                        <Button size="sm" className="h-6 text-[10px] bg-[#f5f6f8] text-neutral-title hover:bg-[#fa541c] hover:text-white" onClick={(e) => { e.stopPropagation(); setImportedDatasets(prev => [...prev, d.name]); }}>
+                                        <Button size="sm" className="h-6 text-[10px] bg-[#f5f6f8] text-neutral-title hover:bg-[#3b82f6] hover:text-white" onClick={(e) => { e.stopPropagation(); setImportedDatasets(prev => [...prev, d.name]); }}>
                                            <Download className="w-3 h-3 mr-1" /> 导入
                                         </Button>
                                      ) : (
@@ -2748,14 +2748,14 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         </div>
                         {isRecommendedMode ? (
                           <>
-                             <div className="pl-6 py-1.5 text-sm text-[#fa541c] font-medium hover:bg-neutral-200 cursor-pointer flex items-center justify-between pr-2">
-                                <span>常用数据类型</span> <span className="text-[10px] bg-[#fa541c]/10 px-1.5 rounded">推荐</span>
+                             <div className="pl-6 py-1.5 text-sm text-[#3b82f6] font-medium hover:bg-neutral-200 cursor-pointer flex items-center justify-between pr-2">
+                                <span>常用数据类型</span> <span className="text-[10px] bg-[#3b82f6]/10 px-1.5 rounded">推荐</span>
                              </div>
-                             <div className="pl-6 py-1.5 text-sm text-[#fa541c] font-medium hover:bg-neutral-200 cursor-pointer flex items-center justify-between pr-2">
-                                <span>交互计算</span> <span className="text-[10px] bg-[#fa541c]/10 px-1.5 rounded">推荐</span>
+                             <div className="pl-6 py-1.5 text-sm text-[#3b82f6] font-medium hover:bg-neutral-200 cursor-pointer flex items-center justify-between pr-2">
+                                <span>交互计算</span> <span className="text-[10px] bg-[#3b82f6]/10 px-1.5 rounded">推荐</span>
                              </div>
-                             <div className="pl-6 py-1.5 text-sm text-[#fa541c] font-medium hover:bg-neutral-200 cursor-pointer flex items-center justify-between pr-2">
-                                <span>类型转换</span> <span className="text-[10px] bg-[#fa541c]/10 px-1.5 rounded">推荐</span>
+                             <div className="pl-6 py-1.5 text-sm text-[#3b82f6] font-medium hover:bg-neutral-200 cursor-pointer flex items-center justify-between pr-2">
+                                <span>类型转换</span> <span className="text-[10px] bg-[#3b82f6]/10 px-1.5 rounded">推荐</span>
                              </div>
                           </>
                         ) : (
@@ -2786,8 +2786,8 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 <div className="flex-1 flex flex-col bg-white">
                   {/* Editor Tabs */}
                   <div className="flex border-b border-neutral-border bg-[#f5f6f8]">
-                    <div className="px-4 py-2 border-r border-neutral-border flex items-center gap-2 bg-white border-t-2 border-t-[#fa541c]">
-                      <div className="w-3 h-3 bg-[#fa541c] rounded-sm"></div>
+                    <div className="px-4 py-2 border-r border-neutral-border flex items-center gap-2 bg-white border-t-2 border-t-[#3b82f6]">
+                      <div className="w-3 h-3 bg-[#3b82f6] rounded-sm"></div>
                       <span className="text-sm text-neutral-title">{playingLesson.title}.ipynb</span>
                       <X className="w-3 h-3 text-neutral-caption cursor-pointer hover:text-neutral-title ml-2" />
                     </div>
@@ -2805,7 +2805,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                            <div className="flex justify-between items-start mb-6">
                               <div>
                                  <h2 className="text-xl font-bold text-neutral-title flex items-center gap-3">
-                                   <Database className="w-6 h-6 text-[#fa541c]" /> {selectedDataset.name}
+                                   <Database className="w-6 h-6 text-[#3b82f6]" /> {selectedDataset.name}
                                  </h2>
                                  <p className="text-[13px] text-neutral-caption mt-2">{selectedDataset.desc}</p>
                               </div>
@@ -2813,10 +2813,10 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                  <Button 
                                     variant="outline" 
                                     size="sm" 
-                                    className={cn("h-8 shadow-sm transition-colors", isDatasetFavorited ? "bg-[#fa541c]/10 text-[#fa541c] border-[#fa541c]/30" : "")}
+                                    className={cn("h-8 shadow-sm transition-colors", isDatasetFavorited ? "bg-[#3b82f6]/10 text-[#3b82f6] border-[#3b82f6]/30" : "")}
                                     onClick={() => setIsDatasetFavorited(!isDatasetFavorited)}
                                  >
-                                    <Star className={cn("w-4 h-4 mr-1 transition-transform active:scale-95", isDatasetFavorited ? "text-[#fa541c] fill-[#fa541c]" : "")} /> 
+                                    <Star className={cn("w-4 h-4 mr-1 transition-transform active:scale-95", isDatasetFavorited ? "text-[#3b82f6] fill-[#3b82f6]" : "")} /> 
                                     {isDatasetFavorited ? "已收藏" : "收藏"}
                                  </Button>
                                 {importedDatasets.includes(selectedDataset.name) ? (
@@ -2835,7 +2835,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                                 ) : (
                                    <Button 
                                       size="sm" 
-                                      className="h-8 shadow-sm bg-[#fa541c] hover:bg-[#d4380d] text-white"
+                                      className="h-8 shadow-sm bg-[#3b82f6] hover:bg-[#1d4ed8] text-white"
                                       onClick={() => { setImportedDatasets(prev => [...prev, selectedDataset.name]); setDatasetTab('import'); }}
                                    >
                                       <Download className="w-4 h-4 mr-1" /> 导入
@@ -2875,7 +2875,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                         <h2 className="text-xl font-medium text-neutral-title mb-6">{playingLesson.title}</h2>
                         <div className="mb-8">
                           <div className="flex items-center gap-2 mb-4 border-b border-neutral-border pb-2">
-                            <div className="w-6 h-6 bg-[#fa541c] rounded flex items-center justify-center text-white">
+                            <div className="w-6 h-6 bg-[#3b82f6] rounded flex items-center justify-center text-white">
                               <Code className="w-4 h-4" />
                             </div>
                             <span className="text-lg text-neutral-title">Notebook</span>
@@ -2964,7 +2964,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                             开发快乐！
                           </p>
                           <p className="text-sm text-neutral-caption">
-                            基于开源的 <span className="text-[#fa541c] cursor-pointer hover:underline">DevDocs</span>。
+                            基于开源的 <span className="text-[#3b82f6] cursor-pointer hover:underline">DevDocs</span>。
                           </p>
                         </div>
                       </div>
@@ -2973,7 +2973,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     {activeExperimentTab === 'monitor' && (
                       <div className="flex flex-col h-full bg-[#fdfdfd]">
                         <div className="p-4 border-b border-neutral-border flex items-center gap-2 bg-white">
-                          <Activity className="w-5 h-5 text-[#fa541c]" />
+                          <Activity className="w-5 h-5 text-[#3b82f6]" />
                           <h3 className="font-bold text-neutral-title text-[15px]">资源监控</h3>
                         </div>
                         <div className="flex-1 overflow-y-auto p-4 space-y-6">
@@ -2999,11 +2999,11 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
 
                           <div>
                             <div className="flex justify-between items-end mb-2">
-                              <span className="text-sm font-bold text-neutral-title flex items-center gap-2"><svg className="w-4 h-4 text-[#fa541c]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> GPU 使用率</span>
-                              <span className="text-sm text-[#fa541c] font-mono">89%</span>
+                              <span className="text-sm font-bold text-neutral-title flex items-center gap-2"><svg className="w-4 h-4 text-[#3b82f6]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> GPU 使用率</span>
+                              <span className="text-sm text-[#3b82f6] font-mono">89%</span>
                             </div>
                             <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden">
-                              <div className="h-full bg-[#fa541c] w-[89%]"></div>
+                              <div className="h-full bg-[#3b82f6] w-[89%]"></div>
                             </div>
                             <div className="text-[11px] text-neutral-caption mt-2 flex justify-between">
                               <span>显存: 14.2 / 16 GB</span>
@@ -3019,7 +3019,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 {/* Right Sidebar - Tools */}
                 <div className="w-16 border-l border-neutral-border flex flex-col items-center py-4 gap-6 bg-[#fafafa]">
                   <div 
-                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'api' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'api' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
                     onClick={() => setActiveExperimentTab('api')}
                   >
                     <div className={cn("w-8 h-8 rounded flex items-center justify-center text-xs font-bold", activeExperimentTab === 'api' ? "bg-neutral-200 text-neutral-title" : "text-neutral-caption group-hover:text-neutral-title")}>
@@ -3027,7 +3027,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                     </div>
                   </div>
                   <div 
-                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'monitor' ? "text-[#fa541c]" : "hover:text-neutral-title")}
+                    className={cn("flex flex-col items-center gap-1 cursor-pointer group w-full", activeExperimentTab === 'monitor' ? "text-[#3b82f6]" : "hover:text-neutral-title")}
                     onClick={() => setActiveExperimentTab('monitor')}
                   >
                     <div className={cn("w-8 h-8 rounded flex items-center justify-center", activeExperimentTab === 'monitor' ? "bg-neutral-200 text-neutral-title" : "text-neutral-caption group-hover:text-neutral-title")}>
@@ -3069,7 +3069,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
       {showReportModal && (
          <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm">
            <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col mx-4 animate-in zoom-in-95 duration-200">
-             <div className="h-16 bg-gradient-to-r from-[#fa541c] to-[#ff7a45] flex items-center justify-between px-6 shrink-0 relative overflow-hidden">
+             <div className="h-16 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] flex items-center justify-between px-6 shrink-0 relative overflow-hidden">
                <div className="absolute right-0 top-0 bottom-0 w-32 bg-white/10 skew-x-12 translate-x-10"></div>
                <div className="flex items-center gap-3 text-white z-10">
                  <BarChart className="w-6 h-6" />
@@ -3080,32 +3080,32 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
              
              <div className="p-8 flex flex-col gap-6 overflow-y-auto max-h-[70vh]">
                <div className="text-[14px] text-neutral-body leading-relaxed">
-                 基于您在 <span className="text-[#fa541c] font-bold">《Python 基础》</span> 各小节测验中的作答分析以及参与的实验记录，大模型为您提炼了如下多维度学习报告：
+                 基于您在 <span className="text-[#3b82f6] font-bold">《Python 基础》</span> 各小节测验中的作答分析以及参与的实验记录，大模型为您提炼了如下多维度学习报告：
                </div>
                
                <div className="grid grid-cols-2 gap-4">
-                 <div className="bg-[#fff2e8] p-4 rounded-xl border border-[#ffbb96]">
-                   <div className="text-[13px] font-bold text-[#d4380d] mb-4">🏆 知识点掌握情况</div>
+                 <div className="bg-[#eff6ff] p-4 rounded-xl border border-[#bfdbfe]">
+                   <div className="text-[13px] font-bold text-[#1d4ed8] mb-4">🏆 知识点掌握情况</div>
                    <div className="space-y-3">
                      <div>
                        <div className="flex justify-between text-[12px] mb-1"><span className="text-neutral-title">基础概念</span> <span className="font-medium">95%</span></div>
-                       <div className="h-1.5 w-full bg-[#ffd8bf] rounded-full overflow-hidden"><div className="h-full bg-[#fa541c] w-[95%]"></div></div>
+                       <div className="h-1.5 w-full bg-[#dbeafe] rounded-full overflow-hidden"><div className="h-full bg-[#3b82f6] w-[95%]"></div></div>
                      </div>
                      <div>
                        <div className="flex justify-between text-[12px] mb-1"><span className="text-neutral-title">控制逻辑</span> <span className="font-medium">85%</span></div>
-                       <div className="h-1.5 w-full bg-[#ffd8bf] rounded-full overflow-hidden"><div className="h-full bg-[#fa541c] w-[85%]"></div></div>
+                       <div className="h-1.5 w-full bg-[#dbeafe] rounded-full overflow-hidden"><div className="h-full bg-[#3b82f6] w-[85%]"></div></div>
                      </div>
                      <div>
                        <div className="flex justify-between text-[12px] mb-1"><span className="text-neutral-title">数据处理</span> <span className="font-medium">60%</span></div>
-                       <div className="h-1.5 w-full bg-[#ffd8bf] rounded-full overflow-hidden"><div className="h-full bg-[#faad14] w-[60%]"></div></div>
+                       <div className="h-1.5 w-full bg-[#dbeafe] rounded-full overflow-hidden"><div className="h-full bg-[#faad14] w-[60%]"></div></div>
                      </div>
                    </div>
                  </div>
                  
-                 <div className="bg-[#fff2e8] p-4 rounded-xl border border-[#ffd8bf]">
-                   <div className="text-[13px] font-bold text-[#fa541c] mb-2">💡 专家分析建议</div>
+                 <div className="bg-[#eff6ff] p-4 rounded-xl border border-[#dbeafe]">
+                   <div className="text-[13px] font-bold text-[#3b82f6] mb-2">💡 专家分析建议</div>
                    <p className="text-[12px] text-neutral-body leading-relaxed">
-                     您在 Python 基础语法的理解上非常扎实，但在 <strong className="text-[#fa541c]">数据处理（如列表切片、字典合并）</strong> 相关小节中的代码实验耗时较长，错误率略高。
+                     您在 Python 基础语法的理解上非常扎实，但在 <strong className="text-[#3b82f6]">数据处理（如列表切片、字典合并）</strong> 相关小节中的代码实验耗时较长，错误率略高。
                      <br/><br/>
                      LLM 建议：接下来您可以针对《交互计算》与《序列实操》模块进行定向复习，建议额外进行 2 次代码练习即可融会贯通。
                    </p>
@@ -3113,7 +3113,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                </div>
                
                <div className="flex items-center justify-end mt-4">
-                  <Button className="bg-[#fa541c] hover:bg-[#d4380d] text-white rounded-full px-8">
+                  <Button className="bg-[#3b82f6] hover:bg-[#1d4ed8] text-white rounded-full px-8">
                      导出完整 PDF 报告
                   </Button>
                </div>
@@ -3128,7 +3128,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[480px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[16px] font-bold text-neutral-900 flex items-center gap-2">
-                <PlusCircle className="w-5 h-5 text-[#fa541c]" /> 新建课节
+                <PlusCircle className="w-5 h-5 text-[#3b82f6]" /> 新建课节
               </h2>
               <button onClick={() => setShowCreateLessonModal(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
@@ -3138,11 +3138,11 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               <div className="p-6 space-y-4">
                 <div className="space-y-2">
                   <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                    <span className="text-[#fa541c]">*</span> 课节名称
+                    <span className="text-[#3b82f6]">*</span> 课节名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]" 
+                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]" 
                     placeholder="请输入课节名称" 
                     value={newLessonName}
                     onChange={(e) => setNewLessonName(e.target.value)}
@@ -3153,7 +3153,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               </div>
               <div className="p-5 border-t border-neutral-100 bg-white flex items-center justify-end gap-3">
                 <Button type="button" onClick={() => setShowCreateLessonModal(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-10 px-6">取消</Button>
-                <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20">添加</Button>
+                <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20">添加</Button>
               </div>
             </form>
           </div>
@@ -3166,7 +3166,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[480px] overflow-hidden border border-neutral-200 flex flex-col">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[16px] font-bold text-neutral-900 flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" /> 修改课节
+                <Plus className="w-5 h-5 text-[#3b82f6]" /> 修改课节
               </h2>
               <button onClick={() => setShowEditLessonModal(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200 p-1.5 rounded-full transition-colors">
                 <X className="w-5 h-5" />
@@ -3176,11 +3176,11 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               <div className="p-6 space-y-4">
                 <div className="space-y-2">
                   <label className="text-[13px] font-bold text-neutral-800 flex items-center gap-1">
-                    <span className="text-[#fa541c]">*</span> 课节名称
+                    <span className="text-[#3b82f6]">*</span> 课节名称
                   </label>
                   <input 
                     type="text" 
-                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]" 
+                    className="w-full border border-neutral-200 rounded-lg px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]" 
                     placeholder="请输入课节名称" 
                     value={editLessonName}
                     onChange={(e) => setEditLessonName(e.target.value)}
@@ -3191,7 +3191,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
               </div>
               <div className="p-5 border-t border-neutral-100 bg-white flex items-center justify-end gap-3">
                 <Button type="button" onClick={() => setShowEditLessonModal(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-10 px-6">取消</Button>
-                <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20">保存</Button>
+                <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20">保存</Button>
               </div>
             </form>
           </div>
@@ -3226,7 +3226,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
         <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40 backdrop-blur-xs animate-in fade-in duration-200">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[400px] overflow-hidden border border-neutral-200 flex flex-col animate-in zoom-in-95 duration-150">
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
-              <h2 className="text-[16px] font-bold text-[#fa541c] flex items-center gap-2">
+              <h2 className="text-[16px] font-bold text-[#3b82f6] flex items-center gap-2">
                 提示
               </h2>
               <button onClick={() => setShowSubmitConfirmModal(false)} className="text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200 p-1.5 rounded-full transition-colors">
@@ -3238,7 +3238,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
             </div>
             <div className="p-5 border-t border-neutral-100 bg-white flex items-center justify-end gap-3">
               <Button type="button" onClick={() => setShowSubmitConfirmModal(false)} variant="outline" className="border-neutral-200 text-neutral-600 font-bold h-10 px-6">取消</Button>
-              <Button type="button" onClick={handleConfirmSubmit} className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20">确定提交</Button>
+              <Button type="button" onClick={handleConfirmSubmit} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20">确定提交</Button>
             </div>
           </div>
         </div>
@@ -3272,7 +3272,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   setShowTimeoutModal(false);
                   setShowStudentAnswering(false);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20"
               >
                 确定
               </Button>
@@ -3309,7 +3309,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                   setShowSubmitSuccessModal(false);
                   setShowStudentAnswering(false);
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-10 px-8 shadow-md shadow-orange-500/20"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-10 px-8 shadow-md shadow-blue-500/20"
               >
                 确定
               </Button>

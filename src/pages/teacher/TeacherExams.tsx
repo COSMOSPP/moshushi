@@ -852,7 +852,7 @@ export default function TeacherExams({ embedded = false }) {
       title: '公布成绩',
       message: (
         <span>
-          确定公布考试<span className="text-[#fa541c] font-semibold">{session.name}</span>成绩？
+          确定公布考试<span className="text-[#3b82f6] font-semibold">{session.name}</span>成绩？
         </span>
       ),
       showCancel: true,
@@ -1004,7 +1004,7 @@ export default function TeacherExams({ embedded = false }) {
             <input 
               type="text" 
               placeholder="搜索考试名称..." 
-              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-9 bg-white"
+              className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-9 bg-white"
             />
           </div>
         </div>
@@ -1012,7 +1012,7 @@ export default function TeacherExams({ embedded = false }) {
         <div className="flex items-center gap-4">
           <Button 
             onClick={() => setIsCreateDrawerOpen(true)}
-            className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
+            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 h-9 text-[13px] shadow-sm shrink-0 border-0 cursor-pointer font-bold flex items-center"
           >
             <Plus className="w-4 h-4 mr-1" /> 新建考试
           </Button>
@@ -1048,9 +1048,9 @@ export default function TeacherExams({ embedded = false }) {
                     <td className="p-4 text-center">
                       <button 
                         onClick={() => toggleRow(exam.id)}
-                        className="text-neutral-400 hover:text-[#fa541c] transition-colors p-1 cursor-pointer bg-transparent border-0"
+                        className="text-neutral-400 hover:text-[#3b82f6] transition-colors p-1 cursor-pointer bg-transparent border-0"
                       >
-                        <ChevronRight className={cn("w-4 h-4 transition-transform duration-200", expandedRow === exam.id && "transform rotate-90 text-[#fa541c]")} />
+                        <ChevronRight className={cn("w-4 h-4 transition-transform duration-200", expandedRow === exam.id && "transform rotate-90 text-[#3b82f6]")} />
                       </button>
                     </td>
                     <td className="p-4 text-left">
@@ -1061,7 +1061,7 @@ export default function TeacherExams({ embedded = false }) {
                     <td className="p-4 text-left">
                       <span className={cn(
                         "px-2 py-0.5 text-[12px] rounded border font-medium",
-                        exam.status === '启用' ? "bg-orange-50 text-orange-600 border-orange-200" : "bg-rose-50 text-rose-600 border-rose-200"
+                        exam.status === '启用' ? "bg-blue-50 text-orange-600 border-blue-200" : "bg-rose-50 text-rose-600 border-rose-200"
                       )}>
                         {exam.status}
                       </span>
@@ -1087,13 +1087,13 @@ export default function TeacherExams({ embedded = false }) {
                                 setIsInvigilatorDropdownOpen(false);
                                 setIsAddSessionDrawerOpen(true);
                               }} 
-                              className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                             >
                               添加场次
                             </button>
                             <button 
                               onClick={() => handleConfirmToggleExamStatus(exam)} 
-                              className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                             >
                               取消启用
                             </button>
@@ -1102,19 +1102,19 @@ export default function TeacherExams({ embedded = false }) {
                           <>
                             <button 
                               onClick={() => handleEditExam(exam)} 
-                              className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                             >
                               编辑
                             </button>
                             <button 
                               onClick={() => handleConfirmDeleteExam(exam)} 
-                              className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                             >
                               删除
                             </button>
                             <button 
                               onClick={() => handleConfirmToggleExamStatus(exam)} 
-                              className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
+                              className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[13px]"
                             >
                               启用
                             </button>
@@ -1151,7 +1151,7 @@ export default function TeacherExams({ embedded = false }) {
                                     <span className={cn(
                                       "px-2 py-0.5 rounded text-[11px] border font-medium",
                                       session.type === '正式场次'
-                                        ? "bg-orange-50 text-orange-600 border-orange-200"
+                                        ? "bg-blue-50 text-orange-600 border-blue-200"
                                         : "bg-emerald-50 text-emerald-600 border-emerald-200"
                                     )}>
                                       {session.type}
@@ -1188,7 +1188,7 @@ export default function TeacherExams({ embedded = false }) {
                                                   "font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[12px]",
                                                   act.isDanger 
                                                     ? "text-red-500 hover:text-red-750" 
-                                                    : "text-[#fa541c] hover:text-[#e84a15]"
+                                                    : "text-[#3b82f6] hover:text-[#2563eb]"
                                                 )}
                                               >
                                                 {act.label}
@@ -1201,7 +1201,7 @@ export default function TeacherExams({ embedded = false }) {
                                                     e.stopPropagation();
                                                     setActiveDropdownId(activeDropdownId === `session-${session.id}` ? null : `session-${session.id}`);
                                                   }}
-                                                  className="text-[#fa541c] hover:text-[#e84a15] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[12px] flex items-center gap-0.5"
+                                                  className="text-[#3b82f6] hover:text-[#2563eb] font-semibold transition-colors cursor-pointer bg-transparent border-0 p-0 text-[12px] flex items-center gap-0.5"
                                                 >
                                                   更多 <ChevronDown className="w-3 h-3" />
                                                 </button>
@@ -1214,7 +1214,7 @@ export default function TeacherExams({ embedded = false }) {
                                                           setActiveDropdownId(null);
                                                           act.onClick();
                                                         }}
-                                                        className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50"
+                                                        className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50"
                                                       >
                                                         {act.label}
                                                       </button>
@@ -1256,14 +1256,14 @@ export default function TeacherExams({ embedded = false }) {
           <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
             &lt;
           </button>
-          <button className="w-7 h-7 bg-[#fa541c] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
+          <button className="w-7 h-7 bg-[#3b82f6] text-white rounded font-bold flex items-center justify-center shadow-xs border-0">
             1
           </button>
           <button className="w-7 h-7 border border-neutral-200 rounded flex items-center justify-center hover:bg-neutral-50 cursor-pointer bg-white text-neutral-600">
             &gt;
           </button>
         </div>
-        <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#fa541c]">
+        <select className="border border-neutral-200 rounded px-2 py-1 text-xs text-neutral-600 bg-white focus:outline-none focus:border-[#3b82f6]">
           <option value="10">10 条/页</option>
           <option value="20">20 条/页</option>
           <option value="50">50 条/页</option>
@@ -1296,7 +1296,7 @@ export default function TeacherExams({ embedded = false }) {
               <h2 className="text-[15px] font-bold text-neutral-850">新增考试配置</h2>
               <button 
                 onClick={() => setIsCreateDrawerOpen(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1308,28 +1308,28 @@ export default function TeacherExams({ embedded = false }) {
               {/* Exam Name */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>考试名称
+                  <span className="text-[#3b82f6]">*</span>考试名称
                 </label>
                 <input
                   type="text"
                   value={examName}
                   onChange={(e) => setExamName(e.target.value)}
                   placeholder="请输入"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
               {/* 考试规则 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>考试规则
+                  <span className="text-[#3b82f6]">*</span>考试规则
                 </label>
                 <div ref={examRuleDropdownRef} className="relative w-full text-[13px]">
                   <div 
                     onClick={() => setIsExamRuleDropdownOpen(!isExamRuleDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none border-neutral-200",
-                      isExamRuleDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "hover:border-[#fa541c]"
+                      isExamRuleDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(examRule ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -1349,13 +1349,13 @@ export default function TeacherExams({ embedded = false }) {
                           className={cn(
                             "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                             !examRule 
-                              ? "bg-orange-50 text-[#fa541c] font-bold"
-                              : "text-neutral-400 hover:bg-orange-50/40 hover:text-neutral-600"
+                              ? "bg-blue-50 text-[#3b82f6] font-bold"
+                              : "text-neutral-400 hover:bg-blue-50/40 hover:text-neutral-600"
                           )}
                         >
                           <span>请选择考试规则</span>
                           {!examRule && (
-                            <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                            <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                           )}
                         </div>
                         {['仅能提交1次', '限时提交', '不允许二次提交', '无限次提交'].map((rule) => {
@@ -1369,12 +1369,12 @@ export default function TeacherExams({ embedded = false }) {
                               }}
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
-                                isSelected ? "bg-orange-50 text-[#fa541c] font-bold" : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                isSelected ? "bg-blue-50 text-[#3b82f6] font-bold" : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{rule}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -1396,7 +1396,7 @@ export default function TeacherExams({ embedded = false }) {
                   value={enrollCount || ''}
                   onChange={(e) => setEnrollCount(Math.max(0, parseInt(e.target.value) || 0))}
                   placeholder="请输入"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
@@ -1410,7 +1410,7 @@ export default function TeacherExams({ embedded = false }) {
                   value={organizer}
                   onChange={(e) => setOrganizer(e.target.value)}
                   placeholder="请输入"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
@@ -1424,7 +1424,7 @@ export default function TeacherExams({ embedded = false }) {
                   value={coOrganizer}
                   onChange={(e) => setCoOrganizer(e.target.value)}
                   placeholder="请输入"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
@@ -1438,16 +1438,16 @@ export default function TeacherExams({ embedded = false }) {
                   value={intro}
                   onChange={(e) => setIntro(e.target.value)}
                   placeholder="请输入"
-                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626]"
+                  className="w-full border border-neutral-200 rounded px-3.5 py-2 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626]"
                 />
               </div>
 
               {/* 考试须知 */}
               <div className="grid grid-cols-[100px_1fr] items-start gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right pt-2">
-                  <span className="text-[#fa541c]">*</span>考试须知
+                  <span className="text-[#3b82f6]">*</span>考试须知
                 </label>
-                <div className="border border-neutral-200 rounded overflow-hidden focus-within:border-[#fa541c] focus-within:ring-1 focus-within:ring-[#fa541c]/25 transition-all flex flex-col bg-white">
+                <div className="border border-neutral-200 rounded overflow-hidden focus-within:border-[#3b82f6] focus-within:ring-1 focus-within:ring-[#3b82f6]/25 transition-all flex flex-col bg-white">
                   {/* Rich Text Editor Toolbar */}
                   <div className="flex flex-wrap items-center gap-1.5 px-3 py-2 border-b border-neutral-100 bg-neutral-50/50 select-none">
                     <button type="button" title="加粗" className="p-1 hover:bg-neutral-200/60 rounded text-neutral-600 transition-colors cursor-pointer border-0 bg-transparent flex items-center justify-center"><Bold className="w-3.5 h-3.5" /></button>
@@ -1480,12 +1480,12 @@ export default function TeacherExams({ embedded = false }) {
               {/* 试卷配置 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>试卷配置
+                  <span className="text-[#3b82f6]">*</span>试卷配置
                 </label>
                 <div className="flex items-center gap-3">
                   {paperConfig ? (
                     <span 
-                      className="text-[#fa541c] hover:text-[#e84a15] font-semibold cursor-pointer hover:underline text-[13px]"
+                      className="text-[#3b82f6] hover:text-[#2563eb] font-semibold cursor-pointer hover:underline text-[13px]"
                       onClick={() => {
                         setTempSelectedPaper(paperConfig);
                         setShowSelectPaperModal(true);
@@ -1500,7 +1500,7 @@ export default function TeacherExams({ embedded = false }) {
                         setTempSelectedPaper(paperConfig);
                         setShowSelectPaperModal(true);
                       }}
-                      className="text-[#fa541c] hover:text-[#e84a15] font-semibold bg-transparent border-0 cursor-pointer p-0 text-[13px] transition-colors"
+                      className="text-[#3b82f6] hover:text-[#2563eb] font-semibold bg-transparent border-0 cursor-pointer p-0 text-[13px] transition-colors"
                     >
                       请选择
                     </button>
@@ -1523,7 +1523,7 @@ export default function TeacherExams({ embedded = false }) {
               </Button>
               <Button 
                 onClick={handleCreate}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 保存并配置场次
               </Button>
@@ -1550,7 +1550,7 @@ export default function TeacherExams({ embedded = false }) {
               </h2>
               <button 
                 onClick={() => setIsAddSessionDrawerOpen(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1561,7 +1561,7 @@ export default function TeacherExams({ embedded = false }) {
               {/* 场次名称 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>场次名称
+                  <span className="text-[#3b82f6]">*</span>场次名称
                 </label>
                 <div className="relative w-full">
                   <input
@@ -1573,7 +1573,7 @@ export default function TeacherExams({ embedded = false }) {
                       }
                     }}
                     placeholder="请输入场次名称"
-                    className="w-full border border-neutral-200 rounded px-3.5 py-2 pr-16 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626] bg-white font-medium"
+                    className="w-full border border-neutral-200 rounded px-3.5 py-2 pr-16 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626] bg-white font-medium"
                   />
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 font-medium">
                     {sessionName.length} / 100
@@ -1584,7 +1584,7 @@ export default function TeacherExams({ embedded = false }) {
               {/* 场次类型 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>场次类型
+                  <span className="text-[#3b82f6]">*</span>场次类型
                 </label>
                 <div className="flex items-center gap-6">
                   <div 
@@ -1592,26 +1592,26 @@ export default function TeacherExams({ embedded = false }) {
                     className="flex items-center gap-2 cursor-pointer select-none"
                   >
                     {sessionType === '正式场次' ? (
-                      <div className="w-[18px] h-[18px] rounded-full border border-[#fa541c] flex items-center justify-center shrink-0">
-                        <div className="w-[9px] h-[9px] rounded-full bg-[#fa541c]" />
+                      <div className="w-[18px] h-[18px] rounded-full border border-[#3b82f6] flex items-center justify-center shrink-0">
+                        <div className="w-[9px] h-[9px] rounded-full bg-[#3b82f6]" />
                       </div>
                     ) : (
                       <div className="w-[18px] h-[18px] rounded-full border border-neutral-300 shrink-0" />
                     )}
-                    <span className={cn("text-[13px] transition-colors font-medium", sessionType === '正式场次' ? "text-[#fa541c]" : "text-neutral-600")}>正式场次</span>
+                    <span className={cn("text-[13px] transition-colors font-medium", sessionType === '正式场次' ? "text-[#3b82f6]" : "text-neutral-600")}>正式场次</span>
                   </div>
                   <div 
                     onClick={() => setSessionType('测试场次')}
                     className="flex items-center gap-2 cursor-pointer select-none"
                   >
                     {sessionType === '测试场次' ? (
-                      <div className="w-[18px] h-[18px] rounded-full border border-[#fa541c] flex items-center justify-center shrink-0">
-                        <div className="w-[9px] h-[9px] rounded-full bg-[#fa541c]" />
+                      <div className="w-[18px] h-[18px] rounded-full border border-[#3b82f6] flex items-center justify-center shrink-0">
+                        <div className="w-[9px] h-[9px] rounded-full bg-[#3b82f6]" />
                       </div>
                     ) : (
                       <div className="w-[18px] h-[18px] rounded-full border border-neutral-300 shrink-0" />
                     )}
-                    <span className={cn("text-[13px] transition-colors font-medium", sessionType === '测试场次' ? "text-[#fa541c]" : "text-neutral-600")}>测试场次</span>
+                    <span className={cn("text-[13px] transition-colors font-medium", sessionType === '测试场次' ? "text-[#3b82f6]" : "text-neutral-600")}>测试场次</span>
                   </div>
                 </div>
               </div>
@@ -1619,7 +1619,7 @@ export default function TeacherExams({ embedded = false }) {
               {/* 场次时间 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>场次时间
+                  <span className="text-[#3b82f6]">*</span>场次时间
                 </label>
                 <div className="flex items-center gap-2 text-[13px] w-full text-neutral-800">
                   <div className="flex-1">
@@ -1660,7 +1660,7 @@ export default function TeacherExams({ embedded = false }) {
                       }
                     }}
                     placeholder="请输入考场"
-                    className="w-full border border-neutral-200 rounded px-3.5 py-2 pr-16 text-[13px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-[#262626] bg-white font-medium"
+                    className="w-full border border-neutral-200 rounded px-3.5 py-2 pr-16 text-[13px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-[#262626] bg-white font-medium"
                   />
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] text-neutral-400 font-medium">
                     {sessionLocation.length} / 100
@@ -1671,14 +1671,14 @@ export default function TeacherExams({ embedded = false }) {
               {/* 监考老师 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  <span className="text-[#fa541c]">*</span>监考老师
+                  <span className="text-[#3b82f6]">*</span>监考老师
                 </label>
                 <div className="relative w-full text-[13px]">
                   <div 
                     onClick={() => setIsInvigilatorDropdownOpen(!isInvigilatorDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none border-neutral-200",
-                      isInvigilatorDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "hover:border-[#fa541c]"
+                      isInvigilatorDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(sessionInvigilator ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -1697,13 +1697,13 @@ export default function TeacherExams({ embedded = false }) {
                           className={cn(
                             "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                             !sessionInvigilator 
-                              ? "bg-orange-50 text-[#fa541c] font-bold"
-                              : "text-neutral-400 hover:bg-orange-50/40 hover:text-neutral-600"
+                              ? "bg-blue-50 text-[#3b82f6] font-bold"
+                              : "text-neutral-400 hover:bg-blue-50/40 hover:text-neutral-600"
                           )}
                         >
                           <span>请选择监考老师</span>
                           {!sessionInvigilator && (
-                            <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                            <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                           )}
                         </div>
                         {['张维老师', '李杰老师', '王莹老师', '陈晨老师'].map((teacher) => {
@@ -1717,12 +1717,12 @@ export default function TeacherExams({ embedded = false }) {
                               }}
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
-                                isSelected ? "bg-orange-50 text-[#fa541c] font-bold" : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                isSelected ? "bg-blue-50 text-[#3b82f6] font-bold" : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{teacher}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -1746,7 +1746,7 @@ export default function TeacherExams({ embedded = false }) {
               </Button>
               <Button 
                 onClick={handleSaveSession}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 保存场次
               </Button>
@@ -1768,7 +1768,7 @@ export default function TeacherExams({ embedded = false }) {
                 </h2>
                 <button 
                   onClick={() => setConfirmModal(prev => ({ ...prev, show: false }))} 
-                  className="text-neutral-455 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                  className="text-neutral-455 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
                 >
                   <X className="w-4.5 h-4.5" />
                 </button>
@@ -1780,7 +1780,7 @@ export default function TeacherExams({ embedded = false }) {
               {confirmModal.type === 'danger' ? (
                 <div className="w-5.5 h-5.5 rounded-full bg-[#ff5b60] text-white flex items-center justify-center font-bold text-[14px] shrink-0 select-none mt-0.5">!</div>
               ) : (
-                <div className="w-5 h-5 rounded-full bg-[#fa541c] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
+                <div className="w-5 h-5 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-[13px] shrink-0 select-none mt-0.5">!</div>
               )}
               <div className={cn("text-neutral-750 leading-normal whitespace-pre-wrap font-medium", confirmModal.hideHeader ? "text-[15px]" : "text-[14px]")}>
                 {confirmModal.message}
@@ -1803,7 +1803,7 @@ export default function TeacherExams({ embedded = false }) {
                   setConfirmModal(prev => ({ ...prev, show: false }));
                   confirmModal.onConfirm();
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -1828,14 +1828,14 @@ export default function TeacherExams({ embedded = false }) {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#fa541c]" /> 选择试卷
+                <FileText className="w-5 h-5 text-[#3b82f6]" /> 选择试卷
               </h2>
               <button 
                 onClick={() => {
                   setPaperConfig(tempSelectedPaper);
                   setShowSelectPaperModal(false);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1848,7 +1848,7 @@ export default function TeacherExams({ embedded = false }) {
                   onClick={() => {
                     navigate('/teacher/papers', { state: { openCreate: true } });
                   }}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] font-bold text-[12px] px-3.5 h-8 transition-colors shrink-0 border-0 cursor-pointer"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] font-bold text-[12px] px-3.5 h-8 transition-colors shrink-0 border-0 cursor-pointer"
                 >
                   新建试卷
                 </Button>
@@ -1872,7 +1872,7 @@ export default function TeacherExams({ embedded = false }) {
                         key={i} 
                         className={cn(
                           "border-b border-neutral-100 hover:bg-neutral-50/30 cursor-pointer transition-colors text-[13px] text-neutral-700",
-                          paperConfig === paper.name ? "bg-orange-50/10" : ""
+                          paperConfig === paper.name ? "bg-blue-50/10" : ""
                         )}
                         onClick={() => setPaperConfig(paper.name)}
                       >
@@ -1882,7 +1882,7 @@ export default function TeacherExams({ embedded = false }) {
                             name="paperSelect" 
                             checked={paperConfig === paper.name} 
                             onChange={() => setPaperConfig(paper.name)}
-                            className="w-4 h-4 text-[#fa541c] focus:ring-[#fa541c] border-neutral-300 cursor-pointer accent-[#fa541c] mx-auto" 
+                            className="w-4 h-4 text-[#3b82f6] focus:ring-[#3b82f6] border-neutral-300 cursor-pointer accent-[#3b82f6] mx-auto" 
                           />
                         </td>
                         <td className="p-4 text-left font-medium text-neutral-900">{paper.name}</td>
@@ -1918,7 +1918,7 @@ export default function TeacherExams({ embedded = false }) {
                       className={cn(
                         "h-7 w-7 p-0 rounded-[4px] font-bold text-[12px]",
                         paperModalPage === pageNum 
-                          ? "bg-[#fa541c] text-white border-[#fa541c]" 
+                          ? "bg-[#3b82f6] text-white border-[#3b82f6]" 
                           : "bg-white hover:bg-neutral-50 text-neutral-700 border-neutral-200"
                       )}
                       onClick={() => setPaperModalPage(pageNum)}
@@ -1936,7 +1936,7 @@ export default function TeacherExams({ embedded = false }) {
                     &gt;
                   </Button>
                 </div>
-                <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 bg-white focus:outline-none focus:border-[#fa541c] text-neutral-600">
+                <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 bg-white focus:outline-none focus:border-[#3b82f6] text-neutral-600">
                   <option>10 条/页</option>
                   <option>20 条/页</option>
                 </select>
@@ -1959,7 +1959,7 @@ export default function TeacherExams({ embedded = false }) {
                 onClick={() => {
                   setShowSelectPaperModal(false);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs border-0 cursor-pointer shadow-sm"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs border-0 cursor-pointer shadow-sm"
               >
                 确定
               </Button>
@@ -1986,12 +1986,12 @@ export default function TeacherExams({ embedded = false }) {
               <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 z-10 select-none">
                 <div className="flex items-center gap-2">
                   <h2 className="text-[15px] font-bold text-neutral-850 flex items-center gap-2">
-                    <PenTool className="w-5 h-5 text-[#fa541c]" />
+                    <PenTool className="w-5 h-5 text-[#3b82f6]" />
                     批阅任务
                   </h2>
                   <button
                     onClick={() => showToast('已成功刷新数据', 'success')}
-                    className="border border-neutral-200 text-neutral-500 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 w-7 h-7 rounded-[4px] flex items-center justify-center cursor-pointer transition-colors bg-white"
+                    className="border border-neutral-200 text-neutral-500 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 w-7 h-7 rounded-[4px] flex items-center justify-center cursor-pointer transition-colors bg-white"
                     title="刷新数据"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
@@ -1999,7 +1999,7 @@ export default function TeacherExams({ embedded = false }) {
                 </div>
                 <button 
                   onClick={() => setIsDetailsDrawerOpen(false)}
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -2007,11 +2007,11 @@ export default function TeacherExams({ embedded = false }) {
             ) : (
               <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 z-10">
                 <h2 className="text-[15px] font-bold text-neutral-850 flex items-center gap-2">
-                  {detailsType === 'students' && <Users className="w-5 h-5 text-[#fa541c]" />}
-                  {detailsType === 'scores' && <Award className="w-5 h-5 text-[#fa541c]" />}
-                  {detailsType === 'invigilation' && <ShieldCheck className="w-5 h-5 text-[#fa541c]" />}
-                  {detailsType === 'rank' && <Trophy className="w-5 h-5 text-[#fa541c]" />}
-                  {detailsType === 'exam' && <FileText className="w-5 h-5 text-[#fa541c]" />}
+                  {detailsType === 'students' && <Users className="w-5 h-5 text-[#3b82f6]" />}
+                  {detailsType === 'scores' && <Award className="w-5 h-5 text-[#3b82f6]" />}
+                  {detailsType === 'invigilation' && <ShieldCheck className="w-5 h-5 text-[#3b82f6]" />}
+                  {detailsType === 'rank' && <Trophy className="w-5 h-5 text-[#3b82f6]" />}
+                  {detailsType === 'exam' && <FileText className="w-5 h-5 text-[#3b82f6]" />}
                   
                   {detailsType === 'students' && '考生名单详情'}
                   {detailsType === 'scores' && '查看成绩明细'}
@@ -2021,7 +2021,7 @@ export default function TeacherExams({ embedded = false }) {
                 </h2>
                 <button 
                   onClick={() => setIsDetailsDrawerOpen(false)}
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -2031,7 +2031,7 @@ export default function TeacherExams({ embedded = false }) {
             {/* Drawer Body */}
             <div className="p-6 overflow-y-auto space-y-5 custom-scrollbar flex-1 bg-white relative">
               {detailsType === 'exam' ? (
-                <div className="bg-orange-50/20 rounded-xl p-4 border border-orange-100/60 space-y-2">
+                <div className="bg-blue-50/20 rounded-xl p-4 border border-orange-100/60 space-y-2">
                   <div className="text-[14px] font-bold text-neutral-800">考试名称：{detailsSession.name}</div>
                   <div className="grid grid-cols-2 gap-y-1.5 text-xs text-neutral-600">
                     <div>考试状态：<span className={cn(
@@ -2046,7 +2046,7 @@ export default function TeacherExams({ embedded = false }) {
                 </div>
               ) : (
                 detailsType !== 'students' && detailsType !== 'invigilation' && detailsType !== 'scores' && detailsType !== 'scoring' && detailsType !== 'rank' && (
-                  <div className="bg-orange-50/20 rounded-xl p-4 border border-orange-100/60 space-y-2">
+                  <div className="bg-blue-50/20 rounded-xl p-4 border border-orange-100/60 space-y-2">
                     <div className="text-[14px] font-bold text-neutral-800">场次名称：{detailsSession.name}</div>
                     <div className="grid grid-cols-2 gap-y-1.5 text-xs text-neutral-600">
                       <div>考试考场：<span className="text-neutral-900 font-semibold">{detailsSession.location}</span></div>
@@ -2073,7 +2073,7 @@ export default function TeacherExams({ embedded = false }) {
                       </div>
                       <div className="flex justify-between border-b border-neutral-100 pb-2">
                         <span className="text-neutral-500">关联试卷：</span>
-                        <span className="text-[#fa541c] font-semibold">机器学习期末考试A卷</span>
+                        <span className="text-[#3b82f6] font-semibold">机器学习期末考试A卷</span>
                       </div>
                       <div className="flex justify-between border-b border-neutral-100 pb-2">
                         <span className="text-neutral-500">主办单位：</span>
@@ -2098,7 +2098,7 @@ export default function TeacherExams({ embedded = false }) {
                       考试须知与注意事项
                     </div>
                     <div className="p-4 text-left">
-                      <div className="bg-orange-50/30 border border-orange-100 p-3.5 rounded text-neutral-800 leading-relaxed">
+                      <div className="bg-blue-50/30 border border-orange-100 p-3.5 rounded text-neutral-800 leading-relaxed">
                         1. 请各位参考考生提前准备好考试环境，确保摄像头与音频输入输出设备运行良好。<br/>
                         2. 考中将自动启用摄像头轨迹检测与切屏警示拦截。<br/>
                         3. 超过 3 次切屏或检测到中途更换人员，系统将自动执行强制交卷，成绩按零分处理。
@@ -2120,7 +2120,7 @@ export default function TeacherExams({ embedded = false }) {
                         placeholder="账号/姓名" 
                         value={studentSearchQuery}
                         onChange={(e) => setStudentSearchQuery(e.target.value)}
-                        className="w-48 pl-9 pr-4 py-1.5 text-xs border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/25 transition-all text-neutral-800 bg-white h-8"
+                        className="w-48 pl-9 pr-4 py-1.5 text-xs border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/25 transition-all text-neutral-800 bg-white h-8"
                       />
                     </div>
 
@@ -2141,10 +2141,10 @@ export default function TeacherExams({ embedded = false }) {
                       <div ref={batchDropdownRef} className="relative shrink-0 text-left">
                         <Button
                           onClick={() => setIsBatchDropdownOpen(!isBatchDropdownOpen)}
-                          className="bg-[#fa541c]/10 hover:bg-[#fa541c]/20 text-[#fa541c] rounded-[4px] h-8 px-3 text-xs border-0 cursor-pointer font-bold flex items-center gap-1.5 shrink-0 transition-colors"
+                          className="bg-[#3b82f6]/10 hover:bg-[#3b82f6]/20 text-[#3b82f6] rounded-[4px] h-8 px-3 text-xs border-0 cursor-pointer font-bold flex items-center gap-1.5 shrink-0 transition-colors"
                         >
                           <span>批量操作</span>
-                          <ChevronDown className={cn("w-3 h-3 transition-transform duration-200 text-[#fa541c]", isBatchDropdownOpen && "rotate-180")} />
+                          <ChevronDown className={cn("w-3 h-3 transition-transform duration-200 text-[#3b82f6]", isBatchDropdownOpen && "rotate-180")} />
                         </Button>
                         {isBatchDropdownOpen && (
                           <div className="absolute right-0 mt-1 w-28 bg-white border border-neutral-200 rounded-[4px] shadow-lg z-[160] overflow-hidden flex flex-col py-1 animate-in fade-in slide-in-from-top-1 duration-150">
@@ -2153,7 +2153,7 @@ export default function TeacherExams({ embedded = false }) {
                                 setIsBatchDropdownOpen(false);
                                 showToast('批量导出成功，文件已开始下载', 'success');
                               }}
-                              className="px-3 py-2 text-left text-xs text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900 cursor-pointer transition-colors"
+                              className="px-3 py-2 text-left text-xs text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900 cursor-pointer transition-colors"
                             >
                               批量导出
                             </div>
@@ -2183,13 +2183,13 @@ export default function TeacherExams({ embedded = false }) {
 
                       <Button
                         onClick={() => setShowQuickAddModal(true)}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-8 px-2.5 text-xs border-0 cursor-pointer font-bold shadow-sm shrink-0"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-8 px-2.5 text-xs border-0 cursor-pointer font-bold shadow-sm shrink-0"
                       >
                         快速添加
                       </Button>
                       <Button
                         onClick={() => setShowAddCandidatesModal(true)}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] h-8 px-2.5 text-xs border-0 cursor-pointer font-bold shadow-sm shrink-0"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] h-8 px-2.5 text-xs border-0 cursor-pointer font-bold shadow-sm shrink-0"
                       >
                         添加
                       </Button>
@@ -2212,7 +2212,7 @@ export default function TeacherExams({ embedded = false }) {
                                   setSelectedStudentIds([]);
                                 }
                               }}
-                              className="w-3.5 h-3.5 rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c] accent-[#fa541c] cursor-pointer"
+                              className="w-3.5 h-3.5 rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] accent-[#3b82f6] cursor-pointer"
                             />
                           </th>
                           <th className="p-3">账号</th>
@@ -2241,7 +2241,7 @@ export default function TeacherExams({ embedded = false }) {
                                       setSelectedStudentIds(selectedStudentIds.filter(id => id !== stu.id));
                                     }
                                   }}
-                                  className="w-3.5 h-3.5 rounded border-neutral-300 text-[#fa541c] focus:ring-[#fa541c] accent-[#fa541c] cursor-pointer"
+                                  className="w-3.5 h-3.5 rounded border-neutral-300 text-[#3b82f6] focus:ring-[#3b82f6] accent-[#3b82f6] cursor-pointer"
                                 />
                               </td>
                               <td className="p-3 font-semibold text-neutral-800 font-mono">{stu.account}</td>
@@ -2263,7 +2263,7 @@ export default function TeacherExams({ embedded = false }) {
                                       }
                                     });
                                   }}
-                                  className="text-[#fa541c] hover:text-[#e84a15] font-semibold cursor-pointer border-0 bg-transparent p-0 text-xs transition-colors"
+                                  className="text-[#3b82f6] hover:text-[#2563eb] font-semibold cursor-pointer border-0 bg-transparent p-0 text-xs transition-colors"
                                 >
                                   移除
                                 </button>
@@ -2295,7 +2295,7 @@ export default function TeacherExams({ embedded = false }) {
                     <Button 
                       variant="outline" 
                       onClick={() => showToast('已成功刷新成绩数据', 'success')}
-                      className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 w-8 h-8 p-0 flex items-center justify-center rounded-[4px] cursor-pointer bg-white"
+                      className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 w-8 h-8 p-0 flex items-center justify-center rounded-[4px] cursor-pointer bg-white"
                       title="刷新"
                     >
                       <RotateCw className="w-3.5 h-3.5" />
@@ -2303,13 +2303,13 @@ export default function TeacherExams({ embedded = false }) {
                     <Button 
                       variant="outline" 
                       onClick={() => showToast('正在导出成绩表格...', 'success')}
-                      className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
+                      className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
                     >
                       导出
                     </Button>
                     <Button 
                       onClick={() => showToast('正在导出团队成绩表格...', 'success')}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer shadow-sm border-0 transition-colors"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer shadow-sm border-0 transition-colors"
                     >
                       团队成绩导出
                     </Button>
@@ -2344,7 +2344,7 @@ export default function TeacherExams({ embedded = false }) {
                             <td className="p-3 text-neutral-500 font-mono">{stu.account}</td>
                             <td className="p-3 text-neutral-500 font-mono">{stu.phone}</td>
                             <td className="p-3 text-neutral-600">{stu.userGroup}</td>
-                            <td className="p-3 font-bold text-[#fa541c]">{stu.score} 分</td>
+                            <td className="p-3 font-bold text-[#3b82f6]">{stu.score} 分</td>
                           </tr>
                         ))}
                       </tbody>
@@ -2356,11 +2356,11 @@ export default function TeacherExams({ embedded = false }) {
                     <span className="text-[13px] text-neutral-500">共 10 条</span>
                     <div className="flex items-center gap-2">
                       <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&lt;</Button>
-                      <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+                      <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
                       <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm" disabled>&gt;</Button>
                     </div>
                     <div className="relative bg-white rounded-[6px]">
-                      <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
+                      <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
                         <option className="bg-white">10 条/页</option>
                         <option className="bg-white">20 条/页</option>
                         <option className="bg-white">50 条/页</option>
@@ -2388,9 +2388,9 @@ export default function TeacherExams({ embedded = false }) {
                           <span className="text-[10px] text-emerald-600 font-bold">已分配批阅</span>
                           <span className="text-2xl font-bold text-emerald-600 font-mono mt-1">1 <span className="text-[11px] font-normal text-emerald-500">人</span></span>
                         </div>
-                        <div className="bg-orange-50/45 border border-orange-100 rounded-lg p-3 text-center flex flex-col justify-between h-full">
+                        <div className="bg-blue-50/45 border border-orange-100 rounded-lg p-3 text-center flex flex-col justify-between h-full">
                           <span className="text-[10px] text-orange-600 font-bold">待分配批阅</span>
-                          <span className="text-2xl font-bold text-orange-600 font-mono mt-1">0 <span className="text-[11px] font-normal text-[#fa541c]">人</span></span>
+                          <span className="text-2xl font-bold text-orange-600 font-mono mt-1">0 <span className="text-[11px] font-normal text-[#3b82f6]">人</span></span>
                         </div>
                         <div className="bg-neutral-50/60 border border-neutral-200/60 rounded-lg p-3 text-center flex flex-col justify-between h-full">
                           <span className="text-[10px] text-neutral-400 font-bold">未交卷/未参赛</span>
@@ -2402,7 +2402,7 @@ export default function TeacherExams({ embedded = false }) {
                     {/* Right Card: 批阅隐私设置 */}
                     <div className="border border-neutral-200 rounded-[8px] bg-white shadow-sm flex flex-col justify-between overflow-hidden">
                       <div className="bg-neutral-50 px-4 py-2.5 border-b border-neutral-200 font-bold text-neutral-800 flex items-center gap-1.5 shrink-0">
-                        <ShieldCheck className="w-4 h-4 text-[#fa541c]" />
+                        <ShieldCheck className="w-4 h-4 text-[#3b82f6]" />
                         批阅隐私设置
                       </div>
                       <div className="p-4 flex flex-col justify-center flex-1 space-y-3">
@@ -2413,13 +2413,13 @@ export default function TeacherExams({ embedded = false }) {
                             className={cn(
                               "border rounded-[6px] p-2.5 flex items-center gap-2.5 cursor-pointer transition-all hover:bg-neutral-50 select-none text-[12px] font-semibold text-left",
                               scoringType === 'anonymous' 
-                                ? "border-[#fa541c] bg-orange-50/20 text-[#fa541c]" 
+                                ? "border-[#3b82f6] bg-blue-50/20 text-[#3b82f6]" 
                                 : "border-neutral-200 text-neutral-500"
                             )}
                           >
                             <div className={cn(
                               "w-4 h-4 rounded-full border flex items-center justify-center shrink-0",
-                              scoringType === 'anonymous' ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-350"
+                              scoringType === 'anonymous' ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-350"
                             )}>
                               {scoringType === 'anonymous' && <Check className="w-2.5 h-2.5" strokeWidth={3} />}
                             </div>
@@ -2435,13 +2435,13 @@ export default function TeacherExams({ embedded = false }) {
                             className={cn(
                               "border rounded-[6px] p-2.5 flex items-center gap-2.5 cursor-pointer transition-all hover:bg-neutral-50 select-none text-[12px] font-semibold text-left",
                               scoringType === 'realname' 
-                                ? "border-[#fa541c] bg-orange-50/20 text-[#fa541c]" 
+                                ? "border-[#3b82f6] bg-blue-50/20 text-[#3b82f6]" 
                                 : "border-neutral-200 text-neutral-500"
                             )}
                           >
                             <div className={cn(
                               "w-4 h-4 rounded-full border flex items-center justify-center shrink-0",
-                              scoringType === 'realname' ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-350"
+                              scoringType === 'realname' ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-350"
                             )}>
                               {scoringType === 'realname' && <Check className="w-2.5 h-2.5" strokeWidth={3} />}
                             </div>
@@ -2463,7 +2463,7 @@ export default function TeacherExams({ embedded = false }) {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => showToast('已成功刷新批阅任务列表', 'success')}
-                        className="border border-neutral-200 text-neutral-500 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 w-8 h-8 rounded-[4px] flex items-center justify-center cursor-pointer transition-colors bg-white"
+                        className="border border-neutral-200 text-neutral-500 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 w-8 h-8 rounded-[4px] flex items-center justify-center cursor-pointer transition-colors bg-white"
                         title="刷新列表"
                       >
                         <RotateCw className="w-3.5 h-3.5" />
@@ -2482,20 +2482,20 @@ export default function TeacherExams({ embedded = false }) {
                           });
                         }}
                         variant="outline"
-                        className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all"
+                        className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all"
                       >
                         移除批阅任务
                       </Button>
                       <Button
                         onClick={() => setShowAutoAssignModal(true)}
                         variant="outline"
-                        className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all"
+                        className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all"
                       >
                         自动分配批阅设置
                       </Button>
                       <Button
                         onClick={() => setShowAssignModal(true)}
-                        className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-8 px-3.5 rounded-[4px] text-[12px] border-0 cursor-pointer shadow-sm transition-colors flex items-center gap-1.5"
+                        className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-8 px-3.5 rounded-[4px] text-[12px] border-0 cursor-pointer shadow-sm transition-colors flex items-center gap-1.5"
                       >
                         <Plus className="w-3.5 h-3.5" />
                         分配批阅任务
@@ -2515,7 +2515,7 @@ export default function TeacherExams({ embedded = false }) {
                         className={cn(
                           "pb-2 text-[13px] font-medium transition-all relative whitespace-nowrap cursor-pointer -mb-[1px] border-b-2 bg-transparent border-t-0 border-x-0",
                           scoringTab === tab.key 
-                            ? "text-[#fa541c] font-bold border-[#fa541c]" 
+                            ? "text-[#3b82f6] font-bold border-[#3b82f6]" 
                             : "text-neutral-500 hover:text-neutral-800 border-transparent"
                         )}
                       >
@@ -2553,19 +2553,19 @@ export default function TeacherExams({ embedded = false }) {
                                   <div className="flex items-center justify-start gap-3">
                                     <button 
                                       onClick={() => setShowChangeGraderModal(true)}
-                                      className="text-[#fa541c] hover:text-[#e84a15] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
                                     >
                                       更换批阅人
                                     </button>
                                     <button 
                                       onClick={() => setShowStudentsModal(true)}
-                                      className="text-[#fa541c] hover:text-[#e84a15] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
                                     >
                                       考生名单
                                     </button>
                                     <button 
                                       onClick={() => setShowGradingDetailsModal(true)}
-                                      className="text-[#fa541c] hover:text-[#e84a15] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
+                                      className="text-[#3b82f6] hover:text-[#2563eb] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
                                     >
                                       批阅详情
                                     </button>
@@ -2594,7 +2594,7 @@ export default function TeacherExams({ embedded = false }) {
                                 setScoringSearchQuery(e.target.value);
                               }}
                               placeholder="请输入账号/姓名"
-                              className="pl-9 pr-4 py-1.5 text-xs border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 transition-all text-neutral-850 bg-white w-48 h-8"
+                              className="pl-9 pr-4 py-1.5 text-xs border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 transition-all text-neutral-850 bg-white w-48 h-8"
                             />
                           </div>
                         </div>
@@ -2602,20 +2602,20 @@ export default function TeacherExams({ embedded = false }) {
                           <Button
                             onClick={() => setShowImportScoresModal(true)}
                             variant="outline"
-                            className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all flex items-center gap-1.5"
+                            className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all flex items-center gap-1.5"
                           >
                             导入最终成绩
                           </Button>
                           <Button
                             onClick={() => showToast('已导出批阅成绩表格', 'success')}
                             variant="outline"
-                            className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all"
+                            className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 font-bold h-8 px-3 rounded-[4px] text-[12px] cursor-pointer bg-white transition-all"
                           >
                             导出成绩
                           </Button>
                           <Button
                             onClick={() => showToast('已成功批量提交最终成绩', 'success')}
-                            className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-8 px-3.5 rounded-[4px] text-[12px] border-0 cursor-pointer shadow-sm transition-colors"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-8 px-3.5 rounded-[4px] text-[12px] border-0 cursor-pointer shadow-sm transition-colors"
                           >
                             批量提交最终分
                           </Button>
@@ -2630,7 +2630,7 @@ export default function TeacherExams({ embedded = false }) {
                               <th className="p-3 w-10 text-center bg-neutral-50">
                                 <input
                                   type="checkbox"
-                                  className="w-4 h-4 text-[#fa541c] border-neutral-350 rounded cursor-pointer accent-[#fa541c] mx-auto"
+                                  className="w-4 h-4 text-[#3b82f6] border-neutral-350 rounded cursor-pointer accent-[#3b82f6] mx-auto"
                                 />
                               </th>
                               <th className="p-3 text-left bg-neutral-50">考生账号</th>
@@ -2653,7 +2653,7 @@ export default function TeacherExams({ embedded = false }) {
                                 <td className="p-3 text-center">
                                   <input
                                     type="checkbox"
-                                    className="w-4 h-4 text-[#fa541c] border-neutral-350 rounded cursor-pointer accent-[#fa541c] mx-auto"
+                                    className="w-4 h-4 text-[#3b82f6] border-neutral-350 rounded cursor-pointer accent-[#3b82f6] mx-auto"
                                   />
                                 </td>
                                 <td className="p-3 font-semibold text-neutral-650 font-mono">{student.account}</td>
@@ -2664,7 +2664,7 @@ export default function TeacherExams({ embedded = false }) {
                                 <td className="p-3 text-left">
                                   <button 
                                     onClick={() => setShowCandidateGradingDetailsModal(true)}
-                                    className="text-[#fa541c] hover:text-[#e84a15] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
+                                    className="text-[#3b82f6] hover:text-[#2563eb] hover:underline font-bold bg-transparent border-0 cursor-pointer p-0 text-xs"
                                   >
                                     批阅详情
                                   </button>
@@ -2694,7 +2694,7 @@ export default function TeacherExams({ embedded = false }) {
                         className={cn(
                           "pb-2 text-[13px] font-medium transition-all relative whitespace-nowrap cursor-pointer -mb-[1px] border-b-2 bg-transparent border-t-0 border-x-0",
                           invigilationTab === tab.key 
-                            ? "text-[#fa541c] font-bold border-[#fa541c]" 
+                            ? "text-[#3b82f6] font-bold border-[#3b82f6]" 
                             : "text-neutral-500 hover:text-neutral-800 border-transparent"
                         )}
                       >
@@ -2745,7 +2745,7 @@ export default function TeacherExams({ embedded = false }) {
                         {/* Right Card: 考生在线及答卷监控 */}
                         <div className="border border-neutral-200 rounded-[8px] bg-white shadow-sm flex flex-col justify-between overflow-hidden">
                           <div className="bg-neutral-50 px-4 py-2.5 border-b border-neutral-200 font-bold text-neutral-800 flex items-center gap-1.5 shrink-0">
-                            <Users className="w-4 h-4 text-[#fa541c]" />
+                            <Users className="w-4 h-4 text-[#3b82f6]" />
                             考生在线及答卷监控
                           </div>
                           <div className="p-4 grid grid-cols-3 gap-3 flex-1 items-center">
@@ -2775,7 +2775,7 @@ export default function TeacherExams({ embedded = false }) {
                             value={invigilationSearchQuery}
                             onChange={(e) => setInvigilationSearchQuery(e.target.value)}
                             placeholder="输入姓名或账号搜索"
-                            className="pl-9 pr-4 py-2 w-60 bg-white border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
+                            className="pl-9 pr-4 py-2 w-60 bg-white border border-neutral-200 rounded-full text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
                           />
                         </div>
 
@@ -2784,14 +2784,14 @@ export default function TeacherExams({ embedded = false }) {
                           <Button
                             variant="outline"
                             onClick={() => showToast('已成功初始化试卷', 'success')}
-                            className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
+                            className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
                           >
                             初始化试卷
                           </Button>
                           <Button
                             variant="outline"
                             onClick={() => showToast('环境已开始初始化', 'success')}
-                            className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
+                            className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
                           >
                             初始化环境
                           </Button>
@@ -2811,20 +2811,20 @@ export default function TeacherExams({ embedded = false }) {
                                 }
                               });
                             }}
-                            className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
+                            className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
                           >
                             清理环境
                           </Button>
                           <Button
                             variant="outline"
                             onClick={() => showToast('数据导出成功，正在开始下载', 'success')}
-                            className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
+                            className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-3.5 h-8 text-[12px] font-bold rounded-[4px] cursor-pointer bg-white"
                           >
                             导出数据
                           </Button>
                           <Button
                             onClick={() => showToast('正在统分中...', 'success')}
-                            className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-8 px-4 rounded-[4px] text-[12px] border-0 cursor-pointer shadow-sm transition-colors"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-8 px-4 rounded-[4px] text-[12px] border-0 cursor-pointer shadow-sm transition-colors"
                           >
                             统分
                           </Button>
@@ -2872,7 +2872,7 @@ export default function TeacherExams({ embedded = false }) {
                                     <th className="p-3 w-10 text-center">
                                       <input
                                         type="checkbox"
-                                        className="w-4 h-4 text-[#fa541c] border-neutral-350 rounded cursor-pointer accent-[#fa541c] mx-auto"
+                                        className="w-4 h-4 text-[#3b82f6] border-neutral-350 rounded cursor-pointer accent-[#3b82f6] mx-auto"
                                       />
                                     </th>
                                     <th className="p-3 text-left">账号</th>
@@ -2891,14 +2891,14 @@ export default function TeacherExams({ embedded = false }) {
                                       <td className="p-3 text-center">
                                         <input
                                           type="checkbox"
-                                          className="w-4 h-4 text-[#fa541c] border-neutral-350 rounded cursor-pointer accent-[#fa541c] mx-auto"
+                                          className="w-4 h-4 text-[#3b82f6] border-neutral-350 rounded cursor-pointer accent-[#3b82f6] mx-auto"
                                         />
                                       </td>
                                       <td className="p-3 font-semibold text-neutral-600 font-mono">{student.account}</td>
                                       <td className="p-3 font-medium text-neutral-800">{student.name}</td>
                                       <td className="p-3">
                                         {student.paperStatus === '已出卷' ? (
-                                          <span className="text-[#fa541c] bg-[#fff2e8] border border-[#ffd8bf] px-2 py-0.5 rounded text-[11px] font-medium inline-block">
+                                          <span className="text-[#3b82f6] bg-[#eff6ff] border border-[#dbeafe] px-2 py-0.5 rounded text-[11px] font-medium inline-block">
                                             已出卷
                                           </span>
                                         ) : (
@@ -2956,7 +2956,7 @@ export default function TeacherExams({ embedded = false }) {
                                                 setSelectedStudentForEnv(student);
                                                 setShowEnvDetailsModal(true);
                                               }}
-                                              className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-semibold transition-colors hover:underline"
+                                              className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-semibold transition-colors hover:underline"
                                             >
                                               环境详情
                                             </button>
@@ -2975,7 +2975,7 @@ export default function TeacherExams({ embedded = false }) {
                                               setSelectedStudentForPaper(student);
                                               setShowViewPaperModal(true);
                                             }}
-                                            className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-semibold transition-colors hover:underline"
+                                            className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-semibold transition-colors hover:underline"
                                           >
                                             查看试卷
                                           </button>
@@ -3011,8 +3011,8 @@ export default function TeacherExams({ embedded = false }) {
                                       onClick={() => setOverviewCurrentPage(p)}
                                       className={`h-7 w-7 p-0 rounded-sm cursor-pointer ${
                                         isActive
-                                          ? 'bg-[#fa541c] text-white border-[#fa541c]'
-                                          : 'bg-white text-neutral-600 border-neutral-200 hover:text-[#fa541c] hover:border-orange-200'
+                                          ? 'bg-[#3b82f6] text-white border-[#3b82f6]'
+                                          : 'bg-white text-neutral-600 border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200'
                                       }`}
                                     >
                                       {p}
@@ -3037,7 +3037,7 @@ export default function TeacherExams({ embedded = false }) {
                                     setOverviewPageSize(size);
                                     setOverviewCurrentPage(1);
                                   }}
-                                  className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm"
+                                  className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm"
                                 >
                                   <option className="bg-white" value="5">5 条/页</option>
                                   <option className="bg-white" value="10">10 条/页</option>
@@ -3194,7 +3194,7 @@ export default function TeacherExams({ embedded = false }) {
                                       {question.type === '简答题' ? (
                                         <button
                                           onClick={() => setSelectedCheckpointQuestion(question)}
-                                          className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-semibold transition-colors hover:underline"
+                                          className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-semibold transition-colors hover:underline"
                                         >
                                           检查项
                                         </button>
@@ -3239,8 +3239,8 @@ export default function TeacherExams({ embedded = false }) {
                                   onClick={() => setContentCurrentPage(p)}
                                   className={`h-7 w-7 p-0 rounded-sm cursor-pointer ${
                                     isActive
-                                      ? 'bg-[#fa541c] text-white border-[#fa541c]'
-                                      : 'bg-white text-neutral-600 border-neutral-200 hover:text-[#fa541c] hover:border-orange-200'
+                                      ? 'bg-[#3b82f6] text-white border-[#3b82f6]'
+                                      : 'bg-white text-neutral-600 border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200'
                                   }`}
                                 >
                                   {p}
@@ -3265,7 +3265,7 @@ export default function TeacherExams({ embedded = false }) {
                                 setContentPageSize(size);
                                 setContentCurrentPage(1);
                               }}
-                              className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm"
+                              className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm"
                             >
                               <option className="bg-white" value="5">5 条/页</option>
                               <option className="bg-white" value="10">10 条/页</option>
@@ -3379,7 +3379,7 @@ export default function TeacherExams({ embedded = false }) {
                           </div>
                           
                           {/* Score metrics */}
-                          <div className="text-[#fa541c] font-black font-mono text-[14.5px]">
+                          <div className="text-[#3b82f6] font-black font-mono text-[14.5px]">
                             {topThree[1].score}<span className="text-[10px] font-bold text-neutral-450 ml-0.5">分</span>
                           </div>
                         </div>
@@ -3404,7 +3404,7 @@ export default function TeacherExams({ embedded = false }) {
                           </div>
                           
                           {/* Score metrics */}
-                          <div className="text-[#fa541c] font-black font-mono text-[16px]">
+                          <div className="text-[#3b82f6] font-black font-mono text-[16px]">
                             {topThree[0].score}<span className="text-[10px] font-bold text-neutral-450 ml-0.5">分</span>
                           </div>
                         </div>
@@ -3414,11 +3414,11 @@ export default function TeacherExams({ embedded = false }) {
                       <div className="flex-1 bg-gradient-to-b from-[#fff1f0] to-transparent rounded-2xl p-5 flex flex-col items-center justify-center text-center relative hover:-translate-y-0.5 transition-all duration-300 h-[195px]">
                         <div className="flex flex-col items-center w-full justify-between h-full">
                           {/* Rank Number with Wheat Ear Decoration */}
-                          <WheatDecor rank={3} strokeColor="#fa541c" fillColor="#ffe8e6" />
+                          <WheatDecor rank={3} strokeColor="#3b82f6" fillColor="#ffe8e6" />
 
                           {/* Avatar with circular frame */}
                           <div className="my-2 relative">
-                            <div className="w-16 h-16 rounded-full border-2 border-white bg-gradient-to-tr from-[#ff7875] to-[#fa541c] flex items-center justify-center select-none">
+                            <div className="w-16 h-16 rounded-full border-2 border-white bg-gradient-to-tr from-[#ff7875] to-[#3b82f6] flex items-center justify-center select-none">
                               <span className="text-white text-base font-bold">{topThree[2].avatarText}</span>
                             </div>
                           </div>
@@ -3429,7 +3429,7 @@ export default function TeacherExams({ embedded = false }) {
                           </div>
                           
                           {/* Score metrics */}
-                          <div className="text-[#fa541c] font-black font-mono text-[14px]">
+                          <div className="text-[#3b82f6] font-black font-mono text-[14px]">
                             {topThree[2].score}<span className="text-[10px] font-bold text-neutral-455 ml-0.5">分</span>
                           </div>
                         </div>
@@ -3464,7 +3464,7 @@ export default function TeacherExams({ embedded = false }) {
                                 <td className="p-3 text-neutral-500 font-mono">
                                   {stu.submitTime}
                                 </td>
-                                <td className="p-3 text-right pr-6 font-bold text-[#fa541c] select-none font-mono">
+                                <td className="p-3 text-right pr-6 font-bold text-[#3b82f6] select-none font-mono">
                                   {stu.score} 分
                                 </td>
                               </tr>
@@ -3498,7 +3498,7 @@ export default function TeacherExams({ embedded = false }) {
                               size="sm" 
                               className={cn(
                                 "h-7 w-7 p-0 rounded-sm",
-                                activePage === idx + 1 ? "bg-[#fa541c] text-white border-[#fa541c]" : ""
+                                activePage === idx + 1 ? "bg-[#3b82f6] text-white border-[#3b82f6]" : ""
                               )}
                               onClick={() => setRankCurrentPage(idx + 1)}
                             >
@@ -3523,7 +3523,7 @@ export default function TeacherExams({ embedded = false }) {
                               setRankPageSize(size);
                               setRankCurrentPage(1);
                             }}
-                            className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm"
+                            className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm"
                           >
                             <option className="bg-white" value={9}>9 条/页</option>
                             <option className="bg-white" value={20}>20 条/页</option>
@@ -3544,7 +3544,7 @@ export default function TeacherExams({ embedded = false }) {
             <div className="px-6 py-4 border-t border-neutral-100 flex justify-end gap-3 bg-neutral-50/50 z-10">
               <Button 
                 onClick={() => setIsDetailsDrawerOpen(false)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded shadow-sm border-0 cursor-pointer"
               >
                 关闭
               </Button>
@@ -3569,14 +3569,14 @@ export default function TeacherExams({ embedded = false }) {
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#fa541c]" /> 快速添加考生
+                <Users className="w-5 h-5 text-[#3b82f6]" /> 快速添加考生
               </h2>
               <button 
                 onClick={() => {
                   setShowQuickAddModal(false);
                   setQuickAddAccountsText('');
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -3601,13 +3601,13 @@ export default function TeacherExams({ embedded = false }) {
                           showToast('最多只能输入200行', 'error');
                         }
                       }}
-                      className="w-full h-[220px] p-3 text-[13px] border border-[#d9d9d9] rounded-[6px] focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]/20 resize-none custom-scrollbar"
+                      className="w-full h-[220px] p-3 text-[13px] border border-[#d9d9d9] rounded-[6px] focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]/20 resize-none custom-scrollbar"
                     />
                     <div className="absolute bottom-2 right-3 text-xs text-neutral-400 select-none">
                       {quickAddAccountsText === '' ? 0 : quickAddAccountsText.split('\n').length}/200
                     </div>
                   </div>
-                  <div className="text-[12px] text-[#fa541c] font-medium leading-relaxed">
+                  <div className="text-[12px] text-[#3b82f6] font-medium leading-relaxed">
                     输入账号，最多支持200行，每行一个账号，支持多行快速添加考生
                   </div>
                 </div>
@@ -3653,7 +3653,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowQuickAddModal(false);
                   setQuickAddAccountsText('');
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -3689,7 +3689,7 @@ export default function TeacherExams({ embedded = false }) {
               {/* Header */}
               <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-white shrink-0">
                 <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                  <Users className="w-5 h-5 text-[#fa541c]" /> 添加考生
+                  <Users className="w-5 h-5 text-[#3b82f6]" /> 添加考生
                 </h2>
                 <button 
                   onClick={() => {
@@ -3697,7 +3697,7 @@ export default function TeacherExams({ embedded = false }) {
                     setAddSearchQuery('');
                     setSelectedAddStudentIds([]);
                   }} 
-                  className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                  className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -3717,7 +3717,7 @@ export default function TeacherExams({ embedded = false }) {
                       }
                     }}
                     placeholder="请输入用户组/账号/姓名搜索"
-                    className="w-full pl-9 pr-20 py-2 text-sm border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] transition-all bg-white"
+                    className="w-full pl-9 pr-20 py-2 text-sm border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] transition-all bg-white"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-neutral-450 select-none pointer-events-none">
                     {addSearchQuery.length} / 100
@@ -3744,7 +3744,7 @@ export default function TeacherExams({ embedded = false }) {
                                 setSelectedAddStudentIds(prev => prev.filter(id => !pageIds.includes(id)));
                               }
                             }}
-                            className="w-4 h-4 text-[#fa541c] border-neutral-300 rounded cursor-pointer accent-[#fa541c] mx-auto"
+                            className="w-4 h-4 text-[#3b82f6] border-neutral-300 rounded cursor-pointer accent-[#3b82f6] mx-auto"
                           />
                         </th>
                         <th className="p-3 text-left bg-neutral-50 border-b border-neutral-100">账号</th>
@@ -3766,7 +3766,7 @@ export default function TeacherExams({ embedded = false }) {
                             key={candidate.id}
                             className={cn(
                               "hover:bg-neutral-50/40 cursor-pointer transition-colors text-neutral-700 bg-white",
-                              selectedAddStudentIds.includes(candidate.id) ? "bg-orange-50/10" : ""
+                              selectedAddStudentIds.includes(candidate.id) ? "bg-blue-50/10" : ""
                             )}
                             onClick={() => {
                               if (selectedAddStudentIds.includes(candidate.id)) {
@@ -3787,7 +3787,7 @@ export default function TeacherExams({ embedded = false }) {
                                     setSelectedAddStudentIds([...selectedAddStudentIds, candidate.id]);
                                   }
                                 }}
-                                className="w-4 h-4 text-[#fa541c] border-neutral-350 rounded cursor-pointer accent-[#fa541c] mx-auto"
+                                className="w-4 h-4 text-[#3b82f6] border-neutral-350 rounded cursor-pointer accent-[#3b82f6] mx-auto"
                               />
                             </td>
                             <td className="p-3 text-left font-medium text-neutral-900">{candidate.account}</td>
@@ -3824,7 +3824,7 @@ export default function TeacherExams({ embedded = false }) {
                         className={cn(
                           "h-7 w-7 p-0 rounded-sm font-bold text-[12px] cursor-pointer",
                           addCandidatesPage === pageNum 
-                            ? "bg-[#fa541c] text-white border-[#fa541c] hover:bg-[#fa541c] hover:text-white" 
+                            ? "bg-[#3b82f6] text-white border-[#3b82f6] hover:bg-[#3b82f6] hover:text-white" 
                             : "bg-white hover:bg-neutral-50 text-neutral-700 border-neutral-200"
                         )}
                         onClick={() => setAddCandidatesPage(pageNum)}
@@ -3842,7 +3842,7 @@ export default function TeacherExams({ embedded = false }) {
                       &gt;
                     </Button>
                   </div>
-                  <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#fa541c] text-neutral-600 bg-white">
+                  <select className="text-[13px] border border-neutral-200 rounded-sm px-2 py-1 focus:outline-none focus:border-[#3b82f6] text-neutral-600 bg-white">
                     <option>5 条/页</option>
                     <option>10 条/页</option>
                     <option>20 条/页</option>
@@ -3900,7 +3900,7 @@ export default function TeacherExams({ embedded = false }) {
                     setAddSearchQuery('');
                     setSelectedAddStudentIds([]);
                   }}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
                 >
                   确定
                 </Button>
@@ -3922,12 +3922,12 @@ export default function TeacherExams({ embedded = false }) {
           >
             <div className="flex justify-between items-center pb-3.5 border-b border-neutral-150">
               <h3 className="text-base font-bold text-neutral-850 flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#fa541c]" />
+                <ShieldCheck className="w-5 h-5 text-[#3b82f6]" />
                 实训题检查项配置 — {selectedCheckpointQuestion.name}
               </h3>
               <button
                 onClick={() => setSelectedCheckpointQuestion(null)}
-                className="text-neutral-450 hover:text-[#fa541c] hover:bg-neutral-50 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-450 hover:text-[#3b82f6] hover:bg-neutral-50 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -3967,7 +3967,7 @@ export default function TeacherExams({ embedded = false }) {
             <div className="flex justify-end pt-3 border-t border-neutral-150">
               <Button
                 onClick={() => setSelectedCheckpointQuestion(null)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-5 py-1.5 rounded-[4px] text-xs font-semibold cursor-pointer border-0 shadow-sm transition-colors"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-5 py-1.5 rounded-[4px] text-xs font-semibold cursor-pointer border-0 shadow-sm transition-colors"
               >
                 关闭
               </Button>
@@ -3992,8 +3992,8 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-                  <BrainCircuit className="w-5 h-5 text-[#fa541c]" />
+                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <BrainCircuit className="w-5 h-5 text-[#3b82f6]" />
                 </div>
                 <h3 className="text-base font-extrabold text-neutral-850">环境详情</h3>
               </div>
@@ -4002,7 +4002,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowEnvDetailsModal(false);
                   setOpenMoreRow(null);
                 }}
-                className="text-neutral-455 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-455 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
@@ -4012,9 +4012,9 @@ export default function TeacherExams({ embedded = false }) {
             <div className="p-6 space-y-6 flex-1 overflow-y-auto custom-scrollbar">
               
               {/* Profile Card & Action Bar */}
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-orange-50/15 border border-orange-100/50 rounded-xl p-4">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-blue-50/15 border border-orange-100/50 rounded-xl p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#fa541c]/10 text-[#fa541c]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px', userSelect: 'none' }}>
+                  <div className="w-10 h-10 rounded-full bg-[#3b82f6]/10 text-[#3b82f6]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px', userSelect: 'none' }}>
                     {selectedStudentForEnv.name ? selectedStudentForEnv.name.slice(0, 1) : <User className="w-5 h-5" />}
                   </div>
                   <div className="space-y-0.5">
@@ -4035,7 +4035,7 @@ export default function TeacherExams({ embedded = false }) {
                       showToast('已成功刷新环境数据', 'success');
                       setOpenMoreRow(null);
                     }}
-                    className="border-neutral-200 text-neutral-600 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 w-8 h-8 p-0 flex items-center justify-center rounded-[4px] cursor-pointer bg-white"
+                    className="border-neutral-200 text-neutral-600 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 w-8 h-8 p-0 flex items-center justify-center rounded-[4px] cursor-pointer bg-white"
                     title="刷新"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
@@ -4072,7 +4072,7 @@ export default function TeacherExams({ embedded = false }) {
                         <td className="p-3 text-neutral-400 font-mono whitespace-nowrap">--</td>
                         <td className="p-3 pl-4 text-left whitespace-nowrap">
                           <div className="flex items-center gap-4 text-xs whitespace-nowrap">
-                            <button onClick={() => showToast('正在初始化环境...', 'info')} className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap">初始化环境</button>
+                            <button onClick={() => showToast('正在初始化环境...', 'info')} className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap">初始化环境</button>
                             <button 
                               onClick={() => {
                                 setOpenMoreRow(null);
@@ -4089,7 +4089,7 @@ export default function TeacherExams({ embedded = false }) {
                                   }
                                 });
                               }}
-                              className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap"
+                              className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap"
                             >
                               清理环境
                             </button>
@@ -4099,7 +4099,7 @@ export default function TeacherExams({ embedded = false }) {
                                   e.stopPropagation();
                                   setOpenMoreRow(openMoreRow === 'p01' ? null : 'p01');
                                 }}
-                                className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-medium flex items-center gap-0.5 whitespace-nowrap"
+                                className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-medium flex items-center gap-0.5 whitespace-nowrap"
                               >
                                 更多 <ChevronDown className="w-3 h-3" />
                               </button>
@@ -4116,7 +4116,7 @@ export default function TeacherExams({ embedded = false }) {
                                         onConfirm: () => {}
                                       });
                                     }}
-                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                   >
                                     失败原因
                                   </button>
@@ -4125,7 +4125,7 @@ export default function TeacherExams({ embedded = false }) {
                                       showToast('正在执行检查...', 'info');
                                       setOpenMoreRow(null);
                                     }}
-                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                   >
                                     执行检查
                                   </button>
@@ -4147,7 +4147,7 @@ export default function TeacherExams({ embedded = false }) {
                         <td className="p-3 text-neutral-400 font-mono whitespace-nowrap">--</td>
                         <td className="p-3 pl-4 text-left whitespace-nowrap">
                           <div className="flex items-center gap-4 text-xs whitespace-nowrap">
-                            <button onClick={() => showToast('正在初始化环境...', 'info')} className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap">初始化环境</button>
+                            <button onClick={() => showToast('正在初始化环境...', 'info')} className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap">初始化环境</button>
                             <button 
                               onClick={() => {
                                 setOpenMoreRow(null);
@@ -4164,7 +4164,7 @@ export default function TeacherExams({ embedded = false }) {
                                   }
                                 });
                               }}
-                              className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap"
+                              className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-medium whitespace-nowrap"
                             >
                               清理环境
                             </button>
@@ -4174,7 +4174,7 @@ export default function TeacherExams({ embedded = false }) {
                                   e.stopPropagation();
                                   setOpenMoreRow(openMoreRow === 'p03' ? null : 'p03');
                                 }}
-                                className="text-[#fa541c] hover:text-[#e84a15] bg-transparent border-0 cursor-pointer p-0 font-medium flex items-center gap-0.5 whitespace-nowrap"
+                                className="text-[#3b82f6] hover:text-[#2563eb] bg-transparent border-0 cursor-pointer p-0 font-medium flex items-center gap-0.5 whitespace-nowrap"
                               >
                                 更多 <ChevronDown className="w-3 h-3" />
                               </button>
@@ -4191,7 +4191,7 @@ export default function TeacherExams({ embedded = false }) {
                                         onConfirm: () => {}
                                       });
                                     }}
-                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                   >
                                     失败原因
                                   </button>
@@ -4200,7 +4200,7 @@ export default function TeacherExams({ embedded = false }) {
                                       showToast('正在执行检查...', 'info');
                                       setOpenMoreRow(null);
                                     }}
-                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#fa541c] hover:bg-orange-50 font-medium"
+                                    className="w-full text-left px-3 py-1.5 text-[12px] bg-transparent border-0 cursor-pointer block transition-all text-neutral-900 hover:text-[#3b82f6] hover:bg-blue-50 font-medium"
                                   >
                                     执行检查
                                   </button>
@@ -4251,7 +4251,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowEnvDetailsModal(false);
                   setOpenMoreRow(null);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-[6px] text-xs cursor-pointer shadow-sm transition-colors border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-[6px] text-xs cursor-pointer shadow-sm transition-colors border-0"
               >
                 关闭窗口
               </Button>
@@ -4277,7 +4277,7 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h3 className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-[#fa541c]" />
+                <FileText className="w-4 h-4 text-[#3b82f6]" />
                 查看试卷 - {selectedStudentForPaper.name}
               </h3>
               <button 
@@ -4285,7 +4285,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowViewPaperModal(false);
                   setSelectedStudentForPaper(null);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4321,7 +4321,7 @@ export default function TeacherExams({ embedded = false }) {
                                 setPreviewModeActive(true);
                                 setShowViewPaperModal(false);
                               }}
-                              className="text-xs text-[#fa541c] hover:text-[#e84a15] transition-colors border border-[#fa541c]/30 hover:border-[#fa541c] bg-transparent px-2.5 py-1 rounded-[4px] cursor-pointer font-medium"
+                              className="text-xs text-[#3b82f6] hover:text-[#2563eb] transition-colors border border-[#3b82f6]/30 hover:border-[#3b82f6] bg-transparent px-2.5 py-1 rounded-[4px] cursor-pointer font-medium"
                             >
                               预览
                             </button>
@@ -4371,7 +4371,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowAssignModal(false);
                   setIsAssignMarkerDropdownOpen(false);
                 }}
-                className="text-neutral-450 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-450 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
@@ -4410,7 +4410,7 @@ export default function TeacherExams({ embedded = false }) {
                     onClick={() => setIsAssignMarkerDropdownOpen(!isAssignMarkerDropdownOpen)}
                     className={cn(
                       "h-9 w-full border rounded-[6px] px-3.5 flex items-center justify-between transition-all duration-150 text-[13px] font-medium cursor-pointer text-left bg-white select-none",
-                      isAssignMarkerDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "hover:border-[#fa541c] border-neutral-200"
+                      isAssignMarkerDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "hover:border-[#3b82f6] border-neutral-200"
                     )}
                   >
                     <span className={assignMarker ? "text-neutral-800" : "text-neutral-400"}>
@@ -4433,12 +4433,12 @@ export default function TeacherExams({ embedded = false }) {
                             setIsAssignMarkerDropdownOpen(false);
                           }}
                           className={cn(
-                            "px-4 py-2.5 text-[13px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] cursor-pointer transition-colors text-left flex items-center justify-between",
-                            assignMarker === m.account && "bg-orange-50/40 text-[#fa541c] font-bold"
+                            "px-4 py-2.5 text-[13px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] cursor-pointer transition-colors text-left flex items-center justify-between",
+                            assignMarker === m.account && "bg-blue-50/40 text-[#3b82f6] font-bold"
                           )}
                         >
                           <span>{m.name}</span>
-                          {assignMarker === m.account && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                          {assignMarker === m.account && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                         </div>
                       ))}
                     </div>
@@ -4470,7 +4470,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowAssignModal(false);
                   setIsAssignMarkerDropdownOpen(false);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
               >
                 确定
               </Button>
@@ -4495,8 +4495,8 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 rounded-t-2xl">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-[#fa541c]" />
+                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <Bot className="w-5 h-5 text-[#3b82f6]" />
                 </div>
                 <h3 className="text-base font-extrabold text-neutral-850">自动分配批阅设置</h3>
               </div>
@@ -4505,7 +4505,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowAutoAssignModal(false);
                   setIsAutoAssignMarkerDropdownOpen(false);
                 }}
-                className="text-neutral-455 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-455 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
@@ -4514,8 +4514,8 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Body */}
             <div className="p-6 space-y-5 overflow-visible flex flex-col">
               {/* Prompt Text */}
-              <div className="flex items-start gap-1.5 text-[12.5px] text-[#fa541c] font-semibold select-none leading-normal">
-                <Info className="w-4 h-4 text-[#fa541c] mt-0.5 shrink-0" />
+              <div className="flex items-start gap-1.5 text-[12.5px] text-[#3b82f6] font-semibold select-none leading-normal">
+                <Info className="w-4 h-4 text-[#3b82f6] mt-0.5 shrink-0" />
                 <span>自动分配批阅设置仅在考试进行中对余量的未提交的试卷生效</span>
               </div>
 
@@ -4551,7 +4551,7 @@ export default function TeacherExams({ embedded = false }) {
                   onClick={() => setIsAutoAssignMarkerDropdownOpen(!isAutoAssignMarkerDropdownOpen)}
                   className={cn(
                     "h-9 w-full border rounded-[6px] px-3.5 flex items-center justify-between transition-all duration-150 text-[13px] font-medium cursor-pointer text-left bg-white select-none",
-                    isAutoAssignMarkerDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]/25 shadow-[0_0_0_2px_rgba(250,84,28,0.1)]" : "hover:border-[#fa541c] border-neutral-200"
+                    isAutoAssignMarkerDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]/25 shadow-[0_0_0_2px_rgba(59, 130, 246,0.1)]" : "hover:border-[#3b82f6] border-neutral-200"
                   )}
                 >
                   <span className={autoAssignMarker ? "text-neutral-800" : "text-neutral-400"}>
@@ -4574,12 +4574,12 @@ export default function TeacherExams({ embedded = false }) {
                           setIsAutoAssignMarkerDropdownOpen(false);
                         }}
                         className={cn(
-                          "px-4 py-2.5 text-[13px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#fa541c] cursor-pointer transition-colors text-left flex items-center justify-between",
-                          autoAssignMarker === m.account && "bg-orange-50/40 text-[#fa541c] font-bold"
+                          "px-4 py-2.5 text-[13px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-[#3b82f6] cursor-pointer transition-colors text-left flex items-center justify-between",
+                          autoAssignMarker === m.account && "bg-blue-50/40 text-[#3b82f6] font-bold"
                         )}
                       >
                         <span>{m.name}</span>
-                        {autoAssignMarker === m.account && <Check className="w-3.5 h-3.5 text-[#fa541c]" />}
+                        {autoAssignMarker === m.account && <Check className="w-3.5 h-3.5 text-[#3b82f6]" />}
                       </div>
                     ))}
                   </div>
@@ -4610,7 +4610,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowAutoAssignModal(false);
                   setIsAutoAssignMarkerDropdownOpen(false);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
               >
                 确定
               </Button>
@@ -4635,7 +4635,7 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0 rounded-t-lg">
               <h3 className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-[#fa541c]" />
+                <FileText className="w-4 h-4 text-[#3b82f6]" />
                 编辑更换批阅人
               </h3>
               <button 
@@ -4643,7 +4643,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowChangeGraderModal(false);
                   setGraderDropdownOpen(false);
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4653,7 +4653,7 @@ export default function TeacherExams({ embedded = false }) {
             <div className="p-6 pb-8">
               <div className="grid grid-cols-[100px_1fr] items-center gap-4 relative select-none">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  管理员 <span className="text-[#fa541c]">*</span>
+                  管理员 <span className="text-[#3b82f6]">*</span>
                 </label>
                 
                 <div className="relative w-full">
@@ -4662,7 +4662,7 @@ export default function TeacherExams({ embedded = false }) {
                     onClick={() => setGraderDropdownOpen(!graderDropdownOpen)}
                     className={cn(
                       "h-[36px] w-full border border-neutral-200 rounded px-3.5 py-2 flex items-center justify-between transition-all bg-white cursor-pointer select-none text-left text-xs",
-                      graderDropdownOpen ? "border-[#fa541c] ring-1 ring-[#fa541c]" : "hover:border-[#fa541c]"
+                      graderDropdownOpen ? "border-[#3b82f6] ring-1 ring-[#3b82f6]" : "hover:border-[#3b82f6]"
                     )}
                   >
                     <span className={cn(graderValue ? "text-neutral-700 font-medium" : "text-neutral-400")}>
@@ -4694,13 +4694,13 @@ export default function TeacherExams({ embedded = false }) {
                               className={cn(
                                 "px-4 py-2 text-left text-xs transition-colors cursor-pointer flex items-center justify-between",
                                 isSelected 
-                                  ? "bg-orange-50 text-[#fa541c] font-bold"
-                                  : "text-neutral-700 hover:bg-orange-50/40 hover:text-neutral-900"
+                                  ? "bg-blue-50 text-[#3b82f6] font-bold"
+                                  : "text-neutral-700 hover:bg-blue-50/40 hover:text-neutral-900"
                               )}
                             >
                               <span>{option.name}</span>
                               {isSelected && (
-                                <Check className="w-3 h-3 text-[#fa541c]" strokeWidth={2.5} />
+                                <Check className="w-3 h-3 text-[#3b82f6]" strokeWidth={2.5} />
                               )}
                             </div>
                           );
@@ -4734,7 +4734,7 @@ export default function TeacherExams({ embedded = false }) {
                   setShowChangeGraderModal(false);
                   setGraderDropdownOpen(false);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -4756,14 +4756,14 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 rounded-t-2xl">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-[#fa541c]" />
+                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-[#3b82f6]" />
                 </div>
                 <h3 className="text-base font-extrabold text-neutral-850">预览学生名单</h3>
               </div>
               <button
                 onClick={() => setShowStudentsModal(false)}
-                className="text-neutral-455 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-455 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
@@ -4800,7 +4800,7 @@ export default function TeacherExams({ embedded = false }) {
             <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex justify-end gap-2.5 rounded-b-2xl">
               <Button
                 onClick={() => setShowStudentsModal(false)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
               >
                 确定
               </Button>
@@ -4822,14 +4822,14 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 rounded-t-2xl">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-                  <Award className="w-5 h-5 text-[#fa541c]" />
+                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-[#3b82f6]" />
                 </div>
                 <h3 className="text-base font-extrabold text-neutral-850">批阅详情</h3>
               </div>
               <button
                 onClick={() => setShowGradingDetailsModal(false)}
-                className="text-neutral-455 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-455 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
@@ -4854,7 +4854,7 @@ export default function TeacherExams({ embedded = false }) {
                         <td className="p-3 pl-4 font-mono font-semibold text-neutral-850">2</td>
                         <td className="p-3 text-neutral-700 font-medium">t01_liuwei</td>
                         <td className="p-3 whitespace-nowrap">
-                          <span className="px-2 py-0.5 rounded text-[11px] font-medium inline-block bg-orange-50 border border-orange-100 text-[#fa541c]">
+                          <span className="px-2 py-0.5 rounded text-[11px] font-medium inline-block bg-blue-50 border border-orange-100 text-[#3b82f6]">
                             批阅中（后转入）
                           </span>
                         </td>
@@ -4865,7 +4865,7 @@ export default function TeacherExams({ embedded = false }) {
                               setPreviewModeActive(true);
                               setPreviewQuestionIdx(0);
                             }}
-                            className="text-[#fa541c] hover:text-[#e84a15] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs hover:underline"
+                            className="text-[#3b82f6] hover:text-[#2563eb] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs hover:underline"
                           >
                             预览试卷
                           </button>
@@ -4886,7 +4886,7 @@ export default function TeacherExams({ embedded = false }) {
                               setPreviewModeActive(true);
                               setPreviewQuestionIdx(0);
                             }}
-                            className="text-[#fa541c] hover:text-[#e84a15] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs hover:underline"
+                            className="text-[#3b82f6] hover:text-[#2563eb] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs hover:underline"
                           >
                             预览试卷
                           </button>
@@ -4902,7 +4902,7 @@ export default function TeacherExams({ embedded = false }) {
             <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex justify-end gap-2.5 rounded-b-2xl">
               <Button
                 onClick={() => setShowGradingDetailsModal(false)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
               >
                 确定
               </Button>
@@ -4928,7 +4928,7 @@ export default function TeacherExams({ embedded = false }) {
               </h3>
               <button 
                 onClick={() => setShowImportScoresModal(false)}
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -4938,17 +4938,17 @@ export default function TeacherExams({ embedded = false }) {
             <div className="p-6 flex flex-col items-center justify-center">
               <div 
                 onClick={() => showToast('正在选择上传文件...', 'info')}
-                className="w-full border border-dashed border-[#ff9c6e]/70 bg-orange-50/[0.02] hover:bg-orange-50/[0.06] rounded-lg py-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-200 select-none"
+                className="w-full border border-dashed border-[#93c5fd]/70 bg-blue-50/[0.02] hover:bg-blue-50/[0.06] rounded-lg py-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-200 select-none"
               >
-                <UploadCloud className="w-14 h-14 text-[#ff9c6e] mb-4 stroke-[1.25]" />
-                <span className="text-[#fa541c] font-medium text-[13px]">支持将文件拖拽至此区域</span>
+                <UploadCloud className="w-14 h-14 text-[#93c5fd] mb-4 stroke-[1.25]" />
+                <span className="text-[#3b82f6] font-medium text-[13px]">支持将文件拖拽至此区域</span>
               </div>
               
               <div className="text-neutral-500 font-medium select-none text-[12.5px] mt-4 flex items-center justify-center gap-0.5">
                 <span>点此</span>
                 <span 
                   onClick={() => showToast('正在下载导入模板...', 'success')}
-                  className="text-[#fa541c] hover:underline cursor-pointer font-bold"
+                  className="text-[#3b82f6] hover:underline cursor-pointer font-bold"
                 >
                   ↓下载
                 </span>
@@ -4970,7 +4970,7 @@ export default function TeacherExams({ embedded = false }) {
                   showToast('最终成绩导入成功', 'success');
                   setShowImportScoresModal(false);
                 }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-xs transition-all rounded-[4px] shadow-sm border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -4992,14 +4992,14 @@ export default function TeacherExams({ embedded = false }) {
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 rounded-t-2xl">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-                  <Award className="w-5 h-5 text-[#fa541c]" />
+                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-[#3b82f6]" />
                 </div>
                 <h3 className="text-base font-extrabold text-neutral-850">批阅详情</h3>
               </div>
               <button
                 onClick={() => setShowCandidateGradingDetailsModal(false)}
-                className="text-neutral-455 hover:text-[#fa541c] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
+                className="text-neutral-455 hover:text-[#3b82f6] hover:bg-neutral-100/80 p-1.5 rounded-[4px] transition-colors cursor-pointer border-0 bg-transparent"
               >
                 <X className="w-4.5 h-4.5" />
               </button>
@@ -5024,7 +5024,7 @@ export default function TeacherExams({ embedded = false }) {
                         <td className="p-3 pl-4 font-mono font-semibold text-neutral-850">sx_admin</td>
                         <td className="p-3 text-neutral-700 font-medium">sxAdmin</td>
                         <td className="p-3 whitespace-nowrap">
-                          <span className="px-2 py-0.5 rounded text-[11px] font-medium inline-block bg-orange-50 border border-orange-100 text-[#fa541c]">
+                          <span className="px-2 py-0.5 rounded text-[11px] font-medium inline-block bg-blue-50 border border-orange-100 text-[#3b82f6]">
                             批阅中
                           </span>
                         </td>
@@ -5036,7 +5036,7 @@ export default function TeacherExams({ embedded = false }) {
                               setPreviewQuestionIdx(0);
                               setShowCandidateGradingDetailsModal(false);
                             }}
-                            className="text-[#fa541c] hover:text-[#e84a15] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs hover:underline"
+                            className="text-[#3b82f6] hover:text-[#2563eb] font-bold bg-transparent border-0 cursor-pointer p-0 text-xs hover:underline"
                           >
                             预览试卷
                           </button>
@@ -5052,7 +5052,7 @@ export default function TeacherExams({ embedded = false }) {
             <div className="px-6 py-4 border-t border-neutral-100 bg-[#fbfbfb] flex justify-end gap-2.5 rounded-b-2xl">
               <Button
                 onClick={() => setShowCandidateGradingDetailsModal(false)}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 rounded-[4px] text-xs cursor-pointer shadow-sm transition-colors border-0"
               >
                 确定
               </Button>
@@ -5095,13 +5095,13 @@ export default function TeacherExams({ embedded = false }) {
                       <div className="text-[15px] font-bold text-neutral-800 flex items-center gap-1.5">
                         <span>{previewQuestionIdx + 1}、{q.type}</span>
                         <span className="text-[13px] text-neutral-400 font-normal">({q.maxScore}分)</span>
-                        <span className="text-[13px] text-[#fa541c] font-bold ml-2">（得分: {q.score}分）</span>
+                        <span className="text-[13px] text-[#3b82f6] font-bold ml-2">（得分: {q.score}分）</span>
                       </div>
                       <div className="flex items-center gap-2 text-xs">
-                        <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-medium">
+                        <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-medium">
                           该题 {q.maxScore}.0分
                         </span>
-                        <span className="px-2.5 py-1 bg-orange-50 text-[#fa541c] border border-orange-100/50 rounded-[4px] font-bold">
+                        <span className="px-2.5 py-1 bg-blue-50 text-[#3b82f6] border border-orange-100/50 rounded-[4px] font-bold">
                           得 {q.score}分
                         </span>
                       </div>
@@ -5202,7 +5202,7 @@ export default function TeacherExams({ embedded = false }) {
                       variant="outline"
                       disabled={previewQuestionIdx === 0}
                       onClick={() => setPreviewQuestionIdx(idx => idx - 1)}
-                      className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                      className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
                     >
                       上一题
                     </Button>
@@ -5214,7 +5214,7 @@ export default function TeacherExams({ embedded = false }) {
                         "px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1 cursor-pointer",
                         previewQuestionIdx === questions.length - 1
                           ? "bg-neutral-100 text-neutral-400 cursor-not-allowed border border-neutral-200 shadow-none"
-                          : "bg-[#fa541c] hover:bg-[#e84a15] text-white"
+                          : "bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                       )}
                     >
                       下一题
@@ -5265,7 +5265,7 @@ export default function TeacherExams({ embedded = false }) {
                     <div className="pt-6 border-t border-neutral-200 mt-6 select-none shrink-0">
                       <Button 
                         onClick={() => setPreviewModeActive(false)}
-                        className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
+                        className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white border-0 font-bold h-9.5 text-[13px] rounded-[4px] cursor-pointer transition-colors shadow-sm"
                       >
                         退出预览
                       </Button>

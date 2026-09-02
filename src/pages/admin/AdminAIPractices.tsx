@@ -389,13 +389,13 @@ export default function AdminAIPractices() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "listing_approval" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             最佳实践上架审核
             {activeTab === "listing_approval" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
           <button 
@@ -403,13 +403,13 @@ export default function AdminAIPractices() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "list_manage" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             最佳实践列表管理
             {activeTab === "list_manage" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
           <button 
@@ -417,13 +417,13 @@ export default function AdminAIPractices() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "version_manage" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             最佳实践版本管理
             {activeTab === "version_manage" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
           <button 
@@ -431,13 +431,13 @@ export default function AdminAIPractices() {
             className={cn(
               "text-[15px] font-bold pb-2 relative transition-all cursor-pointer bg-transparent border-none",
               activeTab === "public_approval" 
-                ? "text-[#fa541c]" 
+                ? "text-[#3b82f6]" 
                 : "text-neutral-500 hover:text-neutral-800"
             )}
           >
             最佳实践公开审核
             {activeTab === "public_approval" && (
-              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#fa541c] rounded-full" />
+              <div className="absolute bottom-[-13px] left-0 right-0 h-[2.5px] bg-[#3b82f6] rounded-full" />
             )}
           </button>
         </div>
@@ -486,7 +486,7 @@ export default function AdminAIPractices() {
                         ) : (
                           <button 
                             onClick={() => setReviewingRequest(req)}
-                            className="bg-[#fff2e8] hover:bg-[#ffe8d6] text-[#fa541c] text-xs font-bold px-3 py-1.5 rounded transition-all cursor-pointer border border-[#ffbb96]/45"
+                            className="bg-[#eff6ff] hover:bg-[#ffe8d6] text-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded transition-all cursor-pointer border border-[#bfdbfe]/45"
                           >
                             前往审核
                           </button>
@@ -504,7 +504,7 @@ export default function AdminAIPractices() {
                 <div className="bg-white w-full max-w-[620px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300">
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50">
                     <h3 className="text-sm font-bold text-neutral-800 flex items-center gap-1.5">
-                      <Sparkles className="w-4 h-4 text-[#fa541c]" />
+                      <Sparkles className="w-4 h-4 text-[#3b82f6]" />
                       <span>最佳实践上架审核面板</span>
                     </h3>
                     <button onClick={() => setReviewingRequest(null)} className="text-neutral-400 hover:text-neutral-600">
@@ -542,10 +542,10 @@ export default function AdminAIPractices() {
                         onClick={() => setCheckCompleteness(!checkCompleteness)}
                         className={cn(
                           "p-3 rounded-lg border cursor-pointer transition-all flex items-start gap-3 bg-neutral-50/20",
-                          checkCompleteness ? "border-[#fa541c] bg-[#fff2e8]/15" : "border-neutral-200"
+                          checkCompleteness ? "border-[#3b82f6] bg-[#eff6ff]/15" : "border-neutral-200"
                         )}
                       >
-                        <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5", checkCompleteness ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300 bg-white")}>
+                        <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5", checkCompleteness ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300 bg-white")}>
                           {checkCompleteness && <Check className="w-3 h-3 stroke-[3]" />}
                         </button>
                         <div>
@@ -559,10 +559,10 @@ export default function AdminAIPractices() {
                         onClick={() => setCheckUtility(!checkUtility)}
                         className={cn(
                           "p-3 rounded-lg border cursor-pointer transition-all flex items-start gap-3 bg-neutral-50/20",
-                          checkUtility ? "border-[#fa541c] bg-[#fff2e8]/15" : "border-neutral-200"
+                          checkUtility ? "border-[#3b82f6] bg-[#eff6ff]/15" : "border-neutral-200"
                         )}
                       >
-                        <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5", checkUtility ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300 bg-white")}>
+                        <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5", checkUtility ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300 bg-white")}>
                           {checkUtility && <Check className="w-3 h-3 stroke-[3]" />}
                         </button>
                         <div>
@@ -576,10 +576,10 @@ export default function AdminAIPractices() {
                         onClick={() => setCheckStandard(!checkStandard)}
                         className={cn(
                           "p-3 rounded-lg border cursor-pointer transition-all flex items-start gap-3 bg-neutral-50/20",
-                          checkStandard ? "border-[#fa541c] bg-[#fff2e8]/15" : "border-neutral-200"
+                          checkStandard ? "border-[#3b82f6] bg-[#eff6ff]/15" : "border-neutral-200"
                         )}
                       >
-                        <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5", checkStandard ? "bg-[#fa541c] border-[#fa541c] text-white" : "border-neutral-300 bg-white")}>
+                        <button type="button" className={cn("w-4 h-4 rounded border flex items-center justify-center mt-0.5", checkStandard ? "bg-[#3b82f6] border-[#3b82f6] text-white" : "border-neutral-300 bg-white")}>
                           {checkStandard && <Check className="w-3 h-3 stroke-[3]" />}
                         </button>
                         <div>
@@ -598,7 +598,7 @@ export default function AdminAIPractices() {
                           placeholder="请输入具体的驳回修改建议，协助开发者完成调整..."
                           value={rejectReason}
                           onChange={(e) => setRejectReason(e.target.value)}
-                          className="w-full border border-neutral-200 rounded-lg p-3 text-xs focus:outline-none focus:border-[#fa541c] bg-white text-neutral-800 resize-none font-medium"
+                          className="w-full border border-neutral-200 rounded-lg p-3 text-xs focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-800 resize-none font-medium"
                         />
                       </div>
                     )}
@@ -613,7 +613,7 @@ export default function AdminAIPractices() {
                     ) : (
                       <>
                         <button onClick={() => setShowRejectForm(true)} className="px-4 py-2 border border-neutral-200 text-neutral-600 rounded-lg text-xs font-bold hover:bg-neutral-50 cursor-pointer">驳回申请</button>
-                        <button onClick={() => handleApproveListing(reviewingRequest.id)} className="px-4 py-2 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-lg text-xs font-bold transition-all cursor-pointer shadow-sm">通过审核并上架</button>
+                        <button onClick={() => handleApproveListing(reviewingRequest.id)} className="px-4 py-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-lg text-xs font-bold transition-all cursor-pointer shadow-sm">通过审核并上架</button>
                       </>
                     )}
                   </div>
@@ -636,7 +636,7 @@ export default function AdminAIPractices() {
                   {categories.map(cat => (
                     <button 
                       key={cat}
-                      className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", categoryFilter === cat ? "bg-white text-[#fa541c] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
+                      className={cn("px-5 py-1.5 text-[13px] rounded-full transition-all duration-200 cursor-pointer", categoryFilter === cat ? "bg-white text-[#3b82f6] font-bold shadow-sm" : "text-neutral-500 hover:text-neutral-800")}
                       onClick={() => setCategoryFilter(cat)}
                     >
                       {cat === "All" ? "全部" : cat}
@@ -654,13 +654,13 @@ export default function AdminAIPractices() {
                     placeholder="搜索最佳实践名称/作者" 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#fa541c] w-64 transition-all h-8"
+                    className="pl-9 pr-4 py-1.5 text-[13px] border border-neutral-200 rounded-full focus:outline-none focus:border-[#3b82f6] w-64 transition-all h-8"
                   />
                 </div>
 
                 <button 
                   onClick={() => alert("教师及学生端方可发起新建最佳实践，管理员在运营端享有完全管理和审核权限。")}
-                  className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-5 h-8 text-[13px] shadow-sm shrink-0 flex items-center gap-1 cursor-pointer font-bold"
+                  className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-5 h-8 text-[13px] shadow-sm shrink-0 flex items-center gap-1 cursor-pointer font-bold"
                 >
                   <Plus className="w-4 h-4" /> 新建实践
                 </button>
@@ -671,7 +671,7 @@ export default function AdminAIPractices() {
             {selectedPracticeIds.length > 0 && (
               <div className="p-3.5 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center justify-between gap-4 animate-fade-in">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-neutral-600 font-medium">已选择 <span className="font-bold text-[#fa541c]">{selectedPracticeIds.length}</span> 项最佳实践</span>
+                  <span className="text-xs text-neutral-600 font-medium">已选择 <span className="font-bold text-[#3b82f6]">{selectedPracticeIds.length}</span> 项最佳实践</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button 
@@ -708,28 +708,28 @@ export default function AdminAIPractices() {
                       className="absolute top-4 left-4 z-10 w-4 h-4 rounded border flex items-center justify-center transition-all bg-white border-neutral-300 text-white cursor-pointer"
                     >
                       {isSelected ? (
-                        <div className="w-full h-full bg-[#fa541c] border-[#fa541c] rounded flex items-center justify-center text-[10px] font-bold text-white">✓</div>
+                        <div className="w-full h-full bg-[#3b82f6] border-[#3b82f6] rounded flex items-center justify-center text-[10px] font-bold text-white">✓</div>
                       ) : (
-                        <div className="w-full h-full rounded hover:border-[#fa541c]" />
+                        <div className="w-full h-full rounded hover:border-[#3b82f6]" />
                       )}
                     </button>
                     
                     {/* Status Peach Badge in top right */}
-                    <div className="absolute top-0 right-0 bg-[#fff2e8] text-[#fa541c] text-[10px] font-bold px-2.5 py-1 rounded-bl-lg">
+                    <div className="absolute top-0 right-0 bg-[#eff6ff] text-[#3b82f6] text-[10px] font-bold px-2.5 py-1 rounded-bl-lg">
                       {item.status}
                     </div>
 
                     <div className="p-6 pl-12 flex-1 relative">
                       <div className="flex items-start gap-4">
                         {/* Circle icon container */}
-                        <div className="w-12 h-12 rounded-lg bg-neutral-50 border border-neutral-100 flex items-center justify-center flex-shrink-0 text-[#fa541c]">
+                        <div className="w-12 h-12 rounded-lg bg-neutral-50 border border-neutral-100 flex items-center justify-center flex-shrink-0 text-[#3b82f6]">
                           <Bookmark className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1.5 flex-wrap">
-                            <h3 className="font-bold text-[15px] text-neutral-800 truncate group-hover:text-[#fa541c] transition-colors">{item.name}</h3>
+                            <h3 className="font-bold text-[15px] text-neutral-800 truncate group-hover:text-[#3b82f6] transition-colors">{item.name}</h3>
                             {item.isPinned && (
-                              <span className="bg-[#fff2e8] border border-[#ffbb96] text-[#fa541c] rounded px-1.5 py-0.2 text-[8px] font-bold">置顶</span>
+                              <span className="bg-[#eff6ff] border border-[#bfdbfe] text-[#3b82f6] rounded px-1.5 py-0.2 text-[8px] font-bold">置顶</span>
                             )}
                           </div>
                           <p className="text-[12px] text-neutral-400 mt-1 leading-normal">作者: {item.author}</p>
@@ -778,7 +778,7 @@ export default function AdminAIPractices() {
                           onClick={() => handleTogglePin(item.id)}
                           className={cn(
                             "p-1.5 rounded transition-colors cursor-pointer",
-                            item.isPinned ? "text-[#fa541c] hover:bg-orange-50" : "text-neutral-400 hover:text-[#fa541c] hover:bg-orange-50"
+                            item.isPinned ? "text-[#3b82f6] hover:bg-blue-50" : "text-neutral-400 hover:text-[#3b82f6] hover:bg-blue-50"
                           )} 
                           title={item.isPinned ? "取消置顶" : "置顶实践"}
                         >
@@ -837,13 +837,13 @@ export default function AdminAIPractices() {
                       }}
                       className={cn(
                         "p-4 cursor-pointer transition-all hover:bg-neutral-50 flex flex-col gap-2 relative",
-                        isActive ? "bg-[#fff2e8]/45 border-l-4 border-[#fa541c]" : ""
+                        isActive ? "bg-[#eff6ff]/45 border-l-4 border-[#3b82f6]" : ""
                       )}
                     >
-                      <span className={cn("text-xs font-bold leading-normal", isActive ? "text-[#fa541c]" : "text-neutral-800")}>{p.name}</span>
+                      <span className={cn("text-xs font-bold leading-normal", isActive ? "text-[#3b82f6]" : "text-neutral-800")}>{p.name}</span>
                       <div className="flex justify-between items-center text-[10px] text-neutral-500 mt-1">
                         <span>分类: {p.category}</span>
-                        <span className="text-[#fa541c] font-black">{p.versionCount} 个修订版本</span>
+                        <span className="text-[#3b82f6] font-black">{p.versionCount} 个修订版本</span>
                       </div>
                     </div>
                   );
@@ -867,7 +867,7 @@ export default function AdminAIPractices() {
                         {/* Timeline bubble */}
                         <div className={cn(
                           "absolute left-[-22px] top-1.5 w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center bg-white z-10",
-                          isNewest ? "border-[#fa541c] ring-4 ring-[#fa541c]/10" : "border-neutral-300"
+                          isNewest ? "border-[#3b82f6] ring-4 ring-[#3b82f6]/10" : "border-neutral-300"
                         )} />
 
                         <div className="flex justify-between items-start gap-4">
@@ -890,7 +890,7 @@ export default function AdminAIPractices() {
                                   setComparingVerIndex(idx);
                                   setShowDiffModal(true);
                                 }}
-                                className="bg-[#fff2e8]/45 hover:bg-[#fff2e8] text-[#fa541c] text-[10px] font-bold px-2 py-1.5 border border-[#ffbb96]/30 rounded cursor-pointer"
+                                className="bg-[#eff6ff]/45 hover:bg-[#eff6ff] text-[#3b82f6] text-[10px] font-bold px-2 py-1.5 border border-[#bfdbfe]/30 rounded cursor-pointer"
                               >
                                 比对下版
                               </button>
@@ -979,7 +979,7 @@ export default function AdminAIPractices() {
                   <div className="border-t border-neutral-100 pt-3 flex justify-end">
                     <button 
                       onClick={() => setShowDiffModal(false)}
-                      className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-5 py-2 rounded-lg text-xs font-bold cursor-pointer shadow-sm"
+                      className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-5 py-2 rounded-lg text-xs font-bold cursor-pointer shadow-sm"
                     >
                       我已知晓
                     </button>
@@ -1038,7 +1038,7 @@ export default function AdminAIPractices() {
                         ) : (
                           <button 
                             onClick={() => setReviewingPublic(req)}
-                            className="bg-[#fa541c] hover:bg-[#e84a15] text-white text-xs font-bold px-3 py-1.5 rounded transition-all cursor-pointer shadow-sm"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white text-xs font-bold px-3 py-1.5 rounded transition-all cursor-pointer shadow-sm"
                           >
                             评估详情
                           </button>
@@ -1056,7 +1056,7 @@ export default function AdminAIPractices() {
                 <div className="bg-white w-full max-w-[620px] h-screen flex flex-col shadow-2xl border-l border-neutral-100 animate-in slide-in-from-right duration-300">
                   <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50">
                     <h3 className="text-sm font-bold text-neutral-800 flex items-center gap-1.5">
-                      <Shield className="w-4 h-4 text-[#fa541c]" />
+                      <Shield className="w-4 h-4 text-[#3b82f6]" />
                       <span>全平台公开资格评估审核</span>
                     </h3>
                     <button onClick={() => setReviewingPublic(null)} className="text-neutral-400 hover:text-neutral-600">
@@ -1083,7 +1083,7 @@ export default function AdminAIPractices() {
                       <div className="space-y-2">
                         <div className="flex justify-between text-xs font-bold text-neutral-700">
                           <span>内容及配图完整度得分 (Completeness)</span>
-                          <span className="text-[#fa541c] font-black">{scoreCompleteness}分</span>
+                          <span className="text-[#3b82f6] font-black">{scoreCompleteness}分</span>
                         </div>
                         <p className="text-[10px] text-neutral-400 leading-normal pb-1">评估是否有清晰的教学指引步骤图，配图说明是否足够清晰，利于全平台极低门槛复用。</p>
                         <input 
@@ -1092,7 +1092,7 @@ export default function AdminAIPractices() {
                           max="100"
                           value={scoreCompleteness}
                           onChange={(e) => setScoreCompleteness(parseInt(e.target.value))}
-                          className="w-full h-1 accent-[#fa541c] bg-neutral-200 rounded-lg cursor-pointer"
+                          className="w-full h-1 accent-[#3b82f6] bg-neutral-200 rounded-lg cursor-pointer"
                         />
                       </div>
 
@@ -1100,7 +1100,7 @@ export default function AdminAIPractices() {
                       <div className="space-y-2">
                         <div className="flex justify-between text-xs font-bold text-neutral-700">
                           <span>教学解决实际问题能力得分 (Utility)</span>
-                          <span className="text-[#fa541c] font-black">{scoreUtility}分</span>
+                          <span className="text-[#3b82f6] font-black">{scoreUtility}分</span>
                         </div>
                         <p className="text-[10px] text-neutral-400 leading-normal pb-1">是否能真正解决跨学科AI实验的组织编排，课后智能打分准确无幻觉，应用价值是否普适。</p>
                         <input 
@@ -1109,7 +1109,7 @@ export default function AdminAIPractices() {
                           max="100"
                           value={scoreUtility}
                           onChange={(e) => setScoreUtility(parseInt(e.target.value))}
-                          className="w-full h-1 accent-[#fa541c] bg-neutral-200 rounded-lg cursor-pointer"
+                          className="w-full h-1 accent-[#3b82f6] bg-neutral-200 rounded-lg cursor-pointer"
                         />
                       </div>
 
@@ -1117,24 +1117,24 @@ export default function AdminAIPractices() {
                       <div className="space-y-2">
                         <div className="flex justify-between text-xs font-bold text-neutral-700">
                           <span>术语与排版格式规范度得分 (Standardization)</span>
-                          <span className="text-[#fa541c] font-black">{scoreStandard}分</span>
+                          <span className="text-[#3b82f6] font-black">{scoreStandard}分</span>
                         </div>
-                        <p className="text-[10px] text-neutral-400 leading-normal pb-1">排版、语言、中英文标点是否完全遵循智云实训平台大模型发布规范。</p>
+                        <p className="text-[10px] text-neutral-400 leading-normal pb-1">排版、语言、中英文标点是否完全遵循模数师数字平台大模型发布规范。</p>
                         <input 
                           type="range"
                           min="1"
                           max="100"
                           value={scoreStandard}
                           onChange={(e) => setScoreStandard(parseInt(e.target.value))}
-                          className="w-full h-1 accent-[#fa541c] bg-neutral-200 rounded-lg cursor-pointer"
+                          className="w-full h-1 accent-[#3b82f6] bg-neutral-200 rounded-lg cursor-pointer"
                         />
                       </div>
                     </div>
 
                     {/* Calculated Average */}
-                    <div className="p-4 bg-[#fff2e8]/45 border border-[#ffbb96]/45 rounded-xl flex items-center justify-between">
+                    <div className="p-4 bg-[#eff6ff]/45 border border-[#bfdbfe]/45 rounded-xl flex items-center justify-between">
                       <span className="text-xs font-bold text-neutral-700">最终综合评估得分 (平均):</span>
-                      <span className="text-2xl font-black text-[#fa541c]">
+                      <span className="text-2xl font-black text-[#3b82f6]">
                         {((scoreCompleteness + scoreUtility + scoreStandard) / 3).toFixed(1)}分
                       </span>
                     </div>
@@ -1142,7 +1142,7 @@ export default function AdminAIPractices() {
 
                   <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/50 flex justify-end gap-3 shrink-0">
                     <button onClick={() => handleRejectPublic(reviewingPublic.id)} className="px-4 py-2 border border-neutral-200 text-neutral-600 rounded-lg text-xs font-bold hover:bg-neutral-50 cursor-pointer">拒绝公开并打回</button>
-                    <button onClick={() => handleApprovePublic(reviewingPublic.id)} className="px-4 py-2 bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-lg text-xs font-bold transition-all cursor-pointer shadow-sm">同意公开升级(全平台可用)</button>
+                    <button onClick={() => handleApprovePublic(reviewingPublic.id)} className="px-4 py-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-lg text-xs font-bold transition-all cursor-pointer shadow-sm">同意公开升级(全平台可用)</button>
                   </div>
                 </div>
               </div>

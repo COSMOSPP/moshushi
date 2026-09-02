@@ -4,7 +4,7 @@ import {
   Search, ChevronRight, ChevronDown, ChevronLeft, Play, Plus, ArrowLeft, ArrowRight, 
   Terminal, Code, Settings, Rocket, BookOpen, Clock, User, FileCode, CheckCircle2, 
   Bot, Send, Paperclip, LayoutDashboard, Database, Activity, Cpu, PlayCircle, FileText,
-  History, Calendar, Info, Layers, Zap, Star, Sparkles, GitFork, Download, Tag, Heart, X, Copy, Users, Box, MessageSquare, ImageIcon, Edit3, Languages, Code2, LayoutGrid, Mic, LogOut, Ghost, FolderOpen, Sun, GitBranch, Maximize2, ChevronUp, Store
+  History, Calendar, Info, Layers, Zap, Star, Sparkles, GitFork, Download, Tag, Heart, X, Copy, Users, Box, MessageSquare, ImageIcon, Edit3, Languages, Code2, LayoutGrid, Mic, LogOut, Ghost, FolderOpen, Sun, GitBranch, Maximize2, ChevronUp, Store, List
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -126,7 +126,7 @@ export default function UserPractices() {
       if (sortBy === "按热度") return b.usageCount - a.usageCount;
       if (sortBy === "按难度") {
         const diffMap: any = { "初阶": 1, "中阶": 2, "高阶": 3 };
-        return (diffMap[a.difficulty] || 1) - (diffMap[b.difficulty] || 1);
+        return (diffMap[(a as any).difficulty] || 1) - (diffMap[(b as any).difficulty] || 1);
       }
       return 0;
     });
@@ -151,7 +151,7 @@ export default function UserPractices() {
         </div>
         <button 
           onClick={() => { setShowCreateModal(true); setCreateStep(1); }}
-          className="mt-4 md:mt-0 flex items-center gap-2 bg-[#fa541c] hover:bg-[#ff7a45] text-white px-5 py-2.5 rounded-[8px] font-medium transition-all text-[14px] shadow-sm"
+          className="mt-4 md:mt-0 flex items-center gap-2 bg-[#3b82f6] hover:bg-[#60a5fa] text-white px-5 py-2.5 rounded-[8px] font-medium transition-all text-[14px] shadow-sm"
         >
           <Plus className="w-4 h-4" />
           创建最佳实践
@@ -170,8 +170,8 @@ export default function UserPractices() {
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[13px] transition-colors",
                   selectedTech === tech 
-                    ? "bg-[#fa541c] text-white" 
-                    : "bg-white border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c]"
+                    ? "bg-[#3b82f6] text-white" 
+                    : "bg-white border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {tech}
@@ -190,8 +190,8 @@ export default function UserPractices() {
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[13px] transition-colors",
                   selectedScenario === scenario 
-                    ? "bg-[#fa541c] text-white" 
-                    : "bg-white border border-neutral-border text-neutral-body hover:text-[#fa541c] hover:border-[#fa541c]"
+                    ? "bg-[#3b82f6] text-white" 
+                    : "bg-white border border-neutral-border text-neutral-body hover:text-[#3b82f6] hover:border-[#3b82f6]"
                 )}
               >
                 {scenario}
@@ -221,10 +221,10 @@ export default function UserPractices() {
         </div>
         
         <div className="relative w-full sm:w-80 group">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption group-focus-within:text-[#fa541c] transition-colors" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-caption group-focus-within:text-[#3b82f6] transition-colors" />
           <Input 
             placeholder="按最佳实践名称或描述搜索..." 
-            className="pl-10 h-11 text-[14px] rounded-full border-neutral-border/50 bg-white focus-visible:ring-[#fa541c]/20 focus-visible:border-[#fa541c] shadow-sm transition-all"
+            className="pl-10 h-11 text-[14px] rounded-full border-neutral-border/50 bg-white focus-visible:ring-[#3b82f6]/20 focus-visible:border-[#3b82f6] shadow-sm transition-all"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -249,7 +249,7 @@ export default function UserPractices() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <h3 className="text-[16px] font-bold text-neutral-title line-clamp-1 group-hover:text-[#fa541c] transition-colors">
+              <h3 className="text-[16px] font-bold text-neutral-title line-clamp-1 group-hover:text-[#3b82f6] transition-colors">
                 {practice.title}
               </h3>
             </div>
@@ -296,14 +296,14 @@ export default function UserPractices() {
         <span className="text-[13px] text-neutral-500">共 {practices.length} 条</span>
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]" disabled>&lt;</Button>
-          <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+          <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px] bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
           <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">2</Button>
           <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">3</Button>
           <span className="px-1 text-neutral-caption text-[13px]">...</span>
           <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-[4px]">&gt;</Button>
         </div>
         <div className="relative bg-white rounded-[6px]">
-          <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#fa541c]/60 focus:border-[#fa541c] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
+          <select className="appearance-none text-[13px] border border-neutral-200 hover:border-[#3b82f6]/60 focus:border-[#3b82f6] rounded-[6px] pl-3 pr-8 py-1 focus:outline-none text-neutral-600 bg-white cursor-pointer h-7 transition-colors min-w-[95px] shadow-sm">
             <option className="bg-white">10 条/页</option>
             <option className="bg-white">20 条/页</option>
             <option className="bg-white">50 条/页</option>
@@ -325,7 +325,7 @@ export default function UserPractices() {
         <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-xl border-b border-neutral-border/40 px-6 py-4 flex items-center justify-between">
           <button 
             onClick={() => setView('list')}
-            className="flex items-center gap-2 text-neutral-body hover:text-[#fa541c] transition-colors font-medium text-[15px]"
+            className="flex items-center gap-2 text-neutral-body hover:text-[#3b82f6] transition-colors font-medium text-[15px]"
           >
             <ArrowLeft className="w-5 h-5" /> 返回列表
           </button>
@@ -354,7 +354,7 @@ export default function UserPractices() {
              </div>
              <button 
                onClick={() => setShowChat(true)}
-               className="bg-gradient-to-r from-[#fa541c] to-[#ff7a45] text-white px-6 py-2 ml-1 rounded-lg font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2"
+               className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] text-white px-6 py-2 ml-1 rounded-lg font-bold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2"
              >
               <Rocket className="w-4 h-4" /> 使用此最佳实践
             </button>
@@ -383,13 +383,13 @@ export default function UserPractices() {
             {/* Workflow Area */}
             <div className="bg-neutral-bg/50 rounded-xl p-5 border border-dashed border-neutral-border">
               <h3 className="text-[14px] font-bold text-neutral-title mb-4 flex items-center gap-2">
-                <WorkflowIcon className="w-4 h-4 text-[#fa541c]" /> 工作流说明
+                <WorkflowIcon className="w-4 h-4 text-[#3b82f6]" /> 工作流说明
               </h3>
               <div className="flex items-center flex-wrap gap-y-4">
                 {selectedPractice.workflow.map((step: string, index: number) => (
                   <React.Fragment key={index}>
                     <div className="bg-white border border-neutral-border px-4 py-2 rounded-lg text-[13px] font-medium text-neutral-title shadow-sm flex items-center gap-2">
-                      <div className="w-5 h-5 rounded-full bg-[#fa541c]/10 text-[#fa541c] flex items-center justify-center text-[10px] font-bold">{index + 1}</div>
+                      <div className="w-5 h-5 rounded-full bg-[#3b82f6]/10 text-[#3b82f6] flex items-center justify-center text-[10px] font-bold">{index + 1}</div>
                       {step}
                     </div>
                     {index < selectedPractice.workflow.length - 1 && (
@@ -447,17 +447,17 @@ export default function UserPractices() {
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {selectedPractice.skills.map((skill: string, idx: number) => (
-                    <div key={idx} onClick={() => setSelectedSkill(skill)} className="border border-neutral-200 rounded-xl p-4 flex items-center justify-between hover:border-[#fa541c] hover:shadow-md transition-all cursor-pointer group bg-neutral-50/50 hover:bg-white">
+                    <div key={idx} onClick={() => setSelectedSkill(skill)} className="border border-neutral-200 rounded-xl p-4 flex items-center justify-between hover:border-[#3b82f6] hover:shadow-md transition-all cursor-pointer group bg-neutral-50/50 hover:bg-white">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-emerald-100/50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
                           <Bot className="w-5 h-5" />
                         </div>
                         <div>
-                          <div className="text-[14px] font-bold text-neutral-800 group-hover:text-[#fa541c] transition-colors line-clamp-1">{skill}</div>
+                          <div className="text-[14px] font-bold text-neutral-800 group-hover:text-[#3b82f6] transition-colors line-clamp-1">{skill}</div>
                           <div className="text-[12px] text-neutral-500 mt-0.5">内置自动化处理工具</div>
                         </div>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-[#fa541c]" />
+                      <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-[#3b82f6]" />
                     </div>
                   ))}
                 </div>
@@ -469,7 +469,7 @@ export default function UserPractices() {
               {/* Stats Card */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-neutral-border/50">
                 <h3 className="text-[16px] font-bold text-neutral-title mb-5 flex items-center gap-2">
-                  <History className="w-4 h-4 text-[#fa541c]" /> 使用数据
+                  <History className="w-4 h-4 text-[#3b82f6]" /> 使用数据
                 </h3>
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center justify-between border-b border-neutral-border/30 pb-3">
@@ -557,7 +557,7 @@ export default function UserPractices() {
                   <span className="px-2.5 py-1 bg-green-50 text-green-600 border border-green-200/60 rounded flex items-center gap-1.5 text-[12px] font-medium">
                     <Box className="w-3.5 h-3.5" /> v1.0.0
                   </span>
-                  <span className="px-2.5 py-1 bg-orange-50 text-orange-500 border border-orange-200/60 rounded flex items-center gap-1.5 text-[12px] font-medium">
+                  <span className="px-2.5 py-1 bg-blue-50 text-orange-500 border border-blue-200/60 rounded flex items-center gap-1.5 text-[12px] font-medium">
                     <Zap className="w-3.5 h-3.5" /> 加速下载可用
                   </span>
                 </div>
@@ -668,7 +668,7 @@ export default function UserPractices() {
           <div className="flex-1 flex justify-start items-end h-full ml-8 gap-1 pt-3">
              <div className={cn(
                "px-4 py-2 text-sm font-medium border-t-2 rounded-t-lg flex items-center gap-2 cursor-pointer transition-colors",
-               activeBuilderTab === 'preview' ? "bg-white border-[#fa541c] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]" : "bg-neutral-100 border-transparent text-neutral-500 hover:bg-neutral-200"
+               activeBuilderTab === 'preview' ? "bg-white border-[#3b82f6] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]" : "bg-neutral-100 border-transparent text-neutral-500 hover:bg-neutral-200"
              )}
              onClick={() => setActiveBuilderTab('preview')}
              >
@@ -677,10 +677,10 @@ export default function UserPractices() {
              {activeBuilderTab === 'deploy' && (
                <div className={cn(
                  "px-4 py-2 text-sm font-medium border-t-2 rounded-t-lg flex items-center gap-2 cursor-pointer transition-colors",
-                 "bg-white border-[#fa541c] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]"
+                 "bg-white border-[#3b82f6] text-neutral-900 border-x border-neutral-200 shadow-[0_-2px_4px_rgba(0,0,0,0.02)]"
                )}>
                  <Rocket className="w-4 h-4" /> 部署
-                 <X className="w-3.5 h-3.5 ml-2 hover:text-[#fa541c]" onClick={(e) => { e.stopPropagation(); setActiveBuilderTab('preview'); }} />
+                 <X className="w-3.5 h-3.5 ml-2 hover:text-[#3b82f6]" onClick={(e) => { e.stopPropagation(); setActiveBuilderTab('preview'); }} />
                </div>
              )}
              <button className="px-3 py-2 text-sm text-neutral-500 hover:text-neutral-800 flex items-center gap-1 hover:bg-neutral-100 rounded-t-lg ml-1">
@@ -695,7 +695,7 @@ export default function UserPractices() {
              <button className="p-1.5 text-neutral-500 hover:bg-neutral-100 rounded"><Copy className="w-4 h-4" /></button>
              <button 
                onClick={() => setActiveBuilderTab('deploy')}
-               className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-5 py-1.5 rounded-lg text-[13px] font-bold shadow-sm transition-colors ml-2"
+               className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-5 py-1.5 rounded-lg text-[13px] font-bold shadow-sm transition-colors ml-2"
              >
                部署
              </button>
@@ -769,9 +769,9 @@ export default function UserPractices() {
                        现在验证脚本并打包：
                      </div>
                      <div className="flex gap-2 items-center mt-2 p-2 border border-neutral-100 rounded-full w-fit">
-                       <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-bounce"></div>
-                       <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                       <div className="w-2 h-2 rounded-full bg-[#fa541c] animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                       <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-bounce"></div>
+                       <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                       <div className="w-2 h-2 rounded-full bg-[#3b82f6] animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                      </div>
                   </div>
                </div>
@@ -908,7 +908,7 @@ export default function UserPractices() {
                       </div>
 
                       <button 
-                         className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white py-3.5 rounded-xl text-[15px] font-bold shadow-md transition-colors mt-4"
+                         className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white py-3.5 rounded-xl text-[15px] font-bold shadow-md transition-colors mt-4"
                          onClick={() => {
                             alert('部署成功！');
                             setView('list');
@@ -965,8 +965,8 @@ export default function UserPractices() {
       <div className="fixed inset-0 z-[200] bg-white flex h-screen w-screen font-sans overflow-hidden">
         {/* Left Sidebar */}
         <div className="w-[260px] bg-[#f9f9f9] border-r border-neutral-200 flex flex-col shrink-0">
-          <div className="h-16 flex items-center px-5 gap-2 text-[#fa541c] font-bold text-[18px]">
-            <Layers className="w-5 h-5" /> 智云实训平台
+          <div className="h-16 flex items-center px-5 gap-2 text-[#3b82f6] font-bold text-[18px]">
+            <Layers className="w-5 h-5" /> 模数师数字平台
           </div>
           <div className="px-5 py-3 text-[12px] text-neutral-400 font-medium">历史对话</div>
           <div className="flex-1 overflow-y-auto px-3 space-y-0.5 custom-scrollbar">
@@ -979,7 +979,7 @@ export default function UserPractices() {
           </div>
           <div className="p-4 border-t border-neutral-200 flex items-center justify-between text-neutral-500">
             <button className="flex items-center gap-2 text-[13px] hover:text-neutral-800 transition-colors">
-              <Info className="w-4 h-4" /> 关于智云实训
+              <Info className="w-4 h-4" /> 关于模数师
             </button>
             <button className="p-1.5 hover:bg-neutral-200 rounded-md transition-colors">
               <Download className="w-4 h-4" />
@@ -1012,7 +1012,7 @@ export default function UserPractices() {
                 {suggestionPills.map((pill, i) => (
                   <button 
                     key={i} 
-                    className="bg-neutral-50 border border-neutral-100 hover:border-orange-200 hover:bg-orange-50 hover:text-[#fa541c] text-neutral-600 px-5 py-2.5 rounded-full text-[14px] transition-all whitespace-nowrap"
+                    className="bg-neutral-50 border border-neutral-100 hover:border-blue-200 hover:bg-blue-50 hover:text-[#3b82f6] text-neutral-600 px-5 py-2.5 rounded-full text-[14px] transition-all whitespace-nowrap"
                   >
                     {pill}
                   </button>
@@ -1049,7 +1049,7 @@ export default function UserPractices() {
                     <div className="w-[1px] h-4 bg-neutral-200 mx-1 shrink-0"></div>
                     
                     <button className="flex items-center gap-1.5 px-2.5 py-1.5 hover:bg-neutral-100 rounded-lg transition-colors text-[13px] font-medium whitespace-nowrap group">
-                      <Zap className="w-4 h-4 group-hover:text-orange-500" /> 快速
+                      <Zap className="w-4 h-4 group-hover:text-blue-500" /> 快速
                     </button>
                     <button className="flex items-center gap-1.5 px-2.5 py-1.5 hover:bg-neutral-100 rounded-lg transition-colors text-[13px] font-medium whitespace-nowrap group">
                       <ImageIcon className="w-4 h-4 group-hover:text-blue-500" /> 图像生成
@@ -1121,33 +1121,33 @@ export default function UserPractices() {
                     setShowCreateModal(false);
                     navigate('/practice-chat');
                   }}
-                  className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-5 cursor-pointer hover:border-[#fa541c] hover:shadow-md transition-all group"
+                  className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-5 cursor-pointer hover:border-[#3b82f6] hover:shadow-md transition-all group"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-indigo-500 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Plus className="w-7 h-7" />
                   </div>
                   <div className="flex-1 mt-1">
-                    <h3 className="text-[17px] font-bold text-neutral-900 mb-1.5 group-hover:text-[#fa541c] transition-colors">对话创建</h3>
+                    <h3 className="text-[17px] font-bold text-neutral-900 mb-1.5 group-hover:text-[#3b82f6] transition-colors">对话创建</h3>
                     <p className="text-[14px] text-neutral-500 leading-relaxed">根据需求从零搭建专属的智能对话、业务流程或数据处理管道</p>
                   </div>
                 </div>
 
-                <div className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-5 cursor-pointer hover:border-[#fa541c] hover:shadow-md transition-all group">
+                <div className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-5 cursor-pointer hover:border-[#3b82f6] hover:shadow-md transition-all group">
                   <div className="w-14 h-14 rounded-2xl bg-orange-500 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Store className="w-7 h-7" />
                   </div>
                   <div className="flex-1 mt-1">
-                    <h3 className="text-[17px] font-bold text-neutral-900 mb-1.5 group-hover:text-[#fa541c] transition-colors">从模板创建</h3>
+                    <h3 className="text-[17px] font-bold text-neutral-900 mb-1.5 group-hover:text-[#3b82f6] transition-colors">从模板创建</h3>
                     <p className="text-[14px] text-neutral-500 leading-relaxed">探索并添加经过专家验证的预置最佳实践模板，即刻开启使用</p>
                   </div>
                 </div>
 
-                <div className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-5 cursor-pointer hover:border-[#fa541c] hover:shadow-md transition-all group">
+                <div className="bg-white border border-neutral-200 rounded-2xl p-5 flex items-start gap-5 cursor-pointer hover:border-[#3b82f6] hover:shadow-md transition-all group">
                   <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <FileCode className="w-7 h-7" />
                   </div>
                   <div className="flex-1 mt-1">
-                    <h3 className="text-[17px] font-bold text-neutral-900 mb-1.5 group-hover:text-[#fa541c] transition-colors">导入配置</h3>
+                    <h3 className="text-[17px] font-bold text-neutral-900 mb-1.5 group-hover:text-[#3b82f6] transition-colors">导入配置</h3>
                     <p className="text-[14px] text-neutral-500 leading-relaxed">快速恢复历史流程结构，或导入第三方提供的配置文件</p>
                   </div>
                 </div>
@@ -1157,7 +1157,7 @@ export default function UserPractices() {
                 <div className="flex items-center justify-between">
                   <button 
                     onClick={() => setCreateStep(1)}
-                    className="flex items-center gap-1 text-[#fa541c] hover:text-[#e84a15] text-[14px] font-medium transition-colors"
+                    className="flex items-center gap-1 text-[#3b82f6] hover:text-[#2563eb] text-[14px] font-medium transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" /> 返回选择方式
                   </button>
@@ -1169,11 +1169,11 @@ export default function UserPractices() {
                       <label className="text-[13px] text-neutral-600 font-bold mb-2 flex items-center gap-1">
                         <span className="text-red-500">*</span> 最佳实践名称
                       </label>
-                      <input type="text" placeholder="请输入名称..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all" />
+                      <input type="text" placeholder="请输入名称..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all" />
                     </div>
                     <div>
                       <label className="text-[13px] text-neutral-600 font-bold mb-2 flex items-center gap-1">标题</label>
-                      <input type="text" placeholder="请输入标题..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all" />
+                      <input type="text" placeholder="请输入标题..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all" />
                     </div>
                   </div>
 
@@ -1181,13 +1181,13 @@ export default function UserPractices() {
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 flex items-center gap-1">
                       <span className="text-red-500">*</span> 业务场景
                     </label>
-                    <input type="text" placeholder="描述适用的业务场景..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all" />
+                    <input type="text" placeholder="描述适用的业务场景..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all" />
                   </div>
 
                   <div className="grid grid-cols-2 gap-5">
                     <div>
                       <label className="text-[13px] text-neutral-600 font-bold mb-2 flex items-center gap-1">分类</label>
-                      <select className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all text-neutral-600">
+                      <select className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all text-neutral-600">
                         <option value="">选择分类...</option>
                         <option value="data">数据处理</option>
                         <option value="model">模型训练</option>
@@ -1199,7 +1199,7 @@ export default function UserPractices() {
                     </div>
                     <div>
                       <label className="text-[13px] text-neutral-600 font-bold mb-2 flex items-center gap-1">难度</label>
-                      <select className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all text-neutral-600">
+                      <select className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all text-neutral-600">
                         <option value="low">初阶</option>
                         <option value="mid">中阶</option>
                         <option value="high">高阶</option>
@@ -1209,34 +1209,34 @@ export default function UserPractices() {
 
                   <div>
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 flex items-center gap-1">适用场景</label>
-                    <input type="text" placeholder="适用场景标签，用逗号分隔..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all" />
+                    <input type="text" placeholder="适用场景标签，用逗号分隔..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all" />
                   </div>
 
                   <div>
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 block">描述</label>
-                    <textarea placeholder="最佳实践的简要描述..." className="w-full h-20 px-3 py-2 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] resize-none bg-neutral-50/50 transition-all" />
+                    <textarea placeholder="最佳实践的简要描述..." className="w-full h-20 px-3 py-2 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] resize-none bg-neutral-50/50 transition-all" />
                   </div>
 
                   <div>
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 block">详细步骤</label>
-                    <textarea placeholder="记录解决问题的方法和经验，以及详细操作步骤..." className="w-full h-24 px-3 py-2 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] resize-none bg-neutral-50/50 transition-all" />
+                    <textarea placeholder="记录解决问题的方法和经验，以及详细操作步骤..." className="w-full h-24 px-3 py-2 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] resize-none bg-neutral-50/50 transition-all" />
                   </div>
 
                   <div>
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 block">代码示例</label>
-                    <textarea placeholder="输入代码段..." className="w-full h-24 px-3 py-2 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] resize-none bg-neutral-50/50 font-mono transition-all" />
+                    <textarea placeholder="输入代码段..." className="w-full h-24 px-3 py-2 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] resize-none bg-neutral-50/50 font-mono transition-all" />
                   </div>
 
                   <div>
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 block">参考资源</label>
-                    <input type="text" placeholder="相关文档链接、教程链接..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] outline-none text-[13px] bg-neutral-50/50 transition-all" />
+                    <input type="text" placeholder="相关文档链接、教程链接..." className="w-full h-10 px-3 rounded-lg border border-neutral-200 focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] outline-none text-[13px] bg-neutral-50/50 transition-all" />
                   </div>
 
                   <div>
                     <label className="text-[13px] text-neutral-600 font-bold mb-2 block">附件上传</label>
                     <div className="border border-dashed border-neutral-300 rounded-lg p-6 flex flex-col items-center justify-center bg-neutral-50/50 hover:bg-neutral-100 transition-colors cursor-pointer group">
-                      <Download className="w-6 h-6 text-neutral-400 mb-2 group-hover:text-[#fa541c] transition-colors" />
-                      <span className="text-[13px] text-neutral-600 font-medium group-hover:text-[#fa541c] transition-colors">点击或拖拽文件到此处上传</span>
+                      <Download className="w-6 h-6 text-neutral-400 mb-2 group-hover:text-[#3b82f6] transition-colors" />
+                      <span className="text-[13px] text-neutral-600 font-medium group-hover:text-[#3b82f6] transition-colors">点击或拖拽文件到此处上传</span>
                       <span className="text-[11px] text-neutral-400 mt-1">支持 .pdf, .docx, .zip, 最大 50MB</span>
                     </div>
                   </div>
@@ -1256,7 +1256,7 @@ export default function UserPractices() {
                 </button>
                 <button 
                   onClick={() => setShowCreateModal(false)}
-                  className="flex-1 bg-white border border-neutral-200 text-[#fa541c] h-11 rounded-xl text-[14px] font-medium hover:bg-orange-50 transition-all"
+                  className="flex-1 bg-white border border-neutral-200 text-[#3b82f6] h-11 rounded-xl text-[14px] font-medium hover:bg-blue-50 transition-all"
                 >
                   保存并申请公开
                 </button>
@@ -1265,7 +1265,7 @@ export default function UserPractices() {
                     setShowCreateModal(false);
                     navigate('/practice-chat');
                   }}
-                  className="flex-[1.2] bg-[#fa541c] hover:bg-[#e84a15] text-white h-11 rounded-xl text-[14px] font-bold shadow-md shadow-orange-500/20 hover:shadow-orange-500/40 transition-all flex items-center justify-center gap-1.5"
+                  className="flex-[1.2] bg-[#3b82f6] hover:bg-[#2563eb] text-white h-11 rounded-xl text-[14px] font-bold shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all flex items-center justify-center gap-1.5"
                 >
                   <Bot className="w-4 h-4" /> 对话生成
                 </button>

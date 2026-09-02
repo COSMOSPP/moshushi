@@ -180,6 +180,7 @@ export default function TeacherCenter() {
   const [notiFilter, setNotiFilter] = useState<'全部' | '未读' | '已读'>('全部');
   const [notiSearchQuery, setNotiSearchQuery] = useState('');
   const [selectedNotiId, setSelectedNotiId] = useState<number | null>(null);
+  const [isAllReadClicked, setIsAllReadClicked] = useState(false);
 
   const filteredNotis = notifications.filter(n => {
     if (notiFilter === '未读' && n.read) return false;
@@ -201,6 +202,9 @@ export default function TeacherCenter() {
       if (n.id === id) {
         const nextState = !n.read;
         showToast(nextState ? '已被标记为已读' : '已被标记为未读');
+        if (!nextState) {
+          setIsAllReadClicked(false);
+        }
         return { ...n, read: nextState };
       }
       return n;
@@ -214,6 +218,16 @@ export default function TeacherCenter() {
     if (selectedNotiId === id) {
       setSelectedNotiId(null);
     }
+  };
+
+  const handleMarkAllAsRead = () => {
+    setIsAllReadClicked(true);
+    if (unreadCount === 0) {
+      showToast('暂无未读消息');
+      return;
+    }
+    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+    showToast('已将所有消息标记为已读');
   };
 
   // --- Quota State ---
@@ -238,7 +252,7 @@ export default function TeacherCenter() {
       <div className="bg-white rounded-xl border border-neutral-200/80 shadow-xs overflow-hidden relative">
         
         {/* Top Gradient Orange Header Banner with Name & Buttons INSIDE */}
-        <div className="bg-gradient-to-r from-[#fa541c] via-[#ff7a45] to-[#ffa940] p-6 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#3b82f6] via-[#60a5fa] to-[#ffa940] p-6 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-black/10"></div>
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
 
@@ -258,7 +272,7 @@ export default function TeacherCenter() {
               {/* Avatar Box */}
               <div className="relative group shrink-0">
                 <div className="w-20 h-20 rounded-xl bg-white p-1 shadow-md flex items-center justify-center">
-                  <div className="w-full h-full bg-gradient-to-br from-[#fff2e8] to-[#ffd8bf] rounded-lg flex items-center justify-center text-[#fa541c] text-2xl font-black shadow-inner">
+                  <div className="w-full h-full bg-gradient-to-br from-[#eff6ff] to-[#dbeafe] rounded-lg flex items-center justify-center text-[#3b82f6] text-2xl font-black shadow-inner">
                     {profile.name.substring(0, 1)}
                   </div>
                 </div>
@@ -292,7 +306,7 @@ export default function TeacherCenter() {
                   setEditProfileForm({ ...profile, specializationsStr: profile.specializations.join(', ') });
                   setIsEditProfileOpen(true);
                 }}
-                className="bg-white hover:bg-orange-50 text-[#fa541c] font-bold rounded-[4px] px-4 h-9 text-xs shadow-sm cursor-pointer border-0 flex items-center gap-1.5 transition-colors"
+                className="bg-white hover:bg-blue-50 text-[#3b82f6] font-bold rounded-[4px] px-4 h-9 text-xs shadow-sm cursor-pointer border-0 flex items-center gap-1.5 transition-colors"
               >
                 <Edit className="w-3.5 h-3.5" /> 编辑资料
               </Button>
@@ -312,21 +326,21 @@ export default function TeacherCenter() {
           {/* Subtitle Info Line */}
           <div className="text-xs text-neutral-600 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-medium border-b border-neutral-100 pb-3.5">
             <span className="flex items-center gap-1.5 font-mono text-neutral-800">
-              <Hash className="w-3.5 h-3.5 text-[#fa541c]" /> 教工号: <span className="font-bold">{profile.staffId}</span>
+              <Hash className="w-3.5 h-3.5 text-[#3b82f6]" /> 教工号: <span className="font-bold">{profile.staffId}</span>
             </span>
             <span className="text-neutral-300">|</span>
             <span className="flex items-center gap-1.5 text-neutral-800">
-              <Building2 className="w-3.5 h-3.5 text-[#fa541c]" /> 院系: <span className="font-bold">{profile.department}</span>
+              <Building2 className="w-3.5 h-3.5 text-[#3b82f6]" /> 院系: <span className="font-bold">{profile.department}</span>
             </span>
             <span className="text-neutral-300">|</span>
             <span className="flex items-center gap-1.5 text-neutral-800">
-              <Briefcase className="w-3.5 h-3.5 text-[#fa541c]" /> 实验室: <span className="font-bold">{profile.lab}</span>
+              <Briefcase className="w-3.5 h-3.5 text-[#3b82f6]" /> 实验室: <span className="font-bold">{profile.lab}</span>
             </span>
           </div>
 
           {/* Bio Line */}
           <div className="bg-neutral-50/80 p-3.5 rounded-[6px] border border-neutral-100 text-xs text-neutral-600 font-medium leading-relaxed flex items-start gap-2.5">
-            <Sparkles className="w-4 h-4 text-[#fa541c] shrink-0 mt-0.5" />
+            <Sparkles className="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5" />
             <p className="flex-1">{profile.bio}</p>
           </div>
         </div>
@@ -334,8 +348,8 @@ export default function TeacherCenter() {
 
       {/* Teaching & Academic Stats Counter Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#fa541c]/40 transition-all">
-          <div className="w-10 h-10 rounded-lg bg-orange-50 text-[#fa541c] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#3b82f6]/40 transition-all">
+          <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#3b82f6] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <Users className="w-5 h-5" />
           </div>
           <div>
@@ -344,7 +358,7 @@ export default function TeacherCenter() {
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#fa541c]/40 transition-all">
+        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#3b82f6]/40 transition-all">
           <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <BookOpen className="w-5 h-5" />
           </div>
@@ -354,7 +368,7 @@ export default function TeacherCenter() {
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#fa541c]/40 transition-all">
+        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#3b82f6]/40 transition-all">
           <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <FolderKanban className="w-5 h-5" />
           </div>
@@ -364,7 +378,7 @@ export default function TeacherCenter() {
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#fa541c]/40 transition-all">
+        <div className="bg-white p-4 rounded-xl border border-neutral-200/80 shadow-2xs flex items-center gap-3.5 group hover:border-[#3b82f6]/40 transition-all">
           <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
           </div>
@@ -385,7 +399,7 @@ export default function TeacherCenter() {
           <div className="bg-white rounded-xl border border-neutral-200/80 p-6 shadow-2xs space-y-5">
             <div className="flex items-center justify-between border-b border-neutral-100 pb-3.5">
               <h3 className="text-sm font-bold text-neutral-900 flex items-center gap-2">
-                <FileText className="w-4 h-4 text-[#fa541c]" /> 详细档案与联系信息
+                <FileText className="w-4 h-4 text-[#3b82f6]" /> 详细档案与联系信息
               </h3>
               <span className="text-[11px] text-neutral-400 font-mono">最后更新: 2026-05-20</span>
             </div>
@@ -401,7 +415,7 @@ export default function TeacherCenter() {
                     {profile.staffId}
                     <button 
                       onClick={() => showToast('教工号已复制')}
-                      className="text-neutral-400 hover:text-[#fa541c] cursor-pointer bg-transparent border-0 p-0"
+                      className="text-neutral-400 hover:text-[#3b82f6] cursor-pointer bg-transparent border-0 p-0"
                       title="复制"
                     >
                       <Copy className="w-3 h-3" />
@@ -432,7 +446,7 @@ export default function TeacherCenter() {
                 </div>
                 <button 
                   onClick={() => setIsPhoneModalOpen(true)}
-                  className="text-xs text-[#fa541c] hover:underline cursor-pointer font-medium border-0 bg-transparent p-0"
+                  className="text-xs text-[#3b82f6] hover:underline cursor-pointer font-medium border-0 bg-transparent p-0"
                 >
                   修改
                 </button>
@@ -450,7 +464,7 @@ export default function TeacherCenter() {
                 </div>
                 <button 
                   onClick={() => setIsEmailModalOpen(true)}
-                  className="text-xs text-[#fa541c] hover:underline cursor-pointer font-medium border-0 bg-transparent p-0 shrink-0 ml-2"
+                  className="text-xs text-[#3b82f6] hover:underline cursor-pointer font-medium border-0 bg-transparent p-0 shrink-0 ml-2"
                 >
                   修改
                 </button>
@@ -464,9 +478,9 @@ export default function TeacherCenter() {
                 {profile.specializations.map((spec, idx) => (
                   <span 
                     key={idx} 
-                    className="px-3 py-1 bg-neutral-50 hover:bg-[#fff2e8] hover:text-[#fa541c] transition-colors text-neutral-700 rounded-[4px] text-xs font-medium border border-neutral-200/80 cursor-default flex items-center gap-1.5"
+                    className="px-3 py-1 bg-neutral-50 hover:bg-[#eff6ff] hover:text-[#3b82f6] transition-colors text-neutral-700 rounded-[4px] text-xs font-medium border border-neutral-200/80 cursor-default flex items-center gap-1.5"
                   >
-                    <CheckCircle2 className="w-3 h-3 text-[#fa541c]" /> {spec}
+                    <CheckCircle2 className="w-3 h-3 text-[#3b82f6]" /> {spec}
                   </span>
                 ))}
               </div>
@@ -476,7 +490,7 @@ export default function TeacherCenter() {
           {/* Teacher Academic Certifications & Honors */}
           <div className="bg-white rounded-xl border border-neutral-200/80 p-6 shadow-2xs space-y-4">
             <h3 className="text-sm font-bold text-neutral-900 flex items-center gap-2 border-b border-neutral-100 pb-3.5">
-              <Award className="w-4 h-4 text-[#fa541c]" /> 教师荣誉与学术资质
+              <Award className="w-4 h-4 text-[#3b82f6]" /> 教师荣誉与学术资质
             </h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -510,13 +524,13 @@ export default function TeacherCenter() {
           <div className="bg-white rounded-xl border border-neutral-200/80 p-5 shadow-2xs space-y-4">
             <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
               <h3 className="text-sm font-bold text-neutral-900 flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-[#fa541c]" /> 当前负责实训课程
+                <Briefcase className="w-4 h-4 text-[#3b82f6]" /> 当前负责实训课程
               </h3>
-              <span className="text-[11px] text-[#fa541c] font-semibold">2 门运行中</span>
+              <span className="text-[11px] text-[#3b82f6] font-semibold">2 门运行中</span>
             </div>
 
             <div className="space-y-3">
-              <div className="p-3 rounded-[6px] border border-neutral-200/80 hover:border-[#fa541c]/40 transition-all bg-white">
+              <div className="p-3 rounded-[6px] border border-neutral-200/80 hover:border-[#3b82f6]/40 transition-all bg-white">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-bold text-neutral-800">《大语言模型微调与 RAG 架构》</span>
                   <span className="text-[10px] bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded font-medium">进行中</span>
@@ -526,11 +540,11 @@ export default function TeacherCenter() {
                   <span>进度: 85%</span>
                 </div>
                 <div className="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden mt-2">
-                  <div className="h-full bg-[#fa541c] rounded-full" style={{ width: '85%' }}></div>
+                  <div className="h-full bg-[#3b82f6] rounded-full" style={{ width: '85%' }}></div>
                 </div>
               </div>
 
-              <div className="p-3 rounded-[6px] border border-neutral-200/80 hover:border-[#fa541c]/40 transition-all bg-white">
+              <div className="p-3 rounded-[6px] border border-neutral-200/80 hover:border-[#3b82f6]/40 transition-all bg-white">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-bold text-neutral-800">《深度学习与 PyTorch 核心实践》</span>
                   <span className="text-[10px] bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded font-medium">进行中</span>
@@ -549,12 +563,12 @@ export default function TeacherCenter() {
           {/* Recent Teaching Activities */}
           <div className="bg-white rounded-xl border border-neutral-200/80 p-5 shadow-2xs space-y-4">
             <h3 className="text-sm font-bold text-neutral-900 flex items-center gap-2 border-b border-neutral-100 pb-3">
-              <Activity className="w-4 h-4 text-[#fa541c]" /> 最近教学活动轨迹
+              <Activity className="w-4 h-4 text-[#3b82f6]" /> 最近教学活动轨迹
             </h3>
             
             <div className="space-y-3.5 relative pl-3 before:absolute before:left-1 before:top-2 before:bottom-2 before:w-[2px] before:bg-neutral-100">
               <div className="relative pl-4">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#fa541c] absolute -left-[4.5px] top-1 ring-4 ring-orange-50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#3b82f6] absolute -left-[4.5px] top-1 ring-4 ring-orange-50"></div>
                 <div className="text-xs font-bold text-neutral-800">上架《云原生微服务高并发项目》</div>
                 <div className="text-[11px] text-neutral-400 mt-0.5 font-mono">2026-05-20 14:30</div>
               </div>
@@ -583,11 +597,11 @@ export default function TeacherCenter() {
           <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden animate-in zoom-in-95 border border-neutral-200 flex flex-col">
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h3 className="text-sm font-bold text-[#262626] flex items-center gap-2">
-                <Edit className="w-4 h-4 text-[#fa541c]" /> 编辑教师个人资料
+                <Edit className="w-4 h-4 text-[#3b82f6]" /> 编辑教师个人资料
               </h3>
               <button 
                 onClick={() => setIsEditProfileOpen(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -595,12 +609,12 @@ export default function TeacherCenter() {
             
             <div className="p-6 space-y-4 max-h-[70vh] overflow-y-auto custom-scrollbar text-xs">
               <div>
-                <label className="block text-xs font-bold text-[#262626] mb-1.5">姓名 <span className="text-[#fa541c]">*</span></label>
+                <label className="block text-xs font-bold text-[#262626] mb-1.5">姓名 <span className="text-[#3b82f6]">*</span></label>
                 <input 
                   type="text" 
                   value={editProfileForm.name} 
                   onChange={e => setEditProfileForm({...editProfileForm, name: e.target.value})}
-                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-xs font-medium bg-white" 
+                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-xs font-medium bg-white" 
                 />
               </div>
 
@@ -611,7 +625,7 @@ export default function TeacherCenter() {
                     type="text" 
                     value={editProfileForm.title} 
                     onChange={e => setEditProfileForm({...editProfileForm, title: e.target.value})}
-                    className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-xs font-medium bg-white" 
+                    className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-xs font-medium bg-white" 
                   />
                 </div>
                 <div>
@@ -620,7 +634,7 @@ export default function TeacherCenter() {
                     type="text" 
                     value={editProfileForm.status} 
                     onChange={e => setEditProfileForm({...editProfileForm, status: e.target.value})}
-                    className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-xs font-medium bg-white" 
+                    className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-xs font-medium bg-white" 
                   />
                 </div>
               </div>
@@ -631,7 +645,7 @@ export default function TeacherCenter() {
                   type="text" 
                   value={editProfileForm.department} 
                   onChange={e => setEditProfileForm({...editProfileForm, department: e.target.value})}
-                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-xs font-medium bg-white" 
+                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-xs font-medium bg-white" 
                 />
               </div>
 
@@ -641,7 +655,7 @@ export default function TeacherCenter() {
                   rows={3} 
                   value={editProfileForm.bio} 
                   onChange={e => setEditProfileForm({...editProfileForm, bio: e.target.value})}
-                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-xs font-medium resize-none bg-white" 
+                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-xs font-medium resize-none bg-white" 
                 />
               </div>
 
@@ -651,7 +665,7 @@ export default function TeacherCenter() {
                   type="text" 
                   value={editProfileForm.specializationsStr} 
                   onChange={e => setEditProfileForm({...editProfileForm, specializationsStr: e.target.value})}
-                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-xs font-medium bg-white" 
+                  className="w-full px-3.5 py-2 rounded-[4px] border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-xs font-medium bg-white" 
                 />
               </div>
             </div>
@@ -671,7 +685,7 @@ export default function TeacherCenter() {
                   setIsEditProfileOpen(false);
                   showToast('个人资料已成功更新！');
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-[4px] px-5 text-xs font-semibold h-8 shadow-xs cursor-pointer border-0"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-[4px] px-5 text-xs font-semibold h-8 shadow-xs cursor-pointer border-0"
               >
                 保存修改
               </Button>
@@ -694,7 +708,7 @@ export default function TeacherCenter() {
               <Button 
                 onClick={() => setSelectedNotiId(null)}
                 variant="outline" 
-                className="h-8 rounded-[4px] px-3 text-xs font-medium border-neutral-200 text-neutral-700 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50 bg-white cursor-pointer transition-colors"
+                className="h-8 rounded-[4px] px-3 text-xs font-medium border-neutral-200 text-neutral-700 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50 bg-white cursor-pointer transition-colors"
               >
                 <ArrowLeft className="w-3.5 h-3.5 mr-1" /> 返回消息列表
               </Button>
@@ -748,16 +762,20 @@ export default function TeacherCenter() {
             </p>
           </div>
 
-          {/* Quick Statistics Pill */}
+          {/* Action Button */}
           <div className="flex items-center gap-3">
-            <div className="bg-white px-3 py-1.5 rounded border border-neutral-200 text-xs flex items-center gap-2">
-              <span className="text-neutral-500 font-medium">总通知:</span>
-              <span className="font-bold text-neutral-800">{notifications.length}</span>
-            </div>
-            <div className="bg-white px-3 py-1.5 rounded border border-neutral-200 text-xs flex items-center gap-2">
-              <span className="text-neutral-500 font-medium">未读:</span>
-              <span className="font-bold text-[#fa541c]">{unreadCount}</span>
-            </div>
+            <button
+              onClick={handleMarkAllAsRead}
+              className={cn(
+                "px-3.5 py-1.5 text-xs font-medium bg-white border rounded-full transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs",
+                isAllReadClicked
+                  ? "text-[#3b82f6] border-blue-200 bg-blue-50/30"
+                  : "text-neutral-700 border-neutral-200 hover:border-[#3b82f6] hover:text-[#3b82f6] hover:bg-blue-50/40"
+              )}
+            >
+              <CheckCircle2 className={cn("w-3.5 h-3.5 transition-colors", isAllReadClicked ? "text-[#3b82f6]" : "text-neutral-400")} />
+              全部已读
+            </button>
           </div>
         </div>
 
@@ -774,7 +792,7 @@ export default function TeacherCenter() {
                   placeholder="搜索消息名称..."
                   value={notiSearchQuery}
                   onChange={(e) => setNotiSearchQuery(e.target.value)}
-                  className="pl-9 pr-4 py-1.5 w-full bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
+                  className="pl-9 pr-4 py-1.5 w-full bg-white border border-neutral-200 rounded-full text-xs focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] text-neutral-800 transition-all placeholder:text-neutral-400 h-9"
                 />
               </div>
             </div>
@@ -789,13 +807,13 @@ export default function TeacherCenter() {
                     className={cn(
                       "px-4 py-1.5 text-[12px] font-medium rounded-full transition-all duration-200 cursor-pointer border-0 bg-transparent flex items-center gap-1",
                       notiFilter === f 
-                        ? "bg-white text-[#fa541c] font-bold shadow-sm" 
+                        ? "bg-white text-[#3b82f6] font-bold shadow-sm" 
                         : "text-neutral-600 hover:text-neutral-900"
                     )}
                   >
                     {f}
                     {f === '未读' && unreadCount > 0 && (
-                      <span className="ml-1 px-1.5 py-0.2 bg-[#fa541c] text-white rounded-full text-[10px] font-bold">
+                      <span className="ml-1 px-1.5 py-0.2 bg-[#3b82f6] text-white rounded-full text-[10px] font-bold">
                         {unreadCount}
                       </span>
                     )}
@@ -823,21 +841,21 @@ export default function TeacherCenter() {
                       key={noti.id} 
                       onClick={() => handleSelectNotification(noti.id)}
                       className={cn(
-                        "border-b border-neutral-100 hover:bg-orange-50/30 transition-colors group text-[13px] cursor-pointer", 
+                        "border-b border-neutral-100 hover:bg-blue-50/30 transition-colors group text-[13px] cursor-pointer", 
                         index === filteredNotis.length - 1 && "border-b-0", 
-                        !noti.read && "bg-orange-50/10 font-medium"
+                        !noti.read && "bg-blue-50/10 font-medium"
                       )}
                     >
                       {/* 消息名称 */}
                       <td className="p-4 whitespace-normal">
                         <div className="flex items-center gap-2.5">
                           {!noti.read ? (
-                            <span className="w-2 h-2 rounded-full bg-[#fa541c] shrink-0" title="未读消息"></span>
+                            <span className="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0" title="未读消息"></span>
                           ) : (
                             <span className="w-2 h-2 rounded-full bg-transparent shrink-0"></span>
                           )}
                           <span className={cn(
-                            "transition-colors group-hover:text-[#fa541c]", 
+                            "transition-colors group-hover:text-[#3b82f6]", 
                             !noti.read ? "text-neutral-900 font-bold" : "text-neutral-800 font-medium"
                           )}>
                             {noti.title}
@@ -864,7 +882,7 @@ export default function TeacherCenter() {
                             e.stopPropagation();
                             handleSelectNotification(noti.id);
                           }}
-                          className="text-xs text-[#fa541c] hover:underline font-medium inline-flex items-center cursor-pointer bg-transparent border-0"
+                          className="text-xs text-[#3b82f6] hover:underline font-medium inline-flex items-center cursor-pointer bg-transparent border-0"
                         >
                           查看详情
                         </button>
@@ -894,7 +912,7 @@ export default function TeacherCenter() {
           <h2 className="text-xl font-bold text-neutral-900">我的资源配额</h2>
           <p className="text-[13px] text-neutral-500 mt-1">查看和管理平台为您分配的教学资源额度</p>
         </div>
-        <Button onClick={() => setIsQuotaModalOpen(true)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 shadow-sm font-bold">
+        <Button onClick={() => setIsQuotaModalOpen(true)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-6 shadow-sm font-bold">
           <Plus className="w-4 h-4 mr-1.5" /> 申请临时额度
         </Button>
       </div>
@@ -906,7 +924,7 @@ export default function TeacherCenter() {
           { label: '项目额度', total: 20, used: 15, unit: '个', color: 'bg-emerald-500' },
           { label: '数据集额度', total: 100, used: 45, unit: 'GB', color: 'bg-amber-500' },
           { label: '智能助手额度', total: 5, used: 2, unit: '个', color: 'bg-purple-500' },
-          { label: 'AI Token消耗', total: '50M', used: '42M', unit: 'Tokens', color: 'bg-[#fa541c]' },
+          { label: 'AI Token消耗', total: '50M', used: '42M', unit: 'Tokens', color: 'bg-[#3b82f6]' },
         ].map(q => {
           const percent = typeof q.total === 'number' ? Math.round((q.used as number) / (q.total as number) * 100) : 84;
           return (
@@ -954,7 +972,7 @@ export default function TeacherCenter() {
                   <span className={cn(
                     "px-2.5 py-1 rounded-md text-[11px] font-bold",
                     h.status === '已通过' ? "bg-emerald-50 text-emerald-600" :
-                    h.status === '已拒绝' ? "bg-red-50 text-red-600" : "bg-orange-50 text-orange-600"
+                    h.status === '已拒绝' ? "bg-red-50 text-red-600" : "bg-blue-50 text-orange-600"
                   )}>
                     {h.status}
                   </span>
@@ -979,7 +997,7 @@ export default function TeacherCenter() {
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">资源类型 <span className="text-red-500">*</span></label>
                 <select 
                   value={quotaForm.type} onChange={e => setQuotaForm({...quotaForm, type: e.target.value})}
-                  className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]"
+                  className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]"
                 >
                   <option>GPU卡时</option><option>CPU时长</option><option>项目额度</option><option>Token额度</option>
                 </select>
@@ -987,13 +1005,13 @@ export default function TeacherCenter() {
               <div className="flex gap-4">
                 <div className="flex-1">
                   <label className="block text-[13px] font-bold text-neutral-700 mb-2">申请数量 <span className="text-red-500">*</span></label>
-                  <input type="text" placeholder="如: 500" value={quotaForm.amount} onChange={e => setQuotaForm({...quotaForm, amount: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
+                  <input type="text" placeholder="如: 500" value={quotaForm.amount} onChange={e => setQuotaForm({...quotaForm, amount: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
                 </div>
                 <div className="flex-1">
                   <label className="block text-[13px] font-bold text-neutral-700 mb-2">使用期限 <span className="text-red-500">*</span></label>
                   <select 
                     value={quotaForm.duration} onChange={e => setQuotaForm({...quotaForm, duration: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]"
                   >
                     <option>7天</option><option>30天</option><option>一学期</option>
                   </select>
@@ -1001,7 +1019,7 @@ export default function TeacherCenter() {
               </div>
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">申请原因 <span className="text-red-500">*</span></label>
-                <textarea rows={3} placeholder="请详细说明申请扩容的教学场景及原因..." value={quotaForm.reason} onChange={e => setQuotaForm({...quotaForm, reason: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px] resize-none" />
+                <textarea rows={3} placeholder="请详细说明申请扩容的教学场景及原因..." value={quotaForm.reason} onChange={e => setQuotaForm({...quotaForm, reason: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px] resize-none" />
               </div>
             </div>
             <div className="px-8 py-5 bg-neutral-50 flex justify-end gap-3 border-t border-neutral-100">
@@ -1010,7 +1028,7 @@ export default function TeacherCenter() {
                 if(!quotaForm.amount || !quotaForm.reason) return showToast('请填写完整申请信息', 'error');
                 showToast('申请已提交，请等待管理员审批');
                 setIsQuotaModalOpen(false);
-              }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-8 font-bold shadow-sm text-[13px]">提交申请</Button>
+              }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-8 font-bold shadow-sm text-[13px]">提交申请</Button>
             </div>
           </div>
         </div>
@@ -1025,7 +1043,7 @@ export default function TeacherCenter() {
           <h2 className="text-xl font-bold text-neutral-900">API Key 配置</h2>
           <p className="text-[13px] text-neutral-500 mt-1">管理您的个人访问密钥，用于对接大模型能力及平台开放接口</p>
         </div>
-        <Button onClick={() => setIsKeyModalOpen(true)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 shadow-sm font-bold">
+        <Button onClick={() => setIsKeyModalOpen(true)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-6 shadow-sm font-bold">
           <Plus className="w-4 h-4 mr-1.5" /> 创建 API Key
         </Button>
       </div>
@@ -1050,7 +1068,7 @@ export default function TeacherCenter() {
           </div>
         </div>
         <div className="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm flex items-center gap-5">
-          <div className="w-12 h-12 rounded-xl bg-orange-50 text-[#fa541c] flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#3b82f6] flex items-center justify-center shrink-0">
             <Database className="w-6 h-6" />
           </div>
           <div>
@@ -1080,7 +1098,7 @@ export default function TeacherCenter() {
                 <td className="py-4 px-6">
                   <div className="flex items-center gap-2">
                     <span className="text-[13px] font-mono text-neutral-500 bg-neutral-100 px-2 py-1 rounded">{k.key}</span>
-                    <button onClick={() => showToast('已复制到剪贴板')} className="text-neutral-400 hover:text-[#fa541c]"><Copy className="w-4 h-4"/></button>
+                    <button onClick={() => showToast('已复制到剪贴板')} className="text-neutral-400 hover:text-[#3b82f6]"><Copy className="w-4 h-4"/></button>
                   </div>
                 </td>
                 <td className="py-4 px-6">
@@ -1131,7 +1149,7 @@ export default function TeacherCenter() {
     <div className="animate-fade-in space-y-8">
       <div className="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm space-y-6">
         <h3 className="text-[16px] font-bold text-neutral-900 mb-2 flex items-center gap-2">
-          <Shield className="w-5 h-5 text-[#fa541c]" /> 安全设置
+          <Shield className="w-5 h-5 text-[#3b82f6]" /> 安全设置
         </h3>
         
         <div className="divide-y divide-neutral-100">
@@ -1215,20 +1233,20 @@ export default function TeacherCenter() {
             <div className="p-6 space-y-4">
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">当前密码</label>
-                <input type="password" placeholder="请输入当前密码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
+                <input type="password" placeholder="请输入当前密码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
               </div>
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">新密码</label>
-                <input type="password" placeholder="请输入新密码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
+                <input type="password" placeholder="请输入新密码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
               </div>
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">确认新密码</label>
-                <input type="password" placeholder="请再次输入新密码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
+                <input type="password" placeholder="请再次输入新密码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
               </div>
             </div>
             <div className="px-6 py-4 bg-neutral-50 flex justify-end gap-3 border-t border-neutral-100">
               <Button onClick={() => setIsPwdModalOpen(false)} variant="outline" className="rounded-full px-5 font-bold text-[13px]">取消</Button>
-              <Button onClick={() => { showToast('密码修改成功'); setIsPwdModalOpen(false); }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 font-bold text-[13px]">确认修改</Button>
+              <Button onClick={() => { showToast('密码修改成功'); setIsPwdModalOpen(false); }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-6 font-bold text-[13px]">确认修改</Button>
             </div>
           </div>
         </div>
@@ -1244,19 +1262,19 @@ export default function TeacherCenter() {
             <div className="p-6 space-y-4">
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">新手机号码</label>
-                <input type="text" placeholder="请输入新的手机号" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
+                <input type="text" placeholder="请输入新的手机号" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
               </div>
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">验证码</label>
                 <div className="flex gap-2">
-                  <input type="text" placeholder="短信验证码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
-                  <Button variant="outline" className="px-4 rounded-xl text-[13px] font-bold text-[#fa541c] border-[#fa541c] hover:bg-orange-50 shrink-0">获取验证码</Button>
+                  <input type="text" placeholder="短信验证码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
+                  <Button variant="outline" className="px-4 rounded-xl text-[13px] font-bold text-[#3b82f6] border-[#3b82f6] hover:bg-blue-50 shrink-0">获取验证码</Button>
                 </div>
               </div>
             </div>
             <div className="px-6 py-4 bg-neutral-50 flex justify-end gap-3 border-t border-neutral-100">
               <Button onClick={() => setIsPhoneModalOpen(false)} variant="outline" className="rounded-full px-5 font-bold text-[13px]">取消</Button>
-              <Button onClick={() => { showToast('手机号更换成功'); setIsPhoneModalOpen(false); }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 font-bold text-[13px]">确认更换</Button>
+              <Button onClick={() => { showToast('手机号更换成功'); setIsPhoneModalOpen(false); }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-6 font-bold text-[13px]">确认更换</Button>
             </div>
           </div>
         </div>
@@ -1272,19 +1290,19 @@ export default function TeacherCenter() {
             <div className="p-6 space-y-4">
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">新邮箱地址</label>
-                <input type="email" placeholder="请输入新的邮箱地址" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
+                <input type="email" placeholder="请输入新的邮箱地址" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
               </div>
               <div>
                 <label className="block text-[13px] font-bold text-neutral-700 mb-2">验证码</label>
                 <div className="flex gap-2">
-                  <input type="text" placeholder="邮箱验证码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#fa541c] text-[14px]" />
-                  <Button variant="outline" className="px-4 rounded-xl text-[13px] font-bold text-[#fa541c] border-[#fa541c] hover:bg-orange-50 shrink-0">获取验证码</Button>
+                  <input type="text" placeholder="邮箱验证码" className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:border-[#3b82f6] text-[14px]" />
+                  <Button variant="outline" className="px-4 rounded-xl text-[13px] font-bold text-[#3b82f6] border-[#3b82f6] hover:bg-blue-50 shrink-0">获取验证码</Button>
                 </div>
               </div>
             </div>
             <div className="px-6 py-4 bg-neutral-50 flex justify-end gap-3 border-t border-neutral-100">
               <Button onClick={() => setIsEmailModalOpen(false)} variant="outline" className="rounded-full px-5 font-bold text-[13px]">取消</Button>
-              <Button onClick={() => { showToast('邮箱更换成功'); setIsEmailModalOpen(false); }} className="bg-[#fa541c] hover:bg-[#e84a15] text-white rounded-full px-6 font-bold text-[13px]">确认更换</Button>
+              <Button onClick={() => { showToast('邮箱更换成功'); setIsEmailModalOpen(false); }} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-6 font-bold text-[13px]">确认更换</Button>
             </div>
           </div>
         </div>
@@ -1322,11 +1340,11 @@ export default function TeacherCenter() {
                 className={cn(
                   "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors",
                   isActive 
-                    ? "bg-[#fff2e8] text-[#fa541c]" 
+                    ? "bg-[#eff6ff] text-[#3b82f6]" 
                     : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
                 )}
               >
-                <item.icon className={cn("w-5 h-5", isActive ? "text-[#fa541c]" : "text-neutral-400")} />
+                <item.icon className={cn("w-5 h-5", isActive ? "text-[#3b82f6]" : "text-neutral-400")} />
                 {item.label}
               </button>
             );

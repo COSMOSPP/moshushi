@@ -141,7 +141,7 @@ export default function TeacherLogs() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-neutral-900 flex items-center gap-2">
-            <div className="w-1.5 h-6 bg-[#fa541c] rounded-full"></div>
+            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
             安全审计操作日志
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
@@ -176,7 +176,7 @@ export default function TeacherLogs() {
           onClick={() => { setActiveTab('teacher'); setTypeFilter('全部'); setOperatorSearch(''); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'teacher' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'teacher' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <Settings className="w-4 h-4" />
@@ -186,7 +186,7 @@ export default function TeacherLogs() {
           onClick={() => { setActiveTab('student'); setTypeFilter('全部'); setOperatorSearch(''); setSearchQuery(''); }}
           className={cn(
             "flex items-center gap-2 px-5 pb-3 text-sm font-bold border-b-2 transition-all",
-            activeTab === 'student' ? "text-[#fa541c] border-[#fa541c]" : "text-neutral-500 border-transparent hover:text-neutral-800"
+            activeTab === 'student' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-500 border-transparent hover:text-neutral-800"
           )}
         >
           <User className="w-4 h-4" />
@@ -207,7 +207,7 @@ export default function TeacherLogs() {
               <select
                 value={timeRange}
                 onChange={(e) => setTimeRange(e.target.value as any)}
-                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 font-bold appearance-none cursor-pointer"
+                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 font-bold appearance-none cursor-pointer"
               >
                 <option value="all">全部历史操作日志</option>
                 <option value="today">今天发生的日志</option>
@@ -225,7 +225,7 @@ export default function TeacherLogs() {
               <select
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value as any)}
-                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#fa541c] bg-white text-neutral-700 font-bold appearance-none cursor-pointer"
+                className="w-full text-xs border border-neutral-200 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:border-[#3b82f6] bg-white text-neutral-700 font-bold appearance-none cursor-pointer"
               >
                 <option value="全部">全部类型</option>
                 <option value="课程管理">课程管理</option>
@@ -247,7 +247,7 @@ export default function TeacherLogs() {
                 placeholder="搜索操作人姓名、ID..."
                 value={operatorSearch}
                 onChange={(e) => setOperatorSearch(e.target.value)}
-                className="pl-9 pr-3 py-1.5 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#fa541c] w-full bg-white text-neutral-700"
+                className="pl-9 pr-3 py-1.5 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#3b82f6] w-full bg-white text-neutral-700"
               />
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function TeacherLogs() {
                 placeholder="搜索日志哈希、行为、对象..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-3 py-1.5 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#fa541c] w-full bg-white text-neutral-700"
+                className="pl-9 pr-3 py-1.5 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:border-[#3b82f6] w-full bg-white text-neutral-700"
               />
             </div>
           </div>
@@ -322,7 +322,7 @@ export default function TeacherLogs() {
                     <td className="p-4 text-center">
                       <button 
                         onClick={() => { setSelectedLog(log); setIsDetailOpen(true); }}
-                        className="text-[#fa541c] hover:text-[#e84a15] font-bold text-xs inline-flex items-center gap-1 cursor-pointer"
+                        className="text-[#3b82f6] hover:text-[#2563eb] font-bold text-xs inline-flex items-center gap-1 cursor-pointer"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         详情
@@ -347,7 +347,7 @@ export default function TeacherLogs() {
           <span className="text-neutral-500 font-bold">共 {filteredLogs.length} 条</span>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm text-neutral-400 border-neutral-200" disabled>&lt;</Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#fa541c] text-white border-[#fa541c]">1</Button>
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm bg-[#3b82f6] text-white border-[#3b82f6]">1</Button>
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 rounded-sm text-neutral-400 border-neutral-200" disabled>&gt;</Button>
           </div>
         </div>
@@ -360,7 +360,7 @@ export default function TeacherLogs() {
       {isExporting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in text-xs">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[360px] p-6 border border-neutral-200 flex flex-col items-center text-center space-y-4 animate-in zoom-in-95 duration-150">
-            <RefreshCw className="w-8 h-8 text-[#fa541c] animate-spin" />
+            <RefreshCw className="w-8 h-8 text-[#3b82f6] animate-spin" />
             <div className="space-y-1">
               <strong className="text-neutral-800 text-sm block">正在打包导出 {exportFormat} 文件...</strong>
               <span className="text-neutral-400 block text-[10px]">系统正在核对和汇编大盘中所有的操作审计日志数据</span>
@@ -368,7 +368,7 @@ export default function TeacherLogs() {
             
             <div className="w-full bg-neutral-100 h-2 rounded-full overflow-hidden relative">
               <div 
-                className="h-full bg-[#fa541c] rounded-full transition-all duration-200" 
+                className="h-full bg-[#3b82f6] rounded-full transition-all duration-200" 
                 style={{ width: `${exportProgress}%` }}
               ></div>
             </div>
@@ -384,7 +384,7 @@ export default function TeacherLogs() {
             
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50">
               <h2 className="text-[15px] font-black text-neutral-900 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#fa541c]" /> 审计日志详细参数面板
+                <FileText className="w-5 h-5 text-[#3b82f6]" /> 审计日志详细参数面板
               </h2>
               <button 
                 onClick={() => { setIsDetailOpen(false); setSelectedLog(null); }} 
@@ -439,7 +439,7 @@ export default function TeacherLogs() {
               {/* Action Payload Code Block */}
               <div className="space-y-1">
                 <span className="text-neutral-400 block font-bold">完整行为 Payload 报文数据</span>
-                <pre className="bg-neutral-900 text-[#fa541c] p-4 rounded-xl font-mono text-[11px] overflow-auto max-h-[160px] whitespace-pre-wrap">
+                <pre className="bg-neutral-900 text-[#3b82f6] p-4 rounded-xl font-mono text-[11px] overflow-auto max-h-[160px] whitespace-pre-wrap">
                   {JSON.stringify(JSON.parse(selectedLog.payload), null, 2)}
                 </pre>
               </div>
@@ -449,7 +449,7 @@ export default function TeacherLogs() {
             <div className="p-5 border-t border-neutral-100 bg-neutral-50/20 flex items-center justify-end">
               <Button 
                 onClick={() => { setIsDetailOpen(false); setSelectedLog(null); }}
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-6 rounded-lg text-xs"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-6 rounded-lg text-xs"
               >
                 确认关闭
               </Button>

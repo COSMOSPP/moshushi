@@ -331,11 +331,11 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
 
     let circleColorClass = "";
     if (isCurrent) {
-      circleColorClass = "border-2 border-[#fa541c] text-[#fa541c] bg-white font-bold shadow-xs";
+      circleColorClass = "border-2 border-[#3b82f6] text-[#3b82f6] bg-white font-bold shadow-xs";
     } else if (isAnswered) {
-      circleColorClass = "bg-[#fa541c] border-[#fa541c] text-white font-medium";
+      circleColorClass = "bg-[#3b82f6] border-[#3b82f6] text-white font-medium";
     } else {
-      circleColorClass = "border-neutral-300 text-neutral-600 bg-white hover:border-[#fa541c] hover:text-[#fa541c]";
+      circleColorClass = "border-neutral-300 text-neutral-600 bg-white hover:border-[#3b82f6] hover:text-[#3b82f6]";
     }
 
     return (
@@ -378,9 +378,9 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
            </div>
 
            {/* Timer Box */}
-           <div className="border border-[#fa541c] bg-orange-50/5 rounded-[4px] px-3.5 py-1.5 flex items-center gap-2 font-mono font-bold text-[13px] text-[#fa541c] ml-6 shadow-xs">
-              <Clock className="w-4 h-4 text-[#fa541c] shrink-0" />
-              <span className="font-sans text-[#fa541c] font-medium">距离考试结束：</span>
+           <div className="border border-[#3b82f6] bg-blue-50/5 rounded-[4px] px-3.5 py-1.5 flex items-center gap-2 font-mono font-bold text-[13px] text-[#3b82f6] ml-6 shadow-xs">
+              <Clock className="w-4 h-4 text-[#3b82f6] shrink-0" />
+              <span className="font-sans text-[#3b82f6] font-medium">距离考试结束：</span>
               <span>
                 {Math.floor(timeLeft / 3600) > 0 ? (
                   <>
@@ -399,8 +399,8 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
 
            {/* User Profile */}
            <div className="flex items-center gap-2 text-neutral-title text-[13px] font-semibold ml-6">
-             <div className="w-7 h-7 rounded-full border border-orange-200 flex items-center justify-center bg-[#fa541c]/5 text-[#fa541c]">
-               <User className="w-3.5 h-3.5 text-[#fa541c] shrink-0" />
+             <div className="w-7 h-7 rounded-full border border-blue-200 flex items-center justify-center bg-[#3b82f6]/5 text-[#3b82f6]">
+               <User className="w-3.5 h-3.5 text-[#3b82f6] shrink-0" />
              </div>
              <span>学生1</span>
            </div>
@@ -425,8 +425,8 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   className={cn(
                     "flex items-center gap-1.5 text-[12px] border px-3 py-1.5 rounded-[4px] transition-colors cursor-pointer bg-white",
                     isMarked 
-                      ? "bg-orange-50 border-[#fa541c] text-[#fa541c] font-bold" 
-                      : "border-neutral-200 hover:border-[#fa541c] hover:text-[#fa541c] text-neutral-500"
+                      ? "bg-blue-50 border-[#3b82f6] text-[#3b82f6] font-bold" 
+                      : "border-neutral-200 hover:border-[#3b82f6] hover:text-[#3b82f6] text-neutral-500"
                   )}
                 >
                   <Pin className="w-3.5 h-3.5" />
@@ -455,28 +455,28 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                           className={cn(
                             "group flex items-center gap-3 px-5 py-4 border rounded-[4px] cursor-pointer transition-all select-none",
                             isChecked 
-                              ? "bg-transparent border-[#fa541c] shadow-xs" 
-                              : "bg-transparent border-neutral-150 hover:text-[#fa541c] hover:border-orange-200 hover:bg-[#fa541c]/5"
+                              ? "bg-transparent border-[#3b82f6] shadow-xs" 
+                              : "bg-transparent border-neutral-150 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-[#3b82f6]/5"
                           )}
                         >
                           {(question.type === 'single' || question.type === 'judge') ? (
                             <div className={cn(
                               "w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors",
-                              isChecked ? "border-[#fa541c]" : "border-neutral-300 group-hover:border-orange-200"
+                              isChecked ? "border-[#3b82f6]" : "border-neutral-300 group-hover:border-blue-200"
                             )}>
-                              {isChecked && <div className="w-2 h-2 bg-[#fa541c] rounded-full animate-scale-up"></div>}
+                              {isChecked && <div className="w-2 h-2 bg-[#3b82f6] rounded-full animate-scale-up"></div>}
                             </div>
                           ) : (
                             <div className={cn(
                               "w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors",
-                              isChecked ? "border-[#fa541c] bg-[#fa541c] text-white" : "border-neutral-300 group-hover:border-orange-200"
+                              isChecked ? "border-[#3b82f6] bg-[#3b82f6] text-white" : "border-neutral-300 group-hover:border-blue-200"
                             )}>
                               {isChecked && <Check className="w-3 h-3 text-white stroke-[3]" />}
                             </div>
                           )}
                           <span className={cn(
                             "text-[14px] transition-colors",
-                            isChecked ? "text-[#fa541c] font-bold" : "text-neutral-title group-hover:text-[#fa541c]"
+                            isChecked ? "text-[#3b82f6] font-bold" : "text-neutral-title group-hover:text-[#3b82f6]"
                           )}>{opt}</span>
                         </div>
                       );
@@ -495,7 +495,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                       value={userAnswers[currentQuestionIdx] || ""}
                       onChange={(e) => setUserAnswers(prev => ({ ...prev, [currentQuestionIdx]: e.target.value }))}
                       placeholder="请输入答案..."
-                      className="border-neutral-200 focus:border-[#fa541c] focus:ring-[#fa541c] rounded-[4px] h-10 w-full"
+                      className="border-neutral-200 focus:border-[#3b82f6] focus:ring-[#3b82f6] rounded-[4px] h-10 w-full"
                     />
                   </div>
                 </div>
@@ -510,7 +510,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                     value={userAnswers[currentQuestionIdx] || ""}
                     onChange={(e) => setUserAnswers(prev => ({ ...prev, [currentQuestionIdx]: e.target.value }))}
                     placeholder="请在这里写下您的简答..."
-                    className="w-full min-h-[160px] border border-neutral-200 hover:border-neutral-300 focus:border-[#fa541c] focus:outline-none p-4 rounded-lg text-[14px] leading-relaxed transition-all shadow-xs"
+                    className="w-full min-h-[160px] border border-neutral-200 hover:border-neutral-300 focus:border-[#3b82f6] focus:outline-none p-4 rounded-lg text-[14px] leading-relaxed transition-all shadow-xs"
                   />
                 </div>
               )}
@@ -536,7 +536,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                 variant="outline"
                 disabled={currentQuestionIdx === 0}
                 onClick={() => setCurrentQuestionIdx(prev => prev - 1)}
-                className="border-neutral-200 hover:text-[#fa541c] hover:border-orange-200 hover:bg-orange-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
+                className="border-neutral-200 hover:text-[#3b82f6] hover:border-blue-200 hover:bg-blue-50/20 px-6 h-9.5 text-[13px] font-bold rounded-[4px]"
               >
                 上一题
               </Button>
@@ -554,7 +554,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                         setIsSubmitAnswerDrawerOpen(true);
                       }
                     }}
-                    className="border-[#fa541c] text-[#fa541c] hover:bg-[#fa541c]/5 hover:text-[#e84a15] hover:border-[#e84a15] px-6 h-9.5 text-[13px] font-bold rounded-[4px] transition-all flex items-center gap-1.5"
+                    className="border-[#3b82f6] text-[#3b82f6] hover:bg-[#3b82f6]/5 hover:text-[#2563eb] hover:border-[#2563eb] px-6 h-9.5 text-[13px] font-bold rounded-[4px] transition-all flex items-center gap-1.5"
                   >
                     {currentPracticalIdx === 0 ? "开始答题" : "提交答案"}
                   </Button>
@@ -563,7 +563,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                 {currentQuestionIdx < NEW_QUESTIONS.length - 1 && !isAllQuestionsAnswered && (
                   <Button 
                     onClick={() => setCurrentQuestionIdx(prev => prev + 1)}
-                    className="bg-[#fa541c] hover:bg-[#e84a15] text-white px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1"
+                    className="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 h-9.5 text-[13px] font-bold shadow-sm rounded-[4px] transition-all flex items-center gap-1"
                   >
                     下一题
                   </Button>
@@ -669,7 +669,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
             <div className="border-t border-neutral-150 pt-5 mt-4 shrink-0">
               <div className="flex items-center justify-around text-[12px] text-neutral-caption mb-5">
                 <div className="flex flex-col items-center gap-1.5">
-                  <div className="w-4 h-4 rounded-full bg-[#fa541c]"></div>
+                  <div className="w-4 h-4 rounded-full bg-[#3b82f6]"></div>
                   <span>已答</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
@@ -677,7 +677,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   <span>未答</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
-                  <div className="w-4 h-4 rounded-full border-2 border-[#fa541c] bg-white"></div>
+                  <div className="w-4 h-4 rounded-full border-2 border-[#3b82f6] bg-white"></div>
                   <span>当前</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
@@ -690,7 +690,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
 
               <Button 
                 onClick={handleSubmitAnswering}
-                className="w-full bg-[#fa541c] hover:bg-[#e84a15] text-white py-3 font-bold shadow-lg shadow-orange-500/10 rounded-[4px] transition-all text-sm cursor-pointer"
+                className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white py-3 font-bold shadow-lg shadow-blue-500/10 rounded-[4px] transition-all text-sm cursor-pointer"
               >
                 提交试卷
               </Button>
@@ -712,7 +712,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
             {/* Header */}
             <div className="px-6 py-4 border-b border-neutral-100 flex justify-between items-center bg-neutral-50/50 shrink-0">
               <h2 className="text-[16px] font-bold text-[#262626] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" />
+                <Plus className="w-5 h-5 text-[#3b82f6]" />
                 提交答案
               </h2>
               <button 
@@ -738,7 +738,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
               {/* 上传答案文件 */}
               <div className="grid grid-cols-[100px_1fr] items-center gap-4">
                 <label className="text-[13px] font-bold text-[#262626] text-right">
-                  上传答案文件 <span className="text-[#fa541c]">*</span>
+                  上传答案文件 <span className="text-[#3b82f6]">*</span>
                 </label>
                 <div className="flex items-center gap-3">
                   <input
@@ -754,7 +754,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   />
                   <label
                     htmlFor="submit-answer-file-input"
-                    className="border border-[#fa541c] rounded-[4px] px-3.5 py-1.5 bg-transparent hover:bg-[#fa541c]/5 cursor-pointer text-xs text-[#fa541c] transition-colors font-bold select-none"
+                    className="border border-[#3b82f6] rounded-[4px] px-3.5 py-1.5 bg-transparent hover:bg-[#3b82f6]/5 cursor-pointer text-xs text-[#3b82f6] transition-colors font-bold select-none"
                   >
                     选择文件
                   </label>
@@ -780,7 +780,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   setIsSubmitAnswerDrawerOpen(false);
                   alert("答案提交成功！");
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 px-8 rounded-[4px] shadow-sm text-[13px] border-0 cursor-pointer transition-colors font-semibold"
               >
                 确认
               </Button>
@@ -801,7 +801,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
               </h2>
               <button 
                 onClick={() => setShowSubmitConfirmModal(false)} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -824,7 +824,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
               </Button>
               <Button 
                 onClick={handleConfirmSubmit} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -847,7 +847,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   setShowTimeoutModal(false);
                   onSubmit();
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -867,7 +867,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   setShowTimeoutModal(false);
                   onSubmit();
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>
@@ -890,7 +890,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   setShowSubmitSuccessModal(false);
                   onSubmit();
                 }} 
-                className="text-neutral-400 hover:text-[#fa541c] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
+                className="text-neutral-400 hover:text-[#3b82f6] p-1.5 hover:bg-neutral-100 rounded-[4px] transition-colors border-0 bg-transparent cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -910,7 +910,7 @@ export default function ExamSession({ exam, onBack, onSubmit }: ExamSessionProps
                   setShowSubmitSuccessModal(false);
                   onSubmit();
                 }} 
-                className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
+                className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold h-9 px-5 text-[13px] rounded-[4px] shadow-sm transition-colors border-0 cursor-pointer"
               >
                 确定
               </Button>

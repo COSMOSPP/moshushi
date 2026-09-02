@@ -10,7 +10,7 @@ export default function UserCenterQuota() {
   const [selectedResource, setSelectedResource] = useState("gpu");
 
   const resources = [
-    { id: 'gpu', name: 'GPU卡时', icon: Server, used: 85, total: 100, unit: '小时', color: '#fa541c', desc: '用于深度学习模型训练' },
+    { id: 'gpu', name: 'GPU卡时', icon: Server, used: 85, total: 100, unit: '小时', color: '#3b82f6', desc: '用于深度学习模型训练' },
     { id: 'cpu', name: 'CPU时长', icon: Cpu, used: 120, total: 500, unit: '小时', color: '#1677ff', desc: '用于通用计算任务' },
     { id: 'project', name: '项目额度', icon: FolderKanban, used: 2, total: 5, unit: '个', color: '#722ed1', desc: '可创建的实战项目数' },
     { id: 'dataset', name: '数据集额度', icon: Database, used: 9, total: 10, unit: '个', color: '#52c41a', desc: '可上传的数据集数' },
@@ -48,14 +48,14 @@ export default function UserCenterQuota() {
       {/* Header */}
       <div className="flex flex-shrink-0 items-center justify-between mb-6">
         <div className="flex items-center text-sm text-neutral-500">
-          <Link to="/user" className="hover:text-[#fa541c] cursor-pointer transition-colors">首页</Link>
+          <Link to="/user" className="hover:text-[#3b82f6] cursor-pointer transition-colors">首页</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
-          <Link to="/user/center" className="hover:text-[#fa541c] cursor-pointer transition-colors">个人中心</Link>
+          <Link to="/user/center" className="hover:text-[#3b82f6] cursor-pointer transition-colors">个人中心</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
           <span className="text-neutral-900 font-bold">资源额度</span>
         </div>
         <div className="flex items-center gap-3">
-          <Button onClick={() => setShowApplyModal(true)} className="bg-[#fa541c] hover:bg-[#e84a15] text-white h-9 shadow-sm shadow-orange-500/20 transition-all font-bold">
+          <Button onClick={() => setShowApplyModal(true)} className="bg-[#3b82f6] hover:bg-[#2563eb] text-white h-9 shadow-sm shadow-blue-500/20 transition-all font-bold">
             <Plus className="w-4 h-4 mr-1.5" />
             申请临时配额
           </Button>
@@ -67,15 +67,15 @@ export default function UserCenterQuota() {
         <div className="flex items-center px-6 pt-5 pb-0 border-b border-neutral-100 shrink-0">
           <button 
             onClick={() => setActiveTab('overview')}
-            className={cn("px-4 py-3 text-[15px] font-bold border-b-2 transition-colors", activeTab === 'overview' ? "border-[#fa541c] text-[#fa541c]" : "border-transparent text-neutral-500 hover:text-neutral-800")}
+            className={cn("px-4 py-3 text-[15px] font-bold border-b-2 transition-colors", activeTab === 'overview' ? "border-[#3b82f6] text-[#3b82f6]" : "border-transparent text-neutral-500 hover:text-neutral-800")}
           >
             额度概览
           </button>
           <button 
             onClick={() => setActiveTab('history')}
-            className={cn("px-4 py-3 text-[15px] font-bold border-b-2 transition-colors flex items-center gap-2", activeTab === 'history' ? "border-[#fa541c] text-[#fa541c]" : "border-transparent text-neutral-500 hover:text-neutral-800")}
+            className={cn("px-4 py-3 text-[15px] font-bold border-b-2 transition-colors flex items-center gap-2", activeTab === 'history' ? "border-[#3b82f6] text-[#3b82f6]" : "border-transparent text-neutral-500 hover:text-neutral-800")}
           >
-            审批历史 <span className="bg-orange-100 text-[#fa541c] text-[10px] px-1.5 py-0.5 rounded-full leading-none">1待审批</span>
+            审批历史 <span className="bg-blue-100 text-[#3b82f6] text-[10px] px-1.5 py-0.5 rounded-full leading-none">1待审批</span>
           </button>
         </div>
 
@@ -89,7 +89,7 @@ export default function UserCenterQuota() {
                 const isCritical = percent >= 95;
 
                 return (
-                  <div key={res.id} className="bg-white rounded-2xl p-5 border border-neutral-200 shadow-sm hover:shadow-md hover:border-orange-200 transition-all group relative overflow-hidden">
+                  <div key={res.id} className="bg-white rounded-2xl p-5 border border-neutral-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all group relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-3xl opacity-10 transition-opacity group-hover:opacity-20" style={{ backgroundColor: res.color }}></div>
                     
                     <div className="flex items-center justify-between mb-4 relative z-10">
@@ -112,7 +112,7 @@ export default function UserCenterQuota() {
                         <span className="text-3xl font-black tracking-tight" style={{ color: isCritical ? '#ef4444' : '#1f2937' }}>{res.used}</span>
                         <span className="text-neutral-400 font-medium text-sm ml-1">/ {res.total} {res.unit}</span>
                       </div>
-                      <span className={cn("text-[12px] font-bold px-2 py-0.5 rounded-md", isCritical ? "bg-red-50 text-red-500" : isWarning ? "bg-orange-50 text-orange-500" : "bg-neutral-100 text-neutral-500")}>
+                      <span className={cn("text-[12px] font-bold px-2 py-0.5 rounded-md", isCritical ? "bg-red-50 text-red-500" : isWarning ? "bg-blue-50 text-orange-500" : "bg-neutral-100 text-neutral-500")}>
                         已用 {percent}%
                       </span>
                     </div>
@@ -125,7 +125,7 @@ export default function UserCenterQuota() {
                     </div>
 
                     {isWarning && (
-                      <div className="mt-3 flex items-center gap-1.5 text-[11px] text-orange-600 font-medium relative z-10 bg-orange-50 px-2 py-1.5 rounded-lg border border-orange-100/50">
+                      <div className="mt-3 flex items-center gap-1.5 text-[11px] text-orange-600 font-medium relative z-10 bg-blue-50 px-2 py-1.5 rounded-lg border border-orange-100/50">
                         <AlertCircle className="w-3.5 h-3.5" /> 额度即将耗尽，建议提前申请
                       </div>
                     )}
@@ -177,7 +177,7 @@ export default function UserCenterQuota() {
           <div className="bg-white rounded-2xl shadow-xl w-[500px] overflow-hidden border border-neutral-200" onClick={e => e.stopPropagation()}>
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between bg-gradient-to-r from-orange-50/50 to-white">
               <h2 className="text-lg font-bold text-neutral-900 flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#fa541c]" /> 申请临时配额
+                <Plus className="w-5 h-5 text-[#3b82f6]" /> 申请临时配额
               </h2>
               <button onClick={() => setShowApplyModal(false)} className="text-neutral-400 hover:text-neutral-700 transition-colors">
                 <X className="w-5 h-5" />
@@ -186,8 +186,8 @@ export default function UserCenterQuota() {
             
             <form onSubmit={handleApply} className="p-6">
               <div className="space-y-5">
-                <div className="bg-orange-50 border border-orange-100 rounded-xl p-3 flex items-start gap-3">
-                  <Info className="w-5 h-5 text-[#fa541c] shrink-0 mt-0.5" />
+                <div className="bg-blue-50 border border-orange-100 rounded-xl p-3 flex items-start gap-3">
+                  <Info className="w-5 h-5 text-[#3b82f6] shrink-0 mt-0.5" />
                   <p className="text-[12px] text-orange-800/80 leading-relaxed font-medium">临时配额申请提交后将由租户管理员进行审批，审批通过后即刻生效。请根据实际项目需求合理申请，避免资源浪费。</p>
                 </div>
 
@@ -196,7 +196,7 @@ export default function UserCenterQuota() {
                   <select 
                     value={selectedResource}
                     onChange={(e) => setSelectedResource(e.target.value)}
-                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]"
+                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-800 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]"
                   >
                     {resources.map(res => (
                       <option key={res.id} value={res.id}>{res.name}</option>
@@ -211,12 +211,12 @@ export default function UserCenterQuota() {
                       type="number" 
                       placeholder="如: 50"
                       required
-                      className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]"
+                      className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[13px] font-bold text-neutral-700 flex items-center gap-1">使用期限 <span className="text-red-500">*</span></label>
-                    <select className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-800 focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c]">
+                    <select className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-800 focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6]">
                       <option>1周</option>
                       <option>1个月</option>
                       <option>3个月</option>
@@ -231,14 +231,14 @@ export default function UserCenterQuota() {
                     placeholder="请详细描述您申请该资源的具体业务场景和必要性..."
                     required
                     rows={4}
-                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#fa541c] focus:ring-1 focus:ring-[#fa541c] resize-none"
+                    className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#3b82f6] focus:ring-1 focus:ring-[#3b82f6] resize-none"
                   ></textarea>
                 </div>
               </div>
 
               <div className="mt-8 flex justify-end gap-3">
                 <Button type="button" variant="outline" onClick={() => setShowApplyModal(false)} className="border-neutral-200 text-neutral-600 font-bold">取消</Button>
-                <Button type="submit" className="bg-[#fa541c] hover:bg-[#e84a15] text-white font-bold px-6 shadow-md shadow-orange-500/20">提交申请</Button>
+                <Button type="submit" className="bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold px-6 shadow-md shadow-blue-500/20">提交申请</Button>
               </div>
             </form>
           </div>
