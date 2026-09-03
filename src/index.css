@@ -186,6 +186,18 @@ body {
   background-color: #94a3b8;
 }
 
+/* Hide scrollbar while preserving scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Custom DateTime Picker styling */
 input[type="datetime-local"] {
   accent-color: #3b82f6;

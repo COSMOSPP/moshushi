@@ -1,11 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
-  LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  BarChart, Bar, PieChart, Pie, Cell
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  PieChart, Pie, Cell
 } from 'recharts';
 import { DashboardPanel } from './DashboardPanel';
-import { employmentDestinationsData, employmentRolesData, employmentRegionsData } from '../../data/cockpitMockData';
-import { ChevronDown, Check } from 'lucide-react';
+import { 
+  employmentDestinationsData, 
+  employmentRolesData, 
+  employmentRegionsData,
+  studentLevelData,
+  courseRankingData,
+  teacherRankingData
+} from '../../data/cockpitMockData';
+import { Star, Medal } from 'lucide-react';
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -26,93 +33,54 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-interface PeriodSelectProps {
-  value?: string;
-  onChange?: (val: string) => void;
-}
-
-const periodOptions = [
-  { label: '近6期', value: '6' },
-  { label: '近3期', value: '3' },
-  { label: '近12期', value: '12' },
-];
-
-const PeriodSelect = ({ value = '6', onChange }: PeriodSelectProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(value);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const currentOption = periodOptions.find((opt) => opt.value === selected) || periodOptions[0];
+// Auto scroll hook for dashboard lists
+function useAutoScroll(isPaused: boolean, speed = 0.5) {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let animId: number;
+    let isUserScrolling = false;
+    let userScrollTimer: any;
+
+    const handleWheel = () => {
+      isUserScrolling = true;
+      clearTimeout(userScrollTimer);
+      userScrollTimer = setTimeout(() => {
+        isUserScrolling = false;
+      }, 1500);
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
-  const handleSelect = (val: string) => {
-    setSelected(val);
-    setIsOpen(false);
-    if (onChange) onChange(val);
-  };
+    el.addEventListener('wheel', handleWheel, { passive: true });
 
-  return (
-    <div ref={containerRef} className="relative z-30">
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className={`bg-[#071129] border transition-all duration-200 text-slate-200 text-[11px] px-2.5 py-1 rounded flex items-center space-x-1 shadow-sm outline-none cursor-pointer ${
-          isOpen
-            ? 'border-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)] bg-[#0d1b3e]'
-            : 'border-[#1e3a8a] hover:border-cyan-500/60 hover:bg-[#0a1838]'
-        }`}
-      >
-        <span className="font-medium text-slate-200">{currentOption.label}</span>
-        <ChevronDown
-          size={12}
-          className={`text-cyan-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-cyan-300' : ''}`}
-        />
-      </button>
+    const step = () => {
+      if (!isPaused && !isUserScrolling && el) {
+        if (el.scrollTop + el.clientHeight >= el.scrollHeight - 1) {
+          el.scrollTop = 0;
+        } else {
+          el.scrollTop += speed;
+        }
+      }
+      animId = requestAnimationFrame(step);
+    };
 
-      {isOpen && (
-        <div className="absolute top-full right-0 mt-1 w-24 z-50 bg-[#0a1738]/95 border border-cyan-500/50 shadow-[0_10px_25px_rgba(0,0,0,0.8)] rounded-md py-1 overflow-hidden backdrop-blur-md">
-          {periodOptions.map((opt) => {
-            const isSelected = opt.value === selected;
-            return (
-              <div
-                key={opt.value}
-                onClick={() => handleSelect(opt.value)}
-                className={`px-2.5 py-1 text-[11px] transition-colors flex items-center justify-between cursor-pointer ${
-                  isSelected
-                    ? 'bg-[#1e3a8a] text-cyan-300 font-semibold'
-                    : 'text-slate-300 hover:bg-[#142858] hover:text-slate-100'
-                }`}
-              >
-                <span>{opt.label}</span>
-                {isSelected && <Check size={11} className="text-cyan-400" />}
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-};
+    animId = requestAnimationFrame(step);
+    return () => {
+      cancelAnimationFrame(animId);
+      el.removeEventListener('wheel', handleWheel);
+      clearTimeout(userScrollTimer);
+    };
+  }, [isPaused, speed]);
+
+  return scrollRef;
+}
 
 export const EnrollmentTrendChart = ({ data }: { data: any[] }) => (
   <DashboardPanel 
     title="报名 / 在训人数趋势" 
-    className="min-h-[300px] h-full"
-    extra={
-      <div className="flex space-x-2 items-center">
-        <span className="text-xs text-slate-500">期次对比</span>
-        <PeriodSelect />
-      </div>
-    }
+    className="h-full min-h-0 flex flex-col"
   >
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={data} margin={{ top: 20, right: 20, left: -10, bottom: 0 }}>
@@ -127,23 +95,209 @@ export const EnrollmentTrendChart = ({ data }: { data: any[] }) => (
   </DashboardPanel>
 );
 
-export const PassRateTrendChart = ({ data }: { data: any[] }) => (
-  <DashboardPanel title="完课率 / 通过率趋势" extra={<PeriodSelect />} className="min-h-[300px] h-full">
-    <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={data} margin={{ top: 20, right: 20, left: -20, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#1e3a8a" vertical={false} opacity={0.4} />
-        <XAxis dataKey="name" stroke="#64748b" fontSize={10} tickLine={false} axisLine={false} />
-        <YAxis stroke="#64748b" fontSize={10} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
-        <Tooltip wrapperStyle={{ zIndex: 9999, outline: 'none' }} content={<CustomTooltip />} />
-        <Line type="linear" dataKey="完课率" stroke="#3b82f6" strokeWidth={2} dot={{ r: 4, fill: '#3b82f6', strokeWidth: 0 }} />
-        <Line type="linear" dataKey="通过率" stroke="#10b981" strokeWidth={2} dot={{ r: 4, fill: '#10b981', strokeWidth: 0 }} />
-      </LineChart>
-    </ResponsiveContainer>
-  </DashboardPanel>
-);
+/**
+ * 学员等级分布详情模块
+ */
+export const StudentLevelDistributionChart = ({ data = studentLevelData }: { data?: typeof studentLevelData }) => {
+  const [activeTab, setActiveTab] = useState<'ratio' | 'passRate'>('ratio');
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveTab(prev => (prev === 'ratio' ? 'passRate' : 'ratio'));
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const totalCount = useMemo(() => data.reduce((acc, item) => acc + item.count, 0), [data]);
+  const expertPlusCount = useMemo(() => {
+    const expert = data.find(d => d.code === 'L5')?.count || 0;
+    const advanced = data.find(d => d.code === 'L4')?.count || 0;
+    return expert + advanced;
+  }, [data]);
+  const highTierRatio = totalCount > 0 ? ((expertPlusCount / totalCount) * 100).toFixed(1) : '0';
+
+  const tabButtonClasses = (isActive: boolean) => 
+    `px-2.5 py-1 text-[11px] transition-all duration-300 rounded-sm cursor-pointer ${isActive 
+      ? 'bg-[#1e3a8a]/80 text-cyan-300 font-semibold border border-cyan-500/60 shadow-[0_0_8px_rgba(6,182,212,0.3)]' 
+      : 'bg-[#0a1532]/40 text-slate-400 border border-transparent hover:bg-[#1e3a8a]/20 hover:text-slate-200'
+    }`;
+
+  const pieData = data.map(item => ({
+    name: item.level,
+    value: item.percentage,
+    count: item.count,
+    color: item.color,
+  }));
+
+  return (
+    <DashboardPanel 
+      title="学员等级分布详情" 
+      className="h-full min-h-0 flex flex-col"
+    >
+      <div 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="flex items-center justify-between mt-1 px-1 mb-1"
+      >
+        <div className="flex space-x-1.5">
+          <button className={tabButtonClasses(activeTab === 'ratio')} onClick={() => setActiveTab('ratio')}>
+            等级占比
+          </button>
+          <button className={tabButtonClasses(activeTab === 'passRate')} onClick={() => setActiveTab('passRate')}>
+            考核达标率
+          </button>
+        </div>
+        <div className="flex items-center space-x-2 text-[10px] text-slate-400">
+          <span>高阶(L4/L5): <strong className="text-cyan-400 font-mono font-bold">{highTierRatio}%</strong></span>
+          <span className={`inline-block w-1.5 h-1.5 rounded-full ${isPaused ? 'bg-slate-500' : 'bg-cyan-400 animate-pulse'}`} />
+          <span>{isPaused ? '已暂停' : '自动切换中'}</span>
+        </div>
+      </div>
+
+      <div
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="flex-1 w-full h-full flex flex-col justify-center"
+      >
+        {activeTab === 'ratio' ? (
+          <div className="flex w-full h-full pb-4 pt-1 items-center gap-6 px-2 flex-1">
+            <div className="w-[43%] h-full relative flex items-center justify-center flex-shrink-0">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none z-0">
+                <p className="text-[10px] text-slate-400 mb-0.5">在训学员</p>
+                <p className="text-base font-bold text-white tracking-tight font-mono">
+                  {totalCount.toLocaleString()}
+                  <span className="text-[10px] font-normal ml-0.5 text-slate-400">人</span>
+                </p>
+              </div>
+
+              <ResponsiveContainer width="100%" height="100%" className="relative z-10">
+                <PieChart>
+                  <Pie
+                    data={pieData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius="56%"
+                    outerRadius="86%"
+                    paddingAngle={1.5}
+                    dataKey="value"
+                    stroke="#051025"
+                    strokeWidth={2}
+                  >
+                    {pieData.map((entry, index) => (
+                      <Cell key={`level-cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip 
+                    wrapperStyle={{ zIndex: 9999, outline: 'none' }} 
+                    content={({ active, payload }: any) => {
+                      if (active && payload && payload.length) {
+                        const item = payload[0].payload;
+                        return (
+                          <div className="bg-[#051025]/95 border border-cyan-500/50 p-2.5 rounded-lg shadow-xl backdrop-blur-md text-xs">
+                            <p className="font-bold text-slate-100 flex items-center space-x-1 mb-1">
+                              <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: item.color }} />
+                              <span>{item.name}</span>
+                            </p>
+                            <p className="text-slate-300">人数: <span className="text-cyan-300 font-mono font-semibold">{item.count}人</span></p>
+                            <p className="text-slate-300">占比: <span className="text-cyan-300 font-mono font-semibold">{item.value}%</span></p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }} 
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="flex-1 flex flex-col justify-center space-y-2 pr-1 pl-3 border-l border-[#1e3a8a]/40">
+              {data.map((item, index) => (
+                <div key={index} className="flex flex-col space-y-0.5 group">
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center space-x-1.5 min-w-0">
+                      <span 
+                        className="px-1.5 py-0.2 rounded text-[10px] font-mono font-bold text-white"
+                        style={{ backgroundColor: `${item.color}33`, borderColor: `${item.color}88`, borderWidth: 1 }}
+                      >
+                        {item.code}
+                      </span>
+                      <span className="text-slate-200 text-[11px] font-medium truncate">{item.name}</span>
+                    </div>
+                    <div className="flex items-center space-x-2 font-mono text-xs">
+                      <span className="text-slate-400 text-[11px]">{item.count}人</span>
+                      <span className="text-slate-200 font-bold w-11 text-right">{item.percentage}%</span>
+                    </div>
+                  </div>
+                  <div className="w-full bg-[#081738] h-1.5 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full rounded-full transition-all duration-500" 
+                      style={{ 
+                        width: `${item.percentage * 2.2}%`, 
+                        backgroundColor: item.color,
+                        boxShadow: `0 0 6px ${item.color}66`
+                      }} 
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col justify-between h-full pb-3 pt-2 px-2 space-y-2">
+            {data.map((item, index) => (
+              <div key={index} className="bg-[#071330]/80 border border-[#1e3a8a]/60 rounded-md p-2 flex items-center justify-between">
+                <div className="flex items-center space-x-2.5">
+                  <span 
+                    className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs text-white"
+                    style={{ backgroundColor: `${item.color}44`, border: `1px solid ${item.color}` }}
+                  >
+                    {item.code}
+                  </span>
+                  <div>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xs font-semibold text-slate-100">{item.name}</span>
+                      <span className="text-[10px] text-slate-400 font-mono">({item.count}人)</span>
+                    </div>
+                    <p className="text-[10px] text-slate-400 truncate max-w-[190px]">{item.desc}</p>
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <div className="text-[10px] text-slate-400">考核达标率</div>
+                  <div className="text-xs font-bold font-mono text-emerald-400">
+                    {item.passRate}%
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </DashboardPanel>
+  );
+};
 
 export const EmploymentDestinationsChart = () => {
   const [activeTab, setActiveTab] = useState<'industry' | 'role' | 'region'>('industry');
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const tabs: ('industry' | 'role' | 'region')[] = ['industry', 'role', 'region'];
+    const timer = setInterval(() => {
+      setActiveTab((prev) => {
+        const nextIndex = (tabs.indexOf(prev) + 1) % tabs.length;
+        return tabs[nextIndex];
+      });
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const getData = () => {
     switch (activeTab) {
@@ -155,24 +309,40 @@ export const EmploymentDestinationsChart = () => {
 
   const data = getData();
   const tabButtonClasses = (isActive: boolean) => 
-    `px-3 py-1 text-[11px] transition-colors rounded-sm cursor-pointer ${isActive 
-      ? 'bg-[#1e3a8a]/60 text-cyan-300 font-semibold border border-cyan-500/50' 
+    `px-2.5 py-1 text-[11px] transition-all duration-300 rounded-sm cursor-pointer ${isActive 
+      ? 'bg-[#1e3a8a]/80 text-cyan-300 font-semibold border border-cyan-500/60 shadow-[0_0_8px_rgba(6,182,212,0.3)]' 
       : 'bg-[#0a1532]/40 text-slate-400 border border-transparent hover:bg-[#1e3a8a]/20 hover:text-slate-200'
     }`;
 
   return (
-    <DashboardPanel title="基础就业去向分布" extra={<PeriodSelect />} className="min-h-[300px] h-full">
-      <div className="flex space-x-1.5 mt-1 px-1">
-        <button className={tabButtonClasses(activeTab === 'industry')} onClick={() => setActiveTab('industry')}>行业分布</button>
-        <button className={tabButtonClasses(activeTab === 'role')} onClick={() => setActiveTab('role')}>岗位分布</button>
-        <button className={tabButtonClasses(activeTab === 'region')} onClick={() => setActiveTab('region')}>地区分布</button>
+    <DashboardPanel title="基础就业去向分布" className="h-full min-h-0 flex flex-col">
+      <div 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="flex items-center justify-between mt-1 px-1 mb-1"
+      >
+        <div className="flex space-x-1.5">
+          <button className={tabButtonClasses(activeTab === 'industry')} onClick={() => setActiveTab('industry')}>行业分布</button>
+          <button className={tabButtonClasses(activeTab === 'role')} onClick={() => setActiveTab('role')}>岗位分布</button>
+          <button className={tabButtonClasses(activeTab === 'region')} onClick={() => setActiveTab('region')}>地区分布</button>
+        </div>
+        <div className="flex items-center space-x-1.5 text-[10px] text-slate-400">
+          <span className={`inline-block w-1.5 h-1.5 rounded-full ${isPaused ? 'bg-slate-500' : 'bg-cyan-400 animate-pulse'}`} />
+          <span>{isPaused ? '已暂停' : '自动切换中'}</span>
+        </div>
       </div>
       
-      <div className="flex w-full h-full pb-10 pt-2 items-center">
-        <div className="w-1/2 h-full relative">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none mt-1 z-0">
+      <div 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="flex w-full h-full pb-4 pt-1 items-center flex-1 gap-6 px-2"
+      >
+        <div className="w-[43%] h-full relative flex-shrink-0">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none mt-0.5 z-0">
             <p className="text-[10px] text-slate-400 mb-0.5">就业人数</p>
-            <p className="text-lg font-bold text-white tracking-tight">1,256<span className="text-[10px] font-normal ml-0.5 text-slate-300">人</span></p>
+            <p className="text-base font-bold text-white tracking-tight font-mono">
+              1,256<span className="text-[10px] font-normal ml-0.5 text-slate-300">人</span>
+            </p>
           </div>
 
           <ResponsiveContainer width="100%" height="100%" className="relative z-10">
@@ -181,30 +351,56 @@ export const EmploymentDestinationsChart = () => {
                 data={data}
                 cx="50%"
                 cy="50%"
-                innerRadius="55%"
-                outerRadius="85%"
-                paddingAngle={0}
+                innerRadius="56%"
+                outerRadius="86%"
+                paddingAngle={1.5}
                 dataKey="value"
-                stroke="none"
+                stroke="#051025"
+                strokeWidth={2}
               >
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip wrapperStyle={{ zIndex: 9999, outline: 'none' }} content={<CustomTooltip />} />
+              <Tooltip 
+                wrapperStyle={{ zIndex: 9999, outline: 'none' }} 
+                content={({ active, payload }: any) => {
+                  if (active && payload && payload.length) {
+                    const item = payload[0].payload;
+                    return (
+                      <div className="bg-[#051025]/95 border border-cyan-500/50 p-2.5 rounded-lg shadow-xl backdrop-blur-md text-xs">
+                        <p className="font-bold text-slate-100 flex items-center space-x-1 mb-1">
+                          <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: item.color }} />
+                          <span>{item.name}</span>
+                        </p>
+                        <p className="text-slate-300">人数: <span className="text-cyan-300 font-mono font-semibold">{item.count}人</span></p>
+                        <p className="text-slate-300">占比: <span className="text-cyan-300 font-mono font-semibold">{item.value}%</span></p>
+                      </div>
+                    );
+                  }
+                  return null;
+                }} 
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>
         
-        <div className="w-1/2 flex flex-col justify-center space-y-3 pr-2">
+        <div className="flex-1 flex flex-col justify-center space-y-2 pr-1 pl-3 border-l border-[#1e3a8a]/40">
           {data.map((item, index) => (
-            <div key={index} className="flex items-center text-xs">
-              <span 
-                className="w-2.5 h-2.5 rounded-xs mr-2 flex-shrink-0" 
-                style={{ backgroundColor: item.color }} 
-              />
-              <span className="text-slate-300 flex-1 truncate">{item.name}</span>
-              <span className="text-slate-200 font-mono tracking-wide w-12 text-right font-bold">{item.value}%</span>
+            <div key={index} className="flex items-center justify-between text-xs group">
+              <div className="flex items-center space-x-2 min-w-0 flex-1 mr-2">
+                <span 
+                  className="w-2.5 h-2.5 rounded-xs flex-shrink-0" 
+                  style={{ backgroundColor: item.color }} 
+                />
+                <span className="text-slate-300 text-[11px] truncate group-hover:text-cyan-300 transition-colors">
+                  {item.name}
+                </span>
+              </div>
+              <div className="flex items-center space-x-3 font-mono text-[11px] flex-shrink-0">
+                <span className="text-cyan-400 font-semibold">{item.count}人</span>
+                <span className="text-slate-200 font-bold w-12 text-right">{item.value}%</span>
+              </div>
             </div>
           ))}
         </div>
@@ -213,48 +409,195 @@ export const EmploymentDestinationsChart = () => {
   );
 };
 
-export const CourseEvaluationChart = ({ data }: { data: any[] }) => (
-  <DashboardPanel title="课程评价分布" extra={<PeriodSelect />} className="min-h-[300px] h-full">
-    <p className="text-[10px] text-slate-400 mb-2">课程数 (门)</p>
-    <ResponsiveContainer width="100%" height="90%">
-      <BarChart data={data} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#1e3a8a" vertical={false} opacity={0.4} />
-        <XAxis dataKey="subject" stroke="#64748b" fontSize={10} tickLine={false} axisLine={false} />
-        <YAxis stroke="#64748b" fontSize={10} tickLine={false} axisLine={false} />
-        <Tooltip wrapperStyle={{ zIndex: 9999, outline: 'none' }} cursor={{fill: '#1e3a8a', opacity: 0.2}} content={<CustomTooltip />} />
-        <Bar dataKey="value" fill="#3b82f6" barSize={30}>
-           {data.map((_, index) => (
-              <Cell key={`cell-${index}`} fill="url(#colorBar)" />
-           ))}
-        </Bar>
-        <defs>
-          <linearGradient id="colorBar" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity={1}/>
-            <stop offset="100%" stopColor="#2563eb" stopOpacity={0.2}/>
-          </linearGradient>
-        </defs>
-      </BarChart>
-    </ResponsiveContainer>
-  </DashboardPanel>
-);
+/**
+ * 课程评价排名模块 (TOP 10 滚动展示)
+ */
+export const CourseEvaluationRankingChart = ({ data = courseRankingData }: { data?: typeof courseRankingData }) => {
+  const [isPaused, setIsPaused] = useState(false);
 
-export const WorksTrendChart = ({ data }: { data: any[] }) => (
-  <DashboardPanel title="作品数量趋势" extra={<PeriodSelect />} className="min-h-[300px] h-full">
-    <p className="text-[10px] text-slate-400 mb-2">作品数量 (个)</p>
-    <ResponsiveContainer width="100%" height="90%">
-      <AreaChart data={data} margin={{ top: 0, right: 10, left: -20, bottom: 0 }}>
-        <defs>
-          <linearGradient id="colorWorks" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.5}/>
-            <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
-          </linearGradient>
-        </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="#1e3a8a" vertical={false} opacity={0.4} />
-        <XAxis dataKey="name" stroke="#64748b" fontSize={10} tickLine={false} axisLine={false} />
-        <YAxis stroke="#64748b" fontSize={10} tickLine={false} axisLine={false} />
-        <Tooltip wrapperStyle={{ zIndex: 9999, outline: 'none' }} content={<CustomTooltip />} />
-        <Area type="linear" dataKey="作品数量" stroke="#3b82f6" strokeWidth={2} fillOpacity={1} fill="url(#colorWorks)" activeDot={{ r: 6 }} dot={{ r: 4, fill: '#3b82f6', strokeWidth: 0 }} />
-      </AreaChart>
-    </ResponsiveContainer>
-  </DashboardPanel>
-);
+  const scrollRef = useAutoScroll(isPaused, 0.6);
+
+  const getRankBadge = (rank: number) => {
+    if (rank === 1) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-mono font-extrabold text-[11px] flex items-center justify-center shadow-[0_0_8px_rgba(245,158,11,0.6)] flex-shrink-0">
+          1
+        </span>
+      );
+    }
+    if (rank === 2) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-gradient-to-r from-slate-200 to-slate-400 text-slate-950 font-mono font-extrabold text-[11px] flex items-center justify-center shadow-[0_0_8px_rgba(203,213,225,0.4)] flex-shrink-0">
+          2
+        </span>
+      );
+    }
+    if (rank === 3) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white font-mono font-extrabold text-[11px] flex items-center justify-center shadow-[0_0_8px_rgba(217,119,6,0.3)] flex-shrink-0">
+          3
+        </span>
+      );
+    }
+    if (rank <= 10) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-[#0d2252] border border-cyan-500/60 text-cyan-300 font-mono font-bold text-[10px] flex items-center justify-center flex-shrink-0 shadow-[0_0_6px_rgba(6,182,212,0.2)]">
+          {rank}
+        </span>
+      );
+    }
+    return (
+      <span className="w-5 h-5 rounded-full bg-[#0d1f47] border border-[#1e3a8a] text-slate-400 font-mono font-bold text-[10px] flex items-center justify-center flex-shrink-0">
+        {rank}
+      </span>
+    );
+  };
+
+  return (
+    <DashboardPanel 
+      title="课程评价排名" 
+      className="h-full min-h-0 flex flex-col"
+    >
+      <div 
+        ref={scrollRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="flex-1 overflow-y-auto no-scrollbar space-y-1.5 pr-1 min-h-0 mt-0.5"
+      >
+        {data.map((course, idx) => (
+          <div 
+            key={`${course.id}-${idx}`} 
+            className="p-2 bg-[#071330]/70 hover:bg-[#0c1f4d]/90 border border-[#1e3a8a]/50 hover:border-cyan-500/40 rounded-lg transition-all duration-200 group flex items-center justify-between cursor-pointer"
+          >
+            <div className="flex items-center space-x-2.5 min-w-0 flex-1 mr-2">
+              {getRankBadge(course.rank)}
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center space-x-1.5">
+                  <h4 className="text-xs font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors truncate">
+                    {course.title}
+                  </h4>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 flex-shrink-0">
+                    {course.category}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3 text-[10px] text-slate-400 mt-0.5">
+                  <span>讲师: {course.teacher}</span>
+                  <span>评价: {course.reviews}条</span>
+                  <span className="text-emerald-400 font-mono">好评率: {course.satisfaction}%</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-end flex-shrink-0">
+              <div className="flex items-center space-x-1 text-amber-400 font-mono font-bold text-sm">
+                <Star size={12} className="fill-amber-400 text-amber-400" />
+                <span>{course.score.toFixed(2)}</span>
+              </div>
+              <span className="text-[9px] text-emerald-400 font-mono mt-0.5">
+                {course.trend}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </DashboardPanel>
+  );
+};
+
+/**
+ * 优秀教师排行榜模块 (支持滚动展示更多数据)
+ */
+export const TeacherRankingChart = ({ data = teacherRankingData }: { data?: typeof teacherRankingData }) => {
+  const [isPaused, setIsPaused] = useState(false);
+
+  const scrollRef = useAutoScroll(isPaused, 0.6);
+
+  const getRankIndicator = (index: number) => {
+    const rank = index + 1;
+    if (rank === 1) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-mono font-extrabold text-[11px] flex items-center justify-center shadow-[0_0_8px_rgba(245,158,11,0.6)] flex-shrink-0">
+          1
+        </span>
+      );
+    }
+    if (rank === 2) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-gradient-to-r from-slate-200 to-slate-400 text-slate-950 font-mono font-extrabold text-[11px] flex items-center justify-center shadow-[0_0_8px_rgba(203,213,225,0.4)] flex-shrink-0">
+          2
+        </span>
+      );
+    }
+    if (rank === 3) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white font-mono font-extrabold text-[11px] flex items-center justify-center shadow-[0_0_8px_rgba(217,119,6,0.3)] flex-shrink-0">
+          3
+        </span>
+      );
+    }
+    return (
+      <span className="w-5 h-5 rounded-full bg-[#0d1f47] border border-[#1e3a8a] text-slate-400 font-mono font-bold text-[10px] flex items-center justify-center flex-shrink-0">
+        {rank}
+      </span>
+    );
+  };
+
+  return (
+    <DashboardPanel 
+      title="优秀教师排行榜" 
+      className="h-full min-h-0 flex flex-col"
+    >
+      <div 
+        ref={scrollRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="flex-1 overflow-x-auto overflow-y-auto no-scrollbar min-h-0 border border-[#1e3a8a]/40 rounded mt-0.5"
+      >
+        <table className="w-full min-w-[360px] text-left text-[11px] border-collapse">
+          <thead className="bg-[#102347] text-slate-400 sticky top-0 z-10">
+            <tr>
+              <th className="py-2 px-3 font-medium whitespace-nowrap text-slate-400 w-14 text-center">排名</th>
+              <th className="py-2 px-2.5 font-medium whitespace-nowrap text-slate-400">教师名称</th>
+              <th className="py-2 px-2.5 font-medium whitespace-nowrap text-slate-400">教师职称</th>
+              <th className="py-2 px-3 font-medium whitespace-nowrap text-slate-400 text-right">已教学员</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#1e3a8a]/30">
+            {data.map((teacher, idx) => (
+              <tr 
+                key={`${teacher.id}-${idx}`}
+                className="hover:bg-[#1e3a8a]/30 transition-colors cursor-pointer text-slate-200 group"
+              >
+                <td className="py-2.5 px-3 whitespace-nowrap text-center">
+                  <div className="flex justify-center items-center">
+                    {getRankIndicator(idx)}
+                  </div>
+                </td>
+                <td className="py-2.5 px-2.5 whitespace-nowrap">
+                  <span className="font-medium text-slate-100 group-hover:text-amber-300 transition-colors truncate">
+                    {teacher.name}
+                  </span>
+                </td>
+                <td className="py-2.5 px-2.5 whitespace-nowrap">
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-700/50 font-medium inline-block">
+                    {teacher.title}
+                  </span>
+                </td>
+                <td className="py-2.5 px-3 font-mono whitespace-nowrap text-right text-cyan-400 font-semibold">
+                  {teacher.students}人
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </DashboardPanel>
+  );
+};
+
+// For backward compatibility
+export const PassRateTrendChart = StudentLevelDistributionChart;
+export const CourseEvaluationChart = CourseEvaluationRankingChart;
+export const WorksTrendChart = TeacherRankingChart;
+
+

@@ -1,34 +1,26 @@
 import React, { useState, useMemo } from 'react';
 import { CockpitHeader } from '@/components/cockpit/CockpitHeader';
-import { FilterBar } from '@/components/cockpit/FilterBar';
 import { MetricCard } from '@/components/cockpit/MetricCard';
 import { 
   EnrollmentTrendChart, 
-  PassRateTrendChart, 
+  StudentLevelDistributionChart, 
   EmploymentDestinationsChart, 
-  CourseEvaluationChart,
-  WorksTrendChart
+  CourseEvaluationRankingChart,
+  TeacherRankingChart
 } from '@/components/cockpit/Charts';
 import { ClassTable } from '@/components/cockpit/ClassTable';
 import { DetailModal } from '@/components/cockpit/DetailModal';
 import { 
   generateMetrics, 
   trendChartData, 
-  passRateChartData, 
-  courseEvaluationsData,
-  worksTrendData,
+  studentLevelData, 
+  courseRankingData,
+  teacherRankingData,
   classTableData
 } from '@/data/cockpitMockData';
-import { FilterState, MetricData } from '@/types/cockpit';
+import { MetricData } from '@/types/cockpit';
 
 export default function AdminCockpitPage() {
-  const [filter, setFilter] = useState<FilterState>({
-    dimension: 'all',
-    term: '2025-spring-3',
-    classId: 'all',
-    courseId: 'all'
-  });
-
   const [selectedMetric, setSelectedMetric] = useState<MetricData | null>(null);
 
   const metrics = useMemo(() => generateMetrics(), []);
@@ -39,19 +31,16 @@ export default function AdminCockpitPage() {
   };
 
   return (
-    <div className="min-h-full bg-[#020716] bg-cyber-grid text-slate-200 font-sans flex flex-col selection:bg-cyan-500/30 relative overflow-x-hidden">
+    <div className="min-h-screen xl:h-screen w-full bg-[#020716] bg-cyber-grid text-slate-200 font-sans flex flex-col selection:bg-cyan-500/30 relative overflow-x-hidden xl:overflow-hidden">
       {/* Top Cockpit Header */}
       <CockpitHeader onRefresh={handleRefresh} />
 
-      {/* Main Body */}
-      <main className="flex-1 w-full max-w-[1920px] mx-auto p-5 flex flex-col space-y-5">
-        {/* Filter Bar */}
-        <FilterBar filter={filter} onChange={setFilter} />
-        
+      {/* Main Body with unified 20px (gap-5) margins & gutters */}
+      <main className="flex-1 w-full max-w-[1920px] mx-auto p-5 flex flex-col justify-between min-h-0 gap-5">
         {/* Metric Cards Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 gap-5 flex-shrink-0">
           {metrics.map((metric, index) => (
-            <div key={metric.id} onClick={() => setSelectedMetric(metric)} className="cursor-pointer">
+            <div key={metric.id} onClick={() => setSelectedMetric(metric)} className="cursor-pointer h-full">
               <MetricCard 
                 data={metric} 
                 index={index} 
@@ -61,17 +50,17 @@ export default function AdminCockpitPage() {
         </div>
 
         {/* Middle Row: Trend & Donut Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:h-[340px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 flex-1 min-h-0">
           <EnrollmentTrendChart data={trendChartData} />
-          <PassRateTrendChart data={passRateChartData} />
+          <StudentLevelDistributionChart data={studentLevelData} />
           <EmploymentDestinationsChart />
         </div>
 
         {/* Bottom Row: Table & Remaining Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:h-[380px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 flex-1 min-h-0">
           <ClassTable data={classTableData} />
-          <CourseEvaluationChart data={courseEvaluationsData} />
-          <WorksTrendChart data={worksTrendData} />
+          <CourseEvaluationRankingChart data={courseRankingData} />
+          <TeacherRankingChart data={teacherRankingData} />
         </div>
       </main>
 
