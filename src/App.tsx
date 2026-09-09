@@ -71,6 +71,7 @@ import SystemResources from "./pages/admin/SystemResources";
 import SystemSecurity from "./pages/admin/SystemSecurity";
 import AdminSystemPage from "./pages/admin/AdminSystemPage";
 import AdminCockpitPage from "./pages/CockpitPage";
+import ModushuCockpitPage from "./pages/ModushuCockpitPage";
 
 import LoginUser from "./pages/LoginUser";
 import LoginTeacher from "./pages/LoginTeacher";
@@ -117,6 +118,8 @@ export default function App() {
         <Route path="/login/admin" element={<LoginAdmin />} />
 
         {/* Skill Builder & Practice Chat (Full Screen) */}
+        <Route path="/cockpit" element={<ModushuCockpitPage />} />
+        <Route path="/cockpit/modushu" element={<ModushuCockpitPage />} />
         <Route path="/skill-builder" element={<SkillBuilder />} />
         <Route path="/practice-chat" element={<PracticeChat />} />
 

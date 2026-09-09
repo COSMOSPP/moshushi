@@ -157,6 +157,15 @@ export function CockpitHeader({ onRefresh }: CockpitHeaderProps) {
           </button>
 
           <Link
+            to="/cockpit"
+            title="查看模数师态势大屏"
+            className="px-3 py-1.5 text-cyan-200 hover:text-white transition-all duration-200 rounded-md bg-[#081738]/90 hover:bg-cyan-950/80 border border-cyan-500/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] cursor-pointer flex items-center space-x-1.5 text-xs font-medium"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="hidden sm:inline">模数师驾驶舱</span>
+          </Link>
+
+          <Link
             to="/admin/ai"
             title="进入运营管理后台"
             className="px-3 py-1.5 text-slate-200 hover:text-white transition-all duration-200 rounded-md bg-gradient-to-r from-[#1e3a8a]/80 to-[#2563eb]/80 hover:from-[#1e3a8a] hover:to-[#3b82f6] border border-blue-400/60 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] cursor-pointer flex items-center space-x-1.5 text-xs font-medium"

@@ -4,6 +4,15 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ZhiYunLogo } from "@/components/icons/ZhiYunLogo";
 
+const HOME_NAV_ITEMS = [
+  { label: "核心能力", target: "platform-showcase" },
+  { label: "优秀作品", target: "success-stories" },
+  { label: "精选课程", target: "featured-courses" },
+  { label: "专业师资", target: "faculty" },
+  { label: "企业定向培养", target: "business-scenarios" },
+  { label: "就业保障", target: "employment-service" },
+] as const;
+
 export default function PublicLayout() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,38 +32,25 @@ export default function PublicLayout() {
       {/* Navbar */}
       <header className="sticky top-0 z-50 w-full border-b border-neutral-border bg-neutral-surface/80 backdrop-blur-md">
         <div className="container mx-auto max-w-[1200px] flex h-16 items-center justify-between px-4">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center gap-2">
               <ZhiYunLogo className="w-8 h-8 text-primary" />
               <span className="text-[18px] font-medium text-neutral-title">
                 模数师数字平台
               </span>
             </Link>
-            <nav className="hidden md:flex items-center gap-6 text-[14px]">
-              <Link to="/" className="text-primary font-medium">首页</Link>
-              <button onClick={() => handleScrollTo("featured-courses")} className="text-neutral-body hover:text-primary transition-colors cursor-pointer">精选课程</button>
-              <div className="group relative cursor-pointer text-neutral-body hover:text-primary transition-colors h-16 flex items-center">
-                <span className="flex items-center gap-1">
-                  实训场景 <ChevronDown className="w-4 h-4" />
-                </span>
-                <div className="absolute top-full left-0 hidden group-hover:block">
-                  <div className="w-48 rounded-[6px] border border-neutral-border bg-neutral-surface p-2 shadow-sm">
-                    <Link to="/user" onClick={() => localStorage.removeItem('isLoggedIn')} className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors">人工智能</Link>
-                    <Link to="/login" className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors">安全运维</Link>
-                    <Link to="/login" className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors">私有云</Link>
-                    <Link to="/login" className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors">公有云</Link>
-                  </div>
-                </div>
-              </div>
-              <Link 
-                to="/competition" 
-                className={cn(
-                  "text-neutral-body hover:text-primary transition-colors h-16 flex items-center",
-                  location.pathname.startsWith("/competition") ? "text-primary border-b-2 border-primary font-medium" : ""
-                )}
-              >
-                竞赛
-              </Link>
+            <nav className="hidden items-center gap-3 whitespace-nowrap text-[13px] lg:flex xl:gap-5 xl:text-[14px]">
+              <Link to="/" className="font-medium text-primary">首页</Link>
+              {HOME_NAV_ITEMS.map((item) => (
+                <button
+                  key={item.target}
+                  type="button"
+                  onClick={() => handleScrollTo(item.target)}
+                  className="min-h-11 cursor-pointer text-neutral-body transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  {item.label}
+                </button>
+              ))}
             </nav>
           </div>
           <div className="flex items-center gap-2 h-16">

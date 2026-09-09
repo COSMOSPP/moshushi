@@ -266,3 +266,37 @@ svg * {
 .recharts-tooltip-wrapper {
   z-index: 9999 !important;
 }
+
+/* Homepage design tokens are scoped so the existing navigation and banner stay unchanged. */
+.homepage-redesign {
+  --home-primary: #2457ff;
+  --home-primary-hover: #1747e8;
+  --home-primary-soft: #eaf0ff;
+  --home-bg: #f7f9fc;
+  --home-title: #101828;
+  --home-body: #344054;
+  --home-muted: #667085;
+  --home-border: #e7ecf3;
+  letter-spacing: 0;
+}
+
+@keyframes home-capability-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-capability-content {
+  animation: home-capability-enter 350ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-capability-content {
+    animation: none;
+  }
+}
