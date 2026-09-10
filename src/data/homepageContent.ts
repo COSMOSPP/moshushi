@@ -2,16 +2,25 @@ import adminPortrait from "@/admin.jpg";
 import teacherPortrait from "@/teacher-img.jpg";
 import teacherLoginPortrait from "@/teacher-login-bg.jpg";
 
-export type CapabilityIcon = "standard" | "talent" | "growth" | "employment" | "dashboard";
+export type CapabilityIcon = "standard" | "talent" | "enterprise" | "employment" | "dashboard";
+
+export interface CapabilityStep {
+  title: string;
+  items: string[];
+}
 
 export interface BusinessCapability {
   id: string;
   tab: string;
   eyebrow: string;
   title: string;
+  valueStatement: string;
   description: string;
   icon: CapabilityIcon;
-  highlights: string[];
+  tags: string[];
+  systemTitle: string;
+  systemDescription: string;
+  steps: CapabilityStep[];
   metrics: Array<{ value: string; label: string }>;
   actionLabel: string;
   actionHref: string;
@@ -27,13 +36,23 @@ export const PLATFORM_STATS = [
 export const BUSINESS_CAPABILITIES: BusinessCapability[] = [
   {
     id: "industry-standard",
-    tab: "行业能力标准建设",
-    eyebrow: "标准先行",
-    title: "把企业真实岗位要求，转化为可执行的人才培养标准",
-    description: "联合行业专家与头部企业梳理岗位任务、能力项和评价指标，让课程、实训与认证从同一套能力标准出发。",
+    tab: "行业能力标准",
+    eyebrow: "INDUSTRY STANDARD",
+    title: "行业能力标准\n建设服务",
+    valueStatement: "构建产业数字人才标准化能力体系",
+    description: "基于产业发展趋势、企业岗位需求和人才能力要求，建立标准化、数字化、可测评、可认证的人才能力体系，为产业发展提供坚实的人才基础。",
     icon: "standard",
-    highlights: ["岗位任务与核心能力拆解", "课程、实训、测评标准统一", "行业标准持续迭代更新"],
-    actionLabel: "了解解决方案",
+    tags: ["标准化", "数字化", "可测评", "可认证"],
+    systemTitle: "行业能力标准体系",
+    systemDescription: "从行业需求到人才认证，建立完整的数字人才标准体系。",
+    steps: [
+      { title: "行业人才标准", items: ["行业趋势分析", "人才需求分析", "职业方向划分", "人才等级定义"] },
+      { title: "企业岗位标准", items: ["岗位职责", "岗位技能", "工具能力", "业务能力"] },
+      { title: "人才能力模型", items: ["AI 应用能力", "数据分析能力", "数字运营能力", "项目管理能力", "内容生产能力", "沟通协作能力"] },
+      { title: "人才测评标准", items: ["知识测评", "技能测评", "项目实训", "综合能力", "岗位匹配度"] },
+      { title: "人才认证标准", items: ["能力认证", "等级认证", "人才画像", "企业人才库"] },
+    ],
+    actionLabel: "查看详细流程",
     actionHref: "/login",
     metrics: [
       { value: "42", label: "认证方向" },
@@ -44,11 +63,21 @@ export const BUSINESS_CAPABILITIES: BusinessCapability[] = [
   {
     id: "talent-development",
     tab: "产业人才培育",
-    eyebrow: "产教融合",
-    title: "围绕产业紧缺岗位，建设从基础到实战的培养路径",
+    eyebrow: "TALENT DEVELOPMENT",
+    title: "产业数字人才\n培育服务",
+    valueStatement: "围绕紧缺岗位，搭建可落地的学习成长路径",
     description: "以岗位胜任为目标组合课程、项目和实训资源，支持院校、园区与企业快速落地数字人才培养项目。",
     icon: "talent",
-    highlights: ["分层分岗培养方案", "真实产业项目驱动", "教师与企业导师协同"],
+    tags: ["分层培养", "项目驱动", "产教融合", "成长可见"],
+    systemTitle: "产业人才培养体系",
+    systemDescription: "从人才需求识别到能力成长，让课程、训练与真实项目连续衔接。",
+    steps: [
+      { title: "人才需求图谱", items: ["产业紧缺方向", "区域人才缺口", "岗位能力需求"] },
+      { title: "分层课程体系", items: ["基础通识课程", "岗位专项课程", "前沿技术课程"] },
+      { title: "学习成长路径", items: ["知识学习", "技能训练", "项目实践", "阶段测评", "导师辅导", "成长档案"] },
+      { title: "真实项目实训", items: ["企业真实场景", "云端实训环境", "项目成果沉淀"] },
+      { title: "能力成长认证", items: ["过程能力评价", "阶段等级提升", "认证结果输出"] },
+    ],
     actionLabel: "全部课程",
     actionHref: "/user/courses",
     metrics: [
@@ -58,31 +87,51 @@ export const BUSINESS_CAPABILITIES: BusinessCapability[] = [
     ],
   },
   {
-    id: "learner-growth",
-    tab: "学员成长全周期",
-    eyebrow: "成长可见",
-    title: "记录每一次学习与实践，形成持续更新的能力画像",
-    description: "贯通学习、练习、项目、测评与认证数据，让学员明确成长方向，让管理者及时识别培养成效。",
-    icon: "growth",
-    highlights: ["个性化学习路径推荐", "能力雷达与成长档案", "阶段预警和精准辅导"],
-    actionLabel: "查看详情",
+    id: "enterprise-enablement",
+    tab: "企业数字化赋能",
+    eyebrow: "ENTERPRISE ENABLEMENT",
+    title: "企业数字化能力\n赋能服务",
+    valueStatement: "以岗位与人才为支点，推动企业数字能力升级",
+    description: "围绕企业业务目标诊断数字化能力缺口，建设数字岗位、人才模型、工具实训和可持续的人才梯队。",
+    icon: "enterprise",
+    tags: ["企业诊断", "岗位升级", "工具赋能", "梯队建设"],
+    systemTitle: "企业数字化能力升级体系",
+    systemDescription: "把业务问题转化为岗位能力要求，以人才成长支撑企业数字化转型。",
+    steps: [
+      { title: "企业能力诊断", items: ["业务目标梳理", "数字成熟度评估", "能力缺口识别"] },
+      { title: "数字岗位设计", items: ["岗位任务重构", "职责边界定义", "胜任标准建立"] },
+      { title: "人才能力模型", items: ["数字认知", "数据能力", "AI 工具", "流程优化", "协同创新", "业务落地"] },
+      { title: "数字工具实训", items: ["业务场景训练", "工具应用实践", "转型项目孵化"] },
+      { title: "人才梯队建设", items: ["骨干人才识别", "分层培养计划", "组织能力沉淀"] },
+    ],
+    actionLabel: "生命周期管理",
     actionHref: "/teacher/student-lifecycle",
     metrics: [
-      { value: "12,580+", label: "学员档案" },
-      { value: "92%", label: "课程完成率" },
-      { value: "4.8", label: "平均满意度" },
+      { value: "368+", label: "合作企业" },
+      { value: "120+", label: "数字岗位" },
+      { value: "86%", label: "能力提升率" },
     ],
   },
   {
-    id: "targeted-employment",
-    tab: "企业定向就业",
-    eyebrow: "岗位直达",
-    title: "从企业需求出发定向培养，让人才能力与岗位精准衔接",
-    description: "企业深度参与需求诊断、课程设计和项目评审，平台依据能力结果完成分层推荐与就业服务。",
+    id: "certification-employment",
+    tab: "人才认证与就业",
+    eyebrow: "CERTIFICATION & EMPLOYMENT",
+    title: "人才认证与\n就业服务",
+    valueStatement: "让能力结果可验证，让人才与岗位精准连接",
+    description: "以持续更新的人才画像和能力认证为依据，贯通岗位匹配、企业推荐与就业结果跟踪。",
     icon: "employment",
-    highlights: ["企业岗位需求前置", "培养过程共同参与", "认证结果辅助人才匹配"],
-    actionLabel: "了解解决方案",
-    actionHref: "/login",
+    tags: ["人才画像", "能力认证", "岗位匹配", "就业跟踪"],
+    systemTitle: "人才认证与就业服务体系",
+    systemDescription: "用可信能力结果连接人才和岗位，形成可跟踪的就业服务闭环。",
+    steps: [
+      { title: "人才能力画像", items: ["学习过程数据", "项目成果档案", "综合能力标签"] },
+      { title: "能力测评认证", items: ["理论与实操", "行业能力等级", "可信认证证书"] },
+      { title: "人岗匹配模型", items: ["岗位要求", "能力标签", "职业意向", "区域偏好", "成长潜力", "匹配指数"] },
+      { title: "企业人才推荐", items: ["岗位智能筛选", "分层人才推荐", "面试服务支持"] },
+      { title: "就业结果跟踪", items: ["录用结果回传", "岗位适配评价", "培养质量复盘"] },
+    ],
+    actionLabel: "查看成长激励",
+    actionHref: "/teacher/growth-incentives",
     metrics: [
       { value: "368+", label: "合作企业" },
       { value: "6,200+", label: "岗位需求" },
@@ -91,12 +140,22 @@ export const BUSINESS_CAPABILITIES: BusinessCapability[] = [
   },
   {
     id: "smart-dashboard",
-    tab: "智能数字驾驶舱",
-    eyebrow: "运营有数",
-    title: "用一套驾驶舱看清招生、教学、实训、认证与就业",
-    description: "为学院和主管部门提供多层级数据视图，关键指标可追踪、异常情况可预警、运营结果可复盘。",
+    tab: "智能驾驶舱",
+    eyebrow: "SMART COCKPIT",
+    title: "智能数字驾驶舱\n服务",
+    valueStatement: "一个平台看清培养全貌，让运营决策有据可依",
+    description: "面向学院管理者与主管部门，统一查看招生、学习、测评、认证和就业数据，及时发现问题并评估项目成效。",
     icon: "dashboard",
-    highlights: ["核心指标实时总览", "区域、学院、专业多维分析", "培养质量与就业结果联动"],
+    tags: ["实时数据", "多维分析", "风险预警", "决策支持"],
+    systemTitle: "数字人才运营驾驶舱",
+    systemDescription: "汇聚培养全过程数据，实时呈现质量趋势、人才结构与就业成效。",
+    steps: [
+      { title: "招生", items: ["生源结构", "报名转化"] },
+      { title: "学习", items: ["活跃度", "完成率"] },
+      { title: "测评", items: ["能力分布", "质量趋势"] },
+      { title: "认证", items: ["获证率", "等级结构"] },
+      { title: "就业", items: ["匹配率", "去向跟踪"] },
+    ],
     actionLabel: "查看驾驶舱",
     actionHref: "/cockpit",
     metrics: [

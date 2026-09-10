@@ -1,17 +1,21 @@
-import { useState, type ComponentType, type ReactNode } from "react";
+import { useState, type ComponentType, type KeyboardEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import {
+  ArrowDown,
   ArrowRight,
-  Award,
   BarChart3,
+  BadgeCheck,
   BriefcaseBusiness,
+  Boxes,
+  Building2,
   Check,
   CheckCircle2,
+  ClipboardCheck,
   Clock3,
   GraduationCap,
   LayoutDashboard,
-  LineChart,
   Medal,
+  Network,
   ShieldCheck,
   Sparkles,
   UsersRound,
@@ -37,20 +41,23 @@ import {
   PLATFORM_STATS,
   TEACHERS,
   TRAINING_STEPS,
+  type BusinessCapability,
   type CapabilityIcon,
 } from "@/data/homepageContent";
 
 type IconComponent = ComponentType<{ className?: string; strokeWidth?: number }>;
 
 const CAPABILITY_ICONS: Record<CapabilityIcon, IconComponent> = {
-  standard: Award,
+  standard: Boxes,
   talent: GraduationCap,
-  growth: LineChart,
-  employment: BriefcaseBusiness,
+  enterprise: Building2,
+  employment: BadgeCheck,
   dashboard: LayoutDashboard,
 };
 
 const WORK_ICONS = [Sparkles, BarChart3, ShieldCheck] as const;
+const FLOW_STEP_ICONS = [UsersRound, BriefcaseBusiness, Network, ClipboardCheck, BadgeCheck] as const;
+const VALUE_TAG_ICONS = [ShieldCheck, Network, BarChart3, BadgeCheck] as const;
 
 const withBase = (path: string) =>
   `${import.meta.env.BASE_URL.replace(/\/$/, "")}${path}`;
@@ -121,103 +128,282 @@ function PlatformStats() {
   );
 }
 
-function CapabilityVisual({ activeIndex }: { activeIndex: number }) {
-  const capability = BUSINESS_CAPABILITIES[activeIndex];
-  const Icon = CAPABILITY_ICONS[capability.icon];
-  const progress = [84, 72, 91, 78, 88];
+function FlowStepCard({
+  step,
+  index,
+}: {
+  step: BusinessCapability["steps"][number];
+  index: number;
+}) {
+  const Icon = FLOW_STEP_ICONS[index] ?? Network;
 
   return (
-    <div className="min-h-[390px] overflow-hidden rounded-xl border border-[var(--home-border)] bg-[#f7f9fc] p-5 sm:p-7">
-      <div className="flex items-center justify-between border-b border-[var(--home-border)] pb-5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--home-primary)] text-white">
-            <Icon className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-bold text-[var(--home-title)]">人才能力运营中心</p>
-            <p className="mt-1 text-xs text-[var(--home-muted)]">数据更新于今日 09:30</p>
-          </div>
-        </div>
-        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" />
-          运行正常
+    <article className="group relative min-h-[168px] overflow-hidden rounded-xl border border-[#dce8ff] bg-white/90 p-5 shadow-[0_6px_20px_rgba(31,56,100,0.05)] transition duration-300 hover:-translate-y-0.5 hover:border-[#c8d8ff] hover:shadow-[0_14px_32px_rgba(36,87,255,0.10)] motion-reduce:transform-none">
+      <div className="pointer-events-none absolute bottom-0 right-0 h-16 w-16 bg-[linear-gradient(135deg,transparent_48%,rgba(140,179,255,0.12)_49%,rgba(140,179,255,0.12)_51%,transparent_52%)]" aria-hidden="true" />
+      <div className="relative flex items-start gap-4">
+        <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-white bg-[linear-gradient(145deg,#ffffff,#e7f1ff)] text-[#2457ff] shadow-[0_6px_18px_rgba(36,87,255,0.12)]">
+          <Icon className="h-6 w-6" strokeWidth={1.8} />
         </span>
-      </div>
-
-      <div className="grid gap-6 pt-6 sm:grid-cols-[1.15fr_0.85fr]">
-        <div>
-          <div className="mb-5 flex items-center justify-between">
-            <div>
-              <p className="text-xs text-[var(--home-muted)]">综合能力指数</p>
-              <p className="mt-1 text-[30px] font-bold text-[var(--home-title)]">
-                {progress[activeIndex]}
-                <span className="ml-1 text-sm font-medium text-[var(--home-muted)]">/ 100</span>
-              </p>
-            </div>
-            <span className="rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">同比 +8.6%</span>
+        <div className="min-w-0">
+          <div className="flex items-baseline gap-3">
+            <span className="text-2xl font-bold text-[#2457ff]">0{index + 1}</span>
+            <h4 className="text-[17px] font-semibold text-[#172b4d]">{step.title}</h4>
           </div>
-          <div className="space-y-4">
-            {["专业基础", "项目实践", "岗位胜任", "创新能力"].map((label, index) => {
-              const width = Math.max(48, progress[activeIndex] - index * 7 + (index % 2) * 4);
-              return (
-                <div key={label}>
-                  <div className="mb-2 flex justify-between text-xs">
-                    <span className="font-medium text-[var(--home-body)]">{label}</span>
-                    <span className="text-[var(--home-muted)]">{width}%</span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-[#e8edf5]">
-                    <div
-                      className="h-full rounded-full bg-[var(--home-primary)] transition-[width] duration-500 motion-reduce:transition-none"
-                      style={{ width: `${width}%` }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="border-t border-[var(--home-border)] pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
-          <p className="text-xs font-semibold text-[var(--home-muted)]">关键结果</p>
-          <div className="mt-4 divide-y divide-[var(--home-border)]">
-            {capability.metrics.map((metric) => (
-              <div key={metric.label} className="py-4 first:pt-0">
-                <p className="text-xl font-bold text-[var(--home-title)]">{metric.value}</p>
-                <p className="mt-1 text-xs text-[var(--home-muted)]">{metric.label}</p>
-              </div>
+          <ul className="mt-3 space-y-1">
+            {step.items.slice(0, 5).map((item) => (
+              <li key={item} className="flex items-center gap-2 text-[13px] leading-5 text-[#667085]">
+                <span className="h-1 w-1 shrink-0 rounded-full bg-[#8cb3ff]" />
+                {item}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
+    </article>
+  );
+}
 
-      <div className="mt-6 flex items-center justify-between border-t border-[var(--home-border)] pt-5 text-xs text-[var(--home-muted)]">
-        <span>培养过程数据已贯通</span>
-        <span className="inline-flex items-center gap-1 font-semibold text-[var(--home-primary)]">
-          实时分析 <LineChart className="h-3.5 w-3.5" />
-        </span>
+function CoreModelCard({ capability }: { capability: BusinessCapability }) {
+  const step = capability.steps[2];
+
+  return (
+    <article className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-2xl border border-[#d6e5ff] bg-white/75 px-5 py-5 shadow-[0_10px_30px_rgba(36,87,255,0.08)] backdrop-blur-sm sm:px-7">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(93,140,255,0.16),transparent_42%)]" aria-hidden="true" />
+      <div className="relative grid min-h-[126px] items-center gap-5 md:grid-cols-[minmax(0,1fr)_132px_minmax(0,1.25fr)]">
+        <div className="flex items-center gap-3">
+          <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-white bg-[linear-gradient(145deg,#ffffff,#e7f1ff)] text-[#2457ff] shadow-[0_6px_18px_rgba(36,87,255,0.12)]">
+            <Boxes className="h-6 w-6" strokeWidth={1.8} />
+          </span>
+          <div>
+            <span className="text-sm font-semibold text-[#5d8cff]">03</span>
+            <h4 className="mt-1 text-[17px] font-semibold text-[#12316f]">{step.title}</h4>
+          </div>
+        </div>
+
+        <div className="relative mx-auto flex h-[126px] w-[126px] items-center justify-center" aria-hidden="true">
+          <span className="absolute h-[126px] w-[126px] rounded-full border border-[#dce8ff]" />
+          <span className="absolute h-[104px] w-[104px] rounded-full border border-[#e7efff]" />
+          <span className="absolute h-[78px] w-[78px] rotate-45 rounded-xl border border-[#a9c8ff] bg-[linear-gradient(145deg,#8fbdff,#2457ff)] shadow-[0_10px_28px_rgba(36,87,255,0.28)]" />
+          <span className="absolute h-[50px] w-[50px] rotate-45 rounded-lg border border-white/60 bg-[#5d8cff]" />
+          <span className="absolute h-[25px] w-[25px] rotate-45 rounded-md border border-white/70 bg-[#8cb3ff]" />
+          <Boxes className="relative h-6 w-6 text-white" strokeWidth={1.7} />
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          {step.items.map((item) => (
+            <span
+              key={item}
+              className="flex min-h-8 items-center justify-center rounded-lg border border-[#dce8ff] bg-white/85 px-2 text-center text-xs font-medium text-[#36558f] shadow-[0_3px_10px_rgba(36,87,255,0.05)]"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function FlowConnector({ horizontal = false }: { horizontal?: boolean }) {
+  return (
+    <span className={horizontal ? "relative flex w-full items-center justify-center text-[#5b8def]" : "relative flex h-8 items-center justify-center text-[#5b8def]"} aria-hidden="true">
+      <span className={horizontal ? "absolute h-px w-full bg-[#c9dcff]" : "absolute h-full w-px bg-[#c9dcff]"} />
+      {horizontal
+        ? <ArrowRight className="relative h-5 w-5 bg-[#f8fbff]" strokeWidth={1.7} />
+        : <ArrowDown className="relative h-5 w-5 bg-[#f8fbff]" strokeWidth={1.7} />}
+    </span>
+  );
+}
+
+function FlowCapabilityVisual({ capability }: { capability: BusinessCapability }) {
+  return (
+    <div className="relative min-h-full overflow-hidden bg-[linear-gradient(145deg,#ffffff_0%,#f8fbff_56%,#f1f7ff_100%)] p-5 sm:p-7 lg:min-h-[650px] lg:p-8">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-55"
+        style={{
+          backgroundImage: "linear-gradient(rgba(184,208,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(184,208,255,.16) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage: "linear-gradient(to bottom, transparent, black 24%, black 82%, transparent)",
+        }}
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute left-1/2 top-28 hidden h-[470px] w-px -translate-x-1/2 bg-[linear-gradient(to_bottom,transparent,#b8d0ff_18%,#b8d0ff_82%,transparent)] md:block" aria-hidden="true" />
+
+      <div className="relative z-10 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h3 className="text-xl font-bold text-[#172b4d] md:text-[26px]">{capability.systemTitle}</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#98a2b3]">{capability.systemDescription}</p>
+        </div>
+        <Link
+          to={capability.actionHref}
+          className="inline-flex min-h-9 items-center gap-1.5 text-xs font-semibold text-[#2457ff] transition hover:text-[#1747e8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2457ff]"
+        >
+          {capability.actionLabel}
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+
+      <div className="relative z-10 mt-7 grid gap-3 md:grid-cols-[minmax(0,1fr)_52px_minmax(0,1fr)]">
+        <FlowStepCard step={capability.steps[0]} index={0} />
+        <span className="hidden md:flex"><FlowConnector horizontal /></span>
+        <span className="flex md:hidden"><FlowConnector /></span>
+        <FlowStepCard step={capability.steps[1]} index={1} />
+
+        <span className="flex justify-center md:col-span-3"><FlowConnector /></span>
+        <div className="md:col-span-3">
+          <CoreModelCard capability={capability} />
+        </div>
+        <span className="flex justify-center md:col-span-3"><FlowConnector /></span>
+
+        <FlowStepCard step={capability.steps[3]} index={3} />
+        <span className="hidden md:flex"><FlowConnector horizontal /></span>
+        <span className="flex md:hidden"><FlowConnector /></span>
+        <FlowStepCard step={capability.steps[4]} index={4} />
       </div>
     </div>
   );
 }
 
+function DashboardCapabilityVisual({ capability }: { capability: BusinessCapability }) {
+  const talentDistribution = [
+    { label: "初级人才", value: 28 },
+    { label: "中级人才", value: 46 },
+    { label: "高级人才", value: 26 },
+  ];
+
+  return (
+    <div className="min-h-full bg-[linear-gradient(145deg,#ffffff_0%,#f7faff_100%)] p-5 sm:p-7 lg:min-h-[650px] lg:p-8">
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h3 className="text-xl font-bold text-[#172b4d] md:text-[26px]">{capability.systemTitle}</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#98a2b3]">{capability.systemDescription}</p>
+        </div>
+        <Link
+          to={capability.actionHref}
+          className="inline-flex min-h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold text-[#2457ff] transition hover:bg-[#eaf0ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2457ff]"
+        >
+          {capability.actionLabel}
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3">
+        {OPERATIONS_METRICS.map((metric) => (
+          <div key={metric.label} className="rounded-xl border border-[#e7ecf3] bg-[#f8faff] p-4">
+            <p className="text-xs text-[#667085]">{metric.label}</p>
+            <div className="mt-2 flex items-end justify-between gap-2">
+              <strong className="text-xl text-[#12316f]">{metric.value}</strong>
+              <span className="text-xs font-semibold text-emerald-600">{metric.change}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-3 grid gap-3 xl:grid-cols-[1.2fr_0.8fr]">
+        <div className="min-w-0 rounded-xl border border-[#e7ecf3] p-4 sm:p-5">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-sm font-bold text-[#172b4d]">培养质量趋势</p>
+              <p className="mt-1 text-xs text-[#98a2b3]">活跃度与课程完成率</p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-emerald-600">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" /> 实时数据
+            </span>
+          </div>
+          <div className="mt-3 h-[220px] min-w-0 w-full overflow-hidden" aria-label="核心能力培养质量趋势图">
+            <ResponsiveContainer width="100%" height="100%" minWidth={0} initialDimension={{ width: 300, height: 220 }}>
+              <AreaChart data={OPERATIONS_TREND} margin={{ top: 8, right: 4, left: -24, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="capabilityActiveArea" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#2457ff" stopOpacity={0.2} />
+                    <stop offset="95%" stopColor="#2457ff" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid stroke="#e7ecf3" strokeDasharray="3 3" vertical={false} />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: "#98a2b3", fontSize: 11 }} />
+                <YAxis domain={[0, 100]} axisLine={false} tickLine={false} tick={{ fill: "#98a2b3", fontSize: 11 }} />
+                <Tooltip contentStyle={{ borderRadius: 8, borderColor: "#e7ecf3", boxShadow: "0 8px 24px rgba(16,24,40,0.08)", fontSize: 12 }} />
+                <Area type="monotone" dataKey="active" name="活跃度" stroke="#2457ff" strokeWidth={2.5} fill="url(#capabilityActiveArea)" />
+                <Area type="monotone" dataKey="completed" name="完成率" stroke="#00a6a6" strokeWidth={2} fill="transparent" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        <div className="grid gap-3">
+          <div className="rounded-xl border border-[#e7ecf3] p-4 sm:p-5">
+            <p className="text-sm font-bold text-[#172b4d]">人才能力分布</p>
+            <div className="mt-4 space-y-4">
+              {talentDistribution.map((item) => (
+                <div key={item.label}>
+                  <div className="mb-1.5 flex items-center justify-between text-xs">
+                    <span className="text-[#667085]">{item.label}</span>
+                    <strong className="text-[#36558f]">{item.value}%</strong>
+                  </div>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-[#edf2fa]">
+                    <div className="h-full rounded-full bg-[#5d8cff]" style={{ width: item.value + "%" }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-xl border border-[#dce8ff] bg-[#f5f9ff] p-4 sm:p-5">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs text-[#667085]">就业匹配率</p>
+                <strong className="mt-1 block text-2xl text-[#2457ff]">89%</strong>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-[#667085]">企业岗位需求</p>
+                <strong className="mt-1 block text-xl text-[#12316f]">6,200+</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CapabilityVisual({ activeIndex }: { activeIndex: number }) {
+  const capability = BUSINESS_CAPABILITIES[activeIndex];
+  return capability.id === "smart-dashboard"
+    ? <DashboardCapabilityVisual capability={capability} />
+    : <FlowCapabilityVisual capability={capability} />;
+}
+
 function BusinessCapabilities() {
   const [activeIndex, setActiveIndex] = useState(0);
   const capability = BUSINESS_CAPABILITIES[activeIndex];
-  const ActiveIcon = CAPABILITY_ICONS[capability.icon];
+
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let nextIndex = index;
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % BUSINESS_CAPABILITIES.length;
+    if (event.key === "ArrowLeft") nextIndex = (index - 1 + BUSINESS_CAPABILITIES.length) % BUSINESS_CAPABILITIES.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = BUSINESS_CAPABILITIES.length - 1;
+    if (nextIndex === index) return;
+
+    event.preventDefault();
+    setActiveIndex(nextIndex);
+    requestAnimationFrame(() => {
+      document.getElementById("capability-tab-" + BUSINESS_CAPABILITIES[nextIndex].id)?.focus();
+    });
+  };
 
   return (
-    <section id="platform-showcase" className="scroll-mt-24 bg-white py-[72px] lg:py-24">
+    <section id="platform-showcase" className="scroll-mt-24 bg-white pb-[72px] pt-[72px] lg:pb-24 lg:pt-24">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <SectionHeading
-          eyebrow="平台核心能力"
-          title="贯通数字人才培养与产业就业的全链路服务"
-          description="以行业能力标准为起点，把人才培养、成长评价、企业匹配与数据运营组织成同一套闭环。"
+          eyebrow="核心业务能力"
+          title="业务体系协同，构建产业数字人才完整生态"
+          description="从标准到培养，从人才到企业，贯通能力建设、人才认证、就业服务与数字化运营。"
         />
 
         <div
           role="tablist"
           aria-label="五大业务能力"
-          className="mb-7 flex gap-2 overflow-x-auto border-b border-[var(--home-border)] pb-px"
+          className="no-scrollbar flex gap-3 overflow-x-auto pb-2 sm:gap-4"
         >
           {BUSINESS_CAPABILITIES.map((item, index) => {
             const Icon = CAPABILITY_ICONS[item.icon];
@@ -225,25 +411,22 @@ function BusinessCapabilities() {
             return (
               <button
                 key={item.id}
-                id={`capability-tab-${item.id}`}
+                id={"capability-tab-" + item.id}
                 type="button"
                 role="tab"
                 aria-selected={active}
-                aria-controls={`capability-panel-${item.id}`}
+                aria-controls={"capability-panel-" + item.id}
+                tabIndex={active ? 0 : -1}
                 onClick={() => setActiveIndex(index)}
-                className={`relative flex min-h-12 shrink-0 items-center gap-2 px-4 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--home-primary)] focus-visible:ring-offset-2 ${
+                onKeyDown={(event) => handleTabKeyDown(event, index)}
+                className={
                   active
-                    ? "text-[var(--home-primary)]"
-                    : "text-[var(--home-muted)] hover:text-[var(--home-title)]"
-                }`}
+                    ? "flex h-[52px] min-w-[190px] flex-1 shrink-0 items-center justify-center gap-2 rounded-xl border border-[#2457ff] bg-[#2457ff] px-4 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(36,87,255,0.20)] transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2457ff] focus-visible:ring-offset-2 md:h-[68px] lg:min-w-0"
+                    : "flex h-[52px] min-w-[190px] flex-1 shrink-0 items-center justify-center gap-2 rounded-xl border border-[#e7ecf3] bg-white px-4 text-sm font-semibold text-[#344054] shadow-[0_6px_20px_rgba(31,56,100,0.06)] transition duration-300 hover:border-[#c8d8ff] hover:bg-[#f7faff] hover:text-[#2457ff] hover:shadow-[0_8px_22px_rgba(36,87,255,0.10)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2457ff] focus-visible:ring-offset-2 md:h-[68px] lg:min-w-0"
+                }
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-5 w-5" strokeWidth={1.8} />
                 {item.tab}
-                <span
-                  className={`absolute inset-x-0 bottom-[-1px] h-0.5 bg-[var(--home-primary)] transition-opacity ${
-                    active ? "opacity-100" : "opacity-0"
-                  }`}
-                />
               </button>
             );
           })}
@@ -251,38 +434,53 @@ function BusinessCapabilities() {
 
         <div
           key={capability.id}
-          id={`capability-panel-${capability.id}`}
+          id={"capability-panel-" + capability.id}
           role="tabpanel"
-          aria-labelledby={`capability-tab-${capability.id}`}
-          className="home-capability-content grid items-center gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16"
+          aria-labelledby={"capability-tab-" + capability.id}
+          className="home-capability-content mt-6 grid items-stretch overflow-hidden rounded-2xl border border-[#d6e5ff] bg-white shadow-[0_12px_36px_rgba(31,56,100,0.06)] lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]"
         >
-          <CapabilityVisual activeIndex={activeIndex} />
-          <div className="py-2">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--home-primary-soft)] text-[var(--home-primary)]">
-              <ActiveIcon className="h-6 w-6" />
+          <article className="relative min-h-[540px] overflow-hidden border-b border-[#d6e5ff] bg-[linear-gradient(145deg,#f0f7ff_0%,#dceeff_58%,#c6e3ff_100%)] p-7 sm:p-9 lg:min-h-[650px] lg:border-b-0 lg:border-r lg:p-10">
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] opacity-25"
+              style={{
+                backgroundImage: "linear-gradient(rgba(36,87,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(36,87,255,.16) 1px, transparent 1px)",
+                backgroundSize: "28px 28px",
+                maskImage: "linear-gradient(to bottom, transparent, black)",
+              }}
+              aria-hidden="true"
+            />
+            <div className="pointer-events-none absolute bottom-8 right-6 h-36 w-40 opacity-40" aria-hidden="true">
+              <span className="absolute bottom-0 right-0 h-16 w-16 rotate-45 rounded-lg border border-white/80 bg-[linear-gradient(145deg,rgba(255,255,255,0.85),rgba(93,140,255,0.35))] shadow-[0_12px_24px_rgba(36,87,255,0.12)]" />
+              <span className="absolute bottom-12 right-24 h-10 w-10 rotate-45 rounded-md border border-white/80 bg-white/65" />
+              <span className="absolute bottom-24 right-12 h-7 w-7 rotate-45 rounded border border-white/80 bg-[#8cb3ff]/50" />
             </div>
-            <p className="text-sm font-semibold text-[var(--home-primary)]">{capability.eyebrow}</p>
-            <h3 className="mt-3 text-2xl font-bold leading-[1.4] text-[var(--home-title)] md:text-[28px]">
-              {capability.title}
-            </h3>
-            <p className="mt-5 text-[15px] leading-7 text-[var(--home-muted)]">{capability.description}</p>
-            <ul className="mt-7 space-y-4">
-              {capability.highlights.map((highlight) => (
-                <li key={highlight} className="flex items-center gap-3 text-sm font-medium text-[var(--home-body)]">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--home-primary-soft)] text-[var(--home-primary)]">
-                    <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
-                  </span>
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-            <Link
-              to={capability.actionHref}
-              className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg bg-[var(--home-primary)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--home-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--home-primary)] focus-visible:ring-offset-2"
-            >
-              {capability.actionLabel} <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+            <div className="relative flex h-full flex-col">
+              <p className="text-xs font-semibold text-[#2457ff]">{capability.eyebrow}</p>
+              <h3 className="mt-3 max-w-[330px] whitespace-pre-line text-[28px] font-bold leading-[1.35] text-[#12316f] lg:text-[32px]">
+                {capability.title}
+              </h3>
+              <span className="mt-4 h-0.5 w-10 bg-[#2457ff]" aria-hidden="true" />
+              <p className="mt-4 max-w-[330px] text-base font-medium leading-7 text-[#36558f]">{capability.valueStatement}</p>
+              <p className="mt-6 max-w-[330px] text-[15px] leading-7 text-[#667085]">{capability.description}</p>
+              <div className="mt-10">
+                <div className="grid max-w-[330px] grid-cols-2 gap-2.5">
+                  {capability.tags.map((tag, index) => {
+                    const TagIcon = VALUE_TAG_ICONS[index] ?? CheckCircle2;
+                    return (
+                      <span key={tag} className="flex min-h-12 items-center gap-2.5 rounded-xl border border-white/90 bg-white/75 px-3.5 text-sm font-semibold text-[#36558f] shadow-[0_4px_14px_rgba(36,87,255,0.05)] backdrop-blur-sm">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#edf4ff] text-[#2457ff]">
+                          <TagIcon className="h-4 w-4" strokeWidth={1.8} />
+                        </span>
+                        {tag}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <CapabilityVisual activeIndex={activeIndex} />
         </div>
       </div>
     </section>
