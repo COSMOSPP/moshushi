@@ -3,22 +3,40 @@ import { Link } from "react-router-dom";
 import {
   ArrowDown,
   ArrowRight,
+  Award,
   BarChart3,
   BadgeCheck,
+  BookOpenCheck,
   BriefcaseBusiness,
   Boxes,
   Building2,
+  ChartNoAxesCombined,
   Check,
   CheckCircle2,
   ClipboardCheck,
   Clock3,
+  DatabaseZap,
+  FlaskConical,
+  FolderCheck,
+  FolderKanban,
+  GitCompareArrows,
   GraduationCap,
+  Handshake,
   LayoutDashboard,
+  Layers3,
   Medal,
   Network,
+  Rocket,
+  Route,
+  ScanSearch,
+  Search,
   ShieldCheck,
   Sparkles,
+  TrendingUp,
+  Trophy,
   UsersRound,
+  Workflow,
+  Wrench,
 } from "lucide-react";
 import {
   Area,
@@ -56,8 +74,19 @@ const CAPABILITY_ICONS: Record<CapabilityIcon, IconComponent> = {
 };
 
 const WORK_ICONS = [Sparkles, BarChart3, ShieldCheck] as const;
-const FLOW_STEP_ICONS = [UsersRound, BriefcaseBusiness, Network, ClipboardCheck, BadgeCheck] as const;
-const VALUE_TAG_ICONS = [ShieldCheck, Network, BarChart3, BadgeCheck] as const;
+const CAPABILITY_FLOW_ICONS: Record<string, readonly IconComponent[]> = {
+  "industry-standard": [UsersRound, BriefcaseBusiness, Network, ClipboardCheck, DatabaseZap],
+  "talent-development": [Search, BookOpenCheck, Route, FlaskConical, Award],
+  "enterprise-enablement": [ScanSearch, Building2, Workflow, Rocket, UsersRound],
+  "certification-employment": [FolderCheck, BadgeCheck, GitCompareArrows, Handshake, Trophy],
+};
+const CAPABILITY_VALUE_TAG_ICONS: Record<string, readonly IconComponent[]> = {
+  "industry-standard": [ShieldCheck, Network, BarChart3, BadgeCheck],
+  "talent-development": [Layers3, FolderKanban, Handshake, TrendingUp],
+  "enterprise-enablement": [ScanSearch, BriefcaseBusiness, Wrench, UsersRound],
+  "certification-employment": [FolderCheck, BadgeCheck, GitCompareArrows, Trophy],
+  "smart-dashboard": [Clock3, ChartNoAxesCombined, ShieldCheck, LayoutDashboard],
+};
 
 const withBase = (path: string) =>
   `${import.meta.env.BASE_URL.replace(/\/$/, "")}${path}`;
@@ -131,12 +160,12 @@ function PlatformStats() {
 function FlowStepCard({
   step,
   index,
+  icon: Icon,
 }: {
   step: BusinessCapability["steps"][number];
   index: number;
+  icon: IconComponent;
 }) {
-  const Icon = FLOW_STEP_ICONS[index] ?? Network;
-
   return (
     <article className="group relative min-h-[168px] overflow-hidden rounded-xl border border-[#dce8ff] bg-white/90 p-5 shadow-[0_6px_20px_rgba(31,56,100,0.05)] transition duration-300 hover:-translate-y-0.5 hover:border-[#c8d8ff] hover:shadow-[0_14px_32px_rgba(36,87,255,0.10)] motion-reduce:transform-none">
       <div className="pointer-events-none absolute bottom-0 right-0 h-16 w-16 bg-[linear-gradient(135deg,transparent_48%,rgba(140,179,255,0.12)_49%,rgba(140,179,255,0.12)_51%,transparent_52%)]" aria-hidden="true" />
@@ -163,7 +192,7 @@ function FlowStepCard({
   );
 }
 
-function CoreModelCard({ capability }: { capability: BusinessCapability }) {
+function CoreModelCard({ capability, icon: Icon }: { capability: BusinessCapability; icon: IconComponent }) {
   const step = capability.steps[2];
 
   return (
@@ -172,7 +201,7 @@ function CoreModelCard({ capability }: { capability: BusinessCapability }) {
       <div className="relative grid min-h-[126px] items-center gap-5 md:grid-cols-[minmax(0,1fr)_132px_minmax(0,1.25fr)]">
         <div className="flex items-center gap-3">
           <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-white bg-[linear-gradient(145deg,#ffffff,#e7f1ff)] text-[#2457ff] shadow-[0_6px_18px_rgba(36,87,255,0.12)]">
-            <Boxes className="h-6 w-6" strokeWidth={1.8} />
+            <Icon className="h-6 w-6" strokeWidth={1.8} />
           </span>
           <div>
             <span className="text-2xl font-bold text-[#2457ff]">03</span>
@@ -186,7 +215,7 @@ function CoreModelCard({ capability }: { capability: BusinessCapability }) {
           <span className="absolute h-[78px] w-[78px] rotate-45 rounded-xl border border-[#a9c8ff] bg-[linear-gradient(145deg,#8fbdff,#2457ff)] shadow-[0_10px_28px_rgba(36,87,255,0.28)]" />
           <span className="absolute h-[50px] w-[50px] rotate-45 rounded-lg border border-white/60 bg-[#5d8cff]" />
           <span className="absolute h-[25px] w-[25px] rotate-45 rounded-md border border-white/70 bg-[#8cb3ff]" />
-          <Boxes className="relative h-6 w-6 text-white" strokeWidth={1.7} />
+          <Icon className="relative h-6 w-6 text-white" strokeWidth={1.7} />
         </div>
 
         <div className="grid grid-cols-2 gap-2">
@@ -216,6 +245,8 @@ function FlowConnector({ horizontal = false }: { horizontal?: boolean }) {
 }
 
 function FlowCapabilityVisual({ capability }: { capability: BusinessCapability }) {
+  const flowIcons = CAPABILITY_FLOW_ICONS[capability.id] ?? CAPABILITY_FLOW_ICONS["industry-standard"];
+
   return (
     <div className="relative min-h-full overflow-hidden bg-[linear-gradient(145deg,#ffffff_0%,#f8fbff_56%,#f1f7ff_100%)] p-5 sm:p-7 lg:min-h-[650px] lg:p-8">
       <div
@@ -244,21 +275,21 @@ function FlowCapabilityVisual({ capability }: { capability: BusinessCapability }
       </div>
 
       <div className="relative z-10 mt-7 grid gap-3 md:grid-cols-[minmax(0,1fr)_52px_minmax(0,1fr)]">
-        <FlowStepCard step={capability.steps[0]} index={0} />
+        <FlowStepCard step={capability.steps[0]} index={0} icon={flowIcons[0]} />
         <span className="hidden md:flex"><FlowConnector horizontal /></span>
         <span className="flex md:hidden"><FlowConnector /></span>
-        <FlowStepCard step={capability.steps[1]} index={1} />
+        <FlowStepCard step={capability.steps[1]} index={1} icon={flowIcons[1]} />
 
         <span className="flex justify-center md:col-span-3"><FlowConnector /></span>
         <div className="md:col-span-3">
-          <CoreModelCard capability={capability} />
+          <CoreModelCard capability={capability} icon={flowIcons[2]} />
         </div>
         <span className="flex justify-center md:col-span-3"><FlowConnector /></span>
 
-        <FlowStepCard step={capability.steps[3]} index={3} />
+        <FlowStepCard step={capability.steps[3]} index={3} icon={flowIcons[3]} />
         <span className="hidden md:flex"><FlowConnector horizontal /></span>
         <span className="flex md:hidden"><FlowConnector /></span>
-        <FlowStepCard step={capability.steps[4]} index={4} />
+        <FlowStepCard step={capability.steps[4]} index={4} icon={flowIcons[4]} />
       </div>
     </div>
   );
@@ -375,6 +406,7 @@ function CapabilityVisual({ activeIndex }: { activeIndex: number }) {
 function BusinessCapabilities() {
   const [activeIndex, setActiveIndex] = useState(0);
   const capability = BUSINESS_CAPABILITIES[activeIndex];
+  const valueTagIcons = CAPABILITY_VALUE_TAG_ICONS[capability.id] ?? CAPABILITY_VALUE_TAG_ICONS["industry-standard"];
 
   const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     let nextIndex = index;
@@ -465,7 +497,7 @@ function BusinessCapabilities() {
               <div className="mt-10">
                 <div className="grid max-w-[330px] grid-cols-2 gap-2.5">
                   {capability.tags.map((tag, index) => {
-                    const TagIcon = VALUE_TAG_ICONS[index] ?? CheckCircle2;
+                    const TagIcon = valueTagIcons[index] ?? CheckCircle2;
                     return (
                       <span key={tag} className="flex min-h-12 items-center gap-2.5 rounded-xl border border-white/90 bg-white/75 px-3.5 text-sm font-semibold text-[#36558f] shadow-[0_4px_14px_rgba(36,87,255,0.05)] backdrop-blur-sm">
                         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#edf4ff] text-[#2457ff]">
