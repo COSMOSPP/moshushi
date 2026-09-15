@@ -175,7 +175,7 @@ function CoreModelCard({ capability }: { capability: BusinessCapability }) {
             <Boxes className="h-6 w-6" strokeWidth={1.8} />
           </span>
           <div>
-            <span className="text-sm font-semibold text-[#5d8cff]">03</span>
+            <span className="text-2xl font-bold text-[#2457ff]">03</span>
             <h4 className="mt-1 text-[17px] font-semibold text-[#12316f]">{step.title}</h4>
           </div>
         </div>
