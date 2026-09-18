@@ -2,13 +2,26 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ExamResult from "@/components/ExamResult";
 import { 
-  ChevronRight, MonitorPlay, FolderKanban, Database, Plus, Play, Download, Search,
+  ChevronRight, MonitorPlay, Play, Download, Search,
   BookOpen, Clock, Bot, TrendingUp, Calendar as CalendarIcon, Target, Flame, Trash2, ArrowRight, ChevronLeft, Sparkles,
-  Award, Trophy, Medal, Share2, ShieldCheck, Eye, Printer, X, CheckCircle2, Zap, Star, Crown
+  Award, Trophy, Medal, Share2, ShieldCheck, Eye, Printer, X, CheckCircle2, Zap,
+  Gift
 } from "lucide-react";
 import { ResponsiveContainer, BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Cell } from "recharts";
 import { Input } from "@/components/ui/input";
+import LevelMedalIcon from "@/components/LevelMedalIcon";
+import { GROWTH_LEVELS, type GrowthStage } from "@/data/growthLevels";
 import { cn } from "@/lib/utils";
+
+const CURRENT_GROWTH = 3850;
+const CURRENT_POINTS = 2840;
+
+const LEVEL_STAGE_TONES: Record<GrowthStage, string> = {
+  "基础养成": "border-slate-200 bg-slate-50 text-slate-600",
+  "能力成长": "border-blue-200 bg-blue-50 text-blue-700",
+  "专业精进": "border-violet-200 bg-violet-50 text-violet-700",
+  "行业领航": "border-amber-200 bg-amber-50 text-amber-800",
+};
 
 export default function MyLearning() {
   const [activeTab, setActiveTab] = useState<'learning' | 'duration' | 'ai-path' | 'scores' | 'certificates'>('learning');
@@ -23,6 +36,18 @@ export default function MyLearning() {
     setToastMsg(msg);
     setTimeout(() => setToastMsg(null), 2000);
   };
+
+  const currentLevelIndex = GROWTH_LEVELS.reduce(
+    (matchedIndex, level, index) => (CURRENT_GROWTH >= level.minGrowth ? index : matchedIndex),
+    0,
+  );
+  const currentLevel = GROWTH_LEVELS[currentLevelIndex];
+  const nextLevel = GROWTH_LEVELS[currentLevelIndex + 1];
+  const levelRange = nextLevel ? nextLevel.minGrowth - currentLevel.minGrowth : 1;
+  const levelProgress = nextLevel
+    ? Math.min(100, Math.round(((CURRENT_GROWTH - currentLevel.minGrowth) / levelRange) * 100))
+    : 100;
+  const growthRemaining = nextLevel ? Math.max(0, nextLevel.minGrowth - CURRENT_GROWTH) : 0;
 
   const certificatesList = [
     {
@@ -154,66 +179,98 @@ export default function MyLearning() {
             <TrendingUp className="w-5 h-5 text-amber-500" />
             <h2 className="text-lg font-bold text-neutral-900">成长进度与能力矩阵</h2>
           </div>
-          <span className="text-xs text-neutral-400">
-            经验值每日自动结算 · 距离升级仅差 <strong className="text-amber-600 font-mono">3,150 EXP</strong>
+          <span className="hidden text-xs text-neutral-400 sm:inline">
+            成长值每日自动结算 · 距离升级仅差{" "}
+            <strong className="font-mono text-amber-700">{growthRemaining.toLocaleString()} EXP</strong>
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Level Progress Card */}
-          <div className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-indigo-950 rounded-2xl p-6 text-white shadow-md flex flex-col justify-between relative overflow-hidden">
-            {/* Background Glow */}
-            <div className="absolute -right-6 -bottom-6 w-36 h-36 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center font-black text-sm shadow-md">
-                    Lv.4
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <h3 className="font-extrabold text-white text-base">登堂入室 (Expert)</h3>
-                      <Crown className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                    </div>
-                    <div className="text-[11px] text-white/60">当前全平台综合排名前 8%</div>
-                  </div>
-                </div>
-
-                <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 border border-white/15 text-purple-200">
-                  尊贵星钻
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {/* Compact level card keeps the previous three-column layout. */}
+          <div
+            className="relative flex flex-col overflow-hidden rounded-2xl border border-blue-300/15 bg-[#0b1628] p-5 text-white shadow-[0_18px_38px_-24px_rgba(8,20,42,0.9)]"
+            style={{
+              backgroundImage: [
+                'linear-gradient(125deg, rgba(34, 211, 238, 0.13) 0%, transparent 32%)',
+                'linear-gradient(225deg, rgba(96, 165, 250, 0.14) 0%, transparent 36%)',
+                'linear-gradient(305deg, rgba(37, 99, 235, 0.16) 0%, transparent 42%)',
+                'linear-gradient(25deg, rgba(251, 191, 36, 0.06) 0%, transparent 30%)',
+                'linear-gradient(160deg, #152744 0%, #0b172b 48%, #101d35 74%, #171529 100%)',
+              ].join(', '),
+            }}
+          >
+            <div className="flex items-center gap-4">
+              <LevelMedalIcon level={currentLevel.level} name={currentLevel.name} className="h-[108px] w-[108px]" />
+              <div className="min-w-0 flex-1">
+                <span className={cn("inline-flex rounded-full border px-2 py-0.5 text-[10px] font-bold", LEVEL_STAGE_TONES[currentLevel.stage])}>
+                  {currentLevel.stage} · {currentLevel.stageLevel}/3
                 </span>
-              </div>
-
-              {/* Progress Track */}
-              <div className="space-y-2 pt-2">
-                <div className="flex justify-between text-xs font-mono">
-                  <span className="text-white/70">成长值进度 (55%)</span>
-                  <span className="text-amber-300 font-bold">3,850 / 7,000 EXP</span>
-                </div>
-                <div className="w-full h-2.5 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
-                  <div className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 rounded-full transition-all duration-500" style={{ width: '55%' }} />
-                </div>
-              </div>
-
-              {/* Privileges unlocked */}
-              <div className="pt-3 border-t border-white/10 space-y-1 text-xs">
-                <span className="text-[11px] font-semibold text-white/60">当前已享特权:</span>
-                <div className="flex flex-wrap gap-1.5 mt-1">
-                  <span className="px-2 py-0.5 rounded bg-white/10 text-[10px] text-white/90">⚡ 150h GPU算力/月</span>
-                  <span className="px-2 py-0.5 rounded bg-white/10 text-[10px] text-white/90">🚀 A100微调通道</span>
-                  <span className="px-2 py-0.5 rounded bg-white/10 text-[10px] text-white/90">🌟 助教答疑特快通道</span>
+                <h3 className="mt-2 truncate text-lg font-black">{currentLevel.name}</h3>
+                <div className="mt-0.5 text-[10px] font-semibold text-white/50">{currentLevel.englishName} · 全平台前 18%</div>
+                <div className="mt-3 flex items-end gap-1.5">
+                  <span className="font-mono text-2xl font-black text-white">{CURRENT_GROWTH.toLocaleString()}</span>
+                  <span className="pb-0.5 text-[9px] font-bold text-white/45">EXP</span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/70 relative z-10">
-              <span>拥有积分: <strong className="text-yellow-300 font-mono text-sm">2,840 pts</strong></span>
-              <button 
+            <div className="mt-4">
+              <div className="mb-2 flex items-center justify-between text-[10px]">
+                <span className="font-semibold text-white/60">Lv.{currentLevel.level} → Lv.{nextLevel?.level ?? currentLevel.level}</span>
+                <span className="font-mono font-bold text-amber-300">{levelProgress}% · 还差 {growthRemaining} EXP</span>
+              </div>
+              <div className="h-2.5 overflow-hidden rounded-full border border-white/10 bg-white/10 p-[2px]">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-amber-400"
+                  style={{ width: `${levelProgress}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="mt-4 border-t border-white/10 pt-3">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-[10px] font-bold text-white/55">12 级成长阶梯</span>
+                <span className="text-[9px] text-white/35">Lv.1 — Lv.12</span>
+              </div>
+              <div className="grid grid-cols-12 gap-1">
+                {GROWTH_LEVELS.map((level, index) => (
+                  <div
+                    key={level.id}
+                    title={`${level.name} · ${level.minGrowth.toLocaleString()} EXP`}
+                    className={cn(
+                      "h-1.5 rounded-full",
+                      index < currentLevelIndex && "bg-[#4b86d9]",
+                      index === currentLevelIndex && "bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.65)]",
+                      index > currentLevelIndex && "bg-white/15",
+                    )}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-4 border-t border-white/10 pt-3">
+              <div className="mb-2 flex items-center gap-1.5 text-[10px] font-bold text-white/55">
+                <Gift className="h-3.5 w-3.5 text-amber-300" />
+                升级至 Lv.{nextLevel?.level ?? currentLevel.level} 可解锁
+              </div>
+              <div className="space-y-1.5">
+                {(nextLevel?.privileges ?? currentLevel.privileges).slice(0, 2).map((privilege) => (
+                  <div key={privilege} className="flex items-center gap-2 text-[10px] text-white/80">
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                    <span className="truncate">{privilege}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-[10px] text-white/55">
+              <span>可用积分 <strong className="ml-1 font-mono text-sm text-amber-300">{CURRENT_POINTS.toLocaleString()}</strong></span>
+              <button
+                type="button"
                 onClick={() => showToast('已前往积分商城兑换实训算力包')}
-                className="text-xs text-cyan-300 hover:text-cyan-200 font-bold flex items-center gap-0.5 cursor-pointer"
+                className="inline-flex items-center gap-0.5 font-bold text-cyan-300 transition-colors hover:text-cyan-200"
               >
-                兑换权益 <ChevronRight className="w-3.5 h-3.5" />
+                兑换权益 <ChevronRight className="h-3.5 w-3.5" />
               </button>
             </div>
           </div>
@@ -431,81 +488,22 @@ export default function MyLearning() {
 
             <div className="flex flex-wrap items-center gap-3">
               {[
-                { name: '考霸宗师', icon: '🏆', rarity: '史诗', color: 'from-purple-500 to-pink-500' },
-                { name: '全勤先锋官', icon: '⚡', rarity: '稀有', color: 'from-amber-400 to-orange-500' },
-                { name: '大模型极客', icon: '🧠', rarity: '史诗', color: 'from-blue-600 to-indigo-600' },
-                { name: '敏而好学', icon: '📖', rarity: '普通', color: 'from-emerald-400 to-teal-500' }
+                { name: '考霸宗师', icon: Trophy, rarity: '史诗', color: 'from-violet-500 to-fuchsia-600' },
+                { name: '全勤先锋官', icon: Zap, rarity: '稀有', color: 'from-amber-400 to-orange-600' },
+                { name: '大模型极客', icon: Bot, rarity: '史诗', color: 'from-blue-500 to-indigo-700' },
+                { name: '敏而好学', icon: BookOpen, rarity: '普通', color: 'from-emerald-400 to-teal-600' }
               ].map((badge, bIdx) => (
                 <div
                   key={bIdx}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-neutral-300 transition-colors shadow-sm"
+                  className="flex items-center gap-2.5 rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 shadow-sm transition-all hover:-translate-y-0.5 hover:border-neutral-300 hover:bg-white"
                   title={`${badge.name} (${badge.rarity})`}
                 >
-                  <div className={cn("w-6 h-6 rounded-full bg-gradient-to-tr text-white flex items-center justify-center text-xs shadow-sm", badge.color)}>
-                    {badge.icon}
+                  <div className={cn("flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br text-white shadow-[0_3px_8px_rgba(15,23,42,0.2)]", badge.color)}>
+                    <badge.icon className="h-4 w-4 stroke-[1.8]" />
                   </div>
-                  <span className="text-xs font-bold text-neutral-800">{badge.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= 4. 我的工作台 ================= */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between mt-8">
-          <h2 className="text-lg font-bold text-neutral-900 flex items-center gap-2">
-            <FolderKanban className="w-5 h-5 text-indigo-500" />
-            我的工作台
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="border border-neutral-200 rounded-2xl shadow-sm flex flex-col h-[400px] bg-white">
-            <div className="p-4 border-b border-neutral-100 flex items-center justify-between shrink-0">
-              <span className="text-base font-bold text-neutral-900">项目 (2)</span>
-            </div>
-            <div className="p-4 flex-1 overflow-y-auto space-y-4 custom-scrollbar">
-              {[1, 2].map((i) => (
-                <div key={i} className="flex gap-4 p-4 border border-neutral-100 rounded-xl hover:border-indigo-200 transition-colors bg-neutral-50/50">
-                  <div className="w-16 h-16 bg-indigo-50 rounded-xl border border-indigo-100 flex items-center justify-center shrink-0">
-                    <FolderKanban className="w-6 h-6 text-indigo-300" />
-                  </div>
-                  <div className="flex-1 min-w-0 flex flex-col justify-between space-y-2">
-                    <div>
-                      <h4 className="font-bold text-neutral-900 truncate text-[14px]">电商用户行为预测</h4>
-                      <p className="text-xs text-neutral-500 line-clamp-1 mt-0.5">使用深度学习模型预测用户购买转化率的实战开发项目。</p>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="px-2 py-0.5 bg-white border border-neutral-200 text-neutral-500 text-[10px] rounded-md">分类模型</span>
-                      <button className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">开始开发</button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="border border-neutral-200 rounded-2xl shadow-sm flex flex-col h-[400px] bg-white">
-            <div className="p-4 border-b border-neutral-100 flex items-center justify-between shrink-0">
-              <span className="text-base font-bold text-neutral-900">数据集 (3)</span>
-            </div>
-            <div className="p-4 flex-1 overflow-y-auto space-y-4 custom-scrollbar">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="flex gap-4 p-4 border border-neutral-100 rounded-xl hover:border-blue-200 transition-colors bg-neutral-50/50">
-                  <div className="w-16 h-16 bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center shrink-0">
-                    <Database className="w-6 h-6 text-blue-300" />
-                  </div>
-                  <div className="flex-1 min-w-0 flex flex-col justify-between space-y-2">
-                    <div>
-                      <h4 className="font-bold text-neutral-900 truncate text-[14px]">淘宝用户行为日志 2025</h4>
-                      <p className="text-xs text-neutral-500 line-clamp-1 mt-0.5">包含数百万用户浏览、加购、购买数据的结构化特征表。</p>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-neutral-400">更新于昨天</span>
-                      <button className="text-xs text-blue-600 hover:text-blue-700 font-medium">查看详情</button>
-                    </div>
+                  <div>
+                    <div className="text-xs font-bold text-neutral-800">{badge.name}</div>
+                    <div className="mt-0.5 text-[9px] font-bold text-neutral-400">{badge.rarity}成就</div>
                   </div>
                 </div>
               ))}
@@ -513,6 +511,7 @@ export default function MyLearning() {
           </div>
         </div>
       </section>
+
     </div>
   );
 
@@ -1152,17 +1151,17 @@ export default function MyLearning() {
   };
 
   return (
-    <div className="flex h-full w-full bg-white overflow-hidden shadow-sm font-sans relative">
+    <div className="relative flex h-full w-full flex-col overflow-hidden bg-white font-sans shadow-sm md:flex-row">
       {/* Left Sidebar */}
-      <div className="w-[200px] border-r border-neutral-200 flex-shrink-0 flex flex-col bg-white">
-        <div className="p-5 border-b border-neutral-200">
+      <div className="flex w-full flex-shrink-0 flex-col border-b border-neutral-200 bg-white md:w-[200px] md:border-b-0 md:border-r">
+        <div className="border-b border-neutral-200 px-4 py-3 md:p-5">
           <h2 className="text-lg font-semibold text-neutral-900">学习中心</h2>
         </div>
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex gap-2 overflow-x-auto p-3 md:flex-1 md:flex-col md:gap-1 md:overflow-visible md:p-4">
           <button 
             onClick={() => setActiveTab('learning')}
             className={cn(
-              "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors text-left",
+              "flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[8px] px-3 py-2.5 text-left text-[14px] font-medium transition-colors md:w-full md:gap-3",
               activeTab === 'learning' 
                 ? "bg-[#eff6ff] text-[#3b82f6]" 
                 : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
@@ -1175,7 +1174,7 @@ export default function MyLearning() {
           <button 
             onClick={() => setActiveTab('duration')}
             className={cn(
-              "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors text-left",
+              "flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[8px] px-3 py-2.5 text-left text-[14px] font-medium transition-colors md:w-full md:gap-3",
               activeTab === 'duration' 
                 ? "bg-[#eff6ff] text-[#3b82f6]" 
                 : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
@@ -1188,7 +1187,7 @@ export default function MyLearning() {
           <button 
             onClick={() => setActiveTab('ai-path')}
             className={cn(
-              "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors text-left",
+              "flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[8px] px-3 py-2.5 text-left text-[14px] font-medium transition-colors md:w-full md:gap-3",
               activeTab === 'ai-path' 
                 ? "bg-[#eff6ff] text-[#3b82f6]" 
                 : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
@@ -1201,7 +1200,7 @@ export default function MyLearning() {
           <button 
             onClick={() => setActiveTab('scores')}
             className={cn(
-              "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors text-left",
+              "flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[8px] px-3 py-2.5 text-left text-[14px] font-medium transition-colors md:w-full md:gap-3",
               activeTab === 'scores' 
                 ? "bg-[#eff6ff] text-[#3b82f6]" 
                 : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
@@ -1214,7 +1213,7 @@ export default function MyLearning() {
           <button 
             onClick={() => setActiveTab('certificates')}
             className={cn(
-              "w-full flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-[14px] font-medium transition-colors text-left",
+              "flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[8px] px-3 py-2.5 text-left text-[14px] font-medium transition-colors md:w-full md:gap-3",
               activeTab === 'certificates' 
                 ? "bg-[#eff6ff] text-[#3b82f6]" 
                 : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
@@ -1227,7 +1226,7 @@ export default function MyLearning() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 overflow-auto bg-[#f5f6f8] p-6">
+      <div className="min-w-0 flex-1 overflow-auto bg-[#f5f6f8] p-4 md:p-6">
         <div className="flex items-center text-sm text-neutral-500 mb-6 shrink-0">
           <Link to="/user" className="hover:text-[#3b82f6] transition-colors">首页</Link>
           <ChevronRight className="w-4 h-4 mx-1" />
@@ -1368,4 +1367,3 @@ export default function MyLearning() {
     </div>
   );
 }
-

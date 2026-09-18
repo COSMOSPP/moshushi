@@ -218,6 +218,79 @@
   pointer-events: none;
 }
 
+.main-visual__center-core {
+  position: absolute;
+  z-index: 4;
+  top: 429px;
+  left: 491px;
+  width: 206.301px;
+  height: 220.488px;
+  pointer-events: none;
+}
+
+.main-visual__center-layer {
+  display: block;
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+
+.main-visual__center-layer--base {
+  inset: 0;
+  width: 206.301px;
+  height: 220.488px;
+}
+
+.main-visual__center-layer--mask {
+  top: 10px;
+  left: 2px;
+  width: 202.301px;
+  height: 202.301px;
+}
+
+.main-visual__center-layer--glass {
+  top: 10.716px;
+  left: 1.212px;
+  width: 202.301px;
+  height: 202.301px;
+}
+
+.main-visual__center-layer--shine-top {
+  top: 8.25px;
+  left: 0.5px;
+  width: 120.916px;
+  height: 69.763px;
+  transform: rotate(-2.18deg);
+}
+
+.main-visual__center-layer--shine-bottom {
+  top: 146.25px;
+  left: 89px;
+  width: 107.915px;
+  height: 66.89px;
+  transform: rotate(180deg);
+}
+
+.main-visual__center-title {
+  position: absolute;
+  top: 71px;
+  left: 21px;
+  display: flex;
+  width: 162px;
+  height: 82px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  font-family: "Alibaba PuHuiTi", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 44px;
+  text-align: center;
+  text-shadow: 0 4px 4px #002051;
+  pointer-events: none;
+}
+
 .main-visual__light {
   position: absolute;
   pointer-events: none;

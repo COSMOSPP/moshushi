@@ -13,6 +13,23 @@ export default function Home() {
       image: "/images/banner2.jpg",
       isStaticImage: true,
       link: "/user/courses",
+      alt: "智联未来 云启成长",
+    },
+    {
+      title: "",
+      subtitle: "",
+      image: "/images/banner3.jpg",
+      isStaticImage: true,
+      link: "/user/projects",
+      alt: "陶俑觉醒学员作品",
+    },
+    {
+      title: "",
+      subtitle: "",
+      image: "/images/b4.jpg",
+      isStaticImage: true,
+      link: "/user/projects",
+      alt: "梦幻城堡学员作品",
     },
     {
       title: "掌握前沿 AI 技术",
@@ -52,7 +69,7 @@ export default function Home() {
               >
                 <img
                   src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${slide.image}`}
-                  alt="智联未来 云启成长"
+                  alt={slide.alt || slide.title}
                   className="w-full h-full object-cover object-left md:object-center transition-all duration-500"
                 />
               </Link>

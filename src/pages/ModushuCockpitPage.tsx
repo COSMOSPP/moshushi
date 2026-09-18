@@ -746,6 +746,22 @@ function CenterLighting() {
   );
 }
 
+function CenterCore() {
+  return (
+    <div className="main-visual__center-core" aria-hidden="true">
+      <img className="main-visual__center-layer main-visual__center-layer--base" src={withBase('/assets/center-orb-base.svg')} alt="" />
+      <img className="main-visual__center-layer main-visual__center-layer--mask" src={withBase('/assets/center-orb-mask.svg')} alt="" />
+      <img className="main-visual__center-layer main-visual__center-layer--glass" src={withBase('/assets/center-orb-glass.svg')} alt="" />
+      <img className="main-visual__center-layer main-visual__center-layer--shine-top" src={withBase('/assets/center-orb-shine-top.svg')} alt="" />
+      <img className="main-visual__center-layer main-visual__center-layer--shine-bottom" src={withBase('/assets/center-orb-shine-bottom.svg')} alt="" />
+      <div className="main-visual__center-title">
+        <span>产教一体</span>
+        <span>产才融合</span>
+      </div>
+    </div>
+  );
+}
+
 function OrbitalParticles({ items }: { items: typeof orbitalParticles }) {
   return (
     <div className="main-visual__particles" aria-hidden="true">
@@ -882,13 +898,14 @@ function DashboardFrame({ logicalWidth, logicalHeight }: { logicalWidth: number;
         <img className="dashboard-side dashboard-side--right" src={withBase("/assets/side-right.svg")} alt="" />
         <DashboardChrome type="footer" src="/assets/footer.svg" alt="" withSweep />
 
-        <div className="main-visual" aria-label="学员全生命周期管理四象限态势">
+        <div className="main-visual" aria-label="产教一体、产才融合四象限态势">
           <img
             className="main-visual__base"
             src={withBase("/assets/main-center-background.png")}
-            alt="学员全生命周期管理中央圆环"
+            alt="产教一体、产才融合中央圆环"
           />
           <CenterLighting />
+          <CenterCore />
           <VisualLabels items={visualLabels} />
           <FloatingBubbles items={floatingBubbles} onSelect={setActiveDetailId} />
           <OrbitalParticles items={orbitalParticles} />

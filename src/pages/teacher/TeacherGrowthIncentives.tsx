@@ -39,6 +39,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import LevelMedalIcon from '@/components/LevelMedalIcon';
+import { GROWTH_LEVELS, type GrowthLevelDefinition } from '@/data/growthLevels';
 import { cn } from '@/lib/utils';
 
 // ==================== Types ====================
@@ -61,16 +63,7 @@ export interface GrowthRule {
   description: string;
 }
 
-export interface LevelTier {
-  id: string;
-  level: number;
-  name: string;
-  minGrowth: number;
-  iconColor: string;
-  badgeBg: string;
-  privileges: string[];
-  studentsCount: number;
-}
+export type LevelTier = GrowthLevelDefinition;
 
 export interface AchievementBadge {
   id: string;
@@ -192,68 +185,7 @@ const INITIAL_RULES: GrowthRule[] = [
   }
 ];
 
-const INITIAL_LEVELS: LevelTier[] = [
-  {
-    id: 'LV-1',
-    level: 1,
-    name: '初窥门径 (Novice)',
-    minGrowth: 0,
-    iconColor: 'text-neutral-500',
-    badgeBg: 'bg-gradient-to-r from-neutral-200 to-neutral-300',
-    privileges: ['基础云沙箱每月 20h 机时', '通用公共大模型 API 调用', '标准题库练习权限'],
-    studentsCount: 142
-  },
-  {
-    id: 'LV-2',
-    level: 2,
-    name: '潜心研习 (Apprentice)',
-    minGrowth: 500,
-    iconColor: 'text-emerald-600',
-    badgeBg: 'bg-gradient-to-r from-emerald-400 to-teal-500',
-    privileges: ['云沙箱提升至每月 40h 机时', 'AI问答助手每日额度 +50%', '专属绿色等级勋章'],
-    studentsCount: 88
-  },
-  {
-    id: 'LV-3',
-    level: 3,
-    name: '融会贯通 (Specialist)',
-    minGrowth: 1500,
-    iconColor: 'text-blue-600',
-    badgeBg: 'bg-gradient-to-r from-blue-500 to-indigo-600',
-    privileges: ['云沙箱提升至每月 80h 机时', '解锁 GPU 算力卡时优先排队', '开放进阶实训沙箱模版库'],
-    studentsCount: 56
-  },
-  {
-    id: 'LV-4',
-    level: 4,
-    name: '登堂入室 (Expert)',
-    minGrowth: 3500,
-    iconColor: 'text-purple-600',
-    badgeBg: 'bg-gradient-to-r from-purple-500 to-pink-600',
-    privileges: ['云沙箱提升至每月 150h 机时', '专属高性能 A100/H800 微调通道', '尊贵紫色星钻铭牌', '助教答疑绿色通道'],
-    studentsCount: 29
-  },
-  {
-    id: 'LV-5',
-    level: 5,
-    name: '炉火纯青 (Master)',
-    minGrowth: 7000,
-    iconColor: 'text-amber-500',
-    badgeBg: 'bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600',
-    privileges: ['无限量云沙箱机时', '作品直接置顶租户最佳实践首页', '专属金色至尊徽章', '校企合作名企提前批直推名额'],
-    studentsCount: 12
-  },
-  {
-    id: 'LV-6',
-    level: 6,
-    name: '大师领航 (Grandmaster)',
-    minGrowth: 12000,
-    iconColor: 'text-rose-600',
-    badgeBg: 'bg-gradient-to-r from-rose-500 via-red-600 to-pink-700',
-    privileges: ['终身荣誉导师特权', '租户自定义大模型算力池支配权', '国家级竞赛重点战队保送扶持'],
-    studentsCount: 3
-  }
-];
+const INITIAL_LEVELS: LevelTier[] = GROWTH_LEVELS;
 
 const INITIAL_BADGES: AchievementBadge[] = [
   {
@@ -955,22 +887,18 @@ export default function TeacherGrowthIncentives() {
                   {/* Decorative Corner Glow */}
                   <div className={cn("absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-20 pointer-events-none", tier.badgeBg)}></div>
 
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-md", tier.badgeBg)}>
-                        Lv.{tier.level}
+                  <div className="flex items-start gap-3">
+                    <LevelMedalIcon level={tier.level} name={tier.name} className="h-16 w-16" />
+                    <div className="min-w-0 flex-1 pt-0.5">
+                      <h4 className="text-sm font-extrabold text-neutral-900">{tier.name}</h4>
+                      <div className="mt-0.5 truncate text-[11px] font-semibold text-neutral-400">{tier.englishName}</div>
+                      <div className="mt-1 text-[10px] font-mono leading-4 text-neutral-400">
+                        {tier.stage} {tier.stageLevel}/3 · 门槛 ≥{tier.minGrowth.toLocaleString()} EXP
                       </div>
-                      <div>
-                        <h4 className="font-extrabold text-neutral-900 text-sm">{tier.name}</h4>
-                        <div className="text-[11px] text-neutral-400 font-mono">
-                          门槛: ≥{tier.minGrowth.toLocaleString()} 成长值
-                        </div>
-                      </div>
+                      <span className="mt-2 inline-flex rounded-full border border-neutral-200 bg-white px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                        {tier.studentsCount} 人在榜
+                      </span>
                     </div>
-
-                    <span className="text-xs bg-white px-2 py-0.5 rounded-full border border-neutral-200 text-neutral-600 font-bold">
-                      {tier.studentsCount} 人在榜
-                    </span>
                   </div>
 
                   {/* Privileges */}
