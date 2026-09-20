@@ -5,7 +5,7 @@ import {
   ChevronRight, MonitorPlay, Play, Download, Search,
   BookOpen, Clock, Bot, TrendingUp, Calendar as CalendarIcon, Target, Flame, Trash2, ArrowRight, ChevronLeft, Sparkles,
   Award, Trophy, Medal, Share2, ShieldCheck, Eye, Printer, X, CheckCircle2, Zap,
-  Gift
+  Gift, LockKeyhole
 } from "lucide-react";
 import { ResponsiveContainer, BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Cell } from "recharts";
 import { Input } from "@/components/ui/input";
@@ -32,6 +32,7 @@ export default function MyLearning() {
   const [certSearch, setCertSearch] = useState('');
   const [certFilter, setCertFilter] = useState('all');
   const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [isMedalGalleryOpen, setIsMedalGalleryOpen] = useState(false);
   const showToast = (msg: string) => {
     setToastMsg(msg);
     setTimeout(() => setToastMsg(null), 2000);
@@ -48,6 +49,17 @@ export default function MyLearning() {
     ? Math.min(100, Math.round(((CURRENT_GROWTH - currentLevel.minGrowth) / levelRange) * 100))
     : 100;
   const growthRemaining = nextLevel ? Math.max(0, nextLevel.minGrowth - CURRENT_GROWTH) : 0;
+
+  React.useEffect(() => {
+    if (!isMedalGalleryOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMedalGalleryOpen(false);
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMedalGalleryOpen]);
 
   const certificatesList = [
     {
@@ -199,8 +211,18 @@ export default function MyLearning() {
               ].join(', '),
             }}
           >
-            <div className="flex items-center gap-4">
-              <LevelMedalIcon level={currentLevel.level} name={currentLevel.name} className="h-[108px] w-[108px]" />
+            <div className="flex items-start gap-4">
+              <div className="flex w-[112px] shrink-0 flex-col items-center">
+                <LevelMedalIcon level={currentLevel.level} name={currentLevel.name} className="h-[108px] w-[108px]" />
+                <button
+                  type="button"
+                  onClick={() => setIsMedalGalleryOpen(true)}
+                  className="mt-1 inline-flex items-center whitespace-nowrap text-[10px] font-bold text-blue-200 transition-colors hover:text-white"
+                  aria-haspopup="dialog"
+                >
+                  查看全部勋章
+                </button>
+              </div>
               <div className="min-w-0 flex-1">
                 <span className={cn("inline-flex rounded-full border px-2 py-0.5 text-[10px] font-bold", LEVEL_STAGE_TONES[currentLevel.stage])}>
                   {currentLevel.stage} · {currentLevel.stageLevel}/3
@@ -1249,6 +1271,136 @@ export default function MyLearning() {
         {activeTab === 'scores' && renderScoresTab()}
         {activeTab === 'certificates' && renderCertificatesTab()}
       </div>
+
+      {/* Growth medal gallery */}
+      {isMedalGalleryOpen && (
+        <div
+          className="fixed inset-0 z-[450] flex items-center justify-center bg-slate-950/65 p-4 backdrop-blur-sm animate-fade-in"
+          onClick={() => setIsMedalGalleryOpen(false)}
+          role="presentation"
+        >
+          <div
+            className="flex max-h-[calc(100vh-2rem)] w-full max-w-[920px] flex-col overflow-hidden rounded-2xl border border-blue-200/70 bg-[#f7f9fc] shadow-[0_28px_80px_-24px_rgba(15,37,72,0.65)]"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="medal-gallery-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div
+              className="relative shrink-0 overflow-hidden border-b border-white/10 px-5 py-5 text-white sm:px-7"
+              style={{
+                backgroundImage: [
+                  'radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.22), transparent 27%)',
+                  'linear-gradient(125deg, #0f2341 0%, #112f59 52%, #153b6e 100%)',
+                ].join(', '),
+              }}
+            >
+              <div className="relative flex items-start justify-between gap-4">
+                <div>
+                  <div className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2.5 py-1 text-[11px] font-bold text-cyan-200">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    成长荣誉体系
+                  </div>
+                  <h2 id="medal-gallery-title" className="text-xl font-black sm:text-2xl">我的等级勋章</h2>
+                  <p className="mt-1.5 text-xs leading-5 text-blue-100/65">
+                    每次等级晋升都会永久点亮一枚专属勋章，记录你的能力成长轨迹。
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsMedalGalleryOpen(false)}
+                  className="rounded-lg border border-white/10 bg-white/5 p-2 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                  aria-label="关闭全部勋章弹框"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="relative mt-5 flex items-center gap-4">
+                <div className="min-w-0 flex-1">
+                  <div className="mb-2 flex items-center justify-between text-[11px]">
+                    <span className="font-semibold text-blue-100/70">勋章收集进度</span>
+                    <span className="font-mono font-black text-white">{currentLevelIndex + 1} / {GROWTH_LEVELS.length}</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-amber-300"
+                      style={{ width: `${((currentLevelIndex + 1) / GROWTH_LEVELS.length) * 100}%` }}
+                    />
+                  </div>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-right">
+                  <div className="text-[10px] text-blue-100/55">当前等级</div>
+                  <div className="mt-0.5 text-xs font-black text-amber-300">Lv.{currentLevel.level} {currentLevel.name}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="overflow-y-auto p-4 sm:p-6">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                {GROWTH_LEVELS.map((level, index) => {
+                  const isClaimed = index <= currentLevelIndex;
+                  const isCurrent = index === currentLevelIndex;
+                  const requiredGrowth = Math.max(0, level.minGrowth - CURRENT_GROWTH);
+
+                  return (
+                    <div
+                      key={level.id}
+                      className={cn(
+                        "relative flex min-h-[196px] flex-col items-center overflow-hidden rounded-xl border bg-white px-3 pb-4 pt-3 text-center transition-colors",
+                        isCurrent
+                          ? "border-blue-400 shadow-[0_10px_30px_-18px_rgba(37,99,235,0.7)]"
+                          : "border-slate-200",
+                        !isClaimed && "bg-slate-50/80",
+                      )}
+                    >
+                      <div className="flex w-full items-center justify-between text-[10px]">
+                        <span className={cn("font-mono font-black", isClaimed ? "text-blue-600" : "text-slate-400")}>
+                          LV.{level.level.toString().padStart(2, '0')}
+                        </span>
+                        <span
+                          className={cn(
+                            "inline-flex items-center gap-1 rounded-full px-2 py-1 font-bold",
+                            isCurrent && "bg-blue-50 text-blue-600",
+                            isClaimed && !isCurrent && "bg-emerald-50 text-emerald-600",
+                            !isClaimed && "bg-slate-200/70 text-slate-500",
+                          )}
+                        >
+                          {isClaimed ? <CheckCircle2 className="h-3 w-3" /> : <LockKeyhole className="h-3 w-3" />}
+                          {isCurrent ? '当前等级' : isClaimed ? '已领取' : '未领取'}
+                        </span>
+                      </div>
+
+                      <LevelMedalIcon
+                        level={level.level}
+                        name={level.name}
+                        className={cn(
+                          "mt-1 h-[92px] w-[92px] transition-all",
+                          !isClaimed && "grayscale opacity-30 drop-shadow-none",
+                        )}
+                      />
+
+                      <div className={cn("mt-1 text-sm font-black", isClaimed ? "text-slate-900" : "text-slate-500")}>
+                        {level.name}
+                      </div>
+                      <div className="mt-0.5 text-[10px] font-medium text-slate-400">{level.stage} · {level.englishName}</div>
+
+                      <div className={cn(
+                        "mt-auto pt-2 text-[10px] font-bold",
+                        isClaimed ? "text-emerald-600" : "text-slate-400",
+                      )}>
+                        {isClaimed
+                          ? `${level.minGrowth.toLocaleString()} EXP 已达成`
+                          : `还需 ${requiredGrowth.toLocaleString()} EXP 解锁`}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Certificate Preview Modal */}
       {previewCert && (
