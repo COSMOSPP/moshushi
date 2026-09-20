@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import medalSpriteUrl from '@/assets/level-medals.png';
 
 interface LevelMedalIconProps {
   level: number;
@@ -20,7 +21,7 @@ export default function LevelMedalIcon({ level, name, className }: LevelMedalIco
       role="img"
       aria-label={`Lv.${normalizedLevel}${name ? ` ${name}` : ''}等级勋章`}
       style={{
-        backgroundImage: "url('/images/level-medals.png')",
+        backgroundImage: `url("${medalSpriteUrl}")`,
         backgroundSize: '400% 400%',
         backgroundPosition: `${(column / 3) * 100}% ${(row / 3) * 100}%`,
       }}
