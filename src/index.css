@@ -198,6 +198,12 @@ body {
   scrollbar-width: none;
 }
 
+/* Keep the enterprise portal aligned with the compact operations console. */
+.enterprise-portal .rounded-lg,
+.enterprise-portal .rounded-md {
+  border-radius: 4px;
+}
+
 /* Custom DateTime Picker styling */
 input[type="datetime-local"] {
   accent-color: #3b82f6;

@@ -309,6 +309,77 @@ export const EMPLOYMENT_STAGES = [
   },
 ] as const;
 
+export const EMPLOYMENT_OUTCOME_METRICS = [
+  { value: "89%", label: "就业匹配率", note: "参与就业服务学员" },
+  { value: "82.4%", label: "专业对口率", note: "岗位与能力方向一致" },
+  { value: "13.6K", label: "平均月薪", note: "税前 · 近 12 个月" },
+  { value: "96.2%", label: "入职稳定率", note: "入职 6 个月仍在岗" },
+  { value: "368+", label: "合作用人企业", note: "持续开放岗位需求" },
+] as const;
+
+export const EMPLOYMENT_CASES = [
+  {
+    student: "李同学",
+    company: "华为云",
+    companyCode: "HW",
+    role: "AI 应用开发工程师",
+    salary: "18K–22K",
+    city: "南京",
+    direction: "AI 智能体",
+    match: 96,
+    joinedAt: "2026.08",
+    featured: true,
+  },
+  {
+    student: "王同学",
+    company: "科大讯飞",
+    companyCode: "KD",
+    role: "大模型应用工程师",
+    salary: "16K–20K",
+    city: "合肥",
+    direction: "大模型应用",
+    match: 94,
+    joinedAt: "2026.08",
+    featured: false,
+  },
+  {
+    student: "张同学",
+    company: "京东科技",
+    companyCode: "JD",
+    role: "数据分析工程师",
+    salary: "14K–18K",
+    city: "北京",
+    direction: "数据分析",
+    match: 92,
+    joinedAt: "2026.07",
+    featured: false,
+  },
+  {
+    student: "陈同学",
+    company: "用友网络",
+    companyCode: "YF",
+    role: "Java 开发工程师",
+    salary: "12K–16K",
+    city: "南京",
+    direction: "软件工程",
+    match: 91,
+    joinedAt: "2026.07",
+    featured: false,
+  },
+  {
+    student: "赵同学",
+    company: "奇安信",
+    companyCode: "QAX",
+    role: "安全运维工程师",
+    salary: "13K–17K",
+    city: "西安",
+    direction: "网络安全",
+    match: 90,
+    joinedAt: "2026.06",
+    featured: false,
+  },
+] as const;
+
 export const OPERATIONS_TREND = [
   { month: "3月", active: 62, completed: 48 },
   { month: "4月", active: 68, completed: 54 },

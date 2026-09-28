@@ -4,13 +4,14 @@ import {
   ArrowLeft, BarChart2, BookOpen, Users, 
   Download, Plus, Search, FileText, CheckCircle, 
   Clock, MoreVertical, Settings, BarChart, Copy,
-  ChevronDown, ChevronUp, PlusCircle, Paperclip, MonitorPlay, Code, CheckSquare, Calendar, TrendingUp, PieChart, Edit, Award, ChevronRight, X, Trash2, Info, HelpCircle, RotateCw, Eye, Sparkles, Cpu
+  ChevronDown, ChevronUp, PlusCircle, Paperclip, MonitorPlay, Code, CheckSquare, Calendar, TrendingUp, PieChart, Edit, Award, ChevronRight, X, Trash2, Info, HelpCircle, RotateCw, Eye, Sparkles, Cpu, MessageSquareText
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateTimePicker } from '@/components/ui/DateTimePicker';
 import { cn } from '@/lib/utils';
 import CourseDetail from '@/components/CourseDetail';
 import TeacherPPTEditor from '@/components/TeacherPPTEditor';
+import TeacherCourseReviews from '@/components/course-reviews/TeacherCourseReviews';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart as BarChartRecharts, Bar } from 'recharts';
 
 const COURSE_SYLLABUS = [
@@ -746,6 +747,7 @@ export default function TeacherCourseManage() {
     { id: 'assignments', label: '作业配置', icon: FileText },
     { id: 'members', label: '成员管理', icon: Users },
     { id: 'analytics', label: '学情数据', icon: BarChart2 },
+    { id: 'reviews', label: '课程评价', icon: MessageSquareText },
   ];
 
   if (showCourseDetail) {
@@ -901,6 +903,7 @@ export default function TeacherCourseManage() {
           {/* Tab Main Content Card */}
           <div className={cn("w-full relative z-20 pb-8 px-4", activeTab === 'editor' ? "-mt-8" : "pt-4")}>
             <div className={cn("bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.03)] border border-neutral-border/50 min-h-[500px]", activeTab === 'editor' ? "rounded-t-[24px]" : "rounded-[24px]")}>
+              {activeTab === 'reviews' && <TeacherCourseReviews courseId="python-basic" />}
               
               {/* 1. 课程章节 (Course Chapters - like the screenshot) */}
               {activeTab === 'editor' && (

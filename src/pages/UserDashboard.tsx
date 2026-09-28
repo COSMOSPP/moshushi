@@ -180,12 +180,21 @@ export default function UserCourses() {
       experiments: 3
     })),
     ...staticCourses
-  ];
+  ].map((course, index) => ({
+    ...course,
+    rating: [4.8, 4.7, 4.9, 4.6, 4.8, 4.7, 4.9, 4.6][index % 8],
+    reviewCount: [326, 185, 93, 241, 128, 76, 210, 64][index % 8],
+  }));
 
   return (
     <>
       {showCourseDetail ? (
-        <CourseDetail onBack={() => setShowCourseDetail(false)} onShowLearningPath={() => setShowOnboardingModal(true)} />
+        <CourseDetail
+          onBack={() => setShowCourseDetail(false)}
+          onShowLearningPath={() => setShowOnboardingModal(true)}
+          initialTab={location.state?.courseTab}
+          initialReviewOpen={Boolean(location.state?.openReview)}
+        />
       ) : (
         <div className="flex flex-col bg-[#f5f6f8] relative">
       {/* Header */}
@@ -293,6 +302,11 @@ export default function UserCourses() {
                         <div className="flex items-center gap-1">
                           <span>{course.students}人在学</span>
                         </div>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-amber-500">
+                        <Star className="h-3.5 w-3.5 fill-amber-400" />
+                        <span className="font-bold text-neutral-800">{course.rating}</span>
+                        <span className="text-neutral-400">({course.reviewCount} 条评价)</span>
                       </div>
 
                     </div>

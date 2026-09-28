@@ -24,6 +24,7 @@ import {
   Handshake,
   LayoutDashboard,
   Layers3,
+  MapPin,
   Medal,
   Network,
   Rocket,
@@ -51,6 +52,8 @@ import learnerImage from "@/user-img.png";
 import {
   BUSINESS_CAPABILITIES,
   EMPLOYMENT_STAGES,
+  EMPLOYMENT_CASES,
+  EMPLOYMENT_OUTCOME_METRICS,
   ENTERPRISE_PARTNERS,
   FEATURED_COURSES,
   FEATURED_WORKS,
@@ -729,9 +732,179 @@ function EnterpriseTraining() {
   );
 }
 
+function EmploymentOutcomes() {
+  const featuredCase = EMPLOYMENT_CASES.find((item) => item.featured) ?? EMPLOYMENT_CASES[0];
+  const recentCases = EMPLOYMENT_CASES.filter((item) => !item.featured);
+  const featuredEvidence = [
+    { label: "岗位核心课程", value: "8 门", note: "全部完成", icon: BookOpenCheck },
+    { label: "企业实战项目", value: "3 项", note: "成果已验收", icon: FolderKanban },
+    { label: "综合能力评价", value: "A 级", note: "企业导师评定", icon: Award },
+  ] as const;
+  const companyTones = [
+    "bg-[#eaf0ff] text-[#2457ff]",
+    "bg-[#e7f8f5] text-[#008f83]",
+    "bg-[#fff4df] text-[#b76e00]",
+    "bg-[#f1edff] text-[#6f50d8]",
+  ];
+
+  return (
+    <section id="employment-outcomes" className="scroll-mt-24 bg-[var(--home-bg)] py-[72px] lg:py-24">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <SectionHeading
+          eyebrow="就业成果"
+          title="从能力成长到成功入职，让培养成效有据可查"
+          description="以真实就业材料为依据，持续跟踪学员入职企业、岗位方向与薪资区间，客观呈现人才培养质量。"
+          action={
+            <span className="inline-flex items-center gap-2 text-xs font-medium text-emerald-700">
+              <ShieldCheck className="h-4 w-4" />
+              就业材料已核验
+            </span>
+          }
+        />
+
+        <div className="grid overflow-hidden rounded-xl border border-[var(--home-border)] bg-[var(--home-border)] grid-cols-2 gap-px md:grid-cols-5">
+          {EMPLOYMENT_OUTCOME_METRICS.map((metric, index) => (
+            <div
+              key={metric.label}
+              className={`min-h-[116px] bg-white px-5 py-5 ${index === EMPLOYMENT_OUTCOME_METRICS.length - 1 ? "col-span-2 md:col-span-1" : ""}`}
+            >
+              <strong className="block text-[26px] font-bold tabular-nums text-[var(--home-title)]">{metric.value}</strong>
+              <p className="mt-1 text-sm font-semibold text-[var(--home-body)]">{metric.label}</p>
+              <p className="mt-1 text-[11px] text-[var(--home-muted)]">{metric.note}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-7 grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <article className="relative overflow-hidden rounded-xl border border-[#1d4d89] bg-[#102a50] p-6 text-white shadow-[0_18px_50px_-32px_rgba(16,42,80,0.65)] sm:p-8">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: "linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+                maskImage: "linear-gradient(135deg, transparent 18%, black 100%)",
+              }}
+              aria-hidden="true"
+            />
+
+            <div className="relative">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-white/10 text-base font-bold text-cyan-200">
+                    {featuredCase.companyCode}
+                  </span>
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-400/15 px-2 py-1 text-[11px] font-semibold text-emerald-200">
+                      <BadgeCheck className="h-3.5 w-3.5" /> Offer 已核验
+                    </span>
+                    <h3 className="mt-2 text-2xl font-bold">{featuredCase.company}</h3>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs text-blue-100/60">税前月薪</p>
+                  <strong className="mt-1 block text-[30px] font-bold tabular-nums text-amber-300">{featuredCase.salary}</strong>
+                </div>
+              </div>
+
+              <div className="mt-7 rounded-lg border border-white/10 bg-white/[0.055] p-5">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs text-blue-100/55">已入职岗位</p>
+                    <p className="mt-2 text-xl font-bold">{featuredCase.role}</p>
+                    <p className="mt-2 text-sm text-blue-100/70">{featuredCase.student} · {featuredCase.direction}方向</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1.5 text-xs font-semibold text-emerald-200">
+                    <CheckCircle2 className="h-3.5 w-3.5" /> 已成功入职
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/10 pt-4 text-xs text-blue-100/65">
+                  <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />{featuredCase.city}</span>
+                  <span className="inline-flex items-center gap-1.5"><BriefcaseBusiness className="h-3.5 w-3.5" />{featuredCase.joinedAt} 入职</span>
+                  <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" />就业材料已核验</span>
+                </div>
+              </div>
+
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {featuredEvidence.map((item) => {
+                  const EvidenceIcon = item.icon;
+                  return (
+                    <div key={item.label} className="min-w-0 rounded-lg border border-white/10 bg-white/[0.045] p-3.5">
+                      <div className="flex items-center gap-2 text-blue-100/60">
+                        <EvidenceIcon className="h-4 w-4 shrink-0 text-cyan-300" />
+                        <span className="text-[11px] leading-4">{item.label}</span>
+                      </div>
+                      <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                        <strong className="text-lg font-bold tabular-nums text-white">{item.value}</strong>
+                        <span className="text-[10px] text-blue-100/50">{item.note}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-5">
+                <div className="mb-2 flex items-center justify-between text-xs">
+                  <span className="text-blue-100/65">人岗匹配度</span>
+                  <strong className="text-cyan-200">{featuredCase.match}%</strong>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full rounded-full bg-[linear-gradient(90deg,#22d3ee,#60a5fa)]" style={{ width: `${featuredCase.match}%` }} />
+                </div>
+                <div className="mt-5 grid grid-cols-3 gap-px overflow-hidden rounded-lg bg-white/10 text-center text-xs">
+                  {["课程学习", "项目实训", "企业入职"].map((item, index) => (
+                    <span key={item} className="bg-white/[0.04] px-2 py-3 text-blue-50/80">
+                      <strong className="mr-1 text-cyan-300">0{index + 1}</strong>{item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div className="min-w-0 rounded-xl border border-[var(--home-border)] bg-white px-5 py-5 sm:px-6">
+            <div className="flex items-end justify-between gap-4 border-b border-[var(--home-border)] pb-4">
+              <div>
+                <h3 className="text-lg font-bold text-[var(--home-title)]">近期入职动态</h3>
+                <p className="mt-1 text-xs text-[var(--home-muted)]">企业、岗位及税前月薪区间</p>
+              </div>
+              <span className="shrink-0 text-[11px] text-[var(--home-muted)]">持续更新</span>
+            </div>
+
+            <div className="divide-y divide-[var(--home-border)]">
+              {recentCases.map((item, index) => (
+                <article key={`${item.student}-${item.company}`} className="grid grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 py-4">
+                  <span className={`flex h-11 w-11 items-center justify-center rounded-lg text-[11px] font-bold ${companyTones[index % companyTones.length]}`}>
+                    {item.companyCode}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="flex min-w-0 items-center gap-2">
+                      <h4 className="truncate text-sm font-bold text-[var(--home-title)]">{item.company}</h4>
+                      <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-emerald-500" aria-label="已核验" />
+                    </div>
+                    <p className="mt-1 truncate text-xs text-[var(--home-muted)]">{item.student} · {item.role}</p>
+                    <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#98a2b3]"><MapPin className="h-3 w-3" />{item.city} · 匹配度 {item.match}%</p>
+                  </div>
+                  <div className="pl-2 text-right">
+                    <strong className="block whitespace-nowrap text-sm font-bold tabular-nums text-[var(--home-title)]">{item.salary}</strong>
+                    <span className="mt-1 block text-[10px] text-[var(--home-muted)]">{item.joinedAt}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-7 text-center text-[11px] leading-5 text-[#98a2b3]">
+          数据截至 2026 年 8 月，学员姓名已脱敏；企业、岗位及薪资信息经 Offer、劳动合同或就业证明核验。
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function EmploymentService() {
   return (
-    <section id="employment-service" className="scroll-mt-24 bg-[var(--home-bg)] py-[72px] lg:py-24">
+    <section id="employment-service" className="scroll-mt-24 bg-white py-[72px] lg:py-24">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="grid items-stretch gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
           <div className="relative min-h-[420px] overflow-hidden rounded-xl bg-[#dfe8ff]">
@@ -910,6 +1083,7 @@ export default function HomeLandingContent() {
       <FeaturedCourses />
       <Faculty />
       <EnterpriseTraining />
+      <EmploymentOutcomes />
       <EmploymentService />
       <DigitalOperations />
       <ConsultationCta />

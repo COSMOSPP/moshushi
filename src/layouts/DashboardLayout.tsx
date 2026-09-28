@@ -18,7 +18,6 @@ import {
   User as UserIcon,
   LayoutDashboard,
   Users,
-  Database,
   FolderKanban,
   Brain,
   Shield,
@@ -28,7 +27,6 @@ import {
   Key,
   Settings,
   Bell,
-  Star,
   CheckSquare,
   Globe,
   Building,
@@ -37,7 +35,8 @@ import {
   Clock,
   Webcam,
   ArrowLeft,
-  CheckCircle
+  CheckCircle,
+  BriefcaseBusiness
 } from "lucide-react";
 
 interface NavItem {
@@ -104,19 +103,10 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
 
   const userItems: NavItem[] = [
     { title: "首页", icon: LayoutDashboard, href: "/user" },
-    { title: "最佳实践", icon: Star, href: "/user/practices" },
     { title: "课程", icon: Book, href: "/user/courses" },
     { title: "项目", icon: FolderKanban, href: "/user/projects" },
     { title: "考试", icon: FileText, href: "/user/exams" },
-    { title: "数据集", icon: Database, href: "/user/datasets" },
-    { 
-      title: "AI能力中心", 
-      icon: Brain, 
-      children: [
-        { title: "AI助手", href: "/user/ai/assistant" },
-        { title: "数字员工", href: "/user/ai/agents" },
-      ]
-    },
+    { title: "需求大厅", icon: BriefcaseBusiness, href: "/user/demand-hall" },
   ];
 
   const adminItems: NavItem[] = [
@@ -374,7 +364,7 @@ export default function DashboardLayout({ type }: DashboardLayoutProps) {
             ? "flex-1 bg-[#f5f6f8] overflow-hidden p-0" 
             : cn(
                 (location.pathname === "/user/ai/assistant/studio" || location.pathname === "/user/ai/agents/studio" || location.pathname === "/user/ai/agents") ? "flex-1 p-0 bg-[#f5f6f8] overflow-hidden" : "flex-1 bg-[#f5f6f8] overflow-auto",
-                (location.pathname === "/user" || location.pathname.startsWith("/user/center") || location.pathname === "/user/mylearning" || location.pathname === "/user/ai/assistant/studio" || location.pathname === "/user/ai/agents/studio" || location.pathname.startsWith("/admin/ai") || location.pathname.startsWith("/admin/audit") || location.pathname.startsWith("/admin/ai-center") || location.pathname.startsWith("/admin/competitions") || location.pathname.startsWith("/admin/system") || location.pathname === "/user/ai/agents") ? "p-0" : "p-6"
+                (location.pathname === "/user" || location.pathname.startsWith("/user/center") || location.pathname === "/user/mylearning" || location.pathname === "/user/demand-hall" || location.pathname === "/user/ai/assistant/studio" || location.pathname === "/user/ai/agents/studio" || location.pathname.startsWith("/admin/ai") || location.pathname.startsWith("/admin/audit") || location.pathname.startsWith("/admin/ai-center") || location.pathname.startsWith("/admin/competitions") || location.pathname.startsWith("/admin/system") || location.pathname === "/user/ai/agents") ? "p-0" : "p-6"
               )
         )}>
           <Outlet />

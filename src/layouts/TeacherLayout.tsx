@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { GraduationCap, User, LayoutDashboard, ChevronDown, HelpCircle, FileText, LogOut, Settings, Users, Sparkles } from "lucide-react";
+import { GraduationCap, User, LayoutDashboard, ChevronDown, HelpCircle, FileText, LogOut, Settings, Users, Sparkles, FileBadge2, BriefcaseBusiness } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function TeacherLayout() {
@@ -29,6 +29,8 @@ export default function TeacherLayout() {
     { name: "首页", path: "/teacher", icon: LayoutDashboard },
     { name: "学员全生命周期管理", path: "/teacher/student-lifecycle", icon: Users },
     { name: "成长激励", path: "/teacher/growth-incentives", icon: Sparkles },
+    { name: "证书管理", path: "/teacher/certificates", icon: FileBadge2 },
+    { name: "就业服务", path: "/teacher/employment", icon: BriefcaseBusiness },
   ];
 
   return (

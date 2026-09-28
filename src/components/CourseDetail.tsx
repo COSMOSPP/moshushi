@@ -5,12 +5,15 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import TeacherPPTEditor from './TeacherPPTEditor';
 import TeacherExperimentIDE from '@/pages/teacher/TeacherExperimentIDE';
+import StudentCourseReviews from '@/components/course-reviews/StudentCourseReviews';
 
 interface CourseDetailProps {
   onBack: () => void;
   onShowLearningPath?: () => void;
   initialLesson?: { title: string, type: string } | null;
   isTeacher?: boolean;
+  initialTab?: string;
+  initialReviewOpen?: boolean;
 }
 
 interface Lesson {
@@ -224,8 +227,8 @@ const NEW_QUESTIONS = [
   }
 ];
 
-export default function CourseDetail({ onBack, onShowLearningPath, initialLesson, isTeacher }: CourseDetailProps) {
-  const [activeTab, setActiveTab] = useState('intro');
+export default function CourseDetail({ onBack, onShowLearningPath, initialLesson, isTeacher, initialTab = 'intro', initialReviewOpen = false }: CourseDetailProps) {
+  const [activeTab, setActiveTab] = useState(initialTab);
   const [isFavorited, setIsFavorited] = useState(false);
   const [isDatasetFavorited, setIsDatasetFavorited] = useState(false);
   const [showStudentAnswering, setShowStudentAnswering] = useState(false);
@@ -1102,7 +1105,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
   return (
     <div className="min-h-[calc(100vh-3.5rem)] bg-[#f5f5f5] flex flex-col font-sans -mx-6 -mt-6 -mb-6">
       {/* Header Section */}
-      <div className="relative pt-8 pb-12 px-14">
+      <div className="relative px-4 pb-12 pt-8 sm:px-8 lg:px-14">
         {/* Background Image & Gradient */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
@@ -1153,7 +1156,7 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
           <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
             {/* Left: Course Image */}
             <div className="z-10 shrink-0">
-              <div className="w-[320px] h-[180px] rounded-xl overflow-hidden border-[6px] border-white shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
+              <div className="h-[180px] w-full max-w-[320px] overflow-hidden rounded-xl border-[6px] border-white shadow-2xl transition-transform duration-300 hover:scale-[1.02] sm:w-[320px]">
                 <img 
                   src="https://picsum.photos/seed/python/640/360" 
                   alt="Python Course Cover" 
@@ -1208,21 +1211,22 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 max-w-7xl mx-auto w-full px-8 py-8 flex gap-6 items-start">
+      <div className="mx-auto flex w-full max-w-7xl flex-1 items-start gap-6 px-4 py-8 sm:px-8">
         {/* Left Column */}
         <div className="flex-1 space-y-6">
           {/* Tabs */}
-          <div className="bg-white rounded-[12px] shadow-sm p-1 flex items-center gap-2 mb-6">
+          <div className="mb-6 flex items-center gap-2 overflow-x-auto rounded-[8px] bg-white p-1 shadow-sm">
             {[
               { id: 'intro', label: '课程介绍' },
               { id: 'syllabus', label: '课程目录' },
               { id: 'assignments', label: '课程作业' },
+              ...(!isTeacher ? [{ id: 'reviews', label: '课程评价' }] : []),
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "px-6 py-3 rounded-[8px] text-[15px] font-medium transition-all relative flex items-center gap-2",
+                  "relative flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[8px] px-4 py-3 text-[15px] font-medium transition-all sm:px-6",
                   activeTab === tab.id ? "text-[#3b82f6] bg-[#eff6ff]" : "text-neutral-body hover:text-neutral-title hover:bg-neutral-bg"
                 )}
               >
@@ -1452,6 +1456,14 @@ export default function CourseDetail({ onBack, onShowLearningPath, initialLesson
                 </div>
               ))}
             </div>
+          )}
+          {activeTab === 'reviews' && !isTeacher && (
+            <StudentCourseReviews
+              courseId="python-basic"
+              courseName="Python 基础"
+              canReview
+              initialOpen={initialReviewOpen}
+            />
           )}
         </div>
       </div>

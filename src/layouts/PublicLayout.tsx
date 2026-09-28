@@ -10,6 +10,7 @@ const HOME_NAV_ITEMS = [
   { label: "精选课程", target: "featured-courses" },
   { label: "专业师资", target: "faculty" },
   { label: "企业定向培养", target: "business-scenarios" },
+  { label: "就业成果", target: "employment-outcomes" },
   { label: "就业保障", target: "employment-service" },
 ] as const;
 
@@ -70,6 +71,7 @@ export default function PublicLayout() {
                 <div className="w-32 rounded-[6px] border border-neutral-border bg-neutral-surface p-2 shadow-sm">
                   <Link to="/login/user" className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors text-center">用户版</Link>
                   <Link to="/login/teacher" className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors text-center">教师版</Link>
+                  <Link to="/login/enterprise" className="block px-3 py-2 hover:bg-neutral-bg rounded-[4px] text-neutral-title transition-colors text-center">企业版</Link>
                 </div>
               </div>
             </div>

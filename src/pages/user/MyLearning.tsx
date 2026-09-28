@@ -5,12 +5,13 @@ import {
   ChevronRight, MonitorPlay, Play, Download, Search,
   BookOpen, Clock, Bot, TrendingUp, Calendar as CalendarIcon, Target, Flame, Trash2, ArrowRight, ChevronLeft, Sparkles,
   Award, Trophy, Medal, Share2, ShieldCheck, Eye, Printer, X, CheckCircle2, Zap,
-  Gift, LockKeyhole
+  Gift, LockKeyhole, MessageSquareText, Star
 } from "lucide-react";
 import { ResponsiveContainer, BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Cell } from "recharts";
 import { Input } from "@/components/ui/input";
 import LevelMedalIcon from "@/components/LevelMedalIcon";
 import { GROWTH_LEVELS, type GrowthStage } from "@/data/growthLevels";
+import { COURSE_REVIEW_EVENT, CURRENT_STUDENT_ID, getCourseReviews } from "@/data/courseReviews";
 import { cn } from "@/lib/utils";
 
 const CURRENT_GROWTH = 3850;
@@ -33,6 +34,7 @@ export default function MyLearning() {
   const [certFilter, setCertFilter] = useState('all');
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [isMedalGalleryOpen, setIsMedalGalleryOpen] = useState(false);
+  const [hasCourseReview, setHasCourseReview] = useState(() => getCourseReviews("python-basic").some((item) => item.studentId === CURRENT_STUDENT_ID));
   const showToast = (msg: string) => {
     setToastMsg(msg);
     setTimeout(() => setToastMsg(null), 2000);
@@ -61,11 +63,18 @@ export default function MyLearning() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isMedalGalleryOpen]);
 
+  React.useEffect(() => {
+    const syncReviewState = () => setHasCourseReview(getCourseReviews("python-basic").some((item) => item.studentId === CURRENT_STUDENT_ID));
+    window.addEventListener(COURSE_REVIEW_EVENT, syncReviewState);
+    return () => window.removeEventListener(COURSE_REVIEW_EVENT, syncReviewState);
+  }, []);
+
   const certificatesList = [
     {
       id: 'CERT-001',
       name: '大模型微调与工程化开发结业证书',
       category: '大模型AI',
+      type: '课程结业',
       issueDate: '2026-05-20',
       certNo: 'XW-2026-LLM-08912',
       score: 98,
@@ -79,6 +88,7 @@ export default function MyLearning() {
       id: 'CERT-002',
       name: 'AI全栈智能体开发工程师能力证书',
       category: '大模型AI',
+      type: '技能认证',
       issueDate: '2026-04-15',
       certNo: 'XW-2026-AGT-04226',
       score: 95,
@@ -92,6 +102,7 @@ export default function MyLearning() {
       id: 'CERT-003',
       name: '云计算架构与微服务实训认证证书',
       category: '云计算',
+      type: '企业联合认证',
       issueDate: '2026-03-10',
       certNo: 'XW-2026-CLD-11083',
       score: 92,
@@ -105,6 +116,7 @@ export default function MyLearning() {
       id: 'CERT-004',
       name: 'Python高级数据分析与AI实战结业证书',
       category: '数据智能',
+      type: '课程结业',
       issueDate: '2025-12-28',
       certNo: 'XW-2025-PY-07319',
       score: 96,
@@ -181,6 +193,35 @@ export default function MyLearning() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-neutral-900">
+            <MessageSquareText className="h-5 w-5 text-blue-600" />
+            课程评价
+          </h2>
+          <span className="text-xs text-neutral-400">仅已完成课程可评价</span>
+        </div>
+        <div className="flex flex-col gap-4 rounded-[8px] border border-neutral-200 bg-white p-5 shadow-sm md:flex-row md:items-center">
+          <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-[6px] bg-gradient-to-br from-blue-600 to-cyan-500 text-lg font-bold text-white">Python</div>
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="font-semibold text-neutral-900">Python 基础</h3>
+              <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium", hasCourseReview ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700")}>{hasCourseReview ? "已评价" : "待评价"}</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] text-blue-700"><CheckCircle2 className="h-3 w-3" />课程已完成</span>
+            </div>
+            <div className="mt-2 flex items-center gap-2 text-xs text-neutral-500"><div className="flex">{[1, 2, 3, 4, 5].map((item) => <Star key={item} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />)}</div><span>4.8 · 326 条评价</span></div>
+            <p className="mt-2 text-xs text-neutral-400">{hasCourseReview ? "你可以查看教师回复或修改已提交的评价。" : "分享学习收获，帮助其他学员选课并推动课程改进。"}</p>
+          </div>
+          <Link
+            to="/user/courses"
+            state={{ showDetail: true, courseTab: "reviews", openReview: !hasCourseReview }}
+            className="inline-flex h-9 shrink-0 items-center justify-center rounded-[4px] bg-blue-600 px-5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            {hasCourseReview ? "查看评价" : "立即评价"}
+          </Link>
         </div>
       </section>
 
@@ -1012,66 +1053,75 @@ export default function MyLearning() {
 
   const renderCertificatesTab = () => {
     const filteredCertificates = certificatesList.filter(cert => {
-      if (certFilter !== 'all' && cert.category !== certFilter) return false;
+      if (certFilter !== 'all' && cert.type !== certFilter) return false;
       if (certSearch.trim()) {
         const kw = certSearch.toLowerCase();
-        return cert.name.toLowerCase().includes(kw) || cert.certNo.toLowerCase().includes(kw);
+        return cert.name.toLowerCase().includes(kw)
+          || cert.certNo.toLowerCase().includes(kw)
+          || cert.issuer.toLowerCase().includes(kw);
       }
       return true;
     });
 
     return (
-      <div className="space-y-6 animation-fade-in">
-        {/* Top Summary Banner */}
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
-          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="space-y-1.5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-semibold backdrop-blur-sm">
-                <Trophy className="w-3.5 h-3.5 text-yellow-300 fill-yellow-300" />
-                个人数字化专业技能荣誉档案
-              </div>
-              <h2 className="text-2xl font-black tracking-tight">我的结业与技能认证证书</h2>
-              <p className="text-white/80 text-xs max-w-xl">
-                已通过理论考评、沙箱工程实操与阶段综合考核，所有证书具备全网唯一防伪认证编号，支持在线查验与高清 PDF 下载。
-              </p>
+      <div className="space-y-5 animation-fade-in">
+        <header className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#3b82f6]">
+              <ShieldCheck className="h-4 w-4" />
+              个人可信能力档案
             </div>
-
-            <div className="flex items-center gap-3">
-              <div className="bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/15 text-center">
-                <div className="text-[11px] text-white/70">已获得证书</div>
-                <div className="text-2xl font-black text-yellow-200 mt-0.5">{certificatesList.length} <span className="text-xs font-normal text-white/70">本</span></div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/15 text-center">
-                <div className="text-[11px] text-white/70">优秀结业评级</div>
-                <div className="text-2xl font-black text-emerald-200 mt-0.5">3 <span className="text-xs font-normal text-white/70">本</span></div>
-              </div>
-            </div>
+            <h2 className="mt-2 text-xl font-bold text-neutral-900">我的证书</h2>
+            <p className="mt-1 max-w-2xl text-xs leading-5 text-neutral-500">
+              汇总课程结业、专业技能与企业联合认证成果，支持在线核验、分享与高清 PDF 下载。
+            </p>
           </div>
-        </div>
+          <div className="flex items-center gap-2 text-[11px] text-neutral-500">
+            <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+            全部证书均已完成平台防伪核验
+          </div>
+        </header>
 
-        {/* Filter & Search Bar */}
-        <div className="bg-white rounded-2xl border border-neutral-200/80 p-4 flex flex-wrap items-center justify-between gap-3 shadow-sm text-xs">
-          <div className="relative min-w-[260px] flex-1">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+        <section className="grid grid-cols-2 gap-3 xl:grid-cols-4">
+          {[
+            { label: '已获得证书', value: certificatesList.length, unit: '本', tone: 'bg-blue-50 text-blue-600', icon: Trophy },
+            { label: '课程结业', value: certificatesList.filter(cert => cert.type === '课程结业').length, unit: '本', tone: 'bg-emerald-50 text-emerald-600', icon: BookOpen },
+            { label: '专业认证', value: certificatesList.filter(cert => cert.type !== '课程结业').length, unit: '本', tone: 'bg-violet-50 text-violet-600', icon: Award },
+            { label: '最新获得', value: '05-20', unit: '2026', tone: 'bg-amber-50 text-amber-600', icon: CalendarIcon },
+          ].map(item => (
+            <div key={item.label} className="flex items-center justify-between rounded-[4px] border border-neutral-200 bg-white p-4 shadow-sm">
+              <div>
+                <div className="text-[11px] text-neutral-500">{item.label}</div>
+                <div className="mt-1 text-xl font-bold text-neutral-900">{item.value}<span className="ml-1 text-[10px] font-normal text-neutral-400">{item.unit}</span></div>
+              </div>
+              <div className={cn('flex h-9 w-9 items-center justify-center rounded-[4px]', item.tone)}>
+                <item.icon className="h-4.5 w-4.5" />
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <div className="flex flex-col gap-3 rounded-[4px] border border-neutral-200 bg-white p-4 shadow-sm lg:flex-row lg:items-center lg:justify-between">
+          <div className="relative min-w-[260px] max-w-[420px] flex-1">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400" />
             <Input
               value={certSearch}
               onChange={e => setCertSearch(e.target.value)}
-              placeholder="搜索获得的证书名称、认证编号..."
-              className="pl-9 h-9 text-xs rounded-xl bg-neutral-50 border-neutral-200"
+              placeholder="搜索证书名称、认证编号或颁发机构"
+              className="h-9 rounded-[4px] border-neutral-200 bg-neutral-50 pl-9 text-xs"
             />
           </div>
 
-          <div className="flex items-center gap-1.5">
-            {['all', '大模型AI', '云计算', '数据智能'].map(cat => (
+          <div className="flex items-center gap-1 overflow-x-auto">
+            {['all', '课程结业', '技能认证', '企业联合认证'].map(cat => (
               <button
                 key={cat}
                 onClick={() => setCertFilter(cat)}
                 className={cn(
-                  "px-3 py-1.5 rounded-lg font-bold transition-colors",
+                  "shrink-0 rounded-[4px] border px-3 py-2 text-xs font-medium transition-colors",
                   certFilter === cat
-                    ? "bg-blue-50 text-[#2563eb] border border-blue-200"
-                    : "text-neutral-600 hover:bg-neutral-100 border border-transparent"
+                    ? "border-blue-200 bg-blue-50 text-[#2563eb]"
+                    : "border-transparent text-neutral-600 hover:bg-neutral-100"
                 )}
               >
                 {cat === 'all' ? '全部证书' : cat}
@@ -1080,94 +1130,100 @@ export default function MyLearning() {
           </div>
         </div>
 
-        {/* Certificates Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredCertificates.map(cert => (
-            <div
-              key={cert.id}
-              className="bg-white rounded-2xl border border-neutral-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between overflow-hidden group"
-            >
-              {/* Header Decorative Banner */}
-              <div className={cn("p-5 text-white bg-gradient-to-r relative overflow-hidden", cert.bgGradient)}>
-                <div className="absolute -right-4 -bottom-6 opacity-15 pointer-events-none">
-                  <Trophy className="w-28 h-28 text-white" />
-                </div>
-                
-                <div className="flex items-center justify-between gap-2 relative z-10">
-                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/20 border border-white/25 backdrop-blur-sm">
-                    {cert.category}
-                  </span>
-                  <span className="text-xs font-bold text-yellow-300 flex items-center gap-1">
-                    <ShieldCheck className="w-4 h-4" /> 官方防伪认证
-                  </span>
-                </div>
+        {filteredCertificates.length > 0 ? (
+          <div className="grid grid-cols-1 gap-4 2xl:grid-cols-2">
+            {filteredCertificates.map(cert => {
+              const previewTone = cert.type === '企业联合认证'
+                ? 'bg-[#4b326d]'
+                : cert.type === '技能认证'
+                  ? 'bg-[#176b78]'
+                  : 'bg-[#173b70]';
 
-                <div className="mt-3 relative z-10">
-                  <div className="text-[11px] text-white/70 uppercase tracking-widest font-mono">CERTIFICATE OF COMPLETION</div>
-                  {/* Prominent Certificate Name */}
-                  <h3 className="text-lg font-extrabold text-white mt-1 group-hover:text-yellow-100 transition-colors drop-shadow-sm">
-                    {cert.name}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Body Info */}
-              <div className="p-5 space-y-4 flex-1 flex flex-col justify-between text-xs">
-                <div className="space-y-3">
-                  <div className="grid grid-cols-2 gap-2 p-3 bg-neutral-50 rounded-xl border border-neutral-100">
-                    <div>
-                      <span className="text-[11px] text-neutral-400 block">综合考评成绩</span>
-                      <strong className="text-sm font-black text-blue-600 font-mono">{cert.score} 分</strong>
-                      <span className="text-[10px] text-neutral-500 ml-1">({cert.level.split(' ')[0]})</span>
+              return (
+                <article
+                  key={cert.id}
+                  className="group overflow-hidden rounded-[4px] border border-neutral-200 bg-white shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
+                >
+                  <div className="flex flex-col sm:flex-row">
+                    <div className={cn('relative flex min-h-[190px] items-center justify-center overflow-hidden p-5 text-white sm:w-[164px] sm:shrink-0', previewTone)}>
+                      <div className="absolute inset-3 border border-white/20" />
+                      <div className="relative text-center">
+                        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/10">
+                          <Award className="h-6 w-6 text-amber-300" />
+                        </div>
+                        <div className="mt-3 text-[9px] tracking-[0.18em] text-white/60">CERTIFICATE</div>
+                        <div className="mt-1 text-sm font-bold">数字人才认证</div>
+                        <div className="mx-auto mt-3 h-px w-10 bg-amber-300/60" />
+                        <div className="mt-2 text-[10px] text-white/70">{cert.type}</div>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-[11px] text-neutral-400 block">获得时间</span>
-                      <strong className="text-xs font-bold text-neutral-700 font-mono">{cert.issueDate}</strong>
-                    </div>
-                  </div>
 
-                  <div className="space-y-1">
-                    <div className="text-[11px] text-neutral-400">认证与颁发机构:</div>
-                    <div className="text-neutral-800 font-medium text-xs">{cert.issuer}</div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <div className="text-[11px] text-neutral-400">掌握核心技术栈:</div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {cert.skills.map((skill, sIdx) => (
-                        <span key={sIdx} className="px-2 py-0.5 bg-blue-50/80 text-blue-700 border border-blue-100 rounded text-[11px] font-medium">
-                          {skill}
+                    <div className="min-w-0 flex-1 p-5">
+                      <div className="flex flex-wrap items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="rounded-[3px] bg-blue-50 px-2 py-1 text-[10px] font-semibold text-blue-700">{cert.type}</span>
+                            <span className="rounded-[3px] bg-neutral-100 px-2 py-1 text-[10px] text-neutral-600">{cert.category}</span>
+                          </div>
+                          <h3 className="mt-2 text-base font-bold leading-6 text-neutral-900">{cert.name}</h3>
+                        </div>
+                        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600">
+                          <ShieldCheck className="h-3.5 w-3.5" /> 已核验
                         </span>
-                      ))}
+                      </div>
+
+                      <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-xs">
+                        <div>
+                          <span className="block text-[10px] text-neutral-400">综合考评</span>
+                          <strong className="mt-0.5 block text-sm text-neutral-900">{cert.score} 分 · {cert.level.split(' ')[0]}</strong>
+                        </div>
+                        <div>
+                          <span className="block text-[10px] text-neutral-400">获得日期</span>
+                          <strong className="mt-0.5 block font-mono text-xs text-neutral-700">{cert.issueDate}</strong>
+                        </div>
+                        <div className="col-span-2">
+                          <span className="block text-[10px] text-neutral-400">颁发机构</span>
+                          <span className="mt-0.5 block truncate font-medium text-neutral-700" title={cert.issuer}>{cert.issuer}</span>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap gap-1.5">
+                        {cert.skills.slice(0, 3).map(skill => (
+                          <span key={skill} className="rounded-[3px] border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] text-neutral-600">{skill}</span>
+                        ))}
+                        {cert.skills.length > 3 && <span className="px-1 py-1 text-[10px] text-neutral-400">+{cert.skills.length - 3}</span>}
+                      </div>
+
+                      <div className="mt-4 flex flex-col gap-3 border-t border-neutral-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="truncate font-mono text-[10px] text-neutral-400" title={cert.certNo}>NO. {cert.certNo}</div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <button onClick={() => showToast(`证书 ${cert.certNo} 核验有效`)} className="rounded-[4px] px-2.5 py-1.5 text-xs font-medium text-neutral-600 hover:bg-neutral-100">
+                            在线核验
+                          </button>
+                          <button onClick={() => showToast(`已生成【${cert.name}】分享链接`)} className="flex items-center gap-1 rounded-[4px] px-2.5 py-1.5 text-xs font-medium text-neutral-600 hover:bg-neutral-100">
+                            <Share2 className="h-3.5 w-3.5" /> 分享
+                          </button>
+                          <button onClick={() => setPreviewCert(cert)} className="flex items-center gap-1 rounded-[4px] border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-50">
+                            <Eye className="h-3.5 w-3.5" /> 查看
+                          </button>
+                          <button onClick={() => showToast(`已启动【${cert.name}】高清防伪 PDF 下载`)} className="flex items-center gap-1 rounded-[4px] bg-[#3b82f6] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#2563eb]">
+                            <Download className="h-3.5 w-3.5" /> 下载
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Footer Actions */}
-                <div className="pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
-                  <div className="text-[10px] text-neutral-400 font-mono truncate max-w-[140px]" title={cert.certNo}>
-                    NO: {cert.certNo}
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setPreviewCert(cert)}
-                      className="px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold rounded-lg text-xs transition-colors flex items-center gap-1 cursor-pointer"
-                    >
-                      <Eye className="w-3.5 h-3.5" /> 预览证书
-                    </button>
-                    <button
-                      onClick={() => showToast(`已启动【${cert.name}】高清防伪 PDF 下载`)}
-                      className="px-3.5 py-1.5 bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold rounded-lg text-xs transition-colors flex items-center gap-1 shadow-sm shadow-blue-500/20 cursor-pointer"
-                    >
-                      <Download className="w-3.5 h-3.5" /> 下载证书
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="flex min-h-[260px] flex-col items-center justify-center rounded-[4px] border border-dashed border-neutral-300 bg-white text-center">
+            <Award className="h-9 w-9 text-neutral-300" />
+            <div className="mt-3 text-sm font-semibold text-neutral-700">未找到相关证书</div>
+            <p className="mt-1 text-xs text-neutral-400">请更换分类或搜索关键词</p>
+          </div>
+        )}
       </div>
     );
   };

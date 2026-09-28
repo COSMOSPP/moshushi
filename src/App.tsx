@@ -29,6 +29,7 @@ import UserCenterSecurity from "./pages/user/UserCenterSecurity";
 import UserCenterMessages from "./pages/user/UserCenterMessages";
 import UserPersona from "./pages/user/UserPersona";
 import MyLearning from "./pages/user/MyLearning";
+import StudentDemandHall from "./pages/user/StudentDemandHall";
 import AdminAILayout from "./layouts/AdminAILayout";
 import AdminAICourses from "./pages/admin/AdminAICourses";
 import AdminAIExperiments from "./pages/admin/AdminAIExperiments";
@@ -76,6 +77,17 @@ import ModushuCockpitPage from "./pages/ModushuCockpitPage";
 import LoginUser from "./pages/LoginUser";
 import LoginTeacher from "./pages/LoginTeacher";
 import LoginAdmin from "./pages/LoginAdmin";
+import LoginEnterprise from "./pages/LoginEnterprise";
+
+import EnterpriseLayout from "./layouts/EnterpriseLayout";
+import {
+  EnterpriseDashboard,
+  EnterpriseDemands,
+  EnterpriseRecruitment,
+  EnterpriseTalents,
+  EnterpriseTraining,
+} from "./pages/enterprise/EnterprisePages";
+import EnterpriseEmploymentFeedback from "./pages/enterprise/EnterpriseEmploymentFeedback";
 
 import TeacherLayout from "./layouts/TeacherLayout";
 import TeacherHome from "./pages/teacher/TeacherHome";
@@ -98,6 +110,8 @@ import TeacherExamRules from "./pages/teacher/TeacherExamRules";
 import TeacherGrading from "./pages/teacher/TeacherGrading";
 import TeacherStudentLifecycle from "./pages/teacher/TeacherStudentLifecycle";
 import TeacherGrowthIncentives from "./pages/teacher/TeacherGrowthIncentives";
+import TeacherCertificates from "./pages/teacher/TeacherCertificates";
+import TeacherEmployment from "./pages/teacher/TeacherEmployment";
 
 export default function App() {
   return (
@@ -116,6 +130,7 @@ export default function App() {
         <Route path="/login/user" element={<LoginUser />} />
         <Route path="/login/teacher" element={<LoginTeacher />} />
         <Route path="/login/admin" element={<LoginAdmin />} />
+        <Route path="/login/enterprise" element={<LoginEnterprise />} />
 
         {/* Skill Builder & Practice Chat (Full Screen) */}
         <Route path="/cockpit" element={<ModushuCockpitPage />} />
@@ -131,6 +146,8 @@ export default function App() {
           <Route index element={<TeacherHome />} />
           <Route path="student-lifecycle" element={<TeacherStudentLifecycle />} />
           <Route path="growth-incentives" element={<TeacherGrowthIncentives />} />
+          <Route path="certificates" element={<TeacherCertificates />} />
+          <Route path="employment" element={<TeacherEmployment />} />
           <Route path="course/:id" element={<TeacherCourseManage />} />
           <Route path="dataset/:id" element={<TeacherDatasetDetail />} />
           <Route path="course/:id/experiment/:experimentId" element={<TeacherExperimentIDE />} />
@@ -147,6 +164,16 @@ export default function App() {
           <Route path="logs" element={<TeacherLogs />} />
           <Route path="examrules" element={<TeacherExamRules />} />
           <Route path="grading" element={<TeacherGrading />} />
+        </Route>
+
+        {/* Enterprise Portal */}
+        <Route path="/enterprise" element={<EnterpriseLayout />}>
+          <Route index element={<EnterpriseDashboard />} />
+          <Route path="demands" element={<EnterpriseDemands />} />
+          <Route path="talents" element={<EnterpriseTalents />} />
+          <Route path="training" element={<EnterpriseTraining />} />
+          <Route path="recruitment" element={<EnterpriseRecruitment />} />
+          <Route path="employment-feedback" element={<EnterpriseEmploymentFeedback />} />
         </Route>
 
         {/* User Dashboard */}
@@ -174,6 +201,7 @@ export default function App() {
           <Route path="exams" element={<UserExams />} />
           <Route path="persona" element={<UserPersona />} />
           <Route path="mylearning" element={<MyLearning />} />
+          <Route path="demand-hall" element={<StudentDemandHall />} />
         </Route>
 
         {/* Admin Dashboard */}

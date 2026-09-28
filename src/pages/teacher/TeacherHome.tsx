@@ -7,31 +7,36 @@ import { cn } from '@/lib/utils';
 import { useNavigate, useLocation } from 'react-router-dom';
 import TeacherProjects from './TeacherProjects';
 import TeacherExams from './TeacherExams';
-import TeacherDatasets from './TeacherDatasets';
-import TeacherPractices from './TeacherPractices';
-import TeacherAICenter from './TeacherAICenter';
 import { Layers, Info, Bold, Italic, Type, List, AlignLeft, AlignCenter, AlignRight, Undo2, Redo2, Maximize2, ChevronDown } from 'lucide-react';
+
+type TeacherSubTab = 'course' | 'project' | 'exam';
 
 export default function TeacherHome() {
   const location = useLocation();
-  const [activeSubTab, setActiveSubTab] = useState<'course' | 'project' | 'dataset' | 'exam' | 'practice' | 'aicenter'>(() => {
+  const [activeSubTab, setActiveSubTab] = useState<TeacherSubTab>(() => {
     const searchStr = location.search || (window.location.hash.includes('?') ? window.location.hash.split('?')[1] : window.location.search);
     const searchParams = new URLSearchParams(searchStr);
     const tabParam = searchParams.get('tab');
-    if (tabParam && ['course', 'project', 'dataset', 'exam', 'practice', 'aicenter'].includes(tabParam)) {
-      return tabParam as any;
+    if (tabParam && ['course', 'project', 'exam'].includes(tabParam)) {
+      return tabParam as TeacherSubTab;
     }
-    return (location.state as any)?.activeSubTab || 'course';
+    const stateTab = (location.state as { activeSubTab?: string } | null)?.activeSubTab;
+    return stateTab && ['course', 'project', 'exam'].includes(stateTab)
+      ? stateTab as TeacherSubTab
+      : 'course';
   });
 
   useEffect(() => {
     const searchStr = location.search || (window.location.hash.includes('?') ? window.location.hash.split('?')[1] : window.location.search);
     const searchParams = new URLSearchParams(searchStr);
     const tabParam = searchParams.get('tab');
-    if (tabParam && ['course', 'project', 'dataset', 'exam', 'practice', 'aicenter'].includes(tabParam)) {
-      setActiveSubTab(tabParam as any);
-    } else if ((location.state as any)?.activeSubTab) {
-      setActiveSubTab((location.state as any).activeSubTab);
+    if (tabParam && ['course', 'project', 'exam'].includes(tabParam)) {
+      setActiveSubTab(tabParam as TeacherSubTab);
+    } else {
+      const stateTab = (location.state as { activeSubTab?: string } | null)?.activeSubTab;
+      setActiveSubTab(stateTab && ['course', 'project', 'exam'].includes(stateTab)
+        ? stateTab as TeacherSubTab
+        : 'course');
     }
   }, [location.search, location.state]);
   const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
@@ -464,19 +469,6 @@ export default function TeacherHome() {
             onClick={() => {
               setSelectedCourseId(null);
               setSelectedCourseName(null);
-              setActiveSubTab('dataset');
-            }}
-            className={cn(
-              "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'dataset' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
-            )}
-          >
-            数据集
-          </button>
-          <button 
-            onClick={() => {
-              setSelectedCourseId(null);
-              setSelectedCourseName(null);
               setActiveSubTab('exam');
             }}
             className={cn(
@@ -485,32 +477,6 @@ export default function TeacherHome() {
             )}
           >
             考试
-          </button>
-          <button 
-            onClick={() => {
-              setSelectedCourseId(null);
-              setSelectedCourseName(null);
-              setActiveSubTab('practice');
-            }}
-            className={cn(
-              "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'practice' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
-            )}
-          >
-            最佳实践
-          </button>
-          <button 
-            onClick={() => {
-              setSelectedCourseId(null);
-              setSelectedCourseName(null);
-              setActiveSubTab('aicenter');
-            }}
-            className={cn(
-              "pb-3 font-bold border-b-2 whitespace-nowrap relative bottom-[-1px] transition-all text-[13px]",
-              activeSubTab === 'aicenter' ? "text-[#3b82f6] border-[#3b82f6]" : "text-neutral-body border-transparent hover:text-[#3b82f6]"
-            )}
-          >
-            ai能力中心
           </button>
         </div>
         {activeSubTab === 'course' ? (
@@ -812,16 +778,6 @@ export default function TeacherHome() {
               setActiveSubTab('course');
             }}
           />
-        ) : activeSubTab === 'dataset' ? (
-          <TeacherDatasets 
-            embedded={true} 
-            defaultCourseId={selectedCourseId}
-            defaultCourseName={selectedCourseName}
-          />
-        ) : activeSubTab === 'practice' ? (
-          <TeacherPractices embedded={true} />
-        ) : activeSubTab === 'aicenter' ? (
-          <TeacherAICenter embedded={true} />
         ) : (
           <TeacherExams embedded={true} />
         )}
