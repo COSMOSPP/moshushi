@@ -1042,10 +1042,10 @@ export default function TeacherPapers() {
                             <span className="px-2 py-0.5 bg-neutral-50 border border-neutral-200 rounded-[4px] text-[12px] text-neutral-600">私有</span>
                           )}
                           {p.scope === '租户' && (
-                            <span className="px-2 py-0.5 bg-blue-50 border border-blue-200 rounded-[4px] text-[12px] text-blue-600">租户</span>
+                            <span className="px-2 py-0.5 bg-emerald-50 border border-emerald-200 rounded-[4px] text-[12px] text-emerald-600">租户</span>
                           )}
                           {p.scope === '平台' && (
-                            <span className="px-2 py-0.5 bg-[#eff6ff] border border-[#bfdbfe] rounded-[4px] text-[12px] text-[#3b82f6]">平台</span>
+                            <span className="px-2 py-0.5 bg-blue-50 border border-blue-200 rounded-[4px] text-[12px] text-blue-600">平台</span>
                           )}
                         </td>
                         <td className="px-3 py-3 font-medium text-left">
@@ -2614,8 +2614,8 @@ export default function TeacherPapers() {
                             <td className="py-2.5 px-4">
                               <span className={cn(
                                 "px-1.5 py-0.5 rounded text-[10px] font-semibold border",
-                                q.scope === '平台' && "bg-blue-50 text-[#3b82f6] border-blue-200",
-                                q.scope === '租户' && "bg-blue-50 text-blue-600 border-blue-200",
+                                q.scope === '平台' && "bg-blue-50 text-blue-600 border-blue-200",
+                                q.scope === '租户' && "bg-emerald-50 text-emerald-600 border-emerald-200",
                                 q.scope === '私有' && "bg-neutral-50 text-neutral-500 border-neutral-200"
                               )}>
                                 {q.scope}

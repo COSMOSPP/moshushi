@@ -1553,10 +1553,10 @@ export default function TeacherQuestions() {
                           <span className="px-2 py-0.5 bg-neutral-50 border border-neutral-200 rounded text-[12px] text-neutral-600">私有</span>
                         )}
                         {q.scope === '租户' && (
-                          <span className="px-2 py-0.5 bg-blue-50 border border-blue-200 rounded text-[12px] text-blue-600">租户</span>
+                          <span className="px-2 py-0.5 bg-emerald-50 border border-emerald-200 rounded text-[12px] text-emerald-600">租户</span>
                         )}
                         {q.scope === '平台' && (
-                          <span className="px-2 py-0.5 bg-[#eff6ff] border border-[#bfdbfe] rounded text-[12px] text-[#3b82f6]">平台</span>
+                          <span className="px-2 py-0.5 bg-blue-50 border border-blue-200 rounded text-[12px] text-blue-600">平台</span>
                         )}
                         {!['私有', '租户', '平台'].includes(q.scope) && (
                           <span className="px-2 py-0.5 bg-[#eff6ff] border border-[#bfdbfe] rounded text-[12px] text-[#3b82f6]">{q.scope}</span>

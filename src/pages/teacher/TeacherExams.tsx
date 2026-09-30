@@ -1061,7 +1061,7 @@ export default function TeacherExams({ embedded = false }) {
                     <td className="p-4 text-left">
                       <span className={cn(
                         "px-2 py-0.5 text-[12px] rounded border font-medium",
-                        exam.status === '启用' ? "bg-blue-50 text-orange-600 border-blue-200" : "bg-rose-50 text-rose-600 border-rose-200"
+                        exam.status === '启用' ? "bg-blue-50 text-blue-600 border-blue-200" : "bg-rose-50 text-rose-600 border-rose-200"
                       )}>
                         {exam.status}
                       </span>
@@ -1151,7 +1151,7 @@ export default function TeacherExams({ embedded = false }) {
                                     <span className={cn(
                                       "px-2 py-0.5 rounded text-[11px] border font-medium",
                                       session.type === '正式场次'
-                                        ? "bg-blue-50 text-orange-600 border-blue-200"
+                                        ? "bg-blue-50 text-blue-600 border-blue-200"
                                         : "bg-emerald-50 text-emerald-600 border-emerald-200"
                                     )}>
                                       {session.type}

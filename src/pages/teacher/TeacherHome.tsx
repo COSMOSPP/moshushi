@@ -556,9 +556,9 @@ export default function TeacherHome() {
                           </td>
                           <td className="p-4">
                             {course.scope === '平台' ? (
-                              <span className="px-2 py-0.5 bg-blue-50 text-orange-600 rounded text-[12px] border border-blue-200 font-medium">{course.scope}</span>
-                            ) : course.scope === '租户' ? (
                               <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-[12px] border border-blue-200 font-medium">{course.scope}</span>
+                            ) : course.scope === '租户' ? (
+                              <span className="px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded text-[12px] border border-emerald-200 font-medium">{course.scope}</span>
                             ) : (
                               <span className="px-2 py-0.5 bg-neutral-50 text-neutral-500 rounded text-[12px] border border-neutral-200 font-medium">{course.scope}</span>
                             )}
@@ -566,7 +566,7 @@ export default function TeacherHome() {
                           <td className="p-4">
                             <span className={cn(
                               "px-2 py-0.5 text-[12px] rounded border font-medium", 
-                              course.status === '已发布' ? "bg-blue-50 text-orange-600 border-blue-200" : 
+                              course.status === '已发布' ? "bg-blue-50 text-blue-600 border-blue-200" : 
                               course.status === '已下架' ? "bg-neutral-100 text-neutral-600 border-neutral-200" : 
                               "bg-rose-50 text-rose-600 border-rose-200"
                             )}>

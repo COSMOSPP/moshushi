@@ -1004,8 +1004,8 @@ export default function TeacherProjects({
                     <td className="p-4">
                       <span className={cn(
                         "px-2 py-0.5 text-[12px] rounded border font-medium",
-                        proj.range === '平台' ? "bg-blue-50 text-orange-600 border-blue-200" :
-                        proj.range === '租户' ? "bg-indigo-50 text-indigo-600 border-indigo-200" :
+                        proj.range === '平台' ? "bg-blue-50 text-blue-600 border-blue-200" :
+                        proj.range === '租户' ? "bg-emerald-50 text-emerald-600 border-emerald-200" :
                         "bg-neutral-50 text-neutral-500 border-neutral-200"
                       )}>
                         {proj.range || '私有'}
